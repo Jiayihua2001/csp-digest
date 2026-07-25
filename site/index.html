@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CSP Reading Room</title>
+<style>
+  :root{
+    --bg:#faf9f6; --card:#fff; --ink:#23211c; --mut:#6b6a63; --line:#e6e4dc;
+    --accent:#c6613f; --accent2:#2f5d52; --star:#e0a53f; --chip:#eef1f3; --chipink:#5b6b78;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  header{position:sticky;top:0;z-index:10;background:rgba(250,249,246,.94);
+         backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .bar{max-width:860px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .brand{font-weight:700;font-size:17px;letter-spacing:.2px}
+  .brand small{color:var(--mut);font-weight:400;font-size:12.5px}
+  nav{display:flex;gap:4px;margin-left:auto}
+  nav button{border:0;background:transparent;color:var(--mut);font:inherit;font-size:14px;
+             padding:6px 12px;border-radius:7px;cursor:pointer}
+  nav button.active{background:var(--accent);color:#fff}
+  nav button .badge{display:inline-block;min-width:17px;padding:0 5px;margin-left:5px;border-radius:9px;
+             background:var(--accent);color:#fff;font-size:11px;line-height:17px;text-align:center;vertical-align:middle}
+  nav button.active .badge{background:#fff;color:var(--accent)}
+  .streak{font-size:12.5px;color:var(--mut);white-space:nowrap}
+  .streak b{color:var(--accent)}
+  main{max-width:860px;margin:0 auto;padding:22px 20px 80px}
+  .synth{background:linear-gradient(180deg,#fdf6f2,#fff);border:1px solid var(--line);
+         border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:13px 16px;margin-bottom:20px}
+  .synth h2{margin:0 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.6px;color:var(--accent)}
+  .synth p{margin:0;font-size:14.5px}
+  .daterow{display:flex;align-items:baseline;gap:10px;margin:8px 0 16px}
+  .daterow h1{font-size:19px;margin:0}
+  .daterow .sub{color:var(--mut);font-size:13px}
+  .controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+  .controls select,.controls input{font:inherit;font-size:13px;padding:5px 9px;border:1px solid var(--line);
+         border-radius:7px;background:#fff;color:var(--ink)}
+  .item{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:12px;
+        transition:box-shadow .15s,transform .05s}
+  .item:hover{box-shadow:0 3px 14px rgba(0,0,0,.06)}
+  .item.unread{border-left:3px solid var(--accent)}
+  .meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;font-size:12px;color:var(--mut)}
+  .badge2{border:1px solid;border-radius:4px;padding:1px 7px;font-weight:600;font-size:11px}
+  .wtag{color:var(--star);font-weight:600}
+  .newdot{color:var(--accent);font-weight:700}
+  .title{font-weight:650;font-size:15.5px;color:var(--ink);text-decoration:none;display:block;margin-bottom:3px}
+  .title:hover{color:var(--accent)}
+  .authors{color:var(--mut);font-size:13px;margin-bottom:7px}
+  .scores{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:7px}
+  .score{font-size:11px;font-weight:600;border-radius:3px;padding:2px 8px}
+  .score.rel{background:#eaf1ef;color:var(--accent2)}
+  .score.sig{background:#f6ece7;color:var(--accent)}
+  .tag{font-size:11px;color:var(--chipink);background:var(--chip);border-radius:10px;padding:2px 9px;cursor:pointer}
+  .summary{color:#2e2c27;font-size:13.5px;background:#f4f3ef;border-left:3px solid var(--accent);
+           padding:7px 11px;border-radius:0 4px 4px 0;margin:7px 0}
+  .abs{font-size:13px;color:#44423c;margin-top:7px;display:none}
+  .abs.open{display:block}
+  .row2{display:flex;gap:14px;align-items:center;margin-top:9px}
+  .star{cursor:pointer;font-size:18px;line-height:1;user-select:none;color:#cfcdc4}
+  .star.on{color:var(--star)}
+  .lnk{font-size:12.5px;color:var(--accent2);background:transparent;border:0;cursor:pointer;padding:0}
+  .empty{color:var(--mut);text-align:center;padding:60px 0}
+  .weekpick{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+  .weekpick button{font:inherit;font-size:13px;padding:5px 10px;border:1px solid var(--line);border-radius:7px;
+           background:#fff;cursor:pointer}
+  .weekpick button.active{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+  .cal{display:flex;flex-direction:column;gap:6px}
+  .calday{display:flex;align-items:center;gap:12px;padding:9px 13px;background:#fff;border:1px solid var(--line);
+          border-radius:8px;cursor:pointer}
+  .calday:hover{border-color:var(--accent)}
+  .calday .d{font-weight:600;min-width:96px}
+  .calday .c{color:var(--mut);font-size:12.5px;min-width:64px}
+  .calday .s{color:#44423c;font-size:12.5px}
+  .exportbar{margin:4px 0 16px}
+  .exportbar button{font:inherit;font-size:13px;padding:6px 12px;border:1px solid var(--accent2);color:var(--accent2);
+           background:#fff;border-radius:7px;cursor:pointer}
+  footer{max-width:860px;margin:0 auto;padding:0 20px 40px;color:#b4b3a8;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <div class="brand">CSP Reading Room <small id="scopeLbl"></small></div>
+    <div class="streak" id="streak"></div>
+    <nav>
+      <button data-view="today" class="active">Today <span class="badge" id="unreadBadge" style="display:none"></span></button>
+      <button data-view="week">This Week</button>
+      <button data-view="history">History</button>
+      <button data-view="starred">★ Starred <span class="badge" id="starBadge" style="display:none"></span></button>
+    </nav>
+  </div>
+</header>
+<main id="app"><div class="empty">Loading…</div></main>
+<footer id="foot"></footer>
+
+<script>
+const DATA = "data/";
+const state = {manifest:[], dayCache:{}, view:"today", filterTag:null, weekOffset:0};
+const LS = {
+  stars: JSON.parse(localStorage.getItem("csp_stars")||"{}"),
+  read:  JSON.parse(localStorage.getItem("csp_read")||"{}"),
+  lastVisit: localStorage.getItem("csp_lastvisit")||null,
+  visits: JSON.parse(localStorage.getItem("csp_visits")||"[]"),
+};
+function save(){ localStorage.setItem("csp_stars",JSON.stringify(LS.stars));
+  localStorage.setItem("csp_read",JSON.stringify(LS.read));
+  localStorage.setItem("csp_visits",JSON.stringify(LS.visits)); }
+function idOf(it){ return it.doi || it.arxiv_id || it.title; }
+
+async function loadManifest(){
+  const r = await fetch(DATA+"index.json?_="+Date.now());
+  state.manifest = r.ok ? await r.json() : [];
+}
+async function loadDay(date){
+  if(state.dayCache[date]) return state.dayCache[date];
+  const r = await fetch(DATA+date+".json?_="+Date.now());
+  const d = r.ok ? await r.json() : {date, items:[], synthesis:""};
+  state.dayCache[date]=d; return d;
+}
+function esc(s){ return (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+function badgeColor(src){ return src==="arXiv"?"#9c4a2c":src==="ChemRxiv"?"#2f5d52":"#4a5b6b"; }
+function link(it){ return it.src==="arXiv"?(it.url||("https://arxiv.org/abs/"+it.arxiv_id)) : ("https://doi.org/"+it.doi); }
+
+function streakInfo(){
+  const today=new Date().toISOString().slice(0,10);
+  if(!LS.visits.includes(today)){ LS.visits.push(today); LS.visits=LS.visits.slice(-120); save(); }
+  const set=new Set(LS.visits); let s=0; let d=new Date();
+  for(;;){ const k=d.toISOString().slice(0,10); if(set.has(k)){s++; d.setDate(d.getDate()-1);} else break; }
+  return s;
+}
+function itemCard(it, dateForRead){
+  const id=idOf(it), starred=!!LS.stars[id], isRead=!!LS.read[id];
+  const bc=badgeColor(it.src);
+  const tags=(it.tags||[]).map(t=>`<span class="tag" data-tag="${esc(t)}">${esc(t)}</span>`).join("");
+  const wl=(it.corresponding||[]).length&&it._wl?`<span class="wtag">★ ${esc((it._wl||[]).join(", "))}</span>`:"";
+  const authors=(it.authors||[]).join(", ")+((it.authors||[]).length>=3?" et al.":"");
+  const summ=it.summary?`<div class="summary"><b>Contribution:</b> ${esc(it.summary)}</div>`:"";
+  const abs=it.abstract?`<div class="abs" id="abs-${esc(id)}">${esc(it.abstract)}</div>`:"";
+  return `<div class="item ${isRead?"":"unread"}" data-id="${esc(id)}">
+    <div class="meta">
+      <span class="badge2" style="color:${bc};border-color:${bc}">${esc(it.src||"journal")}</span>
+      <span>${esc(it.date||dateForRead||"")}</span>
+      <span>${esc(it.venue||"")}</span>${wl}
+      ${isRead?"":'<span class="newdot">• new</span>'}
+    </div>
+    <a class="title" href="${link(it)}" target="_blank" rel="noopener">${esc(it.title||"")}</a>
+    <div class="authors">${esc(authors)}</div>
+    <div class="scores">
+      <span class="score rel">relevance ${it.relevance||0}</span>
+      <span class="score sig">significance ${it.significance||0}</span>${tags}
+    </div>${summ}${abs}
+    <div class="row2">
+      <span class="star ${starred?"on":""}" data-star="${esc(id)}" title="Star this paper">${starred?"★":"☆"}</span>
+      ${it.abstract?`<button class="lnk" data-abs="${esc(id)}">Abstract ▾</button>`:""}
+      <a class="lnk" href="${link(it)}" target="_blank" rel="noopener">Open ↗</a>
+    </div>
+  </div>`;
+}
+function markReadOnRender(items){ items.forEach(it=>{ /* read set on explicit open, not auto */ }); }
+
+function sortByScore(items){ return [...items].sort((a,b)=>((b.relevance||0)+(b.significance||0))-((a.relevance||0)+(a.significance||0))); }
+
+async function viewToday(){
+  const app=document.getElementById("app");
+  if(!state.manifest.length){ app.innerHTML='<div class="empty">No digests yet. The daily job will populate this.</div>'; return; }
+  const latest=state.manifest[0].date;
+  const day=await loadDay(latest);
+  let items=day.items||[];
+  if(state.filterTag) items=items.filter(it=>(it.tags||[]).includes(state.filterTag));
+  items=sortByScore(items);
+  const newCount=items.filter(it=>!LS.read[idOf(it)]).length;
+  const tagOpts=[...new Set((day.items||[]).flatMap(it=>it.tags||[]))].sort();
+  app.innerHTML=`
+    ${day.synthesis?`<div class="synth"><h2>What's new today</h2><p>${esc(day.synthesis)}</p></div>`:""}
+    <div class="daterow"><h1>${latest}</h1><span class="sub">${items.length} papers · ${newCount} unread</span></div>
+    <div class="controls">
+      <select id="tagFilter"><option value="">All tags</option>${tagOpts.map(t=>`<option ${state.filterTag===t?"selected":""}>${esc(t)}</option>`).join("")}</select>
+      <button class="lnk" id="markAll" style="border:1px solid var(--line);border-radius:7px;padding:5px 10px">Mark all read</button>
+    </div>
+    ${items.map(it=>itemCard(it,latest)).join("")||'<div class="empty">Nothing matches this filter.</div>'}`;
+  document.getElementById("tagFilter").onchange=e=>{state.filterTag=e.target.value||null; render();};
+  document.getElementById("markAll").onclick=()=>{items.forEach(it=>LS.read[idOf(it)]=1); save(); render();};
+}
+
+async function viewWeek(){
+  const app=document.getElementById("app");
+  const dates=state.manifest.map(m=>m.date);
+  // group into 7-day windows from most recent
+  const end=new Date(dates[0]||new Date()); end.setDate(end.getDate()-state.weekOffset*7);
+  const start=new Date(end); start.setDate(start.getDate()-6);
+  const inWin=d=>{const x=new Date(d);return x>=start&&x<=end;};
+  const wdates=dates.filter(inWin);
+  let items=[];
+  for(const d of wdates){ const day=await loadDay(d); items=items.concat(day.items||[]); }
+  // dedupe by id, keep best score
+  const seen={}; items.forEach(it=>{const k=idOf(it); if(!seen[k]||((it.relevance||0)+(it.significance||0))>((seen[k].relevance||0)+(seen[k].significance||0))) seen[k]=it;});
+  items=sortByScore(Object.values(seen));
+  const top=items.slice(0,10);
+  const fmt=d=>d.toISOString().slice(0,10);
+  app.innerHTML=`
+    <div class="weekpick">
+      <button ${state.weekOffset===0?'class="active"':""} data-wk="0">This week</button>
+      <button ${state.weekOffset===1?'class="active"':""} data-wk="1">Last week</button>
+      <button ${state.weekOffset===2?'class="active"':""} data-wk="2">2 weeks ago</button>
+      <button ${state.weekOffset===3?'class="active"':""} data-wk="3">3 weeks ago</button>
+    </div>
+    <div class="daterow"><h1>Week of ${fmt(start)} → ${fmt(end)}</h1><span class="sub">${items.length} papers · top ${top.length}</span></div>
+    <div class="synth"><h2>Weekly picks</h2><p>The highest relevance+significance work this week, deduplicated across daily runs. Star what you want to keep.</p></div>
+    ${top.map(it=>itemCard(it)).join("")||'<div class="empty">No papers in this window.</div>'}`;
+  app.querySelectorAll("[data-wk]").forEach(b=>b.onclick=()=>{state.weekOffset=+b.dataset.wk; render();});
+}
+
+async function viewHistory(){
+  const app=document.getElementById("app");
+  if(!state.manifest.length){ app.innerHTML='<div class="empty">No history yet.</div>'; return; }
+  app.innerHTML=`<div class="daterow"><h1>History</h1><span class="sub">${state.manifest.length} days archived</span></div>
+    <div class="cal">${state.manifest.map(m=>`
+      <div class="calday" data-day="${m.date}">
+        <span class="d">${m.date}</span><span class="c">${m.count} papers</span>
+        <span class="s">${esc((m.synthesis||"").slice(0,110))}${(m.synthesis||"").length>110?"…":""}</span>
+      </div>`).join("")}</div>`;
+  app.querySelectorAll("[data-day]").forEach(el=>el.onclick=async()=>{
+    const day=await loadDay(el.dataset.day);
+    const items=sortByScore(day.items||[]);
+    app.innerHTML=`<div class="daterow"><h1>${el.dataset.day}</h1><span class="sub">${items.length} papers · <button class="lnk" id="back">← history</button></span></div>
+      ${day.synthesis?`<div class="synth"><h2>What's new</h2><p>${esc(day.synthesis)}</p></div>`:""}
+      ${items.map(it=>itemCard(it,el.dataset.day)).join("")}`;
+    document.getElementById("back").onclick=()=>viewHistory();
+    bindCards();
+  });
+}
+
+function viewStarred(){
+  const app=document.getElementById("app");
+  const ids=Object.keys(LS.stars).filter(k=>LS.stars[k]);
+  const all=Object.values(state.dayCache).flatMap(d=>d.items||[]);
+  const byId={}; all.forEach(it=>byId[idOf(it)]=it);
+  const items=ids.map(id=>byId[id]).filter(Boolean);
+  app.innerHTML=`<div class="daterow"><h1>★ Starred</h1><span class="sub">${ids.length} saved</span></div>
+    <div class="exportbar"><button id="expRis">⬇ Export to Zotero (RIS)</button></div>
+    ${items.length?sortByScore(items).map(it=>itemCard(it)).join(""):
+      '<div class="empty">No starred papers yet. Click ☆ on any paper to save it here.<br><small>Open History to load older papers so their stars resolve.</small></div>'}`;
+  const btn=document.getElementById("expRis"); if(btn) btn.onclick=()=>exportRIS(items);
+}
+function exportRIS(items){
+  const lines=[];
+  items.forEach(it=>{
+    lines.push("TY  - "+(it.src==="arXiv"?"GEN":"JOUR"));
+    lines.push("TI  - "+(it.title||""));
+    (it.authors||[]).forEach(a=>lines.push("AU  - "+a));
+    if(it.date){lines.push("PY  - "+it.date.slice(0,4)); lines.push("DA  - "+it.date.replace(/-/g,"/"));}
+    if(it.venue) lines.push("JO  - "+it.venue);
+    if(it.doi) lines.push("DO  - "+it.doi);
+    lines.push("UR  - "+link(it));
+    if(it.abstract) lines.push("AB  - "+it.abstract.replace(/\n/g," "));
+    ["CSP",...(it.tags||[])].forEach(t=>lines.push("KW  - "+t));
+    lines.push("ER  - "); lines.push("");
+  });
+  const blob=new Blob([lines.join("\n")],{type:"application/x-research-info-systems"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob);
+  a.download="csp_starred.ris"; a.click();
+}
+
+function bindCards(){
+  document.querySelectorAll("[data-star]").forEach(el=>el.onclick=()=>{
+    const id=el.dataset.star; LS.stars[id]=!LS.stars[id]; if(!LS.stars[id]) delete LS.stars[id];
+    save(); el.classList.toggle("on"); el.textContent=LS.stars[id]?"★":"☆"; updateBadges();
+  });
+  document.querySelectorAll("[data-abs]").forEach(el=>el.onclick=()=>{
+    const id=el.dataset.abs; const box=document.getElementById("abs-"+id);
+    if(box){ box.classList.toggle("open"); LS.read[id]=1; save();
+      const card=el.closest(".item"); if(card) card.classList.remove("unread"); }
+  });
+  document.querySelectorAll(".title,[data-id] a.lnk[href]").forEach(a=>a.addEventListener("click",()=>{
+    const card=a.closest(".item"); if(card){ LS.read[idOf({doi:card.dataset.id,arxiv_id:card.dataset.id,title:card.dataset.id})]=1;
+      LS.read[card.dataset.id]=1; save(); card.classList.remove("unread"); }
+  }));
+  document.querySelectorAll("[data-tag]").forEach(el=>el.onclick=()=>{state.filterTag=el.dataset.tag; state.view="today"; render();});
+}
+function updateBadges(){
+  const sc=Object.keys(LS.stars).filter(k=>LS.stars[k]).length;
+  const sb=document.getElementById("starBadge"); sb.style.display=sc?"inline-block":"none"; sb.textContent=sc;
+  const latest=state.manifest[0]; if(latest&&state.dayCache[latest.date]){
+    const items=state.dayCache[latest.date].items||[];
+    const n=items.filter(it=>!LS.read[idOf(it)]).length;
+    const ub=document.getElementById("unreadBadge"); ub.style.display=n?"inline-block":"none"; ub.textContent=n;
+  }
+}
+async function render(){
+  document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("active",b.dataset.view===state.view));
+  const v=state.view;
+  if(v==="today") await viewToday();
+  else if(v==="week") await viewWeek();
+  else if(v==="history") await viewHistory();
+  else if(v==="starred") viewStarred();
+  bindCards(); updateBadges();
+}
+async function boot(){
+  await loadManifest();
+  document.getElementById("scopeLbl").textContent = state.manifest[0]? "· molecular CSP" : "";
+  const s=streakInfo();
+  document.getElementById("streak").innerHTML = `🔥 <b>${s}</b>-day streak · ${Object.keys(LS.stars).length} starred`;
+  document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{state.view=b.dataset.view; state.filterTag=null; render();});
+  // preload recent days so starred/week resolve without extra clicks
+  for(const m of state.manifest.slice(0,10)) await loadDay(m.date);
+  await render();
+  LS.lastVisit=new Date().toISOString(); localStorage.setItem("csp_lastvisit",LS.lastVisit);
+  document.getElementById("foot").textContent="CSP Reading Room · data refreshed daily by GitHub Actions · stars saved in this browser";
+}
+boot();
+</script>
+</body>
+</html>

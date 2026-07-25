@@ -1,0 +1,76 @@
+name: CSP daily digest
+
+on:
+  schedule:
+    # 07:00 UTC every weekday (Mon-Fri). Adjust to your timezone as needed.
+    - cron: "0 7 * * 1-5"
+  workflow_dispatch:        # lets you trigger a run manually from the Actions tab
+    inputs:
+      days:
+        description: "Look-back window (days)"
+        default: "2"
+      scope:
+        description: "molecular | inorganic | both"
+        default: "molecular"
+
+permissions:
+  contents: write           # commit the digest + site data back to the repo
+  pages: write              # deploy the website to GitHub Pages
+  id-token: write
+
+# allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build digest + append today to the website data
+        env:
+          OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENALEX_MAILTO: ${{ secrets.OPENALEX_MAILTO }}
+          DIGEST_DAYS: ${{ github.event.inputs.days || '2' }}
+          DIGEST_SCOPE: ${{ github.event.inputs.scope || 'molecular' }}
+          BUILD_SITE: "1"
+        run: python digest.py
+
+      - name: Archive dated copy
+        run: |
+          mkdir -p digests
+          D=$(date +%F)
+          cp csp_digest.html "digests/csp_digest_$D.html"
+          cp csp_digest.ris  "digests/csp_digest_$D.ris"  2>/dev/null || true
+          cp csp_digest.json "digests/csp_digest_$D.json" 2>/dev/null || true
+
+      - name: Commit digest + accumulated site data
+        run: |
+          git config user.name  "csp-digest-bot"
+          git config user.email "actions@github.com"
+          git add csp_digest.html csp_digest.ris csp_digest.json obsidian_notes/ digests/ site/data/
+          git diff --quiet --staged || git commit -m "digest: $(date +%F)"
+          git push
+
+      - name: Upload site as Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site           # the whole static site (index.html + data/)
+
+  deploy:
+    needs: digest
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

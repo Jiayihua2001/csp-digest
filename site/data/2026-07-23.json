@@ -1,0 +1,152 @@
+{
+ "date": "2026-07-23",
+ "scope": "molecular",
+ "synthesis": "Multi-component systems (cocrystals, salts) are moving from prediction into rational design; generative models are shifting from structure enumeration toward distributional representations that may better capture CSP landscapes.",
+ "generated_at": "2026-07-23T23:27:33.792966Z",
+ "items": [
+  {
+   "src": "ChemRxiv",
+   "title": "Structure Prediction of Multi-Component Molecular Crystals with Genarris 4.0",
+   "date": "2026-07-09",
+   "doi": "10.26434/chemrxiv.15005842/v1",
+   "authors": [
+    "X Chelsea Chen",
+    "Yi Yang",
+    "J Huang"
+   ],
+   "authors_all": [
+    "X Chelsea Chen",
+    "Yi Yang",
+    "J Huang",
+    "Xinyu Wu",
+    "Noa Marom"
+   ],
+   "corresponding": [
+    "Noa Marom"
+   ],
+   "corresponding_ids": [
+    "A5057094529"
+   ],
+   "author_ids": [
+    "A5125604200",
+    "A5102963222",
+    "A5123595567",
+    "A5007151233",
+    "A5057094529"
+   ],
+   "institutions": [
+    "Carnegie Mellon University"
+   ],
+   "venue": "ChemRxiv",
+   "abstract": "Multi-component molecular crystals are increasingly used in pharmaceuticals, organic electronics, and energetic materials because they can have unique, tunable properties that are not achievable in single-component crystals. Predicting the structure of multi-component crystals is more challenging, owing to the need to explore the larger space of multiple asymmetric unit configurations. We present a new version of the Genarris open-source molecular crystal structure generator, capable of treating multicomponent crystals. The main new feature of Genarris 4.0 is generation of asymmetric units (ASUs) from the input components and a workflow for selecting ASUs for crystal structure generation. For each ASU, crystal structures are generated in all space groups compatible with the requested number of ASUs per unit cell (Z). The Universal Model for Atoms (UMA) machine-learned interatomic potentials (MLIPs) are used here for structure relaxation and energy evaluation within the workflow. Genarris 4.0 successfully predicts the structure of six targets: three co-crystals, two salts, and one crystal with Z \u2032 = 2. Because the UMA MLIPs were trained on single-component molecular crystals, we eva",
+   "cited_by": 0,
+   "fwci": null,
+   "matched": [
+    "molecular crystal structure prediction"
+   ],
+   "tags": [
+    "genetic-algorithm",
+    "ML-potential",
+    "cocrystal-salt",
+    "space-group"
+   ],
+   "relevance": 72,
+   "significance": 42,
+   "score": 114,
+   "summary": "Genarris 4.0 enables automated ASU generation and enumeration for multi-component crystal structure prediction using machine-learned potentials trained solely on single-component systems."
+  },
+  {
+   "src": "journal",
+   "title": "Engineering Small-Molecule Proton-Transfer Ferroelectrics by Crystal Structure Prediction: Design Limits at the Salt\u2013Cocrystal Boundary",
+   "date": "2026-07-12",
+   "doi": "10.1021/acs.chemmater.6c01164",
+   "authors": [
+    "Seyedmojtaba Seyedraoufi",
+    "Owen D. W. Hewitt",
+    "Simon J. Coles"
+   ],
+   "authors_all": [
+    "Seyedmojtaba Seyedraoufi",
+    "Owen D. W. Hewitt",
+    "Simon J. Coles",
+    "Graeme M. Day",
+    "Kristian Berland"
+   ],
+   "corresponding": [
+    "Kristian Berland"
+   ],
+   "corresponding_ids": [
+    "A5022944587"
+   ],
+   "author_ids": [
+    "A5063471426",
+    "A5098720364",
+    "A5140511067",
+    "A5007594396",
+    "A5022944587"
+   ],
+   "institutions": [
+    "Norwegian University of Life Sciences",
+    "University of Southampton"
+   ],
+   "venue": "Chemistry of Materials",
+   "abstract": "High Resolution Image Download MS PowerPoint Slide Organic molecular ferroelectrics hold significant potential in organic electronics due to their chemical tunability and straightforward fabrication methods. Among these, acid\u2013base proton-transfer (PT) salts are notable for their low coercive fields and fast switching capabilities but are limited by relatively low spontaneous polarization. Using smaller molecular species can in principle increase the polarization, but requires both stabilization of the monovalent salt state and crystal packing that supports ferroelectric PT pathways. Using a crystal-structure prediction (CSP)-based design combined with density functional theory (DFT), we investigate 30 combinations of molecular acids and bases aimed at enhancing the dipole density. We identified several crystal structures with PT-capable hydrogen-bonding networks, and in our initial DFT ranking, three candidate ferroelectric packings and one antiferroelectric. Subsequent experimental work on two representative systems, while confirming the ability of CSP to predict PT-capable packing motifs, found neutral cocrystals rather than the desired monovalent salts supporting ferroelectricit",
+   "cited_by": 0,
+   "fwci": 0.0,
+   "matched": [
+    "molecular crystal structure prediction"
+   ],
+   "tags": [
+    "cocrystal-salt",
+    "space-group"
+   ],
+   "relevance": 54,
+   "significance": 39,
+   "score": 93,
+   "summary": "CSP-guided rational design identifies small-molecule proton-transfer ferroelectrics by targeting dipole density through acid-base combinations, revealing salt-cocrystal phase boundaries."
+  },
+  {
+   "src": "arXiv",
+   "title": "A Distributional Framework for Generative Modeling of Molecular Crystals",
+   "date": "2026-07-06",
+   "arxiv_id": "2607.05266v1",
+   "url": "https://arxiv.org/abs/2607.05266v1",
+   "authors": [
+    "Michael Kilgour",
+    "Alex Dong",
+    "Mark E. Tuckerman"
+   ],
+   "authors_all": [
+    "Michael Kilgour",
+    "Alex Dong",
+    "Mark E. Tuckerman",
+    "Jutta Rogal"
+   ],
+   "venue": "arXiv",
+   "abstract": "Molecular crystals are a highly polymorphic class of materials, with a single molecule commonly crystallizing via multiple packing patterns, making structure and property prediction very challenging. Crystal structure prediction typically comprises the production of sets of promising candidate structures, each considered in isolation rather than as samples in a thermodynamic distribution. Likewise, modern generative approaches to this problem, despite naturally sampling distributions of crystals, lack a concrete formulation of the distributions being sampled. Two components are required to impart meaning to the distributions of crystals generated under such models: a canonical parameterization, and a loss function which equilibrates the generated samples to some target distribution. We develop such a parameterization, and train energy-based generative flow networks (GFlowNets) to approximate the Boltzmann distribution over crystal structures for target molecules and space groups. Combined, these components comprise our MXtalGFlow framework for molecular crystal modeling. Going beyond sampling disconnected sets of low-energy structures, MXtalGFlow yields a thermodynamic distribution",
+   "matched": [
+    "abs:\"crystal structure prediction\" AND abs:generative",
+    "abs:\"molecular crystal\" AND abs:polymorph",
+    "abs:\"crystal structure prediction\""
+   ],
+   "author_ids": [
+    "A5026506046",
+    "A5140184957",
+    "A5136267521",
+    "A5140203670"
+   ],
+   "institutions": [],
+   "cited_by": 0,
+   "fwci": null,
+   "tags": [
+    "generative-model",
+    "polymorphism",
+    "space-group"
+   ],
+   "relevance": 92,
+   "significance": 1,
+   "score": 93,
+   "summary": "Frames molecular crystal generation as sampling from a Boltzmann distribution using energy-based flow networks with a canonical crystal parameterization, moving beyond isolated low-energy structure prediction."
+  }
+ ]
+}

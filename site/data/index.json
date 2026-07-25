@@ -1,0 +1,24 @@
+[
+ {
+  "date": "2026-07-23",
+  "count": 3,
+  "synthesis": "Multi-component systems (cocrystals, salts) are moving from prediction into rational design; generative models are shifting from structure enumeration toward distributional representations that may better capture CSP landscapes.",
+  "top": [
+   {
+    "title": "Structure Prediction of Multi-Component Molecular Crystals with Genarris 4.0",
+    "relevance": 72,
+    "significance": 42
+   },
+   {
+    "title": "Engineering Small-Molecule Proton-Transfer Ferroelectrics by Crystal Structure Prediction: Design Limits at the Salt\u2013Cocrystal Boundary",
+    "relevance": 54,
+    "significance": 39
+   },
+   {
+    "title": "A Distributional Framework for Generative Modeling of Molecular Crystals",
+    "relevance": 92,
+    "significance": 1
+   }
+  ]
+ }
+]
