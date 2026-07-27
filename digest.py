@@ -18,6 +18,8 @@ Environment variables:
   DIGEST_DAYS        look-back window in days (default 4)
   DIGEST_SCOPE       "molecular", "inorganic", or "both" (default both)
   SUMMARY_MODEL      Anthropic model id (default claude-sonnet-5)
+  DEEP_ANALYSIS      1 = add full-text AI 'briefs' (verdict / why-you) for top papers (see analysis.py)
+  ANALYSIS_MODEL     model for deep analysis (default claude-opus-4-8)
 """
 from __future__ import annotations
 import os
@@ -556,6 +558,32 @@ def write_site_data(items, scope, synthesis, site_dir="site"):
 
 # ------------------------------- render -----------------------------------
 
+def _brief_html(b):
+    """Render a Tier-1 deep-analysis brief inside a paper card (empty if none)."""
+    if not b:
+        return ""
+    vc = {"must-read": "#B23A2E", "skim": "#9c6b1f", "skip": "#6B6A63"}.get(b.get("verdict"), "#6B6A63")
+    src = "full text" if b.get("source") == "full-text" else "abstract only"
+    kr = "".join(f"<li>{html.escape(x)}</li>" for x in (b.get("key_results") or [])[:4])
+    kr_html = f'<ul class="kr">{kr}</ul>' if kr else ""
+    code = (b.get("code_or_data_available") or "").strip()
+    code_html = (f'<div class="brief-line"><b>Code/data:</b> {html.escape(code)}</div>'
+                 if code and code.lower() not in ("not stated", "none", "no", "n/a", "") else "")
+    ver = (b.get("verification") or "").strip()
+    ver_html = ('<div class="vflag">&#9888; verification flagged claims &mdash; check before trusting</div>'
+                if ver and ver.upper() != "ALL SUPPORTED" else "")
+    return (
+        '<div class="brief">'
+        f'<div class="brief-head"><span class="verdict" style="background:{vc}">'
+        f'{html.escape(b.get("verdict", ""))}</span>'
+        f'<span class="conf">confidence: {html.escape(b.get("confidence", ""))}</span>'
+        f'<span class="src">{src}</span></div>'
+        f'<div class="brief-line"><b>Why you:</b> {html.escape(b.get("relevance_to_you", ""))}</div>'
+        + (f'<div class="brief-line"><b>Key results:</b></div>{kr_html}' if kr_html else "")
+        + code_html + ver_html + '</div>'
+    )
+
+
 def render_html(items, out_path, scope_label):
     today = datetime.date.today()
     sset = watch_surnames()
@@ -586,6 +614,7 @@ def render_html(items, out_path, scope_label):
             f'<span class="score rel">relevance {rel}</span>'
             f'<span class="score sig">significance {sig}</span>'
         )
+        brief_html = _brief_html(i.get("brief"))
         rows.append(
             f'<div class="item"><div class="meta">'
             f'<span class="badge" style="color:{bc};border-color:{bc}">{badge}</span>'
@@ -595,6 +624,7 @@ def render_html(items, out_path, scope_label):
             f'<div class="authors">{html.escape(who)}</div>'
             f'<div class="scores">{scores_html}{tags_html}</div>'
             + (f'<div class="summary"><b>Contribution:</b> {summ}</div>' if summ else "")
+            + brief_html
             + '</div>'
         )
 
@@ -626,6 +656,13 @@ h1{{font-size:26px;font-weight:600;margin:0 0 4px}}
 .score.sig{{background:#F6ECE7;color:#9c4a2c}}
 .tag{{font-size:11px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px}}
 .summary{{color:#2E2C27;font-size:14px;background:#F4F3EF;border-left:3px solid #C6613F;padding:8px 12px;border-radius:0 4px 4px 0}}
+.brief{{margin-top:9px;background:#FBF7F2;border:1px solid #EADFD3;border-radius:6px;padding:10px 12px}}
+.brief-head{{display:flex;gap:8px;align-items:center;margin-bottom:6px;font-size:11.5px}}
+.verdict{{color:#fff;border-radius:3px;padding:2px 8px;font-weight:600;text-transform:uppercase;letter-spacing:.3px}}
+.conf{{color:#6B6A63}}.src{{color:#B4B3A8}}
+.brief-line{{font-size:13.5px;margin:3px 0;color:#2E2C27}}
+.kr{{margin:2px 0 4px 18px;padding:0;font-size:13px;color:#3a3833}}
+.vflag{{margin-top:6px;color:#B23A2E;font-size:12.5px;font-weight:600}}
 .foot{{margin-top:34px;color:#B4B3A8;font-size:12.5px;border-top:1px solid #E4E3DC;padding-top:14px}}
 </style></head><body><div class="wrap">
 <h1>CSP literature digest</h1>
@@ -778,6 +815,24 @@ def main():
 
     items = rank_items(list(merged.values()), scope=scope)
     items = summarize(items)
+
+    # Optional Tier-1 deep analysis: full-text -> structured, verified brief.
+    # Off unless DEEP_ANALYSIS=1; only the top relevant papers get the (pricier)
+    # frontier read, and a failure never breaks the digest (see analysis.py).
+    if os.environ.get("DEEP_ANALYSIS") == "1":
+        try:
+            from analysis import deep_analyze
+            n = int(os.environ.get("ANALYSIS_MAX_PAPERS", "5"))
+            min_rel = int(os.environ.get("ANALYSIS_MIN_RELEVANCE", "0"))
+            picked = [it for it in items if it.get("relevance", 0) >= min_rel][:n]
+            for it in picked:
+                brief = deep_analyze(it)
+                if brief:
+                    it["brief"] = brief
+            print(f"Deep analysis: {sum(1 for it in picked if it.get('brief'))}/{len(picked)} briefed")
+        except Exception as e:  # noqa: BLE001 - deep analysis must never break the digest
+            print(f"[warn] deep analysis skipped: {e}", file=sys.stderr)
+
     out = render_html(items, "csp_digest.html", scope_label=scope)
     print(f"Rendered {len(items)} items -> {out}")
 
