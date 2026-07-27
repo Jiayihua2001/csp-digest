@@ -17,7 +17,7 @@ Environment variables:
   OPENALEX_MAILTO    recommended contact email for the OpenAlex polite pool
   DIGEST_DAYS        look-back window in days (default 4)
   DIGEST_SCOPE       "molecular", "inorganic", or "both" (default both)
-  SUMMARY_MODEL      Anthropic model id (default claude-3-5-haiku-latest)
+  SUMMARY_MODEL      Anthropic model id (default claude-sonnet-5)
 """
 from __future__ import annotations
 import os
@@ -463,7 +463,7 @@ def summarize(items):
     key = os.environ.get("ANTHROPIC_API_KEY")
     if not key:
         return items  # summaries are optional
-    model = os.environ.get("SUMMARY_MODEL", "claude-3-5-haiku-latest")
+    model = os.environ.get("SUMMARY_MODEL", "claude-sonnet-5")
     for it in items:
         prompt = (
             "You brief a crystal structure prediction (CSP) specialist who works on genetic-algorithm "
@@ -498,7 +498,7 @@ def daily_synthesis(items):
     key = os.environ.get("ANTHROPIC_API_KEY")
     if not key or not items:
         return ""
-    model = os.environ.get("SUMMARY_MODEL", "claude-3-5-haiku-latest")
+    model = os.environ.get("SUMMARY_MODEL", "claude-sonnet-5")
     titles = "\n".join(f"- {i.get('title','')} ({i.get('venue','')})" for i in items[:12])
     prompt = (
         "You brief a molecular crystal structure prediction (CSP) specialist working on "
