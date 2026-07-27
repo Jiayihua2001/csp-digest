@@ -8,7 +8,7 @@ on:
     inputs:
       days:
         description: "Look-back window (days)"
-        default: "2"
+        default: "4"
       scope:
         description: "molecular | inorganic | both"
         default: "molecular"
@@ -38,7 +38,7 @@ jobs:
           OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           OPENALEX_MAILTO: ${{ secrets.OPENALEX_MAILTO }}
-          DIGEST_DAYS: ${{ github.event.inputs.days || '2' }}
+          DIGEST_DAYS: ${{ github.event.inputs.days || '4' }}
           DIGEST_SCOPE: ${{ github.event.inputs.scope || 'molecular' }}
           BUILD_SITE: "1"
         run: python digest.py

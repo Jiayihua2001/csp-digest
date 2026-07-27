@@ -15,7 +15,7 @@ Environment variables:
   OPENALEX_API_KEY   optional; only for premium OpenAlex accounts (API is free/keyless)
   ANTHROPIC_API_KEY  optional; if set, generates one-line summaries
   OPENALEX_MAILTO    recommended contact email for the OpenAlex polite pool
-  DIGEST_DAYS        look-back window in days (default 2)
+  DIGEST_DAYS        look-back window in days (default 4)
   DIGEST_SCOPE       "molecular", "inorganic", or "both" (default both)
   SUMMARY_MODEL      Anthropic model id (default claude-3-5-haiku-latest)
 """
@@ -145,7 +145,10 @@ def _reconstruct_abstract(inv):
 
 
 def fetch_openalex(query, since, work_type, venue=None):
-    filt = f"from_publication_date:{since},title_and_abstract.search:{query},type:{work_type}"
+    # Filter by when OpenAlex INDEXED the work (created_date), not its nominal
+    # publication_date: OpenAlex lags days-to-weeks, so a short publication_date
+    # window misses papers that are, in practice, brand new to the index.
+    filt = f"from_created_date:{since},title_and_abstract.search:{query},type:{work_type}"
     if venue == PREPRINT_VENUE:
         filt += f",primary_location.source.id:{CHEMRXIV_SOURCE_ID}"
     url = OPENALEX + "?" + urllib.parse.urlencode(_oa_params({"filter": filt}))
@@ -733,7 +736,7 @@ def export_zotero_ris(items, out_path):
 # -------------------------------- main ------------------------------------
 
 def main():
-    days = int(os.environ.get("DIGEST_DAYS", "2"))
+    days = int(os.environ.get("DIGEST_DAYS", "4"))
     scope = os.environ.get("DIGEST_SCOPE", "molecular").lower()  # molecular-only by default
     since = (datetime.date.today() - datetime.timedelta(days=days)).isoformat()
 
