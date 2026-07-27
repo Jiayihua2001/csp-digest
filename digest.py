@@ -12,9 +12,9 @@ Anthropic Messages API for summaries. Designed to run in GitHub Actions or
 locally.
 
 Environment variables:
-  OPENALEX_API_KEY   required by OpenAlex (free key from openalex.org)
+  OPENALEX_API_KEY   optional; only for premium OpenAlex accounts (API is free/keyless)
   ANTHROPIC_API_KEY  optional; if set, generates one-line summaries
-  OPENALEX_MAILTO    optional contact email for the OpenAlex polite pool
+  OPENALEX_MAILTO    recommended contact email for the OpenAlex polite pool
   DIGEST_DAYS        look-back window in days (default 2)
   DIGEST_SCOPE       "molecular", "inorganic", or "both" (default both)
   SUMMARY_MODEL      Anthropic model id (default claude-3-5-haiku-latest)
@@ -116,15 +116,16 @@ def _get(url, tries=4, timeout=45):
 
 
 def _oa_params(extra):
-    key = os.environ.get("OPENALEX_API_KEY")
-    if not key:
-        sys.exit("OPENALEX_API_KEY is required (free key from openalex.org).")
+    # OpenAlex is free and keyless; api_key is only for premium accounts.
+    # Use it if provided, otherwise rely on the polite pool via mailto.
     params = {
-        "api_key": key,
         "select": "title,publication_date,doi,authorships,primary_location,type,abstract_inverted_index,cited_by_count,fwci",
         "sort": "publication_date:desc",
         "per-page": 40,
     }
+    key = os.environ.get("OPENALEX_API_KEY")
+    if key:
+        params["api_key"] = key
     mailto = os.environ.get("OPENALEX_MAILTO")
     if mailto:
         params["mailto"] = mailto
