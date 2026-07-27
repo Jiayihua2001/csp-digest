@@ -584,7 +584,26 @@ def _brief_html(b):
     )
 
 
-def render_html(items, out_path, scope_label):
+def _classic_html(c):
+    """Render the 'classic of the day' banner (empty if none)."""
+    if not c:
+        return ""
+    et = " et al." if len(c.get("authors") or []) >= 3 else ""
+    who = ", ".join(c.get("authors") or []) + et
+    return (
+        '<div class="classic">'
+        '<div class="k">&#128218; Classic of the day &mdash; build your canon</div>'
+        f'<div class="ct"><a href="{html.escape(c.get("url", "#"))}" target="_blank">'
+        f'{html.escape(c.get("title", ""))}</a></div>'
+        f'<div class="cm">{html.escape(who)} &nbsp;({c.get("year", "")}, {c.get("citations", "")} citations)</div>'
+        f'<p><b>Why it\'s foundational:</b> {html.escape(c.get("why_foundational", ""))}</p>'
+        f'<p><b>How it connects:</b> {html.escape(c.get("how_it_connects", ""))}</p>'
+        f'<p><b>Take away:</b> {html.escape(c.get("what_to_take_away", ""))}</p>'
+        '</div>'
+    )
+
+
+def render_html(items, out_path, scope_label, classic=None):
     today = datetime.date.today()
     sset = watch_surnames()
     EMDASH = "\u2014"
@@ -632,6 +651,7 @@ def render_html(items, out_path, scope_label):
     n_oa = len(items) - n_pre
     wl_list = html.escape(", ".join(sorted(WATCHLIST)))
     rows_html = "".join(rows) if rows else empty_row
+    classic_html = _classic_html(classic)
     sub_line = today.strftime(f'%A {MIDDOT} %B %d, %Y')
     has_summaries = any(i.get("summary") for i in items)
     notes_clause = "; one-line notes are AI-generated from abstracts" if has_summaries else ""
@@ -663,11 +683,17 @@ h1{{font-size:26px;font-weight:600;margin:0 0 4px}}
 .brief-line{{font-size:13.5px;margin:3px 0;color:#2E2C27}}
 .kr{{margin:2px 0 4px 18px;padding:0;font-size:13px;color:#3a3833}}
 .vflag{{margin-top:6px;color:#B23A2E;font-size:12.5px;font-weight:600}}
+.classic{{margin:18px 0 6px;background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:6px;padding:14px 16px}}
+.classic .k{{font-size:11.5px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:#4a7a6f;margin-bottom:6px}}
+.classic .ct{{font-size:16px;font-weight:600;margin-bottom:3px}}.classic .ct a{{color:#2E2C27;text-decoration:none}}
+.classic .cm{{color:#6B6A63;font-size:13px;margin-bottom:8px}}
+.classic p{{margin:5px 0;font-size:13.5px}}.classic b{{color:#3a5c53}}
 .foot{{margin-top:34px;color:#B4B3A8;font-size:12.5px;border-top:1px solid #E4E3DC;padding-top:14px}}
 </style></head><body><div class="wrap">
 <h1>CSP literature digest</h1>
 <div class="sub">{sub_line} {EMDASH} new work in crystal structure prediction ({scope_label})</div>
 <div class="count">{len(items)} papers {MIDDOT} {n_oa} journal {MIDDOT} {n_pre} preprint {MIDDOT} ranked toward GA/evolutionary CSP {MIDDOT} {STAR} = watchlist author</div>
+{classic_html}
 {rows_html}
 <div class="foot">Sources: OpenAlex (published + ChemRxiv) and arXiv (preprints), filtered to CSP{notes_clause}. Watchlist: {wl_list}.</div>
 </div></body></html>"""
@@ -833,7 +859,17 @@ def main():
         except Exception as e:  # noqa: BLE001 - deep analysis must never break the digest
             print(f"[warn] deep analysis skipped: {e}", file=sys.stderr)
 
-    out = render_html(items, "csp_digest.html", scope_label=scope)
+    classic = None
+    if os.environ.get("CLASSIC_OF_DAY") == "1":
+        try:
+            from classic import classic_of_the_day
+            classic = classic_of_the_day()
+            if classic:
+                print(f"Classic of the day: {classic['title'][:60]}")
+        except Exception as e:  # noqa: BLE001 - never break the digest
+            print(f"[warn] classic of the day skipped: {e}", file=sys.stderr)
+
+    out = render_html(items, "csp_digest.html", scope_label=scope, classic=classic)
     print(f"Rendered {len(items)} items -> {out}")
 
     # website data layer (dated JSON + manifest + "what's new today")
