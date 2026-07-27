@@ -1,5 +1,11 @@
 [
  {
+  "date": "2026-07-27",
+  "count": 0,
+  "synthesis": "",
+  "top": []
+ },
+ {
   "date": "2026-07-23",
   "count": 3,
   "synthesis": "Multi-component systems (cocrystals, salts) are moving from prediction into rational design; generative models are shifting from structure enumeration toward distributional representations that may better capture CSP landscapes.",
