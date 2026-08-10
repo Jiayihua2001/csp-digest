@@ -1,0 +1,71 @@
+{
+ "date": "2026-08-10",
+ "scope": "molecular",
+ "synthesis": "Two RL/generative-driven CSP advances: CrystalGRPO applies GRPO-style reinforcement learning to flow-based generation for target alignment and coverage, while ED-CSP tackles structure prediction directly from electron diffraction data\u2014pushing CSP toward experimental integration and learned generative refinement rather than pure GA search.",
+ "generated_at": "2026-08-10T08:27:02.613868Z",
+ "items": [
+  {
+   "src": "arXiv",
+   "title": "CrystalGRPO: Target-Aligned and Coverage-Preserving Reinforcement Learning for Flow-Based Crystal Structure Prediction",
+   "date": "2026-08-06",
+   "arxiv_id": "2608.06582v1",
+   "url": "https://arxiv.org/abs/2608.06582v1",
+   "authors": [
+    "Kaixiang Su",
+    "Hongfei Xue",
+    "Qiang Zhu"
+   ],
+   "authors_all": [
+    "Kaixiang Su",
+    "Hongfei Xue",
+    "Qiang Zhu"
+   ],
+   "venue": "arXiv",
+   "abstract": "Flow-based generative models can efficiently produce candidate structures for crystal structure prediction (CSP), but their pretrained objectives do not directly optimize downstream target recovery. Reinforcement-learning post-training offers a flexible solution, yet existing approaches rely primarily on energy rewards and coordinate-only stochastic policies. Predicted energy does not identify the reference polymorph, while reward-driven concentration can reduce the candidate coverage required for Top-N recovery. We introduce CrystalGRPO, a CSP-aligned post-training framework that extends existing ODE-to-SDE policy constructions to the joint coordinate--lattice state. CrystalGRPO combines MACE-predicted energy with a StructureMatcher-based recovery score and provides two operating modes: CrystalGRPO-Q, which prioritizes single-draw recovery, and CrystalGRPO-C, which combines full-trajectory reference regularization with a coverage-aware group advantage to preserve finite-budget target recovery. Across MP-20 and MPTS-52 with PXRDGen and OMatG backbones, both variants reduce one- and twenty-sample RMSE relative to coordinate-only reinforcement in all four backbone--dataset settings. ",
+   "matched": [
+    "abs:\"crystal structure prediction\" AND abs:generative",
+    "abs:\"crystal structure prediction\""
+   ],
+   "tags": [
+    "generative-model",
+    "ML-potential",
+    "polymorphism"
+   ],
+   "relevance": 90,
+   "significance": 8,
+   "score": 98,
+   "summary": "CrystalGRPO extends GRPO-style RL post-training to joint coordinate\u2013lattice flow policies, combining energy with a StructureMatcher recovery reward and coverage-aware advantage to preserve Top-N diversity."
+  },
+  {
+   "src": "arXiv",
+   "title": "ED-CSP: Crystal Structure Prediction from Electron Diffraction",
+   "date": "2026-08-06",
+   "arxiv_id": "2608.06448v1",
+   "url": "https://arxiv.org/abs/2608.06448v1",
+   "authors": [
+    "Germain Poloudenny",
+    "Ya\u00ebl Fr\u00e9gier",
+    "Arnaud Demorti\u00e8re"
+   ],
+   "authors_all": [
+    "Germain Poloudenny",
+    "Ya\u00ebl Fr\u00e9gier",
+    "Arnaud Demorti\u00e8re"
+   ],
+   "venue": "arXiv",
+   "abstract": "Recovering a periodic 3D crystal structure from sparse, unindexed electron diffraction (ED) observations is a challenging generative inverse problem. Existing ED-based learning methods mainly predict crystallographic labels, reconstruct structures from indexed reflections, or retrieve candidates from finite structure libraries. Here, we introduce ED-CSP, a machine learning framework that predicts crystal structures from chemical composition, atom count, and multiple detector-plane ED spot sets. ED-CSP combines a relational set encoder, permutation-invariant multi-view aggregation, and a periodic flow generator to jointly predict lattice parameters and fractional atomic coordinates. To train the model, we construct ED-CS, a dataset of 4.85 million simulated multi-view ED crystal structures, deduplicated across seven materials repositories and filtered to exclude CHILI-100K overlaps. On 2,075 held-out CHILI-100K materials, ED-CSP trained only on CHILI achieves a structural match rate of 57.49% MR@5, outperforming PXRDGen (52.92%), a state-of-the-art crystal structure prediction model conditioned on powder X-ray diffraction. Scaling training data further improves performance: initiali",
+   "matched": [
+    "abs:\"crystal structure prediction\" AND abs:generative",
+    "abs:\"crystal structure prediction\""
+   ],
+   "tags": [
+    "generative-model",
+    "ML-potential"
+   ],
+   "relevance": 85,
+   "significance": 0,
+   "score": 85,
+   "summary": "ED-CSP introduces a relational set-encoder plus periodic flow generator that directly predicts crystal structures from unindexed multi-view electron diffraction spots and composition, trained on a new 4.85M-structure simulated ED dataset, outperforming PXRD-based"
+  }
+ ]
+}
