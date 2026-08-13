@@ -1,5 +1,22 @@
 [
  {
+  "date": "2026-08-13",
+  "count": 2,
+  "synthesis": "Two CSP-adjacent papers today: CrystalGRPO applies RL (GRPO) to flow-based generative models for structure prediction, while ED-CSP tackles structure solution directly from electron diffraction data\u2014both extending beyond traditional GA/energy-landscape approaches toward learned or data-driven pipelines.",
+  "top": [
+   {
+    "title": "CrystalGRPO: Target-Aligned and Coverage-Preserving Reinforcement Learning for Flow-Based Crystal Structure Prediction",
+    "relevance": 90,
+    "significance": 8
+   },
+   {
+    "title": "ED-CSP: Crystal Structure Prediction from Electron Diffraction",
+    "relevance": 85,
+    "significance": 6
+   }
+  ]
+ },
+ {
   "date": "2026-08-12",
   "count": 0,
   "synthesis": "",
