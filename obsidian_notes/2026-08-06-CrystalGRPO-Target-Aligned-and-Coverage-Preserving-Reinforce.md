@@ -22,7 +22,7 @@ tags:
 **Field:** [[generative-model]] [[ML-potential]] [[polymorphism]]
 
 ## Why it matters
-CrystalGRPO extends GRPO-style RL to joint coordinate–lattice flow policies, adding a StructureMatcher recovery reward and coverage-aware group advantage to preserve Top-N diversity while improving RMSE.
+CrystalGRPO extends ODE-to-SDE reinforcement learning to joint coordinate-lattice policies, adding a StructureMatcher recovery reward and coverage-aware group advantage to preserve Top-N diversity in flow-based CSP.
 
 ## Abstract
 > Flow-based generative models can efficiently produce candidate structures for crystal structure prediction (CSP), but their pretrained objectives do not directly optimize downstream target recovery. Reinforcement-learning post-training offers a flexible solution, yet existing approaches rely primarily on energy rewards and coordinate-only stochastic policies. Predicted energy does not identify the reference polymorph, while reward-driven concentration can reduce the candidate coverage required for Top-N recovery. We introduce CrystalGRPO, a CSP-aligned post-training framework that extends existing ODE-to-SDE policy constructions to the joint coordinate--lattice state. CrystalGRPO combines MACE-predicted energy with a StructureMatcher-based recovery score and provides two operating modes: CrystalGRPO-Q, which prioritizes single-draw recovery, and CrystalGRPO-C, which combines full-trajectory reference regularization with a coverage-aware group advantage to preserve finite-budget target recovery. Across MP-20 and MPTS-52 with PXRDGen and OMatG backbones, both variants reduce one- and twenty-sample RMSE relative to coordinate-only reinforcement in all four backbone--dataset settings. 
