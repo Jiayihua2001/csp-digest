@@ -1,5 +1,22 @@
 [
  {
+  "date": "2026-08-18",
+  "count": 2,
+  "synthesis": "Two CSP methods target complementary gaps: CrystalGRPO applies RL (GRPO) to flow-based generative models to improve target alignment without sacrificing coverage, while ED-CSP tackles structure prediction directly from electron diffraction data rather than composition alone.",
+  "top": [
+   {
+    "title": "CrystalGRPO: Target-Aligned and Coverage-Preserving Reinforcement Learning for Flow-Based Crystal Structure Prediction",
+    "relevance": 90,
+    "significance": 8
+   },
+   {
+    "title": "ED-CSP: Crystal Structure Prediction from Electron Diffraction",
+    "relevance": 85,
+    "significance": 6
+   }
+  ]
+ },
+ {
   "date": "2026-08-17",
   "count": 2,
   "synthesis": "Two RL/generative approaches to CSP: CrystalGRPO applies GRPO-style reinforcement learning to flow-based generation for better target alignment and coverage, while ED-CSP tackles structure prediction directly from electron diffraction data\u2014an experimentally-grounded alternative to purely computational search.",
