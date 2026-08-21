@@ -1,5 +1,11 @@
 [
  {
+  "date": "2026-08-21",
+  "count": 0,
+  "synthesis": "",
+  "top": []
+ },
+ {
   "date": "2026-08-20",
   "count": 2,
   "synthesis": "Two CSP-relevant papers: CrystalGRPO applies RL (GRPO) to flow-based generative models for target-aligned, diversity-preserving crystal generation, while ED-CSP tackles structure prediction directly from electron diffraction data\u2014both pushing beyond standard energy-landscape GA approaches toward data-driven and RL-augmented pipelines.",
