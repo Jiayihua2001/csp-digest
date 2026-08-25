@@ -146,7 +146,8 @@ def _http_get(url: str, timeout: int = 60, tries: int = 3) -> bytes:
                 return r.read()
         except Exception as e:  # noqa: BLE001
             last = e
-            time.sleep(1.5 * (t + 1))
+            # 429s need a real cooldown, not a quick retry.
+            time.sleep(12.0 * (t + 1) if "429" in str(e) else 1.5 * (t + 1))
     raise RuntimeError(f"GET failed: {last}")
 
 
@@ -229,6 +230,29 @@ def build(dry_run: bool = False, limit: int = 0, fetch=None) -> dict:
             continue
         processed += 1
 
+        # Retry path: resolved earlier (dry-run or a failed download) — use the
+        # STORED metadata + pdf_url; never re-query OpenAlex for it.
+        if prev and prev.get("status") == "resolved":
+            url = prev.get("pdf_url")
+            if url and not dry_run:
+                try:
+                    blob = (fetch or _http_get)(url, timeout=120)
+                    if blob[:4] == b"%PDF":
+                        fname = f"{today}_{slugify(prev.get('title') or slug)}.pdf"
+                        with open(os.path.join(raw_dir, fname), "wb") as f:
+                            f.write(blob)
+                        prev["fulltext"], prev["raw_file"] = "pdf", f"raw/{fname}"
+                        print(f"  ↓ {slug}: downloaded via stored pdf_url")
+                    else:
+                        prev["fulltext"] = "abstract-only"
+                        print(f"  - {slug}: stored url was not a PDF -> abstract-only")
+                except Exception as e:  # noqa: BLE001
+                    prev["fulltext"] = "abstract-only"
+                    print(f"    (pdf retry failed for {slug}: {e})", file=sys.stderr)
+                time.sleep(1.0)
+            done[slug] = prev
+            continue
+
         existing = dedup_existing(seed, vault)
         try:
             work, score = resolve(seed, fetch=fetch)
@@ -264,7 +288,9 @@ def build(dry_run: bool = False, limit: int = 0, fetch=None) -> dict:
                     print(f"    (pdf fetch failed for {slug}: {e})", file=sys.stderr)
             elif pdf and dry_run:
                 fulltext = "pdf(pending)"
-            done[slug] = manifest_entry(seed, work, score, fulltext, raw_rel)
+            rec = manifest_entry(seed, work, score, fulltext, raw_rel)
+            rec["pdf_url"] = pdf                        # stored so retries skip OpenAlex
+            done[slug] = rec
             flag = " [CONFIRM]" if seed.get("confirm") else ""
             print(f"  ✓ {slug}: {work.get('publication_year')} score={score:.2f} "
                   f"{fulltext}{flag}  {(work.get('title') or '')[:60]}")
@@ -272,8 +298,9 @@ def build(dry_run: bool = False, limit: int = 0, fetch=None) -> dict:
 
     manifest["built"] = today
     manifest["entries"] = done
-    if not dry_run:
-        json.dump(manifest, open(MANIFEST_PATH, "w"), indent=1)
+    # Persist on dry-run too: resolutions are expensive (rate limits) and a
+    # later full run reuses them instead of re-querying OpenAlex.
+    json.dump(manifest, open(MANIFEST_PATH, "w"), indent=1)
     # summary
     st = [e.get("status") for e in done.values()]
     ft = [e.get("fulltext") for e in done.values()]
@@ -281,8 +308,7 @@ def build(dry_run: bool = False, limit: int = 0, fetch=None) -> dict:
           f"unresolved: {st.count('unresolved') + st.count('error')}  deferred: {st.count('deferred')}")
     print(f"[corpus] fulltext — pdf: {ft.count('pdf')}  existing: {ft.count('existing-clipping')}  "
           f"abstract-only: {ft.count('abstract-only')}  pending: {ft.count('pdf(pending)')}")
-    if not dry_run:
-        print(f"[corpus] manifest -> {MANIFEST_PATH}")
+    print(f"[corpus] manifest -> {MANIFEST_PATH}")
     return manifest
 
 
