@@ -1,0 +1,58 @@
+{
+  "_comment": "Seed spec for the MCSP knowledge-network corpus (issue #1). This file is the ONLY place papers enter the system. Fields: slug (stable id), tier (A-G per the PRD), title (search hint - OpenAlex resolution is authoritative), doi (only when verified from a source in hand), year/authors_hint (disambiguation aids), confirm (true = draft-uncertain, surface prominently in the manifest for Jade's audit), existing_raw (path in the vault raw/ - dedup, no download), deferred (true = intentionally unresolved placeholder, skipped by the builder).",
+  "entries": [
+    {"slug": "blind-test-1", "tier": "A", "title": "A test of crystal structure prediction of small organic molecules", "year": 2000, "authors_hint": "Lommerse"},
+    {"slug": "blind-test-2", "tier": "A", "title": "Crystal structure prediction of small organic molecules: a second blind test", "year": 2002, "authors_hint": "Motherwell"},
+    {"slug": "blind-test-3", "tier": "A", "title": "A third blind test of crystal structure prediction", "year": 2005, "authors_hint": "Day"},
+    {"slug": "blind-test-4", "tier": "A", "title": "Significant progress in predicting the crystal structures of small organic molecules a report on the fourth blind test", "year": 2009, "authors_hint": "Day"},
+    {"slug": "blind-test-5", "tier": "A", "title": "Towards crystal structure prediction of complex organic compounds a report on the fifth blind test", "year": 2011, "authors_hint": "Bardwell"},
+    {"slug": "blind-test-6", "tier": "A", "title": "Report on the sixth blind test of organic crystal structure prediction methods", "year": 2016, "doi": "10.1107/s2052520616007447", "authors_hint": "Reilly"},
+    {"slug": "blind-test-7-part1", "tier": "A", "title": "The seventh blind test of crystal structure prediction structure generation methods", "year": 2024, "authors_hint": "Hunnisett"},
+    {"slug": "blind-test-7-part2", "tier": "A", "title": "The seventh blind test of crystal structure prediction structure ranking methods", "year": 2024, "authors_hint": "Hunnisett"},
+
+    {"slug": "gator-2018", "tier": "B", "title": "GAtor: A First-Principles Genetic Algorithm for Molecular Crystal Structure Prediction", "year": 2018, "doi": "10.1021/acs.jctc.7b01152", "existing_raw": "raw/2026-05-02_gator.md"},
+    {"slug": "genarris-1", "tier": "B", "title": "Genarris: Random generation of molecular crystal structures and fast screening with a Harris approximation", "year": 2018, "authors_hint": "Li Marom"},
+    {"slug": "genarris-2", "tier": "B", "title": "Genarris 2.0: A random structure generator for molecular crystals", "year": 2020, "authors_hint": "Tom Marom"},
+    {"slug": "genarris-3", "tier": "B", "title": "Genarris 3.0: Generating Close-Packed Molecular Crystal Structures with Rigid Press", "year": 2025, "doi": "10.1021/acs.jctc.5c01080", "existing_raw": "raw/2026-05-02_genarris-3.md"},
+    {"slug": "group16-aimnet2-blindtest", "tier": "B", "title": "system-specific AIMNet2 machine learned interatomic potentials molecular crystal structure prediction seventh blind test", "year": 2024, "authors_hint": "Marom", "confirm": true},
+    {"slug": "group-other-papers", "tier": "B", "deferred": true, "note": "Jade to name additional group canon (niching studies, energetic-materials applications)"},
+
+    {"slug": "price-review-2014", "tier": "C", "title": "Predicting crystal structures of organic compounds", "year": 2014, "authors_hint": "Price"},
+    {"slug": "day-review-2011", "tier": "C", "title": "Current approaches to predicting molecular organic crystal structures", "year": 2011, "authors_hint": "Day"},
+    {"slug": "beran-review-2016", "tier": "C", "title": "Modeling Polymorphic Molecular Crystals with Electronic Structure Theory", "year": 2016, "authors_hint": "Beran"},
+    {"slug": "bowskill-review-2021", "tier": "C", "title": "Crystal Structure Prediction Methods for Organic Molecules: State of the Art", "year": 2021, "authors_hint": "Bowskill Adjiman Pantelides"},
+    {"slug": "beran-frontiers-2023", "tier": "C", "title": "Frontiers of molecular crystal structure prediction for pharmaceuticals and functional materials", "year": 2023, "authors_hint": "Beran", "confirm": true},
+    {"slug": "facts-fictions-polymorphism", "tier": "C", "title": "Facts and fictions about polymorphism", "year": 2015, "authors_hint": "Cruz-Cabeza Bernstein"},
+    {"slug": "nyman-day-statistics-2015", "tier": "C", "title": "Static and lattice vibrational energy differences between polymorphs", "year": 2015, "authors_hint": "Nyman Day"},
+
+    {"slug": "hoja-pbe0-mbd-2019", "tier": "D", "title": "Reliable and practical computational description of molecular crystal polymorphs", "year": 2019, "authors_hint": "Hoja Tkatchenko", "existing_raw": "raw/Reliable and practical computational description of molecular crystal polymorphs.md"},
+    {"slug": "ts-vdw-2009", "tier": "D", "title": "Accurate Molecular Van Der Waals Interactions from Ground-State Electron Density and Free-Atom Reference Data", "year": 2009, "authors_hint": "Tkatchenko Scheffler"},
+    {"slug": "mbd-2012", "tier": "D", "title": "Accurate and Efficient Method for Many-Body van der Waals Interactions", "year": 2012, "authors_hint": "Tkatchenko DiStasio"},
+    {"slug": "neumann-tailormade-ff-2005", "tier": "D", "title": "Energy ranking of molecular crystals using density functional theory calculations and an empirical van der Waals correction", "year": 2005, "authors_hint": "Neumann Perrin", "confirm": true},
+    {"slug": "dmacrys-2010", "tier": "D", "title": "Modelling organic crystal structures using distributed multipole and polarizability-based model intermolecular potentials", "year": 2010, "authors_hint": "Price", "confirm": true},
+    {"slug": "aspirin-anharmonicity-2014", "tier": "D", "title": "Role of Dispersion Interactions in the Polymorphism and Entropic Stabilization of the Aspirin Crystal", "year": 2014, "authors_hint": "Reilly Tkatchenko"},
+    {"slug": "nyman-day-free-energy-2016", "tier": "D", "title": "Modelling temperature-dependent properties of polymorphic organic molecular crystals", "year": 2016, "authors_hint": "Nyman Day", "confirm": true},
+    {"slug": "firaha-nature-2023", "tier": "D", "title": "Predicting crystal form stability under real-world conditions", "year": 2023, "authors_hint": "Firaha Neumann", "confirm": true},
+    {"slug": "price-overprediction", "tier": "D", "title": "Is zeroth order crystal structure prediction (CSP_0) coming to maturity? What should we aim for in an ideal crystal structure prediction code?", "year": 2018, "authors_hint": "Price", "confirm": true},
+    {"slug": "modern-functional-benchmark", "tier": "D", "deferred": true, "note": "pick a representative r2SCAN / modern-functional molecular-crystal benchmark via OpenAlex at build time"},
+
+    {"slug": "uspex-2006", "tier": "E", "title": "Crystal structure prediction using ab initio evolutionary techniques: Principles and applications", "year": 2006, "authors_hint": "Oganov Glass"},
+    {"slug": "airss-2011", "tier": "E", "title": "Ab initio random structure searching", "year": 2011, "authors_hint": "Pickard Needs"},
+    {"slug": "crystalpredictor", "tier": "E", "title": "Ab initio crystal structure prediction I rigid molecules", "year": 2005, "authors_hint": "Karamertzanis Pantelides", "confirm": true},
+    {"slug": "grace-angew-2008", "tier": "E", "title": "A major advance in crystal structure prediction", "year": 2008, "authors_hint": "Neumann Leusen Kendrick", "confirm": true},
+    {"slug": "pyxtal-2021", "tier": "E", "title": "PyXtal: A Python library for crystal structure generation and symmetry analysis", "year": 2021, "authors_hint": "Fredericks Zhu"},
+
+    {"slug": "high-z-prime-2015", "tier": "F", "title": "Packing Problems: High Z crystal structures and their relationship to cocrystals, inclusion compounds, and polymorphism", "year": 2015, "authors_hint": "Steed"},
+    {"slug": "cocrystal-anchor", "tier": "F", "deferred": true, "note": "cocrystal/multi-component landscape review - pick with Jade"},
+    {"slug": "salt-hydrate-anchor", "tier": "F", "deferred": true, "note": "salt/hydrate CSP case-study anchor - pick with Jade"},
+    {"slug": "flexible-molecule-anchor", "tier": "F", "deferred": true, "note": "flexible-molecule conformational CSP anchor (Kazantsev/Adjiman line) - pick with Jade"},
+    {"slug": "pharma-csp-anchor", "tier": "F", "deferred": true, "note": "pharma-industry CSP perspective (Neumann/AbbVie or Abramov line) - pick with Jade"},
+
+    {"slug": "fastcsp", "tier": "G", "title": "FastCSP: Accelerated Molecular Crystal Structure Prediction with Universal Model for Atoms", "year": 2025, "authors_hint": "Meta FAIR UMA", "confirm": true},
+    {"slug": "mace-off", "tier": "G", "title": "MACE-OFF: Transferable Machine Learning Force Fields for Organic Molecules", "year": 2025, "authors_hint": "Kovacs Csanyi", "confirm": true},
+    {"slug": "aimnet2", "tier": "G", "title": "AIMNet2: a neural network potential to meet your neutral, charged, organic, and elemental-organic needs", "year": 2025, "authors_hint": "Anstine Zubatyuk Isayev", "confirm": true},
+    {"slug": "wengert-delta-ml-2021", "tier": "G", "title": "Data-efficient machine learning for molecular crystal structure prediction", "year": 2021, "authors_hint": "Wengert Margraf", "confirm": true},
+    {"slug": "generative-crystals-anchor", "tier": "G", "deferred": true, "note": "1-2 organic-crystal generative-model anchors - pick current best with Jade"},
+    {"slug": "descriptors-anchor", "tier": "G", "deferred": true, "note": "structure-descriptor anchor (SOAP/REMatch on polymorphs) - pick with Jade"}
+  ]
+}
