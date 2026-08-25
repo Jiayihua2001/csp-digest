@@ -1,0 +1,89 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Modeling Polymorphic Molecular Crystals with Electronic Structure Theory</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>Modeling Polymorphic Molecular Crystals with Electronic Structure Theory</h1><div class="meta">Gregory J. O. Beran &middot; Chemical Reviews (2016) &middot; 378 citations &middot; <a href="https://doi.org/10.1021/acs.chemrev.5b00648" target="_blank">doi:10.1021/acs.chemrev.5b00648</a> <span class="badge-conf">confidence: low</span> <span class="vflag">&#9888; verification flagged claims</span></div><div class="section">
+
+&gt; A comprehensive review (Chemical Reviews 2016) by Gregory Beran surveying electronic structure methods for modeling molecular crystals and polymorphism. It covers periodic DFT, periodic MP2, fragment-based electronic structure methods, and diffusion Monte Carlo, and their application to predicting lattice energies, structures, crystal structure prediction, polymorphism, phase diagrams, vibrational spectroscopy, and NMR. It also touches on tools for analyzing crystal structures and intermolecular interactions.
+
+<b>Corpus:</b> tier C - `beran-review-2016` - source mode: metadata - confidence: <b>low</b> - FLAGGED - see below
+
+<h2>Contribution</h2>
+Provides a broad synthesis of the electronic-structure toolkit available for molecular crystal modeling circa 2016, connecting methodological choices (periodic vs fragment-based, dispersion treatment, correlated methods) to the crystal properties relevant for polymorphism and CSP. Note: specifics unavailable from abstract only.
+
+<h2>Method</h2>
+Literature review / survey article. No new computational experiments; organizes and evaluates existing methods including periodic DFT, periodic MP2, fragment-based (many-body expansion) approaches, and diffusion Monte Carlo, plus property-prediction applications.
+
+<h2>Key results</h2>
+- No quantitative results reported in the abstract; this is a review article and specific numbers are not available from metadata alone.
+
+<h2>Limitations</h2>
+- Digest based on abstract/metadata only; full-text details, benchmark numbers, and method comparisons not accessible.
+- As a 2016 review it predates modern MLIPs (MACE-OFF, AIMNet2, UMA) and recent PBE0+MBD CSP workflows.
+- Scope and depth of coverage of specific topics (e.g. Z&#x27;&gt;1, finite-temperature effects) cannot be confirmed from the abstract.
+
+<h2>Takeaways</h2>
+- Serves as a foundational reference for the landscape of electronic structure methods applied to molecular crystals and polymorphism.
+- Emphasizes dispersion-inclusive and correlated methods (periodic MP2, DMC, fragment approaches) as accuracy benchmarks for lattice energies.
+- Relevant background reading for lattice-energy ranking methodology in CSP, though methods have advanced since 2016.
+
+<h2>Relevance to GAtor 2.0</h2>
+Directly relevant as background: it reviews the lattice-energy ranking and electronic structure methods (dispersion-inclusive DFT, fragment methods, DMC) that underpin the ranking stage of GA-based CSP. Useful for contextualizing PBE0+MBD choices and for the polymorphism/phase-diagram framing, but it is a 2016 survey and does not cover MLIPs or GA operators.
+
+<h2>Linked concepts</h2>
+<span class="chip">lattice-energy-ranking</span> <span class="chip">dispersion-inclusive-dft</span> <span class="chip">molecular-crystal-polymorphism</span> <span class="chip">many-body-dispersion</span> <span class="chip">crystal-structure-prediction</span> <span class="chip">fragment-based-methods</span>
+
+<h2>Verification flags</h2>
+
+&gt; Second-pass check found issues - read before trusting:
+
+Checking each claim against the abstract/metadata:
+
+<b>Summary</b> — Faithful. All listed methods (periodic DFT, periodic MP2, fragment-based, DMC) and applications (lattice energies, structures, CSP, polymorphism, phase diagrams, vibrational spectroscopy, NMR, analysis tools) are explicitly in the abstract.
+
+<b>Contribution</b> — Reasonable framing consistent with a review; appropriately flags &quot;specifics unavailable from abstract only.&quot;
+
+<b>Method</b> — Faithful characterization of a review article.
+
+<b>Key results</b> — Correctly notes no quantitative results in abstract.
+
+<b>Limitations</b> — Mostly fine, but one issue:
+
+- &quot;As a 2016 review it predates modern MLIPs (MACE-OFF, AIMNet2, UMA) and recent PBE0+MBD CSP workflows.&quot; — This is an *inference* the digest adds, not from the material. It&#x27;s a defensible factual statement about chronology, but the specific named tools are external, not supported by the abstract. Borderline; it&#x27;s framed as digest commentary rather than a claim about the paper&#x27;s content.
+
+<b>Takeaways:</b>
+
+- &quot;Emphasizes dispersion-inclusive and correlated methods (periodic MP2, DMC, fragment approaches) as accuracy benchmarks for lattice energies.&quot; — <b>Overstated / unsupported.</b> The abstract does not say the review &quot;emphasizes&quot; these as &quot;accuracy benchmarks for lattice energies.&quot; The abstract merely lists these methods and lists lattice energies among predicted properties. The characterization of emphasis and benchmarking role is an inference not grounded in the metadata. Note &quot;dispersion-inclusive&quot; is also not mentioned in the abstract at all (see below).
+
+<b>Gator_relevance:</b>
+
+- &quot;it reviews the lattice-energy ranking and electronic structure methods (dispersion-inclusive DFT, fragment methods, DMC) that underpin the ranking stage of GA-based CSP&quot; — The phrase &quot;lattice-energy ranking&quot; and &quot;ranking stage of GA-based CSP&quot; is an external application framing, not in the abstract. Acceptable as relevance commentary, but note the abstract says &quot;lattice energies,&quot; not &quot;lattice-energy ranking.&quot;
+- &quot;Useful for contextualizing PBE0+MBD choices&quot; — external inference; PBE0+MBD is not mentioned in the abstract. Fine as relevance note.
+
+<b>Concepts:</b>
+
+- &quot;dispersion-inclusive-dft&quot; and &quot;many-body-dispersion&quot; — <b>Unsupported.</b> The abstract never mentions dispersion, dispersion-inclusive DFT, or many-body dispersion at all. These are plausible for the topic but are fabricated relative to the provided material. This is the clearest overreach, especially since &quot;dispersion-inclusive&quot; and &quot;many-body dispersion&quot; also appear in the takeaways/relevance framing.
+
+<b>Summary of flagged statements:</b>
+
+1. &quot;Emphasizes dispersion-inclusive and correlated methods (periodic MP2, DMC, fragment approaches) as accuracy benchmarks for lattice energies.&quot; — Overstated; &quot;emphasizes&quot; and &quot;accuracy benchmarks&quot; are not supported by the abstract, and &quot;dispersion-inclusive&quot; is not mentioned.
+
+2. Concept tags &quot;dispersion-inclusive-dft&quot; and &quot;many-body-dispersion&quot; — Unsupported/fabricated; dispersion is never mentioned in the abstract or metadata.
+
+3. (Minor) &quot;recent PBE0+MBD CSP workflows&quot; / &quot;contextualizing PBE0+MBD choices&quot; — External additions not in the material, though framed as relevance commentary rather
+</div></div></body></html>

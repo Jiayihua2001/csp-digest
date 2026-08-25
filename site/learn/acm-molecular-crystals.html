@@ -1,0 +1,71 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>acm-molecular-crystals</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>acm-molecular-crystals</h1><div class="meta"> &middot;  () &middot; 0 citations</div><div class="section">
+
+
+&gt; First demonstration that adiabatic connection models (ACMs) — built on the Møller–Plesset adiabatic connection (MPAC) framework, until now used only for finite molecules — work for <b>periodic molecular crystals</b>. Lattice energies on 19 systems achieve dispersion-corrected hybrid-DFT accuracy and approach correlated wave-function methods. The standout is <b>HFAC24</b>: a *parameter-free* post-Hartree–Fock correlation expression that is the only model accurate on *both* binding and total energies. Methodologically substantive — a real candidate alternative to PBE+MBD / PBE+TS for the ranking step of MCSP pipelines.
+
+<h2>Takeaways</h2>
+
+- <b>Methodological advance, not a tool paper.</b> This extends a quantum-chemistry framework (ACM/MPAC, lineage Levy / Liu / Pernal / Gori-Giorgi / Fabiano) from *molecules* to *periodic solids*. A real first.
+- <b>HFAC24 is the headline.</b> Parameter-free post-HF correlation expression. Recovers two limits exactly: the <b>uniform electron gas</b> limit *and* the <b>strong-interaction limit</b> (the latter is what makes ACMs distinct from standard DFT functionals). The only one of the tested ACMs accurate on *both* lattice/binding energies and total energies — most fitted methods sacrifice one for the other.
+- <b>Benchmark scope</b>: 19 representative molecular crystals. Compared against periodic MP2, high-level reference data, and experimental lattice energies. Achieves accuracy *comparable to dispersion-corrected hybrid DFT* and *approaches correlated wave-function methods*.
+- <b>Why this matters for MCSP</b>: lattice-energy ranking with ~0.5 kJ/mol accuracy is the unsolved problem in CSP. Current best practice is PBE+MBD or PBE+TS — empirical-dispersion-corrected GGAs/hybrids. ACMs offer a *non-empirical* alternative with comparable accuracy and a clear path to systematic improvement. If HFAC24 holds up on the CCDC blind-test targets, it&#x27;s a real upgrade for the ranking step.
+- <b>Authors not in clipping</b> — the ACS landing-page clip didn&#x27;t capture the author block. From the framework lineage and venue (JCTC), this is almost certainly the Della Sala / Fabiano / Constantin / Daas axis. Worth confirming via the DOI; flagged below.
+- <b>The &quot;systematically improvable&quot; claim</b> is the structural promise of MPAC-based methods: unlike empirical dispersion corrections, the framework allows you to add higher-order terms *without re-fitting parameters*. If true at the periodic limit, this is a methodologically clean route forward.
+
+<h2>Summary</h2>
+
+The paper takes the <b>adiabatic connection (AC)</b> formalism — the integral that connects the non-interacting Kohn–Sham reference state to the fully-interacting electronic system as a function of a coupling-strength parameter λ — and constructs interpolation-based models (ACMs) in the Møller–Plesset variant (MPAC) for <b>periodic molecular crystals</b>. ACMs use information from both the small-λ (perturbative MP2) regime and the large-λ (strong-interaction, Wₐ-style) limit to construct a closed-form expression for the correlation energy. Until now this had been demonstrated only for finite molecules.
+
+Lattice energies are computed for <b>19 molecular crystals</b> and compared against:
+- <b>periodic MP2</b> (the second-order Møller–Plesset benchmark);
+- <b>high-level reference data</b> (likely CCSD(T) / dispersion-corrected wave-function methods);
+- <b>experimental</b> lattice energies.
+
+Several ACMs are tested. The standout is <b>HFAC24</b>, a parameter-free post-Hartree–Fock correlation expression that:
+
+1. correctly recovers the <b>uniform electron gas (UEG)</b> limit;
+2. correctly recovers the <b>strong-interaction limit</b> (where electrons are localized);
+3. is the *only* one of the tested ACMs accurate for *both* binding (lattice) energies and total energies — most ACMs sacrifice one for the other.
+
+Authors conclude that MPAC-based ACMs &quot;provide an accurate and transferable framework for modeling molecular-crystal energetics&quot; and represent a &quot;robust, systematically improvable route&quot; for correlation models in extended systems.
+
+<h2>Notable quotes</h2>
+
+&gt; &quot;We extend adiabatic connection models (ACMs) derived from the Møller–Plesset adiabatic connection (MPAC) formalism, previously applied only to finite systems, to periodic molecular crystals.&quot; — Abstract
+
+&gt; &quot;Among them, the HFAC24 model, which is a post-Hartree–Fock parameter-free correlation expression that correctly recovers both the uniform electron gas and strong-interaction limits, is the only one with accurate binding energies and accurate total energies.&quot; — Abstract
+
+<h2>Implications for the wiki</h2>
+
+- <b>New concept page warranted</b>: <span class="chip">concepts/adiabatic-connection-methods</span> — the ACM/MPAC framework is not currently covered in the wiki and is the actual core knowledge of this paper.
+- <b>Touches concepts</b>: <span class="chip">concepts/crystal-structure-prediction</span> (alternative to dispersion-corrected hybrid DFT in the ranking step), <span class="chip">concepts/polymorphism</span> (sub-kcal/mol lattice-energy accuracy is the polymorph-ranking bottleneck — ACMs aim at this).
+- <b>Touches entities</b>: none of the existing entity pages need updates yet. TURBOMOLE is mentioned (used for the calculations) — could become an entity page if a future source touches it. Authors flagged for follow-up below.
+- <b>No citation back-links</b> to existing wiki sources: the paper cites Beran 2016 (`Chem. Rev.` review of MCSP electronic-structure methods) and Hoja-Reilly-Tkatchenko 2017 (`WIREs Comp. Mol. Sci.`) — both are foundational MCSP refs and worth ingesting as separate sources eventually.
+
+<h2>Open questions</h2>
+
+- <b>Authors and affiliations</b> — the clipping lost them. Confirm by looking at the DOI page; likely the Della Sala / Fabiano / Constantin / Daas axis.
+- <b>Which 19 molecular crystals?</b> The benchmark set composition matters — a set heavy on rigid aromatics (e.g. X23) will say something different than one with flexible drug-like molecules.
+- <b>Cost vs. PBE+MBD?</b> The paper doesn&#x27;t compare wall-clock cost. ACMs require both an MP2 calculation *and* a strong-interaction-limit estimate; even if accuracy matches MBD, runtime may not.
+- <b>Has anyone tried HFAC24 on a CCDC blind-test target yet?</b> Not yet (paper is fresh).
+- <b>Implementation availability</b> — TURBOMOLE V7.8 was used. Is this a publicly-available implementation or custom code?
+</div></div></body></html>

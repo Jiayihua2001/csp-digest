@@ -1,0 +1,100 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The seventh blind test of crystal structure prediction: structure ranking methods</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>The seventh blind test of crystal structure prediction: structure ranking methods</h1><div class="meta">Lily M. Hunnisett, Nicholas Francia, Jonas Nyman, Nathan S. Abraham, Srinivasulu Aitipamula, Tamador Alkhidir &middot; Acta Crystallographica Section B Structural Science Crystal Engineering and Materials (2024) &middot; 76 citations &middot; <a href="https://doi.org/10.1107/s2052520624008679" target="_blank">doi:10.1107/s2052520624008679</a> <span class="badge-conf">confidence: low</span> <span class="vflag">&#9888; verification flagged claims</span></div><div class="section">
+
+&gt; This is Part 2 of the seventh CSP blind test organized by the CCDC, focusing specifically on methods for ranking crystal structures by stability. Standardized structure sets (seeded from various generation methods) were provided to 22 participating groups, who applied periodic DFT-D, machine learned potentials, empirical/quantum-derived force fields, combinations thereof, and one non-energy scoring function. The abstract reports that periodic DFT-D methods generally agreed with experiment within expected error margins, and that a system-specific AIMNet ML potential agreed with experiment in many cases as an efficient alternative. For target XXXII a DFT consensus placed experimental forms above 4 kJ/mol relative to the global minimum, suggesting an unobserved more stable polymorph. Free energy calculations at ambient temperature helped only in some cases (targets XXVII and XXXI).
+
+<b>Corpus:</b> tier A - `blind-test-7-part2` - source mode: metadata - confidence: <b>low</b> - FLAGGED - see below
+
+<h2>Contribution</h2>
+Provides a community-wide benchmark comparison of crystal structure ranking/energy methods on standardized seeded structure sets, assessing where periodic DFT-D, MLIPs, and force fields succeed or fail at reproducing experimentally observed polymorph stability orderings.
+
+<h2>Method</h2>
+Blind test format: standardized sets of candidate structures were generated and distributed; 22 groups ranked them by stability using periodic DFT-D methods, machine learned potentials (including system-specific AIMNet), empirical and QM-derived force fields, combinations, and one non-energy scoring function. Some groups computed free energies at ambient temperature. Specific protocols not available from abstract alone.
+
+<h2>Key results</h2>
+- Periodic DFT-D methods overall agreed with experimental data within expected error margins
+- A system-specific AIMNet machine learned potential agreed with experiment in many cases, presented as an efficient alternative to DFT
+- For target XXXII, periodic DFT methods reached consensus with experimental forms consistently above 4 kJ/mol relative to the global minimum at both low and ambient temperatures, suggesting a more stable polymorph is likely not yet observed
+- Ambient-temperature free energy calculations improved predictions only in some cases, specifically for targets XXVII and XXXI
+- 22 groups participated; one non-energy-based scoring function was used
+
+<h2>Limitations</h2>
+- Digest based on abstract/metadata only; no full text reviewed
+- Many methods used vast computational resources, with efficiency highlighted as a needed area of improvement
+- Free energy corrections helped in only a subset of targets, so ambient-temperature ranking remains inconsistent
+- Specific numerical rankings, per-target performance, and method-by-method breakdowns are not available from the abstract
+
+<h2>Takeaways</h2>
+- System-specific AIMNet potentials show promise as an efficient DFT alternative for crystal energy ranking - directly relevant to MLIP choices in GAtor
+- For target XXXII the observed polymorph sits &gt;4 kJ/mol above the predicted global minimum across DFT methods, a caution that CSP global minima may not be experimentally observed
+- Finite-temperature free energy corrections only sometimes reorder polymorphs correctly (XXVII, XXXI), reinforcing that entropy matters but is not a universal fix
+- Standardized seeded structure sets decouple generation from ranking, enabling fair comparison of ranking methods
+
+<h2>Relevance to GAtor 2.0</h2>
+Highly relevant: this is the ranking half of the CSP7 blind test, directly informing GAtor 2.0&#x27;s lattice-energy ranking strategy. The favorable AIMNet result connects to the group&#x27;s interest in MLIPs (AIMNet2, MACE-OFF, UMA); the DFT-D consensus relates to dispersion-inclusive DFT (PBE0+MBD); and the free-energy findings speak to finite-temperature stability. The standardized-seed design also relates to Genarris structure generation being separated from ranking.
+
+<h2>Linked concepts</h2>
+<span class="chip">csp-blind-tests</span> <span class="chip">lattice-energy-ranking</span> <span class="chip">dispersion-inclusive-dft</span> <span class="chip">machine-learned-interatomic-potentials</span> <a href="aimnet2.html">aimnet2</a> <span class="chip">finite-temperature-stability</span> <span class="chip">polymorphism</span>
+
+<h2>Verification flags</h2>
+
+&gt; Second-pass check found issues - read before trusting:
+
+I&#x27;ll check each claim in the digest against the abstract.
+
+<b>Checking key results and statements:</b>
+
+1. &quot;This is Part 2 of the seventh CSP blind test organized by the CCDC&quot; — Supported. Abstract says organized by CCDC, &quot;second part focusing on methods for ranking.&quot;
+
+2. &quot;Standardized structure sets (seeded from various generation methods) were provided to 22 participating groups&quot; — Supported. Abstract mentions &quot;standardized sets of structures seeded from a range of structure generation methods&quot; and &quot;Participants from 22 groups.&quot;
+
+3. &quot;periodic DFT-D, machine learned potentials, empirical/quantum-derived force fields, combinations thereof, and one non-energy scoring function&quot; — Supported.
+
+4. &quot;periodic DFT-D methods generally agreed with experiment within expected error margins&quot; — Supported.
+
+5. &quot;a system-specific AIMNet ML potential agreed with experiment in many cases as an efficient alternative&quot; — Supported. (Abstract spells it &quot;AIMnet.&quot;)
+
+6. &quot;For target XXXII a DFT consensus placed experimental forms above 4 kJ/mol relative to the global minimum, suggesting an unobserved more stable polymorph&quot; — Supported.
+
+7. &quot;Free energy calculations at ambient temperature helped only in some cases (targets XXVII and XXXI)&quot; — Supported.
+
+<b>Checking limitations and takeaways for overstatements:</b>
+
+8. Limitation: &quot;Many methods used vast computational resources, with efficiency highlighted as a needed area of improvement&quot; — Supported. Abstract: &quot;highlighting the need for greater efficiency considering the vast amounts of resources utilized in many cases.&quot;
+
+<b>Now checking the gator_relevance and other claims that add specifics not in the abstract:</b>
+
+9. gator_relevance: &quot;directly informing GAtor 2.0&#x27;s lattice-energy ranking strategy&quot; and references to &quot;AIMNet2, MACE-OFF, UMA,&quot; &quot;PBE0+MBD,&quot; &quot;Genarris&quot; — <b>These are external/inferential claims</b> about GAtor and specific methods (AIMNet2, MACE-OFF, UMA, PBE0+MBD, Genarris). None of these appear in the abstract. However, these are framed as relevance-to-the-reader&#x27;s-project claims rather than claims *about* the paper, so they are contextual annotations rather than factual assertions about the material&#x27;s content. They are not sourced from the material but are presented as relevance notes.
+
+10. concepts list includes &quot;aimnet2&quot; — The abstract mentions &quot;AIMnet,&quot; not &quot;AIMnet2.&quot; Labeling it as &quot;aimnet2&quot; is a slight extrapolation, but appears in the concepts/tags metadata, which is annotational.
+
+<b>Note on a subtle point:</b>
+
+The digest&#x27;s takeaway states &quot;the observed polymorph sits &gt;4 kJ/mol above the predicted global minimum across DFT methods.&quot; The abstract says &quot;experimental forms&quot; (plural) with &quot;consistently high predicted energies... above 4 kJ mol⁻¹.&quot; This is a faithful paraphrase.
+
+<b>Assessment:</b>
+
+The claims describing the paper&#x27;s actual content are all faithful to the abstract. The `gator_relevance` and `concepts` fields introduce specific method names (AIMNet2, MACE-OFF, UMA, PBE0+MBD, Genarris, GAtor 2.0) not present in the material, but these are explicitly framed as external relevance annotations for a specific project, not as claims about what the paper says. This is a judgment call: they are unsupported *by the material* but are clearly labeled as relevance/context rather than paper content.
+
+The one item worth flagging as an inconsistency with the source:
+
+- <b>&quot;aimnet2&quot;</b> (in concepts):
+</div></div></body></html>

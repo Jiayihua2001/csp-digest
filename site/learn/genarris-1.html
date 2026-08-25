@@ -1,0 +1,109 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Genarris: Random generation of molecular crystal structures and fast screening with a Harris approximation</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>Genarris: Random generation of molecular crystal structures and fast screening with a Harris approximation</h1><div class="meta">Xiayue Li, Farren S. Curtis, Timothy Rose, Christoph Schober, Alvaro Vazquez-Mayagoitia, Karsten Reuter &middot; The Journal of Chemical Physics (2018) &middot; 27 citations &middot; <a href="https://doi.org/10.1063/1.5014038" target="_blank">doi:10.1063/1.5014038</a> <span class="badge-group">our group</span> <span class="badge-conf">confidence: high</span> <span class="vflag">&#9888; verification flagged claims</span></div><div class="section">
+
+&gt; Genarris is a Python package for configuration-space screening of molecular crystals of rigid molecules. It generates random structures with physical constraints (symmetry, unit cell parameters, intermolecular close contacts) and screens them rapidly using a Harris approximation (HA), where the total crystal density is built by superposition of self-consistent single-molecule densities and DFT total energy is evaluated without a self-consistency cycle. The HA is implemented in FHI-aims using modified Wigner matrices to rotate NAO basis functions. Genarris introduces a relative coordinate descriptor (RCD) based on relative positions and orientations of neighboring molecules, and uses affinity propagation (AP) clustering for structure selection. Three workflows (Rigorous, Energy, Diverse) apply successive clustering/selection steps. The Diverse workflow is recommended for generating GA initial populations. Demonstrated on three past CSP blind test targets (II, XIII, XXII).
+
+<b>Corpus:</b> tier B - `genarris-1` - source mode: pdf - confidence: <b>high</b> - FLAGGED - see below
+
+<h2>Contribution</h2>
+First use of the Harris approximation for molecular crystal configuration-space screening (fragments = whole molecules), a new relative coordinate descriptor (RCD) tailored to capture molecular crystal packing motifs, and three standardized clustering/selection workflows packaged for generating diverse or low-energy structure pools (notably as GA seed populations for GAtor).
+
+<h2>Method</h2>
+Single molecule 3D coords optimized with PBE+TS (tight/tier 2 in FHI-aims). Unit cell volume estimated from 10 trial relaxations; random structures generated with user-defined space groups (Bilbao definitions), half-normal volume sampling, fuzzy sr close-contact criterion (fraction of sum of vdW radii). Molecule placed with uniform random orientation (unit-sphere axis) and random COM; closeness checks reject unphysical contacts. Fast energy via PBE+TS@Harris (Gamma-point, rigid molecules). Clustering via RCD (N=16 neighbors, orientation/position weighting k=1, M=8 matched entries) fed as distance matrix to affinity propagation (scikit-learn), tuned by preference to hit target silhouette scores. Validated HA on dimer binding-energy curves and on ranking of raw pools; compared RCD vs RDF and AP vs k-means. Final pools used as GAtor GA initial populations.
+
+<h2>Key results</h2>
+- HA dimer binding-energy error at equilibrium |dBE(xeq)| = 0.0740, 0.0049, 0.0288 eV for Targets II, XIII, XXII respectively; HA is non-variational so dBE(x) always negative and grows with decreasing distance.
+- For Target XXII raw pools (2000 P21/n structures), HA vs self-consistent PBE+TS binding-energy r^2 = 0.946, 0.960, 0.994 for sr=0.500, 0.625, 0.750; ranking r^2 = 0.976, 0.989, 0.979. Optimal at sr=0.625; sr=0.500 has unphysical N...N contacts (1.64, 1.80, 1.56 A).
+- RCD-based AP clustering outperformed RDF: grouped nearly all 69 duplicate pairs (Target II) up to 7 clusters, stronger correlation with space group, weaker with unit cell volume, and consistently higher silhouette scores that increase with cluster number.
+- AP clustering resolves isolated/under-sampled satellite clusters that k-means merges; identified a distinct low-a-parameter cluster (within 0.2 eV of global minimum) for Target XXII.
+- Rigorous workflow found the experimental structure for all three targets; Energy workflow yielded more duplicates (26, 4, 28 dup pairs for II, XIII, XXII) vs Rigorous (1, 7, 0); Diverse gave most uniform sampling. Table II reports unique structures and average RCD differences per workflow.
+- GA seeded from Diverse pool gave best performance, consistently finding experimental structures (#7 for II, #1 for XIII and XXII); Energy pool inconsistent; Random pool worst.
+- Raw pools: 5000 structures for Targets II and XIII, 10000 for Target XXII (conformational flexibility); all constrained to non-chiral space groups, Z=4, Z&#x27;=1; final pools 1% of raw (50, 50, 100).
+
+<h2>Limitations</h2>
+- Restricted to rigid molecules and Gamma-point calculations only; flexible molecules with bond-rotational degrees of freedom listed as future work.
+- HA fails when molecules are unphysically close (strong density overlap/repulsion not captured), requiring careful sr choice; HA accuracy also degrades when structures are very close in energy (e.g. sr=0.750).
+- HA does not capture hydrogen bonding, pi-pi, halogen dipole, or dipole-dipole density changes at close contact.
+- RCD clustering breaks down when the pool becomes too diverse (below ~5% of raw pool), forcing a purely energy-based final selection in the Rigorous workflow.
+- RCD requires user-defined reference axes (two atoms per molecule), introducing manual input; Z&#x27;=1 and Z=4 used throughout demonstrations.
+- GA runs were not exhaustive searches, limiting strength of GA-performance conclusions; Target XIII was an exception to duplicate trends (attributed to halogen bonds).
+- PBE+TS used for screening/ranking (not the more accurate PBE0+MBD, which is only used post-hoc via Ref 48 for representative-structure indexing).
+
+<h2>Takeaways</h2>
+- For GA seeding use the Genarris Diverse workflow (HA + RCD-AP clustering, exemplar selection) - it gives the most uniform coverage and best GA convergence to diverse low-energy motifs.
+- RCD is a packing-motif-sensitive descriptor (sensitive to space group, insensitive to volume) that beats RDF for de-duplication and cluster resolution; consider it or its successors for GAtor 2.0 niching/similarity.
+- Affinity propagation is preferable to k-means for preserving under-sampled/isolated clusters in configuration space - directly relevant to maintaining diversity/niching in GA populations.
+- The Harris approximation is a parameter-free, force-field-free fast pre-screen that ranks structures accurately (ranking r^2 ~0.98) as long as close contacts are excluded via a sensible sr; the sr sweet spot (~0.625) balances accuracy and diversity.
+- Enforce a minimum inter-atomic distance during generation to keep HA reliable; unphysical close contacts (e.g. N...N ~1.6 A) produce large negative HA energy errors and outliers.
+
+<h2>Relevance to GAtor 2.0</h2>
+This is the foundational Genarris (v1) paper from the Marom group and is the structure-generation front end for GAtor. It directly informs GAtor 2.0 on initial population generation (Diverse workflow recommended for GA seeding), the RCD descriptor and AP-clustering-based niching/diversity maintenance, fast HA-based pre-ranking to reduce DFT cost, and physical-constraint sampling with space groups/Wyckoff positions. Limitations (rigid molecules, Z&#x27;=1, Gamma-point, PBE+TS) mark exactly what later work and MLIPs must extend for flexible, Z&#x27;&gt;1, multi-component crystals and finite-temperature stability.
+
+<h2>Linked concepts</h2>
+<span class="chip">genetic-algorithm-csp</span> <span class="chip">molecular-crystal-structure-prediction</span> <span class="chip">harris-approximation</span> <span class="chip">relative-coordinate-descriptor</span> <span class="chip">affinity-propagation-clustering</span> <span class="chip">csp-blind-tests</span> <span class="chip">many-body-dispersion</span> <span class="chip">crystal-structure-descriptors</span>
+
+<h2>Verification flags</h2>
+
+&gt; Second-pass check found issues - read before trusting:
+
+I&#x27;ll re-read the material and check each claim in the digest against the source.
+
+<b>Checking key_results:</b>
+
+1. HA dimer errors (0.0740, 0.0049, 0.0288 eV) — Supported (page 14).
+
+2. Target XXII pools r² values — Supported. &quot;The r² scores for the BEs are 0.946, 0.960, and 0.994&quot; and &quot;The r² scores for the rankings are 0.976, 0.989, and 0.979&quot; and N···N distances &quot;1.64, 1.80 and 1.56 Å&quot; (page 15-16). Supported.
+
+3. Duplicate pairs — &quot;69 pairs of duplicates were found&quot; and &quot;RCD-AP grouped almost all the duplicate pairs together up to 7 clusters&quot; (page 18-19). Supported.
+
+4. AP resolving clusters, low-a cluster within 0.2 eV — Supported (page 17).
+
+5. Rigorous found experimental structure; duplicate pairs (26,4,28) vs (1,7,0) — From Table II: Energy dup pairs = 26, 4, 28; Rigorous = 1, 7, 0 (page 23). Supported.
+
+6. GA seeded from Diverse — Supported (page 27).
+
+7. Raw pools 5000/5000/10000, non-chiral, Z=4, Z&#x27;=1, final 50/50/100 — Supported (page 12).
+
+<b>Checking limitations and takeaways</b> — all appear consistent with text.
+
+<b>Now checking metadata/citations at the end of the digest:</b>
+
+The digest&#x27;s bibliographic footer states:
+- <b>&quot;Authors: Xiayue Li, Farren S. Curtis, Timothy Rose, Christoph Schober, Alvaro Vazquez-Mayagoitia, Karsten Reuter&quot;</b> — This omits <b>Harald Oberhofer and Noa Marom</b>, who are listed authors (page 1). Notably it omits the corresponding author, Noa Marom. This is an incomplete/inaccurate author list. However, this is a metadata footer, not a &quot;claim&quot; in the digest body per se—but it is a factual statement that is inaccurate (omits authors present in the source).
+
+<b>Checking one subtle claim in method:</b>
+
+&quot;Fast energy via PBE+TS@Harris (Gamma-point, rigid molecules).&quot; — Supported: &quot;The present implementation is restricted to Γ-point calculations of crystals of rigid molecules&quot; (page 7).
+
+<b>Checking takeaway:</b> &quot;the sr sweet spot (~0.625)&quot; — Supported: &quot;Optimal performance is obtained for sr=0.625.&quot;
+
+<b>Re-examining gator_relevance:</b> &quot;This is the foundational Genarris (v1) paper...&quot; The paper doesn&#x27;t call it &quot;v1&quot; but this is reasonable framing, not a factual misstatement about the source content.
+
+<b>Re-checking &quot;N...N ~1.6 A&quot; in takeaways</b> — distances given are 1.64, 1.80, 1.56 Å, so &quot;~1.6 A&quot; is a fair approximation. Supported.
+
+---
+
+<b>Findings:</b>
+
+1. <b>&quot;Authors: Xiayue Li, Farren S. Curtis, Timothy Rose, Christoph Schober, Alvaro Vazquez-Mayagoitia, Karsten Reuter&quot;</b> — Inaccurate/incomplete. The source (page 1) lists eight authors, including <b>Harald Oberhofer</b> and <b>Noa Marom</b> (the corresponding author, marked with footnote a). The digest&#x27;s author list drops these two, so it is unfaithful to the source.
+
+All substantive claims within the summary, contribution, method, key_results, limitations, and takeaways are faithful to the material. The only unsupported/inaccurate statement is the tru
+</div></div></body></html>

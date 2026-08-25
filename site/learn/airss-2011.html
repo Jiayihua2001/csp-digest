@@ -1,0 +1,90 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ab initio random structure searching</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>Ab initio random structure searching</h1><div class="meta">Chris J. Pickard, R. J. Needs &middot; Journal of Physics Condensed Matter (2011) &middot; 1253 citations &middot; <a href="https://doi.org/10.1088/0953-8984/23/5/053201" target="_blank">doi:10.1088/0953-8984/23/5/053201</a> <span class="badge-conf">confidence: low</span> <span class="vflag">&#9888; verification flagged claims</span></div><div class="section">
+
+&gt; This review paper by Pickard and Needs describes ab initio random structure searching (AIRSS), a method for predicting stable atomic arrangements of materials using first-principles electronic structure methods such as DFT. The central idea is to generate many random initial structures, relax them to local energy minima with DFT, and identify low-energy structures. The paper reviews applications across solids, point defects, surfaces, and clusters, and presents new results for iron clusters on graphene, silicon clusters, polymeric nitrogen, hydrogen-rich lithium hydrides, and boron. (Digest from abstract only.)
+
+<b>Corpus:</b> tier E - `airss-2011` - source mode: metadata - confidence: <b>low</b> - FLAGGED - see below
+
+<h2>Contribution</h2>
+Establishes and reviews AIRSS as a simple, general, and powerful DFT-based structure prediction approach, demonstrating its breadth across bulk solids, defects, surfaces, and clusters.
+
+<h2>Method</h2>
+Ab initio random structure searching: generate random initial structures (with sensible constraints such as reasonable volumes and minimum interatomic distances, per the general AIRSS methodology) and relax each to a local minimum using DFT, then rank by energy. Specific methodological details are not available from the abstract alone.
+
+<h2>Key results</h2>
+- No quantitative results are available from the abstract; it states that new results are presented for iron clusters on graphene, silicon clusters, polymeric nitrogen, hydrogen-rich lithium hydrides, and boron, but reports no numbers.
+
+<h2>Limitations</h2>
+- Digest based on abstract/metadata only; full methodological and quantitative details not accessible.
+- AIRSS relies on random sampling of the configuration space, which becomes expensive for large systems (implied by the method, not stated in abstract).
+- No explicit comparison to other CSP methods or benchmarks is stated in the abstract.
+
+<h2>Takeaways</h2>
+- AIRSS is a foundational, widely cited structure-search paradigm that contrasts with genetic-algorithm CSP by using random generation plus local relaxation rather than evolutionary operators.
+- The random-generation-with-constraints philosophy is directly relevant to structure generation strategies (e.g., Genarris-style random initial pools).
+- Demonstrated generality across solids, defects, surfaces, and clusters shows the approach transfers across problem classes.
+
+<h2>Relevance to GAtor 2.0</h2>
+AIRSS is a canonical baseline and philosophical counterpoint to genetic-algorithm CSP as used in GAtor. Its constrained random structure generation directly parallels Genarris-style initial pool creation, and its DFT relax-and-rank workflow is comparable to lattice-energy ranking pipelines. Useful as a reference method when framing GA operators/niching against random search. Note this material is molecular-crystal-agnostic (focused on inorganic solids, clusters, high-pressure hydrides) so relevance is methodological rather than direct.
+
+<h2>Linked concepts</h2>
+<span class="chip">crystal-structure-prediction</span> <span class="chip">genetic-algorithm-csp</span> <span class="chip">structure-generation</span> <span class="chip">dft-structure-relaxation</span> <span class="chip">random-structure-search</span>
+
+<h2>Verification flags</h2>
+
+&gt; Second-pass check found issues - read before trusting:
+
+Checking each claim against the abstract:
+
+<b>1.</b> Digest method claim: &quot;generate random initial structures (with sensible constraints such as reasonable volumes and minimum interatomic distances, per the general AIRSS methodology)&quot;
+
+- The abstract does not mention constraints, volumes, or minimum interatomic distances. This is imported from general AIRSS knowledge, not from the provided abstract. Overstated/unsupported by the source material. (The digest does hedge with &quot;per the general AIRSS methodology&quot; and notes details &quot;are not available from the abstract alone,&quot; which partially mitigates it, but the specific constraint details are still not in the source.)
+
+<b>2.</b> Method claim: &quot;relax each to a local minimum using DFT, then rank by energy.&quot;
+
+- The abstract says searching &quot;using first-principles electronic structure methods, such as DFT&quot; and describes AIRSS as an approach to searching for structures, but it does not explicitly state the &quot;relax to local minimum then rank by energy&quot; workflow. This is a reasonable inference but not directly supported by the abstract text.
+
+<b>3.</b> Summary: &quot;The central idea is to generate many random initial structures, relax them to local energy minima with DFT, and identify low-energy structures.&quot;
+
+- Same as above — the abstract does not spell out this procedure. It only names the method and says it&#x27;s a &quot;simple, elegant and powerful approach to searching for structures with DFT.&quot; Overstated relative to what the abstract actually says.
+
+<b>4.</b> Takeaway: &quot;contrasts with genetic-algorithm CSP by using random generation plus local relaxation rather than evolutionary operators.&quot;
+
+- The abstract makes no mention of genetic algorithms or evolutionary operators or any comparison to other CSP methods. Unsupported by the source (external knowledge).
+
+<b>5.</b> Takeaway/relevance: &quot;The random-generation-with-constraints philosophy is directly relevant to structure generation strategies (e.g., Genarris-style random initial pools)&quot; and the gator_relevance section referencing GAtor, Genarris, niching, lattice-energy ranking.
+
+- None of this is in the abstract. However, these appear in dedicated &quot;takeaways&quot;/&quot;gator_relevance&quot; fields which are explicitly framing/relevance commentary rather than claims about the paper&#x27;s content, so they are arguably out of scope for factual verification against the abstract. Still, the &quot;constraints&quot; framing repeats the unsupported constraint detail.
+
+<b>6.</b> Limitation: &quot;AIRSS relies on random sampling of the configuration space, which becomes expensive for large systems (implied by the method, not stated in abstract).&quot;
+
+- Correctly flagged as not stated in the abstract; self-labeled as implied. Acceptable.
+
+<b>7.</b> Summary describes &quot;hydrogen-rich lithium hydrides&quot; — abstract says &quot;hydrogen-rich lithium hydrides.&quot; Supported. Iron clusters on graphene, silicon clusters, polymeric nitrogen, boron — all supported.
+
+<b>Verdict:</b> The digest is largely faithful and appropriately hedges some inferences, but the following go beyond the abstract without adequate support:
+
+- The specific constraint details (&quot;reasonable volumes and minimum interatomic distances&quot;) — not in the abstract.
+- The explicit &quot;relax to local minima and rank by energy&quot; workflow stated as fact in the summary — the abstract does not describe this procedure.
+- &quot;contrasts with genetic-algorithm CSP ... rather than evolutionary operators&quot; — no basis in the abstract.
+
+These are unsupported/overstated relative to the source provided.
+</div></div></body></html>

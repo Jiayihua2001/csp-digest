@@ -1,0 +1,92 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Modelling organic crystal structures using distributed multipole and polarizability-based model intermolecular potentials</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>Modelling organic crystal structures using distributed multipole and polarizability-based model intermolecular potentials</h1><div class="meta">Sarah L. Price, Maurice Leslie, Gareth W. A. Welch, Matthew Habgood, Louise S. Price, P.G. Karamertzanis &middot; Physical Chemistry Chemical Physics (2010) &middot; 327 citations &middot; <a href="https://doi.org/10.1039/c004164e" target="_blank">doi:10.1039/c004164e</a> <span class="badge-conf">confidence: low</span> <span class="vflag">&#9888; verification flagged claims</span></div><div class="section">
+
+&gt; This paper describes DMACRYS, a crystal lattice simulation program designed for organic crystal structure prediction (CSP), particularly for pharmaceutical molecules. The program uses anisotropic atom-atom model intermolecular potentials grounded in the theory of intermolecular forces, including distributed multipole electrostatics, anisotropic repulsion, damped dispersion, and a newly implemented induction (polarizability-based) energy contribution. It can optimize lattice energies, compute second-derivative properties (elastic tensor, terahertz k=0 rigid-body lattice modes for free-energy estimation), and reduce spacegroup symmetry to escape transition states. The authors demonstrate the method on the four polymorphs of carbamazepine, showing that while reproducing structures is relatively easy, reaching the few kJ/mol accuracy needed for polymorph energy ranking is very demanding. Working from abstract only.
+
+<b>Corpus:</b> tier D - `dmacrys-2010` - source mode: metadata - confidence: <b>low</b> - FLAGGED - see below
+
+<h2>Contribution</h2>
+Presents the DMACRYS lattice simulation program and, as a new feature, an accurate induction-energy model using atomic anisotropic dipole polarizabilities to capture crystal-field-induced changes in molecular charge density, enabling more accurate anisotropic atom-atom lattice energy calculations for CSP.
+
+<h2>Method</h2>
+Anisotropic atom-atom model intermolecular potentials based on intermolecular force theory: distributed multipole electrostatic model (multipoles Q up to rank 4, t=00...44s), anisotropic atom-atom repulsion, damped isotropic dispersion up to R^-10, empirically fitted isotropic exp-6 atom-atom models, and a new induction term via atomic anisotropic dipole polarizability models. Lattice energy optimization, second-derivative properties (elastic tensor, terahertz rigid-body lattice modes for free energies), and symmetry reduction to move off transition states. Validated on carbamazepine (C15H12N2O) polymorphs.
+
+<h2>Key results</h2>
+- Demonstrated on the four polymorphs of carbamazepine (C15H12N2O)
+- Reproducing crystal structures is described as relatively easy, but computing polymorphic energy differences to the required accuracy of a few kJ/mol is very demanding of the modelling assumptions
+- No specific numerical energy or RMSD values are provided in the abstract
+
+<h2>Limitations</h2>
+- Achieving the few kJ/mol accuracy needed for pharmaceutical applications is highly sensitive to modelling assumptions
+- Digest based on abstract only - full quantitative results, computational cost, and comparisons not available
+- Approach relies on rigid-body treatment for lattice modes and free energies
+- Method predates and does not use dispersion-inclusive DFT (e.g. PBE0+MBD) or MLIPs
+
+<h2>Takeaways</h2>
+- DMACRYS provides an anisotropic atom-atom force-field alternative for the lattice-energy ranking stage of CSP, relevant as a classical baseline versus modern DFT/MLIP ranking in GAtor 2.0
+- The induction/polarizability contribution is highlighted as important for accurate lattice energies
+- Terahertz k=0 lattice modes and elastic tensor enable free-energy estimates, relevant to finite-temperature stability work
+- Carbamazepine polymorphs serve as a benchmark showing energy ranking to few kJ/mol is the hard part, not structure reproduction
+
+<h2>Relevance to GAtor 2.0</h2>
+Relevant as a historical/classical lattice-energy ranking tool for organic CSP that GAtor&#x27;s pipeline could contrast against. The emphasis that structure generation/reproduction is easy while few-kJ/mol energy ranking is the bottleneck directly motivates high-accuracy ranking (PBE0+MBD, MLIPs) in GAtor 2.0. The rigid-body terahertz lattice modes for free-energy estimation connect to finite-temperature stability interests. Distributed multipoles and polarizability models are descriptor/potential ingredients of possible interest.
+
+<h2>Linked concepts</h2>
+<span class="chip">crystal-structure-prediction</span> <span class="chip">lattice-energy-ranking</span> <span class="chip">many-body-dispersion</span> <span class="chip">distributed-multipoles</span> <span class="chip">polymorphism</span> <span class="chip">finite-temperature-stability</span>
+
+<h2>Verification flags</h2>
+
+&gt; Second-pass check found issues - read before trusting:
+
+Checking each claim against the abstract:
+
+<b>Summary claims:</b>
+
+1. &quot;including distributed multipole electrostatics, anisotropic repulsion, damped dispersion, and a newly implemented induction (polarizability-based) energy contribution&quot; — Supported.
+
+2. &quot;compute second-derivative properties (elastic tensor, terahertz k=0 rigid-body lattice modes for free-energy estimation)&quot; — Supported.
+
+3. &quot;reduce spacegroup symmetry to escape transition states&quot; — Supported.
+
+<b>Method claims:</b>
+
+4. &quot;multipoles Q up to rank 4, t=00...44s&quot; — The abstract says &quot;(Q, t = 00,...,44s)&quot;. Calling this &quot;up to rank 4&quot; is a reasonable interpretation (44 index implies rank 4), though the abstract does not explicitly say &quot;rank 4.&quot; Mild inference but consistent.
+
+<b>Limitations:</b>
+
+5. &quot;Method predates and does not use dispersion-inclusive DFT (e.g. PBE0+MBD) or MLIPs&quot; — <b>Overstated/fabricated.</b> The abstract makes no comparison to DFT or MLIPs and says nothing about the method &quot;predating&quot; these. This is an inference not supported by the material.
+
+<b>Takeaways / gator_relevance:</b>
+
+6. &quot;relevant as a classical baseline versus modern DFT/MLIP ranking in GAtor 2.0&quot; — <b>Unsupported.</b> Nothing in the paper mentions GAtor, GAtor 2.0, DFT, or MLIP ranking. This is external framing not in the material.
+
+7. &quot;directly motivates high-accuracy ranking (PBE0+MBD, MLIPs) in GAtor 2.0&quot; — <b>Unsupported/fabricated.</b> No mention of PBE0+MBD, MLIPs, or GAtor in the abstract.
+
+8. gator_relevance section generally — This is framing external to the paper; it is speculative but labeled as relevance rather than as paper claims, so it&#x27;s acceptable as commentary. However specific technical claims within it (GAtor pipeline contrast) go beyond the source.
+
+<b>Concepts:</b>
+
+9. &quot;many-body-dispersion&quot; — <b>Unsupported.</b> The abstract describes &quot;damped isotropic dispersion up to R(-10),&quot; not many-body dispersion. Many-body dispersion (MBD) is a distinct concept not mentioned.
+
+<b>Key results and other claims:</b> The carbamazepine demonstration, &quot;reproducing structures relatively easy but few kJ/mol very demanding,&quot; &quot;no numerical values in abstract,&quot; rigid-body treatment, and confidence &#x27;low&#x27; are all supported.
+
+<b>Verdict:</b> Several claims are unsupported or fabricated (items 5, 6, 7, and the &quot;many-body-dispersion&quot; concept), primarily where the digest imports GAtor/DFT/MLIP context and MBD that are absent from the abstract.
+</div></div></body></html>

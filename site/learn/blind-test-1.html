@@ -1,0 +1,100 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>A test of crystal structure prediction of small organic molecules</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>A test of crystal structure prediction of small organic molecules</h1><div class="meta">Jos P. M. Lommerse, W.D.S. Motherwell, Herman L. Ammon, Jack D. Dunitz, A. Gavezzotti, Detlef W. M. Hofmann &middot; Acta Crystallographica Section B Structural Science (2000) &middot; 445 citations &middot; <a href="https://doi.org/10.1107/s0108768100004584" target="_blank">doi:10.1107/s0108768100004584</a> <span class="badge-conf">confidence: low</span> <span class="vflag">&#9888; verification flagged claims</span></div><div class="section">
+
+&gt; This is the report on the first CCDC blind test of crystal structure prediction, held as a collaborative workshop in May 1999 at the Cambridge Crystallographic Data Centre. Given only atomic connectivity for four small organic compounds, 11 participants using a range of available CSP programs each submitted up to three predicted structures per compound. Only seven submitted structures were judged &#x27;correct&#x27; (close to an experimental structure), and no single program was consistently reliable. The paper diagnoses that lattice-energy-based CSP is fundamentally limited by the presence of many structures within a few kJ/mol of the global minimum, so force-field details and parametrization strongly affect ranking.
+
+<b>Corpus:</b> tier A - `blind-test-1` - source mode: metadata - confidence: <b>low</b> - FLAGGED - see below
+
+<h2>Contribution</h2>
+Established the first organized, community-wide blind test of CSP for small organic molecules, providing a benchmark and honest assessment of the state of the field circa 1999. Framed the central difficulty that would dominate CSP for decades: dense energy landscapes with many near-degenerate structures near the global minimum.
+
+<h2>Method</h2>
+Blind test format: four target compounds selected, atomic connectivity provided to participants, no experimental structures revealed. Each of 11 participants allowed to submit at most three candidate structures per compound using their own CSP methodologies (principal computer programs of the time). Submissions compared against known experimental crystal structures and classified as correct or not.
+
+<h2>Key results</h2>
+- 11 participants, 4 target compounds, at most 3 proposed structures allowed per compound per participant
+- Seven proposed structures were classified as &#x27;correct&#x27; (close to an experimental structure) across the whole test
+- No program gave consistently reliable results
+- One of the compounds had two polymorphs, but only one polymorph was predicted correctly among the calculated structures
+- Many candidate structures were found within a few kJ/mol of the global minimum, making energy ranking highly sensitive to force-field methodology and parametrization
+
+<h2>Limitations</h2>
+- Digest based on abstract/metadata only; specific compounds, methods, and per-compound success breakdown not available here
+- Lattice-energy-based methods cannot reliably discriminate the true structure when many structures lie within a few kJ/mol of the minimum
+- Force-field detail and parametrization dominate ranking, indicating energy models of the era were not accurate enough
+- Small sample (four compounds, small organic molecules only) limits generality
+- Reflects circa-1999 methods; predates modern dispersion-inclusive DFT and MLIP approaches
+
+<h2>Takeaways</h2>
+- This is the origin point (CSP2000) of the CCDC blind test series that GAtor and modern CSP methods are ultimately benchmarked against
+- The core diagnosis - many structures within a few kJ/mol of the global minimum - motivates the need for high-accuracy ranking energetics such as PBE0+MBD in GAtor 2.0
+- Even when the correct structure is generated, ranking is the bottleneck; polymorph discrimination was already recognized as hard here
+- Provides historical baseline: seven correct out of a limited pool shows how immature reliable CSP was, useful for framing progress narratives
+
+<h2>Relevance to GAtor 2.0</h2>
+Directly relevant as the founding blind test in the CSP blind-test series that GAtor targets. The paper&#x27;s central lesson - dense low-energy landscapes and ranking sensitivity to force fields - is exactly the problem GAtor 2.0 addresses via dispersion-inclusive DFT (PBE0+MBD) ranking and, increasingly, MLIPs. Useful historical citation for motivating accurate lattice-energy ranking and for contextualizing later blind tests.
+
+<h2>Linked concepts</h2>
+<span class="chip">csp-blind-tests</span> <span class="chip">genetic-algorithm-csp</span> <span class="chip">lattice-energy-ranking</span> <span class="chip">many-body-dispersion</span> <span class="chip">polymorphism</span> <span class="chip">crystal-structure-prediction</span>
+
+<h2>Verification flags</h2>
+
+&gt; Second-pass check found issues - read before trusting:
+
+I&#x27;ll check each claim in the digest against the abstract and metadata.
+
+<b>Claims that are accurate:</b>
+- 11 participants, 4 compounds, at most 3 structures per compound — supported.
+- Seven proposed structures classified as &quot;correct&quot; — supported.
+- No program consistently reliable — supported.
+- One compound in two polymorphs, only one predicted correctly — supported.
+- Many structures within a few kJ/mol of global minimum — supported.
+- Force-field detail/parametrization influences ranking — supported.
+
+<b>Unsupported / overstated / fabricated claims:</b>
+
+1. <b>&quot;CSP2000&quot;</b> (in takeaways): *&quot;This is the origin point (CSP2000) of the CCDC blind test series...&quot;* — The name &quot;CSP2000&quot; is not in the abstract or metadata. This is an external label; presented as if from the source. Overstated/unsupported by the material provided.
+
+2. <b>GAtor references</b> — The digest repeatedly ties this to GAtor:
+   - *&quot;the CCDC blind test series that GAtor and modern CSP methods are ultimately benchmarked against&quot;*
+   - *&quot;high-accuracy ranking energetics such as PBE0+MBD in GAtor 2.0&quot;*
+   - *&quot;the problem GAtor 2.0 addresses via dispersion-inclusive DFT (PBE0+MBD) ranking and, increasingly, MLIPs&quot;*
+   
+   None of this is in the source material. The paper (2000) predates GAtor; these are the digest author&#x27;s external framing, not claims supported by the material. Flagged as fabricated relative to the source (though they are framing/relevance rather than claims about the paper&#x27;s content).
+
+3. <b>&quot;small organic compounds&quot; / &quot;four small organic compounds&quot;</b> (summary) — The abstract says &quot;an organic compound&quot; and &quot;four compounds,&quot; and the title says &quot;small organic molecules.&quot; &quot;Small&quot; is supported by the title, so this is acceptable.
+
+4. <b>&quot;held as a collaborative workshop in May 1999 at the Cambridge Crystallographic Data Centre&quot;</b> — supported.
+
+5. <b>&quot;The paper diagnoses that lattice-energy-based CSP is fundamentally limited&quot;</b> — The abstract says &quot;The basic problem with lattice energy based methods... is that many structures are found within a few kJ mol(-1) of the global minimum.&quot; &quot;Fundamentally limited&quot; is a reasonable paraphrase; acceptable.
+
+6. <b>&quot;honest assessment of the state of the field circa 1999&quot;</b> (contribution) — &quot;honest assessment&quot; is editorializing but broadly consistent with the abstract&#x27;s tone; mild.
+
+7. <b>&quot;predates modern dispersion-inclusive DFT and MLIP approaches&quot;</b> (limitations) — External claim, not from the source, but historically framing rather than a claim about paper content.
+
+8. <b>Omission note:</b> The digest omits the abstract&#x27;s final positive point that *&quot;present methods may be useful in providing a set of structures as possible polymorphs.&quot;* Not a false claim, but the digest&#x27;s takeaway *&quot;seven correct out of a limited pool shows how immature reliable CSP was&quot;* one-sidedly overstates the negative relative to the abstract&#x27;s more balanced conclusion.
+
+<b>Summary of the most problematic items (external content presented within the digest of the paper):</b>
+- The &quot;CSP2000&quot; label — unsupported.
+- All GAtor / GAtor 2.0 / PBE0+MBD / MLIP claims — not in the source material (fabricated relative to the provided material; they are the digest author&#x27;s external relevance framing).
+
+These appear in the `takeaways` and `gator_relevance` fields, which are framing sections; the strictly paper-derived fields (`key_results`, `method`, `limitations` items 1–4) are faithful.
+</div></div></body></html>

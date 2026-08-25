@@ -1,0 +1,86 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>AIMNet2: a neural network potential to meet your neutral, charged, organic, and elemental-organic needs</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>AIMNet2: a neural network potential to meet your neutral, charged, organic, and elemental-organic needs</h1><div class="meta">Dylan M. Anstine, R.I. Zubatyuk, Olexandr Isayev &middot; Chemical Science (2025) &middot; 121 citations &middot; <a href="https://doi.org/10.1039/d4sc08572h" target="_blank">doi:10.1039/d4sc08572h</a> <span class="badge-conf">confidence: low</span> <span class="vflag">&#9888; verification flagged claims</span></div><div class="section">
+
+&gt; AIMNet2 is a neural network interatomic potential trained at a hybrid DFT level of theory that combines ML-parameterized short-range interactions with physics-based long-range terms (electrostatics and dispersion). The stated goal is broad chemical generalizability spanning neutral and charged species, simple organics, and molecules with exotic element-organic bonding, without needing to curate new quantum chemical data and retrain for each new application. Per the abstract, it outperforms semi-empirical GFN2-xTB and performs on par with reference DFT across interaction energies, conformer search, torsion rotation profiles, and geometry optimization from molecules to macromolecules. This digest is based on title and abstract only.
+
+<b>Corpus:</b> tier G - `aimnet2` - source mode: metadata - confidence: <b>low</b> - FLAGGED - see below
+
+<h2>Contribution</h2>
+Introduces AIMNet2, a transferable MLIP claimed to cover neutral, charged, organic, and element-organic chemistry with a hybrid short-range ML plus long-range physics model, reducing the need for application-specific retraining.
+
+<h2>Method</h2>
+Not described in detail in the available material. Abstract indicates a hybrid architecture: ML-parameterized short-range terms plus physics-based long-range terms, trained against hybrid DFT reference data. Explicit charge/electrostatics handling is implied by charged-species support but specifics are not available.
+
+<h2>Key results</h2>
+- Abstract claims AIMNet2 outperforms semi-empirical GFN2-xTB (no numbers provided)
+- Abstract claims AIMNet2 is on par with reference DFT for interaction energy contributions, conformer search, torsion rotation profiles, and molecular-to-macromolecular geometry optimization (no quantitative metrics available)
+- No specific error metrics, dataset sizes, or benchmark numbers are available from the metadata
+
+<h2>Limitations</h2>
+- Full text not available; all claims are from the abstract and cannot be verified quantitatively
+- No reported error bars, RMSDs, or benchmark scores in the available material
+- Coverage of periodic/crystalline systems and lattice-energy ranking not addressed in the abstract
+- Extent of charged-species accuracy and specific elements covered not detailed in available text
+
+<h2>Takeaways</h2>
+- AIMNet2 is a candidate general-purpose MLIP that explicitly targets charged and element-organic systems, potentially useful for diverse molecular crystal chemistries
+- The hybrid short-range ML plus long-range physics design (electrostatics + dispersion) is relevant to dispersion-inclusive energy ranking workflows
+- Claimed DFT-parity for conformers, torsions, and geometry optimization suggests possible use for structure relaxation prefiltering, but this must be confirmed against full text and crystal benchmarks
+
+<h2>Relevance to GAtor 2.0</h2>
+For GAtor 2.0, AIMNet2 is a candidate MLIP (alongside MACE-OFF and UMA) for fast relaxation and ranking of GA-generated molecular crystal structures. Its explicit support for charged and element-organic species could matter for multi-component and salt/cocrystal CSP, and its physics-based long-range dispersion term aligns with dispersion-inclusive ranking. However, the abstract addresses molecular and macromolecular tasks, not periodic crystals or lattice-energy ranking, so applicability to CSP requires validation beyond this material.
+
+<h2>Linked concepts</h2>
+<span class="chip">machine-learned-interatomic-potentials</span> <span class="chip">many-body-dispersion</span> <span class="chip">molecular-crystal-csp</span> <span class="chip">lattice-energy-ranking</span> <span class="chip">geometry-optimization</span>
+
+<h2>Verification flags</h2>
+
+&gt; Second-pass check found issues - read before trusting:
+
+Let me check each claim in the digest against the abstract and metadata.
+
+<b>Issues found:</b>
+
+1. <b>Title mismatch in concepts/framing — &quot;many-body-dispersion&quot; concept tag.</b> The abstract only says &quot;physics-based long-range terms.&quot; The digest&#x27;s summary/method describes long-range terms as &quot;(electrostatics and dispersion).&quot; The abstract does not specify what the long-range physics terms are — it only says &quot;physics-based long-range terms.&quot; The claim that these are specifically &quot;electrostatics and dispersion&quot; is <b>unsupported</b> by the abstract text provided. This appears multiple times:
+   - Summary: &quot;physics-based long-range terms (electrostatics and dispersion)&quot;
+   - Method: no direct issue, but &quot;Explicit charge/electrostatics handling is implied&quot; is appropriately hedged
+   - Takeaways: &quot;long-range physics design (electrostatics + dispersion)&quot; — <b>unsupported/overstated</b> (abstract does not name electrostatics or dispersion).
+   - Concept tag &quot;many-body-dispersion&quot; — <b>fabricated</b>; nothing in the abstract mentions dispersion, let alone many-body dispersion.
+
+2. <b>&quot;element-organic&quot; vs &quot;elemental-organic&quot;.</b> The title says &quot;elemental-organic needs&quot; and abstract says &quot;element-organic bonding.&quot; The digest uses &quot;element-organic bonding&quot; (matches abstract) — this is fine.
+
+3. <b>Summary/takeaways about molecular crystals.</b> The GAtor relevance and takeaways sections appropriately hedge (&quot;could matter,&quot; &quot;requires validation,&quot; &quot;not addressed in the abstract&quot;). These are framed as speculation, not claims about the paper, so acceptable.
+
+4. <b>&quot;trained at a hybrid DFT level of theory.&quot;</b> Abstract says &quot;hybrid DFT level of theory quantum chemical calculations.&quot; Supported.
+
+5. <b>Key results</b> — GFN2-xTB outperformance and DFT parity for the four listed tasks: all match the abstract. The &quot;no numbers provided&quot; caveats are accurate.
+
+6. <b>Venue/DOI/authors</b> match the metadata.
+
+<b>Summary of unsupported claims:</b>
+
+- &quot;physics-based long-range terms <b>(electrostatics and dispersion)</b>&quot; — the abstract only says &quot;physics-based long-range terms&quot; and never specifies electrostatics or dispersion.
+- Takeaway: &quot;The hybrid short-range ML plus long-range physics design <b>(electrostatics + dispersion)</b>&quot; — same unsupported specification.
+- GAtor relevance: &quot;its <b>physics-based long-range dispersion term</b> aligns with dispersion-inclusive ranking&quot; — asserts a dispersion term the abstract does not mention.
+- Concept tag &quot;<b>many-body-dispersion</b>&quot; — fabricated; no dispersion (let alone many-body) mentioned in the abstract.
+
+All other claims are faithful to the provided material.
+</div></div></body></html>

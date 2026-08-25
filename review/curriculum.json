@@ -1,0 +1,189 @@
+{
+ "stages": [
+  {
+   "title": "The Field and Its Benchmark",
+   "goal": "What is CSP, and how does the community objectively measure progress?",
+   "why_now": "Before touching any method, you need the blind-test spine that frames every claim in the field and against which GAtor 2.0 will ultimately be measured.",
+   "items": [
+    {
+     "slug": "blind-test-1",
+     "why": "See the origin of the objective CSP benchmark and the early lesson that generation could hit the target while ranking failed."
+    },
+    {
+     "slug": "blind-test-4",
+     "why": "Understand the turning point where small rigid molecules became routinely solvable and the first cocrystal target appeared."
+    },
+    {
+     "slug": "blind-test-6",
+     "why": "Read the largest, most comprehensive test documenting vdW-DFT, hierarchical workflows, and free-energy corrections becoming standard."
+    }
+   ],
+   "gator_note": "These tests define the success criteria and hard-case categories (Z'>1, multi-component, flexible) that GAtor 2.0 must eventually beat."
+  },
+  {
+   "title": "The Most Recent Verdict",
+   "goal": "Where does the field stand right now on generation vs ranking, and how do MLIPs compare to periodic DFT-D?",
+   "why_now": "Completing the blind-test spine with the newest cycle before diving into methods gives you the current frontier lines directly.",
+   "items": [
+    {
+     "slug": "blind-test-7-part1",
+     "why": "Learn how the seventh test split out structure generation and added coordination complexes, PXRD-assisted CSP, and blind disorder prediction."
+    },
+    {
+     "slug": "blind-test-7-part2",
+     "why": "See the ranking half benchmark MLIPs against periodic DFT-D, directly relevant to GAtor's MLIP acceleration plans."
+    },
+    {
+     "slug": "bowskill-review-2021",
+     "why": "Get a synthesizing review that organizes the state of the art around the blind-test history."
+    }
+   ],
+   "gator_note": "Part 2's MLIP-vs-DFT-D benchmarking sets the accuracy bar for using MACE-OFF/AIMNet2/UMA inside GAtor 2.0's ranking ladder."
+  },
+  {
+   "title": "The Marom-Group Backbone: Search Engines",
+   "goal": "How do GA and random-generation search engines produce candidate crystals, and where does the group's own line sit?",
+   "why_now": "Now that the benchmark is clear, study the generation stage and your own group's tools that GAtor 2.0 directly extends.",
+   "items": [
+    {
+     "slug": "gator-2018",
+     "why": "This is GAtor itself: read the molecular-crystal breeding operators and ML evolutionary niching you are rebuilding for 2.0."
+    },
+    {
+     "slug": "genarris-2",
+     "why": "Understand the MPI-parallel generator with ML volume estimation and special Wyckoff positions that seeds GAtor pools."
+    },
+    {
+     "slug": "uspex-2006",
+     "why": "Compare GAtor's GA design against the canonical evolutionary CSP algorithm."
+    },
+    {
+     "slug": "airss-2011",
+     "why": "See the competing random-with-constraints philosophy that motivates Genarris-style generation."
+    }
+   ],
+   "gator_note": "This is the generation half of GAtor's generation/ranking junction: operators, niching, and Genarris seed pools are the core of 2.0."
+  },
+  {
+   "title": "Generation Frontiers and Symmetry",
+   "goal": "How do generators handle close-packing, symmetry, and arbitrary Z'?",
+   "why_now": "Having the backbone, extend it with the newest generation methods and symmetric trial-structure tools relevant to Z'>1.",
+   "items": [
+    {
+     "slug": "genarris-3",
+     "why": "Read the Rigid Press close-packing and MACE-OFF/DFT clustering down-selection that bridges generation to MLIP screening."
+    },
+    {
+     "slug": "genarris-1",
+     "why": "Ground yourself in the Harris-approximation screening and relative-coordinate descriptor with affinity-propagation clustering."
+    },
+    {
+     "slug": "pyxtal-2021",
+     "why": "See symmetric trial-structure generation with arbitrary Z' support directly useful for GAtor's Z'>1 goals."
+    }
+   ],
+   "gator_note": "Rigid Press and PyXtal's arbitrary-Z' generation feed directly into GAtor 2.0's push toward Z'>1 and multi-component seed pools."
+  },
+  {
+   "title": "The Ranking Bottleneck: Dispersion-Inclusive DFT",
+   "goal": "How did the field reach the PBE0+MBD gold standard for ranking near-degenerate polymorphs?",
+   "why_now": "Generation feeds ranking; polymorphs differ by <1 kcal/mol, so this is the accuracy-limited stage GAtor's re-ranking ladder targets.",
+   "items": [
+    {
+     "slug": "ts-vdw-2009",
+     "why": "Learn the density-derived pairwise TS dispersion scheme that starts the accurate-ranking lineage."
+    },
+    {
+     "slug": "mbd-2012",
+     "why": "Understand many-body dispersion, the key correction beyond pairwise for molecular crystals."
+    },
+    {
+     "slug": "hoja-pbe0-mbd-2019",
+     "why": "Study the hierarchical PBE0+MBD+F_vib protocol that recovered rank-1 experimental structures in blind test 6."
+    },
+    {
+     "slug": "beran-review-2016",
+     "why": "Survey the broader electronic-structure toolkit (periodic DFT/MP2, fragment methods, DMC) around the dispersion lineage."
+    }
+   ],
+   "gator_note": "PBE0+MBD is GAtor 2.0's accuracy target; the hierarchical protocol is the model for its dispersion-inclusive re-ranking ladder."
+  },
+  {
+   "title": "Hard Systems: Z'>1, Salts, Cocrystals, Flexibility",
+   "goal": "Why do multi-component, high-Z', and flexible crystals defeat CSP, and how are they attacked?",
+   "why_now": "With generation and ranking mastered, confront the system classes that define GAtor 2.0's open frontiers.",
+   "items": [
+    {
+     "slug": "high-z-prime-2015",
+     "why": "Get the organizing framework for high-Z' crystals in relation to cocrystals and inclusion compounds."
+    },
+    {
+     "slug": "crystalpredictor",
+     "why": "See early connectivity-only search reaching Z'>1 and less-common space groups."
+    },
+    {
+     "slug": "envxgen",
+     "why": "Study partial-information CSP where part of the cell is fixed, relevant to cocrystal-host and heavy-atom cases."
+    },
+    {
+     "slug": "dmacrys-2010",
+     "why": "Understand anisotropic potentials applied to flexible pharmaceutical polymorphs like carbamazepine."
+    }
+   ],
+   "gator_note": "These define the multi-component and Z'>1 targets GAtor 2.0 aims to handle; EnvXGen's fixed-environment idea maps onto GAtor's operator design."
+  },
+  {
+   "title": "Finite-Temperature Stability: From Lattice Energy to Free Energy",
+   "goal": "When and how does vibrational entropy re-rank polymorphs at experimental conditions?",
+   "why_now": "Static ranking is not the final answer; free energy is GAtor's frontier once generation and ranking are solid.",
+   "items": [
+    {
+     "slug": "nyman-day-free-energy-2016",
+     "why": "Quantify static-vs-vibrational energy differences and the ~21% enantiotropic re-ranking rate across 500+ pairs."
+    },
+    {
+     "slug": "aspirin-anharmonicity-2014",
+     "why": "See MBD-phonon coupling break the lattice-energy degeneracy of aspirin forms I and II via entropy."
+    },
+    {
+     "slug": "firaha-nature-2023",
+     "why": "Study solid-solid free-energy differences with error bars under temperature and humidity, unifying anhydrate and hydrate landscapes."
+    },
+    {
+     "slug": "price-review-2014",
+     "why": "Get the CSP_0/CSP_thd/CSP_aim framing of the gap between lattice-energy minimization and actionable prediction."
+    }
+   ],
+   "gator_note": "Free-energy re-ranking and MBD-phonon coupling define how GAtor 2.0's ranked landscapes must eventually become thermodynamically actionable."
+  },
+  {
+   "title": "The ML Frontier: MLIP-Accelerated Pipelines",
+   "goal": "Can machine-learned potentials replace or accelerate the DFT stages end to end?",
+   "why_now": "Last, the current frontier: the MLIPs that will accelerate GAtor 2.0's relaxation and ranking, now that you know what accuracy they must match.",
+   "items": [
+    {
+     "slug": "mace-off",
+     "why": "Learn the transferable short-range organic MLIP already used in Genarris 3.0 down-selection."
+    },
+    {
+     "slug": "aimnet2",
+     "why": "Study the hybrid short-range-ML plus long-range-physics model covering charged and element-organic chemistry."
+    },
+    {
+     "slug": "group16-aimnet2-blindtest",
+     "why": "See target-specific potentials trained on gas-phase n-mers transfer to crystalline environments in a blind test."
+    },
+    {
+     "slug": "fastcsp",
+     "why": "Examine an end-to-end workflow driven by a single universal MLIP (UMA) with OMC->OMol conformer correction, eliminating FF pre-screening and DFT re-ranking."
+    },
+    {
+     "slug": "wengert-delta-ml-2021",
+     "why": "Understand Delta-ML correcting a DFTB baseline with cluster-trained ML as an alternative acceleration strategy."
+    }
+   ],
+   "gator_note": "MACE-OFF, AIMNet2, and UMA are exactly the potentials GAtor 2.0 will use to accelerate relaxation and ranking while targeting PBE0+MBD accuracy."
+  }
+ ],
+ "closing_note": "This path walks the group's spine: blind tests set the benchmark, generation (GAtor/Genarris) and dispersion ranking form the Marom backbone, then hard systems and finite-T mark GAtor 2.0's open frontiers, with MLIPs as the accelerating endgame. Cross-reference beran-frontiers-2023, nyman-day-statistics-2015, day-review-2011, price-overprediction, hoja-mcsp-polymorphs, acm-molecular-crystals, neumann-tailormade-ff-2005, grace-angew-2008, blind-tests 2/3/5, and facts-fictions-polymorphism as you go deeper; karpathy_llm-wiki is off-topic for this curriculum."
+}

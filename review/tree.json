@@ -1,0 +1,122 @@
+{
+ "branches": [
+  {
+   "key": "history",
+   "overview": "The CCDC blind tests are the field's recurring objective benchmark for CSP, running from the first workshop in 1999 through the seventh cycle reported in 2024. The early tests (1-3) documented that structure generation could often capture the experimental structure while lattice-energy ranking was the bottleneck, and that flexible molecules and Z'=2 targets were unsolved. Test 4 marked a turning point with dramatically higher success rates on small rigid molecules and the first cocrystal target; test 5 recognized dispersion-corrected DFT as a reliable ranking method and added a 1:1 salt and polymorphic hydrate; test 6 was the largest to date with salt-hydrate and large flexible targets, documenting the rise of vdW-inclusive DFT, hierarchical workflows, and free-energy corrections. The seventh test split into structure-generation and structure-ranking reports, adding coordination complexes, PXRD-assisted CSP, cocrystal stoichiometry, and blind disorder prediction, and benchmarked MLIPs against periodic DFT-D.",
+   "papers": [
+    "blind-test-1",
+    "blind-test-2",
+    "blind-test-3",
+    "blind-test-4",
+    "blind-test-5",
+    "blind-test-6",
+    "blind-test-7-part1",
+    "blind-test-7-part2",
+    "grace-angew-2008"
+   ],
+   "concepts": [
+    "csp-blind-tests",
+    "crystal-structure-prediction",
+    "polymorphism",
+    "polymorph-ranking"
+   ]
+  },
+  {
+   "key": "generation",
+   "overview": "Structure generation is the search stage: producing physically reasonable candidate crystals to feed downstream ranking. Two philosophies appear here: random generation with constraints (AIRSS; Genarris) and evolutionary/genetic algorithms (USPEX; GAtor). The Genarris line is the Marom-group generator: Genarris 1.0 introduced the Harris-approximation fast screening and the relative coordinate descriptor with affinity-propagation clustering; Genarris 2.0 added MPI parallelization, ML volume estimation, special Wyckoff positions, and hydrogen-bond-aware cutoffs; Genarris 3.0 added the Rigid Press close-packing algorithm and a MACE-OFF/DFT clustering down-selection workflow. GAtor is the genetic algorithm with molecular-crystal-specific breeding operators and ML-based evolutionary niching to sample the PES uniformly. PyXtal provides symmetric trial-structure generation with arbitrary Z' support.",
+   "papers": [
+    "gator-2018",
+    "genarris-1",
+    "genarris-2",
+    "genarris-3",
+    "uspex-2006",
+    "airss-2011",
+    "pyxtal-2021",
+    "crystalpredictor"
+   ],
+   "concepts": [
+    "crystal-structure-prediction",
+    "genetic-algorithm-csp",
+    "rigid-press-algorithm",
+    "fixed-environment-csp"
+   ]
+  },
+  {
+   "key": "ranking",
+   "overview": "Energy ranking is the accuracy-limited stage of CSP: polymorphs are typically separated by less than 1 kcal/mol, so ranking must discriminate near-degenerate structures. The dispersion-inclusive DFT lineage runs from empirical vdW corrections (Neumann-Perrin 2005) through the density-derived pairwise TS scheme (2009) to many-body dispersion (MBD, 2012), culminating in the PBE0+MBD+F_vib hierarchical protocol (Hoja et al. 2019) that recovers experimental structures as rank 1 for the 6th blind test single-polymorph systems. Beran's reviews survey the broader electronic-structure toolkit (periodic DFT/MP2, fragment methods, DMC). Adiabatic connection methods (HFAC24) offer a parameter-free post-HF alternative to empirical dispersion corrections for periodic lattice-energy ranking.",
+   "papers": [
+    "hoja-pbe0-mbd-2019",
+    "mbd-2012",
+    "ts-vdw-2009",
+    "neumann-tailormade-ff-2005",
+    "acm-molecular-crystals",
+    "beran-review-2016",
+    "beran-frontiers-2023",
+    "dmacrys-2010",
+    "nyman-day-statistics-2015"
+   ],
+   "concepts": [
+    "polymorph-ranking",
+    "many-body-dispersion",
+    "adiabatic-connection-methods",
+    "crystal-structure-prediction"
+   ]
+  },
+  {
+   "key": "systems",
+   "overview": "Hard systems extend CSP beyond single-component, rigid, Z'=1 crystals to salts, cocrystals, hydrates, conformationally flexible molecules, and Z'>1 structures. Blind tests documented these as the persistent frontier: torsional flexibility defeated all participants in early tests, and Z'=2 and multi-component targets were repeatedly the hardest. CrystalPredictor demonstrated early connectivity-only search reaching Z'>1 and less-common space groups; DMACRYS targeted anisotropic potentials for pharmaceutical polymorphs like carbamazepine. The Steed review organizes high-Z' crystals in relation to cocrystals and inclusion compounds. EnvXGen addresses partial-information CSP where part of the cell is fixed (host molecule of a cocrystal, heavy atoms). Facts-and-fictions provides data-driven polymorphism statistics on which molecular properties correlate with polymorphism.",
+   "papers": [
+    "high-z-prime-2015",
+    "crystalpredictor",
+    "dmacrys-2010",
+    "envxgen",
+    "facts-fictions-polymorphism"
+   ],
+   "concepts": [
+    "polymorphism",
+    "fixed-environment-csp",
+    "crystal-structure-prediction",
+    "polymorph-ranking"
+   ]
+  },
+  {
+   "key": "finite-t",
+   "overview": "Finite-temperature CSP moves from static lattice energy to free energy, since vibrational entropy and thermal expansion can re-rank polymorphs at experimental temperatures. Nyman and Day's large-scale studies quantify static versus vibrational energy differences across 500+ polymorph pairs and report enantiotropic re-ranking between 0 K and melting in about 21% of systems, with thermal expansion generally a small effect. The aspirin PRL shows many-body dispersion coupling to phonons breaks the lattice-energy degeneracy of forms I and II via entropic stabilization. Firaha et al. push toward real-world conditions, computing solid-solid free-energy differences with error bars under temperature and humidity and unifying anhydrate and hydrate stoichiometries on one landscape. Price's CSP_0/CSP_thd/CSP_aim framework articulates the conceptual gap between lattice-energy minimization and thermodynamically actionable prediction.",
+   "papers": [
+    "nyman-day-free-energy-2016",
+    "aspirin-anharmonicity-2014",
+    "firaha-nature-2023",
+    "price-overprediction",
+    "price-review-2014",
+    "day-review-2011"
+   ],
+   "concepts": [
+    "polymorph-ranking",
+    "polymorphism",
+    "many-body-dispersion",
+    "crystal-structure-prediction"
+   ]
+  },
+  {
+   "key": "sota",
+   "overview": "The ML era replaces or accelerates expensive DFT stages with machine-learned interatomic potentials. Genarris 3.0 uses MACE-OFF23(L) in early down-selection while flagging its unreliability on chemistries underrepresented in its training set. MACE-OFF is a transferable short-range MLIP for organic molecules; AIMNet2 targets neutral, charged, and element-organic chemistry with a hybrid short-range-ML plus long-range-physics model; the AIMNet2 blind-test work trains target-specific potentials on gas-phase n-mers that transfer to crystalline environments. FastCSP drives an entire end-to-end workflow with a single universal MLIP (UMA), eliminating force-field pre-screening and DFT re-ranking, with an OMC->OMol conformer correction. Wengert's Delta-ML corrects a DFTB baseline with a short-range ML model trained on molecular clusters. Reviews by Bowskill and Beran frame the state of the art around the blind-test history.",
+   "papers": [
+    "fastcsp",
+    "mace-off",
+    "aimnet2",
+    "group16-aimnet2-blindtest",
+    "wengert-delta-ml-2021",
+    "bowskill-review-2021",
+    "beran-frontiers-2023"
+   ],
+   "concepts": [
+    "machine-learned-interatomic-potentials",
+    "crystal-structure-prediction",
+    "polymorph-ranking",
+    "many-body-dispersion"
+   ]
+  }
+ ],
+ "spine_note": "Spine runs history (blind tests as benchmark) -> generation (search) -> ranking (energy accuracy) -> systems (hard cases) -> finite-t (free energy) -> sota (ML era). GAtor and Genarris form the Marom-group backbone linking generation to ranking; the dispersion lineage (TS -> MBD -> PBE0+MBD, Hoja 2019) anchors ranking and feeds finite-t; MLIPs (MACE-OFF, AIMNet2, UMA/FastCSP) are the current frontier accelerating the whole pipeline.",
+ "gator_position": "GAtor sits at the generation/ranking junction: it is the genetic-algorithm search engine (generation) that couples molecular-crystal breeding operators and ML niching to a hierarchical dispersion-inclusive DFT re-ranking ladder (ranking). GAtor 2.0 development draws on Genarris for seed pools, on the PBE0+MBD gold standard for accuracy targets, and on MLIPs (MACE-OFF, AIMNet2, UMA) to accelerate relaxation and ranking, while the blind tests provide the benchmark and the hard-systems and finite-T branches define its open frontiers (Z'>1, multi-component, free energy)."
+}

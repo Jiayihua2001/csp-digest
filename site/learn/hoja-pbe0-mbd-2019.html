@@ -1,0 +1,110 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Reliable and practical computational description of molecular crystal polymorphs</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>Reliable and practical computational description of molecular crystal polymorphs</h1><div class="meta">Johannes Hoja, Hsin-Yu Ko, Marcus A. Neumann, Roberto Car, Robert A. DiStasio, Alexandre Tkatchenko &middot; Science Advances (2019) &middot; 205 citations &middot; <a href="https://doi.org/10.1126/sciadv.aau3338" target="_blank">doi:10.1126/sciadv.aau3338</a> <span class="badge-conf">confidence: high</span> <span class="vflag">&#9888; verification flagged claims</span></div><div class="section">
+
+&gt; Hoja et al. combine the GRACE Monte Carlo parallel-tempering + tailor-made force field crystal structure sampling strategy (Neumann and co-workers, most successful sampling method in the 6th CCDC blind test) with a first-principles hierarchical energy ranking based on dispersion-inclusive DFT (Tkatchenko and co-workers, most successful ranking method in that blind test). Using the top 100 GRACE structures per system for the five 6th-blind-test systems (XXII-XXVI, 501 structures total, 15 to 992 atoms per cell), they build a hierarchical ranking: PBE+TS lattice/geometry optimization, then PBE+MBD, then PBE0+MBD static lattice energies, plus harmonic PBE+TS vibrational free energies (F_vib), giving the recommended PBE0+MBD+F_vib Helmholtz free energy ranking at experimental temperatures. For the flexible former drug candidate system XXIII (five polymorphs) they additionally assess quasi-harmonic thermal expansion (QHA) and Morse-oscillator anharmonicity. The final ranking places all single-polymorph experimental structures at rank 1, and for XXIII places all five known forms within a narrow energy window, while also predicting an unobserved structure (N70) more stable than any known form.
+
+<b>Corpus:</b> tier D - `hoja-pbe0-mbd-2019` - source mode: clipping - confidence: <b>high</b> - FLAGGED - see below
+
+<h2>Contribution</h2>
+Demonstrates that pairing the best blind-test sampling (GRACE) with the best blind-test first-principles ranking (DFT+MBD) yields a robust, hierarchical PBE0+MBD+F_vib refinement protocol that correctly ranks diverse pharmaceutically relevant molecular crystals (salt, cocrystal, large flexible molecules), and provides a large realistic benchmark set of 501 structures. It also shows the incremental importance of exact exchange (PBE0), beyond-pairwise MBD, and vibrational free energies, and quantifies the smaller additional effects of thermal expansion and anharmonicity.
+
+<h2>Method</h2>
+Initial structures: top 100 GRACE (Monte Carlo parallel tempering + tailor-made force field) structures per system from the 6th CCDC blind test (Z&#x27;=2 lists used where available); form E of XXIII added. All DFT in all-electron FHI-aims. Hierarchical ranking: (1) full PBE+TS lattice/geometry relaxation (no symmetry constraints, min force &lt; 0.005 eV/A), duplicate removal via Mercury RMSD_20 and PBE+TS energy within 1 kJ/mol; (2) PBE+TS and PBE+MBD (MBD@rsSCS, reciprocal-space) single points at tight settings; (3) PBE0+MBD static lattice energies, approximated by adding the light-level PBE0+MBD minus PBE+MBD difference to tight PBE+MBD; (4) harmonic PBE+TS vibrational free energies (F_vib) via Phonopy finite differences (0.005 A displacements, supercells &gt;10 A) at experimental temperatures. For XXIII, QHA thermal expansion via lattice optimizations under thermal pressures (0.4, 0.2, -0.2, -0.4, -0.6 GPa) fit to Murnaghan EOS, and Morse-oscillator anharmonic vibrational free energies at the Gamma point for four-molecule cells.
+
+<h2>Key results</h2>
+- Final PBE0+MBD+F_vib ranking places the experimental structure at rank 1 for all single-polymorph systems (XXII, XXIV, XXV, XXVI), improving on unrefined GRACE ranks of 2 (XXII), 2 (XXIV), 6 (XXV), 1 (XXVI).
+- For the most challenging system XXIII (five known polymorphs, flexible former drug candidate), all five experimental forms fall within the top 4.3 kJ/mol (~1 kcal/mol) and within an interval of 3 kJ/mol in the final ranking; all five within top 18 structures, with Z&#x27;=2 forms E and C at ranks 3 and 4; considering only Z&#x27;=1, all three experimental structures in top 10 (vs top 26 for initial GRACE ranking).
+- An unobserved Z&#x27;=1 structure N70 is ~1.5 kJ/mol more stable than all experimentally observed XXIII structures (stated as ~3 kJ/mol more stable in the Discussion), sharing form A&#x27;s sheet motif but with different sheet stacking; it is further stabilized by vibrational entropy and remains most stable after QHA and anharmonicity.
+- All predicted structures agree with experiment to within 0.5 A RMSD_20, and within 0.05 A of the initial GRACE RMSD_20 values.
+- PBE+TS underestimates experimental (300 K) unit cell volumes by 3.6% on average; QHA reduces this to 1.0% on average.
+- Effect of thermal expansion vs 0 K optimized structures on relative stabilities: largest change 1.4 kJ/mol, average 0.4 kJ/mol; combined QHA+Morse anharmonicity changes relative stabilities by 1.1 kJ/mol on average, max 2.9 kJ/mol; with anharmonic Morse treatment all XXIII experimental structures within 1.5 kJ/mol and all Z&#x27;=1 within 0.4 kJ/mol.
+- PBE0+MBD single-point cost: 3.5 CPU-hours for smallest cell (XXII-N44, 15 atoms) to ~750 CPU-hours for largest (XXV-N39, 896 atoms); ~60 CPU-hours for average 172-atom cell (XXIII form A). Vibrational F_vib cost ranges from 180 (XXII-N2) to 45,000 CPU-hours (XXIII-N3, ~1400-atom supercell, 516 displacements). QHA+Morse increases average-system cost by ~10x.
+- Convergence benchmark: tight settings give relative energies with MAD 0.1 kJ/mol (max 0.3); the PBE0+MBD light-difference approximation has MAD 0.4 kJ/mol (max 0.8) vs tight PBE0+MBD, whereas pure light PBE0+MBD has MAD 0.8 kJ/mol (max 2.6).
+- Reported reliability of the procedure is about 1 to 2 kJ/mol; PBE0+MBD reproduces absolute lattice energies to within ~1 kcal/mol and relative stabilities to ~1 kJ/mol per prior work.
+
+<h2>Limitations</h2>
+- Method is a final-stage refinement only and fully relies on the accuracy of the preceding GRACE sampling and initial ranking; it cannot recover structures missing from the initial top-100 set (form E of XXIII had to be added manually).
+- Geometry/lattice optimizations and harmonic vibrations use PBE+TS (effective-pairwise) rather than PBE+MBD; authors note PBE+MBD would raise force-calculation cost ~50%.
+- QHA and Morse anharmonicity assessed only for a small subset of system XXIII (five experimental forms plus four Z&#x27;=1 predicted structures), not all systems.
+- Morse oscillators treated independently with no mode coupling; anharmonic free energies computed only at Gamma point for four-molecule cells, with other q-points handled harmonically.
+- No modeling of crystallization kinetics, nucleation/growth, solvent effects, or disorder, which the authors flag as needed to explain observed polymorphs (e.g. hypothesized kinetic favoring of form A over N70).
+- Only five blind-test systems studied; authors call for further benchmarks to establish general applicability. Prediction that N70 is the true stable form is unconfirmed experimentally.
+- Vibrational free energy is by far the most expensive step, limiting broad applicability without cheaper surrogate methods.
+
+<h2>Takeaways</h2>
+- A hierarchy of PBE+TS geometries, PBE0+MBD static lattice energies, and harmonic F_vib at experimental T is sufficient to rank diverse molecular crystals to ~1-2 kJ/mol accuracy - a concrete recipe GAtor 2.0&#x27;s final ranking stage can emulate or benchmark against.
+- Each physical ingredient matters and is system-dependent: exact exchange (PBE0) is decisive for XXII, MBD for XXVI, and vibrational free energy dominates for XXIII and XXV - single-method ranking is unreliable.
+- The light-minus-difference trick for approximating tight PBE0+MBD (MAD 0.4 kJ/mol) is a practical cost-saving pattern; tight settings needed for converged relative energies.
+- QHA recovers most thermal expansion (volume error 3.6% -&gt; 1.0%) but changes relative stabilities modestly (avg 0.4 kJ/mol); anharmonicity via Morse adds only ~1 kJ/mol-scale corrections, so harmonic F_vib on 0 K structures is often adequate for ranking.
+- Z&#x27;&gt;1 handling matters: for XXIII the Z&#x27;=2 experimental forms E and C ranked 3 and 4; a proper protocol must include Z&#x27;=2 candidate lists.
+- The authors explicitly propose PBE0+MBD energies and PBE+MBD Hessians as training data for tailor-made force fields or ML energy/free-energy models - directly relevant motivation for MLIP-accelerated CSP.
+- 501-structure benchmark set (15-992 atoms) with PBE+TS-optimized geometries in Data S1 is a useful reference dataset for validating rankers and MLIPs.
+
+<h2>Relevance to GAtor 2.0</h2>
+Highly relevant to GAtor 2.0. It sets the state-of-the-art bar for the final lattice-energy ranking stage (PBE0+MBD, exactly the dispersion-inclusive hybrid GAtor targets) and quantifies the roles of exact exchange, MBD, and finite-temperature vibrational free energies that a GA workflow must eventually incorporate. Marom&#x27;s group is a co-author on the underlying 6th blind test (Curtis/Wang/Marom tricyanide study cited), so the systems and RMSD_20 conventions align. The Z&#x27;=2 treatment of XXIII, the finite-temperature (QHA/anharmonic) stability discussion, and the explicit call to train force fields / ML models on PBE0+MBD energies and PBE+MBD Hessians map directly onto GAtor&#x27;s interests in Z&#x27;&gt;1 crystals, finite-temperature stability, and MLIP acceleration (MACE-OFF, AIMNet2, UMA). The 501-structure benchmark and the demonstration that sampling (GRACE) plus accurate ranking together solve the problem is a template for coupling Genarris/GA sampling with high-level ranking.
+
+<h2>Linked concepts</h2>
+<span class="chip">many-body-dispersion</span> <span class="chip">csp-blind-tests</span> <span class="chip">dispersion-inclusive-dft</span> <span class="chip">lattice-energy-ranking</span> <span class="chip">finite-temperature-stability</span> <span class="chip">molecular-crystal-polymorphism</span> <span class="chip">z-prime-greater-than-one</span> <span class="chip">quasi-harmonic-approximation</span>
+
+<h2>Verification flags</h2>
+
+&gt; Second-pass check found issues - read before trusting:
+
+I&#x27;ll check each claim in the digest against the full text.
+
+<b>Checking key_results:</b>
+
+1. Ranks 2 (XXII), 2 (XXIV), 6 (XXV), 1 (XXVI) — Text: &quot;ranks 2 (XXII), 2 (XXIV), 6 (XXV), and 1 (XXVI)&quot;. ✓ SUPPORTED
+
+2. XXIII within top 4.3 kJ/mol, interval 3 kJ/mol, top 18 structures, E/C at ranks 3/4, Z&#x27;=1 top 10 vs top 26 — All match text. ✓ SUPPORTED
+
+3. N70 ~1.5 kJ/mol (stated ~3 in Discussion) — Text Results: &quot;≈1.5 kJ/mol more stable&quot;; Discussion: &quot;substantially higher (by 3 kJ/mol)&quot;. ✓ SUPPORTED
+
+4. RMSD within 0.5 Å and 0.05 Å — Text: &quot;within 0.5 Å... agree to within 0.05 Å&quot;. ✓ SUPPORTED
+
+5. Volume underestimate 3.6% → 1.0% QHA — Text matches. ✓ SUPPORTED
+
+6. Thermal expansion max 1.4/avg 0.4; combined QHA+Morse avg 1.1/max 2.9; anharmonic all within 1.5, Z&#x27;=1 within 0.4 — All match text. ✓ SUPPORTED
+
+7. Costs: 3.5 CPU-h (15 atoms), ~750 (896 atoms), ~60 (172 atoms), F_vib 180–45,000 — Text matches. ✓ SUPPORTED
+
+8. Convergence: tight MAD 0.1/max 0.3; light-difference MAD 0.4/max 0.8; light MAD 0.8/max 2.6 — Text matches. ✓ SUPPORTED
+
+9. Reliability 1-2 kJ/mol; ~1 kcal/mol absolute, ~1 kJ/mol relative — Text matches. ✓ SUPPORTED
+
+<b>Checking the summary and method:</b>
+
+- &quot;992 atoms per cell&quot; / &quot;15 to 992 atoms&quot; — Text: &quot;unit cell sizes ranging from 15 to 992 atoms&quot;. ✓ SUPPORTED
+
+- QHA thermal pressures &quot;0.4, 0.2, -0.2, -0.4, -0.6 GPa&quot; — Text matches. ✓ SUPPORTED
+
+- &quot;min force &lt; 0.005 eV/A&quot; — Text: &quot;smallest force component is less than 0.005 eV/Å&quot;. ✓ SUPPORTED
+
+<b>Now checking for a subtle claimed detail in gator_relevance:</b>
+
+&gt; &quot;Marom&#x27;s group is a co-author on the underlying 6th blind test (Curtis/Wang/Marom tricyanide study cited)&quot;
+
+This is in the gator_relevance section (analyst commentary rather than a claim about the paper&#x27;s content), so I&#x27;ll note it: Marom is indeed listed as an author of the 6th blind test report (ref 4), and the Curtis/Wang/Marom study (ref 31) is cited. However, calling it a &quot;tricyanide study&quot; is a minor mischaracterization — the compound is &quot;tricyano-1,4-dithiino[c]-isothiazole.&quot; This is descriptive shorthand, not a factual claim about the paper&#x27;s results. I&#x27;ll flag it as slightly loose but it&#x27;s in the relevance/interpretation section.
+
+<b>One item to scrutinize carefully — form A designation:</b>
+
+The digest states N70 &quot;sharing form A&#x27;s sheet motif.&quot; Text: &quot;shares many structural features with form A... The most notable
+</div></div></body></html>

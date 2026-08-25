@@ -1,0 +1,81 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Accurate and Efficient Method for Many-Body van der Waals Interactions</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>Accurate and Efficient Method for Many-Body van der Waals Interactions</h1><div class="meta">Alexandre Tkatchenko, Robert A. DiStasio, Roberto Car, Matthias Scheffler &middot; Physical Review Letters (2012) &middot; 1548 citations &middot; <a href="https://doi.org/10.1103/physrevlett.108.236402" target="_blank">doi:10.1103/physrevlett.108.236402</a> <span class="badge-conf">confidence: low</span> <span class="vflag">&#9888; verification flagged claims</span></div><div class="section">
+
+&gt; This PRL introduces the many-body dispersion (MBD) method for van der Waals interactions, combining the Tkatchenko-Scheffler (TS) vdW method with a self-consistent screening (SCS) equation from classical electrodynamics to describe the frequency-dependent polarizability of finite-gap molecules and solids. The screened long-range many-body vdW energy is obtained by solving the Schrodinger equation for a system of coupled quantum harmonic oscillators. The abstract reports that screening and many-body effects matter even for small molecules and are crucial for conformational energies of biomolecules and binding of molecular crystals, at negligible computational cost relative to the underlying electronic structure calculation.
+
+<b>Corpus:</b> tier D - `mbd-2012` - source mode: metadata - confidence: <b>low</b> - FLAGGED - see below
+
+<h2>Contribution</h2>
+Establishes the MBD (many-body dispersion) approach that later became the standard dispersion-inclusive correction (e.g. PBE0+MBD) used for accurate lattice-energy ranking of molecular crystals, by unifying atom-resolved TS polarizabilities with self-consistent screening and a coupled-oscillator many-body treatment.
+
+<h2>Method</h2>
+Combine the TS vdW method (Phys. Rev. Lett. 102, 073005) with the self-consistent screening equation of classical electrodynamics to get seamless polarization/depolarization of the polarizability tensor. Model the system as coupled quantum harmonic oscillators and solve the Schrodinger equation to obtain the screened long-range many-body vdW energy. (Details unavailable - working from abstract only.)
+
+<h2>Key results</h2>
+- No quantitative results are available from the abstract; the paper qualitatively claims screening and many-body vdW energy are significant even for small molecules and crucial for biomolecular conformational energies and molecular crystal binding
+- Claims computational cost is negligible compared to the underlying electronic structure calculation (no numbers provided in abstract)
+
+<h2>Limitations</h2>
+- Digest based on abstract/metadata only - no benchmark numbers, systems, or error bars accessible
+- Method applies to finite-gap systems (molecules and insulators/semiconductors), not metals
+- Specific accuracy claims and comparison datasets not verifiable from available material
+
+<h2>Takeaways</h2>
+- This is the foundational MBD paper underpinning the PBE0+MBD lattice-energy ranking used in GAtor-style CSP workflows
+- Many-body and screening effects are non-additive and matter for molecular crystal binding energetics, motivating MBD over pairwise TS corrections
+- Low computational overhead makes MBD practical for ranking large numbers of candidate crystal structures
+
+<h2>Relevance to GAtor 2.0</h2>
+Directly relevant: MBD (and its successor PBE0+MBD) is a core dispersion-inclusive energy method for accurate lattice-energy ranking of molecular crystals in CSP, exactly the ranking stage in GAtor 2.0. Understanding MBD&#x27;s coupled-oscillator screening formulation informs why it outperforms pairwise corrections for polarizable molecular crystals.
+
+<h2>Linked concepts</h2>
+<span class="chip">many-body-dispersion</span> <span class="chip">tkatchenko-scheffler-vdw</span> <span class="chip">dispersion-inclusive-dft</span> <span class="chip">lattice-energy-ranking</span> <span class="chip">molecular-crystals</span> <span class="chip">pbe0-mbd</span>
+
+<h2>Verification flags</h2>
+
+&gt; Second-pass check found issues - read before trusting:
+
+Checking each claim against the abstract and metadata:
+
+1. <b>&quot;coupled quantum harmonic oscillators&quot;</b> (appears in summary and method) — The abstract says &quot;a system of coupled oscillators.&quot; It does not say &quot;quantum harmonic oscillators.&quot; The word &quot;quantum&quot; and &quot;harmonic&quot; are additions not present in the abstract. This is an overstatement/embellishment, though a plausible one.
+
+2. <b>&quot;combining the Tkatchenko-Scheffler (TS) vdW method... with a self-consistent screening (SCS) equation&quot;</b> — The abbreviation &quot;SCS&quot; is introduced by the digest; the abstract just says &quot;self-consistent screening equation of classical electrodynamics.&quot; Minor, but the &quot;(SCS)&quot; label is not from the source. Borderline, not a substantive error.
+
+3. <b>&quot;later became the standard dispersion-inclusive correction (e.g. PBE0+MBD) used for accurate lattice-energy ranking of molecular crystals&quot;</b> (contribution) — This is not supported by the abstract or metadata. It is external/forward-looking knowledge about later developments (PBE0+MBD, lattice-energy ranking). The abstract only mentions &quot;binding of molecular crystals,&quot; not ranking, and never mentions PBE0. Unsupported/fabricated relative to the provided material.
+
+4. <b>&quot;This is the foundational MBD paper underpinning the PBE0+MBD lattice-energy ranking used in GAtor-style CSP workflows&quot;</b> (takeaways) — Not supported by the abstract. PBE0+MBD, lattice-energy ranking, and GAtor are not mentioned in the source. External claim.
+
+5. <b>&quot;Method applies to finite-gap systems (molecules and insulators/semiconductors), not metals&quot;</b> (limitations) — The abstract says &quot;finite-gap molecules and solids.&quot; The inference that it excludes metals is reasonable but the phrase &quot;insulators/semiconductors, not metals&quot; is an interpretation added by the digest, not stated. Mild extrapolation, defensible.
+
+6. <b>&quot;non-additive&quot;</b> (takeaways: &quot;Many-body and screening effects are non-additive&quot;) — The abstract does not use the word &quot;non-additive.&quot; It says many-body effects are significant. Non-additivity is implied by &quot;many-body&quot; but is an added characterization. Minor overstatement.
+
+7. <b>&quot;motivating MBD over pairwise TS corrections&quot;</b> and <b>&quot;why it outperforms pairwise corrections&quot;</b> — The abstract does not compare MBD to pairwise corrections or claim it &quot;outperforms&quot; them. This is an added claim not in the source.
+
+8. <b>&quot;Low computational overhead makes MBD practical for ranking large numbers of candidate crystal structures&quot;</b> — The abstract states negligible computational cost, but says nothing about &quot;ranking large numbers of candidate crystal structures.&quot; This application is an unsupported extrapolation.
+
+9. The gator_relevance section makes several claims (GAtor 2.0, ranking stage, outperforming pairwise corrections) that are external context, not derived from the material — but this section is explicitly about relevance to the reader&#x27;s project, so it is arguably permissible framing rather than a claim about the paper.
+
+<b>Summary of problematic statements:</b>
+
+- &quot;a system of coupled quantum harmonic oscillators&quot; — adds &quot;quantum harmonic&quot;; abstract says only &quot;coupled oscillators.&quot;
+- &quot;later became the standard dispersion-inclusive correction (e.g. PBE0+MBD) used for accurate lattice-energy ranking of molecular crystals&quot; — unsupported by provided material.
+- &quot;This is the foundational MBD paper underpinning the PBE0+MBD lattice-energy ranking used in GAtor-style CSP workflows&quot; — unsupported/
+</div></div></body></html>

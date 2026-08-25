@@ -1,0 +1,95 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Crystal structure prediction of small organic molecules: a second blind test</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>Crystal structure prediction of small organic molecules: a second blind test</h1><div class="meta">W.D.S. Motherwell, Herman L. Ammon, Jack D. Dunitz, Alexander Dzyabchenko, Peter Erk, A. Gavezzotti &middot; Acta Crystallographica Section B Structural Science (2002) &middot; 398 citations &middot; <a href="https://doi.org/10.1107/s0108768102005669" target="_blank">doi:10.1107/s0108768102005669</a> <span class="badge-conf">confidence: low</span> <span class="vflag">&#9888; verification flagged claims</span></div><div class="section">
+
+&gt; This paper reports the second blind test of organic crystal structure prediction (CSP2001), organized at the Cambridge Crystallographic Data Centre following the first (CSP1999) workshop. Seventeen participants were given only the 2D chemical diagram of three organic molecules and asked to predict crystal structures within a set of named common space groups, using various programs that build theoretical crystal structures and rank them primarily by minimum calculated lattice energy. Each participant could submit up to three predictions per molecule.
+
+<b>Corpus:</b> tier A - `blind-test-2` - source mode: metadata - confidence: <b>low</b> - FLAGGED - see below
+
+<h2>Contribution</h2>
+Provides an objective, community-wide benchmark of the state of CSP methodology circa 2001, documenting successes and failures across multiple prediction programs and highlighting persistent challenges such as molecular flexibility and energy ranking.
+
+<h2>Method</h2>
+Blind prediction exercise: participants generated candidate crystal structures within given space groups from molecular models and ranked candidates by calculated lattice energy; up to three submissions per molecule. A secondary test explored the use of non-indexed powder diffraction data after ab initio submissions were completed.
+
+<h2>Key results</h2>
+- Two correct predictions were obtained for the first molecule
+- Four correct predictions were obtained for the second molecule
+- No correct predictions were obtained for the third molecule, which had torsional flexibility
+- The correct structure was often present in participants&#x27; sorted low-energy lists but at a ranking position greater than three
+
+<h2>Limitations</h2>
+- No single method was found to be completely reliable
+- Torsionally flexible molecules (molecule 3) were not predicted correctly by any participant
+- Lattice-energy ranking frequently failed to place the correct structure within the top three even when it was generated
+- Digest based only on the abstract/metadata; full text not available, so details on programs, molecules, and methods are unknown
+
+<h2>Takeaways</h2>
+- As early as 2001, structure generation could often capture the experimental structure, but energy ranking was the bottleneck - the correct answer frequently ranked worse than third
+- Molecular flexibility (conformational/torsional degrees of freedom) was a major unsolved challenge, motivating later focus on flexible-molecule CSP
+- Blind tests provide an objective yardstick for comparing CSP methodologies, a tradition GAtor and later methods are benchmarked against
+
+<h2>Relevance to GAtor 2.0</h2>
+This is the second in the series of CCDC CSP blind tests that frame the entire field GAtor operates in. It documents the enduring core problems the group cares about: reliable low-energy structure generation (relevant to Genarris) and accurate lattice-energy ranking (relevant to dispersion-inclusive DFT and MLIPs). The ranking failures and the flexible-molecule difficulty foreshadow motivations for GA search, better energy methods, and Z&#x27;&gt;1 / flexible-molecule handling.
+
+<h2>Linked concepts</h2>
+<span class="chip">csp-blind-tests</span> <span class="chip">lattice-energy-ranking</span> <span class="chip">crystal-structure-prediction</span> <span class="chip">conformational-flexibility</span> <span class="chip">structure-generation</span>
+
+<h2>Verification flags</h2>
+
+&gt; Second-pass check found issues - read before trusting:
+
+Checking each claim against the abstract/metadata:
+
+<b>Summary:</b>
+- &quot;Seventeen participants&quot; — supported (&quot;The 17 participants&quot;).
+- &quot;three organic molecules&quot; — supported.
+- &quot;within a set of named common space groups&quot; — supported (&quot;within a range of named common space groups&quot;).
+- &quot;rank them primarily by minimum calculated lattice energy&quot; — supported (&quot;prediction is usually based on the minimum calculated lattice energy&quot;).
+- &quot;up to three predictions per molecule&quot; — supported.
+
+<b>Contribution/Method:</b> Consistent with abstract. The secondary powder diffraction test is supported (&quot;The use of non-indexed powder diffraction data was investigated in a secondary test, after completion of the ab initio submissions&quot;).
+
+<b>Key results:</b> All four points directly supported by the abstract.
+
+<b>Limitations:</b> All supported. &quot;No single method... completely reliable&quot; matches &quot;no one method can be said to be completely reliable.&quot;
+
+<b>Takeaways:</b>
+- The first two are reasonable interpretations of supported facts.
+- &quot;a tradition GAtor and later methods are benchmarked against&quot; — this is an external/editorial claim not in the abstract, but it is framed as context, not a claim about the paper&#x27;s content.
+
+<b>gator_relevance:</b> This section makes claims about &quot;Genarris,&quot; &quot;dispersion-inclusive DFT and MLIPs,&quot; &quot;GA search,&quot; &quot;Z&#x27;&gt;1,&quot; and GAtor. None of these appear in or are supported by the abstract. However, this is explicitly a relevance/context field, not a representation of the paper&#x27;s claims.
+
+<b>Potential issue to flag:</b>
+
+- &quot;This is the second in the series of CCDC CSP blind tests&quot; — The abstract says CSP2001 followed CSP1999, so this being the *second* is supported. Fine.
+
+- The digest states the venue as &quot;Acta Crystallographica Section B Structural Science (2002)&quot; — this is metadata, consistent.
+
+One overstatement worth noting:
+
+&gt; &quot;the correct answer frequently ranked worse than third&quot;
+
+The abstract says the correct structure was &quot;often present in the sorted low-energy lists... but at a ranking position greater than three.&quot; The digest&#x27;s rephrasing (&quot;frequently ranked worse than third&quot;) is faithful to &quot;often&quot; / &quot;greater than three.&quot;
+
+All substantive claims about the paper&#x27;s content trace back to the abstract. The GAtor/Genarris/MLIP material is clearly confined to the designated relevance/takeaway fields and framed as external context rather than as findings of the paper.
+
+ALL SUPPORTED
+</div></div></body></html>

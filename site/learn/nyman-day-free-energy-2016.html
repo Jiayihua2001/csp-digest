@@ -1,0 +1,100 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Modelling temperature-dependent properties of polymorphic organic molecular crystals</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>Modelling temperature-dependent properties of polymorphic organic molecular crystals</h1><div class="meta">Jonas Nyman, Graeme M. Day &middot; Physical Chemistry Chemical Physics (2016) &middot; 103 citations &middot; <a href="https://doi.org/10.1039/c6cp05447a" target="_blank">doi:10.1039/c6cp05447a</a> <span class="badge-conf">confidence: low</span> <span class="vflag">&#9888; verification flagged claims</span></div><div class="section">
+
+&gt; Nyman and Day report a large-scale computational study of the temperature dependence of structures, free energy differences, and properties across 475 pairs of polymorphs (864 crystal structures) of organic molecular crystals. Using an anisotropic multipole-based force field, they compute lattice-vibrational Gibbs free energy differences at 0 K and at each system&#x27;s melting point, incorporating thermal expansion via a negative thermal pressure. They assess how often thermal effects re-rank polymorph stability (indicating possible enantiotropic phase transitions), and characterize thermal expansion coefficients and temperature-dependent mechanical properties.
+
+<b>Corpus:</b> tier D - `nyman-day-free-energy-2016` - source mode: metadata - confidence: <b>low</b> - FLAGGED - see below
+
+<h2>Contribution</h2>
+Provides statistics, from a large polymorph dataset, on how vibrational free energy and thermal expansion change relative polymorph stability with temperature, quantifying how frequently finite-temperature effects can invert 0 K stability rankings and thus matter for CSP.
+
+<h2>Method</h2>
+Anisotropic atomic multipole-based force field; lattice-dynamics (harmonic/quasi-harmonic) calculation of vibrational Gibbs free energies at 0 K and at melting points; thermal expansion modeled through an applied negative thermal pressure rather than full quasi-harmonic phonon optimization; computed over 475 polymorph pairs / 864 structures. Exact method details unavailable (abstract only).
+
+<h2>Key results</h2>
+- 475 polymorph pairs (864 crystal structures) studied
+- Enantiotropic re-ranking of relative thermodynamic stability occurs in 21% of studied systems between 0 K and the melting point
+- Vibrational contributions to free energies can significantly affect thermodynamic stability
+- Impact of thermal expansion on polymorph free energy differences is generally very small
+- Thermal expansion coefficients and temperature-dependent mechanical properties were computed for the structures (specific numerical values not available from abstract)
+
+<h2>Limitations</h2>
+- Digest based on abstract/metadata only; no full text reviewed
+- Uses an empirical anisotropic multipole force field rather than dispersion-inclusive DFT (e.g. PBE0+MBD), so accuracy relative to first-principles ranking is unstated here
+- Thermal expansion approximated via a negative thermal pressure rather than explicit free-energy minimization vs volume
+- Numerical distributions of free energy differences, expansion coefficients, and mechanical properties not extractable from abstract
+
+<h2>Takeaways</h2>
+- Finite-temperature free energy corrections matter: about 1 in 5 polymorph pairs can re-rank between 0 K and melting, relevant to lattice-energy ranking in CSP
+- Thermal expansion has a small net effect on polymorph free energy differences, so vibrational (zero-point plus thermal) contributions dominate temperature-driven re-ranking
+- A negative-thermal-pressure trick is a cheap way to approximate thermal expansion effects at scale
+- Supports incorporating vibrational free energy into GAtor ranking workflows for temperature-relevant predictions
+
+<h2>Relevance to GAtor 2.0</h2>
+Directly relevant to finite-temperature stability and lattice-energy ranking in molecular CSP: quantifies how often 0 K rankings (as produced by GAtor&#x27;s energy evaluation) are overturned by vibrational free energy at finite temperature, motivating free-energy re-ranking of GA-generated polymorphs. The 21% re-ranking statistic is a useful benchmark for whether static ranking suffices.
+
+<h2>Linked concepts</h2>
+<span class="chip">finite-temperature-stability</span> <span class="chip">polymorphism</span> <span class="chip">lattice-energy-ranking</span> <span class="chip">free-energy-methods</span> <span class="chip">molecular-crystal-csp</span> <span class="chip">thermal-expansion</span>
+
+<h2>Verification flags</h2>
+
+&gt; Second-pass check found issues - read before trusting:
+
+Let me check each claim in the digest against the abstract.
+
+<b>Claims checked:</b>
+
+1. &quot;475 pairs of polymorphs (864 crystal structures)&quot; — Supported (&quot;475 pairs of polymorphs&quot;, &quot;864 crystal structures&quot;).
+
+2. &quot;highly accurate anisotropic multipole-based force field&quot; — The digest says &quot;anisotropic multipole-based force field,&quot; which matches. However, note the abstract says &quot;highly accurate,&quot; which the digest drops (acceptable, not an overstatement).
+
+3. &quot;compute lattice-vibrational Gibbs free energy differences at 0 K and at each system&#x27;s melting point&quot; — Supported (&quot;calculated at 0 K and at their respective melting points&quot;).
+
+4. &quot;incorporating thermal expansion via a negative thermal pressure&quot; — Supported (&quot;including thermal expansion through the use of a (negative) thermal pressure&quot;).
+
+5. &quot;Enantiotropic re-ranking ... occurs in 21% of the studied systems&quot; — Supported (&quot;occurs in 21% of the studied systems&quot;).
+
+6. &quot;Vibrational contributions to free energies can significantly affect thermodynamic stability&quot; — Supported.
+
+7. &quot;Impact of thermal expansion on polymorph free energy differences is generally very small&quot; — Supported.
+
+8. &quot;Thermal expansion coefficients ... computed&quot; — Supported (&quot;calculate thermal expansion coefficients for the 864 crystal structures&quot;).
+
+9. &quot;temperature-dependent mechanical properties&quot; — Supported (&quot;investigate the temperature-dependence of mechanical properties&quot;).
+
+<b>Potentially problematic claims:</b>
+
+- <b>&quot;lattice-dynamics (harmonic/quasi-harmonic) calculation&quot;</b> — Quote from method: *&quot;lattice-dynamics (harmonic/quasi-harmonic) calculation of vibrational Gibbs free energies.&quot;* The abstract does not specify harmonic vs. quasi-harmonic. This is an <b>inference not supported</b> by the abstract, though plausible. Flagged as unsupported detail.
+
+- <b>&quot;thermal expansion modeled through an applied negative thermal pressure rather than full quasi-harmonic phonon optimization&quot;</b> — The &quot;rather than full quasi-harmonic phonon optimization&quot; contrast is not stated in the abstract; it&#x27;s an interpretation/inference. Mildly overstated.
+
+- <b>&quot;about 1 in 5 polymorph pairs can re-rank&quot;</b> — 21% ≈ 1 in 5; reasonable restatement. Supported.
+
+- <b>GATor-related claims</b> (gator_relevance, &quot;Supports incorporating vibrational free energy into GAtor ranking workflows&quot;): These are the digest author&#x27;s editorial framing/relevance notes, not claims about the paper&#x27;s content. GAtor is not mentioned in the paper. This is <b>fabricated as a paper claim</b> if read as such, but it is presented as relevance commentary. As a &quot;takeaway&quot; it states &quot;Supports incorporating vibrational free energy into GAtor ranking workflows for temperature-relevant predictions&quot; — the paper says nothing about GAtor, so this is an external inference, not supported by the material.
+
+- <b>&quot;Vibrational (zero-point plus thermal) contributions dominate temperature-driven re-ranking&quot;</b> — The abstract says vibrational contributions can have significant effect and thermal expansion is small; the digest&#x27;s inference that vibrational contributions &quot;dominate&quot; is a reasonable extrapolation but slightly overstated as a firm conclusion.
+
+<b>Findings:</b>
+
+1. <b>&quot;lattice-dynamics (harmonic/quasi-harmonic) calculation of vibrational Gibbs free energies&quot;</b> — Unsupported: the abstract does not specify harmonic or quasi-harmonic methods.
+
+2. **&quot;rather than full qu
+</div></div></body></html>

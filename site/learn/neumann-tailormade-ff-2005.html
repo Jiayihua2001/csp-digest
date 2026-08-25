@@ -1,0 +1,96 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Energy Ranking of Molecular Crystals Using Density Functional Theory Calculations and an Empirical van der Waals Correction</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>Energy Ranking of Molecular Crystals Using Density Functional Theory Calculations and an Empirical van der Waals Correction</h1><div class="meta">Marcus A. Neumann, Marc‐Antoine Perrin &middot; The Journal of Physical Chemistry B (2005) &middot; 295 citations &middot; <a href="https://doi.org/10.1021/jp050121r" target="_blank">doi:10.1021/jp050121r</a> <span class="badge-conf">confidence: low</span> <span class="vflag">&#9888; verification flagged claims</span></div><div class="section">
+
+&gt; This 2005 paper introduces a hybrid method combining plane-wave DFT (using VASP) with an empirical pairwise van der Waals correction for optimizing and energy-ranking molecular crystal structures. The vdW correction is a sum of atom-atom C6/r^6 pair potentials multiplied by damping functions that ensure crossover from asymptotic dispersion behavior at long range to a finite interaction at short range. C6 coefficients were fit to molecular C6 values from dipole oscillator strength distributions (following Wu and Yang, using data from Meath and co-workers), with parameters for H, C, N, O, F, Cl, and S. Damping functions were calibrated to reproduce experimental low-temperature unit cells, achieving about 1% average deviation in cell lengths. The method was tested on candidate polymorphs of six small molecules generated with Accelrys Polymorph Predictor.
+
+<b>Corpus:</b> tier D - `neumann-tailormade-ff-2005` - source mode: metadata - confidence: <b>low</b> - FLAGGED - see below
+
+<h2>Contribution</h2>
+An early, carefully parametrized dispersion-corrected DFT (DFT+vdW) scheme specifically designed and validated for molecular crystal structure optimization and lattice-energy ranking, emphasizing the importance of damping-function parametrization to balance the DFT and empirical dispersion contributions.
+
+<h2>Method</h2>
+DFT calculations performed in VASP; empirical van der Waals correction added as a sum over atom-atom pair potentials, each an asymptotic C(6,A,B)/r^6 term times a damping function d(A,B)(r). C6 coefficients determined by least-squares fitting to molecular C6 coefficients (Meath dipole oscillator strength distributions, method of Wu and Yang). Damping functions parametrized to best match experimental low-temperature crystal unit cells after lattice-energy optimization. Validation: candidate polymorphs of ethane, ethylene, acetylene, methanol, acetic acid, and urea generated with Accelrys Polymorph Predictor, then optimized/ranked with the hybrid method.
+
+<h2>Key results</h2>
+- Average deviation between experimental and calculated unit cell lengths is 1%.
+- In 5 out of 6 test cases the experimentally observed low-temperature structure is the most stable calculated structure.
+- Empirical vdW parameters provided for elements H, C, N, O, F, Cl, and S.
+
+<h2>Limitations</h2>
+- Digest based on abstract/metadata only; full-text details not available.
+- Only six small-molecule test systems used for ranking validation.
+- One of six cases failed to rank the experimental structure as most stable (specific case not stated in abstract).
+- Empirical, element-limited parametrization (7 elements); transferability beyond the fitted set not established from the abstract.
+- Pairwise C6/r^6 dispersion model lacks many-body/beyond-pairwise effects (predates MBD-type corrections).
+
+<h2>Takeaways</h2>
+- This is a foundational reference for the Neumann DFT+vdW (DFT-d) lattice-energy ranking approach later prominent in CSP blind tests.
+- Correct balancing of the empirical dispersion damping against the DFT energy is highlighted as crucial for ranking accuracy - relevant when comparing against modern PBE0+MBD.
+- Serves as a historical baseline for how dispersion corrections improved molecular crystal energy ranking over plain DFT.
+
+<h2>Relevance to GAtor 2.0</h2>
+Directly relevant as a precursor to dispersion-inclusive DFT lattice-energy ranking used in GAtor-style CSP workflows. The Neumann method (this paper and its successors) became a benchmark in CSP blind tests and motivates why GAtor uses dispersion-inclusive functionals such as PBE0+MBD for final ranking. Useful context for descriptor-independent, energy-based ranking of GA-generated polymorphs.
+
+<h2>Linked concepts</h2>
+<span class="chip">dispersion-inclusive-dft</span> <span class="chip">lattice-energy-ranking</span> <span class="chip">many-body-dispersion</span> <span class="chip">csp-blind-tests</span> <span class="chip">molecular-crystal-csp</span> <span class="chip">polymorph-prediction</span>
+
+<h2>Verification flags</h2>
+
+&gt; Second-pass check found issues - read before trusting:
+
+I&#x27;ll check each claim in the digest against the abstract and metadata.
+
+<b>Checking the summary and key claims:</b>
+
+1. &quot;achieving about 1% average deviation in cell lengths&quot; — Supported. Abstract: &quot;the experimental and the calculated unit cell lengths deviate by 1%.&quot;
+
+2. &quot;In 5 out of 6 test cases the experimentally observed low-temperature structure is the most stable calculated structure.&quot; — Supported. Abstract states this directly.
+
+3. &quot;Empirical vdW parameters provided for elements H, C, N, O, F, Cl, and S.&quot; — Supported directly.
+
+4. C6 fitting &quot;following Wu and Yang, using data from Meath and co-workers&quot; — Supported.
+
+5. Test molecules (ethane, ethylene, acetylene, methanol, acetic acid, urea) generated with Accelrys Polymorph Predictor — Supported.
+
+6. Damping functions calibrated to reproduce experimental low-temperature unit cells — Supported.
+
+<b>Now checking for unsupported/overstated claims:</b>
+
+- <b>&quot;a constant interaction energy at short distances&quot;</b> vs. digest&#x27;s <b>&quot;a finite interaction at short range&quot;</b> — The abstract says &quot;constant interaction energy,&quot; and the digest paraphrases this reasonably as &quot;finite interaction.&quot; Acceptable, though slightly loose.
+
+- <b>Limitation: &quot;One of six cases failed to rank the experimental structure as most stable (specific case not stated in abstract).&quot;</b> — This is a reasonable inference from &quot;five out of six.&quot; Supported by logic; the note that the specific case is not stated is accurate.
+
+- <b>Takeaway: &quot;This is a foundational reference for the Neumann DFT+vdW (DFT-d) lattice-energy ranking approach later prominent in CSP blind tests.&quot;</b> — This is external context/interpretation not in the abstract, but it is framed as a takeaway and is broadly accurate; not a fabricated claim about the paper&#x27;s content.
+
+<b>Potential issues to flag:</b>
+
+- The digest labels the DFT as &quot;plane-wave DFT&quot; in the summary. VASP is indeed a plane-wave code, so this is a correct inference, not fabricated.
+
+- <b>&quot;high level density functional theory&quot;</b> — the abstract uses &quot;high level DFT&quot;; the digest does not overstate this.
+
+- <b>Concepts/tags include &quot;many-body-dispersion&quot; and &quot;MBD&quot;</b> and takeaway mentions &quot;PBE0+MBD.&quot; These are framed as GAtor relevance/context, not claims about this 2005 paper. The limitation explicitly notes the paper &quot;predates MBD-type corrections,&quot; which is consistent. Not a claim about the paper itself.
+
+- <b>&quot;unprecedented accuracy&quot;</b> — The abstract does claim &quot;unprecedented accuracy.&quot; The digest does not repeat this superlative and instead describes it more modestly. No overstatement introduced.
+
+All statements in the digest that make claims about the paper&#x27;s content are supported by the abstract, and clearly external/contextual material (GAtor relevance, MBD comparisons) is appropriately labeled as inference or context rather than as claims from the paper. The single arguably loose paraphrase (&quot;finite interaction at short range&quot; for &quot;constant interaction energy at short distances&quot;) is a faithful simplification.
+
+ALL SUPPORTED
+</div></div></body></html>

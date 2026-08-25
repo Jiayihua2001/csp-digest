@@ -1,0 +1,109 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>FastCSP: Accelerated Molecular Crystal Structure Prediction with Universal Model for Atoms</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>FastCSP: Accelerated Molecular Crystal Structure Prediction with Universal Model for Atoms</h1><div class="meta">Vahe Gharakhanyan, Yi Yang, Luis Barroso-Luque, Daniel S. Levine, Sahoo, Sushree Jagriti, Brandon M. Wood &middot; arXiv (Cornell University) (2025) &middot; 1 citations &middot; <a href="https://doi.org/10.48550/arxiv.2508.02641" target="_blank">doi:10.48550/arxiv.2508.02641</a> <span class="badge-conf">confidence: high</span> <span class="vflag">&#9888; verification flagged claims</span></div><div class="section">
+
+&gt; FastCSP is an open-source, end-to-end molecular crystal structure prediction workflow driven entirely by a single pretrained universal MLIP (UMA), eliminating both classical force field pre-screening and DFT-based re-ranking. It integrates RDKit/UMA-OMol conformer generation, Genarris 3 random structure generation with Rigid Press, UMA-OMC geometry relaxation and lattice-energy ranking, and optional UMA free-energy (QHA) and OMC-&gt;OMol conformer-energy corrections. Benchmarked on 28 semi-rigid and 10 flexible molecules spanning 74 experimental polymorphs, it recovers all known structures within 9 kJ/mol of the predicted global minimum and reproduces PBE-D3 with high fidelity at a fraction of the cost. The workflow exploits the complementarity of UMA&#x27;s OMC task (periodic crystals at PBE-D3 level) and OMol task (finite molecules at wB97M-V level), with the conformer correction being especially beneficial for conformational polymorphs such as ROY.
+
+<b>Corpus:</b> tier G - `fastcsp` - source mode: pdf - confidence: <b>high</b> - FLAGGED - see below
+
+<h2>Contribution</h2>
+Demonstrates that a single pretrained universal MLIP (UMA) can support a complete molecular CSP workflow with DFT-level accuracy and no system-specific fine-tuning or DFT re-ranking, and releases the entire pipeline (FastCSP) open-source. Introduces an OMC-&gt;OMol conformer-energy correction scheme that combines OMC crystal-packing accuracy with OMol monomer-conformation accuracy to fix GGA delocalization errors.
+
+<h2>Method</h2>
+Pipeline: (1) RDKit multi-sampler conformer generation (4 ETKDGv3/MMFF passes to 500 conformers, Butina clustering, UMA-OMol relaxation, energy gating to 40 kJ/mol window); (2) Genarris 3 random crystal generation across compatible space groups (Z in 1,2,3,4,6,8; Z&#x27;&lt;=1) with PyMoVE volume estimation and Rigid Press compression, StructureMatcher deduplication; (3) UMA-Small v1.1 OMC-task BFGS relaxation of positions+cell (0.01 eV/A, up to 1000 steps) with second deduplication; (4) optional harmonic/quasi-harmonic free energies via Phonopy supercells fit to Vinet EOS; (5) optional OMC-&gt;OMol conformer correction on Z fragments. Validation against PBE-D3 (VASP, OMC25 settings) via RMSD30 (COMPACK) and lattice-energy parity; glycine free energies benchmarked against FHI-aims PBE-D3, PBE+MBD, and PBE0+MBD.
+
+<h2>Key results</h2>
+- Semi-rigid subset: &gt;94% recall within top 10 predictions and 100% within 5 kJ/mol of the 0 K lattice-energy global minimum; flexible subset: &gt;81% recall within top 50 and 100% within 9 kJ/mol.
+- Single-polymorph systems (26 targets): experimental structure ranked as global minimum in 14/26 cases and within top 5 in 9 additional cases; all within 5 kJ/mol of predicted minimum.
+- Multi-polymorph systems (12 targets): one experimental polymorph ranked as global minimum in 9/12 cases and within top 5 for the remaining 3; all experimental polymorphs within 9 kJ/mol.
+- UMA vs PBE-D3 relaxed structures: 99% average match rate at RMSD30 &lt; 1 A and 91% at stricter RMSD30 &lt; 0.5 A; mean RMSD30 of 0.19 A across the benchmark.
+- UMA vs PBE-D3 relative lattice energies: MAE 0.84 kJ/mol (semi-rigid) and 0.90 kJ/mol (flexible), Spearman 0.76 and 0.85; worst cases Target XVI (MAE 2.32 kJ/mol, Spearman 0.51) and Target XXXI (MAE 1.96 kJ/mol), whose chemistry is underrepresented in OMC25.
+- ROY: UMA-OMC lattice energy ranks the experimentally most stable Y form at #336 (7.14 kJ/mol above ORP); OMC-&gt;OMol conformer correction promotes Y to rank #1 and recovers experimental order Y &gt; YT04 &gt; R, matching B86bPBE-XDM+SCS-MP2D results.
+- Glycine: UMA-OMC and PBE-D3 both give alpha &gt; gamma &gt; beta (0 K), disagreeing with experimental gamma &gt; alpha &gt; beta; conformer correction brings gamma to only 0.11 kJ/mol above alpha but does not fully reverse order (hybrid+MBD-level intermolecular treatment still needed).
+- Cost: each MLIP relaxation step averages ~5,600x cheaper (CPU-core-hour per GPU-hour) than a PBE-D3 ionic step; initial DFT single-point ~22,000x more expensive; full campaign ~10^5 GPU-hours vs estimated 1.6x10^9 CPU-core-hours for DFT equivalent.
+- QHA free-energy corrections at 300 K worsened recall for semi-rigid molecules but improved it for flexible molecules; effect on polymorph ranking was non-uniform, consistent with seventh blind test findings, attributed to PBE-D3/QHA limitations.
+- Conformer correction fixed Target X and Target XXII rankings to #1 (GGA conjugation/delocalization errors) but worsened Target XVIII from #1 to #22.
+
+<h2>Limitations</h2>
+- Free-energy (QHA) corrections are not universally beneficial and did not systematically improve rankings; anharmonic effects are neglected and become significant at higher temperature (deviations from experiment near 200 K for glycine heat capacity).
+- UMA accuracy degrades for chemistry underrepresented in OMC25 (diazo groups &lt;0.1% of training set for Target XVI; the aryl-CF2-SO2 linker of Target XXXI entirely absent), causing higher lattice-energy MAEs.
+- Conformer correction assumes the DFT functional describes intermolecular interactions well; for glycine (hydrogen-bonded zwitterions) it does not fully recover the correct order, requiring hybrid functionals with many-body dispersion.
+- Olanzapine Forms I and IV were not generated with default settings (1500 structures/space group); required increasing to 3000 structures/space group and 5 conformers.
+- Benchmark restricted to Z&#x27;&lt;=1 structures; Z&#x27;&gt;1 and multi-component crystals are outside the demonstrated scope, and ROY Form C (Z=18) and Target XXXI Form C were excluded.
+- Absolute polymorph ordering still fails in several flexible cases (e.g., Target XXXI Form B, olanzapine at 0 K, ROY without correction), inheriting PBE-D3/wB97M-V functional limitations rather than MLIP error.
+- DFT validation only used PBE-D3 as reference (matching OMC25 training level); higher-level PBE0+MBD comparison performed only for glycine.
+
+<h2>Takeaways</h2>
+- A single pretrained universal MLIP (UMA) can replace both classical force fields and DFT re-ranking in molecular CSP with PBE-D3-level fidelity, directly relevant to modernizing the ranking stage of GA-based workflows like GAtor.
+- The OMC-&gt;OMol conformer-energy correction is a cheap, training-free remedy for GGA delocalization error in conformational polymorphs (ROY, Target X, Target XXII), addressing a long-standing DFT limitation in CSP ranking.
+- Genarris 3 with Rigid Press remains the structure generator, and heavy deduplication (67% semi-rigid, 43% flexible removed) plus UMA relaxation make exhaustive sampling tractable; conformer pools of ~20 (often &lt;10 sufficient) cover experimentally relevant conformations.
+- MLIP phonon spectra from UMA match PBE-D3 closely (low-frequency modes, no imaginary modes for glycine), but QHA free-energy corrections remain unreliable for ranking small energy differences due to neglected anharmonicity.
+- For very small polymorph energy gaps (glycine), even wB97M-V-level monomer corrections are insufficient; accurate intermolecular electrostatics and many-body dispersion (hybrid+MBD) are still required.
+
+<h2>Relevance to GAtor 2.0</h2>
+Highly relevant: this is a direct product of the Marom group (Yang, Gharakhanyan, Marom co-authors) and uses Genarris 3, the same structure generator paired with GAtor. It demonstrates a fully MLIP-driven ranking alternative to dispersion-inclusive DFT and PBE0+MBD, showing UMA reproduces PBE-D3 lattice energies (MAE ~0.9 kJ/mol) and phonon spectra, which could replace or accelerate the fitness evaluation in GAtor 2.0. The OMC-&gt;OMol conformer correction offers a concrete, cheap way to handle conformational polymorphism and GGA delocalization error that GA-based CSP of flexible molecules must contend with. It also provides an updated benchmark set (74 polymorphs, blind-test targets) and cost analysis directly comparable to GA+DFT workflows. Caveats: it uses random structure generation rather than GA operators/niching, and is limited to Z&#x27;&lt;=1 single-component crystals.
+
+<h2>Linked concepts</h2>
+<span class="chip">genetic-algorithm-csp</span> <span class="chip">genarris</span> <span class="chip">machine-learning-interatomic-potentials</span> <span class="chip">universal-model-for-atoms</span> <span class="chip">dispersion-inclusive-dft</span> <span class="chip">conformational-polymorphism</span> <span class="chip">delocalization-error</span> <span class="chip">quasi-harmonic-approximation</span> <span class="chip">csp-blind-tests</span> <span class="chip">roy-polymorphs</span>
+
+<h2>Verification flags</h2>
+
+&gt; Second-pass check found issues - read before trusting:
+
+I&#x27;ll verify each claim in the digest against the source material.
+
+<b>Checking key_results:</b>
+
+1. &quot;Semi-rigid subset: &gt;94% recall within top 10... 100% within 5 kJ/mol&quot; — Page 9: &quot;over 94% recall within the top 10 predictions and 100% within 5 kJ/mol of the lattice energy (0 K) global minimum for semi-rigid molecules.&quot; ✓
+
+2. &quot;flexible subset: &gt;81% recall within top 50 and 100% within 9 kJ/mol&quot; — Page 9: &quot;over 81% recall within the top 50 predictions and 100% within 9 kJ/mol.&quot; ✓
+
+3. Single-polymorph 14/26, top 5 in 9 additional, all within 5 kJ/mol — Page 3/9 supports this. ✓
+
+4. Multi-polymorph 9/12, top 5 remaining 3, within 9 kJ/mol — Page 9/10 supports. ✓
+
+5. &quot;99% average match rate at RMSD30 &lt; 1 A and 91% at stricter RMSD30 &lt; 0.5 A; mean RMSD30 of 0.19 A&quot; — Page 21: &quot;average of 99%... remaining at 91% even when the tolerance is a stricter RMSD30 &lt; 0.5 Å criterion... average RMSD30 of 0.19 Å.&quot; ✓
+
+6. MAE 0.84/0.90, Spearman 0.76/0.85 — Page 21: &quot;MAE of 0.84 and 0.90 kJ/mol, respectively, with corresponding Spearman rank correlations of 0.76 and 0.85.&quot; ✓ Worst cases Target XVI/XXXI ✓ (Page 21-22).
+
+7. ROY: Y at #336 (7.14 kJ/mol above ORP); correction promotes Y to #1; order Y &gt; YT04 &gt; R — Page 19 supports. ✓
+
+8. Glycine: alpha &gt; gamma &gt; beta at 0 K, experimental gamma &gt; alpha &gt; beta, correction brings gamma to 0.11 kJ/mol above alpha — Page 17 supports. ✓
+
+9. Cost: ~5,600x, ~22,000x, ~10^5 GPU-hours vs 1.6x10^9 CPU-core-hours — Page 5 and Page 39 support. ✓
+
+10. QHA worsened recall for semi-rigid, improved flexible; non-uniform — Page 14 supports. ✓
+
+11. &quot;Conformer correction fixed Target X and Target XXII rankings to #1... but worsened Target XVIII from #1 to #22.&quot; — Page 15: Target XXII &quot;ranks it as the global minimum&quot;; Target X &quot;improves it to #1&quot;; Target XVIII &quot;worsens the ranking... from #1 to #22.&quot; ✓
+
+<b>Checking method claims:</b>
+
+- &quot;4 ETKDGv3/MMFF passes to 500 conformers&quot; — Page 5/35. Note: only two passes use MMFF (passes I and II); passes III and IV do not. The digest says &quot;4 ETKDGv3/MMFF passes&quot; which slightly overstates—but it&#x27;s a compressed description. Passes all use ETKDGv3 embedding. Minor imprecision but arguably acceptable as shorthand.
+
+- &quot;energy gating to 40 kJ/mol window&quot; — Page 5: &quot;truncated to a 40 kJ/mol window.&quot; ✓
+
+<b>Checking summary/contribution:</b>
+
+- &quot;reproduces PBE-D3 with high fidelity at a fraction of the cost&quot; ✓
+
+<b>Checking limitations:</b>
+
+- &quot;diazo groups &lt;0.1% of training set for Target XVI&quot; — Page 22: &quot;molecules with diazo functional
+</div></div></body></html>

@@ -1,0 +1,88 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Data-efficient machine learning for molecular crystal structure prediction</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>Data-efficient machine learning for molecular crystal structure prediction</h1><div class="meta">Simon Wengert, Gábor Cśanyi, Karsten Reuter, Johannes T. Margraf &middot; Chemical Science (2021) &middot; 120 citations &middot; <a href="https://doi.org/10.1039/d0sc05765g" target="_blank">doi:10.1039/d0sc05765g</a> <span class="badge-conf">confidence: low</span> <span class="vflag">&#9888; verification flagged claims</span></div><div class="section">
+
+&gt; The paper presents a data-efficient Delta-machine-learning approach for organic crystal structure prediction. It corrects an efficient physics-based baseline (density functional tight binding, DFTB, which captures long-range interactions including many-body dispersion) with a short-range ML model trained on high-quality first-principles reference data computed on molecular clusters/fragments rather than periodic systems. This avoids the need for any periodic reference calculations at the target level of theory and reportedly even enables use of wavefunction methods for CSP. Note: this digest is based only on the abstract/metadata.
+
+<b>Corpus:</b> tier G - `wengert-delta-ml-2021` - source mode: metadata - confidence: <b>low</b> - FLAGGED - see below
+
+<h2>Contribution</h2>
+A tailored Delta-ML workflow that enhances a DFTB baseline (handling long-range and many-body dispersion effects) with a short-range ML correction trained on high-quality first-principles data, requiring no periodic reference calculations at the reference level of theory, and claimed to be broadly applicable across molecular materials and compatible with wavefunction-level reference methods.
+
+<h2>Method</h2>
+Delta-learning: a DFTB baseline provides an efficient physics-based description of long-range interactions and many-body dispersion; a short-range ML model trained on high-quality first-principles reference data corrects the baseline. Reference data are apparently obtained without periodic calculations at the reference level. Specific ML model type, descriptors, training set sizes, and target systems are not specified in the abstract.
+
+<h2>Key results</h2>
+- No quantitative results are available from the abstract/metadata; specific accuracy numbers, energy RMSEs, ranking metrics, and system counts are not reported here.
+- Qualitative claim: the approach adequately describes the interplay between H-bonding and many-body dispersion.
+- Qualitative claim: the workflow requires no single periodic calculation at the reference level of theory and can enable wavefunction methods in CSP.
+
+<h2>Limitations</h2>
+- Full text not available; all details beyond the abstract are unknown.
+- Abstract reports no numerical accuracy or benchmark values.
+- Scope of tested molecular systems, ML architecture, and descriptor choices are unspecified in the abstract.
+- Extent of validation against experimental polymorphs or blind-test targets is unclear.
+
+<h2>Takeaways</h2>
+- Delta-ML on top of a DFTB baseline that already captures long-range/many-body dispersion is a plausible strategy to reduce reference-data cost for lattice-energy ranking.
+- Training the ML correction on non-periodic (cluster/fragment) reference data could sidestep expensive periodic high-level calculations, relevant to PBE0+MBD-style ranking in GAtor.
+- The claim of enabling wavefunction-level references for CSP is notable but needs verification from the full paper.
+
+<h2>Relevance to GAtor 2.0</h2>
+Directly relevant to the lattice-energy ranking stage of GA-based CSP: it targets the accuracy/cost trade-off in screening many polymorphs in a narrow energy window, emphasizing H-bonding plus many-body dispersion. The DFTB-plus-Delta-ML idea is a potential cheaper surrogate or pre-screen before dispersion-inclusive DFT (PBE0+MBD), complementing MLIP-based ranking. Full-text review needed to assess accuracy versus MBD-DFT and applicability to GAtor&#x27;s target crystals.
+
+<h2>Linked concepts</h2>
+<span class="chip">crystal-structure-prediction</span> <span class="chip">delta-machine-learning</span> <span class="chip">many-body-dispersion</span> <span class="chip">dftb</span> <span class="chip">lattice-energy-ranking</span> <span class="chip">machine-learned-interatomic-potentials</span> <span class="chip">hydrogen-bonding</span>
+
+<h2>Verification flags</h2>
+
+&gt; Second-pass check found issues - read before trusting:
+
+Let me check each claim in the digest against the abstract.
+
+<b>Claims to verify:</b>
+
+1. <b>&quot;DFTB, which captures long-range interactions including many-body dispersion&quot;</b> — The abstract says DFTB provides &quot;a physics-based description of long-range interactions.&quot; It does NOT say DFTB captures &quot;many-body dispersion.&quot; The abstract lists &quot;many-body dispersion effects&quot; as something the overall approach describes, not specifically as something DFTB handles. This appears repeatedly in the digest:
+   - Summary: &quot;physics-based baseline (density functional tight binding, DFTB, which captures long-range interactions including many-body dispersion)&quot;
+   - Contribution: &quot;a DFTB baseline (handling long-range and many-body dispersion effects)&quot;
+   - Method: &quot;a DFTB baseline provides an efficient physics-based description of long-range interactions and many-body dispersion&quot;
+   
+   <b>This is overstated/unsupported.</b> The abstract only attributes &quot;long-range interactions&quot; to DFTB. Attributing &quot;many-body dispersion&quot; specifically to the DFTB baseline is an unsupported inference.
+
+2. <b>&quot;trained on high-quality first-principles reference data computed on molecular clusters/fragments rather than periodic systems&quot;</b> — The abstract says &quot;without the need for a single periodic calculation at the reference level of theory.&quot; It does not explicitly state the reference data is computed on &quot;molecular clusters/fragments.&quot; The digest itself hedges (&quot;apparently,&quot; &quot;could&quot;), but the summary states it more definitively. <b>Mildly overstated</b> — the cluster/fragment detail is inferred, not stated. The digest does flag this with &quot;apparently&quot; in the method section, but the summary states it as fact.
+
+3. <b>&quot;reportedly even enables use of wavefunction methods for CSP&quot;</b> — Supported: &quot;We show that this even allows the use of wavefunction methods in CSP.&quot;
+
+4. <b>&quot;adequately describes the interplay between H-bonding and many-body dispersion&quot;</b> — Supported: &quot;adequately describing the subtle interplay between intermolecular interactions such as H-bonding and many-body dispersion effects.&quot;
+
+5. <b>&quot;broadly applicable across molecular materials&quot;</b> — Supported: &quot;broadly applicable to different molecular materials.&quot;
+
+6. <b>&quot;relevant to PBE0+MBD-style ranking in GAtor&quot;</b> / <b>&quot;PBE0+MBD&quot;</b> — The abstract does not mention PBE0+MBD or GAtor. This is external context in the takeaways/gator_relevance section, framed as relevance rather than as a claim about the paper. Acceptable as commentary, not a claim about the paper&#x27;s content.
+
+7. <b>&quot;efficient implementation is available&quot;</b> for DFTB — Supported: &quot;for which an efficient implementation is available.&quot;
+
+<b>Summary of problems:</b>
+
+- &quot;<b>DFTB, which captures long-range interactions including many-body dispersion</b>&quot; (and repeated variants &quot;handling long-range and many-body dispersion effects&quot; and &quot;provides an efficient physics-based description of long-range interactions and many-body dispersion&quot;) — <b>Overstated/unsupported.</b> The abstract attributes only &quot;long-range interactions&quot; to the DFTB baseline. &quot;Many-body dispersion&quot; is described as an effect the overall workflow captures, not specifically the DFTB component.
+
+- &quot;<b>trained on high-quality first-principles reference data computed on molecular clusters/fragments rather than periodic systems</b>&quot; — <b>Overstated.</b> The abstract states no periodic reference calculations are needed but does not specify that the reference data comes from &quot;molecular clusters/fragments.&quot; This specific detail is an inference not stated in the abstract.
+
+All other claims are faithful, and the digest appropriately hedges most inferences and sets confidence to low.
+</div></div></body></html>

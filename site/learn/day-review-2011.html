@@ -1,0 +1,95 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Current approaches to predicting molecular organic crystal structures</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>Current approaches to predicting molecular organic crystal structures</h1><div class="meta">Graeme M. Day &middot; Crystallography Reviews (2011) &middot; 247 citations &middot; <a href="https://doi.org/10.1080/0889311x.2010.517526" target="_blank">doi:10.1080/0889311x.2010.517526</a> <span class="badge-conf">confidence: low</span> <span class="vflag">&#9888; verification flagged claims</span></div><div class="section">
+
+&gt; A 2011 review by Graeme M. Day surveying computational methods for predicting molecular organic crystal structures, ideally from just the molecular structural formula. The article focuses on the dominant global lattice energy minimization paradigm, discussing progress, current limitations, and results from the CCDC blind tests. Only the abstract is available for this digest.
+
+<b>Corpus:</b> tier C - `day-review-2011` - source mode: metadata - confidence: <b>low</b> - FLAGGED - see below
+
+<h2>Contribution</h2>
+Provides a review and synthesis of the state of molecular organic crystal structure prediction circa 2011, emphasizing global lattice energy minimization and using the community blind tests as an objective benchmark of field progress.
+
+<h2>Method</h2>
+Literature review and synthesis; no new experiments or calculations reported in the abstract. Discusses methods centered on global lattice energy minimization and references blind test results.
+
+<h2>Key results</h2>
+- No quantitative results are reported in the abstract; specific numbers cannot be extracted from the available material.
+
+<h2>Limitations</h2>
+- Digest based on abstract/metadata only; full text not available.
+- As a 2011 review, it predates modern MLIPs (MACE-OFF, AIMNet2, UMA) and later blind tests and DFT dispersion methods now central to the field.
+- Specific methods, energy rankings, and blind test statistics discussed cannot be confirmed from the abstract alone.
+
+<h2>Takeaways</h2>
+- Global lattice energy minimization was the dominant CSP approach as of 2011, motivating the search and ranking pipeline that GA-based methods aim to improve.
+- The abstract flags the central tension of CSP: reliable ranking of nearly isoenergetic candidate structures remains a limiting factor.
+- Blind tests are framed as the objective yardstick for monitoring progress, relevant context for benchmarking GAtor.
+- Useful as historical/background reference on lattice energy ranking; not a source of current numerical benchmarks.
+
+<h2>Relevance to GAtor 2.0</h2>
+Relevant as background on the lattice-energy-minimization framework that GAtor&#x27;s genetic algorithm operates within, and on the CSP blind tests used to evaluate methods. However, being a 2011 review, it predates GAtor, Genarris, dispersion-inclusive DFT workflows (PBE0+MBD), and MLIPs, so it is primarily contextual/historical rather than methodologically current.
+
+<h2>Linked concepts</h2>
+<span class="chip">crystal-structure-prediction</span> <span class="chip">lattice-energy-minimization</span> <span class="chip">csp-blind-tests</span> <span class="chip">molecular-crystals</span> <span class="chip">genetic-algorithm-csp</span>
+
+<h2>Verification flags</h2>
+
+&gt; Second-pass check found issues - read before trusting:
+
+I&#x27;ll check each claim in the digest against the abstract and metadata.
+
+<b>Summary claims:</b>
+
+1. &quot;A 2011 review by Graeme M. Day&quot; — Supported (author and venue year match).
+
+2. &quot;surveying computational methods for predicting molecular organic crystal structures, ideally from just the molecular structural formula&quot; — Supported (&quot;ideally starting from no more than a structural formula of the molecule&quot;).
+
+3. &quot;The article focuses on the dominant global lattice energy minimization paradigm&quot; — Supported (&quot;particular focus on the most common approach – global lattice energy minimization&quot;).
+
+4. &quot;discussing progress, current limitations, and results from the CCDC blind tests&quot; — <b>Partially overstated.</b> The abstract says &quot;blind tests organized to objectively monitor developments.&quot; It does <b>not</b> specify these are &quot;CCDC&quot; (Cambridge Crystallographic Data Centre) blind tests. Attributing them to CCDC is an unsupported specification not in the abstract.
+
+<b>Contribution claims:</b>
+
+5. &quot;using the community blind tests as an objective benchmark&quot; — Supported (&quot;blind tests organized to objectively monitor developments&quot;).
+
+<b>Key results:</b> Accurately states no quantitative results available. Supported.
+
+<b>Limitations:</b> 
+
+6. &quot;it predates modern MLIPs (MACE-OFF, AIMNet2, UMA) and later blind tests and DFT dispersion methods&quot; — This is external/inferential context, reasonable given the 2011 date, though these specific tools are not mentioned in the abstract. Framed as digest-author context rather than a claim about the paper&#x27;s content, so acceptable.
+
+<b>Takeaways:</b>
+
+7. &quot;The abstract flags the central tension of CSP: reliable ranking of nearly isoenergetic candidate structures remains a limiting factor.&quot; — <b>Overstated/fabricated.</b> The abstract mentions &quot;current limitations&quot; generically but does <b>not</b> specifically state anything about &quot;ranking of nearly isoenergetic candidate structures.&quot; This specific characterization is not supported by the abstract.
+
+8. &quot;motivating the search and ranking pipeline that GA-based methods aim to improve&quot; — This is digest-author framing/relevance, acceptable as interpretive context.
+
+<b>Concepts/tags:</b> The tag/concept &quot;genetic-algorithm-csp&quot; — The abstract does not mention genetic algorithms. This is inferential relevance framing rather than a claim about paper content; borderline but appears in relevance framing.
+
+<b>gator_relevance:</b> Appropriately hedged as contextual/historical. Acceptable.
+
+---
+
+<b>List of problematic statements:</b>
+
+1. &quot;discussing progress, current limitations, and results from the <b>CCDC</b> blind tests&quot; — The abstract refers only to &quot;blind tests organized to objectively monitor developments.&quot; It does not identify them as CCDC blind tests. This attribution is unsupported/fabricated.
+
+2. &quot;The abstract flags the central tension of CSP: reliable ranking of nearly isoenergetic candidate structures remains a limiting factor.&quot; — The abstract only mentions generic &quot;current limitations&quot; and does not specifically discuss ranking of nearly isoenergetic structures. This specific claim is overstated/unsupported by the abstract.
+</div></div></body></html>

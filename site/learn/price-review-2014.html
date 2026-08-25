@@ -1,0 +1,100 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Predicting crystal structures of organic compounds</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>Predicting crystal structures of organic compounds</h1><div class="meta">Sarah L. Price &middot; Chemical Society Reviews (2013) &middot; 527 citations &middot; <a href="https://doi.org/10.1039/c3cs60279f" target="_blank">doi:10.1039/c3cs60279f</a> <span class="badge-conf">confidence: low</span> <span class="vflag">&#9888; verification flagged claims</span></div><div class="section">
+
+&gt; A review by Sarah Price (Chem Soc Rev, 2013) on the state of organic crystal structure prediction (CSP). It frames CSP as a search for the most thermodynamically stable crystal structure using approximate crystal energy evaluations, where the global minimum provides a candidate experimental structure. The review emphasizes that many other structures may lie very close in energy, and these near-degenerate structures on the crystal energy landscape can correspond to polymorphs, static or dynamic disorder, or thermodynamically feasible packings that are never nucleated. A key motivation stated is CSP as a complement to experimental solid form screening.
+
+<b>Corpus:</b> tier C - `price-review-2014` - source mode: metadata - confidence: <b>low</b> - FLAGGED - see below
+
+<h2>Contribution</h2>
+Provides a conceptual/methodological review of organic CSP circa 2013, articulating the thermodynamic-landscape paradigm and the interpretation of low-energy structures (polymorphs, disorder, or unrealized packings), and positioning CSP as complementary to solid form screening. (Assessed from abstract only.)
+
+<h2>Method</h2>
+Review/survey article; no new algorithm or experiment. Discusses energy-based search methods and approximations in evaluating crystal energy. (Details unavailable without full text.)
+
+<h2>Key results</h2>
+- No quantitative results reported in the abstract.
+- Central qualitative claim: the global-minimum structure serves as a prediction of an experimental crystal structure, but multiple structures may be very close in energy.
+- Low-energy landscape structures are interpreted as polymorphs, components of static/dynamic disorder, or feasible packings with no nucleation/growth route.
+
+<h2>Limitations</h2>
+- Digest based on abstract/metadata only; full text not available.
+- 2013 review predates modern MLIPs (MACE-OFF, AIMNet2, UMA) and much of the recent dispersion-inclusive DFT and blind-test progress.
+- Focused on thermodynamic (lattice-energy) ranking; kinetics of nucleation and finite-temperature effects noted only qualitatively.
+- No specific numerical benchmarks or method comparisons captured in the abstract.
+
+<h2>Takeaways</h2>
+- The energy landscape, not just the global minimum, is the meaningful CSP output - relevant to GA niching and retaining diverse low-energy candidates.
+- Near-degenerate structures motivate careful, accurate ranking (dispersion-inclusive DFT) since polymorphs differ by small energies.
+- CSP is best used as a complement to experimental solid-form screening, framing the practical value of GAtor-style predictions.
+- The distinction between thermodynamically feasible and nucleable structures highlights the gap between lattice-energy ranking and observed polymorphism.
+
+<h2>Relevance to GAtor 2.0</h2>
+Foundational conceptual background for GAtor 2.0: it justifies preserving structural diversity across the energy landscape (relevant to GA operators and niching) and stresses accurate energy ranking because polymorphs are near-degenerate (motivating PBE0+MBD). It also frames finite-temperature stability and nucleation as open issues beyond pure lattice-energy minimization. As a 2013 review it gives historical grounding but no modern MLIP or blind-test specifics.
+
+<h2>Linked concepts</h2>
+<span class="chip">crystal-structure-prediction</span> <span class="chip">crystal-energy-landscape</span> <span class="chip">polymorphism</span> <span class="chip">lattice-energy-ranking</span> <span class="chip">solid-form-screening</span> <span class="chip">csp-blind-tests</span>
+
+<h2>Verification flags</h2>
+
+&gt; Second-pass check found issues - read before trusting:
+
+I&#x27;ll check each claim in the digest against the abstract and metadata.
+
+<b>Summary claims:</b>
+
+- &quot;A review by Sarah Price (Chem Soc Rev, 2013)&quot; — Supported (title/author/venue given).
+- Thermodynamic-stability framing, approximate crystal energy, global minimum as candidate structure — Supported by abstract.
+- &quot;many other structures may lie very close in energy&quot; — Supported (&quot;there may be other structures which are very close in energy&quot;).
+- Near-degenerate structures correspond to &quot;polymorphs, static or dynamic disorder, or thermodynamically feasible packings that are never nucleated&quot; — Supported.
+- CSP as complement to solid form screening — Supported.
+
+<b>Contribution:</b> Accurately reflects abstract, and correctly notes &quot;(Assessed from abstract only.)&quot; — Supported.
+
+<b>Method:</b> &quot;Review/survey article; no new algorithm or experiment. Discusses energy-based search methods and approximations.&quot; — The abstract mentions &quot;searching&quot; and &quot;approximations in evaluating the crystal energy,&quot; so this is a reasonable characterization. Notes details unavailable. — Supported.
+
+<b>Key results:</b> All faithful; correctly notes no quantitative results and restates qualitative claims. — Supported.
+
+<b>Limitations:</b>
+- Abstract-only basis, thermodynamic focus, no numerical benchmarks — Supported/appropriate.
+- &quot;2013 review predates modern MLIPs (MACE-OFF, AIMNet2, UMA)...&quot; — This is external knowledge, not from the source, but framed as a limitation about the review&#x27;s timing; it is factually reasonable and not a claim about the paper&#x27;s content. Acceptable.
+
+<b>Takeaways:</b>
+
+- &quot;relevant to GA niching and retaining diverse low-energy candidates&quot; — This is external interpolation (GAtor context), not from the paper, but presented as a takeaway/application. The abstract does not mention GAs, niching, or diversity operators. This is added framing, not a claim about the paper&#x27;s content.
+
+- <b>&quot;Near-degenerate structures motivate careful, accurate ranking (dispersion-inclusive DFT) since polymorphs differ by small energies.&quot;</b> — The abstract does not mention dispersion-inclusive DFT. This is an added interpretation. It&#x27;s flagged as a takeaway, but the specific method (&quot;dispersion-inclusive DFT&quot;) is not supported by the source.
+
+- &quot;CSP is best used as a complement to experimental solid-form screening&quot; — Supported by abstract.
+
+- &quot;The distinction between thermodynamically feasible and nucleable structures...&quot; — Supported (abstract mentions &quot;no route to nucleating and growing these structures&quot;).
+
+<b>Gator_relevance:</b> Explicitly framed as external application context (GAtor 2.0, PBE0+MBD, niching). These are not claims about the paper&#x27;s content and are labeled as relevance/motivation. The statement &quot;As a 2013 review it gives historical grounding but no modern MLIP or blind-test specifics&quot; is accurate.
+
+<b>Concepts:</b> Includes <b>&quot;csp-blind-tests&quot;</b> — The abstract makes no mention of blind tests. This concept is not supported by the provided material (though blind tests are a real feature of this literature, nothing in the abstract references them).
+
+<b>Confidence:</b> Set to &quot;low&quot; as instructed. — Correct.
+
+---
+
+<b>Findings — statements not supported by the provided material:</b>
+
+1. <b>&quot;Near-degenerate structures motivate careful, accurate ranking (dispersion-inclusive DFT) since polymorphs differ by small energies.&quot;</b> — The abstract does not mention dispersion-inclusive DFT (or any specific energy method). The added specificity (&quot;dispersion-inclusive DFT&quot;) is unsup
+</div></div></body></html>

@@ -1,0 +1,83 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>GAtor: A First-Principles Genetic Algorithm for Molecular Crystal Structure Prediction</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>GAtor: A First-Principles Genetic Algorithm for Molecular Crystal Structure Prediction</h1><div class="meta">Farren Curtis, Xiayue Li, Timothy Rose, Álvaro Vázquez‐Mayagoitia, Saswata Bhattacharya, Luca M. Ghiringhelli &middot; Journal of Chemical Theory and Computation (2018) &middot; 133 citations &middot; <a href="https://doi.org/10.1021/acs.jctc.7b01152" target="_blank">doi:10.1021/acs.jctc.7b01152</a> <span class="badge-group">our group</span> <span class="badge-conf">confidence: medium</span> <span class="vflag">&#9888; verification flagged claims</span></div><div class="section">
+
+&gt; This paper presents GAtor, a massively parallel first-principles genetic algorithm (GA) for molecular crystal structure prediction (CSP), written in Python and interfaced with FHI-aims for local optimization and energy evaluation using dispersion-inclusive DFT. GAtor offers configurable fitness evaluation, selection, crossover, and mutation operators tailored to molecular crystals, and implements evolutionary niching via machine-learning clustering of the population by structural similarity combined with a cluster-based fitness function to promote uniform sampling of the potential energy surface and mitigate initial-pool and selection biases (genetic drift). Best structures are re-relaxed and re-ranked using a hierarchy of increasingly accurate DFT functionals and dispersion methods. GAtor is demonstrated on four chemically diverse past blind test targets, finding the experimental and other low-energy structures for all four.
+
+<b>Corpus:</b> tier B - `gator-2018` - source mode: clipping - confidence: <b>medium</b> - FLAGGED - see below
+
+<h2>Contribution</h2>
+Introduces and documents the GAtor code: a first-principles GA for molecular CSP with molecular-crystal-specific breeding operators, ML-based evolutionary niching with a cluster-based fitness function, and a hierarchical DFT re-relaxation/re-ranking workflow. Reports finding experimental structures for four blind test targets and predicts a previously unreported Z&#x27;=2 top-ranked structure for Target II.
+
+<h2>Method</h2>
+Python GA interfaced with FHI-aims for DFT local relaxations and energies using dispersion-inclusive DFT. Configurable fitness, selection, crossover, and mutation schemes designed to balance exploration and exploitation for molecular crystals. Evolutionary niching: machine learning clusters the dynamically updated population by structural similarity, then a cluster-based fitness function evolves multiple subpopulations. Final candidate structures are re-relaxed and re-ranked with a hierarchy of increasingly accurate DFT functionals and dispersion methods. Validation against four past CSP blind test targets (Targets I, II, XIII, XXII) with RMS comparison to experimental forms via Mercury software.
+
+<h2>Key results</h2>
+- The experimentally observed structures and other low-energy structures were found for all four blind test targets (Targets I, II, XIII, XXII).
+- For Target II, 5-cyano-3-hydroxythiophene, the top-ranked putative structure is a Z&#x27;=2 structure with P-1 symmetry and a scaffold packing motif, not previously reported.
+- Supporting Information provides CIF files and total energies for the reranked structures of each target and RMS differences between predicted and published experimental forms (computed with Mercury); space-group distributions of the initial pools are also included.
+- No aggregate accuracy metrics, energy errors, or timing numbers are given in the provided clipping (full quantitative results are in the paywalled body/SI).
+
+<h2>Limitations</h2>
+- Only the abstract and metadata are available in this clipping; detailed numerical results (RMSDs, ranking accuracy, runtimes) are not accessible here.
+- Demonstrated on four single-component targets from past blind tests; no evidence in the clipping regarding multi-component crystals or systematic Z&#x27;&gt;1 handling beyond the single Target II result.
+- Relies on DFT local relaxations, which is computationally expensive; the clipping does not report cost or scalability numbers.
+- No finite-temperature stability assessment is mentioned; ranking is by lattice energy via static DFT.
+- The specific dispersion methods and functional hierarchy are not enumerated in the clipping.
+
+<h2>Takeaways</h2>
+- GAtor is the direct predecessor to GAtor/GAtor 2.0 lineage and establishes the core GA machinery: molecular-crystal breeding operators plus ML-clustering-based evolutionary niching with a cluster-based fitness function.
+- Evolutionary niching is the paper&#x27;s key idea for combating genetic drift and initial-pool bias by maintaining diverse subpopulations across the PES.
+- The hierarchical re-ranking workflow (successively more accurate functionals plus dispersion) is the template for dispersion-inclusive lattice-energy ranking relevant to PBE0+MBD workflows.
+- The Target II Z&#x27;=2 P-1 prediction is a concrete example of GA discovering a novel, higher-Z&#x27; packing not found in the original blind test.
+- Genarris (initial pool generation) is complementary and cited elsewhere; this paper focuses on the GA search and ranking rather than pool generation details visible in the clipping.
+
+<h2>Relevance to GAtor 2.0</h2>
+This is a foundational reference for the reader&#x27;s own work: it is the original GAtor paper describing the GA operators, niching, and DFT re-ranking that GAtor 2.0 builds upon. Directly relevant to GA-operators/niching, dispersion-inclusive DFT ranking, Z&#x27;&gt;1 (Target II Z&#x27;=2 result), and CSP blind test validation. Useful as the baseline against which MLIP-accelerated (MACE-OFF, AIMNet2, UMA) and finite-temperature extensions should be compared.
+
+<h2>Linked concepts</h2>
+<span class="chip">genetic-algorithm-csp</span> <span class="chip">molecular-crystal-structure-prediction</span> <span class="chip">evolutionary-niching</span> <span class="chip">dispersion-inclusive-dft</span> <span class="chip">csp-blind-tests</span> <span class="chip">fhi-aims</span> <span class="chip">z-prime-greater-than-one</span> <span class="chip">lattice-energy-ranking</span>
+
+<h2>Verification flags</h2>
+
+&gt; Second-pass check found issues - read before trusting:
+
+I&#x27;ll check each claim in the digest against the provided full-text clipping (abstract, SI listing, metadata).
+
+<b>Verified as supported:</b> The summary, method, and key_results largely track the abstract closely — Python/FHI-aims interface, dispersion-inclusive DFT, fitness/selection/crossover/mutation, ML clustering + cluster-based fitness, evolutionary niching for genetic drift/pool bias, hierarchical re-relaxation/re-ranking, four blind test targets, and the Target II Z&#x27;=2 P-1 scaffold motif result. The SI claims (CIF files, energies, Mercury RMS, space-group distributions) match the SI listing.
+
+However, several claims are unsupported or fabricated relative to the clipping:
+
+1. <b>&quot;GAtor is the direct predecessor to GAtor/GAtor 2.0 lineage&quot;</b> — Unsupported. Nothing in the clipping mentions &quot;GAtor 2.0&quot; or any lineage/successor. This is external knowledge injected as if from the material.
+
+2. <b>&quot;the original GAtor paper describing the GA operators, niching, and DFT re-ranking that GAtor 2.0 builds upon&quot;</b> (gator_relevance) — Same problem: &quot;GAtor 2.0&quot; is not in the clipping.
+
+3. <b>&quot;is the template for dispersion-inclusive lattice-energy ranking relevant to PBE0+MBD workflows&quot;</b> — Fabricated. Neither &quot;PBE0&quot; nor &quot;MBD&quot; appears anywhere in the clipping. The abstract only says &quot;a hierarchy of increasingly accurate DFT functionals and dispersion methods&quot; without naming them (which the digest&#x27;s own limitations correctly notes: &quot;The specific dispersion methods and functional hierarchy are not enumerated in the clipping&quot;). This makes the PBE0+MBD claim internally contradictory as well as unsupported.
+
+4. <b>&quot;Genarris (initial pool generation) is complementary and cited elsewhere&quot;</b> — Fabricated. &quot;Genarris&quot; does not appear anywhere in the clipping. This is external knowledge.
+
+5. <b>&quot;Useful as the baseline against which MLIP-accelerated (MACE-OFF, AIMNet2, UMA) and finite-temperature extensions should be compared.&quot;</b> — Fabricated. None of &quot;MLIP,&quot; &quot;MACE-OFF,&quot; &quot;AIMNet2,&quot; or &quot;UMA&quot; appears in the clipping; these are the reader&#x27;s own concepts, not from the material.
+
+6. <b>&quot;massively parallel first-principles genetic algorithm&quot;</b> (summary) — Supported; the abstract does say &quot;massively parallel.&quot;
+
+7. <b>&quot;This is a foundational reference for the reader&#x27;s own work&quot;</b> — This is framing about the reader, not a claim about the material&#x27;s content, so not a factual error about the paper, but it presumes context (&quot;reader&#x27;s own work&quot;) not in the clipping. Borderline; noted for completeness.
+
+Note: The digest&#x27;s `limitations` and `key_results` correctly acknowledge that quantitative details and the specific functionals are not in the clipping, which is faithful. The problems are concentrated in `takeaways` and `gator_relevance`, where external knowledge (GAtor 2.0, PBE0+MBD, Genarris, MACE-OFF/AIMNet2/UMA) is presented alongside material-derived claims.
+</div></div></body></html>

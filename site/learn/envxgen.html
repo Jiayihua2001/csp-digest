@@ -1,0 +1,67 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>envxgen</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>envxgen</h1><div class="meta"> &middot;  () &middot; 0 citations</div><div class="section">
+
+
+&gt; Tool paper presenting a CSP method for the case where part of a unit cell is already known from experiment (heavy atoms from XRD; host molecule of a cocrystal) and only the missing positions need to be predicted. Validated on superconducting hydrides (LaH₁₀, UH₈, H₃S) and CL-20 cocrystals; applied to the experimentally-unsolved Y₂H₉. Authors are at XPANCEO (Dubai), not the established CSP groups.
+
+<h2>Takeaways</h2>
+
+- <b>Problem framing is the contribution, not the algorithm.</b> EnvXGen targets *partial-information CSP* — where XRD gives you the lattice + heavy-atom (or host-molecule) positions but light atoms / guest molecules remain hidden. The authors package this as a named tool. Conceptually it&#x27;s the inorganic/organic crystallographic analog of molecular replacement.
+- <b>Algorithm is engineering, not innovation.</b> Three steps: (1) lay a 3D grid over the unit cell; remove sites that violate min-interatomic-distance constraints with the known atoms; (2) randomly place missing atoms or molecules at valid sites, with multi-stage distance checks (and rotation trials for molecules); (3) relax with VASP+PBE (atomic) or LAMMPS+ReaxFF (molecular), then rank by *both* lattice energy *and* cosine similarity to the input structure&#x27;s ALIGNN fingerprint.
+- <b>ALIGNN&#x27;s role is narrow.</b> Pretrained `mp_e_form_alignn` (formation-energy model from JARVIS) is used for fingerprinting only — penultimate-layer atom-wise embeddings averaged into a fixed-length vector. Cosine similarity drives the selection score; agglomerative clustering + UMAP/PCA are decorative (visualization only).
+- <b>Validation papers</b>: experimental phases recovered for LaH₁₀ (Fm-3m at 150 GPa, similarity 0.993, ΔH 17 meV/atom over the next phase), UH₈ (Fm-3m at 49 GPa), H₃S (Im-3m at 200 GPa), CL-20·CO₂ (Pbca), CL-20·N₂O (Pbca). All &quot;fixed environment&quot; inputs are partial structures, not raw diffraction.
+- <b>Y₂H₉ at 120 GPa</b> is the only blind prediction, and it&#x27;s hedged: P1 lowest by 12–17 meV/atom over 3–4 alternative space groups (Amm2, Pmm2, Cmm2). Within DFT noise; experimental confirmation is left for later work.
+- <b>Limitations the paper does not discuss</b>: no comparison to GAtor / USPEX with fixed-atom constraints (both support that natively); no foundation-MLIP attempted (MACE-OFF, AIMNet2 would have been the interesting test on the cocrystals); no diffraction-residual signal in the loop (this is *downstream* of XRD, not coupled to it).
+- <b>Verdict for the wiki</b>: low-priority *tool* paper. Useful to know exists if Jade ever needs the fixed-environment niche, but not a methodological advance to chase.
+
+<h2>Summary</h2>
+
+The paper introduces <b>EnvXGen</b>, a Python-based CSP code aimed at the case where the lattice parameters and the positions of *some* structural units (heavy atoms or host molecules) are already known. The motivating cases are:
+
+1. <b>Superconducting hydrides at high pressure</b>, where XRD locates La/U/Y/S atoms but H is invisible.
+2. <b>Energetic-molecule cocrystals</b> (CL-20 with small guests like CO₂, N₂O), where the rigid host can be located but disordered guests cannot.
+
+The workflow lays a 3D grid over the unit cell; for each grid node, the algorithm checks whether placing a new structural element there would violate user-tunable minimum interatomic distances. Valid sites form a candidate pool. Hundreds of candidate full-cell structures are generated by randomly placing the missing elements at sampled grid nodes (with multi-stage distance checks and, for molecules, random rotations). Relaxation runs in VASP (PBE+PAW, atomic crystals) or LAMMPS (ReaxFF, molecular crystals).
+
+For ranking, the authors compute crystal fingerprints from the penultimate layer of the pretrained `mp_e_form_alignn` model (JARVIS, trained on Materials Project formation energies), averaged atom-wise into a fixed-length vector. Each candidate is scored by both relaxed energy and cosine similarity to the input &quot;environment&quot; fingerprint. Survivors are clustered (agglomerative, with the cluster count chosen by silhouette score) and visualized in 2D via UMAP or PCA.
+
+Verification on LaH₁₀ at 150 GPa, UH₈ at 49 GPa, and H₃S at 200 GPa successfully recovers the experimental cubic phases. CL-20·CO₂ and CL-20·N₂O recover the Pbca cocrystal phases (CCDC 771863 and 1585914 as ground truth). The blind application to Y₂H₉ at 120 GPa identifies P1-Y₂H₉ as the lowest-energy candidate but with three additional space groups (Amm2, Pmm2, Cmm2) within ~17 meV/atom — all proposed as candidates pending experimental confirmation.
+
+<h2>Notable quotes</h2>
+
+&gt; &quot;EnvXGen takes the crystal structure parameters of a studied material. Also, before generation it takes the types, number, and positions of atoms or molecules that must be placed in the considered cell as a known atomic environment.&quot; — Section 2
+
+&gt; &quot;Similarity is calculated as a cosine distance between the vector representation of the initial structure and any newly generated structure. As a vector representation or descriptor, we used embeddings from the ALIGNN graph neural network pretrained on the Materials Project data set.&quot; — Section 2.1.3
+
+<h2>Implications for the wiki</h2>
+
+- <b>Touches concepts</b>: <span class="chip">concepts/crystal-structure-prediction</span> (adds the *fixed-environment* sub-problem), <span class="chip">concepts/energetic-materials</span> (CL-20 cocrystals as benchmark targets).
+- <b>New concept page warranted</b>: <span class="chip">concepts/fixed-environment-csp</span> — the problem class is real and worth filing as a distinct CSP sub-problem, even if EnvXGen itself is incremental.
+- <b>Touches entities</b>: none of the existing entity pages need updates. VASP, LAMMPS, ReaxFF, ALIGNN, CL-20 are mentioned in passing but don&#x27;t yet warrant their own pages until a *second, better* source touches them — promote later if needed.
+- <b>No author pages</b> for Propad / Kruglov: single-paper signal, XPANCEO is a private outfit, not academic CSP community.
+
+<h2>Open questions</h2>
+
+- Would GAtor or USPEX with positional constraints have produced the same result with less engineering? Authors don&#x27;t compare.
+- Would foundation MLIPs (MACE-OFF, AIMNet2, UMA) have outperformed ReaxFF on the CL-20 cocrystals?
+- Is there an experimental confirmation of the proposed Y₂H₉ structure (P1 vs. the three alternatives within DFT noise)?
+- Is the ALIGNN-as-fingerprint trick more accurate than simpler alternatives (heavy-atom RMSD, COMPACK, Steinhardt-parameter cosine) for this task? The paper does not test that.
+</div></div></body></html>

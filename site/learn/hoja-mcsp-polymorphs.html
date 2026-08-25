@@ -1,0 +1,80 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>hoja-mcsp-polymorphs</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>hoja-mcsp-polymorphs</h1><div class="meta"> &middot;  () &middot; 0 citations</div><div class="section">
+
+
+&gt; Foundational *Sci. Adv.* paper that combines Neumann&#x27;s GRACE sampling and Tkatchenko&#x27;s PBE0+MBD energy ranking into a single end-to-end MCSP protocol. Validated on the 5 most challenging systems of the 6th CCDC blind test (501 candidate structures), it correctly ranks the experimental structure as #1 for 4/5 systems and locates all 5 polymorphs of the hard system XXIII within 4.3 kJ/mol. <b>Predicts an unobserved polymorph &quot;Str. N70&quot; that is ~1.5 kJ/mol more stable than any known form</b> — a famous standing wager in the literature. Defines the canonical PBE0+MBD+F_vib gold-standard ranking protocol that subsequent MCSP papers benchmark against.
+
+<h2>Takeaways</h2>
+
+- <b>The protocol that became the gold standard.</b> This paper is what people mean when they cite &quot;PBE0+MBD with vibrational corrections&quot; for MCSP energy ranking. Anyone claiming &quot;comparable to dispersion-corrected hybrid DFT&quot; — including the [[sources/2026-05-06_acm-molecular-crystals|ACM/HFAC24 paper]] — is benchmarking against this exact protocol.
+- <b>Hierarchical ranking ladder</b> (each rung essential):
+  1. PBE + TS — geometry/lattice optimization (cheap dispersion-corrected GGA)
+  2. PBE + MBD — many-body dispersion fixes pairwise-additivity errors
+  3. PBE0 + MBD — hybrid functional fixes self-interaction error → better electrostatics + charge transfer
+  4. + F_vib at PBE+TS (harmonic) → Helmholtz free energy ranking at experimental T
+  5. Optional: QHA (thermal expansion) + Morse anharmonic on flexible systems
+- <b>Validation: 5 systems × 501 structures from the 6th CCDC blind test.</b> GRACE-Neumann sampling ([[concepts/csp-blind-tests|the only one]] that recovered all-but-one experimental structures in the top 100 in the 6th blind test) provided the candidates. PBE0+MBD+F_vib refinement substantially improved unrefined GRACE rankings: the experimental structure went from rank-2/2/6/1 → <b>rank-1 for all four single-polymorph systems</b>.
+- <b>System XXIII is the famous one.</b> Conformationally flexible drug-candidate molecule, 5 known polymorphs. Final ranking puts all 5 within 4.3 kJ/mol of the most stable (1 kcal/mol — the canonical &quot;kT-of-coexistence&quot; window). With QHA+Morse anharmonic added, all five Z&#x27;=1 forms are within 0.4 kJ/mol — at the absolute limit of method discrimination.
+- <b>The N70 prediction.</b> The protocol identifies an unobserved structure &quot;N70&quot; that is <b>~1.5 kJ/mol more stable than any experimental polymorph</b> of XXIII (and stays more stable even after thermal expansion + anharmonic corrections). Authors hypothesize it might be kinetically blocked — propose finding it by slow melt of form A or surfactant-assisted crystallization. Whether N70 has been experimentally found in the years since 2019 is an open question worth tracking.
+- <b>Cost numbers worth remembering</b> (2.4 GHz Intel Xeon E5-2680 v4):
+  - PBE0+MBD single-point: 60 CPU-hours for 172-atom average system; up to 750 CPU-hours for 896-atom unit cells.
+  - Harmonic F_vib: 750–45,000 CPU-hours depending on supercell size and # of finite-difference displacements.
+  - QHA + Morse anharmonic: ~10× more on top.
+  - Authors stress this is &quot;within reach of academic and industrial labs&quot; but flag MLIPs as the obvious scaling lever — a 2019 prediction that 2023&#x27;s MACE-OFF era validated.
+- <b>All calculations in [[entities/fhi-aims|FHI-aims]]</b> with the all-electron formulation, two-tier accuracy (&quot;light&quot; / &quot;tight&quot;), MBD@rsSCS reciprocal-space implementation. Geometry RMSD₂₀ vs. experiment ≤ 0.5 Å on all systems.
+- <b>Pharmaceutical relevance hammered explicitly</b>: rotigotine, ritonavir (the famous polymorph recall), dalcetrapib, and now system-XXIII (a former drug candidate) are all flagged as evidence for &quot;late-appearing polymorphs are ubiquitous&quot;. The paper is a high-end MCSP brochure aimed at pharma R&amp;D.
+
+<h2>Summary</h2>
+
+The paper presents an end-to-end MCSP protocol that fuses two independently-best-in-class pieces from the 6th CCDC blind test:
+
+- <b>Sampling — GRACE</b> (Neumann&#x27;s *Generation Ranking and Characterization Engine*). A Monte Carlo parallel-tempering search on a tailor-made tailored force field, followed by hierarchical reoptimization with dispersion-inclusive DFT. In the 6th blind test, GRACE was the only sampling approach that recovered all experimental structures (except one) within the top 100 most stable candidates.
+- <b>Energy ranking — PBE0 + MBD + F_vib</b>. The Tkatchenko-group framework: many-body dispersion (MBD) on top of the hybrid PBE0 functional, augmented with harmonic vibrational free energies from PBE+TS finite-difference phonons.
+
+Starting from GRACE&#x27;s top-100 candidates per system (501 structures total across XXII–XXVI, plus form E of XXIII added for completeness), the authors apply the four-step ranking ladder. The final PBE0+MBD+F_vib free-energy ranking puts the experimental structure at rank 1 for systems XXII, XXIV, XXV, XXVI — substantial improvements over the unrefined GRACE rankings.
+
+For the hardest system, <b>XXIII</b> — a flexible-molecule, 5-polymorph drug candidate — the protocol locates all five experimental forms within 4.3 kJ/mol. With thermal expansion (QHA) + Morse anharmonic vibrational corrections, the spread tightens to 1.5 kJ/mol total and all Z&#x27;=1 forms collapse into a 0.4 kJ/mol window. Critically, an *unobserved* candidate Str. N70 is predicted ~1.5 kJ/mol more stable than any known XXIII polymorph; the authors propose it may be kinetically blocked and suggest crystallization conditions to find it.
+
+Computational cost is detailed: PBE0+MBD single-point ≈ 60 CPU-hours for an average 172-atom unit cell; harmonic F_vib 750–45,000 CPU-hours depending on supercell size; QHA + Morse anharmonic adds another ~10×. The authors flag MLIPs and machine-learned lattice-energy/Hessian models as the obvious next step to make F_vib affordable at scale — a prediction validated by the post-2023 MACE-OFF / AIMNet2 era.
+
+<h2>Notable quotes</h2>
+
+&gt; &quot;Reliable prediction of the polymorphic energy landscape of a molecular crystal would yield profound insight into drug development in terms of the existence and likelihood of late-appearing polymorphs. However, the computational prediction of molecular crystal polymorphs is highly challenging due to the high dimensionality of conformational and crystallographic space accompanied by the need for relative free energies to within 1 kJ/mol per molecule.&quot; — Abstract
+
+&gt; &quot;We note here that our procedure finds one structure (Str. N70) that is ≈1.5 kJ/mol more stable than all experimentally observed structures, a remarkable finding that is discussed in more detail below.&quot; — Results, system XXIII
+
+&gt; &quot;PBE0 + MBD energies could serve as reference data to develop more accurate tailor-made force fields or efficient machine learning energy models. […] efficient machine learning models could be used in path integral molecular dynamics, especially when coupled with sophisticated enhanced sampling techniques.&quot; — Discussion (the 2019 prediction of the 2023+ MLIP era)
+
+<h2>Implications for the wiki</h2>
+
+- <b>New concept page</b>: <span class="chip">concepts/many-body-dispersion</span> — the MBD framework is the keystone of MCSP energy ranking and didn&#x27;t exist in the wiki yet.
+- <b>New entity page</b>: <span class="chip">entities/alexandre-tkatchenko</span> — corresponding author here, repeats across nearly every MCSP energy-ranking source we&#x27;ll encounter.
+- <b>Touches concepts</b>: <span class="chip">concepts/crystal-structure-prediction</span> (canonical hierarchical ranking protocol), <span class="chip">concepts/csp-blind-tests</span> (post-blind-test methodology refinement, 6th-test specifically), <span class="chip">concepts/polymorphism</span> (the N70 case study; aspirin parallels), <span class="chip">concepts/machine-learned-interatomic-potentials</span> (paper&#x27;s own foreshadowing of the MLIP era).
+- <b>Touches entities</b>: <span class="chip">entities/fhi-aims</span> (used for all calculations).
+- <b>Skipped (per same rule as the last few ingests)</b>: GRACE, Marcus Neumann, Hoja, Car, DiStasio as standalone entities — promote later if a second source touches them. (Tkatchenko gets a page now because he&#x27;s the main signal-amplifier across this corner of MCSP.)
+
+<h2>Open questions</h2>
+
+- <b>Has Str. N70 been experimentally found?</b> As of the paper (2019) and not yet logged in this wiki — would be a great citation-graph query against post-2019 XXIII follow-ups.
+- <b>MLIP-accelerated F_vib</b>: the paper&#x27;s foreshadowing has partially come true with MACE-OFF / AIMNet2 for relaxation, but using MLIP Hessians for full F_vib calculation is still emerging. Has a published comparison of MLIP vs DFT F_vib on the same MCSP target appeared?
+- <b>PBE+MBD vs PBE+TS for geometries</b>: the paper sticks with PBE+TS for geometry/forces because cost is ~50% less than PBE+MBD. Whether the geometric error (~3.6% volume underestimate fixed by QHA) is consequential for downstream lattice-energy ranking is discussed in their ref 41 — worth tracking down if the trade-off becomes important.
+- <b>Anharmonicity beyond Morse</b>: VSCF / VSCF+CC / path-integral MD are listed as &quot;more advanced dynamical approaches&quot;. When does Morse cease to be sufficient?
+</div></div></body></html>

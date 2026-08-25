@@ -1,0 +1,95 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Facts and fictions about polymorphism</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>Facts and fictions about polymorphism</h1><div class="meta">Aurora J. Cruz‐Cabeza, Susan M. Reutzel‐Edens, Joel Bernstein &middot; Chemical Society Reviews (2015) &middot; 682 citations &middot; <a href="https://doi.org/10.1039/c5cs00227c" target="_blank">doi:10.1039/c5cs00227c</a> <span class="badge-conf">confidence: low</span> <span class="vflag">&#9888; verification flagged claims</span></div><div class="section">
+
+&gt; A review analyzing polymorphism using three data sources: crystallographic data from the Cambridge Structural Database (CSD), 229 industrial solid form screens from Hoffmann-La Roche and Eli Lilly, and a computed dataset of 446 polymorphic crystals with DFT-d energies and properties. The authors present statistics on how often compounds are polymorphic and which molecular properties (flexibility, size, chirality, hydrogen bonding) correlate with polymorphism, and characterize the energy differences between polymorphs.
+
+<b>Corpus:</b> tier C - `facts-fictions-polymorphism` - source mode: metadata - confidence: <b>low</b> - FLAGGED - see below
+
+<h2>Contribution</h2>
+Provides data-driven &#x27;facts&#x27; about polymorphism that debunk common assumptions, quantifying polymorphism frequencies and property correlations from large crystallographic and industrial screening datasets plus a curated DFT-d energy dataset.
+
+<h2>Method</h2>
+Statistical analysis of (i) CSD crystallographic data, (ii) 229 industrial solid form screens at Roche (8+ years) and Lilly (15+ years), and (iii) a dataset of 446 polymorphic crystals with energies and properties computed via modern DFT-d methods. Details of the DFT-d functional/dispersion scheme are not available from the abstract.
+
+<h2>Key results</h2>
+- Molecular flexibility or size has no correlation with the ability of a compound to be polymorphic
+- Chiral molecules are less prone to polymorphism than achiral counterparts
+- Hydrogen-bonding compounds show only a slightly higher propensity to polymorphism than non-hydrogen-bonding ones
+- Energy difference between polymorphs is usually less than 1 kcal/mol
+- Conformational polymorphs can differ by larger values, up to 2.5 kcal/mol in their dataset
+- One in three compounds in the CSD are polymorphic
+- At least one in two compounds in the Roche and Lilly set display polymorphism, rising up to three in four under intensive screening
+
+<h2>Limitations</h2>
+- Digest based on abstract/metadata only; full methodology and DFT-d details not available
+- CSD-based statistics are subject to reporting/deposition biases (polymorphs may be under-reported)
+- Industrial screening frequencies depend on screening intensity, giving a range rather than a fixed value
+- Predicting and realizing targeted polymorphism remains unsolved (&#x27;holy grail&#x27;)
+
+<h2>Takeaways</h2>
+- Polymorphism is common: roughly 1/3 of CSD compounds, up to 3/4 with intensive screening, relevant framing for CSP energy-window justification
+- The small typical polymorph energy gap (&lt;1 kcal/mol, up to ~2.5 for conformational) sets a demanding accuracy target for lattice-energy ranking in CSP
+- Molecular flexibility/size do not predict polymorphism, so structure generation should not deprioritize based on these features
+- Provides empirical priors useful for evaluating CSP predictions against realistic polymorph counts and energy spreads
+
+<h2>Relevance to GAtor 2.0</h2>
+Highly relevant for calibrating CSP energy windows and ranking accuracy: the reported &lt;1 kcal/mol typical polymorph gap (up to 2.5 kcal/mol for conformational polymorphs) directly informs how tight lattice-energy ranking (e.g. PBE0+MBD, MLIPs) must be to resolve real polymorphs. The polymorphism-frequency statistics and property correlations give useful priors when judging GAtor outputs.
+
+<h2>Linked concepts</h2>
+<span class="chip">polymorphism</span> <span class="chip">molecular-crystals</span> <span class="chip">lattice-energy-ranking</span> <span class="chip">dispersion-inclusive-dft</span> <span class="chip">csd-crystal-structure-database</span> <span class="chip">conformational-polymorphism</span>
+
+<h2>Verification flags</h2>
+
+&gt; Second-pass check found issues - read before trusting:
+
+Checking each claim against the abstract:
+
+<b>Key results</b> — all match the abstract:
+- Molecular flexibility/size no correlation: supported (&quot;molecular flexibility or size has no correlation&quot;).
+- Chiral molecules less prone: supported.
+- Hydrogen-bonding slightly higher propensity: supported.
+- Energy difference usually &lt;1 kcal/mol: supported.
+- Conformational polymorphs up to 2.5 kcal/mol: supported.
+- One in three CSD compounds polymorphic: supported.
+- At least one in two from Roche/Lilly, up to three in four with intensive screening: supported.
+
+<b>Summary/method/contribution</b> — accurate; the &quot;8+ and 15+ years&quot; and &quot;229 screens&quot; and &quot;446 polymorphic crystals&quot; all match.
+
+<b>Limitations</b> — these are reasonable inferences (reporting bias, screening-intensity dependence, holy grail statement is directly supported by the abstract).
+
+<b>Now the phrase to scrutinize:</b>
+
+&quot;Conformational polymorphs can differ by larger values, up to 2.5 kcal/mol <b>in their dataset</b>&quot; — supported; abstract says &quot;up to 2.5 kcal mol(-1) in our dataset.&quot;
+
+<b>Potentially overstated items:</b>
+
+1. From `contribution`: <b>&quot;that debunk common assumptions&quot;</b> — The title is &quot;Facts and fictions about polymorphism&quot; and abstract says &quot;new facts,&quot; which implies correcting misconceptions, but the abstract does not explicitly state the findings &quot;debunk common assumptions.&quot; This is a mild extrapolation, though defensible given the title. Borderline.
+
+2. From `gator_relevance`: <b>&quot;how tight lattice-energy ranking (e.g. PBE0+MBD, MLIPs) must be&quot;</b> — The abstract only says &quot;modern DFT-d methods.&quot; The specific functionals <b>PBE0+MBD and MLIPs are not mentioned anywhere</b> in the abstract. The digest itself flags this (&quot;Details of the DFT-d functional/dispersion scheme are not available from the abstract&quot;), so introducing PBE0+MBD/MLIPs as examples is a fabrication of specifics not in the source. However, these are framed as examples of GAtor-relevant methods rather than as claims about this paper&#x27;s methods, so it is contextual framing, not a claim about the paper&#x27;s content.
+
+Given the instruction to list unsupported/overstated/fabricated <b>statements about the material</b>, and treating the gator_relevance/takeaways as interpretive framing rather than factual claims about the paper:
+
+The one statement that asserts something not in the source as if characterizing the paper:
+
+- <b>&quot;Provides data-driven &#x27;facts&#x27; about polymorphism that debunk common assumptions&quot;</b> — Overstated: the abstract presents &quot;new facts&quot; but never claims to &quot;debunk common assumptions.&quot; The word &quot;fictions&quot; in the title loosely supports it, but &quot;debunk common assumptions&quot; is an inference beyond what the abstract states.
+
+All other statements are faithful to the abstract.
+</div></div></body></html>

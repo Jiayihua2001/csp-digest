@@ -1,0 +1,84 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Role of Dispersion Interactions in the Polymorphism and Entropic Stabilization of the Aspirin Crystal</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>Role of Dispersion Interactions in the Polymorphism and Entropic Stabilization of the Aspirin Crystal</h1><div class="meta">Anthony M. Reilly, Alexandre Tkatchenko &middot; Physical Review Letters (2014) &middot; 202 citations &middot; <a href="https://doi.org/10.1103/physrevlett.113.055701" target="_blank">doi:10.1103/physrevlett.113.055701</a> <span class="badge-conf">confidence: low</span> <span class="vflag">&#9888; verification flagged claims</span></div><div class="section">
+
+&gt; This PRL uses first-principles calculations to explain the polymorphism of aspirin, which has two known crystal forms (I and II) that are essentially degenerate in lattice energy. The authors argue that room-temperature free-energy differences, rather than purely kinetic effects, explain why form I is more abundant. The key finding is that explicitly including many-body van der Waals (dispersion) interactions in the free energy reveals a subtle coupling between collective electronic fluctuations and quantized lattice vibrations (phonons) that stabilizes form I. They also analyze elastic properties and rule out mechanical instability as the source of form II metastability.
+
+<b>Corpus:</b> tier D - `aspirin-anharmonicity-2014` - source mode: metadata - confidence: <b>low</b> - FLAGGED - see below
+
+<h2>Contribution</h2>
+Provides a free-energy (entropic/vibrational) explanation for aspirin polymorphism as an alternative to kinetic arguments, demonstrating that many-body van der Waals interactions couple to lattice vibrations to break the lattice-energy degeneracy between forms I and II at room temperature.
+
+<h2>Method</h2>
+First-principles calculations of lattice energies, free energies including vibrational (phonon) contributions, and elastic properties for the two aspirin polymorphs. Many-body van der Waals interactions are explicitly incorporated into the free energy (consistent with Tkatchenko-group MBD methodology, though specifics are not confirmed from the abstract). Elastic property analysis is used to assess mechanical stability.
+
+<h2>Key results</h2>
+- The two observed aspirin forms are reported to be degenerate in lattice energy (no numeric value given in abstract)
+- Explicit inclusion of many-body van der Waals interactions in the free energy produces a coupling between collective electronic fluctuations and quantized lattice vibrations that stabilizes the most abundant form (form I)
+- Elastic property analysis rules out mechanical instability of form II as the cause of its metastability
+- Specific numerical values (energy differences, free-energy differences, temperatures beyond &#x27;room temperature&#x27;) are not available from the abstract
+
+<h2>Limitations</h2>
+- Digest based on abstract/metadata only; quantitative results, functional/method details, and error bars are unavailable
+- Abstract does not state which DFT functional or exact dispersion scheme (e.g. MBD vs TS) was used
+- Focused on a single-component, well-studied molecular crystal (aspirin); generalization to broader CSP not addressed in abstract
+- Phonon/free-energy calculations at finite temperature typically rely on harmonic or quasi-harmonic approximations, but the specific approximation is not stated in the abstract
+
+<h2>Takeaways</h2>
+- Lattice-energy degeneracy does not settle polymorph ranking; finite-temperature free energy (vibrational entropy) can be decisive
+- Many-body dispersion matters not just for static lattice energies but also through its coupling to lattice vibrations, affecting phonon free energies
+- For GAtor 2.0 ranking of near-degenerate polymorphs, static PBE0+MBD lattice energies may be insufficient; free-energy/phonon corrections may be needed to distinguish forms
+- Elastic/mechanical stability analysis can independently rule out dynamical instability as a cause of metastability
+
+<h2>Relevance to GAtor 2.0</h2>
+Highly relevant to finite-temperature stability and lattice-energy ranking in GAtor 2.0. Aspirin is a canonical CSP benchmark, and this work shows that near-degenerate polymorphs may require free-energy (vibrational, entropic) corrections beyond static dispersion-inclusive DFT to rank correctly. It directly motivates coupling MBD dispersion to phonon calculations for ranking, relevant to any pipeline that stops at static PBE0+MBD energies.
+
+<h2>Linked concepts</h2>
+<span class="chip">many-body-dispersion</span> <span class="chip">finite-temperature-stability</span> <span class="chip">lattice-energy-ranking</span> <span class="chip">molecular-crystal-polymorphism</span> <span class="chip">vibrational-free-energy</span> <span class="chip">dispersion-inclusive-dft</span>
+
+<h2>Verification flags</h2>
+
+&gt; Second-pass check found issues - read before trusting:
+
+Checking each claim against the abstract:
+
+<b>Summary claims</b> — all supported: two forms, lattice-energy degeneracy, free-energy explanation vs. kinetics, MBD coupling to phonons stabilizing form I, elastic analysis ruling out mechanical instability. All appear in the abstract.
+
+One point to scrutinize:
+
+- <b>&quot;rather than purely kinetic effects, explain why form I is more abundant&quot;</b> / &quot;stabilizes the most abundant form (form I)&quot;: The abstract says &quot;the most abundant form&quot; but never explicitly labels it &quot;form I.&quot; It only names &quot;form II&quot; as the less abundant/newer form. Identifying the abundant form as &quot;form I&quot; is a reasonable inference (form II is stated to be the additional/less abundant one), and the digest&#x27;s takeaway lists &quot;stabilizes the most abundant form (form I)&quot; which parenthetically flags the inference. This is faithful enough, not a fabrication.
+
+<b>Contribution</b> — supported. Matches abstract.
+
+<b>Method</b> — mostly supported, but note:
+- <b>&quot;consistent with Tkatchenko-group MBD methodology, though specifics are not confirmed from the abstract&quot;</b> — appropriately hedged. The abstract does not confirm the specific scheme, and the digest says so. Acceptable.
+
+<b>Key_results</b> — all supported and appropriately hedged (numeric values noted as unavailable).
+
+<b>Limitations</b> — supported/appropriate hedging.
+
+<b>Takeaways</b> — the general scientific takeaways are supported. The GAtor-specific ones (PBE0+MBD, GAtor 2.0) are framing added by the digest, not claims about the paper&#x27;s content, so not &quot;unsupported claims about the material.&quot;
+
+<b>gator_relevance</b> — framing/opinion, not a factual claim about the paper.
+
+No statement misrepresents, overstates, or fabricates content from the abstract. The &quot;form I&quot; identification is a labeled inference, and method/scheme uncertainties are explicitly hedged.
+
+ALL SUPPORTED
+</div></div></body></html>

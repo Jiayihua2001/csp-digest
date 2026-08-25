@@ -1,0 +1,97 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Accurate Molecular Van Der Waals Interactions from Ground-State Electron Density and Free-Atom Reference Data</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>Accurate Molecular Van Der Waals Interactions from Ground-State Electron Density and Free-Atom Reference Data</h1><div class="meta">Alexandre Tkatchenko, Matthias Scheffler &middot; Physical Review Letters (2009) &middot; 6356 citations &middot; <a href="https://doi.org/10.1103/physrevlett.102.073005" target="_blank">doi:10.1103/physrevlett.102.073005</a> <span class="badge-conf">confidence: low</span> <span class="vflag">&#9888; verification flagged claims</span></div><div class="section">
+
+&gt; This PRL introduces the Tkatchenko-Scheffler (TS) method, a parameter-free scheme for computing long-range van der Waals (vdW) interactions from mean-field electronic structure calculations. Effective atomic C6 dispersion coefficients are derived by combining the ground-state electron density of a molecule or solid (via Hirshfeld partitioning, implied) with accurate free-atom reference data. Because the effective atomic volume and hence C6 coefficient adapts to the local bonding environment, the method captures chemical-environment dependence of dispersion without empirical fitting. The abstract reports a mean absolute error of 5.5% in C6 coefficients versus experimental values for 1225 intermolecular pairs, largely independent of the exchange-correlation functional used. The paper also analyzes vdW radii and the damping function in the C6*R^(-6) DFT correction.
+
+<b>Corpus:</b> tier D - `ts-vdw-2009` - source mode: metadata - confidence: <b>low</b> - FLAGGED - see below
+
+<h2>Contribution</h2>
+A parameter-free (per the abstract), density-derived pairwise C6/R^6 dispersion correction for DFT in which effective atomic C6 coefficients respond to the local bonding environment, using free-atom reference data plus the self-consistent electron density.
+
+<h2>Method</h2>
+Effective atomic C6 coefficients derived from the ground-state electron density combined with accurate free-atom reference data; summation of interatomic C6 coefficients for the long-range dispersion energy; analysis of vdW radii and a damping function for the C6*R^(-6) correction to DFT. Specific partitioning scheme details are not stated in the abstract.
+
+<h2>Key results</h2>
+- Mean absolute error in C6 coefficients of 5.5% versus accurate experimental values across 1225 intermolecular pairs
+- Accuracy reported as largely irrespective of the employed exchange-correlation functional
+- Effective atomic C6 coefficients depend strongly on the bonding environment of an atom in a molecule
+
+<h2>Limitations</h2>
+- Digest based on abstract/metadata only; full-text details unavailable
+- Pairwise C6/R^6 formulation does not include higher-order (C8, C10) or many-body/beyond-pairwise dispersion terms (the later MBD method addresses this)
+- Requires a damping function whose parametrization couples to the vdW radii and the chosen functional
+- Validation reported for C6 coefficients against experiment, not directly for lattice or binding energies in the abstract
+
+<h2>Takeaways</h2>
+- This is the foundational TS dispersion method underlying later PBE0+MBD workflows relevant to molecular crystal lattice-energy ranking
+- Environment-dependent atomic polarizabilities/C6 (via density) are the key idea distinguishing TS from fixed-coefficient DFT-D schemes
+- Provides the density-based C6 machinery that MBD (Tkatchenko et al.) later extends to include many-body screening
+
+<h2>Relevance to GAtor 2.0</h2>
+Directly relevant: TS dispersion is the ancestor of the PBE0+MBD dispersion-inclusive DFT commonly used to rank molecular crystal candidate structures in GAtor workflows. Understanding the origin of the effective atomic C6 coefficients and damping function contextualizes accuracy and failure modes of dispersion-inclusive lattice-energy rankings.
+
+<h2>Linked concepts</h2>
+<span class="chip">many-body-dispersion</span> <span class="chip">dispersion-inclusive-dft</span> <span class="chip">tkatchenko-scheffler-dispersion</span> <span class="chip">lattice-energy-ranking</span> <span class="chip">hirshfeld-partitioning</span>
+
+<h2>Verification flags</h2>
+
+&gt; Second-pass check found issues - read before trusting:
+
+Let me check each claim in the digest against the abstract and metadata.
+
+<b>Claims to verify:</b>
+
+1. <b>&quot;introduces the Tkatchenko-Scheffler (TS) method&quot;</b> — The abstract presents the method; naming it &quot;TS&quot; is conventional post-hoc labeling but reasonable given the authors. Acceptable as contextual.
+
+2. <b>&quot;via Hirshfeld partitioning, implied&quot;</b> — The digest explicitly flags this as &quot;implied&quot; and notes &quot;Specific partitioning scheme details are not stated in the abstract.&quot; Honest hedging; not a fabricated hard claim. Acceptable, though &quot;hirshfeld-partitioning&quot; appears in the concepts list without hedging (minor).
+
+3. <b>&quot;mean absolute error of 5.5% in C6 coefficients versus experimental values for 1225 intermolecular pairs&quot;</b> — Supported: abstract says &quot;mean absolute error in the C6 coefficients is 5.5% when compared to accurate experimental values for 1225 intermolecular pairs.&quot;
+
+4. <b>&quot;largely independent of the exchange-correlation functional&quot;</b> — Supported: &quot;irrespective of the employed exchange-correlation functional.&quot;
+
+5. <b>&quot;effective atomic C6 coefficients depend strongly on the bonding environment&quot;</b> — Supported directly.
+
+6. **&quot;analyzes vdW radii and the damping function in the C6*R^(-6) DFT correction&quot;<b> — Supported.
+
+7. </b>&quot;foundational TS dispersion method underlying later PBE0+MBD workflows&quot;<b> / </b>&quot;MBD (Tkatchenko et al.) later extends&quot;** — These are external/contextual claims about later methods, not in the abstract. However, they are presented in &quot;takeaways&quot;/&quot;gator_relevance&quot; as interpretive context, and the digest already flags MBD as a &quot;later&quot; method under limitations. These are outside-knowledge assertions, not claims *from* the material.
+
+Now, the following statements go beyond what the abstract supports:
+
+- <b>&quot;a parameter-free scheme for computing long-range van der Waals (vdW) interactions from mean-field electronic structure calculations&quot;</b> — Supported (&quot;parameter-free method... from mean-field electronic structure calculations&quot;).
+
+- <b>&quot;Because the effective atomic volume and hence C6 coefficient adapts to the local bonding environment&quot;</b> — The abstract mentions bonding-environment dependence of C6, but &quot;effective atomic volume&quot; is not mentioned in the abstract. This is an unstated mechanistic detail (true of the actual method, but not supported by the provided abstract).
+
+Statement to flag:
+
+&gt; &quot;Because the effective atomic volume and hence C6 coefficient adapts to the local bonding environment, the method captures chemical-environment dependence of dispersion without empirical fitting.&quot;
+
+Why: The abstract does not mention &quot;effective atomic volume&quot; as the mechanism. The abstract only states C6 coefficients depend on bonding environment; the volume-scaling mechanism is external knowledge not present in the provided material.
+
+- <b>&quot;without empirical fitting&quot;</b> — Reasonably follows from &quot;parameter-free.&quot; Acceptable.
+
+- The concept tag <b>&quot;hirshfeld-partitioning&quot;</b> and <b>&quot;many-body-dispersion&quot;</b> — not in abstract, but the digest flags these as inferred/contextual.
+
+<b>Conclusion:</b> The digest is largely faithful and carefully hedges the uncertain items. The one substantive overstatement is the &quot;effective atomic volume&quot; mechanism, which is not in the provided abstract/metadata.
+
+<b>Flagged statement:</b>
+
+- &quot;Because the effective atomic volume and hence C6 coefficient adapts to the local bonding environment...&quot; — <b>Overstated/unsupported</b>: The abstract never mentions &quot;effective atomic volume.&quot; While this is how the
+</div></div></body></html>

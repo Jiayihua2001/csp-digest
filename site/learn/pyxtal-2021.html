@@ -1,0 +1,115 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>PyXtal: A Python library for crystal structure generation and symmetry analysis</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>PyXtal: A Python library for crystal structure generation and symmetry analysis</h1><div class="meta">Scott Fredericks, Kevin Parrish, Dean Sayre, Qiang Zhu &middot; Computer Physics Communications (2020) &middot; 142 citations &middot; <a href="https://doi.org/10.1016/j.cpc.2020.107810" target="_blank">doi:10.1016/j.cpc.2020.107810</a> <span class="badge-conf">confidence: high</span> <span class="vflag">&#9888; verification flagged claims</span></div><div class="section">
+
+&gt; PyXtal is an open-source Python library for generating random symmetric structures for atomic and molecular systems across all dimensionalities (0D clusters, 1D rods, 2D layers, 3D crystals). Given a symmetry group, stoichiometry, and volume, it automatically selects compatible Wyckoff positions using a step-wise merging scheme, and for molecules it detects point-group symmetry to place them into special Wyckoff positions with valid orientations, enabling arbitrary Z&#x27;. It also supports symmetry-preserving structure modulation via asymmetric-unit perturbation and group-subgroup transitions, plus utilities for symmetry analysis, geometry optimization, and simulated powder XRD. Benchmarks on Lennard-Jones clusters and carbon/silicon allotropes demonstrate that pre-symmetrized trial structures improve the success rate of finding low-energy configurations.
+
+<b>Corpus:</b> tier E - `pyxtal-2021` - source mode: pdf - confidence: <b>high</b> - FLAGGED - see below
+
+<h2>Contribution</h2>
+A standalone, free Python package that generates symmetric trial structures for 0D-3D atomic and molecular systems, uniquely supporting molecules in special Wyckoff positions with arbitrary Z&#x27; (fractional to multiple integers) and low-dimensional (point/rod/layer group) systems that prior tools (Randspg, Genarris) did not cover together.
+
+<h2>Method</h2>
+Structure generation flowchart: user inputs dimension, symmetry group, stoichiometry, volume; a Wyckoff compatibility check iterates through WP combinations; lattice generation using Gaussian-sampled shear matrices with constraints per crystal system (and spheres/ellipsoids for 0D clusters); WP insertion from highest to lowest multiplicity with a merging scheme following the USPEX-style approach (Ref 9/14); distance checking against covalent bond lengths using a 3x3x3 supercell approximation (lattices constrained to angles 30-150 degrees). For molecules, point group is detected via Pymatgen PointGroupAnalyzer and valid orientations aligning molecular symmetry axes with Wyckoff site symmetry are enumerated. Chiral inversion is disabled by default. Structure modulation via asymmetric-unit perturbation (including molecular reorientation and dihedral rotors) and group-subgroup transitions using Bilbao/International Tables symmetry relations. Dependencies: NumPy, SciPy, Pandas, Pymatgen, Spglib, optional Openbabel and ASE.
+
+<h2>Key results</h2>
+- LJ38 clusters: ground state found 278 times per 10,000 with random pre-symmetrization vs 0 without
+- LJ55 clusters: ground state found 73 times per 10,000 with pre-symmetrization vs 0 without
+- LJ75 clusters: ground state found 1 time per 10,000 with pre-symmetrization vs 0 without; 20,000 structures generated per size (10,000 symmetric, 10,000 random) using 56 built-in point groups, optimized with SciPy conjugate gradient
+- Pre-symmetrization spans structure space more effectively (higher average energy) while purely random structures cluster in a narrow energy range
+- For carbon (5000 structures, 2/4/6/8/16 atoms per cell, random space groups 2-230, PBE-GGA in VASP, 600 eV cutoff, 0.15 K-spacing): diamond and graphite found frequently, plus lonsdaleite and sp3/graphite-like variants; for silicon: cubic diamond ground state found in each run
+- Energy landscape is narrower for size-2 primitive cells; beyond ~4 atoms the number of atoms in the primitive cell has little influence on energy distribution
+- XRD similarity example between Fd-3m and I41/amd subgroup structures reported as 0.983114
+
+<h2>Limitations</h2>
+- PyXtal is not a complete CSP package; it only generates trial structures and must be interfaced with external prediction codes
+- Distance-checking uses an approximate 3x3x3 supercell method that can fail for highly distorted lattices, hence lattice angles are constrained to 30-150 degrees
+- Molecular distance checking (atom-atom by default) is the largest time cost and scales roughly with the square of molecule size; spherical approximation works poorly for non-spherical molecules like benzene
+- Without pre-symmetrization the ground state was not found at all in LJ benchmarks, but absolute hit counts are small (only 1 for LJ75) and may vary between runs
+- Molecular symmetry detection relies on Pymatgen&#x27;s PointGroupAnalyzer; molecular flexibility is handled only via reorientation and dihedral perturbation, not general conformational sampling
+- Benchmarks are limited to elemental atomic systems (LJ clusters, C, Si); no molecular crystal CSP benchmark is reported despite the molecular Z&#x27; capability being a headline feature
+
+<h2>Takeaways</h2>
+- PyXtal is directly relevant as an alternative/complementary random structure generator to Genarris for molecular crystals, notably supporting arbitrary Z&#x27; including special Wyckoff positions
+- The molecular orientation enumeration algorithm (aligning molecular point group axes with Wyckoff site symmetry) is a concrete recipe for placing rigid molecules into special WPs, useful for Z&#x27;&lt;1 and high-symmetry-molecule cases
+- Group-subgroup transition tooling offers a symmetry-aware way to generate related structures / perturbations, potentially useful as a GA mutation operator or for phase-transition studies
+- Empirical support that starting from symmetric structures improves low-energy structure discovery reinforces the rationale for symmetry-constrained generation in CSP
+- Practical open-source tool with ASE/Pymatgen interfaces and built-in PXRD similarity (correlation-based) for structure comparison
+
+<h2>Relevance to GAtor 2.0</h2>
+Moderately relevant to GAtor 2.0. PyXtal is a structure-generation tool in the same niche as Genarris, and its handling of molecules in special Wyckoff positions with arbitrary Z&#x27; is directly pertinent to the group&#x27;s interest in Z&#x27;&gt;1 and multi-component crystals. The orientation-enumeration algorithm and group-subgroup modulation could inform GA generation/mutation operators. However, the reported benchmarks are elemental atomic systems (LJ clusters, C, Si) with no molecular crystal CSP results, no dispersion-inclusive DFT ranking, and no GA/niching content, so its evidentiary value for molecular crystal ranking or finite-temperature stability is limited.
+
+<h2>Linked concepts</h2>
+<span class="chip">molecular-crystal-structure-generation</span> <span class="chip">wyckoff-positions</span> <span class="chip">genarris</span> <span class="chip">z-prime-greater-than-one</span> <span class="chip">space-group-symmetry</span> <span class="chip">group-subgroup-relations</span> <span class="chip">crystal-structure-prediction</span> <span class="chip">powder-xrd-similarity</span>
+
+<h2>Verification flags</h2>
+
+&gt; Second-pass check found issues - read before trusting:
+
+I&#x27;ll re-read the material and check each claim in the digest.
+
+<b>Checking the summary and method claims:</b>
+
+Most claims are well-supported. Let me verify specific details.
+
+<b>Checking key_results:</b>
+
+1. LJ38: &quot;278 times per 10,000&quot; — Paper: &quot;the ground state was found 278 times for size 38 clusters.&quot; Supported. ✓
+
+2. LJ55: &quot;73 times&quot; — Paper: &quot;73 times for size 55.&quot; Supported. ✓
+
+3. LJ75: &quot;1 time&quot; and &quot;20,000 structures generated per size (10,000 symmetric, 10,000 random) using 56 built-in point groups, optimized with SciPy conjugate gradient&quot; — All supported by page 8. ✓
+
+4. Higher average energy claim — Supported: &quot;while the ground state is found more frequently with pre-symmetrization, the average energy is higher.&quot; ✓
+
+5. Carbon/silicon: &quot;diamond and graphite found frequently, plus lonsdaleite and sp3/graphite-like variants&quot; — Paper says &quot;londsdaelite, sp3 carbon with various ring topologies, and various multi-layer graphite-like structures.&quot; Supported. ✓ (VASP, 600 eV, 0.15 K-spacing, PBE-GGA, space groups 2-230 all supported.)
+
+6. &quot;Energy landscape is narrower for size-2 primitive cells; beyond ~4 atoms...&quot; — Supported. ✓
+
+7. XRD similarity &quot;0.983114&quot; — Figure 6 shows &quot;0.983114.&quot; Supported. ✓
+
+<b>Checking limitations and takeaways</b> — these are reasonable interpretations grounded in the text.
+
+<b>Now checking for subtle errors:</b>
+
+<b>Issue 1 — DOI mismatch.</b> The digest metadata footer states:
+&gt; &quot;DOI: 10.1016/j.cpc.2020.107810&quot;
+
+The paper&#x27;s own summary metadata does not provide this DOI, and this cannot be verified from the provided material. This is a fabricated/unverifiable detail (the document is a preprint arXiv:1911.11123v2). Not supported by the source text. However, this appears in the metadata block rather than the digest body proper.
+
+<b>Issue 2 — merging scheme attribution.</b> The method section states the merging follows &quot;USPEX-style approach (Ref 9/14).&quot; The paper says: &quot;we closely follow the algorithm provided in Ref. [9]&quot; for WP placement, and in the conclusion mentions &quot;a merging algorithm [14].&quot; Ref [9] is the USPEX paper. This is accurate. ✓
+
+<b>Issue 3 — &quot;detects point-group symmetry to place them into special Wyckoff positions with valid orientations, enabling arbitrary Z&#x27;.&quot;</b> Supported by abstract and page 2. ✓
+
+<b>Issue 4 — gator_relevance claims &quot;no dispersion-inclusive DFT ranking.&quot;</b> The carbon/silicon runs used PBE-GGA (no dispersion), so this is accurate. ✓
+
+Let me double-check one detail:
+
+<b>Issue 5 — &quot;56 built-in point groups&quot;</b> — Paper: &quot;symmetry chosen randomly from among PyXtal&#x27;s 56 built-in point groups.&quot; Supported. ✓
+
+<b>Issue 6 — spherical model example.</b> Digest says &quot;spherical approximation works poorly for non-spherical molecules like benzene&quot; and &quot;buckminsterfullerene... approximately spherical.&quot; Both supported by page 5. ✓
+
+<b>Conclusion:</b>
+
+The digest body (summary, contribution, method, key_results, limitations, takeaways, gator_relevance) is faithful to the source. The only unsupported item is in the metadata footer:
+
+<b>Unsupported statement:</b>
+- &quot;DOI: 10.1
+</div></div></body></html>

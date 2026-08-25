@@ -1,0 +1,104 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Significant progress in predicting the crystal structures of small organic molecules – a report on the fourth blind test</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>Significant progress in predicting the crystal structures of small organic molecules – a report on the fourth blind test</h1><div class="meta">Graeme M. Day, Timothy G. Cooper, Aurora J. Cruz‐Cabeza, K.E. Hejczyk, Herman L. Ammon, S. X. M. Boerrigter &middot; Acta Crystallographica Section B Structural Science (2009) &middot; 448 citations &middot; <a href="https://doi.org/10.1107/s0108768109004066" target="_blank">doi:10.1107/s0108768109004066</a> <span class="badge-conf">confidence: low</span> <span class="vflag">&#9888; verification flagged claims</span></div><div class="section">
+
+&gt; This paper reports the fourth blind test of organic crystal structure prediction (CSP), organized to benchmark the state of computational CSP methods. Fourteen research groups predicted crystal structures for four targets (three single-component molecular crystals and one 1:1 cocrystal) given only molecular diagrams, with the experimental structures withheld by an independent referee. Each group could submit three predictions per target. The abstract reports a marked improvement over prior blind tests, with 13 successful predictions overall and at least two groups correct for each target; one group correctly predicted all four as their top-ranked choice at high computational cost.
+
+<b>Corpus:</b> tier A - `blind-test-4` - source mode: metadata - confidence: <b>low</b> - FLAGGED - see below
+
+<h2>Contribution</h2>
+Provides a community-wide benchmark demonstrating a dramatic improvement in CSP success rates for small, fairly rigid organic molecules, including the first inclusion of a cocrystal target, and establishes that CSP can be constructively applied to study crystallization and polymorphism.
+
+<h2>Method</h2>
+Collaborative blind test: an independent referee withheld recently determined, unpublished crystal structures; 14 groups generated and ranked candidate structures using a variety of (unspecified in the abstract) methods from molecular diagrams alone; three predictions allowed per target across four systems.
+
+<h2>Key results</h2>
+- 14 research groups participated
+- 4 target systems: 3 single-component crystals and 1 1:1 cocrystal
+- 3 predictions allowed per target
+- 13 successful predictions in total
+- At least 2 groups correctly predicted the observed structure for each of the 4 targets
+- One group correctly predicted all 4 structures as their first-ranked choice, at considerable computational expense
+
+<h2>Limitations</h2>
+- Digest based on abstract/metadata only; full-text details unavailable
+- Abstract does not name the specific methods, energy models, or ranking procedures used by each group
+- Success limited to small and fairly rigid molecules; larger or flexible molecules not addressed
+- No quantitative energy-ranking accuracy or RMSD figures reported in the abstract
+- The one fully successful group&#x27;s approach was computationally very expensive
+
+<h2>Takeaways</h2>
+- The 2007/2009 fourth blind test marks a turning point where CSP became reliable for small rigid organic molecules, useful historical context for GAtor benchmarking
+- First blind test to include a cocrystal (multi-component) target, relevant to multi-component CSP work
+- Demonstrates that top-ranked (rank-1) success is achievable but was tied to high computational cost, motivating cheaper ranking approaches like MLIPs
+- Establishes the blind-test framework and referee-withheld-structure methodology that later CSP blind tests build on
+
+<h2>Relevance to GAtor 2.0</h2>
+Directly relevant as a foundational CSP blind-test benchmark predating GAtor; the cocrystal target connects to multi-component/Z&#x27;&gt;1 crystal prediction, and the noted trade-off between rank-1 accuracy and computational cost motivates modern lattice-energy ranking (dispersion-inclusive DFT, MLIPs) that GAtor 2.0 targets. Useful as historical baseline when framing progress in GA-based CSP.
+
+<h2>Linked concepts</h2>
+<span class="chip">csp-blind-tests</span> <span class="chip">genetic-algorithm-csp</span> <span class="chip">lattice-energy-ranking</span> <span class="chip">multi-component-crystals</span> <span class="chip">polymorphism</span> <span class="chip">crystal-structure-prediction</span>
+
+<h2>Verification flags</h2>
+
+&gt; Second-pass check found issues - read before trusting:
+
+Checking each claim against the abstract:
+
+<b>Summary claims:</b>
+
+- &quot;Fourteen research groups predicted crystal structures for four targets&quot; — supported.
+- &quot;given only molecular diagrams&quot; — supported.
+- &quot;with the experimental structures withheld by an independent referee&quot; — supported.
+- &quot;Each group could submit three predictions per target&quot; — supported.
+- &quot;The abstract reports a marked improvement over prior blind tests, with 13 successful predictions overall and at least two groups correct for each target&quot; — supported.
+- &quot;one group correctly predicted all four as their top-ranked choice at high computational cost&quot; — supported (&quot;first ranked choice, albeit at a considerable computational expense&quot;).
+
+<b>Contribution claims:</b>
+
+- &quot;demonstrating a dramatic improvement in CSP success rates for small, fairly rigid organic molecules&quot; — supported.
+- &quot;including the first inclusion of a cocrystal target&quot; — <b>OVERSTATED/FABRICATED.</b> The abstract says the fourth blind test included a 1:1 cocrystal, but nowhere states this was the *first* time a cocrystal was included in a blind test. This is an unsupported inference.
+- &quot;establishes that CSP can be constructively applied to study crystallization and polymorphism&quot; — supported (&quot;can be constructively applied to help understand crystallization and polymorphism&quot;).
+
+<b>Method claims</b> — all supported by abstract.
+
+<b>Key results</b> — all supported.
+
+<b>Limitations</b> — these are meta-observations, all fair/supported.
+
+<b>Takeaways:</b>
+
+- &quot;The 2007/2009 fourth blind test marks a turning point where CSP became reliable for small rigid organic molecules&quot; — <b>OVERSTATED.</b> The abstract says &quot;dramatic improvement&quot; and that calculations &quot;can be constructively applied,&quot; but does not claim CSP &quot;became reliable&quot; or that this was a &quot;turning point.&quot; Also &quot;2007/2009&quot; — the &quot;2007&quot; date is not in the provided metadata (only 2009 is given), so it is unsupported/fabricated.
+- &quot;useful historical context for GAtor benchmarking&quot; — external framing, not a claim about the paper&#x27;s content; acceptable.
+- &quot;First blind test to include a cocrystal (multi-component) target&quot; — <b>OVERSTATED/FABRICATED</b> (same issue as above; &quot;first&quot; is not supported).
+- &quot;Demonstrates that top-ranked (rank-1) success is achievable but was tied to high computational cost, motivating cheaper ranking approaches like MLIPs&quot; — the first part is supported; &quot;motivating cheaper ranking approaches like MLIPs&quot; is external framing, not from the paper.
+- &quot;Establishes the blind-test framework and referee-withheld-structure methodology that later CSP blind tests build on&quot; — <b>OVERSTATED.</b> This is the *fourth* blind test, so it did not &quot;establish&quot; the framework/methodology; the framework predates it. This misattributes origination.
+
+<b>gator_relevance / concepts / tags</b> — external framing, acceptable, except:
+
+- Tag &quot;2009&quot; is supported; the earlier &quot;2007/2009&quot; phrasing in takeaways remains the problem noted above.
+
+<b>Summary of flagged statements:</b>
+
+1. &quot;including the first inclusion of a cocrystal target&quot; — unsupported; &quot;first&quot; not stated in abstract.
+2. &quot;First blind test to include a cocrystal (multi-component) target&quot; — unsupported; &quot;first&quot; not stated.
+3. &quot;The 2007/2009 fourth blind test marks a turning point where CSP became reliable&quot; — overstated (&quot;turning point,&quot; &quot;became reliable&quot;) and &quot;2007&quot; date is unsupported/fabricated.
+4. &quot;Establishes the blind-test framework and referee-withheld-structure methodology that later CSP blind tests build on&quot; — overstated; this is the fourth test, so it did not establish
+</div></div></body></html>

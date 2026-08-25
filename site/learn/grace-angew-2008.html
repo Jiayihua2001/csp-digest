@@ -1,0 +1,102 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>A Major Advance in Crystal Structure Prediction</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>A Major Advance in Crystal Structure Prediction</h1><div class="meta">Marcus A. Neumann, Frank J. J. Leusen, John Kendrick &middot; Angewandte Chemie International Edition (2008) &middot; 349 citations &middot; <a href="https://doi.org/10.1002/anie.200704247" target="_blank">doi:10.1002/anie.200704247</a> <span class="badge-conf">confidence: low</span> <span class="vflag">&#9888; verification flagged claims</span></div><div class="section">
+
+&gt; This 2008 Angewandte Chemie communication reports a crystal structure prediction (CSP) method that combines a tailor-made force field with a dispersion-corrected DFT approach (DFT plus a van der Waals correction for dispersive interactions). In a CSP blind test, the method reportedly predicted the correct crystal structure for all four target compounds, one of which was a cocrystal. Only metadata/abstract were available for this digest.
+
+<b>Corpus:</b> tier E - `grace-angew-2008` - source mode: metadata - confidence: <b>low</b> - FLAGGED - see below
+
+<h2>Contribution</h2>
+Demonstrates that pairing a tailored force field for structure generation with dispersion-inclusive DFT for energy ranking can reproduce the experimental structure for all four blind-test targets, including a cocrystal - a notable success rate in a CSP blind test of that era.
+
+<h2>Method</h2>
+A tailor-made (system-specific) force field is combined with a density functional theory method that incorporates a van der Waals/dispersion correction for dispersive interactions. Applied within a CSP blind-test setting. Detailed methodology not available from the abstract alone.
+
+<h2>Key results</h2>
+- Predicted the correct crystal structure for all four blind-test compounds
+- One of the four correctly predicted compounds was a cocrystal
+- Abstract shows agreement between predicted (green) and experimental (blue) structures for one compound; quantitative deviation metrics not reported in the available material
+
+<h2>Limitations</h2>
+- Full text not available; method details, energies, ranking positions, and error metrics are unknown from the abstract
+- Number of blind-test targets is small (four)
+- Reliance on a tailor-made force field may limit generality/transferability - not assessable from abstract
+- No finite-temperature or free-energy considerations mentioned in the available material
+
+<h2>Takeaways</h2>
+- Early landmark showing dispersion-corrected DFT lattice-energy ranking materially improves CSP accuracy, foundational context for later dispersion-inclusive DFT (e.g. PBE0+MBD) ranking used in GAtor
+- The Neumann/Leusen/Kendrick approach (force-field generation + DFT re-ranking) is a recurring baseline in CSP blind-test discussions
+- Successful cocrystal prediction is relevant to multi-component crystal CSP work
+
+<h2>Relevance to GAtor 2.0</h2>
+Directly relevant as a historical benchmark for lattice-energy ranking in CSP: it established the value of dispersion-corrected DFT for accurate crystal energy ordering, which underpins GAtor&#x27;s PBE0+MBD ranking strategy. The cocrystal success connects to multi-component crystal CSP interests. Precise comparison requires the full text.
+
+<h2>Linked concepts</h2>
+<span class="chip">csp-blind-tests</span> <span class="chip">dispersion-inclusive-dft</span> <span class="chip">lattice-energy-ranking</span> <span class="chip">molecular-crystal-csp</span> <span class="chip">cocrystals</span> <span class="chip">force-field-methods</span>
+
+<h2>Verification flags</h2>
+
+&gt; Second-pass check found issues - read before trusting:
+
+I&#x27;ll check each claim against the provided abstract and metadata.
+
+<b>Summary claims:</b>
+
+1. &quot;This 2008 Angewandte Chemie communication&quot; — Supported (venue 2008).
+
+2. &quot;combines a tailor-made force field with a dispersion-corrected DFT approach&quot; — Supported by abstract.
+
+3. &quot;predicted the correct crystal structure for all four target compounds, one of which was a cocrystal&quot; — Supported.
+
+<b>Contribution/method/key_results:</b> These restate the abstract faithfully, including the green/blue picture detail and that quantitative deviation metrics are not reported. Supported.
+
+<b>Limitations:</b> These are appropriately hedged as &quot;not assessable from abstract&quot; / &quot;unknown.&quot; Supported as reasonable caveats, not claims about the paper.
+
+<b>Takeaways — problematic items:</b>
+
+1. &gt; &quot;Early landmark showing dispersion-corrected DFT lattice-energy ranking materially improves CSP accuracy, foundational context for later dispersion-inclusive DFT (e.g. PBE0+MBD) ranking used in GAtor&quot;
+
+<b>Overstated/fabricated.</b> The abstract never mentions &quot;lattice-energy ranking,&quot; nor does it claim the method &quot;materially improves CSP accuracy&quot; relative to anything. The specific &quot;PBE0+MBD&quot; method and &quot;GAtor&quot; are not in the source material at all — these are external assertions imported into the digest.
+
+2. &gt; &quot;The Neumann/Leusen/Kendrick approach (force-field generation + DFT re-ranking) is a recurring baseline in CSP blind-test discussions&quot;
+
+<b>Unsupported.</b> The abstract describes force field + DFT combination but says nothing about &quot;re-ranking&quot; specifically, nor that it became &quot;a recurring baseline in CSP blind-test discussions&quot; — this is an outside historical claim not backed by the provided material.
+
+3. The specific phrase <b>&quot;DFT re-ranking&quot;</b> — Unsupported. The abstract does not state the DFT step is used for re-ranking; it only says the two components are combined.
+
+<b>gator_relevance — problematic items:</b>
+
+4. &gt; &quot;it established the value of dispersion-corrected DFT for accurate crystal energy ordering, which underpins GAtor&#x27;s PBE0+MBD ranking strategy&quot;
+
+<b>Overstated/fabricated.</b> &quot;Crystal energy ordering,&quot; &quot;GAtor,&quot; and &quot;PBE0+MBD ranking strategy&quot; are not supported by the abstract. The energy-ranking mechanism is inferred, not stated.
+
+<b>Other note:</b>
+
+5. In key_results, &quot;Abstract shows agreement between predicted (green) and experimental (blue) structures&quot; — Supported; the abstract explicitly describes green (predicted) and blue (experimental).
+
+<b>Summary of unsupported/overstated/fabricated statements:</b>
+
+- &quot;Early landmark showing dispersion-corrected DFT <b>lattice-energy ranking materially improves CSP accuracy</b>&quot; — the abstract makes no ranking or comparative-improvement claim.
+- References to <b>&quot;PBE0+MBD&quot;</b> and <b>&quot;GAtor&quot;</b> (in takeaways and gator_relevance) — not present in the source material.
+- &quot;force-field generation + <b>DFT re-ranking</b>&quot; and &quot;a <b>recurring baseline</b> in CSP blind-test discussions&quot; — the re-ranking role and the &quot;recurring baseline&quot; historical claim are unsupported by the abstract.
+- &quot;it established the value of dispersion-corrected DFT for <b>accurate crystal energy ordering</b>&quot; — energy-ordering mechanism is inferred, not stated.
+
+Note that these mostly appear in the &quot;takeaways&quot; and &quot;gator_relevance&quot; fields, which are interpretive/contextual by design; nonetheless, per the task they contain claims that go
+</div></div></body></html>

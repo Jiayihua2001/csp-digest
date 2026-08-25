@@ -1,0 +1,93 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Crystal Structure Prediction Methods for Organic Molecules: State of the Art</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>Crystal Structure Prediction Methods for Organic Molecules: State of the Art</h1><div class="meta">David Bowskill, Isaac J. Sugden, Stefanos Konstantinopoulos, Claire S. Adjiman, Constantinos C. Pantelides &middot; Annual Review of Chemical and Biomolecular Engineering (2021) &middot; 88 citations &middot; <a href="https://doi.org/10.1146/annurev-chembioeng-060718-030256" target="_blank">doi:10.1146/annurev-chembioeng-060718-030256</a> <span class="badge-conf">confidence: low</span> <span class="vflag">&#9888; verification flagged claims</span></div><div class="section">
+
+&gt; This is a review article (Annual Review of Chemical and Biomolecular Engineering, 2021) surveying the state of the art in general-purpose crystal structure prediction (CSP) methodologies for organic molecules. It places existing methods within a common framework highlighting similarities and differences, discusses current research foci aimed at improving reliability and broadening applicability, and offers perspectives for the next decade. The review draws heavily on lessons from the six CCDC CSP blind tests conducted over roughly two decades. NOTE: This digest is based solely on the title, authors, venue, and abstract - no full text was available.
+
+<b>Corpus:</b> tier C - `bowskill-review-2021` - source mode: metadata - confidence: <b>low</b> - FLAGGED - see below
+
+<h2>Contribution</h2>
+Provides a unifying framework for comparing general-purpose organic CSP methodologies and identifies key research directions for improving reliability and expanding applicability, motivated by the progress documented across six CSP blind tests. (Specific technical contributions cannot be verified without full text.)
+
+<h2>Method</h2>
+Literature review and synthesis. The abstract does not describe any new computational method or experiment; it frames the field around the six blind tests and a common methodological framework. Details of any proposed taxonomy or comparison criteria are not available from the abstract.
+
+<h2>Key results</h2>
+- No quantitative results are reported in the abstract.
+- Notes that six CSP blind tests have been organized over the past ~2 decades (roughly 20 years).
+- Claims CSP methodologies have reached a stage where they can begin to be applied to systems of practical significance (qualitative claim, no numbers).
+
+<h2>Limitations</h2>
+- Digest based on abstract/metadata only - full-text details, figures, and specific method comparisons are unavailable.
+- As a review it presents no new benchmark numbers or original results.
+- Scope is limited to general-purpose CSP methodologies for organic molecules; coverage of MLIPs, Z&#x27;&gt;1, multi-component crystals, and finite-temperature effects cannot be confirmed from the abstract.
+- Published 2021, so it predates recent MLIP developments (MACE-OFF, AIMNet2, UMA) and the 7th blind test cycle.
+
+<h2>Takeaways</h2>
+- A useful entry point / reference for framing the CSP pipeline and comparing methodologies against the blind-test benchmark history.
+- Provides context on how far the field had progressed toward practical (e.g. pharmaceutical/agrochemical) application as of 2021.
+- Full text should be consulted to extract the common framework and specific research-direction discussion relevant to GA operators, lattice-energy ranking, and generation.
+
+<h2>Relevance to GAtor 2.0</h2>
+Relevant as background/context for GAtor 2.0 work: it reviews the general CSP landscape and the blind tests that serve as community benchmarks. However, being a 2021 review from a non-GA-focused group (Pantelides/Adjiman use CrystalPredictor/CrystalOptimizer-style approaches), it likely emphasizes methods other than genetic algorithms and predates the MLIP tools (MACE-OFF, AIMNet2, UMA) central to current GAtor efforts. Best used for framing and citation rather than technical guidance.
+
+<h2>Linked concepts</h2>
+<span class="chip">csp-blind-tests</span> <span class="chip">crystal-structure-prediction</span> <span class="chip">lattice-energy-ranking</span> <span class="chip">structure-generation</span> <span class="chip">genetic-algorithm-csp</span>
+
+<h2>Verification flags</h2>
+
+&gt; Second-pass check found issues - read before trusting:
+
+I&#x27;ll check each claim in the digest against the provided metadata and abstract.
+
+<b>Checking the summary claims:</b>
+
+1. &quot;surveying the state of the art in general-purpose crystal structure prediction (CSP) methodologies for organic molecules&quot; — Supported (title + abstract).
+
+2. &quot;It places existing methods within a common framework highlighting similarities and differences&quot; — Supported (&quot;placing them within a common framework that highlights both their similarities and their differences&quot;).
+
+3. &quot;discusses current research foci aimed at improving reliability and broadening applicability&quot; — Supported.
+
+4. &quot;offers perspectives for the next decade&quot; — Supported (&quot;perspectives for the evolution of this technology over the next decade&quot;).
+
+5. &quot;The review draws heavily on lessons from the six CCDC CSP blind tests&quot; — <b>Partially unsupported.</b> The abstract mentions &quot;a series of six blind tests&quot; but does <b>not</b> attribute them to the CCDC. The &quot;CCDC&quot; attribution and the phrase &quot;draws heavily on lessons from&quot; are additions not in the abstract. The abstract only says progress is &quot;evidenced by&quot; the blind tests.
+
+<b>Checking key_results:</b>
+
+6. &quot;Notes that six CSP blind tests have been organized over the past ~2 decades (roughly 20 years)&quot; — Supported (&quot;a series of six blind tests organized over the past 2 decades&quot;).
+
+7. &quot;Claims CSP methodologies have reached a stage where they can begin to be applied to systems of practical significance&quot; — Supported.
+
+<b>Checking gator_relevance:</b>
+
+8. &quot;being a 2021 review from a non-GA-focused group (Pantelides/Adjiman use CrystalPredictor/CrystalOptimizer-style approaches), it likely emphasizes methods other than genetic algorithms&quot; — <b>Unsupported/fabricated from the provided material.</b> The abstract says nothing about which methods the authors favor or use, nor about CrystalPredictor/CrystalOptimizer. This is external knowledge/inference presented as characterization; it is hedged with &quot;likely&quot; but the parenthetical claim about the group&#x27;s tools is stated as fact and not supported by the given material.
+
+<b>Checking limitations:</b>
+
+9. &quot;predates recent MLIP developments (MACE-OFF, AIMNet2, UMA) and the 7th blind test cycle&quot; — This is external context, not from the abstract, but presented as a limitation observation. It is factual framing rather than a claim about the paper&#x27;s content; the date (2021) is supported by the metadata. The specific tool names are external but reasonable. I flag this as <b>borderline</b> — it introduces claims not verifiable from the material, though it does not misrepresent the paper.
+
+<b>Summary of problematic statements:</b>
+
+- &quot;The review draws heavily on lessons from the six <b>CCDC</b> CSP blind tests conducted over roughly two decades.&quot; — The &quot;CCDC&quot; attribution and &quot;draws heavily on lessons&quot; are not supported by the abstract, which only says progress is &quot;evidenced by&quot; the blind tests and does not name the CCDC.
+
+- &quot;being a 2021 review from a non-GA-focused group (Pantelides/Adjiman use CrystalPredictor/CrystalOptimizer-style approaches), it likely emphasizes methods other than genetic algorithms&quot; — Not supported by the provided material; this is outside inference about the authors&#x27; methods presented partly as fact.
+
+- The MLIP/7th-blind-test limitation and the takeaways referencing &quot;GA operators, lattice-energy ranking, and generation&quot; and &quot;pharmaceutical/agrochemical application&quot; — the pharmaceutical/agrochemical relevance <b>is</b> supported (&quot;pharmaceutical and agrochemical industries&quot;). The specific technical topics (GA operators, lattice-energy ranking) are the digest author
+</div></div></body></html>

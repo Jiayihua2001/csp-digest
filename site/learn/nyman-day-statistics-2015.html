@@ -1,0 +1,89 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Static and lattice vibrational energy differences between polymorphs</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>Static and lattice vibrational energy differences between polymorphs</h1><div class="meta">Jonas Nyman, Graeme M. Day &middot; CrystEngComm (2015) &middot; 453 citations &middot; <a href="https://doi.org/10.1039/c5ce00045a" target="_blank">doi:10.1039/c5ce00045a</a> <span class="badge-conf">confidence: low</span> <span class="vflag">&#9888; verification flagged claims</span></div><div class="section">
+
+&gt; This paper reports a large-scale computational study of energy differences between known polymorphs of molecular crystals. Nyman and Day compute lattice energy, entropy, and free energy differences for over 500 pairs of known polymorphs and analyze the distributions of these differences. Based on the abstract alone, the work characterizes how close in energy polymorphs typically are and the contribution of lattice vibrational (thermal) effects to relative stability.
+
+<b>Corpus:</b> tier C - `nyman-day-statistics-2015` - source mode: metadata - confidence: <b>low</b> - FLAGGED - see below
+
+<h2>Contribution</h2>
+Provides statistics on static lattice energy and lattice vibrational free energy differences across a large set (500+ pairs) of known molecular crystal polymorphs, quantifying the typical magnitude of energy separations relevant to polymorph ranking in CSP. (Details beyond the abstract are unavailable.)
+
+<h2>Method</h2>
+Computation of lattice energy, entropy, and free energy differences for over 500 pairs of known polymorphs, including lattice vibrational contributions. Specific force fields / DFT methods, phonon treatment, and dataset sources are not available from the abstract.
+
+<h2>Key results</h2>
+- Lattice energy, entropy, and free energy differences were computed for over 500 pairs of known polymorphs.
+- No specific numerical values (e.g. mean energy differences, thermal reordering rates) are available from the abstract alone.
+
+<h2>Limitations</h2>
+- Full text not available; only the abstract was digested, so methods, magnitudes, and conclusions cannot be verified.
+- Restricted to known polymorphs, which may bias toward experimentally accessible / stable structures.
+- Specific computational methodology (force field vs DFT, phonon approach, temperature) unknown from metadata.
+
+<h2>Takeaways</h2>
+- This is a widely cited reference (Nyman-Day 2015) for the empirical observation that molecular crystal polymorphs are typically separated by small lattice energies, which sets the accuracy bar for CSP ranking.
+- Relevant to justifying the need for finite-temperature / free energy corrections in polymorph ranking, since vibrational entropy can reorder polymorphs.
+- Consult the full paper for the actual distribution statistics and the fraction of pairs where thermal effects change the stability order before citing numbers.
+
+<h2>Relevance to GAtor 2.0</h2>
+Directly relevant to GAtor lattice-energy ranking: it quantifies how small polymorph energy gaps are, motivating high-accuracy dispersion-inclusive DFT (PBE0+MBD) and finite-temperature free energy corrections. The reported vibrational free energy differences bear on whether static lattice energy ranking is sufficient or whether phonon/entropy contributions must be added to rank near-degenerate GA-generated candidates.
+
+<h2>Linked concepts</h2>
+<span class="chip">lattice-energy-ranking</span> <span class="chip">finite-temperature-stability</span> <span class="chip">polymorphism</span> <span class="chip">many-body-dispersion</span> <span class="chip">csp-blind-tests</span> <span class="chip">free-energy-ranking</span>
+
+<h2>Verification flags</h2>
+
+&gt; Second-pass check found issues - read before trusting:
+
+I&#x27;ll check every claim in the digest against the provided abstract, which reads in full:
+
+&quot;Lattice energy, entropy and free energy differences for over 500 pairs of known polymorphs are computed and discussed.&quot;
+
+Let me evaluate the claims:
+
+<b>Supported claims:</b>
+- That lattice energy, entropy, and free energy differences were computed for over 500 pairs of known polymorphs — directly stated in the abstract.
+- The disclaimers about full text/methods being unavailable — accurate given the note.
+
+<b>Unsupported / overstated statements:</b>
+
+1. &quot;analyze the distributions of these differences&quot; — The abstract says differences are &quot;computed and discussed,&quot; not that distributions were analyzed. &quot;Distributions&quot; is an inference not present in the abstract.
+
+2. &quot;the work characterizes how close in energy polymorphs typically are and the contribution of lattice vibrational (thermal) effects to relative stability&quot; — Overstated. The abstract does not state these specific characterizations or conclusions; this is inferred content.
+
+3. &quot;quantifying the typical magnitude of energy separations relevant to polymorph ranking in CSP&quot; — Unsupported. The abstract makes no mention of CSP, polymorph ranking, or quantifying typical magnitudes.
+
+4. &quot;including lattice vibrational contributions&quot; — Mildly inferred but reasonable (the title mentions &quot;lattice vibrational energy&quot; and abstract mentions entropy/free energy). This is defensible from the title, so borderline acceptable.
+
+5. &quot;This is a widely cited reference (Nyman-Day 2015) for the empirical observation that molecular crystal polymorphs are typically separated by small lattice energies, which sets the accuracy bar for CSP ranking.&quot; — Overstated/unsupported. Neither the abstract nor metadata states it is &quot;widely cited,&quot; nor that polymorphs are &quot;typically separated by small lattice energies,&quot; nor anything about &quot;accuracy bar for CSP ranking.&quot; This is external knowledge/inference.
+
+6. &quot;since vibrational entropy can reorder polymorphs&quot; — Unsupported. The abstract does not state that vibrational entropy reorders polymorphs.
+
+7. &quot;the fraction of pairs where thermal effects change the stability order&quot; — Unsupported. The abstract makes no reference to stability reordering fractions.
+
+8. &quot;Directly relevant to GAtor lattice-energy ranking... motivating high-accuracy dispersion-inclusive DFT (PBE0+MBD)...&quot; — Unsupported as claims about the paper&#x27;s content, though framed as relevance commentary. The specific tie-ins (PBE0+MBD, GA-generated candidates) are external and not in the source, but this is explicitly labeled as &quot;gator_relevance&quot; (editorial framing) rather than a claim about the paper.
+
+9. &quot;which may bias toward experimentally accessible / stable structures&quot; — This is a reasonable analytical limitation, not a claim about the paper&#x27;s content; acceptable as commentary.
+
+<b>Note on internal consistency:</b> The digest&#x27;s summary asserts specific characterizations &quot;Based on the abstract alone&quot; (item 2 above), which contradicts the fact that the abstract contains none of that detail — this is the most significant overstatement, since it explicitly attributes inferred content to the abstract.
+
+The most clearly problematic statements are items 1, 2, 3, 5, 6, and 7 — these attribute specific findings, framings, or significance to the paper that the one-sentence abstract does not support.
+</div></div></body></html>

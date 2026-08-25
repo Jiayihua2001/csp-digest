@@ -1,0 +1,76 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>karpathy_llm-wiki</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>karpathy_llm-wiki</h1><div class="meta"> &middot;  () &middot; 0 citations</div><div class="section">
+
+
+&gt; Karpathy&#x27;s gist describing a pattern for using LLM agents to build and maintain a personal knowledge base in markdown — the seed source for this vault.
+
+<h2>Takeaways</h2>
+
+- The wiki is a <b>persistent, compounding artifact</b>, not a query-time RAG cache. Knowledge is compiled once on ingest and kept current, not re-derived per question.
+- Three layers: immutable <b>raw sources</b>, an LLM-owned <b>wiki</b> of summaries / entity / concept pages, and a <b>schema</b> file (e.g. `CLAUDE.md`) that encodes conventions.
+- Three operations: <b>ingest</b> (read source → write/update pages → update index/log), <b>query</b> (consult index → read pages → answer with citations → optionally file the answer back as a synthesis page), <b>lint</b> (find contradictions, orphans, stale claims, missing pages).
+- Two special files: <b>`index.md`</b> (content-oriented catalog, the routing layer) and <b>`log.md`</b> (chronological, append-only, greppable with consistent prefixes).
+- Division of labor: the human curates sources and asks questions; the LLM does all the bookkeeping — summarizing, cross-referencing, filing.
+- Obsidian is the recommended reader; the LLM is the writer; the wiki is plain markdown in a git repo, getting version history and branching for free.
+- Optional tools: [[entities/qmd|qmd]] for hybrid search at scale, Marp for slide-deck output, Dataview for frontmatter-driven queries, Obsidian Web Clipper for ingesting web articles.
+- Conceptual lineage: explicitly riffs on [[concepts/memex|Vannevar Bush&#x27;s Memex (1945)]] — the missing piece in Bush&#x27;s vision was *who maintains the trails*, and LLMs solve that.
+
+<h2>Summary</h2>
+
+Karpathy frames the gist as an idea file — meant to be pasted into an LLM agent that will then collaborate with the user to instantiate the specifics. The core argument is that mainstream LLM-over-documents tools (NotebookLM, ChatGPT file uploads, generic RAG stacks) re-derive knowledge from raw chunks on every query and never accumulate structure. The proposed alternative is to put a <b>persistent wiki</b> between the user and the raw sources: a directory of interlinked markdown pages that the LLM incrementally builds and maintains.
+
+The architecture is three layers. <b>Raw sources</b> sit immutable in their own directory — articles, papers, images, data. <b>The wiki</b> is the LLM-owned layer of summaries, entity pages, concept pages, comparisons, syntheses. <b>The schema</b> (a `CLAUDE.md` or `AGENTS.md`) encodes conventions and workflows so the LLM behaves like a disciplined wiki maintainer rather than a generic chatbot. The schema is co-evolved with the user over time.
+
+Three operations structure the work. <b>Ingest</b> is the workhorse: when a source arrives, the LLM reads it, discusses takeaways with the user, writes a summary page, updates the index, and propagates changes to relevant entity and concept pages — a single source might touch 10–15 pages. <b>Query</b> answers questions against the wiki rather than against raw sources, with citations, and crucially the answers themselves can be filed back into the wiki as new pages so explorations compound. <b>Lint</b> is a periodic health check for contradictions, orphans, stale claims, missing pages, broken cross-references.
+
+Two files anchor navigation. `index.md` is content-oriented — a catalog of every page organized by category, used by the LLM as the routing layer when answering queries. `log.md` is chronological — append-only, with a consistent header prefix so it can be grepped for recent activity. Karpathy notes that this approach scales surprisingly well to ~100 sources / hundreds of pages without needing embedding-based RAG infrastructure.
+
+The &quot;Optional CLI tools&quot; section recommends [[entities/qmd|qmd]] for hybrid BM25/vector search once the wiki outgrows the index file. Tips and tricks cover the practical Obsidian setup: [[entities/obsidian|Obsidian]] Web Clipper for capturing web pages, configuring an attachment folder so images download locally (since LLMs can&#x27;t always read inline-image markdown in one pass), the graph view for spotting orphans and hubs, Marp for slides, Dataview for frontmatter queries, and the observation that the wiki being plain markdown in git gives version history &quot;for free.&quot;
+
+The &quot;Why this works&quot; section is the central thesis: humans abandon wikis because <b>maintenance burden grows faster than value</b>. LLMs don&#x27;t get bored, don&#x27;t forget cross-references, and can edit 15 files in one pass — so maintenance becomes near-zero-cost, and the wiki stays alive. The closing note draws an explicit line to [[concepts/memex|Vannevar Bush&#x27;s Memex]]: a private, curated knowledge store with associative trails between documents, where the trails matter as much as the documents. Bush couldn&#x27;t solve who builds and maintains those trails. The LLM does.
+
+The final &quot;Note&quot; insists the document is intentionally abstract — a description of the *pattern*, not an implementation. Directory layout, schema conventions, page formats, and tooling all depend on the user&#x27;s domain and preferences, and are expected to be worked out in collaboration with the agent.
+
+<h2>Notable quotes</h2>
+
+&gt; &quot;the wiki is a persistent, compounding artifact.&quot; — *The core idea*
+
+&gt; &quot;Obsidian is the IDE; the LLM is the programmer; the wiki is the codebase.&quot; — *The core idea*
+
+&gt; &quot;The tedious part of maintaining a knowledge base is not the reading or the thinking — it&#x27;s the bookkeeping.&quot; — *Why this works*
+
+&gt; &quot;The human&#x27;s job is to curate sources, direct the analysis, ask good questions, and think about what it all means. The LLM&#x27;s job is everything else.&quot; — *Why this works*
+
+&gt; &quot;Bush&#x27;s vision was closer to this than to what the web became: private, actively curated, with the connections between documents as valuable as the documents themselves. The part he couldn&#x27;t solve was who does the maintenance. The LLM handles that.&quot; — *Why this works*
+
+<h2>Implications for the wiki</h2>
+
+- <b>Touches entities:</b> [[entities/andrej-karpathy|Andrej Karpathy]], [[entities/obsidian|Obsidian]], [[entities/qmd|qmd]], [[entities/vannevar-bush|Vannevar Bush]]
+- <b>Touches concepts:</b> [[concepts/llm-wiki-pattern|LLM Wiki pattern]], [[concepts/rag|RAG (Retrieval-Augmented Generation)]], [[concepts/memex|Memex]]
+- <b>New pages created:</b> all of the above, plus this source page.
+- <b>Pages updated:</b> <span class="chip">index</span>, <span class="chip">log</span>.
+
+<h2>Open questions</h2>
+
+- Karpathy doesn&#x27;t prescribe directory structure — Jade&#x27;s vault uses `wiki/{sources,entities,concepts,syntheses}` as a starting choice. Worth revisiting once we have ~10 sources and can see what categories actually emerge.
+- He flags qmd as a search tool for once the wiki outgrows the index. No threshold given — likely worth installing around the ~50 source mark.
+- The gist is dated implicitly (2026); the exact publication date and canonical URL weren&#x27;t captured at ingest. If we need to cite it externally, dig those up.
+</div></div></body></html>

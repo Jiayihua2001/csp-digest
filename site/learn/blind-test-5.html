@@ -1,0 +1,83 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Towards crystal structure prediction of complex organic compounds – a report on the fifth blind test</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>Towards crystal structure prediction of complex organic compounds – a report on the fifth blind test</h1><div class="meta">David A. Bardwell, Claire S. Adjiman, Yelena A. Arnautova, Ekaterina Bartashevich, S. X. M. Boerrigter, Doris E. Braun &middot; Acta Crystallographica Section B Structural Science (2011) &middot; 433 citations &middot; <a href="https://doi.org/10.1107/s0108768111042868" target="_blank">doi:10.1107/s0108768111042868</a> <span class="badge-conf">confidence: low</span> <span class="vflag">&#9888; verification flagged claims</span></div><div class="section">
+
+&gt; This is the report on the fifth crystal structure prediction blind test (CSP2010), organized at the Cambridge Crystallographic Data Centre following CSP1999, 2001, 2004, and 2007. Participating groups used a range of computational methodologies to predict the crystal structures of six organic target molecules. The first four targets (two rigid molecules, one semi-flexible molecule, and a 1:1 salt) matched CSP2007 criteria, while two new challenging targets were added: a larger, much more flexible molecule and a hydrate with more than one polymorph. Each group submitted three predictions per attempted target.
+
+<b>Corpus:</b> tier A - `blind-test-5` - source mode: metadata - confidence: <b>low</b> - FLAGGED - see below
+
+<h2>Contribution</h2>
+Provides a community-wide benchmark of CSP methods circa 2010, notably showing that dispersion-corrected DFT (DFT-D) can reliably predict smaller organic crystal structures, and extending the blind test to more complex targets (large flexible molecule, polymorphic hydrate).
+
+<h2>Method</h2>
+Collaborative blind test: CCDC selected six organic target molecules; participating groups predicted structures blind and submitted three ranked predictions per target; predictions compared against experimentally determined structures. (Specific per-group methods not available from abstract.)
+
+<h2>Key results</h2>
+- At least one successful prediction was achieved for each of the six targets
+- Two groups successfully predicted the large flexible molecule as their first-place submission
+- Fewer groups successfully predicted the three smallest molecules than in CSP2007
+- Evidence that dispersion-corrected DFT (DFT-D) can reliably predict the smallest structures
+- Six targets: two rigid, one semi-flexible, one 1:1 salt, one large flexible molecule, one hydrate with more than one polymorph
+
+<h2>Limitations</h2>
+- Digest based on abstract/metadata only; full methodology, ranking statistics, and per-target success rates unavailable
+- Complex systems (large flexible molecule, polymorphic hydrate) still posed many challenges and unresolved issues
+- Success on the three smallest molecules declined relative to CSP2007
+
+<h2>Takeaways</h2>
+- CSP2010 marks the point where DFT-D became recognized as a reliable ranking method for small-molecule organic crystals
+- Molecular flexibility, salts, and hydrates/polymorphism remain the hard frontier for CSP
+- Historical benchmark context useful for positioning modern GA-CSP and MLIP-based approaches against 2010-era capabilities
+
+<h2>Relevance to GAtor 2.0</h2>
+Directly relevant as historical context for lattice-energy ranking and the CSP blind test series that GAtor and Genarris are benchmarked against. Establishes the DFT-D reliability baseline and the difficulty tiers (flexibility, salts, hydrates, multi-component) that GAtor 2.0 aims to address; however, no GA-specific or MBD/PBE0 details are extractable from the abstract alone.
+
+<h2>Linked concepts</h2>
+<span class="chip">csp-blind-tests</span> <span class="chip">dispersion-corrected-dft</span> <span class="chip">molecular-crystal-structure-prediction</span> <span class="chip">lattice-energy-ranking</span> <span class="chip">polymorphism</span> <span class="chip">multi-component-crystals</span>
+
+<h2>Verification flags</h2>
+
+&gt; Second-pass check found issues - read before trusting:
+
+Checking each claim in the digest against the abstract/metadata:
+
+<b>Summary claims:</b> All match the abstract (CSP2010 at CCDC, prior tests, six targets, first four matching CSP2007 criteria, two new targets, three predictions per target). Supported.
+
+<b>Contribution:</b>
+- &quot;notably showing that dispersion-corrected DFT (DFT-D) can reliably predict smaller organic crystal structures&quot; — The abstract says &quot;there is now evidence that methodologies such as dispersion-corrected density functional theory (DFT-D) are able to reliably do so&quot; (referring to the three smallest molecules). This is a fair paraphrase. Supported.
+
+<b>Key results:</b> All five match the abstract closely. Supported.
+
+<b>Limitations:</b> Reasonable and supported by abstract/note.
+
+<b>Takeaways / gator_relevance / concepts / tags:</b> These are interpretive framing (not factual claims about the paper&#x27;s content); the GAtor/Genarris/MLIP references are explicitly flagged as external context, not attributed to the paper.
+
+Now examining for overstatements:
+
+1. <b>&quot;CSP2010 marks the point where DFT-D became recognized as a reliable ranking method for small-molecule organic crystals&quot;</b> — Overstated. The abstract states only that there is &quot;now evidence&quot; that DFT-D can reliably predict the smallest structures. Characterizing this as the definitive &quot;point where DFT-D became recognized as a reliable ranking method&quot; is stronger than &quot;evidence that methodologies... are able to.&quot; However, this appears under &quot;takeaways&quot; as interpretive framing rather than a direct claim of fact; still, the phrasing &quot;marks the point where DFT-D became recognized&quot; overstates the tentative &quot;there is now evidence&quot; of the abstract.
+
+2. <b>&quot;CSP2010 marks the point where DFT-D became recognized as a reliable ranking method&quot;</b> — additionally, the abstract does not describe DFT-D specifically as a *ranking* method; it says DFT-D can &quot;reliably do so&quot; (predict structures). The &quot;ranking method&quot; characterization is an inference not directly stated.
+
+All other statements are faithful to the abstract, and the note about confidence being &#x27;low&#x27; and abstract-only basis is honored throughout.
+
+<b>Flagged statement:</b>
+
+- &quot;CSP2010 marks the point where DFT-D became recognized as a reliable ranking method for small-molecule organic crystals&quot; — <b>Overstated</b>: the abstract only says &quot;there is now evidence that methodologies such as dispersion-corrected density functional theory (DFT-D) are able to reliably do so,&quot; which is tentative (&quot;evidence&quot;), and does not frame DFT-D specifically as a &quot;ranking method&quot; or claim a definitive recognition milestone.
+</div></div></body></html>

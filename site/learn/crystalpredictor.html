@@ -1,0 +1,93 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ab initio crystal structure prediction—I. Rigid molecules</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>Ab initio crystal structure prediction—I. Rigid molecules</h1><div class="meta">P.G. Karamertzanis, Constantinos C. Pantelides &middot; Journal of Computational Chemistry (2004) &middot; 140 citations &middot; <a href="https://doi.org/10.1002/jcc.20165" target="_blank">doi:10.1002/jcc.20165</a> <span class="badge-conf">confidence: low</span> <span class="vflag">&#9888; verification flagged claims</span></div><div class="section">
+
+&gt; This 2004 paper presents an ab initio crystal structure prediction methodology for rigid molecules that requires only the molecular atomic connectivity as input. Crystal structures are predicted by globally minimizing the lattice enthalpy. Electrostatics are modeled via a set of distributed charges that are automatically selected and positioned to reproduce quantum mechanical results. A four-step, parallelized global optimization algorithm searches the lattice enthalpy surface, enabling exploration of less common space groups and structures with Z&#x27; &gt; 1. The method was applied to four molecular systems, with the experimental structure appearing among the most stable predicted structures in all cases (though not always as the global minimum).
+
+<b>Corpus:</b> tier E - `crystalpredictor` - source mode: metadata - confidence: <b>low</b> - FLAGGED - see below
+
+<h2>Contribution</h2>
+A rigid-molecule CSP methodology combining automatically fitted distributed-charge electrostatics with a parallelized four-step global lattice enthalpy minimization that can access low-frequency space groups and Z&#x27; &gt; 1 crystals.
+
+<h2>Method</h2>
+Global minimization of lattice enthalpy using a four-step global optimization algorithm with a parallelized implementation. Molecules treated as rigid. Electrostatic interactions represented by distributed charges optimally and automatically selected/positioned from quantum mechanical calculations. Input limited to atomic connectivity.
+
+<h2>Key results</h2>
+- Experimentally known structure found among the most stable predicted structures for all four test systems, but not necessarily the global minimum
+- 3-aza-bicyclo(3.3.1)nonane-2,4-dione predicted in P2(1)/a, Z&#x27; = 1
+- Allopurinol predicted in P2(1)/c, Z&#x27; = 1
+- 1,3,4,6,7,9-hexa-azacycl(3.3.3)azine predicted in Pbca, Z&#x27; = 2
+- Triethylenediamine predicted in P6(3)/m, Z&#x27; = 1
+
+<h2>Limitations</h2>
+- Molecules treated as rigid, so conformational flexibility is not handled (this is Part I of a series)
+- Experimental structure is not always the global minimum, indicating force field / ranking accuracy limits
+- Details of the four-step algorithm, energy model, and success metrics unavailable from abstract only
+- No dispersion-inclusive DFT ranking; relies on distributed-charge classical model as described
+
+<h2>Takeaways</h2>
+- Early demonstration that connectivity-only CSP can reach Z&#x27; &gt; 1 and less common space groups via parallelized global search
+- Automatic quantum-derived distributed-charge fitting is used to capture electrostatics accurately
+- The recurring finding that experimental structures rank near but not at the global minimum motivates later high-accuracy re-ranking approaches (e.g. dispersion-inclusive DFT, MBD)
+
+<h2>Relevance to GAtor 2.0</h2>
+Relevant as foundational CSP prior art: it targets lattice-energy (enthalpy) global minimization, Z&#x27; &gt; 1 crystals, and space-group sampling, all central to GAtor. The observation that the experimental structure is stable but not the global minimum underscores the importance of accurate lattice-energy ranking (PBE0+MBD) that GAtor and Genarris pursue. It is a non-GA global optimization method, offering a contrast to genetic-algorithm search operators and niching.
+
+<h2>Linked concepts</h2>
+<span class="chip">crystal-structure-prediction</span> <span class="chip">lattice-energy-ranking</span> <span class="chip">z-prime-greater-than-one</span> <span class="chip">space-group-sampling</span> <span class="chip">distributed-multipole-electrostatics</span> <span class="chip">global-optimization-csp</span>
+
+<h2>Verification flags</h2>
+
+&gt; Second-pass check found issues - read before trusting:
+
+I&#x27;ll check each claim in the digest against the abstract.
+
+<b>Checking the summary and key claims:</b>
+
+The core claims (rigid molecules, connectivity-only input, global minimization of lattice enthalpy, distributed charges from QM, four-step parallelized algorithm, less common space groups, Z&#x27; &gt; 1, four test systems, experimental structure among most stable but not always global minimum) are all directly supported by the abstract.
+
+The four specific test systems with their space groups and Z&#x27; values are all correctly transcribed from the abstract.
+
+<b>Now checking for unsupported/overstated claims:</b>
+
+1. <b>&quot;reproduce quantum mechanical results&quot;</b> (summary) — The abstract says charges are &quot;selected and positioned based on results of quantum mechanical calculations,&quot; not that they &quot;reproduce&quot; QM results. This is a mild overstatement/paraphrase, though arguably close. Borderline.
+
+2. <b>&quot;distributed-multipole-electrostatics&quot;</b> (concepts) — The abstract explicitly describes &quot;distributed charges,&quot; not distributed multipoles. Distributed charges and distributed multipoles are distinct methods. Calling this &quot;distributed-multipole-electrostatics&quot; is unsupported/fabricated as a characterization of the method.
+
+3. <b>&quot;The recurring finding that experimental structures rank near but not at the global minimum motivates later high-accuracy re-ranking approaches (e.g. dispersion-inclusive DFT, MBD)&quot;</b> (takeaways) — This is an inference/extrapolation not supported by the paper itself. The abstract makes no mention of motivating later re-ranking approaches or dispersion-inclusive DFT/MBD. This is added interpretation.
+
+4. <b>&quot;No dispersion-inclusive DFT ranking; relies on distributed-charge classical model as described&quot;</b> (limitations) — The abstract does not describe the full energy model beyond electrostatics. Stating there is &quot;no dispersion-inclusive DFT ranking&quot; is an inference; the abstract doesn&#x27;t specify the non-electrostatic terms at all. This claim goes beyond what&#x27;s stated (though it may be true, it&#x27;s not supported by the provided text).
+
+5. <b>&quot;Early demonstration&quot;</b> and <b>&quot;foundational CSP prior art&quot;</b> — These are editorial framings; acceptable in a relevance/takeaway section rather than presented as paper claims.
+
+6. <b>gator_relevance mentions &quot;PBE0+MBD&quot; and &quot;GAtor and Genarris&quot;</b> — These are external framing about GAtor context, not claims about the paper itself, so acceptable as relevance notes.
+
+<b>Summary of problematic statements:</b>
+
+- <b>&quot;distributed-multipole-electrostatics&quot;</b> — Fabricated: the paper uses distributed *charges*, not multipoles.
+
+- <b>&quot;reproduce quantum mechanical results&quot;</b> — Overstated paraphrase; abstract says charges are &quot;selected and positioned based on results of quantum mechanical calculations.&quot;
+
+- <b>&quot;The recurring finding that experimental structures rank near but not at the global minimum motivates later high-accuracy re-ranking approaches (e.g. dispersion-inclusive DFT, MBD)&quot;</b> — Unsupported inference not found in the abstract.
+
+- <b>&quot;No dispersion-inclusive DFT ranking; relies on distributed-charge classical model as described&quot;</b> — Partially unsupported; the abstract does not describe the non-electrostatic energy terms, so asserting the absence of dispersion-inclusive DFT ranking exceeds the source (even if framed as a limitation).
+
+The remaining factual claims about the method, systems, space groups, Z&#x27; values, and the main result are all faithfully supported.
+</div></div></body></html>

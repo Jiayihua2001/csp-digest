@@ -1,0 +1,85 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>MACE-OFF: Short-Range Transferable Machine Learning Force Fields for Organic Molecules</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>MACE-OFF: Short-Range Transferable Machine Learning Force Fields for Organic Molecules</h1><div class="meta">Dávid Péter Kovács, J. Harry Moore, Nicholas J. Browning, Ilyes Batatia, Joshua T. Horton, Yixuan Pu &middot; Journal of the American Chemical Society (2025) &middot; 188 citations &middot; <a href="https://doi.org/10.1021/jacs.4c07099" target="_blank">doi:10.1021/jacs.4c07099</a> <span class="badge-conf">confidence: low</span> <span class="vflag">&#9888; verification flagged claims</span></div><div class="section">
+
+&gt; MACE-OFF is a series of short-range transferable machine learning force fields for organic molecules, built on the MACE equivariant message-passing architecture and trained on first-principles reference data computed at a high level of quantum mechanical theory. The abstract reports that the models accurately predict a range of gas- and condensed-phase properties, including dihedral torsion scans of unseen molecules, molecular crystals, liquids (with quantum nuclear effects), solvation free energy surfaces, peptide folding, and nanosecond simulations of a solvated protein. No numerical results are available from the metadata/abstract alone.
+
+<b>Corpus:</b> tier G - `mace-off` - source mode: metadata - confidence: <b>low</b> - FLAGGED - see below
+
+<h2>Contribution</h2>
+Introduces MACE-OFF, a transferable short-range MLIP for organic molecules trained on high-level QM reference data, aiming to replace classical empirical force fields with first-principles accuracy at relatively low cost across gas- and condensed-phase applications.
+
+<h2>Method</h2>
+MACE equivariant message-passing neural network potential (based on abstract description as short-range ML force field); trained on first-principles reference data at a high level of quantum theory. Specific architecture details, training set composition, DFT/QM level, and dispersion treatment are not available from the abstract.
+
+<h2>Key results</h2>
+- Abstract only - no quantitative results reported in the provided material
+- Claims accurate dihedral torsion scans of unseen molecules (no numbers)
+- Claims reliable description of molecular crystals and liquids including quantum nuclear effects (no numbers)
+- Demonstrates free energy surfaces in explicit solvent, peptide folding dynamics, and nanosecond simulations of a fully solvated protein (no numbers)
+
+<h2>Limitations</h2>
+- Digest based on abstract/metadata only; no quantitative benchmarks, error metrics, or training details available
+- Model is explicitly short-range, so long-range electrostatics and dispersion handling from the abstract is unclear
+- Transferability limits, element coverage, and applicability to Z&#x27;&gt;1 or multi-component crystals not stated in abstract
+
+<h2>Takeaways</h2>
+- A transferable organic-molecule MLIP that claims molecular-crystal accuracy is directly relevant as a candidate ranking/relaxation engine for GA CSP
+- Short-range design means dispersion/long-range treatment needs verification before use in lattice-energy ranking against PBE0+MBD
+- Full text required to assess accuracy on molecular crystals and whether it complements MACE-OFF vs AIMNet2/UMA for CSP workflows
+
+<h2>Relevance to GAtor 2.0</h2>
+MACE-OFF is a transferable MLIP in the same family the group tracks (MACE-OFF, AIMNet2, UMA) and explicitly claims molecular-crystal capability, making it a potential fast relaxation and pre-ranking tool in the GAtor 2.0 pipeline before dispersion-inclusive DFT. Relevance to lattice-energy ranking accuracy cannot be confirmed from the abstract, and its short-range nature warrants checking against MBD-level references.
+
+<h2>Linked concepts</h2>
+<span class="chip">machine-learned-interatomic-potentials</span> <span class="chip">mace</span> <span class="chip">molecular-crystals</span> <span class="chip">many-body-dispersion</span> <span class="chip">genetic-algorithm-csp</span> <span class="chip">lattice-energy-ranking</span>
+
+<h2>Verification flags</h2>
+
+&gt; Second-pass check found issues - read before trusting:
+
+Let me check each claim in the digest against the abstract and metadata.
+
+<b>Summary claims:</b>
+
+1. &quot;MACE-OFF is a series of short-range transferable machine learning force fields for organic molecules, built on the MACE equivariant message-passing architecture&quot; — The name &quot;MACE-OFF&quot; implies MACE, and the abstract says &quot;created using state-of-the-art machine learning technology,&quot; but the abstract does <b>not</b> explicitly state &quot;MACE equivariant message-passing architecture.&quot; This is an inference (reasonable given the name) but presented as fact. <b>Overstated/unsupported from abstract alone.</b>
+
+2. &quot;trained on first-principles reference data computed at a high level of quantum mechanical theory&quot; — Supported: &quot;first-principles reference data computed with a high level of quantum mechanical theory.&quot;
+
+3. Range of properties, torsion scans, crystals, liquids with quantum nuclear effects, solvation free energy, peptide folding, solvated protein — all Supported by the abstract.
+
+<b>Method claims:</b>
+
+4. &quot;MACE equivariant message-passing neural network potential (based on abstract description as short-range ML force field)&quot; — Same issue as above; the abstract does not describe &quot;MACE equivariant message-passing neural network.&quot; The digest partly acknowledges this is inferred (&quot;based on abstract description as short-range ML force field&quot;), but it still asserts the MACE architecture. <b>Overstated/unsupported.</b>
+
+<b>Key results:</b> These are appropriately hedged (&quot;no numbers&quot;). Supported.
+
+<b>Limitations, takeaways, gator_relevance, concepts, tags:</b> These are analytical/editorial framing rather than claims about the source material, and are appropriately hedged. The takeaways reference AIMNet2/UMA and GAtor as external context, which is fine as commentary.
+
+---
+
+<b>Unsupported/overstated statements:</b>
+
+1. &quot;built on the MACE equivariant message-passing architecture&quot; (summary) — The abstract never mentions &quot;MACE,&quot; &quot;equivariant,&quot; or &quot;message-passing.&quot; This is inferred from the product name but stated as established fact. Unsupported by the provided abstract/metadata.
+
+2. &quot;MACE equivariant message-passing neural network potential&quot; (method) — Same issue: the abstract only says &quot;state-of-the-art machine learning technology&quot;; the specific architecture (equivariant message-passing) is not stated.
+
+All other claims are faithful to the abstract or appropriately hedged as inference/commentary.
+</div></div></body></html>

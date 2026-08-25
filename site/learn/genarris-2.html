@@ -1,0 +1,110 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Genarris 2.0: A random structure generator for molecular crystals</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>Genarris 2.0: A random structure generator for molecular crystals</h1><div class="meta">Rithwik Tom, Timothy Rose, Imanuel Bier, Harriet O’Brien, Álvaro Vázquez‐Mayagoitia, Noa Marom &middot; Computer Physics Communications (2020) &middot; 39 citations &middot; <a href="https://doi.org/10.1016/j.cpc.2020.107170" target="_blank">doi:10.1016/j.cpc.2020.107170</a> <span class="badge-group">our group</span> <span class="badge-conf">confidence: high</span> <span class="vflag">&#9888; verification flagged claims</span></div><div class="section">
+
+&gt; Genarris 2.0 is a new version of the open-source Python package for random molecular crystal structure generation of semi-rigid homomolecular crystals over all 230 space groups, on both general and special Wyckoff positions. Major improvements include an MPI-based (mpi4py) parallelization scheme with user-defined sequential workflows, a machine-learned unit cell volume estimation model trained on CSD experimental structures using a topological molecular fragment fingerprint, a new algorithm for generating structures with molecules on special Wyckoff positions, a hierarchical three-stage structure check for detecting unphysical close contacts (including rigorous treatment of non-orthogonal cells via a sphere decoder), and new intermolecular cutoff distance settings for strong hydrogen bonds. The features are demonstrated on benzene (symmetric molecule occupying special positions) and glycine (strong hydrogen bonds) using a new &#x27;Robust&#x27; clustering/down-selection workflow interfacing with FHI-aims.
+
+<b>Corpus:</b> tier B - `genarris-2` - source mode: pdf - confidence: <b>high</b> - FLAGGED - see below
+
+<h2>Contribution</h2>
+Delivers a faster, more portable, feature-rich random structure generator for seeding CSP algorithms (e.g. GAtor genetic algorithm) and building ML datasets, notably adding special Wyckoff position generation, an ML-based solid-form volume predictor within polymorph-density-difference accuracy, hierarchical structure checks, and hydrogen-bond-aware cutoff distances.
+
+<h2>Method</h2>
+Python 3 package (structure generation core Pygenarris in C), parallelized with mpi4py; interfaces with FHI-aims for energy evaluations and geometry relaxations. Volume estimation: Monte Carlo vdW-sphere volume plus a topological fragment fingerprint (atomic-neighborhood strings), with a Bayesian ridge regression linear model (scikit-learn), regularized via grid search and five-fold cross validation. Structure generation samples space groups compatible with molecular symmetry, draws volumes from a Gaussian, and aligns molecular symmetry axes to crystal viewing directions for special positions. Three-stage hierarchical structure checks: (I) non-PBC screening, (II) approximate minimum-image with lattice reduction, (III) sphere-decoder (Finck-Pohst) exact closest-vector solution for non-orthogonal cells. Down-selection via &#x27;Robust&#x27; workflow: RCD or RDF descriptors, affinity propagation clustering with parallel binary search on preference, PBE+TS single-point energies then relaxations. DFT: PBE + Tkatchenko-Scheffler dispersion, light/tier1 settings; SPE 1x1x1 k-grid, relaxations 3x3x3, unconstrained lattice; benzene Z=2 high-pressure polymorph at 25 kbar.
+
+<h2>Key results</h2>
+- Polymorph dataset: 3,768 CSD entries and 2,173 unique homomolecular polymorph pairs; distribution of percent polymorph density (=solid-form volume) differences has standard deviation 2.95%, taken as a lower bound on achievable volume accuracy.
+- Monte Carlo volume systematically underestimates true solid-form volume; ratio of experimental to MC volume = 1.47; linear MC-only model gives 4.72% standard-deviation error.
+- Topological fragment model (64 unique fragments retained, threshold 30 occurrences) reduces error to 2.93% standard deviation, comparable to polymorph density differences.
+- Benzene raw pools ~6000 structures each; predicted volumes 243 A^3 (Z=2) and 487 A^3 (Z=4) with std 18 and 37 A^3; experimental volumes 206 A^3 (Z=2, high pressure) and 471 A^3 (Z=4); Z=4 prediction closer since model trained at ambient pressure.
+- New hydrogen-bond cutoff distances (H...Y): OH...O 1.5 A (sr 0.55), OH...N 1.6 A (sr 0.58), NH...O 1.6 A (sr 0.59), NH...N 1.7 A (sr 0.62); default sr=0.85 retained for vdW and for halogen or C-donor H-bonds.
+- Glycine predicted volume 79 A^3 per molecule, close to experiment for all polymorphs; ~5000 structures per Z; mean/std volumes (159,238,318) A^3 and (12,18,24) A^3 for Z=(2,3,4).
+- Final relaxed pools contained experimental structures for both benzene polymorphs (Z=2 in both RCD and RDF; Z=4 only in RDF run), beta-glycine (Z=2, both runs) and gamma-glycine (Z=3, both runs); alpha-glycine not found but similar space group/lattice/packing structures were present.
+- Space group distributions in raw pools were approximately uniform; mirror-plane space groups (e.g. P2/m (10), Pmm2 (25), Pmmm (47)) are hard to generate, while glide/screw-axis groups are easier.
+
+<h2>Limitations</h2>
+- Restricted to semi-rigid molecules with no bond rotational (rotatable) degrees of freedom, and homomolecular crystals only (no Z&#x27;&gt;1 flexibility or multi-component systems).
+- Volume model trained on ambient-pressure CSD structures, giving larger error for high-pressure polymorphs (e.g. benzene Z=2 at 25 kbar).
+- Robust workflow is designed to seed structure search (e.g. GA), not as a standalone predictor; alpha-glycine experimental structure was not recovered in the final pools.
+- DFT ranking used PBE+TS at light/tier1 settings, not higher-accuracy dispersion methods (e.g. PBE0+MBD); accuracy of final energies is limited accordingly.
+- Only two case-study molecules (benzene, glycine) demonstrated; broad chemical generality is shown only for the volume model, not the full CSP workflow.
+
+<h2>Takeaways</h2>
+- Genarris 2.0 is the front-end structure generator that seeds GAtor&#x27;s initial population; understanding its space-group sampling, volume model, and cutoff settings is directly relevant to GA-CSP setup.
+- The topological-fragment volume model achieves ~2.93% error, on par with intrinsic polymorph density spread, giving reasonable target unit cell volumes for generation.
+- Special Wyckoff position generation is essential for symmetric molecules like benzene (inversion center); prior generators relied on serendipitous special-position occupation.
+- Hydrogen-bond-specific cutoffs (much shorter than 0.85*sum vdW) are necessary to avoid discarding physically valid dense H-bonded crystals such as glycine.
+- The RCD vs RDF descriptor choice can affect which experimental structures survive down-selection (benzene Z=4 found only with RDF), relevant when choosing descriptors for GA niching/clustering.
+
+<h2>Relevance to GAtor 2.0</h2>
+Directly relevant: Genarris is the standard random-structure generator used to seed GAtor&#x27;s initial GA population, from the same group. The paper details structure generation across 230 space groups, special Wyckoff positions, the ML volume estimator, hierarchical structure checks, and the RCD/RDF descriptors plus affinity propagation clustering that also inform GA niching and down-selection. The FHI-aims PBE+TS ranking pipeline and hydrogen-bond cutoff handling are practical dependencies for a GAtor 2.0 workflow, though it does not address Z&#x27;&gt;1, multi-component crystals, MLIPs, or higher-level dispersion ranking.
+
+<h2>Linked concepts</h2>
+<span class="chip">genetic-algorithm-csp</span> <span class="chip">molecular-crystal-structure-prediction</span> <span class="chip">random-structure-generation</span> <span class="chip">special-wyckoff-positions</span> <span class="chip">affinity-propagation-clustering</span> <span class="chip">crystal-packing-descriptors</span> <span class="chip">unit-cell-volume-prediction</span> <span class="chip">csp-blind-tests</span>
+
+<h2>Verification flags</h2>
+
+&gt; Second-pass check found issues - read before trusting:
+
+I&#x27;ll re-read the material and check each claim in the digest.
+
+<b>Checking the summary and method claims:</b>
+
+Most claims are well-supported. Let me focus on specifics.
+
+<b>Checking key_results:</b>
+
+1. &quot;3,768 CSD entries and 2,173 unique homomolecular polymorph pairs; ... standard deviation 2.95%&quot; — Supported (page 7).
+
+2. &quot;ratio of experimental to MC volume = 1.47; linear MC-only model gives 4.72%&quot; — Supported (page 8).
+
+3. &quot;Topological fragment model (64 unique fragments... threshold 30 occurrences) reduces error to 2.93%&quot; — Supported (pages 9-10).
+
+4. Benzene raw pools ~6000, predicted 243/487 A³, std 18/37, experimental 206/471 — Supported (page 18).
+
+5. Hydrogen-bond cutoffs table — Supported (page 16, Table 2).
+
+6. Glycine predicted volume 79 A³, ~5000 structures, mean/std (159,238,318) and (12,18,24) — Supported (page 21).
+
+7. Final pools finding experimental structures — Supported (pages 20, 23, 25).
+
+8. Space group distributions approximately uniform; mirror-plane groups hard — Supported (page 19).
+
+<b>Now checking potentially problematic claims:</b>
+
+<b>Issue 1 — &quot;GAtor&quot; naming:</b>
+The digest repeatedly references &quot;GAtor&quot; as a named genetic algorithm (in contribution, takeaways, gator_relevance). Quotes:
+- &quot;seeding CSP algorithms (e.g. GAtor genetic algorithm)&quot;
+- &quot;Genarris is the standard random-structure generator used to seed GAtor&#x27;s initial GA population&quot;
+
+The paper only mentions &quot;a genetic algorithm [42, 43]&quot; and never names &quot;GAtor&quot; anywhere in the provided text. While references [42, 43] are indeed the GAtor papers (Curtis et al.), the name &quot;GAtor&quot; does not appear in the document. This is an <b>inference/embellishment not stated in the material</b>. However, the gator_relevance field is explicitly a relevance-assessment field (external context), so this is arguably permissible there. But stating it as fact in &quot;contribution&quot; and &quot;takeaways&quot; (&quot;seeds GAtor&#x27;s initial population&quot;) is unsupported by the text itself.
+
+<b>Issue 2 — &quot;over all 230 space groups&quot;:</b>
+The digest says &quot;over all 230 space groups.&quot; The New Version Summary (page 2) states: &quot;Genarris 2.0 generates molecular crystal structures over the 230 space groups.&quot; This is <b>supported</b>.
+
+<b>Issue 3 — &quot;PBE0+MBD&quot; in limitations:</b>
+&quot;not higher-accuracy dispersion methods (e.g. PBE0+MBD)&quot; — This specific example (PBE0+MBD) is not mentioned in the paper. It&#x27;s an illustrative example added by the digest, not a fabricated claim about the paper. Marginal; it&#x27;s the digest&#x27;s own framing of a limitation, not attributed to the paper.
+
+<b>Issue 4 — &quot;Finck-Pohst&quot; / &quot;Finck and Pohst&quot;:</b>
+The paper says &quot;Finck and Pohst sphere decoder [65, 66]&quot; (page 14). The digest says &quot;sphere-decoder (Finck-Pohst)&quot;. Supported (matches paper&#x27;s own spelling, which is actually a typo for Fincke; reference [65] is &quot;U. Fincke, M. Pohst&quot;). Faithful to source.
+
+<b>Issue 5 — venue/DOI:</b>
+The digest header (outside the JSON) lists &quot;Computer Physics Communications (2020)&quot; and a DOI. The provided document is the arXiv preprint (2019) which states &quot;Preprint subm
+</div></div></body></html>

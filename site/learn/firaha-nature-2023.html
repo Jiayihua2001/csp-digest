@@ -1,0 +1,98 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Predicting crystal form stability under real-world conditions</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>Predicting crystal form stability under real-world conditions</h1><div class="meta">Dzmitry S. Firaha, Yifei Michelle Liu, Jacco van de Streek, Kiran Sasikumar, H. Dietrich, Julian Helfferich &middot; Nature (2023) &middot; 91 citations &middot; <a href="https://doi.org/10.1038/s41586-023-06587-3" target="_blank">doi:10.1038/s41586-023-06587-3</a> <span class="badge-conf">confidence: low</span> <span class="vflag">&#9888; verification flagged claims</span></div><div class="section">
+
+&gt; This Nature (2023) paper reports advances in computing solid-solid free-energy differences for molecular crystals under realistic conditions of temperature and relative humidity. The authors claim to improve free-energy calculation accuracy, build an experimental benchmark for solid-solid free-energy differences, quantify statistical errors on computed free energies, and place anhydrate and hydrate crystal structures of different stoichiometries on a common energy landscape with defined error bars. The stated goal is to make crystal structure prediction more actionable for crystal form selection in industrial (pharmaceutical) settings. NOTE: digest based on abstract/metadata only.
+
+<b>Corpus:</b> tier D - `firaha-nature-2023` - source mode: metadata - confidence: <b>low</b> - FLAGGED - see below
+
+<h2>Contribution</h2>
+Redefining the state of the art in in silico crystal form selection by improving free-energy accuracy, constructing a reliable experimental benchmark for solid-solid free-energy differences, quantifying statistical errors, and unifying hydrate structures of different stoichiometries with anhydrates on a single temperature- and humidity-dependent energy landscape with error bars.
+
+<h2>Method</h2>
+Not described in the abstract beyond references to accurate and affordable free-energy calculations. The abstract mentions constructing an experimental benchmark, quantifying statistical errors, and a method to place different hydrate stoichiometries on the same energy landscape as a function of temperature and relative humidity. Specific computational engine, sampling scheme, and level of theory are not stated in the available material.
+
+<h2>Key results</h2>
+- Calculated free energies reported to have standard errors of 1-2 kJ mol-1 for industrially relevant compounds
+- Method places anhydrate and hydrate crystal structures of different stoichiometries on the same energy landscape as a function of temperature and relative humidity with defined error bars
+- Approach stated to be extensible to other multi-component systems including solvates
+
+<h2>Limitations</h2>
+- Full text not available; digest from abstract only, so methodological details, dataset size, and specific compounds are unknown
+- No specific accuracy metrics against the experimental benchmark are quoted in the abstract
+- Level of theory, force field or DFT functional, and sampling approach are not specified in the available material
+
+<h2>Takeaways</h2>
+- Free-energy differences (not just 0 K lattice energies) with quantified error bars are becoming feasible at 1-2 kJ mol-1 precision, relevant for finite-temperature ranking in GAtor workflows
+- Placing multi-component crystals (hydrates, solvates) of differing stoichiometry on a unified energy landscape is directly relevant to Z&#x27;&gt;1 and multi-component CSP challenges
+- Incorporating relative humidity and temperature dependence connects CSP output to real-world crystal form selection
+
+<h2>Relevance to GAtor 2.0</h2>
+Highly relevant to GAtor 2.0 interests in finite-temperature stability, multi-component crystals, and lattice-energy/free-energy ranking. The claim of 1-2 kJ mol-1 free-energy standard errors and a unified energy landscape for different hydrate stoichiometries speaks directly to moving beyond 0 K DFT ranking toward temperature- and humidity-dependent stability, though methodological specifics needed for adoption are not available from the abstract.
+
+<h2>Linked concepts</h2>
+<span class="chip">free-energy-ranking</span> <span class="chip">finite-temperature-stability</span> <span class="chip">multi-component-crystals</span> <span class="chip">lattice-energy-ranking</span> <span class="chip">crystal-structure-prediction</span> <span class="chip">hydrate-polymorphism</span>
+
+<h2>Verification flags</h2>
+
+&gt; Second-pass check found issues - read before trusting:
+
+I&#x27;ll check each claim in the digest against the abstract and metadata.
+
+<b>Summary claims:</b>
+- &quot;solid-solid free-energy differences for molecular crystals under realistic conditions of temperature and relative humidity&quot; — supported.
+- &quot;improve free-energy calculation accuracy, build an experimental benchmark... quantify statistical errors... place anhydrate and hydrate crystal structures of different stoichiometries on a common energy landscape with defined error bars&quot; — supported.
+- &quot;make crystal structure prediction more actionable for crystal form selection in industrial (pharmaceutical) settings&quot; — supported (abstract says &quot;actionable procedure... to direct crystal form selection&quot;). The &quot;pharmaceutical&quot; specification is an inference; the abstract mentions bioavailability, solubility etc. but never says &quot;pharmaceutical.&quot; Mild overstatement but reasonable given &quot;industrially relevant compounds.&quot; Borderline.
+
+<b>Contribution:</b> All elements supported by the abstract.
+
+<b>Method:</b> Faithfully states limits; accurate.
+
+<b>Key results:</b>
+- &quot;standard errors of 1-2 kJ mol-1 for industrially relevant compounds&quot; — supported directly.
+- Energy landscape claim — supported.
+- &quot;extensible to other multi-component systems including solvates&quot; — supported.
+
+<b>Limitations:</b> All accurate and appropriately hedged.
+
+<b>Takeaways:</b>
+- The first two takeaways are reasonable inferences.
+- <b>&quot;relevant for finite-temperature ranking in GAtor workflows&quot;</b> — The abstract/metadata make no mention of GAtor. This is an external editorial framing, not a claim about the paper&#x27;s content, so it is not a fabrication about the material itself.
+
+<b>Gator_relevance:</b> This is explicitly framed as relevance-to-reader commentary, not claims about the paper. The factual claims within it (1-2 kJ mol-1, unified landscape for hydrate stoichiometries) are supported.
+
+<b>Concepts/tags:</b> Reasonable.
+
+<b>Confidence:</b> &quot;low&quot; — matches instruction.
+
+---
+
+<b>Issues found:</b>
+
+1. <b>&quot;This Nature (2023) paper reports advances in computing solid-solid free-energy differences&quot;</b> and later <b>&quot;in industrial (pharmaceutical) settings&quot;</b> — The abstract never states the work is pharmaceutical. It refers to &quot;industrially relevant compounds&quot; and pharma-adjacent properties (bioavailability), but &quot;pharmaceutical&quot; is an inference presented as fact. This is a mild overstatement, though the digest itself flags it as a stated goal inference. Minor.
+
+Note: The digest&#x27;s &quot;tags&quot; include <b>&quot;pharmaceutical&quot;</b> — same inference, not explicitly supported by the abstract text, but a very reasonable one given &quot;bioavailability&quot; and &quot;industrially relevant compounds.&quot;
+
+Aside from the modest &quot;pharmaceutical&quot; inference (which is well-hedged elsewhere and reasonable), and the GAtor references which are clearly the digest&#x27;s own relevance framing rather than claims attributed to the paper, every factual claim about the paper&#x27;s content is faithfully drawn from the abstract.
+
+Given the digest transparently labels its inferential/relevance content and the one weak inference (&quot;pharmaceutical&quot;) is a reasonable reading of &quot;bioavailability&quot; + &quot;industrially relevant compounds,&quot; I judge there are no genuinely unsupported, overstated, or fabricated claims *about the material&#x27;s content*.
+
+ALL SUPPORTED
+</div></div></body></html>

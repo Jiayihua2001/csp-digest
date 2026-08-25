@@ -1,0 +1,100 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Efficient Molecular Crystal Structure Prediction and Stability Assessment with AIMNet2 Neural Network Potentials</title><style>
+body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
+h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 8px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
+.sub{color:#6B6A63;font-size:14px;margin-bottom:22px}
+a{color:#2f5d52}
+.branch{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:14px 18px;margin:12px 0}
+.paper{margin:6px 0;padding-left:10px;border-left:3px solid #EAF1EF}
+.paper a{font-weight:600;text-decoration:none}
+.why{color:#6B6A63;font-size:13.5px}
+.chip{display:inline-block;font-size:11.5px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px;margin:2px 3px 0 0}
+.badge-group{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;background:#C6613F;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.badge-conf{display:inline-block;font-size:10.5px;font-weight:600;color:#9c6b1f;background:#FBF3E2;border-radius:3px;padding:1px 6px;margin-left:6px}
+.stage{background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:8px;padding:14px 18px;margin:12px 0}
+.goal{font-size:14px;margin:4px 0}.gator{font-size:13px;color:#3a5c53;margin-top:8px}
+.meta{color:#6B6A63;font-size:13px;margin-bottom:14px}
+.section{white-space:pre-wrap}
+.vflag{color:#B23A2E;font-weight:600}
+.top{font-size:13px;margin-bottom:18px}
+</style></head><body><div class="wrap"><div class="top"><a href="../index.html">&larr; CSP Reading Room</a> &nbsp;&middot;&nbsp; <a href="../learn.html">Learn</a></div><h1>Efficient Molecular Crystal Structure Prediction and Stability Assessment with AIMNet2 Neural Network Potentials</h1><div class="meta">Kamal Singh Nayal, Dana O’Connor, R.I. Zubatyuk, Dylan M. Anstine, Yi Yang, Rithwik Tom &middot; Crystal Growth &amp; Design (2025) &middot; 6 citations &middot; <a href="https://doi.org/10.1021/acs.cgd.5c01001" target="_blank">doi:10.1021/acs.cgd.5c01001</a> <span class="badge-group">our group</span> <span class="badge-conf">confidence: low</span> <span class="vflag">&#9888; verification flagged claims</span></div><div class="section">
+
+&gt; This paper describes a crystal structure prediction (CSP) methodology used in the seventh CCDC blind test that accelerates lattice-energy ranking by training target-specific AIMNet2 machine-learned interatomic potentials (MLIPs). The key idea is that AIMNet2 potentials trained on gas-phase, dispersion-corrected DFT reference data of molecular clusters (n-mers) extend successfully to crystalline environments, reproducing the CSP energy landscape and ranking candidate structures by relative stability without requiring expensive periodic DFT. The approach is demonstrated across pharmaceutical, optoelectronic, and agrochemical target systems. NOTE: digest is from abstract/metadata only.
+
+<b>Corpus:</b> tier B - `group16-aimnet2-blindtest` - source mode: metadata - confidence: <b>low</b> - FLAGGED - see below
+
+<h2>Contribution</h2>
+A target-specific MLIP training strategy in which AIMNet2 potentials are fit to dispersion-corrected DFT energies of molecular clusters (n-mers) and shown to transfer to periodic crystal environments, enabling efficient CSP lattice-energy ranking without periodic self-consistent DFT. Applied and analyzed in the context of the CCDC seventh blind test.
+
+<h2>Method</h2>
+Train target-specific AIMNet2 neural network potentials on DFT calculations of molecular clusters (n-mers) computed in the gas phase with dispersion corrections. Use these MLIPs to evaluate energies of candidate crystal structures and rank them by relative (lattice) stability within a CSP workflow. Evaluated on the CCDC seventh blind test target systems. Specific structure-generation, sampling, and DFT functional/dispersion details are not available from the abstract.
+
+<h2>Key results</h2>
+- No quantitative results (energy errors, ranking accuracy, RMSDs, speedups, or per-target statistics) are reported in the available abstract/metadata.
+- Qualitative claim: potentials trained only on gas-phase dispersion-corrected n-mer DFT data reportedly extend to crystalline environments and correctly rank structures by relative stability.
+- Qualitative claim: the method is demonstrated across pharmaceutical, optoelectronic, and agrochemical systems from the seventh blind test.
+
+<h2>Limitations</h2>
+- Full text not available; all specifics (accuracy numbers, cost/speedup, systems, DFT reference level) are unknown from the abstract.
+- Approach is target-specific, requiring retraining of an MLIP per system, which may limit general transferability.
+- Training uses gas-phase cluster (n-mer) data; whether many-body and long-range crystalline interactions are fully captured is asserted but not quantified in the abstract.
+- Finite-temperature stability assessment is mentioned in the title but the extent covered in the abstract is unclear.
+
+<h2>Takeaways</h2>
+- n-mer / molecular cluster training is a route to build MLIPs that transfer to periodic molecular crystals, potentially cheaper than periodic DFT training sets - relevant to accelerating GAtor lattice-energy ranking.
+- AIMNet2 (relevant MLIP the group tracks) was used competitively in the CCDC seventh blind test with a target-specific training protocol.
+- Read the full paper to extract the DFT reference level (dispersion scheme), n-mer construction, ranking accuracy vs DFT, and any finite-temperature results before citing numbers.
+
+<h2>Relevance to GAtor 2.0</h2>
+Directly relevant: this is an MLIP-accelerated CSP workflow (AIMNet2) evaluated in a CCDC blind test, targeting the same lattice-energy ranking bottleneck GAtor addresses. The n-mer/cluster training idea is a candidate alternative to periodic DFT reference generation, and AIMNet2 is one of the MLIPs the group evaluates alongside MACE-OFF and UMA. Pharmaceutical/optoelectronic/agrochemical targets overlap with the group&#x27;s interests.
+
+<h2>Linked concepts</h2>
+<span class="chip">csp-blind-tests</span> <span class="chip">machine-learned-interatomic-potentials</span> <a href="aimnet2.html">aimnet2</a> <span class="chip">lattice-energy-ranking</span> <span class="chip">many-body-dispersion</span> <span class="chip">molecular-crystal-csp</span>
+
+<h2>Verification flags</h2>
+
+&gt; Second-pass check found issues - read before trusting:
+
+I&#x27;ll check each claim in the digest against the abstract/metadata.
+
+<b>Claims about GAtor:</b>
+
+1. &quot;relevant to accelerating GAtor lattice-energy ranking&quot; (takeaways)
+2. &quot;targeting the same lattice-energy ranking bottleneck GAtor addresses&quot; (gator_relevance)
+3. &quot;AIMNet2 is one of the MLIPs the group evaluates alongside MACE-OFF and UMA&quot; (gator_relevance)
+4. &quot;AIMNet2 (relevant MLIP the group tracks)&quot; (takeaways)
+
+<b>Problem:</b> GAtor, MACE-OFF, UMA, and &quot;the group&quot; are never mentioned anywhere in the abstract, title, or metadata. These are external framing/relevance annotations, not claims about the paper&#x27;s content. However, they are presented as factual statements. The claim &quot;AIMNet2 is one of the MLIPs the group evaluates alongside MACE-OFF and UMA&quot; asserts specific facts (that MACE-OFF and UMA are evaluated) that have no support in the provided material — this is <b>fabricated</b> relative to the source. Note: these appear to be intentional &quot;relevance to reader&quot; fields, but since the task is to check every claim, I flag them as unsupported by the material.
+
+<b>Other claims to check:</b>
+
+5. &quot;Finite-temperature stability assessment is mentioned in the title but the extent covered in the abstract is unclear.&quot; (limitations)
+
+<b>Problem:</b> The title says &quot;Stability Assessment,&quot; not &quot;finite-temperature stability assessment.&quot; The abstract discusses *thermodynamic* stability (lattice energy ranking) but nowhere mentions <b>finite-temperature</b> stability. Claiming finite-temperature is &quot;mentioned in the title&quot; is <b>overstated/fabricated</b> — the title only says &quot;Stability Assessment.&quot;
+
+6. &quot;used competitively in the CCDC seventh blind test&quot; — the word &quot;competitively&quot; is a mild embellishment; the abstract says they participated and present results, but doesn&#x27;t characterize performance as &quot;competitive.&quot; Minor overstatement, borderline.
+
+<b>Claims that ARE supported:</b>
+- Target-specific AIMNet2 MLIPs trained on n-mer DFT data ✓
+- Gas-phase, dispersion-corrected reference data ✓
+- Extends to crystalline environments, ranks by relative stability ✓
+- Avoids periodic DFT ✓
+- Pharmaceutical, optoelectronic, agrochemical systems ✓
+- Seventh CCDC blind test ✓
+- No quantitative results in abstract ✓
+- Target-specific / per-system retraining limitation ✓
+
+---
+
+<b>UNSUPPORTED / FABRICATED STATEMENTS:</b>
+
+1. <b>&quot;relevant to accelerating GAtor lattice-energy ranking&quot;</b> and <b>&quot;targeting the same lattice-energy ranking bottleneck GAtor addresses&quot;</b> — GAtor is never mentioned in the material; unsupported external assertion.
+
+2. <b>&quot;AIMNet2 is one of the MLIPs the group evaluates alongside MACE-OFF and UMA&quot;</b> — Fabricated; MACE-OFF, UMA, and &quot;the group&quot; appear nowhere in the material.
+
+3. <b>&quot;AIMNet2 (relevant MLIP the group tracks)&quot;</b> — Unsupported; &quot;the group&quot; and its tracking activities are not in the source.
+
+4. <b>&quot;Finite-temperature stability assessment is mentioned in the title&quot;</b> — Overstated/fabricated; the title says only &quot;Stability Assessment,&quot; and the abstract refers to *thermodynamic* stability, never finite-temperature.
+
+5. <b>&quot;used competitively in the CCDC seventh blind test&quot;</b> — Mild over
+</div></div></body></html>
