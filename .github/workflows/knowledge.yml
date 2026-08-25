@@ -1,0 +1,93 @@
+name: MCSP knowledge network
+
+# Daily incremental update of the knowledge network (csp-digest issue #1):
+#   corpus.py    - resolve/download anything new in review/seed_corpus.json
+#   digester.py  - digest new papers into the vault's wiki/sources/ ($0 on quiet days)
+#   tree.py + curriculum.py - refresh the map only when new sources landed
+#   render_learn.py - rebuild the static Learn tab
+# The Obsidian vault lives in the PRIVATE repo Jiayihua2001/jade-vault,
+# cloned/pushed via a repo-scoped deploy key (secret VAULT_DEPLOY_KEY).
+
+on:
+  schedule:
+    - cron: "0 9 * * *"        # daily 09:00 UTC, after the 07:00 digest run
+  workflow_dispatch:
+    inputs:
+      force_synthesis:
+        description: "Rebuild tree+curriculum even with no new papers"
+        default: "false"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: knowledge-network
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Checkout vault (private, deploy key)
+        uses: actions/checkout@v4
+        with:
+          repository: Jiayihua2001/jade-vault
+          ssh-key: ${{ secrets.VAULT_DEPLOY_KEY }}
+          path: vault
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: M1 corpus (incremental)
+        env:
+          VAULT_PATH: ${{ github.workspace }}/vault
+          OPENALEX_MAILTO: ${{ secrets.OPENALEX_MAILTO }}
+        run: python3 -u review/corpus.py
+
+      - name: M2 digest new papers
+        id: digest
+        env:
+          VAULT_PATH: ${{ github.workspace }}/vault
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENALEX_MAILTO: ${{ secrets.OPENALEX_MAILTO }}
+        run: |
+          python3 -u review/digester.py --all | tee /tmp/digest.log
+          NEW=$(grep -c "✓" /tmp/digest.log || true)
+          echo "new=$NEW" >> "$GITHUB_OUTPUT"
+          echo "New source pages: $NEW"
+
+      - name: M3+M4 refresh tree & curriculum
+        if: steps.digest.outputs.new != '0' || github.event.inputs.force_synthesis == 'true' || hashFiles('review/tree.json') == ''
+        env:
+          VAULT_PATH: ${{ github.workspace }}/vault
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python3 -u review/tree.py
+          python3 -u review/curriculum.py
+
+      - name: M5 render Learn tab
+        env:
+          VAULT_PATH: ${{ github.workspace }}/vault
+        run: python3 -u review/render_learn.py
+
+      - name: Push vault changes
+        working-directory: vault
+        run: |
+          git config user.name "csp-digest-knowledge-bot"
+          git config user.email "actions@github.com"
+          git add -A
+          git diff --quiet --staged || git commit -m "knowledge: $(date -u +%F) corpus/digest/synthesis update"
+          git push
+
+      - name: Push site + pipeline state to csp-digest
+        run: |
+          git config user.name "csp-digest-knowledge-bot"
+          git config user.email "actions@github.com"
+          git add review/corpus-manifest.json review/tree.json review/curriculum.json site/learn.html site/learn/ 2>/dev/null || true
+          git diff --quiet --staged || git commit -m "knowledge: $(date -u +%F) Learn tab + manifest update"
+          git pull --rebase origin ${GITHUB_REF_NAME} || true
+          git push origin HEAD:${GITHUB_REF_NAME}
