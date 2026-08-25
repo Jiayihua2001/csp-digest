@@ -137,6 +137,12 @@ def dedup_existing(seed: dict, vault: str) -> str | None:
 # ---------------------------- network layer (injectable) ----------------------------
 
 def _http_get(url: str, timeout: int = 60, tries: int = 3) -> bytes:
+    """GET with backoff. CORPUS_PATIENT=1 turns 429 handling into a marathon:
+    waits up to ~10 min between attempts and retries for a long time, so a
+    single background run can sit out an IP-level OpenAlex block."""
+    patient = os.environ.get("CORPUS_PATIENT") == "1"
+    if patient:
+        tries = max(tries, 12)
     last = None
     for t in range(tries):
         try:
@@ -146,8 +152,11 @@ def _http_get(url: str, timeout: int = 60, tries: int = 3) -> bytes:
                 return r.read()
         except Exception as e:  # noqa: BLE001
             last = e
-            # 429s need a real cooldown, not a quick retry.
-            time.sleep(12.0 * (t + 1) if "429" in str(e) else 1.5 * (t + 1))
+            if "429" in str(e):
+                wait = min(600.0, 30.0 * (2 ** t)) if patient else 12.0 * (t + 1)
+            else:
+                wait = 1.5 * (t + 1)
+            time.sleep(wait)
     raise RuntimeError(f"GET failed: {last}")
 
 
@@ -294,6 +303,10 @@ def build(dry_run: bool = False, limit: int = 0, fetch=None) -> dict:
             flag = " [CONFIRM]" if seed.get("confirm") else ""
             print(f"  ✓ {slug}: {work.get('publication_year')} score={score:.2f} "
                   f"{fulltext}{flag}  {(work.get('title') or '')[:60]}")
+        # Persist after EVERY entry: a killed run keeps all completed work.
+        manifest["built"] = today
+        manifest["entries"] = done
+        json.dump(manifest, open(MANIFEST_PATH, "w"), indent=1)
         time.sleep(0.4)                                 # be polite to OpenAlex
 
     manifest["built"] = today
