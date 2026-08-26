@@ -21,7 +21,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from digester import _api_call, _text_of, DEFAULT_VAULT, DEFAULT_MODEL, PROFILE, append_log  # noqa: E402
-from tree import load_sources, TREE_JSON  # noqa: E402
+from tree import load_sources, load_source_files, extract_summary, TREE_JSON  # noqa: E402
 
 REVIEW_DIR = os.path.dirname(os.path.abspath(__file__))
 MANIFEST_PATH = os.path.join(REVIEW_DIR, "corpus-manifest.json")
@@ -77,7 +77,8 @@ def generate(tree: dict, sources: dict, model: str, key: str, api=None) -> dict:
     return cur
 
 
-def render_curriculum_page(cur: dict, slug_titles: dict, today: str) -> str:
+def render_curriculum_page(cur: dict, slug_titles: dict, today: str,
+                           pages: dict | None = None) -> str:
     lines = ["---", "type: synthesis", 'title: "MCSP curriculum"',
              "tags: [\"mcsp-corpus\", \"tutorial\"]", f"created: {today}", f"updated: {today}",
              "---", "", "# MCSP curriculum - backbone first", "",
@@ -88,16 +89,18 @@ def render_curriculum_page(cur: dict, slug_titles: dict, today: str) -> str:
                   f"**Goal:** {st['goal']}", "", f"**Why now:** {st['why_now']}", ""]
         for it in st["items"]:
             t = slug_titles.get(it["slug"], it["slug"])
-            lines.append(f"- [ ] [[{it['slug']}]] - {t}\n    - {it['why']}")
+            page_name = (pages or {}).get(it["slug"], (it["slug"], ""))[0]
+            lines.append(f"- [ ] [[{page_name}|{t}]]\n    - {it['why']}")
         lines += ["", f"**GAtor 2.0:** {st['gator_note']}", ""]
     lines += ["## After the path", "", cur.get("closing_note", ""), ""]
     return "\n".join(lines)
 
 
 def main() -> None:
+    render_only = "--render-only" in sys.argv
     key = os.environ.get("ANTHROPIC_API_KEY")
-    if not key:
-        sys.exit("Set ANTHROPIC_API_KEY first.")
+    if not key and not render_only:
+        sys.exit("Set ANTHROPIC_API_KEY first (or use --render-only).")
     vault = os.environ.get("VAULT_PATH", DEFAULT_VAULT)
     model = os.environ.get("ANALYSIS_MODEL", DEFAULT_MODEL)
     today = datetime.date.today().isoformat()
@@ -106,10 +109,15 @@ def main() -> None:
     tree = json.load(open(TREE_JSON))
     sources = load_sources(vault)
     manifest = json.load(open(MANIFEST_PATH))["entries"]
-    cur = generate(tree, sources, model, key)
-    json.dump(cur, open(CURRICULUM_JSON, "w"), indent=1)
+    if render_only:
+        if not os.path.exists(CURRICULUM_JSON):
+            sys.exit("review/curriculum.json missing - run once without --render-only.")
+        cur = json.load(open(CURRICULUM_JSON))
+    else:
+        cur = generate(tree, sources, model, key)
+        json.dump(cur, open(CURRICULUM_JSON, "w"), indent=1)
     slug_titles = {s: (manifest.get(s, {}).get("title") or s) for s in sources}
-    page = render_curriculum_page(cur, slug_titles, today)
+    page = render_curriculum_page(cur, slug_titles, today, pages=load_source_files(vault))
     dest = os.path.join(vault, "wiki", "syntheses", "mcsp-curriculum.md")
     os.makedirs(os.path.dirname(dest), exist_ok=True)
     open(dest, "w").write(page)

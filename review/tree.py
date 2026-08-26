@@ -74,15 +74,35 @@ CONCEPT_SCHEMA = {
 
 def load_sources(vault: str) -> dict[str, str]:
     """slug -> source-page text, for pages produced by M2 (date_slug.md)."""
+    return {s: md for s, (_, md) in load_source_files(vault).items()}
+
+
+def load_source_files(vault: str) -> dict[str, tuple[str, str]]:
+    """slug -> (page name without .md, page text). Page name is what Obsidian
+    wikilinks must target ([[2026-08-25_gator-2018|Title]])."""
     d = os.path.join(vault, "wiki", "sources")
     out = {}
     if not os.path.isdir(d):
         return out
     for f in sorted(os.listdir(d)):
-        m = re.match(r"\d{4}-\d{2}-\d{2}_(.+)\.md$", f)
+        m = re.match(r"(\d{4}-\d{2}-\d{2}_(.+))\.md$", f)
         if m:
-            out[m.group(1)] = open(os.path.join(d, f), encoding="utf-8", errors="replace").read()
+            out[m.group(2)] = (m.group(1),
+                               open(os.path.join(d, f), encoding="utf-8", errors="replace").read())
     return out
+
+
+def extract_summary(md: str) -> str:
+    """First blockquote line of a source page = its digest summary."""
+    for line in md.splitlines():
+        if line.startswith("> "):
+            return line[2:].strip()
+    return ""
+
+
+def extract_section(md: str, name: str) -> str:
+    m = re.search(rf"^## {re.escape(name)}\n(.*?)(?=^## |\Z)", md, re.M | re.S)
+    return " ".join(m.group(1).split()) if m else ""
 
 
 def existing_concepts(vault: str) -> list[str]:
@@ -147,7 +167,8 @@ def define_missing_concepts(tree: dict, sources: dict, have: list, model: str, k
 
 # ---------------- deterministic renderers (pure; testable) ----------------
 
-def render_tree_page(tree: dict, slug_titles: dict, today: str) -> str:
+def render_tree_page(tree: dict, slug_titles: dict, today: str,
+                     pages: dict | None = None, urls: dict | None = None) -> str:
     lines = ["---", "type: synthesis", 'title: "MCSP knowledge tree"',
              "tags: [\"mcsp-corpus\", \"map\"]", f"created: {today}", f"updated: {today}",
              "---", "", "# MCSP knowledge tree", "",
@@ -157,11 +178,23 @@ def render_tree_page(tree: dict, slug_titles: dict, today: str) -> str:
              "## Where GAtor 2.0 sits", "", tree.get("gator_position", ""), ""]
     order = {k: i for i, (k, _) in enumerate(BRANCHES)}
     titles = dict(BRANCHES)
+    pages = pages or {}
+    urls = urls or {}
     for b in sorted(tree["branches"], key=lambda x: order.get(x["key"], 99)):
-        lines += [f"## {titles.get(b['key'], b['key'])}", "", b["overview"], "", "**Read:**"]
+        lines += [f"## {titles.get(b['key'], b['key'])}", "", b["overview"], "", "**Read:**", ""]
         for s in b["papers"]:
             t = slug_titles.get(s, s)
-            lines.append(f"- [[{s}]] - {t}")
+            page_name, md = pages.get(s, (s, ""))
+            link = f"- [[{page_name}|{t}]]"
+            if urls.get(s):
+                link += f" ([paper]({urls[s]}))"
+            lines.append(link)
+            summ = extract_summary(md)
+            innov = extract_section(md, "Contribution")
+            if summ:
+                lines.append(f"    - **Summary:** {summ}")
+            if innov:
+                lines.append(f"    - **Innovation - why it matters:** {innov[:450]}")
         if b.get("concepts"):
             lines += ["", "**Concepts:** " + " ".join(f"[[{c}]]" for c in b["concepts"])]
         lines.append("")
@@ -180,9 +213,10 @@ def render_concept_stub(c: dict, today: str) -> str:
 
 
 def main() -> None:
+    render_only = "--render-only" in sys.argv
     key = os.environ.get("ANTHROPIC_API_KEY")
-    if not key:
-        sys.exit("Set ANTHROPIC_API_KEY first.")
+    if not key and not render_only:
+        sys.exit("Set ANTHROPIC_API_KEY first (or use --render-only).")
     vault = os.environ.get("VAULT_PATH", DEFAULT_VAULT)
     model = os.environ.get("ANALYSIS_MODEL", DEFAULT_MODEL)
     today = datetime.date.today().isoformat()
@@ -191,15 +225,23 @@ def main() -> None:
     if len(sources) < 5:
         sys.exit(f"Only {len(sources)} digested sources found - run digester.py first.")
     have = existing_concepts(vault)
-    tree = synthesize(sources, manifest, have, model, key)
-    json.dump(tree, open(TREE_JSON, "w"), indent=1)
+    if render_only:
+        if not os.path.exists(TREE_JSON):
+            sys.exit("review/tree.json missing - run once without --render-only.")
+        tree = json.load(open(TREE_JSON))
+    else:
+        tree = synthesize(sources, manifest, have, model, key)
+        json.dump(tree, open(TREE_JSON, "w"), indent=1)
     slug_titles = {s: (manifest.get(s, {}).get("title") or s) for s in sources}
-    page = render_tree_page(tree, slug_titles, today)
+    pages = load_source_files(vault)
+    urls = {s: f"https://doi.org/{manifest[s]['doi']}" for s in sources
+            if manifest.get(s, {}).get("doi")}
+    page = render_tree_page(tree, slug_titles, today, pages=pages, urls=urls)
     dest = os.path.join(vault, "wiki", "syntheses", "mcsp-knowledge-tree.md")
     os.makedirs(os.path.dirname(dest), exist_ok=True)
     open(dest, "w").write(page)
     print(f"[tree] -> {dest}")
-    stubs = define_missing_concepts(tree, sources, have, model, key)
+    stubs = [] if render_only else define_missing_concepts(tree, sources, have, model, key)
     cdir = os.path.join(vault, "wiki", "concepts")
     os.makedirs(cdir, exist_ok=True)
     for c in stubs:
