@@ -102,7 +102,7 @@ ARXIV = "http://export.arxiv.org/api/query"
 
 # ------------------------------- fetching ---------------------------------
 
-def _get(url, tries=4, timeout=45):
+def _get(url, tries=5, timeout=45):
     last = None
     for t in range(tries):
         try:
@@ -111,7 +111,9 @@ def _get(url, tries=4, timeout=45):
                 return r.read()
         except Exception as e:  # noqa: BLE001 - transient proxy/network
             last = e
-            time.sleep(1.5 * (t + 1))
+            # GitHub runners share egress IPs, so OpenAlex 429s are common in CI
+            # and need real cooldowns (20s/40s/80s/160s), not quick retries.
+            time.sleep(min(300.0, 20.0 * (2 ** t)) if "429" in str(e) else 1.5 * (t + 1))
     raise RuntimeError(f"GET failed after {tries} tries: {last}")
 
 
@@ -757,17 +759,22 @@ def main():
         else:
             merged[k] = item
 
+    oa_attempts = oa_failures = 0
     for q in oa_queries:
+        oa_attempts += 2
         try:
             for it in fetch_openalex(q, since, "article"):
                 add(it, "doi")
         except Exception as e:  # noqa: BLE001
+            oa_failures += 1
             print(f"[warn] OpenAlex article '{q}': {e}", file=sys.stderr)
         try:
             for it in fetch_openalex(q, since, "preprint", venue=PREPRINT_VENUE):
                 add(it, "doi")
         except Exception as e:  # noqa: BLE001
+            oa_failures += 1
             print(f"[warn] ChemRxiv '{q}': {e}", file=sys.stderr)
+        time.sleep(4.0)          # space queries out - shared CI IPs trip 429 easily
 
     for q in ARXIV_QUERIES:
         try:
@@ -775,6 +782,14 @@ def main():
                 add(it, "arxiv_id")
         except Exception as e:  # noqa: BLE001
             print(f"[warn] arXiv '{q}': {e}", file=sys.stderr)
+
+    # A day where EVERY OpenAlex query failed and nothing came from any source
+    # is an outage, not a quiet day - fail loudly instead of publishing an
+    # empty digest that silently overwrites the site's "today".
+    if oa_attempts and oa_failures == oa_attempts and not merged:
+        print(f"[error] all {oa_attempts} OpenAlex queries failed (rate-limited?) and no "
+              f"items from any source - refusing to publish an empty digest.", file=sys.stderr)
+        sys.exit(3)
 
     items = rank_items(list(merged.values()), scope=scope)
     items = summarize(items)
