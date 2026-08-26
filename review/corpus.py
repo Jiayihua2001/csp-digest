@@ -134,6 +134,19 @@ def dedup_existing(seed: dict, vault: str) -> str | None:
         return rel
     return None
 
+def _oa_auth(params: dict) -> dict:
+    """OpenAlex auth: the mailto polite pool was deprecated Feb 2026 (mailto is
+    now ignored); a free-account api_key gives a 10x daily budget. Keyless
+    requests still work but exhaust a tiny budget fast -> 429s."""
+    key = os.environ.get("OPENALEX_API_KEY")
+    if key:
+        params["api_key"] = key
+    mailto = os.environ.get("OPENALEX_MAILTO")
+    if mailto:
+        params["mailto"] = mailto        # ignored since Feb 2026; kept as harmless courtesy
+    return params
+
+
 # ---------------------------- network layer (injectable) ----------------------------
 
 def _http_get(url: str, timeout: int = 60, tries: int = 3) -> bytes:
@@ -166,11 +179,8 @@ def resolve(seed: dict, fetch=None) -> tuple[dict | None, float]:
     fetch = fetch or _http_get
     sel = ("title,publication_year,doi,authorships,cited_by_count,primary_location,"
            "best_oa_location,locations,open_access,abstract_inverted_index,id")
-    mailto = os.environ.get("OPENALEX_MAILTO")
     if seed.get("doi"):
-        q = {"select": sel}
-        if mailto:
-            q["mailto"] = mailto
+        q = _oa_auth({"select": sel})
         url = (OPENALEX_WORKS + "/doi:" + urllib.parse.quote(normalize_doi(seed["doi"]), safe="")
                + "?" + urllib.parse.urlencode(q))
         try:
@@ -190,9 +200,7 @@ def resolve(seed: dict, fetch=None) -> tuple[dict | None, float]:
     ]
     best, best_score = None, 0.0
     for extra in attempts:
-        params = {"per-page": 5, "select": sel, **extra}
-        if mailto:
-            params["mailto"] = mailto
+        params = _oa_auth({"per-page": 5, "select": sel, **extra})
         try:
             data = json.loads(fetch(OPENALEX_WORKS + "?" + urllib.parse.urlencode(params)))
         except Exception:  # noqa: BLE001 - a failing strategy just yields no candidates

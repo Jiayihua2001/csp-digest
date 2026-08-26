@@ -45,6 +45,7 @@ jobs:
       - name: M1 corpus (incremental)
         env:
           VAULT_PATH: ${{ github.workspace }}/vault
+          OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
           OPENALEX_MAILTO: ${{ secrets.OPENALEX_MAILTO }}
         run: python3 -u review/corpus.py
 
@@ -53,6 +54,7 @@ jobs:
         env:
           VAULT_PATH: ${{ github.workspace }}/vault
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
           OPENALEX_MAILTO: ${{ secrets.OPENALEX_MAILTO }}
         run: |
           python3 -u review/digester.py --all | tee /tmp/digest.log

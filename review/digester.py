@@ -152,9 +152,11 @@ def fetch_abstract(entry: dict, fetch=None) -> str | None:
     if not oid:
         return None
     q = {"select": "abstract_inverted_index"}
+    if os.environ.get("OPENALEX_API_KEY"):        # free-account key: 10x daily budget
+        q["api_key"] = os.environ["OPENALEX_API_KEY"]
     mailto = os.environ.get("OPENALEX_MAILTO")
     if mailto:
-        q["mailto"] = mailto
+        q["mailto"] = mailto                      # ignored since Feb 2026; harmless
     url = f"https://api.openalex.org/works/{oid}?" + urllib.parse.urlencode(q)
     try:
         fetch = fetch or (lambda u: urllib.request.urlopen(
