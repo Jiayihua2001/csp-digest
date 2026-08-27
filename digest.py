@@ -153,7 +153,7 @@ def fetch_openalex(query, since, work_type, venue=None):
     filt = f"from_created_date:{since},title_and_abstract.search:{query},type:{work_type}"
     if venue == PREPRINT_VENUE:
         filt += f",primary_location.source.id:{CHEMRXIV_SOURCE_ID}"
-    url = OPENALEX + "?" + urllib.parse.urlencode(_oa_params({"filter": filt}))
+    url = OPENALEX + "?" + urllib.parse.urlencode(_oa_params({"filter": filt, "per-page": 100}))
     data = json.loads(_get(url))
     out = []
     for w in data.get("results", []):
@@ -759,22 +759,25 @@ def main():
         else:
             merged[k] = item
 
+    # One OR-combined search instead of a call per query: GitHub's shared
+    # runner IPs get 429d by OpenAlex regardless of api_key, so success odds
+    # scale with how FEW requests a run needs (10 -> 2).
+    combined = " OR ".join(f'"{q}"' for q in oa_queries)
     oa_attempts = oa_failures = 0
-    for q in oa_queries:
-        oa_attempts += 2
-        try:
-            for it in fetch_openalex(q, since, "article"):
-                add(it, "doi")
-        except Exception as e:  # noqa: BLE001
-            oa_failures += 1
-            print(f"[warn] OpenAlex article '{q}': {e}", file=sys.stderr)
-        try:
-            for it in fetch_openalex(q, since, "preprint", venue=PREPRINT_VENUE):
-                add(it, "doi")
-        except Exception as e:  # noqa: BLE001
-            oa_failures += 1
-            print(f"[warn] ChemRxiv '{q}': {e}", file=sys.stderr)
-        time.sleep(4.0)          # space queries out - shared CI IPs trip 429 easily
+    oa_attempts += 2
+    try:
+        for it in fetch_openalex(combined, since, "article"):
+            add(it, "doi")
+    except Exception as e:  # noqa: BLE001
+        oa_failures += 1
+        print(f"[warn] OpenAlex articles (combined): {e}", file=sys.stderr)
+    time.sleep(4.0)
+    try:
+        for it in fetch_openalex(combined, since, "preprint", venue=PREPRINT_VENUE):
+            add(it, "doi")
+    except Exception as e:  # noqa: BLE001
+        oa_failures += 1
+        print(f"[warn] ChemRxiv (combined): {e}", file=sys.stderr)
 
     for q in ARXIV_QUERIES:
         try:
