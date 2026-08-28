@@ -18,6 +18,9 @@ Environment variables:
   DIGEST_DAYS        look-back window in days (default 4)
   DIGEST_SCOPE       "molecular", "inorganic", or "both" (default both)
   SUMMARY_MODEL      Anthropic model id (default claude-sonnet-5)
+  DIGEST_SCREEN      1 (default) = LLM-screen out irrelevant/experimental papers; 0 = off
+  SCREEN_MODEL       model for screening (default claude-haiku-4-5)
+  SCREEN_MIN_REL     keep papers scoring >= this (default 6)
 """
 from __future__ import annotations
 import os
@@ -514,6 +517,74 @@ def rank_items(items, scope="molecular"):
     return out
 
 
+# ------------------------------ LLM screen --------------------------------
+
+SCREEN_PROMPT = (
+    "You score papers for a researcher in Noa Marom's group (CMU) whose core area is "
+    "FIRST-PRINCIPLES MOLECULAR CRYSTAL STRUCTURE PREDICTION (MCSP): polymorph candidate "
+    "generation (Genarris), genetic-algorithm search (GAtor), dispersion-DFT lattice-energy "
+    "ranking, and MLIPs (MACE-OFF, AIMNet2, UMA) accelerating CSP. They also scout AI-for-science "
+    "methods that could TRANSFER to MCSP.\n"
+    "Score relevance 1-10:\n"
+    "  9-10: direct molecular-CSP methods, benchmarks, blind tests, polymorph energy ranking\n"
+    "  6-8:  computational/ML methods with clear transfer potential to CSP (generative models for "
+    "crystals, MLIPs, structure search algorithms)\n"
+    "  5-7:  adjacent COMPUTATIONAL crystalline-materials structure prediction (inorganic CSP, "
+    "USPEX/CALYPSO-style searches)\n"
+    "  <=3:  EXPERIMENTAL-ONLY work (synthesis, characterization, XRD of made samples, devices, "
+    "sensors, mineralization) with no computational structure-prediction component - even if it "
+    "mentions polymorphs or crystals\n"
+    "  <=2:  unrelated fields\n"
+    "Reply with ONLY a JSON object: {\"relevance\": <int 1-10>, \"reason\": \"<= 12 words\"}"
+)
+
+
+def llm_screen(items):
+    """Drop papers an LLM judges irrelevant (experimental-only noise that survives
+    the regex filters). Fail-open: if the key is missing, screening is disabled,
+    or most calls fail, the list passes through unchanged - screening must never
+    blank the digest. Env: DIGEST_SCREEN=0 off, SCREEN_MODEL, SCREEN_MIN_REL."""
+    key = os.environ.get("ANTHROPIC_API_KEY")
+    if not key or os.environ.get("DIGEST_SCREEN", "1") == "0" or not items:
+        return items
+    model = os.environ.get("SCREEN_MODEL", "claude-haiku-4-5")
+    min_rel = int(os.environ.get("SCREEN_MIN_REL", "6"))
+    kept, failed = [], 0
+    for it in items:
+        prompt = (SCREEN_PROMPT + f"\n\nTitle: {it.get('title', '')}\n"
+                  f"Venue: {it.get('venue', '')}\nAbstract: {(it.get('abstract') or '(none)')[:1200]}")
+        body = json.dumps({"model": model, "max_tokens": 100,
+                           "messages": [{"role": "user", "content": prompt}]}).encode()
+        req = urllib.request.Request(
+            "https://api.anthropic.com/v1/messages", data=body,
+            headers={"x-api-key": key, "anthropic-version": "2023-06-01",
+                     "content-type": "application/json"})
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                resp = json.loads(r.read())
+            text = "".join(b.get("text", "") for b in resp.get("content", [])).strip()
+            m = re.search(r"\{.*\}", text, re.S)
+            data = json.loads(m.group(0))
+            rel = max(1, min(10, int(data.get("relevance", 0))))
+            it["screen"] = {"relevance": rel, "reason": str(data.get("reason", ""))[:120]}
+            if rel >= min_rel:
+                kept.append(it)
+            else:
+                print(f"[screen] drop rel={rel}: {(it.get('title') or '')[:60]}"
+                      f"  ({it['screen']['reason']})", file=sys.stderr)
+        except Exception as e:  # noqa: BLE001 - one bad call must not drop a paper
+            failed += 1
+            kept.append(it)                       # unscored papers are KEPT (fail-open)
+            print(f"[screen] unscored (kept): {(it.get('title') or '')[:50]}: {e}", file=sys.stderr)
+        time.sleep(0.2)
+    if failed > len(items) / 2:
+        print(f"[screen] {failed}/{len(items)} calls failed - screening unreliable, "
+              f"passing everything through", file=sys.stderr)
+        return items
+    print(f"[screen] kept {len(kept)}/{len(items)} (model {model}, min_rel {min_rel})")
+    return kept
+
+
 # ------------------------------ summaries ---------------------------------
 
 def summarize(items):
@@ -868,6 +939,7 @@ def main():
         sys.exit(3)
 
     items = rank_items(list(merged.values()), scope=scope)
+    items = llm_screen(items)
     items = summarize(items)
     out = render_html(items, "csp_digest.html", scope_label=scope)
     print(f"Rendered {len(items)} items -> {out}")
