@@ -40,6 +40,8 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           OPENALEX_MAILTO: ${{ secrets.OPENALEX_MAILTO }}
           DIGEST_DAYS: ${{ github.event.inputs.days || '14' }}
+          OA_TRIES: "2"          # fail over to Crossref in ~2 min instead of ~21
+
           DIGEST_SCOPE: ${{ github.event.inputs.scope || 'molecular' }}
           BUILD_SITE: "1"
         run: python digest.py
@@ -58,6 +60,8 @@ jobs:
           git config user.email "actions@github.com"
           git add csp_digest.html csp_digest.ris csp_digest.json obsidian_notes/ digests/ site/data/
           git diff --quiet --staged || git commit -m "digest: $(date +%F)"
+          # Rebase before pushing: long runs race against other pushes to main
+          git pull --rebase origin main || true
           git push
 
       - name: Upload site as Pages artifact

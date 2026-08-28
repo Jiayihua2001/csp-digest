@@ -162,7 +162,9 @@ def fetch_openalex(query, since, work_type, venue=None):
     if venue == PREPRINT_VENUE:
         filt += f",primary_location.source.id:{CHEMRXIV_SOURCE_ID}"
     url = OPENALEX + "?" + urllib.parse.urlencode(_oa_params({"filter": filt, "per-page": 100}))
-    data = json.loads(_get(url))
+    # OA_TRIES lets CI fail over to Crossref quickly instead of walking the
+    # full 429 backoff ladder (GitHub runner IPs are throttled pre-auth).
+    data = json.loads(_get(url, tries=int(os.environ.get("OA_TRIES", "5"))))
     out = []
     for w in data.get("results", []):
         doi = w.get("doi")
