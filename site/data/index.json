@@ -1,12 +1,22 @@
 [
  {
   "date": "2026-08-28",
-  "count": 1,
-  "synthesis": "A generative approach (Packora) to molecular CSP appears\u2014worth noting as an alternative to genetic-algorithm-based search, though details on how it compares in accuracy/efficiency to established GA methods (e.g., USPEX, GAtor) aren't specified here. Otherwise a quiet day.",
+  "count": 10,
+  "synthesis": "Two directly relevant CSP methods stand out: Packora, a new generative approach with systematic design principles, and a deep free energy learning method incorporating nuclear quantum/finite-temperature effects into crystal structure prediction. Otherwise a quiet day, dominated by unrelated polymorph/materials studies.",
   "top": [
    {
     "title": "Packora: Systematic Design for Generative Molecular Crystal Structure Prediction",
     "relevance": 92,
+    "significance": 0
+   },
+   {
+    "title": "Influence of nanostructured calcium carbonate polymorph composition and morphology on phase transformation and cell-mediated mineralization",
+    "relevance": 60,
+    "significance": 12
+   },
+   {
+    "title": "Toward In Vivo Energy Harvesters: High Piezoelectric Response in a Pharmaceutical Drug Polymorph Enabled by Monopolar Domain Architecture",
+    "relevance": 70,
     "significance": 0
    }
   ]
