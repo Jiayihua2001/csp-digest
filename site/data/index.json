@@ -1,8 +1,8 @@
 [
  {
   "date": "2026-08-28",
-  "count": 10,
-  "synthesis": "Two directly relevant CSP methods stand out: Packora, a new generative approach with systematic design principles, and a deep free energy learning method incorporating nuclear quantum/finite-temperature effects into crystal structure prediction. Otherwise a quiet day, dominated by unrelated polymorph/materials studies.",
+  "count": 2,
+  "synthesis": "Two CSP methodology advances: a new generative approach (Packora) and a deep-learning framework incorporating nuclear quantum/finite-temperature free energy effects into structure prediction\u2014both pushing beyond static lattice-energy ranking toward more physically complete or systematically designed generative pipelines.",
   "top": [
    {
     "title": "Packora: Systematic Design for Generative Molecular Crystal Structure Prediction",
@@ -10,13 +10,8 @@
     "significance": 0
    },
    {
-    "title": "Influence of nanostructured calcium carbonate polymorph composition and morphology on phase transformation and cell-mediated mineralization",
-    "relevance": 60,
-    "significance": 12
-   },
-   {
-    "title": "Toward In Vivo Energy Harvesters: High Piezoelectric Response in a Pharmaceutical Drug Polymorph Enabled by Monopolar Domain Architecture",
-    "relevance": 70,
+    "title": "Crystal structure prediction with nuclear quantum and finite-temperature effects via deep free energy learning",
+    "relevance": 65,
     "significance": 0
    }
   ]

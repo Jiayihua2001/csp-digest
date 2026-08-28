@@ -1,8 +1,8 @@
 {
  "date": "2026-08-28",
  "scope": "molecular",
- "synthesis": "Two directly relevant CSP methods stand out: Packora, a new generative approach with systematic design principles, and a deep free energy learning method incorporating nuclear quantum/finite-temperature effects into crystal structure prediction. Otherwise a quiet day, dominated by unrelated polymorph/materials studies.",
- "generated_at": "2026-08-28T20:37:21.220598Z",
+ "synthesis": "Two CSP methodology advances: a new generative approach (Packora) and a deep-learning framework incorporating nuclear quantum/finite-temperature free energy effects into structure prediction\u2014both pushing beyond static lattice-energy ranking toward more physically complete or systematically designed generative pipelines.",
+ "generated_at": "2026-08-28T21:13:12.177063Z",
  "items": [
   {
    "src": "arXiv",
@@ -35,87 +35,11 @@
    "relevance": 92,
    "significance": 0,
    "score": 92,
-   "summary": "Packora introduces a flow-based generative model jointly predicting atomic coordinates and lattice from molecular graphs, flexibly conditioning on conformers, stereochemistry, and space groups within one architecture."
-  },
-  {
-   "src": "journal",
-   "title": "Influence of nanostructured calcium carbonate polymorph composition and morphology on phase transformation and cell-mediated mineralization",
-   "date": "2026-08-19",
-   "doi": "10.1016/j.ces.2026.124948",
-   "authors": [
-    "Junnan Song",
-    "Tangyu Yang",
-    "Ziran Pan"
-   ],
-   "authors_all": [
-    "Junnan Song",
-    "Tangyu Yang",
-    "Ziran Pan",
-    "Dmitry Volodkin",
-    "Wentao Su",
-    "Mingqian Tan",
-    "Andre G. Skirtach",
-    "Bogdan V Parakhonskiy"
-   ],
-   "corresponding": [
-    "Bogdan V Parakhonskiy"
-   ],
-   "cited_by": 0,
-   "venue": "Chemical Engineering Science",
-   "abstract": "",
-   "matched": [
-    "organic crystal polymorph prediction",
-    "lattice energy ranking polymorph"
-   ],
-   "tags": [
-    "polymorphism"
-   ],
-   "relevance": 60,
-   "significance": 12,
-   "score": 72,
-   "summary": "Likely introduces controlled synthesis of amorphous/crystalline calcium carbonate polymorphs with tuned morphology to systematically correlate structural composition with phase-transformation kinetics and osteoblast-mediated biomineralization outcomes."
-  },
-  {
-   "src": "journal",
-   "title": "Toward In Vivo Energy Harvesters: High Piezoelectric Response in a Pharmaceutical Drug Polymorph Enabled by Monopolar Domain Architecture",
-   "date": "2026-08-19",
-   "doi": "10.1002/aenm.71458",
-   "authors": [
-    "Arti Vishwakarma",
-    "Nandan Murali",
-    "Ankur Verma"
-   ],
-   "authors_all": [
-    "Arti Vishwakarma",
-    "Nandan Murali",
-    "Ankur Verma",
-    "Soyal Sabu",
-    "Atiqur Rahman",
-    "Srijan Mondal",
-    "Soutik Betal",
-    "Mark A. Spackman",
-    "Subash C. Karumuthil",
-    "Sajesh P. Thomas"
-   ],
-   "corresponding": [
-    "Sajesh P. Thomas"
-   ],
-   "cited_by": 0,
-   "venue": "Advanced Energy Materials",
-   "abstract": "ABSTRACT Biocompatible piezoelectric materials capable of efficient mechanical\u2010to\u2010electrical energy conversion are critical for the development of implantable energy harvesters and in vivo biomedical sensors. Here, we report an unusually high piezoelectric response in a polymorph of the pharmaceutical drug hydrochlorothiazide (HCT), originating from conformationally driven solid\u2010state chirality and an uncommon monopolar domain architecture. In contrast to most polar molecular crystals, where micro\u2010 to nanoscale orientational disorder suppresses macroscopic polarization, HCT forms enantiomorphic twin domains arranged in a tail\u2010to\u2010tail polarity configuration. This intrinsic domain organization eliminates the need for external electric poling during device fabrication, providing a significant technological advantage for biocompatible applications. Kelvin probe force microscopy (KPFM) surface potential mapping and piezoresponse force microscopy (PFM) phase contrast measurements provide compelling experimental support for this polarity model. X\u2010ray quantum crystallography reveals an enhanced spontaneous polarization of 10.2 \u00b5C cm \u22122 , while facet\u2010resolved PFM measurements yield an effec",
-   "matched": [
-    "organic crystal polymorph prediction",
-    "lattice energy ranking polymorph"
-   ],
-   "tags": [
-    "ML-potential",
-    "polymorphism",
-    "conformational"
-   ],
-   "relevance": 70,
-   "significance": 0,
-   "score": 70,
-   "summary": "Identifies a hydrochlorothiazide polymorph exhibiting spontaneous, poling-free monopolar domain architecture from conformational chirality, yielding unusually high piezoelectric response for biocompatible in vivo energy harvesting."
+   "screen": {
+    "relevance": 9,
+    "reason": "Direct molecular CSP generative model; CCDC blind test evaluation; structure generation & ranking."
+   },
+   "summary": "Packora introduces a flow-based generative model jointly predicting atoms and lattice from molecular graphs, conditioning flexibly on conformers/stereochemistry/space-group, with systematic architecture-scaling design outperforming baselines."
   },
   {
    "src": "journal",
@@ -135,10 +59,10 @@
    "venue": "Physical Review B",
    "abstract": "",
    "matched": [
-    "molecular crystal structure prediction",
     "organic crystal polymorph prediction",
-    "genetic algorithm crystal structure prediction",
-    "crystal energy landscape molecular"
+    "molecular crystal structure prediction",
+    "crystal energy landscape molecular",
+    "genetic algorithm crystal structure prediction"
    ],
    "tags": [
     "free-energy"
@@ -146,213 +70,11 @@
    "relevance": 65,
    "significance": 0,
    "score": 65,
-   "summary": "Introduces a deep learning framework to predict crystal structures by directly optimizing free energy\u2014incorporating nuclear quantum and finite-temperature effects\u2014rather than 0K static-lattice energy alone."
-  },
-  {
-   "src": "journal",
-   "title": "Competing Pathways and Polymorph Selection during the Crystallization of Molten Lead",
-   "date": "2026-08-25",
-   "doi": "10.1039/d6cp01995a",
-   "authors": [
-    "Na Li",
-    "Simeng Jiang",
-    "Xinxin Chen"
-   ],
-   "authors_all": [
-    "Na Li",
-    "Simeng Jiang",
-    "Xinxin Chen",
-    "Zidong Wang",
-    "Yanlin Wang",
-    "Simin An"
-   ],
-   "corresponding": [
-    "Simin An"
-   ],
-   "cited_by": 0,
-   "venue": "Physical Chemistry Chemical Physics",
-   "abstract": "The competitive growth and polymorph selection is a fundamental problem governing microstructural evolution and the resulting properties of metals during solidification. In this study, lead is used as a model...",
-   "matched": [
-    "organic crystal polymorph prediction",
-    "lattice energy ranking polymorph"
-   ],
-   "tags": [
-    "polymorphism"
-   ],
-   "relevance": 60,
-   "significance": 0,
-   "score": 60,
-   "summary": "Molecular dynamics simulations reveal atomistic pathways and kinetic competition governing polymorph selection during lead crystallization, quantifying how competing nucleation/growth mechanisms determine final microstructure."
-  },
-  {
-   "src": "journal",
-   "title": "Polymorph Stability Index (PSI) for Integrated Assessment of Floristic Families in Surkhandarya (Central Asia)",
-   "date": "2026-08-18",
-   "doi": "10.54981/pdca/vol4_iss2/a1",
-   "authors": [
-    "Otabek Sotiboldiyev",
-    "Feruz Akbarov",
-    "Sardor Po'latov"
-   ],
-   "authors_all": [
-    "Otabek Sotiboldiyev",
-    "Feruz Akbarov",
-    "Sardor Po'latov",
-    "Akram Ibragimov",
-    "Komiljon Sh. Tojibaev"
-   ],
-   "corresponding": [
-    "Komiljon Sh. Tojibaev"
-   ],
-   "cited_by": 0,
-   "venue": "Plant Diversity of Central Asia",
-   "abstract": "This study evaluates the dominance of polymorphic floristic families in the flora of Surkhandarya using an integrated, multidimensional approach. A total of 64,619 georeferenced occurrence records representing 2,202 species were analyzed to assess spatial, ecological, and taxonomic patterns. Spatial dominance was quantified using Kernel Density Estimation (KDE) and a triangulation-based approach to estimate the actual area of distribution. Ecological differentiation was assessed through Principal Component Analysis (PCA) and niche breadth, while taxonomic diversity was measured using the Shannon Diversity Index (SDI). The results revealed significant variation among families across all dimensions. Fabaceae, Asteraceae, and Poaceae exhibited the highest spatial coverage and intensity, while ecological analyses showed that niche breadth is not directly correlated with taxonomic richness. The integrated Polymorph Stability Index (PSI) identified these families as the core polymorphic components of the regional flora. Overall, the findings demonstrate that floristic dominance cannot be explained by a single factor, but rather emerges from the combined effects of spatial, ecological, an",
-   "matched": [
-    "organic crystal polymorph prediction",
-    "lattice energy ranking polymorph"
-   ],
-   "tags": [
-    "polymorphism"
-   ],
-   "relevance": 60,
-   "significance": 0,
-   "score": 60,
-   "summary": "Introduces the Polymorph Stability Index (PSI), a novel composite metric combining KDE-based spatial dominance, PCA-derived niche breadth, and Shannon diversity to rank floristic family dominance in Surkhandarya."
-  },
-  {
-   "src": "journal",
-   "title": "Pressure-induced evolution of the boron bonding network and reentrant superconductivity in a metastable Magnesium Hexaboride polymorph",
-   "date": "2026-08-16",
-   "doi": "10.1016/j.cocom.2026.e01438",
-   "authors": [
-    "Y\u0131lmaz Can Y\u00fcksek"
-   ],
-   "authors_all": [
-    "Y\u0131lmaz Can Y\u00fcksek"
-   ],
-   "corresponding": [
-    "Y\u0131lmaz Can Y\u00fcksek"
-   ],
-   "cited_by": 0,
-   "venue": "Computational Condensed Matter",
-   "abstract": "",
-   "matched": [
-    "organic crystal polymorph prediction",
-    "lattice energy ranking polymorph"
-   ],
-   "tags": [
-    "polymorphism"
-   ],
-   "relevance": 60,
-   "significance": 0,
-   "score": 60,
-   "summary": "Evolutionary crystal structure search reveals a metastable MgB6 polymorph whose boron bonding network transforms under pressure, yielding reentrant superconductivity absent in the ground-state phase."
-  },
-  {
-   "src": "journal",
-   "title": "Design and Optimization of a High Sensitivity Wide Range U-Shaped Polished Photonic Crystal Fiber Sensor Based on Machine Learning and Genetic Algorithm",
-   "date": "2026-08-24",
-   "doi": "10.1007/s11468-026-03441-w",
-   "authors": [
-    "Xiaozheng Jiang",
-    "Zhengrong Tong",
-    "Wang Hao"
-   ],
-   "authors_all": [
-    "Xiaozheng Jiang",
-    "Zhengrong Tong",
-    "Wang Hao",
-    "Weihua Zhang"
-   ],
-   "corresponding": [
-    "Weihua Zhang"
-   ],
-   "cited_by": 0,
-   "venue": "Plasmonics",
-   "abstract": "",
-   "matched": [
-    "genetic algorithm crystal structure prediction"
-   ],
-   "tags": [
-    "genetic-algorithm",
-    "ML-potential"
-   ],
-   "relevance": 45,
-   "significance": 0,
-   "score": 45,
-   "summary": "Combines a U-shaped side-polished photonic crystal fiber sensor design with machine-learning-assisted genetic algorithm optimization to jointly maximize sensitivity and broaden the detectable refractive-index range beyond conventional trial-and-error tuning approaches"
-  },
-  {
-   "src": "journal",
-   "title": "Molecular regulation of CO2 mineralization via amino acid salts for coupled fly ash utilization and polymorph-controlled CaCO3 synthesis",
-   "date": "2026-08-28",
-   "doi": "10.1016/j.cej.2026.181276",
-   "authors": [
-    "Chenglong Wang",
-    "Huayu Jiang",
-    "Xiaofei Yang"
-   ],
-   "authors_all": [
-    "Chenglong Wang",
-    "Huayu Jiang",
-    "Xiaofei Yang",
-    "Wenwen Tan",
-    "Jintong Li",
-    "Tiantian Zhang",
-    "Zhuo Xiong",
-    "Yongchun Zhao",
-    "Junying Zhang"
-   ],
-   "corresponding": [
-    "Junying Zhang"
-   ],
-   "cited_by": 0,
-   "venue": "Chemical Engineering Journal",
-   "abstract": "",
-   "matched": [
-    "organic crystal polymorph prediction"
-   ],
-   "tags": [
-    "polymorphism"
-   ],
-   "relevance": 40,
-   "significance": 0,
-   "score": 40,
-   "summary": "Amino acid salts likely serve as molecular regulators enabling simultaneous fly ash-derived CO2 mineralization and selective control of CaCO3 polymorph formation, coupling waste utilization with tunable carbonate synthesis."
-  },
-  {
-   "src": "journal",
-   "title": "Energy landscape, crystal structures, and electronic and vibrational properties of lanthanum fluoride sulfide (LaFS)",
-   "date": "2026-08-20",
-   "doi": "10.1016/j.cocom.2026.e01443",
-   "authors": [
-    "Milan Peji\u0107",
-    "Dejan Zagorac",
-    "Matej Fonovi\u0107"
-   ],
-   "authors_all": [
-    "Milan Peji\u0107",
-    "Dejan Zagorac",
-    "Matej Fonovi\u0107",
-    "Jelena Zagorac",
-    "J. Christian Sch\u00f6n"
-   ],
-   "corresponding": [
-    "J. Christian Sch\u00f6n"
-   ],
-   "cited_by": 0,
-   "venue": "Computational Condensed Matter",
-   "abstract": "",
-   "matched": [
-    "crystal energy landscape molecular"
-   ],
-   "tags": [
-    "free-energy"
-   ],
-   "relevance": 40,
-   "significance": 0,
-   "score": 40,
-   "summary": "Applies evolutionary crystal structure prediction to map the energy landscape of LaFS, identifying stable/metastable polymorphs and characterizing their electronic and vibrational properties."
+   "screen": {
+    "relevance": 8,
+    "reason": "Deep learning for free energy, structure prediction, finite-temperature effects\u2014strong CSP transfer potential"
+   },
+   "summary": "Introduces a deep learning framework for computing free energies from first principles, enabling crystal structure prediction that explicitly incorporates nuclear quantum and finite-temperature effects beyond static-lattice energy minimization."
   }
  ]
 }
