@@ -1,5 +1,17 @@
 [
  {
+  "date": "2026-08-28",
+  "count": 1,
+  "synthesis": "A generative approach (Packora) to molecular CSP appears\u2014worth noting as an alternative to genetic-algorithm-based search, though details on how it compares in accuracy/efficiency to established GA methods (e.g., USPEX, GAtor) aren't specified here. Otherwise a quiet day.",
+  "top": [
+   {
+    "title": "Packora: Systematic Design for Generative Molecular Crystal Structure Prediction",
+    "relevance": 92,
+    "significance": 0
+   }
+  ]
+ },
+ {
   "date": "2026-08-26",
   "count": 0,
   "synthesis": "",
