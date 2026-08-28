@@ -98,6 +98,14 @@ VOCAB_PAT = (r"\b(lattice energ|space group|Z['\u2032]|asymmetric unit|cocrystal
 
 OPENALEX = "https://api.openalex.org/works"
 ARXIV = "http://export.arxiv.org/api/query"
+CROSSREF = "https://api.crossref.org/works"
+CHEMRXIV_DOI_PREFIX = "10.26434"
+
+# Circuit breaker: OpenAlex hard-throttles GitHub-runner IPs (429 before auth,
+# even with a valid api_key). Once the main fetch fails, all further OpenAlex
+# calls (author stats, arXiv enrichment) are skipped so they don't each burn a
+# multi-minute backoff ladder, and Crossref takes over as the article source.
+_OA_DOWN = False
 
 
 # ------------------------------- fetching ---------------------------------
@@ -193,6 +201,51 @@ def fetch_openalex(query, since, work_type, venue=None):
     return out
 
 
+def _jats_strip(text):
+    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", text or "")).strip()[:1200]
+
+
+def fetch_crossref(query, since, kind):
+    """CI-friendly fallback source. kind: 'journal' or 'chemrxiv'.
+    Crossref indexes both journal articles and ChemRxiv preprints (posted-content
+    under prefix 10.26434) and does not throttle datacenter IPs the way OpenAlex
+    does. Maps records into the same item schema as fetch_openalex."""
+    filt = f"from-created-date:{since}," + (
+        "type:journal-article" if kind == "journal"
+        else f"type:posted-content,prefix:{CHEMRXIV_DOI_PREFIX}")
+    params = {"query.bibliographic": query, "filter": filt, "rows": 50,
+              "select": "DOI,title,created,author,container-title,abstract,is-referenced-by-count"}
+    mailto = os.environ.get("OPENALEX_MAILTO")
+    if mailto:
+        params["mailto"] = mailto
+    data = json.loads(_get(CROSSREF + "?" + urllib.parse.urlencode(params)))
+    out = []
+    for w in (data.get("message") or {}).get("items", []):
+        doi = (w.get("DOI") or "").lower()
+        title = (w.get("title") or [""])[0]
+        if not doi or not title:
+            continue
+        parts = ((w.get("created") or {}).get("date-parts") or [[None]])[0]
+        date = "-".join(f"{p:02d}" if i else f"{p:04d}" for i, p in enumerate(parts)) if parts[0] else None
+        authors = [" ".join(x for x in (a.get("given"), a.get("family")) if x)
+                   for a in (w.get("author") or [])]
+        venue = (w.get("container-title") or [""])[0] or ("ChemRxiv" if kind == "chemrxiv" else "")
+        out.append({
+            "src": "ChemRxiv" if kind == "chemrxiv" else "journal",
+            "title": title,
+            "date": date,
+            "doi": doi,
+            "authors": authors[:3],
+            "authors_all": authors,
+            "corresponding": authors[-1:] if authors else [],
+            "cited_by": w.get("is-referenced-by-count") or 0,
+            "venue": venue,
+            "abstract": _jats_strip(w.get("abstract")),
+            "matched": [query],
+        })
+    return out
+
+
 def fetch_arxiv(query, since):
     params = {
         "search_query": query,
@@ -262,7 +315,7 @@ def author_stats(author_id):
     """Fetch (h_index, works_count) for one OpenAlex author id, cached.
     Available at publication time — does not depend on the paper's own citations.
     Returns (0, 0) on any failure so scoring degrades gracefully."""
-    if not author_id:
+    if not author_id or _OA_DOWN:
         return (0, 0)
     if author_id in _AUTHOR_CACHE:
         return _AUTHOR_CACHE[author_id]
@@ -285,7 +338,7 @@ def enrich_arxiv_from_openalex(item):
     itself in OpenAlex by exact-ish title: if found, borrow its author_ids +
     institutions so significance enrichment works. Fresh preprints (not yet indexed)
     simply return unchanged — significance then rests on watchlist-name match only."""
-    if item.get("src") != "arXiv" or item.get("author_ids"):
+    if item.get("src") != "arXiv" or item.get("author_ids") or _OA_DOWN:
         return item
     title = item.get("title", "")
     if len(title) < 15:
@@ -762,6 +815,7 @@ def main():
     # One OR-combined search instead of a call per query: GitHub's shared
     # runner IPs get 429d by OpenAlex regardless of api_key, so success odds
     # scale with how FEW requests a run needs (10 -> 2).
+    global _OA_DOWN
     combined = " OR ".join(f'"{q}"' for q in oa_queries)
     oa_attempts = oa_failures = 0
     oa_attempts += 2
@@ -779,6 +833,23 @@ def main():
         oa_failures += 1
         print(f"[warn] ChemRxiv (combined): {e}", file=sys.stderr)
 
+    cr_ok = 0
+    if oa_failures == oa_attempts:
+        # OpenAlex is unreachable (throttled CI IP). Trip the breaker so the
+        # per-author/per-item enrichment calls don't grind, and fetch from
+        # Crossref instead.
+        _OA_DOWN = True
+        print("[info] OpenAlex down for this run - falling back to Crossref", file=sys.stderr)
+        for q in oa_queries:
+            for kind in ("journal", "chemrxiv"):
+                try:
+                    for it in fetch_crossref(q, since, kind):
+                        add(it, "doi")
+                    cr_ok += 1
+                except Exception as e:  # noqa: BLE001
+                    print(f"[warn] Crossref {kind} '{q}': {e}", file=sys.stderr)
+                time.sleep(1.0)
+
     for q in ARXIV_QUERIES:
         try:
             for it in fetch_arxiv(q, since):
@@ -789,9 +860,9 @@ def main():
     # A day where EVERY OpenAlex query failed and nothing came from any source
     # is an outage, not a quiet day - fail loudly instead of publishing an
     # empty digest that silently overwrites the site's "today".
-    if oa_attempts and oa_failures == oa_attempts and not merged:
-        print(f"[error] all {oa_attempts} OpenAlex queries failed (rate-limited?) and no "
-              f"items from any source - refusing to publish an empty digest.", file=sys.stderr)
+    if oa_attempts and oa_failures == oa_attempts and cr_ok == 0 and not merged:
+        print(f"[error] OpenAlex AND Crossref both failed and no items from any source - "
+              f"refusing to publish an empty digest.", file=sys.stderr)
         sys.exit(3)
 
     items = rank_items(list(merged.values()), scope=scope)
