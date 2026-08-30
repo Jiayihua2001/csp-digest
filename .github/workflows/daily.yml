@@ -2,9 +2,9 @@ name: CSP daily digest
 
 on:
   schedule:
-    # 07:23 UTC every weekday (Mon-Fri). Off-the-hour on purpose: top-of-hour
+    # 07:23 UTC every day. Off-the-hour on purpose: top-of-hour
     # cron stampedes make shared-runner 429s much more likely.
-    - cron: "23 7 * * 1-5"
+    - cron: "23 7 * * *"
   workflow_dispatch:        # lets you trigger a run manually from the Actions tab
     inputs:
       days:
