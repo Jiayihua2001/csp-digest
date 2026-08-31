@@ -1,0 +1,975 @@
+{
+ "mined": "2026-08-31",
+ "pool": [
+  {
+   "doi": "10.1103/physrevlett.104.136403",
+   "title": "Gaussian Approximation Potentials: The Accuracy of Quantum Mechanics, without the Electrons",
+   "year": 2010,
+   "citations": 3213,
+   "authors": [
+    "Albert P. Bart\u00f3k",
+    "M. C. Payne",
+    "Risi Kondor"
+   ],
+   "abstract": "We introduce a class of interatomic potential models that can be automatically generated from data consisting of the energies and forces experienced by atoms, as derived from quantum mechanical calculations. The models do not have a fixed functional form and hence are capable of modeling complex potential energy landscapes. They are systematically improvable with more data. We apply the method to bulk crystals, and test it by calculating properties at high temperatures. Using the interatomic pot"
+  },
+  {
+   "doi": "10.1103/physrevb.82.094116",
+   "title": "Crystal structure prediction via particle-swarm optimization",
+   "year": 2010,
+   "citations": 2741,
+   "authors": [
+    "Yanchao Wang",
+    "Jian Lv",
+    "Li Zhu"
+   ],
+   "abstract": "We have developed a method for crystal structure prediction from ``scratch'' through particle-swarm optimization (PSO) algorithm within the evolutionary scheme. PSO technique is different with the genetic algorithm and has apparently avoided the use of evolution operators (e.g., crossover and mutation). The approach is based on an efficient global minimization of free-energy surfaces merging total-energy calculations via PSO technique and requires only chemical compositions for a given compound "
+  },
+  {
+   "doi": "10.1063/1.2210932",
+   "title": "Crystal structure prediction using ab initio evolutionary techniques: Principles and applications",
+   "year": 2006,
+   "citations": 2546,
+   "authors": [
+    "Artem R. Oganov",
+    "Colin W. Glass"
+   ],
+   "abstract": "We have developed an efficient and reliable methodology for crystal structure prediction, merging ab initio total-energy calculations and a specifically devised evolutionary algorithm. This method allows one to predict the most stable crystal structure and a number of low-energy metastable structures for a given compound at any P-T conditions without requiring any experimental input. Extremely high (nearly 100%) success rate has been observed in a few tens of tests done so far, including ionic, "
+  },
+  {
+   "doi": "10.1002/anie.200700534",
+   "title": "Crystal Engineering: A Holistic View",
+   "year": 2007,
+   "citations": 1491,
+   "authors": [
+    "Gautam R. Desiraju"
+   ],
+   "abstract": "Crystal engineering, the design of molecular solids, is the synthesis of functional solid-state structures from neutral or ionic building blocks, using intermolecular interactions in the design strategy. Hydrogen bonds, coordination bonds, and other less directed interactions define substructural patterns, referred to in the literature as supramolecular synthons and secondary building units. Crystal engineering has considerable overlap with supramolecular chemistry, X-ray crystallography, materi"
+  },
+  {
+   "doi": "10.1038/s41586-023-06735-9",
+   "title": "Scaling deep learning for materials discovery",
+   "year": 2023,
+   "citations": 1331,
+   "authors": [
+    "Amil Merchant",
+    "Simon Batzner",
+    "Samuel S. Schoenholz"
+   ],
+   "abstract": "Abstract Novel functional materials enable fundamental breakthroughs across technological applications from clean energy to information processing 1\u201311 . From microchips to batteries and photovoltaics, discovery of inorganic crystals has been bottlenecked by expensive trial-and-error approaches. Concurrently, deep-learning models for language, vision and biology have showcased emergent predictive capabilities with increasing data and computation 12\u201314 . Here we show that graph networks trained a"
+  },
+  {
+   "doi": "10.1021/ar1001318",
+   "title": "How Evolutionary Crystal Structure Prediction Works\u2014and Why",
+   "year": 2011,
+   "citations": 1254,
+   "authors": [
+    "Artem R. Oganov",
+    "Andriy O. Lyakhov",
+    "Mario Valle"
+   ],
+   "abstract": "Once the crystal structure of a chemical substance is known, many properties can be predicted reliably and routinely. Therefore if researchers could predict the crystal structure of a material before it is synthesized, they could significantly accelerate the discovery of new materials. In addition, the ability to predict crystal structures at arbitrary conditions of pressure and temperature is invaluable for the study of matter at extreme conditions, where experiments are difficult. Crystal stru"
+  },
+  {
+   "doi": "10.1126/science.285.5432.1368",
+   "title": "Global Optimization of Clusters, Crystals, and Biomolecules",
+   "year": 1999,
+   "citations": 1127,
+   "authors": [
+    "David J. Wales",
+    "Harold A. Scheraga"
+   ],
+   "abstract": "Finding the optimal solution to a complex optimization problem is of great importance in many fields, ranging from protein structure prediction to the design of microprocessor circuitry. Some recent progress in finding the global minima of potential energy functions is described, focusing on applications of the simple \"basin-hopping\" approach to atomic and molecular clusters and more complicated hypersurface deformation techniques for crystals and biomolecules. These methods have produced promis"
+  },
+  {
+   "doi": "10.1039/b715018k",
+   "title": "B3LYP augmented with an empirical dispersion term (B3LYP-D*) as applied to molecular crystals",
+   "year": 2007,
+   "citations": 925,
+   "authors": [
+    "Bartolomeo Civalleri",
+    "Claudio M. Zicovich\u2010Wilson",
+    "Loredana Valenzano"
+   ],
+   "abstract": "The B3LYP method augmented with a damped empirical dispersion term (\u2212f(R)C6/R6) is shown to yield structures and cohesive energies, for a representative set of molecular crystals, in excellent agreement with experimental data. Vibrational lattice modes of crystalline urea are also reported to be very close to experiment. The role of the damping function in scaling the dispersion contribution has been analyzed as well as the relevance of the BSSE in the prediction of structure and cohesive energy"
+  },
+  {
+   "doi": "10.1021/cr400249d",
+   "title": "Conformational Polymorphism",
+   "year": 2013,
+   "citations": 776,
+   "authors": [
+    "Aurora J. Cruz\u2010Cabeza",
+    "Joel Bernstein"
+   ],
+   "abstract": "An unambiguous definition of conformational change and conformational polymorphism, as well as a quantitative basis for the likelihood of its appearance, is reviewed. Conformational adjustment and conformational change are different phenomena. Two polymorphs are conformational polymorphs only if their conformations are related by conformational change. Conformational change requires a change of gas-phase conformer and, hence, crossing of an energy barrier. Energy differences associated with conf"
+  },
+  {
+   "doi": "10.1038/nmat2321",
+   "title": "Crystal structure prediction from first principles",
+   "year": 2008,
+   "citations": 741,
+   "authors": [
+    "Scott M. Woodley",
+    "C. Richard A. Catlow"
+   ],
+   "abstract": ""
+  },
+  {
+   "doi": "10.1021/cg1011633",
+   "title": "Nucleation",
+   "year": 2010,
+   "citations": 725,
+   "authors": [
+    "Peter G. Vekilov"
+   ],
+   "abstract": "Crystallization starts with nucleation and control of nucleation is crucial for the control of the number, size, perfection, polymorphism and other characteristics of crystalline materials. This is particularly true for crystallization in solution, which is an essential part of processes in the chemical and pharmaceutical industries and a major step in physiological and pathological phenomena. There have been significant recent advances in the understanding of the mechanism of nucleation of crys"
+  },
+  {
+   "doi": "10.1039/c0nr00628a",
+   "title": "The two-step mechanism of nucleation of crystals in solution",
+   "year": 2010,
+   "citations": 675,
+   "authors": [
+    "Peter G. Vekilov"
+   ],
+   "abstract": "The formation of crystalline nanoparticles starts with nucleation and control of nucleation is crucial for the control of the number, size, perfection, polymorph modification and other characteristics of particles. Recently, there have been significant advances in the understanding of the mechanism of nucleation of crystals in solution. The most significant of these is the two-step mechanism of nucleation, according to which the crystalline nucleus appears inside pre-existing metastable clusters"
+  },
+  {
+   "doi": "10.1021/jp054359r",
+   "title": "Efficient Reconstruction of Complex Free Energy Landscapes by Multiple Walkers Metadynamics",
+   "year": 2005,
+   "citations": 644,
+   "authors": [
+    "Paolo Raiteri",
+    "Alessandro Laio",
+    "Francesco Luigi Gervasio"
+   ],
+   "abstract": "Recently, we have introduced a new method, metadynamics, which is able to sample rarely occurring transitions and to reconstruct the free energy as a function of several variables with a controlled accuracy. This method has been successfully applied in many different fields, ranging from chemistry to biophysics and ligand docking and from material science to crystal structure prediction. We present an important development that speeds up metadynamics calculations by orders of magnitude and rende"
+  },
+  {
+   "doi": "10.1021/ic9812961",
+   "title": "Relationships among Ionic Lattice Energies, Molecular (Formula Unit) Volumes, and Thermochemical Radii",
+   "year": 1999,
+   "citations": 641,
+   "authors": [
+    "H. Donald Brooke Jenkins",
+    "Helen K. Roobottom",
+    "Jack Passmore"
+   ],
+   "abstract": "The linear generalized equation described in this paper provides a further dimension to the prediction of lattice potential energies/enthalpies of ionic solids. First, it offers an alternative (and often more direct) approach to the well-established Kapustinskii equation (whose capabilities have also recently been extended by our recent provision of an extended set of thermochemical radii). Second, it makes possible the acquisition of lattice energy estimates for salts which, up until now, excep"
+  },
+  {
+   "doi": "10.1002/aenm.202000927",
+   "title": "Heteroatom Doping: An Effective Way to Boost Sodium Ion Storage",
+   "year": 2020,
+   "citations": 617,
+   "authors": [
+    "Li Yu",
+    "Minghua Chen",
+    "Bo Liu"
+   ],
+   "abstract": "Abstract In response to the change of energy landscape, sodium\u2010ion batteries (SIBs) are becoming one of the most promising power sources for the post\u2010lithium\u2010ion battery (LIB) era due to the cheap and abundant nature of sodium, and similar electrochemical properties to LIBs. The electrochemical performance of electrode materials for SIBs is closely bound up with their crystal structures and intrinsic electronic/ionic states. Apart from nanoscale design and conductive composite strategies, hetero"
+  },
+  {
+   "doi": "10.1107/s2052520616007447",
+   "title": "Report on the sixth blind test of organic crystal structure prediction methods",
+   "year": 2016,
+   "citations": 606,
+   "authors": [
+    "Anthony M. Reilly",
+    "Richard I. Cooper",
+    "Claire S. Adjiman"
+   ],
+   "abstract": "The sixth blind test of organic crystal structure prediction (CSP) methods has been held, with five target systems: a small nearly rigid molecule, a polymorphic former drug candidate, a chloride salt hydrate, a co-crystal and a bulky flexible molecule. This blind test has seen substantial growth in the number of participants, with the broad range of prediction methods giving a unique insight into the state of the art in the field. Significant progress has been seen in treating flexible molecules"
+  },
+  {
+   "doi": "10.1021/ar700203k",
+   "title": "Conformational Polymorphism in Organic Crystals",
+   "year": 2008,
+   "citations": 582,
+   "authors": [
+    "Ashwini Nangia"
+   ],
+   "abstract": "Polymorphs are different crystalline modifications of the same chemical substance. When different conformers of the same molecule occur in different crystal forms, the phenomenon is termed conformational polymorphism. Occasionally, more than one conformer is present in the same crystal structure. The influence of molecular conformation changes on the formation and stability of polymorphs is the focus of this Account. X-ray crystal structures of conformational polymorphs were analyzed to understa"
+  },
+  {
+   "doi": "10.1021/acs.chemrev.1c00331",
+   "title": "Electrocatalysis in Alkaline Media and Alkaline Membrane-Based Energy Technologies",
+   "year": 2022,
+   "citations": 532,
+   "authors": [
+    "Yao Yang",
+    "Cheyenne R. Peltier",
+    "Rui Zeng"
+   ],
+   "abstract": "Hydrogen energy-based electrochemical energy conversion technologies offer the promise of enabling a transition of the global energy landscape from fossil fuels to renewable energy. Here, we present a comprehensive review of the fundamentals of electrocatalysis in alkaline media and applications in alkaline-based energy technologies, particularly alkaline fuel cells and water electrolyzers. Anion exchange (alkaline) membrane fuel cells (AEMFCs) enable the use of nonprecious electrocatalysts for "
+  },
+  {
+   "doi": "10.1039/c3cs60279f",
+   "title": "Predicting crystal structures of organic compounds",
+   "year": 2013,
+   "citations": 528,
+   "authors": [
+    "Sarah L. Price"
+   ],
+   "abstract": "Currently, organic crystal structure prediction (CSP) methods are based on searching for the most thermodynamically stable crystal structure, making various approximations in evaluating the crystal energy. The most stable (global minimum) structure provides a prediction of an experimental crystal structure. However, depending on the specific molecule, there may be other structures which are very close in energy. In this case, the other structures on the crystal energy landscape may be polymorphs"
+  },
+  {
+   "doi": "10.1039/a607149j",
+   "title": "Designer crystals: intermolecular interactions, network structures and supramolecular synthons",
+   "year": 1997,
+   "citations": 509,
+   "authors": [
+    "Gautam R. Desiraju"
+   ],
+   "abstract": "Questions relating to the prediction of the crystal structure or structures of a given organic molecule may be more gainfully reversed so that retrosynthetic analysis of a target crystal network leads to the identification of molecular precursors. Crystal engineering is solid state supramolecular synthesis and supramolecular synthons, units formed by synthetic operations involving intermolecular interactions, may be used to focus efforts in such logic-driven retrosynthesis."
+  },
+  {
+   "doi": "10.1021/mp060126o",
+   "title": "Cocrystal or Salt: Does It Really Matter?",
+   "year": 2007,
+   "citations": 472,
+   "authors": [
+    "Christer B. Aaker\u00f6y",
+    "Meg E. Fasulo",
+    "J. Desper"
+   ],
+   "abstract": "A structural analysis of over 80 salts and cocrystals synthesized from equimolar amounts of carboxylic acids and N-heterocycles demonstrates that salt formation as a result of proton transfer from the acid to the base frequently (11/24; 45%) results in a lattice with an unpredictable chemical (solvate) or stoichiometric composition. However, if no proton transfer takes place and the result is a molecular cocrystal, a crystal lattice with an unexpected chemical content or stoichiometry is much le"
+  },
+  {
+   "doi": "10.1016/j.jmb.2010.11.008",
+   "title": "Alternate States of Proteins Revealed by Detailed Energy Landscape Mapping",
+   "year": 2010,
+   "citations": 464,
+   "authors": [
+    "Michael D. Tyka",
+    "D.A. Keedy",
+    "Ingemar Andr\u00e9"
+   ],
+   "abstract": ""
+  },
+  {
+   "doi": "10.1107/s0108768109004066",
+   "title": "Significant progress in predicting the crystal structures of small organic molecules \u2013 a report on the fourth blind test",
+   "year": 2009,
+   "citations": 448,
+   "authors": [
+    "Graeme M. Day",
+    "Timothy G. Cooper",
+    "Aurora J. Cruz\u2010Cabeza"
+   ],
+   "abstract": "We report on the organization and outcome of the fourth blind test of crystal structure prediction, an international collaborative project organized to evaluate the present state in computational methods of predicting the crystal structures of small organic molecules. There were 14 research groups which took part, using a variety of methods to generate and rank the most likely crystal structures for four target systems: three single-component crystal structures and a 1:1 cocrystal. Participants "
+  },
+  {
+   "doi": "10.1107/s0108768100004584",
+   "title": "A test of crystal structure prediction of small organic molecules",
+   "year": 2000,
+   "citations": 445,
+   "authors": [
+    "Jos P. M. Lommerse",
+    "W.D.S. Motherwell",
+    "Herman L. Ammon"
+   ],
+   "abstract": "A collaborative workshop was held in May 1999 at the Cambridge Crystallographic Data Centre to test how well currently available methods of crystal structure prediction perform when given only the atomic connectivity for an organic compound. A blind test was conducted on a selection of four compounds and a wide range of methodologies representing, the principal computer programs currently available were used. There were 11 participants who were allowed to propose at most three structures for eac"
+  },
+  {
+   "doi": "10.1016/j.addr.2003.10.005",
+   "title": "General principles of pharmaceutical solid polymorphism A supramolecular perspective",
+   "year": 2003,
+   "citations": 442,
+   "authors": [
+    "Barbara Rodriguez\u2010Spong"
+   ],
+   "abstract": ""
+  },
+  {
+   "doi": "10.1107/s0108768105016563",
+   "title": "A third blind test of crystal structure prediction",
+   "year": 2005,
+   "citations": 435,
+   "authors": [
+    "Graeme M. Day",
+    "W.D.S. Motherwell",
+    "Herman L. Ammon"
+   ],
+   "abstract": "Following the interest generated by two previous blind tests of crystal structure prediction (CSP1999 and CSP2001), a third such collaborative project (CSP2004) was hosted by the Cambridge Crystallographic Data Centre. A range of methodologies used in searching for and ranking the likelihood of predicted crystal structures is represented amongst the 18 participating research groups, although most are based on the global minimization of the lattice energy. Initially the participants were given mo"
+  },
+  {
+   "doi": "10.1107/s0108768111042868",
+   "title": "Towards crystal structure prediction of complex organic compounds \u2013 a report on the fifth blind test",
+   "year": 2011,
+   "citations": 433,
+   "authors": [
+    "David A. Bardwell",
+    "Claire S. Adjiman",
+    "Yelena A. Arnautova"
+   ],
+   "abstract": "Following on from the success of the previous crystal structure prediction blind tests (CSP1999, CSP2001, CSP2004 and CSP2007), a fifth such collaborative project (CSP2010) was organized at the Cambridge Crystallographic Data Centre. A range of methodologies was used by the participating groups in order to evaluate the ability of the current computational methods to predict the crystal structures of the six organic molecules chosen as targets for this blind test. The first four targets, two rigi"
+  },
+  {
+   "doi": "10.1021/acs.chemrev.5b00648",
+   "title": "Modeling Polymorphic Molecular Crystals with Electronic Structure Theory",
+   "year": 2016,
+   "citations": 379,
+   "authors": [
+    "Gregory J. O. Beran"
+   ],
+   "abstract": "Interest in molecular crystals has grown thanks to their relevance to pharmaceuticals, organic semiconductor materials, foods, and many other applications. Electronic structure methods have become an increasingly important tool for modeling molecular crystals and polymorphism. This article reviews electronic structure techniques used to model molecular crystals, including periodic density functional theory, periodic second-order M\u00f8ller-Plesset perturbation theory, fragment-based electronic struc"
+  },
+  {
+   "doi": "10.1021/ar800147t",
+   "title": "Computed Crystal Energy Landscapes for Understanding and Predicting Organic Crystal Structures and Polymorphism",
+   "year": 2008,
+   "citations": 361,
+   "authors": [
+    "Sarah L. Price"
+   ],
+   "abstract": "The phenomenon of polymorphism, the ability of a molecule to adopt more than one crystal structure, is a well-established property of crystalline solids. The possible variations in physical properties between polymorphs make the reliable reproduction of a crystalline form essential for all research using organic materials, as well as quality control in manufacture. Thus, the last two decades have seen both an increase in interest in polymorphism and the availability of the computer power needed "
+  },
+  {
+   "doi": "10.1039/a901227c",
+   "title": "The prediction of inorganic crystal structures using a genetic algorithm and energy minimisation",
+   "year": 1999,
+   "citations": 353,
+   "authors": [
+    "Scott M. Woodley",
+    "Peter D. Battle",
+    "Julian D. Gale"
+   ],
+   "abstract": "A genetic algorithm has been used to generate plausible crystal structures from the knowledge of only the unit cell dimensions and constituent elements. We successfully generate 38 known binary oxides and various known ternary oxides with the Perovskite, Pyrochlore and Spinel structures, from starting configurations which include no knowledge of the atomic arrangement in the unit cell. The quality of the structures is initially assessed using a cost function which is based on the bond valence mo"
+  },
+  {
+   "doi": "10.1039/c004164e",
+   "title": "Modelling organic crystal structures using distributed multipole and polarizability-based model intermolecular potentials",
+   "year": 2010,
+   "citations": 327,
+   "authors": [
+    "Sarah L. Price",
+    "Maurice Leslie",
+    "Gareth W. A. Welch"
+   ],
+   "abstract": "Crystal structure prediction for organic molecules requires both the fast assessment of thousands to millions of crystal structures and the greatest possible accuracy in their relative energies. We describe a crystal lattice simulation program, DMACRYS, emphasizing the features that make it suitable for use in crystal structure prediction for pharmaceutical molecules using accurate anisotropic atom-atom model intermolecular potentials based on the theory of intermolecular forces. DMACRYS can opt"
+  },
+  {
+   "doi": "10.1137/1018105",
+   "title": "Adaptation in Natural and Artificial Systems (John H. Holland)",
+   "year": 1976,
+   "citations": 320,
+   "authors": [
+    "Jeffrey R. Sampson"
+   ],
+   "abstract": "Previous article Next article Adaptation in Natural and Artificial Systems (John H. Holland)Jeffrey R. SampsonJeffrey R. Sampsonhttps://doi.org/10.1137/1018105PDFBibTexSections ToolsAdd to favoritesExport CitationTrack CitationsEmail SectionsAbout\"Adaptation in Natural and Artificial Systems (John H. Holland).\" SIAM Review, 18(3), pp. 529\u2013530 Previous article Next article FiguresRelatedReferencesCited byDetails Multi-Modal Haptic Rendering Based on Genetic Algorithm24 November 2022 | Electronics"
+  },
+  {
+   "doi": "10.1021/jp050121r",
+   "title": "Energy Ranking of Molecular Crystals Using Density Functional Theory Calculations and an Empirical van der Waals Correction",
+   "year": 2005,
+   "citations": 295,
+   "authors": [
+    "Marcus A. Neumann",
+    "Marc\u2010Antoine Perrin"
+   ],
+   "abstract": "By combination of high level density functional theory (DFT) calculations with an empirical van der Waals correction, a hybrid method has been designed and parametrized that provides unprecedented accuracy for the structure optimization and the energy ranking of molecular crystals. All DFT calculations are carried out using the VASP program. The van der Waals correction is expressed as the sum over atom-atom pair potentials with each pair potential for two atoms A and B being the product of an a"
+  },
+  {
+   "doi": "10.1021/ja905009e",
+   "title": "Zeolitic Polyoxometalate-Based Metal\u2212Organic Frameworks (Z-POMOFs): Computational Evaluation of Hypothetical Polymorphs and the Successful Targeted Synthesis of the Redox-Active Z-POMOF1",
+   "year": 2009,
+   "citations": 275,
+   "authors": [
+    "L.M. Rodr\u00edguez-Albelo",
+    "A. Rabdel Ruiz\u2010Salvador",
+    "\u00c1lvaro Sampieri"
+   ],
+   "abstract": "The targeted design and simulation of a new family of zeolitic metal-organic frameworks (MOFs) based on benzenedicarboxylate (BDC) as the ligand and epsilon-type Keggin polyoxometalates (POMs) as building units, named here Z-POMOFs, have been performed. A key feature is the use of the analogy between the connectivity of silicon in dense minerals and zeolites with that of the epsilon-type Keggin POMs capped with Zn(II) ions. Handling the epsilon-Keggin as a building block, a selection of 21 zeoty"
+  },
+  {
+   "doi": "10.1016/j.addr.2003.10.006",
+   "title": "The computational prediction of pharmaceutical crystal structures and polymorphism",
+   "year": 2003,
+   "citations": 264,
+   "authors": [
+    "Sarah L. Price"
+   ],
+   "abstract": ""
+  },
+  {
+   "doi": "10.1073/pnas.032522499",
+   "title": "Flexibility and packing in proteins",
+   "year": 2002,
+   "citations": 249,
+   "authors": [
+    "Bertil Halle"
+   ],
+   "abstract": "Structural flexibility is an essential attribute, without which few proteins could carry out their biological functions. Much information about protein flexibility has come from x-ray crystallography, in the form of atomic mean-square displacements (AMSDs) or B factors. Profiles showing the AMSD variation along the polypeptide chain are usually interpreted in dynamical terms but are ultimately governed by the local features of a highly complex energy landscape. Here, we bypass this complexity by"
+  },
+  {
+   "doi": "10.1038/ncomms8793",
+   "title": "Combined crystal structure prediction and high-pressure crystallization in rational pharmaceutical polymorph screening",
+   "year": 2015,
+   "citations": 242,
+   "authors": [
+    "Marcus A. Neumann",
+    "Jacco van de Streek",
+    "F.P.A. Fabbiani"
+   ],
+   "abstract": "Organic molecules, such as pharmaceuticals, agro-chemicals and pigments, frequently form several crystal polymorphs with different physicochemical properties. Finding polymorphs has long been a purely experimental game of trial-and-error. Here we utilize in silico polymorph screening in combination with rationally planned crystallization experiments to study the polymorphism of the pharmaceutical compound Dalcetrapib, with 10 torsional degrees of freedom one of the most flexible molecules ever s"
+  },
+  {
+   "doi": "10.1107/s2052519213018861",
+   "title": "Why don't we find more polymorphs?",
+   "year": 2013,
+   "citations": 240,
+   "authors": [
+    "Sarah L. Price"
+   ],
+   "abstract": "Crystal structure prediction (CSP) studies are not limited to being a search for the most thermodynamically stable crystal structure, but play a valuable role in understanding polymorphism, as shown by interdisciplinary studies where the crystal energy landscape has been explored experimentally and computationally. CSP usually produces more thermodynamically plausible crystal structures than known polymorphs. This article illustrates some reasons why: because (i) of approximations in the calcula"
+  },
+  {
+   "doi": "10.1002/anie.201911384",
+   "title": "A New Dimension for Coordination Polymers and Metal\u2013Organic Frameworks: Towards Functional Glasses and Liquids",
+   "year": 2019,
+   "citations": 239,
+   "authors": [
+    "Satoshi Horike",
+    "Sanjog S. Nagarkar",
+    "Tomohiro Ogawa"
+   ],
+   "abstract": "There are two categories of coordination polymers (CPs): inorganic CPs (i-CPs) and organic ligand bridged CPs (o-CPs). Based on the successful crystal engineering of CPs, we here propose noncrystalline states and functionalities as a new research direction for CPs. Control over the liquid or glassy states in materials is essential to obtain specific properties and functions. Several studies suggest the feasibility of obtaining liquid/glassy states in o-CPs by design principles. The combination o"
+  },
+  {
+   "doi": "10.1039/c7sc04665k",
+   "title": "Machine learning for the structure\u2013energy\u2013property landscapes of molecular crystals",
+   "year": 2017,
+   "citations": 229,
+   "authors": [
+    "F\u00e9lix Musil",
+    "Sandip De",
+    "Jack Yang"
+   ],
+   "abstract": "accuracy, using only a few hundred reference configurations, and reduce by a factor of ten the computational effort needed to predict charge mobility in the crystal structures. The automatic structural classification of the polymorphs reveals a more detailed picture of molecular packing than that provided by conventional heuristics, and helps disentangle the role of hydrogen bonded and \u03c0-stacking interactions in determining molecular self-assembly. This observation demonstrates that ML is not ju"
+  },
+  {
+   "doi": "10.1002/adma.201505162",
+   "title": "The In\u2010Gap Electronic State Spectrum of Methylammonium Lead Iodide Single\u2010Crystal Perovskites",
+   "year": 2016,
+   "citations": 226,
+   "authors": [
+    "Valerio Adinolfi",
+    "Mingjian Yuan",
+    "Riccardo Comin"
+   ],
+   "abstract": "The density of trap states within the bandgap of methylammonium lead iodide single crystals is investigated. Defect states close to both the conduction and valence bands are probed. Additionally, a comprehensive electronic characterization of crystals is carried out, including measurements of the electron and hole mobility, and the energy landscape (band diagram) at the surface."
+  },
+  {
+   "doi": "10.1002/adfm.200901233",
+   "title": "Electronic Structure and Geminate Pair Energetics at Organic\u2013Organic Interfaces: The Case of Pentacene/C60 Heterojunctions",
+   "year": 2009,
+   "citations": 212,
+   "authors": [
+    "Stijn Verlaak",
+    "David Beljonne",
+    "David Cheyns"
+   ],
+   "abstract": "Abstract Organic semiconductors are characterized by localized states whose energies are predominantly determined by electrostatic interactions with their immediate molecular environment. As a result, the details of the energy landscape at heterojunctions between different organic semiconductors cannot simply be deduced from those of the individual semiconductors, and they have so far remained largely unexplored. Here, microelectrostatic computations are performed to clarify the nature of the el"
+  },
+  {
+   "doi": "10.1063/1.3079326",
+   "title": "How to quantify energy landscapes of solids",
+   "year": 2009,
+   "citations": 210,
+   "authors": [
+    "Artem R. Oganov",
+    "Mario Valle"
+   ],
+   "abstract": "We explore whether the topology of energy landscapes in chemical systems obeys any rules and what these rules are. To answer this and related questions we use several tools: (i) Reduced energy surface and its density of states, (ii) descriptor of structure called fingerprint function, which can be represented as a one-dimensional function or a vector in abstract multidimensional space, (iii) definition of a \"distance\" between two structures enabling quantification of energy landscapes, (iv) defi"
+  },
+  {
+   "doi": "10.1002/pro.5560020508",
+   "title": "Reduced representation model of protein structure prediction: Statistical potential and genetic algorithms",
+   "year": 1993,
+   "citations": 210,
+   "authors": [
+    "Shaojian Sun"
+   ],
+   "abstract": "A reduced representation model, which has been described in previous reports, was used to predict the folded structures of proteins from their primary sequences and random starting conformations. The molecular structure of each protein has been reduced to its backbone atoms (with ideal fixed bond lengths and valence angles) and each side chain approximated by a single virtual united-atom. The coordinate variables were the backbone dihedral angles phi and psi. A statistical potential function, wh"
+  },
+  {
+   "doi": "10.1126/sciadv.aau3338",
+   "title": "Reliable and practical computational description of molecular crystal polymorphs",
+   "year": 2019,
+   "citations": 205,
+   "authors": [
+    "Johannes Hoja",
+    "Hsin-Yu Ko",
+    "Marcus A. Neumann"
+   ],
+   "abstract": "Reliable prediction of the polymorphic energy landscape of a molecular crystal would yield profound insight into drug development in terms of the existence and likelihood of late-appearing polymorphs. However, the computational prediction of molecular crystal polymorphs is highly challenging due to the high dimensionality of conformational and crystallographic space accompanied by the need for relative free energies to within 1 kJ/mol per molecule. In this study, we combine the most successful c"
+  },
+  {
+   "doi": "10.1021/jz500755u",
+   "title": "Accurate Modeling of Organic Molecular Crystals by Dispersion-Corrected Density Functional Tight Binding (DFTB)",
+   "year": 2014,
+   "citations": 202,
+   "authors": [
+    "Jan Gerit Brandenburg",
+    "Stefan Grimme"
+   ],
+   "abstract": "The ambitious goal of organic crystal structure prediction challenges theoretical methods regarding their accuracy and efficiency. Dispersion-corrected density functional theory (DFT-D) in principle is applicable, but the computational demands, for example, to compute a huge number of polymorphs, are too high. Here, we demonstrate that this task can be carried out by a dispersion-corrected density functional tight binding (DFTB) method. The semiempirical Hamiltonian with the D3 correction can ac"
+  },
+  {
+   "doi": "10.1088/0953-8984/26/3/035402",
+   "title": "An adaptive genetic algorithm for crystal structure prediction",
+   "year": 2013,
+   "citations": 194,
+   "authors": [
+    "Shunqing Wu",
+    "Min Ji",
+    "Chong Wang"
+   ],
+   "abstract": "We present a genetic algorithm (GA) for structural search that combines the speed of structure exploration by classical potentials with the accuracy of density functional theory (DFT) calculations in an adaptive and iterative way. This strategy increases the efficiency of the DFT-based GA by several orders of magnitude. This gain allows a considerable increase in the size and complexity of systems that can be studied by first principles. The performance of the method is illustrated by successful"
+  },
+  {
+   "doi": "10.1039/b719351c",
+   "title": "From crystal structure prediction to polymorph prediction: interpreting the crystal energy landscape",
+   "year": 2008,
+   "citations": 185,
+   "authors": [
+    "Sarah L. Price"
+   ],
+   "abstract": "Many organic molecules are emerging as having many crystalline forms, including polymorphs and solvates, as more techniques are being used to generate and characterise the organic solid state. The fundamental scientific and industrial interest in controlling crystallisation is inspiring the development of computational methods of predicting which crystal structures are thermodynamically feasible. Sometimes, computing this crystal energy landscape will reveal that a molecule has one way of packin"
+  },
+  {
+   "doi": "10.1038/nmat2712",
+   "title": "A genetic algorithm for predicting the structures of interfaces in multicomponent systems",
+   "year": 2010,
+   "citations": 183,
+   "authors": [
+    "Alvin L.-S. Chua",
+    "Nicole A. Benedek",
+    "Lin Chen"
+   ],
+   "abstract": ""
+  },
+  {
+   "doi": "10.1107/s0108768107030996",
+   "title": "Knowledge-based model of hydrogen-bonding propensity in organic crystals",
+   "year": 2007,
+   "citations": 173,
+   "authors": [
+    "Peter T. A. Galek",
+    "L. F\u00e1bi\u00e1n",
+    "W. D. Samuel Motherwell"
+   ],
+   "abstract": "A new method is presented to predict which donors and acceptors form hydrogen bonds in a crystal structure, based on the statistical analysis of hydrogen bonds in the Cambridge Structural Database (CSD). The method is named the logit hydrogen-bonding propensity (LHP) model. The approach has a potential application in identifying both likely and unusual hydrogen bonding, which can help to rationalize stable and metastable crystalline forms, of relevance to drug development in the pharmaceutical i"
+  },
+  {
+   "doi": "10.1103/physrevb.73.224104",
+   "title": "A periodic genetic algorithm with real-space representation for crystal structure and polymorph prediction",
+   "year": 2006,
+   "citations": 170,
+   "authors": [
+    "Nathan Luke Abraham",
+    "Matt Probert"
+   ],
+   "abstract": "A genetic algorithm is described that is suitable for determining the global minimum energy configurations of crystal structures and which can also be used as a polymorph search technique. This algorithm requires no prior assumptions about unit cell size, shape, or symmetry, nor about the ionic configuration within the unit cell. This therefore enables true ab initio crystal structure and polymorph prediction. Our algorithm uses a real-space representation of the population members, and makes us"
+  },
+  {
+   "doi": "10.1103/physreve.79.046714",
+   "title": "Prediction of binary hard-sphere crystal structures",
+   "year": 2009,
+   "citations": 145,
+   "authors": [
+    "Laura Filion",
+    "Marjolein Dijkstra"
+   ],
+   "abstract": "We present a method based on a combination of a genetic algorithm and Monte Carlo simulations to predict close-packed crystal structures in hard-core systems. We employ this method to predict the binary crystal structures in a mixture of large and small hard spheres with various stoichiometries and diameter ratios between 0.4 and 0.84. In addition to known binary hard-sphere crystal structures similar to NaCl and AlB2, we predict additional crystal structures with the symmetry of CrB, gammaCuTi,"
+  },
+  {
+   "doi": "10.1039/b407861f",
+   "title": "A method for the prediction of the crystal structure of ionic organic compounds\u2014the crystal structures of o-toluidinium chloride and bromide and polymorphism of bicifadine hydrochloride",
+   "year": 2004,
+   "citations": 141,
+   "authors": [
+    "Patrick McArdle",
+    "Karen Gilligan",
+    "Desmond Cunningham"
+   ],
+   "abstract": "The crystal structures of o-toluidinium chloride (1), o-toluidinium bromide (2) and two polymorphs of bicifadine hydrochloride (3) have been determined. The polymorphs of 3 differ in their molecular conformation and in their mode of packing. Crystallisation studies and quantum mechanical calculations show that the more readily crystallisable polymorph grows from the thermodynamically most stable conformer. On heating, conversion to the second polymorph takes place just below the melting point. T"
+  },
+  {
+   "doi": "10.1080/01442350802102387",
+   "title": "Computational prediction of organic crystal structures and polymorphism",
+   "year": 2008,
+   "citations": 140,
+   "authors": [
+    "Sarah L. Price"
+   ],
+   "abstract": "The development of a robust manufacturing process for solid organic materials, such as pharmaceuticals, can be complicated when the molecules crystallize in different solid forms, including polymorphs. The diverse challenges to computational chemistry in computing the relative thermodynamic stability of different potential crystal structures for a range of organic molecules are outlined. Once the crystal structures which are thermodynamically feasible have been obtained, then comparison with the"
+  },
+  {
+   "doi": "10.1021/acs.jctc.7b01152",
+   "title": "GAtor: A First-Principles Genetic Algorithm for Molecular Crystal Structure Prediction",
+   "year": 2018,
+   "citations": 133,
+   "authors": [
+    "Farren Curtis",
+    "Xiayue Li",
+    "Timothy Rose"
+   ],
+   "abstract": "We present the implementation of GAtor, a massively parallel, first-principles genetic algorithm (GA) for molecular crystal structure prediction. GAtor is written in Python and currently interfaces with the FHI-aims code to perform local optimizations and energy evaluations using dispersion-inclusive density functional theory (DFT). GAtor offers a variety of fitness evaluation, selection, crossover, and mutation schemes. Breeding operators designed specifically for molecular crystals provide a b"
+  },
+  {
+   "doi": "10.1021/cg400735f",
+   "title": "Synthon Modularity in Cocrystals of 4-Bromobenzamide with n -Alkanedicarboxylic Acids: Type I and Type II Halogen\u00b7\u00b7\u00b7Halogen Interactions",
+   "year": 2013,
+   "citations": 130,
+   "authors": [
+    "Srinu Tothadi",
+    "Sumy Joseph",
+    "Gautam R. Desiraju"
+   ],
+   "abstract": "A Cambridge Structural Database (CSD) analysis on halogen\u00b7\u00b7\u00b7halogen contacts (X\u00b7\u00b7\u00b7X) in organic crystals has been carried out to review the classification criteria for type I, type II, and quasi type I/II halogen interactions. Trends observed in previous CSD analyses of the phenomenon are reinforced in the present study. The manner in which these interactions are manifested in cocrystals of 4-bromobenzamide and dicarboxylic acid is examined. The design strategy for these cocrystals uses synthon "
+  },
+  {
+   "doi": "10.1039/b201206e",
+   "title": "Database research in crystal engineering",
+   "year": 2002,
+   "citations": 126,
+   "authors": [
+    "Ashwini Nangia"
+   ],
+   "abstract": "The Cambridge Structural Database is a storehouse of over 250 000 small-molecule organic and organometallic crystal structures. Statistical analysis of structural data provides a better understanding of the nature of hydrogen bonds and intermolecular interactions and facilitates in the identification of frequently occurring interaction patterns and supramolecular synthons. With an enhanced knowledge of hydrogen bond synthons in crystals, novel strategies may be designed for the self-assembly of "
+  },
+  {
+   "doi": "10.1021/acs.jctc.5b01112",
+   "title": "Convergence Properties of Crystal Structure Prediction by Quasi-Random Sampling",
+   "year": 2015,
+   "citations": 125,
+   "authors": [
+    "David H. Case",
+    "Josh E. Campbell",
+    "Peter J. Bygrave"
+   ],
+   "abstract": "Generating sets of trial structures that sample the configurational space of crystal packing possibilities is an essential step in the process of ab initio crystal structure prediction (CSP). One effective methodology for performing such a search relies on low-discrepancy, quasi-random sampling, and our implementation of such a search for molecular crystals is described in this paper. Herein we restrict ourselves to rigid organic molecules and, by considering their geometric properties, build tr"
+  },
+  {
+   "doi": "10.1039/d0sc05765g",
+   "title": "Data-efficient machine learning for molecular crystal structure prediction",
+   "year": 2021,
+   "citations": 120,
+   "authors": [
+    "Simon Wengert",
+    "G\u00e1bor C\u015banyi",
+    "Karsten Reuter"
+   ],
+   "abstract": "The combination of modern machine learning (ML) approaches with high-quality data from quantum mechanical (QM) calculations can yield models with an unrivalled accuracy/cost ratio. However, such methods are ultimately limited by the computational effort required to produce the reference data. In particular, reference calculations for periodic systems with many atoms can become prohibitively expensive for higher levels of theory. This trade-off is critical in the context of organic crystal struct"
+  },
+  {
+   "doi": "10.1021/cg015576u",
+   "title": "The Supramolecular Synthon Approach to Crystal Structure Prediction",
+   "year": 2002,
+   "citations": 117,
+   "authors": [
+    "J.A.R.P. Sarma",
+    "Gautam R. Desiraju"
+   ],
+   "abstract": "A new approach has been proposed for the ab initio crystal structure prediction of small organic molecules. This exercise forms a part of the recent blind test on crystal structure prediction conducted by the Cambridge Crystallographic Data Centre. The method uses as a starting point lists of low energy structures generated by an exhaustive computational procedure, namely, the Polymorph Predictor program in Cerius 2 . Such computational procedures take into account only the enthalpic factors in "
+  },
+  {
+   "doi": "10.1039/b804317e",
+   "title": "Probing polymorphs of organic semiconductors by lattice phonon Raman microscopy",
+   "year": 2008,
+   "citations": 110,
+   "authors": [
+    "Aldo Brillante",
+    "Ivano Bilotti",
+    "Raffaele Guido Della Valle"
+   ],
+   "abstract": "Using micro-Raman techniques to investigate crystal polymorphism is an efficient method, capable of monitoring physical modifications and phase inhomogeneities in crystal domains at the micrometre scale. In the presence of polymorphism, phase mixing is a common occurrence which becomes a crucial issue in structured organic materials tailored for applications in molecular electronics and photonics. A good phase homogeneity is, in fact, required for optimal and reproducible device performance. We "
+  },
+  {
+   "doi": "10.1021/ct050189a",
+   "title": "Predicting Lattice Energy of Organic Crystals by Density Functional Theory with Empirically Corrected Dispersion Energy",
+   "year": 2005,
+   "citations": 109,
+   "authors": [
+    "Shaoxin Feng",
+    "Tonglei Li"
+   ],
+   "abstract": "Calculation of the lattice energy of organic crystals is needed for predicting important structural and physicochemical properties such as polymorphism and growth morphology. Quantum mechanical methods that can be used for calculating typical organic crystals are unable to fully estimate van der Waals energies in a crystal. A method by augmenting the density functional theory with an analytical, nonelectronic approach for accounting for the dispersion energy was tested for selected organic cryst"
+  },
+  {
+   "doi": "10.1039/d1sc06074k",
+   "title": "How many more polymorphs of ROY remain undiscovered",
+   "year": 2021,
+   "citations": 108,
+   "authors": [
+    "Gregory J. O. Beran",
+    "Isaac J. Sugden",
+    "Chandler Greenwell"
+   ],
+   "abstract": "With 12 crystal forms, 5-methyl-2-[(2-nitrophenyl)amino]-3-thiophenecabonitrile (a.k.a. ROY) holds the current record for the largest number of fully characterized organic crystal polymorphs. Four of these polymorph structures have been reported since 2019, raising the question of how many more ROY polymorphs await future discovery. Employing crystal structure prediction and accurate energy rankings derived from conformational energy-corrected density functional theory, this study presents the f"
+  },
+  {
+   "doi": "10.1039/c9sc02832c",
+   "title": "Mining predicted crystal structure landscapes with high throughput crystallisation: old molecules, new insights",
+   "year": 2019,
+   "citations": 105,
+   "authors": [
+    "Peng Cui",
+    "David P. McMahon",
+    "Peter R. Spackman"
+   ],
+   "abstract": "New crystal forms of two well-studied organic molecules are identified in a computationally targeted way, by combining structure prediction with a robotic crystallisation screen, including a \u2018hidden\u2019 porous polymorph of trimesic acid."
+  },
+  {
+   "doi": "10.1039/c6cp05447a",
+   "title": "Modelling temperature-dependent properties of polymorphic organic molecular crystals",
+   "year": 2016,
+   "citations": 104,
+   "authors": [
+    "Jonas Nyman",
+    "Graeme M. Day"
+   ],
+   "abstract": "We present a large-scale study of the temperature-dependence of structures, free energy differences and properties of polymorphic molecular organic crystals. Lattice-vibrational Gibbs free energy differences between 475 pairs of polymorphs of organic molecular crystals have been calculated at 0 K and at their respective melting points, using a highly accurate anisotropic multipole-based force field and including thermal expansion through the use of a (negative) thermal pressure. Re-ranking of th"
+  },
+  {
+   "doi": "10.1021/cg0498148",
+   "title": "An Assessment of Lattice Energy Minimization for the Prediction of Molecular Organic Crystal Structures",
+   "year": 2004,
+   "citations": 97,
+   "authors": [
+    "Graeme M. Day",
+    "James A. Chisholm",
+    "Ning Shan"
+   ],
+   "abstract": "Lattice energy searches for theoretical low-energy crystal forms are presented for 50 small organic molecules, and we compare the experimentally observed crystal forms to these lists of hypothetical polymorphs. For each known crystal, the relative stability is calculated with respect to the global minimum energy structure, and we determine the number of unobserved structures lower in energy than the experimental form. The distributions of these relative energies and their rankings in the predict"
+  },
+  {
+   "doi": "10.1021/ac010797s",
+   "title": "Prediction of Protein Retention in Ion-Exchange Systems Using Molecular Descriptors Obtained from Crystal Structure",
+   "year": 2001,
+   "citations": 94,
+   "authors": [
+    "Cecilia B. Mazza",
+    "N. Sukumar",
+    "Curt M. Breneman"
+   ],
+   "abstract": "In this paper, a novel approach is described for the a priori prediction of protein retention in ion exchange systems. Quantitative structure retention relationship (QSRR) models based on a genetic algorithm/partial least squares approach were developed using experimental chromatographic data in concert with molecular descriptors computed using protein crystal structures. The resulting QSRR models were well-correlated, with cross-validated r2 values of 0.938 and 0.907, and the predictive power o"
+  },
+  {
+   "doi": "10.1002/chem.200501417",
+   "title": "Conformational, Concomitant Polymorphs of 4,4\u2010Diphenyl\u20102,5\u2010cyclohexadienone: Conformation and Lattice Energy Compensation in the Kinetic and Thermodynamic Forms",
+   "year": 2006,
+   "citations": 88,
+   "authors": [
+    "S. Roy",
+    "Rahul Banerjee",
+    "Ashwini Nangia"
+   ],
+   "abstract": "4,4-Diphenyl-2,5-cyclohexadienone (1) crystallized as four conformational polymorphs and a record number of 19 crystallographically independent molecules have been characterized by low-temperature X-ray diffraction: form A (P2(1), Z'=1), form B (P1, Z'=4), form C (P1, Z'=12), and form D (Pbca, Z'=2). We have now confirmed by variable-temperature powder X-ray diffraction that form A is the thermodynamic polymorph and B is the kinetic form of the enantiotropic system A-D. Differences in the packin"
+  },
+  {
+   "doi": "10.1021/acs.cgd.0c00676",
+   "title": "Inaccurate Conformational Energies Still Hinder Crystal Structure Prediction in Flexible Organic Molecules",
+   "year": 2020,
+   "citations": 81,
+   "authors": [
+    "Chandler Greenwell",
+    "Gregory J. O. Beran"
+   ],
+   "abstract": "High Resolution Image Download MS PowerPoint Slide Crystal structure prediction driven by density functional theory has become an increasingly useful tool for the pharmaceutical industry and others interested in understanding and controlling organic molecular crystal packing. However, delocalization error in widely used density functionals leads to problematic conformational energies that can cause incorrect predictions of polymorph stabilities. In five examples ranging from small molecules to t"
+  },
+  {
+   "doi": "10.1021/jp906971h",
+   "title": "Revisiting the Blind Tests in Crystal Structure Prediction: Accurate Energy Ranking of Molecular Crystals",
+   "year": 2009,
+   "citations": 79,
+   "authors": [
+    "Aldi Asmadi",
+    "Marcus A. Neumann",
+    "John Kendrick"
+   ],
+   "abstract": "In the 2007 blind test of crystal structure prediction hosted by the Cambridge Crystallographic Data Centre (CCDC), a hybrid DFT/MM method correctly ranked each of the four experimental structures as having the lowest lattice energy of all the crystal structures predicted for each molecule. The work presented here further validates this hybrid method by optimizing the crystal structures (experimental and submitted) of the first three CCDC blind tests held in 1999, 2001, and 2004. Except for the "
+  },
+  {
+   "doi": "10.1103/physrevb.77.052103",
+   "title": "Metastable high-pressure single-bonded phases of nitrogen predicted via genetic algorithm",
+   "year": 2008,
+   "citations": 78,
+   "authors": [
+    "Yansun Yao",
+    "John S. Tse",
+    "\u041a. Tanaka"
+   ],
+   "abstract": "The recently proposed genetic algorithm for crystal structure prediction combined with first-principles structural optimizations is used to investigate the high-pressure structures of solid nitrogen. Starting from a population of randomly generated eight-atom structures at $80\\phantom{\\rule{0.3em}{0ex}}\\mathrm{GPa}$, the evolutionary process not only recovers the four lowest-energy nonmolecular structures (CG, $C2\u2215c$, black phosphorus, and $Cmcm$ chain) predicted theoretically or known experimen"
+  },
+  {
+   "doi": "10.1039/c8fd00039e",
+   "title": "ROY revisited, again: the eighth solved structure",
+   "year": 2018,
+   "citations": 73,
+   "authors": [
+    "M\u00e9lissa Tan",
+    "Alexander G. Shtukenberg",
+    "Shengcai Zhu"
+   ],
+   "abstract": "X-ray powder diffraction and crystal structure prediction (CSP) algorithms were used in synergy to establish the crystal structure of the eighth polymorph of 5-methyl-2-[(2-nitrophenyl)amino]-3-thiophenecarbonitrile (ROY), form R05. R05 crystallizes in the monoclinic space group P21 with lattice parameters a = 11.479(4) \u00c5, b = 11.030(1) \u00c5, c = 10.840(6) \u00c5, \u03b2 = 118.23(1)\u00b0. This is both the first acentric ROY polymorph, and the first with Z' > 1. The torsion angles defined by the S-C-N-C atom sequ"
+  },
+  {
+   "doi": "10.1103/physrevb.80.174102",
+   "title": "Finding the low-energy structures of Si[001] symmetric tilted grain boundaries with a genetic algorithm",
+   "year": 2009,
+   "citations": 64,
+   "authors": [
+    "Jian Zhang",
+    "Cai\u2010Zhuang Wang",
+    "Kai\u2010Ming Ho"
+   ],
+   "abstract": "We developed a global structure optimization method, genetic algorithm, for a fast and efficient prediction of grain-boundary structures. Using this method we predicted the most stable structures and a number of low-energy metastable structures for Si[001] symmetric tilted grain boundaries with various tilted angles. We show that most of the grain-boundary structures can be described by the structural unit model with the units being the dislocation cores and perfect-crystal fragments. The energi"
+  },
+  {
+   "doi": "10.1103/physrevb.100.174506",
+   "title": "Materials informatics based on evolutionary algorithms: Application to search for superconducting hydrogen compounds",
+   "year": 2019,
+   "citations": 63,
+   "authors": [
+    "Takahiro Ishikawa",
+    "Takashi Miyake",
+    "Katsuya Shimizu"
+   ],
+   "abstract": "We present a materials informatics approach to search for superconducting hydrogen compounds, which is based on a genetic algorithm and a genetic programing. This method consists of five stages: (i) collection of physical and chemical property data, (ii) development of superconductivity predictor based on the collected data by a genetic programing, (iii) prediction of potential candidates for high temperature superconductivity by regression analysis, (iv) crystal structure search of the candidat"
+  },
+  {
+   "doi": "10.1039/b902015b",
+   "title": "Crystal structure prediction for cyclotrimethylene trinitramine (RDX) from first principles",
+   "year": 2009,
+   "citations": 60,
+   "authors": [
+    "Rafa\u0142 Podeszwa",
+    "Betsy M. Rice",
+    "Krzysztof Szalewicz"
+   ],
+   "abstract": "Crystal structure prediction and molecular dynamics methods were applied to the cyclotrimethylene trinitramine (RDX) crystal to explore the stability rankings of various polymorphs using a recently developed nonempirical potential energy function that describes the RDX dimer interactions. The energies of 500 high-density structures resulting from molecular packing were minimized and the 14 lowest-energy structures were subjected to isothermal-isostress molecular dynamics (NsT-MD) simulations. Fo"
+  },
+  {
+   "doi": "10.1021/la060596p",
+   "title": "Wettability of Paracetamol Polymorphic Forms I and II",
+   "year": 2006,
+   "citations": 59,
+   "authors": [
+    "Jerry Y. Y. Heng",
+    "Daryl R. Williams"
+   ],
+   "abstract": "It is well known that different forms of solid-state polymorphic materials exhibit diverse physicochemical properties. The variations in the wetting and surface energetics of a pair of organic polymorphic solids are reported in detail here for the first time. The growth of macroscopic single crystals (facet area >1 cm(2)) of paracetamol has enabled for the first time the direct measurement of advancing contact angles, theta(A) for water and diiodomethane on a range of specific facets for two pol"
+  },
+  {
+   "doi": "10.1021/acs.jctc.9b00038",
+   "title": "Machine-Learned Fragment-Based Energies for Crystal Structure Prediction",
+   "year": 2019,
+   "citations": 56,
+   "authors": [
+    "David McDonagh",
+    "Chris\u2010Kriton Skylaris",
+    "Graeme M. Day"
+   ],
+   "abstract": "Crystal structure prediction involves a search of a complex configurational space for local minima corresponding to stable crystal structures, which can be performed efficiently using atom-atom force fields for the assessment of intermolecular interactions. However, for challenging systems, the limitations in the accuracy of force fields prevent a reliable assessment of the relative thermodynamic stability of potential structures, while the cost of fully quantum mechanical approaches can limit a"
+  },
+  {
+   "doi": "10.1021/ci800015s",
+   "title": "An Integrated Approach to Ligand- and Structure-Based Drug Design: Development and Application to a Series of Serine Protease Inhibitors",
+   "year": 2008,
+   "citations": 47,
+   "authors": [
+    "Orazio Nicolotti",
+    "Teresa Fabiola Miscioscia",
+    "Andrea Carotti"
+   ],
+   "abstract": "A novel approach was developed to rationally interface structure- and ligand-based drug design through the rescoring of docking poses and automated generation of molecular alignments for 3D quantitative structure-activity relationship investigations. The procedure was driven by a genetic algorithm optimizing the value of a novel fitness function, accounting simultaneously for best regressions among binding-energy docking scores and affinities and for minimal geometric deviations from properly es"
+  },
+  {
+   "doi": "10.1039/b312526b",
+   "title": "The prediction of inorganic crystal framework structures using excluded regions within a genetic algorithm approach",
+   "year": 2003,
+   "citations": 47,
+   "authors": [
+    "Scott M. Woodley",
+    "C. Richard A. Catlow",
+    "Peter D. Battle"
+   ],
+   "abstract": "We have developed a new technique, which is complementary to other procedures, that will have wide applicability for generating new feasible framework structures with defined microporous architectures from the knowledge of only the unit cell dimensions, constituent elements and by defining forbidden regions within the unit cell."
+  },
+  {
+   "doi": "10.1080/0305215x.2021.1988587",
+   "title": "Deep learning of dispersion engineering in two-dimensional phononic crystals",
+   "year": 2021,
+   "citations": 46,
+   "authors": [
+    "Xuan-Bo Miao",
+    "Hao\u2010Wen Dong",
+    "Yue\u2010Sheng Wang"
+   ],
+   "abstract": "To control wave propagation in phononic crystals (PnCs), it is crucial to perform the inverse design of dispersion engineering. In this article, a robust deep-learning method of dispersion engineering in two-dimensional (2D) PnCs is developed by combining deep neural networks (DNNs) with the genetic algorithm (GA), which can be easily extended to reach any target in the trained DNNs\u2019 calculation domain. A high-precision and robust DNN model to predict the bounds of energy bands of 2D PnCs is pro"
+  },
+  {
+   "doi": "10.1063/5.0057162",
+   "title": "A deep learning augmented genetic algorithm approach to polycrystalline 2D material fracture discovery and design",
+   "year": 2021,
+   "citations": 45,
+   "authors": [
+    "Andrew J. Lew",
+    "Markus J. Buehler"
+   ],
+   "abstract": "The gestalt of computational methods including physics-based molecular dynamics simulations, data-driven machine learning (ML) models, and biologically-inspired genetic algorithms affords a powerful toolbox for tackling materials mechanism discovery and design problems. Here, we leverage these methods to investigate the complex multidimensional problem of polycrystalline 2D material fracture. We focus first on graphene and in doing so, demonstrate a practical workflow for exploring the structura"
+  },
+  {
+   "doi": "10.1021/cg4002797",
+   "title": "Optimization of Crystal Structures of Archetypical Pharmaceutical Compounds: A Plane-Wave DFT-D Study Using Quantum Espresso",
+   "year": 2013,
+   "citations": 43,
+   "authors": [
+    "Albert M. Lund",
+    "Anita M. Orendt",
+    "Gabriel I. Pagola"
+   ],
+   "abstract": "Previously, it was shown that crystal structure prediction based on genetic algorithms (MGAC program) coupled with force field methods could consistently find experimental structures of crystals. However, inaccuracies in the force field potentials often resulted in poor energetic ranking of the experimental structure, limiting the usefulness of the method. In this work, dispersion-corrected density functional theory is employed to improve the accuracy of the energy rankings, using the software p"
+  },
+  {
+   "doi": "10.1103/physrevb.77.134117",
+   "title": "Improved real-space genetic algorithm for crystal structure and polymorph prediction",
+   "year": 2008,
+   "citations": 43,
+   "authors": [
+    "Nathan Luke Abraham",
+    "Matt Probert"
+   ],
+   "abstract": "Existing genetic algorithms for crystal structure and polymorph prediction can suffer from stagnation during evolution, with a consequent loss of efficiency and accuracy. An improved genetic algorithm is introduced herein which penalizes similar structures and so enhances structural diversity in the population at each generation. This is shown to improve the quality of results found for the theoretical prediction of simple model crystal structures. In particular, this method is demonstrated to f"
+  },
+  {
+   "doi": "10.1039/b315066f",
+   "title": "Prediction of inorganic crystal framework structures",
+   "year": 2004,
+   "citations": 42,
+   "authors": [
+    "Scott M. Woodley",
+    "Peter D. Battle",
+    "Julian D. Gale"
+   ],
+   "abstract": "A genetic algorithm has been used to generate crystal framework structures from the knowledge of only the unit cell dimensions, constituent atoms and by defining exclusion zones\u2013regions within the unit cell from which the constituent atoms are discouraged. The structures of the better candidates produced are relaxed by minimising the lattice energy, which is based on the Born model of a solid. We present details of the implementation within the computational package GULP. Application to generati"
+  },
+  {
+   "doi": "10.1002/(sici)1097-461x(2000)77:1<421::aid-qua42>3.0.co;2-#",
+   "title": "PM3(tm) parameterization using genetic algorithms",
+   "year": 2000,
+   "citations": 42,
+   "authors": [
+    "Thomas R. Cundari",
+    "Jun Deng",
+    "Wentao Fu"
+   ],
+   "abstract": "PM3(tm) has great potential in studying transition metals because of its speed and applicability to large complexes. However, its parameterization is not yet available for all 30 d-block metals. In this research, genetic algorithms (GAs) were evaluated for the development of PM3(tm) parameters for technetium (Tc). Initial Tc parameters were obtained by interpolation of parameters for the metals flanking it in the periodic table\u2014molybdenum and ruthenium. Prototypical Tc compounds were chosen from"
+  }
+ ]
+}
