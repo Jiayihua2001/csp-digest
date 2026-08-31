@@ -1,0 +1,80 @@
+{
+ "date": "2026-08-31",
+ "scope": "molecular",
+ "synthesis": "Two CSP-relevant items: a new generative framework (Packora) for systematic molecular crystal structure prediction, and a complementary method using deep learning to capture nuclear quantum and finite-temperature free-energy effects\u2014pushing beyond static lattice-energy ranking toward more physically complete structure prediction.",
+ "generated_at": "2026-08-31T15:15:51.247878Z",
+ "items": [
+  {
+   "src": "arXiv",
+   "title": "Packora: Systematic Design for Generative Molecular Crystal Structure Prediction",
+   "date": "2026-08-27",
+   "arxiv_id": "2608.26962v1",
+   "url": "https://arxiv.org/abs/2608.26962v1",
+   "authors": [
+    "Nayoung Kim",
+    "Kiyoung Seong",
+    "Sungsoo Ahn"
+   ],
+   "authors_all": [
+    "Nayoung Kim",
+    "Kiyoung Seong",
+    "Sungsoo Ahn"
+   ],
+   "venue": "arXiv",
+   "abstract": "Molecular crystal structure prediction (CSP) is important in pharmaceuticals, agrochemicals, and organic electronics, where subtle differences in molecular conformation and packing can strongly affect material properties. We present Packora, a flow-based generative model for molecular CSP that jointly predicts atomic coordinates and the lattice from molecular graphs. Packora supports multi-component and organometallic crystals and can condition on any subset of molecular conformers, stereochemical labels, and space-group information within a single model. Inspired by the CCDC CSP blind test, we evaluate generation and ranking separately, using generation to isolate generator quality and ranking to measure end-to-end performance under a common relaxation and ranking pipeline. We also systematically study architecture, training, conditioning, inference, and scaling, identifying an effective design based on cacheable pairwise reasoning, training objective and numerical solver choices, conditioning dropout, and balanced scaling of pairwise and single representations. Packora outperforms the baselines on both structure generation and ranking benchmarks, achieving the best matched-budget",
+   "matched": [
+    "abs:\"crystal structure prediction\"",
+    "abs:\"crystal structure prediction\" AND abs:generative"
+   ],
+   "tags": [
+    "generative-model",
+    "ML-potential",
+    "cocrystal-salt",
+    "conformational"
+   ],
+   "relevance": 92,
+   "significance": 0,
+   "score": 92,
+   "screen": {
+    "relevance": 10,
+    "reason": "Direct flow-based generative model for molecular CSP; CCDC blind test evaluation; structure generation and ranking."
+   },
+   "summary": "Packora introduces a flow-based generative model jointly predicting atomic coordinates and lattice from molecular graphs, supporting multi-component/organometallic crystals with flexible conditioning, plus a systematic architecture/training design study outperforming baselines."
+  },
+  {
+   "src": "journal",
+   "title": "Crystal structure prediction with nuclear quantum and finite-temperature effects via deep free energy learning",
+   "date": "2026-08-28",
+   "doi": "10.1103/3qjr-mgv7",
+   "authors": [
+    "Anonymous"
+   ],
+   "authors_all": [
+    "Anonymous"
+   ],
+   "corresponding": [
+    "Anonymous"
+   ],
+   "cited_by": 0,
+   "venue": "Physical Review B",
+   "abstract": "",
+   "matched": [
+    "genetic algorithm crystal structure prediction",
+    "crystal energy landscape molecular",
+    "molecular crystal structure prediction",
+    "organic crystal polymorph prediction"
+   ],
+   "tags": [
+    "free-energy"
+   ],
+   "relevance": 65,
+   "significance": 0,
+   "score": 65,
+   "screen": {
+    "relevance": 8,
+    "reason": "Deep learning for crystal structure prediction; incorporates quantum/thermal effects beyond standard CSP."
+   },
+   "summary": "Introduces a deep-learning free-energy model integrated into crystal structure prediction to explicitly capture nuclear quantum and finite-temperature effects, beyond static zero-Kelvin energy ranking."
+  }
+ ]
+}
