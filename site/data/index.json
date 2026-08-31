@@ -1,8 +1,8 @@
 [
  {
   "date": "2026-08-31",
-  "count": 2,
-  "synthesis": "Two CSP-relevant items: a new generative framework (Packora) for systematic molecular crystal structure prediction, and a complementary method using deep learning to capture nuclear quantum and finite-temperature free-energy effects\u2014pushing beyond static lattice-energy ranking toward more physically complete structure prediction.",
+  "count": 9,
+  "synthesis": "Notable: a generative-model wave for CSP (Packora, CrystalGRW) alongside growing emphasis on uncertainty quantification for MLIPs (two comparative UQ studies) and free-energy/finite-temperature refinements (PRB paper), suggesting the field is maturing beyond static lattice-energy minimization toward probabilistic, thermally-aware structure search.",
   "top": [
    {
     "title": "Packora: Systematic Design for Generative Molecular Crystal Structure Prediction",
@@ -10,8 +10,13 @@
     "significance": 0
    },
    {
+    "title": "Interatomic Potential Prediction Based on Charge Equilibration and Equivariant Transformer",
+    "relevance": 70,
+    "significance": 0
+   },
+   {
     "title": "Crystal structure prediction with nuclear quantum and finite-temperature effects via deep free energy learning",
-    "relevance": 65,
+    "relevance": 70,
     "significance": 0
    }
   ]

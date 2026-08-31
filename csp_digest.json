@@ -19,7 +19,8 @@
   "abstract": "Molecular crystal structure prediction (CSP) is important in pharmaceuticals, agrochemicals, and organic electronics, where subtle differences in molecular conformation and packing can strongly affect material properties. We present Packora, a flow-based generative model for molecular CSP that jointly predicts atomic coordinates and the lattice from molecular graphs. Packora supports multi-component and organometallic crystals and can condition on any subset of molecular conformers, stereochemical labels, and space-group information within a single model. Inspired by the CCDC CSP blind test, we evaluate generation and ranking separately, using generation to isolate generator quality and ranking to measure end-to-end performance under a common relaxation and ranking pipeline. We also systematically study architecture, training, conditioning, inference, and scaling, identifying an effective design based on cacheable pairwise reasoning, training objective and numerical solver choices, conditioning dropout, and balanced scaling of pairwise and single representations. Packora outperforms the baselines on both structure generation and ranking benchmarks, achieving the best matched-budget",
   "matched": [
    "abs:\"crystal structure prediction\"",
-   "abs:\"crystal structure prediction\" AND abs:generative"
+   "abs:\"crystal structure prediction\" AND abs:generative",
+   "abs:\"generative model\" AND abs:\"crystal structure\""
   ],
   "tags": [
    "generative-model",
@@ -31,10 +32,48 @@
   "significance": 0,
   "score": 92,
   "screen": {
-   "relevance": 10,
-   "reason": "Direct flow-based generative model for molecular CSP; CCDC blind test evaluation; structure generation and ranking."
+   "relevance": 9,
+   "reason": "Novel flow-based generative model for molecular CSP; systematic architecture design; CCDC blind-test evaluation; direct "
   },
-  "summary": "Packora introduces a flow-based generative model jointly predicting atomic coordinates and lattice from molecular graphs, supporting multi-component/organometallic crystals with flexible conditioning, plus a systematic architecture/training design study outperforming baselines."
+  "summary": "Packora introduces a flow-based generative model jointly predicting atoms and lattice from molecular graphs, supporting multi-component/organometallic crystals with flexible conditioning, plus a systematic architecture/training study."
+ },
+ {
+  "src": "journal",
+  "title": "Interatomic Potential Prediction Based on Charge Equilibration and Equivariant Transformer",
+  "date": "2026-08-24",
+  "doi": "10.70267/cai.26v3n4.3545",
+  "authors": [
+   "Yijun Shi",
+   "Tao Luo"
+  ],
+  "authors_all": [
+   "Yijun Shi",
+   "Tao Luo"
+  ],
+  "corresponding": [
+   "Tao Luo"
+  ],
+  "cited_by": 0,
+  "venue": "Computers and Artificial Intelligence",
+  "abstract": "Conventional local machine-learning interatomic potentials describe atomic environments with a finite cutoff radius and therefore have difficulty capturing long-range electrostatic coupling in polar, charged, or charge-transfer systems. This paper proposes CE-ETNet (Charge-Equilibration-Enhanced Equivariant Transformer Network), an equivariant Transformer interatomic potential constrained by charge equilibration. The model learns local chemical environments formed by atom types, geometric edges, and radial basis features through an equivariant representation encoder, and predicts atomic electronegativities. Under the constraint of total charge conservation, a differentiable charge equilibration procedure is used to solve partial charges and electrostatic energy, thereby incorporating long-range Coulomb interactions into energy and force prediction. On three benchmark datasets, QM9, revised MD17, and tmQM_wB97MV, CE-ETNet reduces the mean absolute error (MAE) of energy and force prediction by about 8% on average compared with existing models, reaching chemical accuracy. The experimental results show that explicit long-range electrostatic modeling improves the predictive performance ",
+  "matched": [
+   "universal interatomic potential",
+   "machine learning interatomic potential"
+  ],
+  "ai4sci": true,
+  "tags": [
+   "ML-potential",
+   "lattice-energy",
+   "benchmark"
+  ],
+  "relevance": 70,
+  "significance": 0,
+  "score": 70,
+  "screen": {
+   "relevance": 7,
+   "reason": "Novel MLIP architecture with charge equilibration; transferable to polar molecular crystals CSP."
+  },
+  "summary": "CE-ETNet couples an equivariant Transformer encoder with a differentiable charge-equilibration solver enforcing total-charge conservation, explicitly embedding long-range Coulomb physics to cut energy/force MAE ~8% across QM9, rMD17, and"
  },
  {
   "src": "journal",
@@ -54,21 +93,267 @@
   "venue": "Physical Review B",
   "abstract": "",
   "matched": [
-   "genetic algorithm crystal structure prediction",
-   "crystal energy landscape molecular",
    "molecular crystal structure prediction",
-   "organic crystal polymorph prediction"
+   "crystal energy landscape molecular",
+   "generative model crystal structure",
+   "organic crystal polymorph prediction",
+   "genetic algorithm crystal structure prediction"
   ],
   "tags": [
    "free-energy"
   ],
-  "relevance": 65,
+  "relevance": 70,
   "significance": 0,
   "score": 65,
   "screen": {
-   "relevance": 8,
-   "reason": "Deep learning for crystal structure prediction; incorporates quantum/thermal effects beyond standard CSP."
+   "relevance": 7,
+   "reason": "Deep learning for free energy prediction; temperature-dependent CSP extension beyond 0K DFT."
   },
-  "summary": "Introduces a deep-learning free-energy model integrated into crystal structure prediction to explicitly capture nuclear quantum and finite-temperature effects, beyond static zero-Kelvin energy ranking."
+  "summary": "Introduces a deep-learning-based free energy model integrated into crystal structure prediction to explicitly capture nuclear quantum and finite-temperature effects, likely improving accuracy over static 0 K lattice-energy searches."
+ },
+ {
+  "src": "journal",
+  "title": "Bayesian Neural Networks versus deep ensembles for uncertainty quantification in machine learning interatomic potentials",
+  "date": "2026-08-24",
+  "doi": "10.1088/2632-2153/ae9de8",
+  "authors": [
+   "Riccardo Farris",
+   "Emanuele Telari",
+   "Nongnuch Artrith"
+  ],
+  "authors_all": [
+   "Riccardo Farris",
+   "Emanuele Telari",
+   "Nongnuch Artrith",
+   "Konstantin M Neyman",
+   "Albert Bruix"
+  ],
+  "corresponding": [
+   "Albert Bruix"
+  ],
+  "cited_by": 0,
+  "venue": "Machine Learning: Science and Technology",
+  "abstract": "Abstract Neural-network-based machine learning interatomic potentials have emerged as powerful tools for predicting atomic energies and forces, enabling accurate and efficient simulations in atomistic modeling. A key limitation of traditional deep learning approaches, however, is their inability to provide reliable estimates of predictive uncertainty. Such uncertainty quantification is critical for assessing model reliability, especially in materials science, where often the model is applied on out-of-distribution data. Different strategies have been proposed to address this challenge, with deep ensembles (DE) and Bayesian neural networks (BNN) being among the most widely used. In this work, we introduce an implementation of Bayesian neural networks with variational inference in the \\texttt{\\ae net-PyTorch} framework. To evaluate their applicability to machine learning interatomic potentials, we systematically compare the performance of variational BNNs and deep ensembles on a dataset of 7,815 TiO\\textsubscript{2} structures, and further assess the generalisability of our conclusions on the chemically more diverse QM7 dataset of 7,165 small organic molecules. The models are trained",
+  "matched": [
+   "universal interatomic potential",
+   "machine learning interatomic potential"
+  ],
+  "ai4sci": true,
+  "tags": [
+   "generative-model",
+   "ML-potential"
+  ],
+  "relevance": 70,
+  "significance": 12,
+  "score": 62,
+  "screen": {
+   "relevance": 7,
+   "reason": "MLIP uncertainty quantification directly applicable to CSP energy ranking & exploration."
+  },
+  "summary": "Implements variational-inference Bayesian neural networks in the \u00e6 net-PyTorch framework and systematically benchmarks them against deep ensembles for uncertainty quantification on TiO2 and QM7 interatomic-potential datasets."
+ },
+ {
+  "src": "journal",
+  "title": "Shotgun Crystal Structure Prediction of High-Energy Metastable Materials at Ambient Conditions",
+  "date": "2026-08-31",
+  "doi": "10.34133/energymatadv.0460",
+  "authors": [
+   "Linyuan Wen",
+   "Dongyu Liu",
+   "Tao Yu"
+  ],
+  "authors_all": [
+   "Linyuan Wen",
+   "Dongyu Liu",
+   "Tao Yu",
+   "Alexandra M. Musatova",
+   "Leonid I. Kushchuk",
+   "Mikhail R. Antanyazov",
+   "Zhenxiong Huang",
+   "Igor A. Mezentsev",
+   "Alexey I. Kartsev",
+   "Andrey S. Vasenko",
+   "Yingzhe Liu"
+  ],
+  "corresponding": [
+   "Yingzhe Liu"
+  ],
+  "cited_by": 0,
+  "venue": "Energy Material Advances",
+  "abstract": "",
+  "matched": [
+   "crystal energy landscape molecular",
+   "molecular crystal structure prediction",
+   "genetic algorithm crystal structure prediction",
+   "organic crystal polymorph prediction"
+  ],
+  "tags": [],
+  "relevance": 70,
+  "significance": 0,
+  "score": 60,
+  "screen": {
+   "relevance": 7,
+   "reason": "CSP of metastable polymorphs; energy ranking challenge; transfer potential for high-energy structure methods"
+  },
+  "summary": "Introduces a \"shotgun\" CSP approach\u2014likely non-iterative, massively parallel generation-and-screening of candidate structures\u2014to efficiently locate high-energy metastable phases stable at ambient conditions, bypassing traditional sequential evolutionary search."
+ },
+ {
+  "src": "journal",
+  "title": "Comparative study of ensemble-based uncertainty quantification methods for neural network interatomic potentials",
+  "date": "2026-08-27",
+  "doi": "10.1088/2632-2153/ae9fb4",
+  "authors": [
+   "Yonatan Kurniawan",
+   "Mingjian Wen",
+   "Ellad Tadmor"
+  ],
+  "authors_all": [
+   "Yonatan Kurniawan",
+   "Mingjian Wen",
+   "Ellad Tadmor",
+   "Mark K Transtrum"
+  ],
+  "corresponding": [
+   "Mark K Transtrum"
+  ],
+  "cited_by": 0,
+  "venue": "Machine Learning: Science and Technology",
+  "abstract": "Abstract Machine learning interatomic potentials (MLIPs) enable atomistic simulations with near first-principles accuracy at substantially reduced computational cost, making them powerful tools for large-scale materials modeling. The accuracy of MLIPs is typically validated on a held-out dataset of ab initio energies and atomic forces. However, accuracy on these small-scale properties does not guarantee reliability for emergent, system-level behavior-precisely the regime where atomistic simulations are most needed, but for which direct validation is often computationally prohibitive. As a practical heuristic, predictive precision-quantified as inverse uncertainty-is commonly used as a proxy for accuracy, but its reliability remains poorly understood, particularly for system-level predictions. In this work, we systematically assess the relationship between predictive precision and accuracy in both in-distribution (ID) and out-of-distribution (OOD) regimes, focusing on ensemble-based uncertainty quantification methods for neural network potentials, including bootstrap, dropout, random initialization, and snapshot ensembles. We use held-out cross-validation for ID assessment and calcu",
+  "matched": [
+   "universal interatomic potential",
+   "machine learning interatomic potential"
+  ],
+  "ai4sci": true,
+  "tags": [
+   "ML-potential"
+  ],
+  "relevance": 70,
+  "significance": 12,
+  "score": 57,
+  "screen": {
+   "relevance": 7,
+   "reason": "MLIP uncertainty quantification directly applicable to CSP lattice-energy ranking and structure validation."
+  },
+  "summary": "Systematically benchmarks four ensemble-based uncertainty quantification methods (bootstrap, dropout, random init, snapshot) for neural network interatomic potentials, testing precision-accuracy correlation across ID and OOD regimes including emergent system-level properties."
+ },
+ {
+  "src": "journal",
+  "title": "CrystalGRW: generative modeling of crystal structures with targeted crystallographic properties via geodesic random walks",
+  "date": "2026-08-31",
+  "doi": "10.1038/s41598-026-62470-x",
+  "authors": [
+   "Krit Tangsongcharoen",
+   "Teerachote Pakornchote",
+   "Chayanon Atthapak"
+  ],
+  "authors_all": [
+   "Krit Tangsongcharoen",
+   "Teerachote Pakornchote",
+   "Chayanon Atthapak",
+   "Natthaphon Choomphon-anomakhun",
+   "Annop Ektarawong",
+   "Bj\u00f6rn Alling",
+   "Christopher Sutton",
+   "Thiti Bovornratanaraks",
+   "Thiparat Chotibut"
+  ],
+  "corresponding": [
+   "Thiparat Chotibut"
+  ],
+  "cited_by": 0,
+  "venue": "Scientific Reports",
+  "abstract": "",
+  "matched": [
+   "generative model crystal structure"
+  ],
+  "ai4sci": true,
+  "tags": [
+   "generative-model"
+  ],
+  "relevance": 70,
+  "significance": 0,
+  "score": 40,
+  "screen": {
+   "relevance": 7,
+   "reason": "Generative model for crystals with property targeting; clear MCSP transfer potential"
+  },
+  "summary": "Introduces a geodesic random-walk diffusion generative model operating on crystallographic manifolds (lattice, coordinates, atom types) to generate crystal structures conditioned on target properties."
+ },
+ {
+  "src": "journal",
+  "title": "Inverse design of bespoke interatomic potentials via active learning by information-matching",
+  "date": "2026-08-29",
+  "doi": "10.1186/s41313-026-00086-4",
+  "authors": [
+   "Yonatan Kurniawan",
+   "Logan D. Williams",
+   "Amit Samanta"
+  ],
+  "authors_all": [
+   "Yonatan Kurniawan",
+   "Logan D. Williams",
+   "Amit Samanta",
+   "Ilia Nikiforov",
+   "Daniel Schwalbe-Koda",
+   "Mark K. Transtrum",
+   "Ellad B. Tadmor",
+   "Vincenzo Lordi",
+   "Vasily V. Bulatov"
+  ],
+  "corresponding": [
+   "Vasily V. Bulatov"
+  ],
+  "cited_by": 0,
+  "venue": "Journal of Materials Science: Materials Theory",
+  "abstract": "",
+  "matched": [
+   "universal interatomic potential"
+  ],
+  "ai4sci": true,
+  "tags": [
+   "ML-potential"
+  ],
+  "relevance": 70,
+  "significance": 12,
+  "score": 37,
+  "screen": {
+   "relevance": 7,
+   "reason": "Active learning for ML potentials directly applicable to CSP structure search acceleration"
+  },
+  "summary": "Introduces information-matching, an active-learning criterion that selects training configurations by matching Fisher information content, enabling inverse design of task-specific interatomic potentials with minimal data."
+ },
+ {
+  "src": "arXiv",
+  "title": "ChemReporter: A Framework for Curating and Exporting Large-Scale Chemical Datasets for MLIP Training",
+  "date": "2026-08-17",
+  "arxiv_id": "2608.16418v1",
+  "url": "https://arxiv.org/abs/2608.16418v1",
+  "authors": [
+   "Marie Bluntzer",
+   "Jules Tilly",
+   "Christoph Brunken"
+  ],
+  "authors_all": [
+   "Marie Bluntzer",
+   "Jules Tilly",
+   "Christoph Brunken"
+  ],
+  "venue": "arXiv",
+  "abstract": "Training set quality and diversity are key determinants of the reliability of machine learning interatomic potentials (MLIPs), yet using massive datasets in full is often impractical and redundant, making intelligent data selection essential. A major bottleneck, however, is the lack of infrastructure for uniformly accessing, curating, and subsampling heterogeneous large-scale chemical datasets, which differ widely in structure, metadata, and file format. We address this gap with ChemReporter, a modular, method-agnostic framework that converts arbitrary molecular and materials datasets into a unified, queryable representation and exports the results directly into MLIP-ready training data. ChemReporter operates in three decoupled stages: processing, which parses raw datasets into a partitioned Apache Parquet repository enriched with structural, physical, and chemical metadata; querying, which filters and samples this repository via a CLI or Python API using arbitrary selection criteria, from simple physical constraints to custom, user-defined strategies; and exporting, which streams the selected subset into an HDF5 file ready for direct use in modern MLIP training frameworks. Through",
+  "matched": [
+   "abs:\"interatomic potential\" AND abs:\"machine learning\""
+  ],
+  "ai4sci": true,
+  "tags": [
+   "ML-potential"
+  ],
+  "relevance": 70,
+  "significance": 0,
+  "score": 25,
+  "screen": {
+   "relevance": 7,
+   "reason": "MLIP training data curation infrastructure; clear transfer to CSP dataset preparation pipelines."
+  },
+  "summary": "Introduces ChemReporter, a modular processing\u2013query\u2013export pipeline that converts heterogeneous molecular/materials datasets into a unified Parquet repository for flexible, criteria-based subsampling and direct HDF5 export for MLIP training."
  }
 ]

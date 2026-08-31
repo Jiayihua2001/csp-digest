@@ -16,6 +16,22 @@ KW  - conformational
 ER  - 
 
 TY  - JOUR
+TI  - Interatomic Potential Prediction Based on Charge Equilibration and Equivariant Transformer
+AU  - Yijun Shi
+AU  - Tao Luo
+DA  - 2026/08/24
+PY  - 2026
+JO  - Computers and Artificial Intelligence
+DO  - 10.70267/cai.26v3n4.3545
+UR  - https://doi.org/10.70267/cai.26v3n4.3545
+AB  - Conventional local machine-learning interatomic potentials describe atomic environments with a finite cutoff radius and therefore have difficulty capturing long-range electrostatic coupling in polar, charged, or charge-transfer systems. This paper proposes CE-ETNet (Charge-Equilibration-Enhanced Equivariant Transformer Network), an equivariant Transformer interatomic potential constrained by charge equilibration. The model learns local chemical environments formed by atom types, geometric edges, and radial basis features through an equivariant representation encoder, and predicts atomic electronegativities. Under the constraint of total charge conservation, a differentiable charge equilibration procedure is used to solve partial charges and electrostatic energy, thereby incorporating long-range Coulomb interactions into energy and force prediction. On three benchmark datasets, QM9, revised MD17, and tmQM_wB97MV, CE-ETNet reduces the mean absolute error (MAE) of energy and force prediction by about 8% on average compared with existing models, reaching chemical accuracy. The experimental results show that explicit long-range electrostatic modeling improves the predictive performance
+KW  - CSP
+KW  - ML-potential
+KW  - lattice-energy
+KW  - benchmark
+ER  - 
+
+TY  - JOUR
 TI  - Crystal structure prediction with nuclear quantum and finite-temperature effects via deep free energy learning
 AU  - Anonymous
 DA  - 2026/08/28
@@ -25,4 +41,90 @@ DO  - 10.1103/3qjr-mgv7
 UR  - https://doi.org/10.1103/3qjr-mgv7
 KW  - CSP
 KW  - free-energy
+ER  - 
+
+TY  - JOUR
+TI  - Bayesian Neural Networks versus deep ensembles for uncertainty quantification in machine learning interatomic potentials
+AU  - Riccardo Farris
+AU  - Emanuele Telari
+AU  - Nongnuch Artrith
+DA  - 2026/08/24
+PY  - 2026
+JO  - Machine Learning: Science and Technology
+DO  - 10.1088/2632-2153/ae9de8
+UR  - https://doi.org/10.1088/2632-2153/ae9de8
+AB  - Abstract Neural-network-based machine learning interatomic potentials have emerged as powerful tools for predicting atomic energies and forces, enabling accurate and efficient simulations in atomistic modeling. A key limitation of traditional deep learning approaches, however, is their inability to provide reliable estimates of predictive uncertainty. Such uncertainty quantification is critical for assessing model reliability, especially in materials science, where often the model is applied on out-of-distribution data. Different strategies have been proposed to address this challenge, with deep ensembles (DE) and Bayesian neural networks (BNN) being among the most widely used. In this work, we introduce an implementation of Bayesian neural networks with variational inference in the \texttt{\ae net-PyTorch} framework. To evaluate their applicability to machine learning interatomic potentials, we systematically compare the performance of variational BNNs and deep ensembles on a dataset of 7,815 TiO\textsubscript{2} structures, and further assess the generalisability of our conclusions on the chemically more diverse QM7 dataset of 7,165 small organic molecules. The models are trained
+KW  - CSP
+KW  - generative-model
+KW  - ML-potential
+ER  - 
+
+TY  - JOUR
+TI  - Shotgun Crystal Structure Prediction of High-Energy Metastable Materials at Ambient Conditions
+AU  - Linyuan Wen
+AU  - Dongyu Liu
+AU  - Tao Yu
+DA  - 2026/08/31
+PY  - 2026
+JO  - Energy Material Advances
+DO  - 10.34133/energymatadv.0460
+UR  - https://doi.org/10.34133/energymatadv.0460
+KW  - CSP
+ER  - 
+
+TY  - JOUR
+TI  - Comparative study of ensemble-based uncertainty quantification methods for neural network interatomic potentials
+AU  - Yonatan Kurniawan
+AU  - Mingjian Wen
+AU  - Ellad Tadmor
+DA  - 2026/08/27
+PY  - 2026
+JO  - Machine Learning: Science and Technology
+DO  - 10.1088/2632-2153/ae9fb4
+UR  - https://doi.org/10.1088/2632-2153/ae9fb4
+AB  - Abstract Machine learning interatomic potentials (MLIPs) enable atomistic simulations with near first-principles accuracy at substantially reduced computational cost, making them powerful tools for large-scale materials modeling. The accuracy of MLIPs is typically validated on a held-out dataset of ab initio energies and atomic forces. However, accuracy on these small-scale properties does not guarantee reliability for emergent, system-level behavior-precisely the regime where atomistic simulations are most needed, but for which direct validation is often computationally prohibitive. As a practical heuristic, predictive precision-quantified as inverse uncertainty-is commonly used as a proxy for accuracy, but its reliability remains poorly understood, particularly for system-level predictions. In this work, we systematically assess the relationship between predictive precision and accuracy in both in-distribution (ID) and out-of-distribution (OOD) regimes, focusing on ensemble-based uncertainty quantification methods for neural network potentials, including bootstrap, dropout, random initialization, and snapshot ensembles. We use held-out cross-validation for ID assessment and calcu
+KW  - CSP
+KW  - ML-potential
+ER  - 
+
+TY  - JOUR
+TI  - CrystalGRW: generative modeling of crystal structures with targeted crystallographic properties via geodesic random walks
+AU  - Krit Tangsongcharoen
+AU  - Teerachote Pakornchote
+AU  - Chayanon Atthapak
+DA  - 2026/08/31
+PY  - 2026
+JO  - Scientific Reports
+DO  - 10.1038/s41598-026-62470-x
+UR  - https://doi.org/10.1038/s41598-026-62470-x
+KW  - CSP
+KW  - generative-model
+ER  - 
+
+TY  - JOUR
+TI  - Inverse design of bespoke interatomic potentials via active learning by information-matching
+AU  - Yonatan Kurniawan
+AU  - Logan D. Williams
+AU  - Amit Samanta
+DA  - 2026/08/29
+PY  - 2026
+JO  - Journal of Materials Science: Materials Theory
+DO  - 10.1186/s41313-026-00086-4
+UR  - https://doi.org/10.1186/s41313-026-00086-4
+KW  - CSP
+KW  - ML-potential
+ER  - 
+
+TY  - GEN
+TI  - ChemReporter: A Framework for Curating and Exporting Large-Scale Chemical Datasets for MLIP Training
+AU  - Marie Bluntzer
+AU  - Jules Tilly
+AU  - Christoph Brunken
+DA  - 2026/08/17
+PY  - 2026
+JO  - arXiv
+UR  - https://arxiv.org/abs/2608.16418v1
+AB  - Training set quality and diversity are key determinants of the reliability of machine learning interatomic potentials (MLIPs), yet using massive datasets in full is often impractical and redundant, making intelligent data selection essential. A major bottleneck, however, is the lack of infrastructure for uniformly accessing, curating, and subsampling heterogeneous large-scale chemical datasets, which differ widely in structure, metadata, and file format. We address this gap with ChemReporter, a modular, method-agnostic framework that converts arbitrary molecular and materials datasets into a unified, queryable representation and exports the results directly into MLIP-ready training data. ChemReporter operates in three decoupled stages: processing, which parses raw datasets into a partitioned Apache Parquet repository enriched with structural, physical, and chemical metadata; querying, which filters and samples this repository via a CLI or Python API using arbitrary selection criteria, from simple physical constraints to custom, user-defined strategies; and exporting, which streams the selected subset into an HDF5 file ready for direct use in modern MLIP training frameworks. Through
+KW  - CSP
+KW  - ML-potential
 ER  - 

@@ -5,7 +5,7 @@ source: journal
 venue: "Physical Review B"
 doi: 10.1103/3qjr-mgv7
 arxiv: 
-relevance: 65
+relevance: 70
 significance: 0
 tags:
   - CSP
@@ -16,11 +16,11 @@ tags:
 
 **Authors:** [[Anonymous]]
 **Link:** https://doi.org/10.1103/3qjr-mgv7
-**Scores:** relevance 65 / significance 0
+**Scores:** relevance 70 / significance 0
 **Field:** [[free-energy]]
 
 ## Why it matters
-Introduces a deep-learning free-energy model integrated into crystal structure prediction to explicitly capture nuclear quantum and finite-temperature effects, beyond static zero-Kelvin energy ranking.
+Introduces a deep-learning-based free energy model integrated into crystal structure prediction to explicitly capture nuclear quantum and finite-temperature effects, likely improving accuracy over static 0 K lattice-energy searches.
 
 ## My notes
 
