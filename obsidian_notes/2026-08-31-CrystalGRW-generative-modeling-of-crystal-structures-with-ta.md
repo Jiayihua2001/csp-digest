@@ -20,7 +20,7 @@ tags:
 **Field:** [[generative-model]]
 
 ## Why it matters
-Introduces geodesic random walks on Riemannian manifolds (rather than Euclidean diffusion) to generate crystal structures, enabling conditional sampling toward specified target crystallographic properties.
+Introduces geodesic random-walk diffusion over lattice, fractional-coordinate, and space-group manifolds to generate crystal structures conditioned on target crystallographic properties.
 
 ## My notes
 

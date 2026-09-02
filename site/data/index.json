@@ -1,9 +1,9 @@
 [
  {
   "date": "2026-09-02",
-  "count": 10,
-  "new_count": 1,
-  "synthesis": "Generative CSP continues diversifying (Packora, CrystalGRW), while the bulk of activity clusters around interatomic potentials\u2014uncertainty quantification methods (two comparative UQ studies), free-energy/finite-temperature CSP, and universal potentials as fine-tuning generators. No genetic-algorithm-specific advances stand out.",
+  "count": 15,
+  "new_count": 6,
+  "synthesis": "Generative CSP continues to diversify beyond GAs, with Packora, text-guided flow matching, and CrystalGRW all offering deep-learning alternatives, while free-energy and shotgun methods address finite-temperature/metastability. UQ for interatomic potentials (Bayesian vs. ensembles) remains an active parallel thread\u2014no single standout, steady incremental progress across generative and",
   "top": [
    {
     "title": "Packora: Systematic Design for Generative Molecular Crystal Structure Prediction",
@@ -11,12 +11,12 @@
     "significance": 0
    },
    {
-    "title": "Interatomic Potential Prediction Based on Charge Equilibration and Equivariant Transformer",
+    "title": "Text-guided flow matching enables sample-efficient crystal structure generation",
     "relevance": 70,
     "significance": 0
    },
    {
-    "title": "Crystal structure prediction with nuclear quantum and finite-temperature effects via deep free energy learning",
+    "title": "Interatomic Potential Prediction Based on Charge Equilibration and Equivariant Transformer",
     "relevance": 70,
     "significance": 0
    }

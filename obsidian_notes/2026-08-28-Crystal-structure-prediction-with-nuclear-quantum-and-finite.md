@@ -20,7 +20,7 @@ tags:
 **Field:** [[free-energy]]
 
 ## Why it matters
-Introduces deep learning of free energy surfaces to incorporate nuclear quantum and finite-temperature effects directly into crystal structure prediction, moving beyond static zero-temperature energy minimization.
+Extends genetic-algorithm/evolutionary CSP by learning a deep neural free-energy surface that incorporates nuclear quantum and finite-temperature effects, enabling structure search beyond static 0 K, classical-nuclei energy landscapes.
 
 ## My notes
 

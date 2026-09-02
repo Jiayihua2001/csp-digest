@@ -21,7 +21,7 @@ tags:
 **Field:** [[generative-model]] [[ML-potential]]
 
 ## Why it matters
-Introduces a variational-inference Bayesian neural network in the ænet-PyTorch framework, benchmarking it against deep ensembles for uncertainty quantification in interatomic potentials on TiO2 and QM7 datasets.
+Implements variational Bayesian neural networks in the æ net-PyTorch framework and systematically benchmarks them against deep ensembles for uncertainty quantification in interatomic potentials across TiO2 and QM7 datasets.
 
 ## Abstract
 > Abstract Neural-network-based machine learning interatomic potentials have emerged as powerful tools for predicting atomic energies and forces, enabling accurate and efficient simulations in atomistic modeling. A key limitation of traditional deep learning approaches, however, is their inability to provide reliable estimates of predictive uncertainty. Such uncertainty quantification is critical for assessing model reliability, especially in materials science, where often the model is applied on out-of-distribution data. Different strategies have been proposed to address this challenge, with deep ensembles (DE) and Bayesian neural networks (BNN) being among the most widely used. In this work, we introduce an implementation of Bayesian neural networks with variational inference in the \texttt{\ae net-PyTorch} framework. To evaluate their applicability to machine learning interatomic potentials, we systematically compare the performance of variational BNNs and deep ensembles on a dataset of 7,815 TiO\textsubscript{2} structures, and further assess the generalisability of our conclusions on the chemically more diverse QM7 dataset of 7,165 small organic molecules. The models are trained

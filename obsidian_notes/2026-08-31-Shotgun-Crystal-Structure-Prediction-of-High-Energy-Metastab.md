@@ -18,7 +18,7 @@ tags:
 **Scores:** relevance 70 / significance 0
 
 ## Why it matters
-Introduces a "shotgun" CSP approach that rapidly screens massive candidate structures via high-throughput generation and machine-learning-accelerated relaxation to identify high-energy metastable ambient-condition phases, bypassing traditional stepwise evolutionary search.
+Introduces a "shotgun" crystal structure prediction approach—rapidly sampling many candidate structures in parallel rather than iterative evolutionary refinement—to target high-energy metastable phases stable at ambient conditions.
 
 ## My notes
 
