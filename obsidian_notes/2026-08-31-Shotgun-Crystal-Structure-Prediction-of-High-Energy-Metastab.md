@@ -18,7 +18,7 @@ tags:
 **Scores:** relevance 70 / significance 0
 
 ## Why it matters
-Introduces a "shotgun" massively parallel random/high-throughput sampling strategy for crystal structure prediction, targeting high-energy metastable phases stable at ambient conditions rather than only ground-state structures.
+Introduces a "shotgun" CSP approach that rapidly screens massive candidate structures via high-throughput generation and machine-learning-accelerated relaxation to identify high-energy metastable ambient-condition phases, bypassing traditional stepwise evolutionary search.
 
 ## My notes
 
