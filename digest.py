@@ -684,6 +684,24 @@ def write_site_data(items, scope, synthesis, site_dir="site"):
     data_dir = os.path.join(site_dir, "data")
     os.makedirs(data_dir, exist_ok=True)
     today = datetime.date.today().isoformat()
+
+    # First-seen ledger: the day file is a rolling-window view, so papers repeat
+    # across days. first_seen/is_new let the UI distinguish "new today" from
+    # "still in the window" - without this every quiet day looks broken.
+    ledger_path = os.path.join(data_dir, "first_seen.json")
+    try:
+        ledger = json.load(open(ledger_path))
+    except Exception:  # noqa: BLE001
+        ledger = {}
+    for it in items:
+        pid = it.get("doi") or it.get("arxiv_id") or it.get("title") or ""
+        if pid and pid not in ledger:
+            ledger[pid] = today
+        it["first_seen"] = ledger.get(pid, today)
+        it["is_new"] = it["first_seen"] == today
+    with open(ledger_path, "w") as f:
+        json.dump(ledger, f, indent=0, sort_keys=True)
+
     day_payload = {"date": today, "scope": scope, "synthesis": synthesis,
                    "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
                    "items": items}
@@ -700,7 +718,9 @@ def write_site_data(items, scope, synthesis, site_dir="site"):
             manifest = []
     manifest = [m for m in manifest if m.get("date") != today]        # replace today's entry
     manifest.append({
-        "date": today, "count": len(items), "synthesis": synthesis,
+        "date": today, "count": len(items),
+        "new_count": sum(1 for i in items if i.get("is_new")),
+        "synthesis": synthesis,
         "top": [{"title": i.get("title", ""), "relevance": i.get("relevance", 0),
                  "significance": i.get("significance", 0)} for i in items[:3]],
     })
@@ -765,6 +785,7 @@ def render_html(items, out_path, scope_label, classic=None):
             f'<div class="item"><div class="meta">'
             f'<span class="badge" style="color:{bc};border-color:{bc}">{badge}</span>'
             f'<span class="date">{i.get("date","")}</span>'
+            + ('<span class="newtag">NEW</span>' if i.get("is_new") else '')
             f'<span class="venue">{html.escape(i.get("venue") or "")}</span>{wtag}</div>'
             f'<a class="title" href="{link(i)}" target="_blank">{html.escape(i.get("title",""))}</a>'
             f'<div class="authors">{html.escape(who)}</div>'
@@ -793,6 +814,7 @@ h1{{font-size:26px;font-weight:600;margin:0 0 4px}}
 .meta{{display:flex;gap:10px;align-items:center;margin-bottom:5px;font-size:12px;flex-wrap:wrap}}
 .badge{{border:1px solid;border-radius:3px;padding:1px 7px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.3px}}
 .date{{color:#6B6A63}}.venue{{color:#B4B3A8}}.wtag{{color:#C6613F;font-weight:600;font-size:11.5px}}
+.newtag{{background:#B23A2E;color:#fff;font-size:10px;font-weight:700;border-radius:3px;padding:1px 6px;letter-spacing:.5px}}
 .title{{font-size:16.5px;font-weight:600;color:#2E2C27;text-decoration:none;display:block;margin-bottom:3px}}
 .title:hover{{text-decoration:underline}}
 .authors{{color:#6B6A63;font-size:13.5px;margin-bottom:6px}}

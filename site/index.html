@@ -45,6 +45,7 @@
   .badge2{border:1px solid;border-radius:4px;padding:1px 7px;font-weight:600;font-size:11px}
   .wtag{color:var(--star);font-weight:600}
   .newdot{color:var(--accent);font-weight:700}
+  .pubnew{background:#B23A2E;color:#fff;font-size:10px;font-weight:700;border-radius:3px;padding:1px 6px;letter-spacing:.5px}
   .title{font-weight:650;font-size:15.5px;color:var(--ink);text-decoration:none;display:block;margin-bottom:3px}
   .title:hover{color:var(--accent)}
   .authors{color:var(--mut);font-size:13px;margin-bottom:7px}
@@ -144,6 +145,7 @@ function itemCard(it, dateForRead){
       <span class="badge2" style="color:${bc};border-color:${bc}">${esc(it.src||"journal")}</span>
       <span>${esc(it.date||dateForRead||"")}</span>
       <span>${esc(it.venue||"")}</span>${wl}
+      ${it.is_new?'<span class="pubnew">NEW</span>':""}
       ${isRead?"":'<span class="newdot">• new</span>'}
     </div>
     <a class="title" href="${link(it)}" target="_blank" rel="noopener">${esc(it.title||"")}</a>
