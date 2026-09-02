@@ -786,7 +786,7 @@ def render_html(items, out_path, scope_label, classic=None):
             f'<span class="badge" style="color:{bc};border-color:{bc}">{badge}</span>'
             f'<span class="date">{i.get("date","")}</span>'
             + ('<span class="newtag">NEW</span>' if i.get("is_new") else '')
-            f'<span class="venue">{html.escape(i.get("venue") or "")}</span>{wtag}</div>'
+            + f'<span class="venue">{html.escape(i.get("venue") or "")}</span>{wtag}</div>'
             f'<a class="title" href="{link(i)}" target="_blank">{html.escape(i.get("title",""))}</a>'
             f'<div class="authors">{html.escape(who)}</div>'
             f'<div class="scores">{scores_html}{tags_html}</div>'
