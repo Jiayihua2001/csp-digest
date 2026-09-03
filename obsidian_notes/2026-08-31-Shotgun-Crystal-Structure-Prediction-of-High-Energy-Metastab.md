@@ -18,7 +18,7 @@ tags:
 **Scores:** relevance 70 / significance 0
 
 ## Why it matters
-Introduces a "shotgun" crystal structure prediction approach—rapidly sampling many candidate structures in parallel rather than iterative evolutionary refinement—to target high-energy metastable phases stable at ambient conditions.
+Introduces a "shotgun" CSP strategy—massively parallel random/generative structure sampling combined with rapid energy screening—to efficiently locate high-energy metastable phases stable at ambient conditions, bypassing traditional sequential evolutionary search.
 
 ## My notes
 

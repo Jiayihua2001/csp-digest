@@ -20,7 +20,7 @@ tags:
 **Field:** [[generative-model]]
 
 ## Why it matters
-Introduces geodesic random-walk diffusion over lattice, fractional-coordinate, and space-group manifolds to generate crystal structures conditioned on target crystallographic properties.
+Introduces a diffusion-style generative model using geodesic random walks over non-Euclidean manifolds (lattice, fractional coordinates, atomic species) to directly generate crystal structures conditioned on target crystallographic properties.
 
 ## My notes
 

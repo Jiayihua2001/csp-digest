@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-09-03",
+  "count": 15,
+  "new_count": 2,
+  "synthesis": "Generative and ML-driven CSP dominates: two new deep-generative crystal generators (Packora, CrystalGRW, flow matching), alongside growing UQ scrutiny for interatomic potentials (two comparative ensemble/Bayesian studies). Genetic-algorithm work is absent, with free-energy and shotgun sampling papers offering the closest physics-based alternatives.",
+  "top": [
+   {
+    "title": "Packora: Systematic Design for Generative Molecular Crystal Structure Prediction",
+    "relevance": 92,
+    "significance": 0
+   },
+   {
+    "title": "Text-guided flow matching enables sample-efficient crystal structure generation",
+    "relevance": 70,
+    "significance": 0
+   },
+   {
+    "title": "Interatomic Potential Prediction Based on Charge Equilibration and Equivariant Transformer",
+    "relevance": 70,
+    "significance": 0
+   }
+  ]
+ },
+ {
   "date": "2026-09-02",
   "count": 15,
   "new_count": 6,
