@@ -57,13 +57,43 @@ class TestRender(unittest.TestCase):
                        "Assistant synthesis (interpretation)", 'href="https://doi.org/10.1039/c5ce00045a"'):
             self.assertIn(needle, h)
         self.assertIn("2 intuition chunks from 1 papers", h)
-        # starring + explicit source URLs
+        # starring + explicit source URLs + nav to the other pages
         self.assertIn('data-cid="nyman-day-statistics-2015:0"', h)
         self.assertIn('class="cstar"', h)
-        self.assertIn('id="starlist"', h)
-        self.assertIn('id="copystars"', h)
         self.assertIn("doi.org/10.1039/c5ce00045a", h)
-        self.assertIn("const DATA=", h)
+        self.assertIn('href="intuition-history.html"', h)
+        self.assertIn('href="intuition-starred.html"', h)
+
+    def test_history_page(self):
+        h = intuition.render_history_page(DB, "2026-09-04")
+        for needle in ("Distillation history", "1 papers distilled", "Core idea:",
+                       "2026-09-04 &mdash; pdf", 'data-cid="nyman-day-statistics-2015:1"',
+                       "Assistant synthesis (interpretation)"):
+            self.assertIn(needle, h)
+
+    def test_starred_page(self):
+        h = intuition.render_starred_page(DB, "2026-09-04")
+        for needle in ("My starred intuitions", 'id="starlist"', 'id="copystars"',
+                       "const DATA=", "renderStars", "nyman-day-statistics-2015:0",
+                       "Copy as Markdown"):
+            self.assertIn(needle, h)
+
+    def test_render_all_writes_three_pages(self):
+        import tempfile, json as _json
+        with tempfile.TemporaryDirectory() as tmp:
+            vault = os.path.join(tmp, "vault")
+            os.makedirs(os.path.join(vault, "wiki", "syntheses"))
+            orig_repo = intuition.REPO
+            try:
+                intuition.REPO = tmp
+                os.makedirs(os.path.join(tmp, "site"))
+                intuition.render_all(DB, vault)
+            finally:
+                intuition.REPO = orig_repo
+            for f in ("intuition.html", "intuition-history.html", "intuition-starred.html"):
+                self.assertTrue(os.path.exists(os.path.join(tmp, "site", f)), f)
+            self.assertTrue(os.path.exists(os.path.join(vault, "wiki", "syntheses",
+                                                        "mcsp-intuition-handbook.md")))
 
     def test_abstract_only_flagged(self):
         rec2 = dict(REC, source_mode="metadata", slug="x2", chunks=[dict(REC["chunks"][0])])

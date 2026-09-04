@@ -182,10 +182,7 @@ def _chunk_div(c: dict, rec: dict, cid: str) -> str:
             f'<div class="src">source: {src_link}</div></div>')
 
 
-def render_site_page(db: dict, today: str) -> str:
-    e = _html.escape
-    recs = db.get("records", [])
-    css = """
+SITE_CSS = '''
 body{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.55}
 .wrap{max-width:860px;margin:0 auto;padding:36px 26px 60px}
 h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:26px 0 10px;border-bottom:1px solid #E4E3DC;padding-bottom:4px}
@@ -193,7 +190,7 @@ h1{font-size:25px;margin:0 0 4px}h2{font-size:19px;margin:26px 0 10px;border-bot
 a{color:#2f5d52}
 .today{background:#FFF8EE;border:1px solid #EFDDC2;border-left:4px solid #C6893F;border-radius:8px;padding:14px 18px;margin:10px 0 20px}
 .today .k{font-size:11.5px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:#a06a24;margin-bottom:6px}
-.chunk{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:11px 15px;margin:8px 0}
+.chunk{background:#fff;border:1px solid #E4E3DC;border-radius:8px;padding:11px 15px;margin:8px 0;position:relative;padding-right:38px}
 .stmt{font-weight:600;font-size:14.5px}
 .meta{color:#6B6A63;font-size:12.5px;margin-top:4px}
 .ev{font-size:13px;color:#3a3833;margin-top:5px}
@@ -201,92 +198,143 @@ a{color:#2f5d52}
 .syn{background:#F0F4F8;border-radius:6px;padding:8px 12px;font-size:13px;margin-top:8px;color:#2E2C27}
 .syn b{color:#3a5c53}
 .src{font-size:12px;color:#6B6A63;margin-top:5px}.src a{color:#2f5d52}
-.chunk{position:relative;padding-right:38px}
 .cstar{position:absolute;top:9px;right:11px;cursor:pointer;font-size:18px;color:#B4B3A8;user-select:none}
 .cstar.on{color:#C6893F}
-.starbox{background:#FBF7EC;border:1px solid #EAD9B0;border-left:4px solid #C6893F;border-radius:8px;padding:12px 16px;margin:10px 0 20px}
-.starbox .k{font-size:11.5px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:#a06a24;margin-bottom:4px}
-.copybtn{border:1px solid #C6893F;background:transparent;color:#a06a24;font:inherit;font-size:12.5px;border-radius:5px;padding:3px 10px;cursor:pointer;margin-left:10px}
+.copybtn{border:1px solid #C6893F;background:transparent;color:#a06a24;font:inherit;font-size:12.5px;border-radius:5px;padding:3px 10px;cursor:pointer}
 .copybtn:hover{background:#C6893F;color:#fff}
-"""
+'''
+
+NAV = ('<div class="top"><a href="index.html">&larr; CSP Reading Room</a>'
+       ' &nbsp;&middot;&nbsp; <a href="learn.html">Learn</a>'
+       ' &nbsp;&middot;&nbsp; <a href="intuition.html">&#128161; Handbook</a>'
+       ' &nbsp;&middot;&nbsp; <a href="intuition-history.html">History</a>'
+       ' &nbsp;&middot;&nbsp; <a href="intuition-starred.html">&#9733; Starred'
+       ' (<span id="navstarn">0</span>)</a></div>')
+
+STAR_JS = """
+<script>
+const KEY='intuition_starred';
+const get=()=>{try{return JSON.parse(localStorage.getItem(KEY))||[]}catch(e){return[]}};
+const save=a=>localStorage.setItem(KEY,JSON.stringify(a));
+function paint(){
+  const s=new Set(get());
+  document.querySelectorAll('.chunk[data-cid]').forEach(el=>{
+    const b=el.querySelector('.cstar');
+    if(b){const on=s.has(el.dataset.cid);b.innerHTML=on?'&#9733;':'&#9734;';b.classList.toggle('on',on);}
+  });
+  const n=document.getElementById('navstarn');if(n)n.textContent=get().length;
+}
+document.addEventListener('click',ev=>{
+  const b=ev.target.closest('.cstar');if(!b)return;
+  const cid=b.closest('.chunk').dataset.cid;let a=get();
+  a=a.includes(cid)?a.filter(x=>x!==cid):[...a,cid];save(a);paint();
+  if(window.renderStars)window.renderStars();
+});
+paint();if(window.renderStars)window.renderStars();
+</script>"""
+
+
+def _shell(title: str, body: str, extra_js: str = "") -> str:
+    return (f"<!doctype html><html><head><meta charset=\"utf-8\">"
+            f"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+            f"<title>{_html.escape(title)}</title><style>{SITE_CSS}</style></head><body>"
+            f"<div class=\"wrap\">{NAV}{body}{extra_js}{STAR_JS}</div></body></html>")
+
+
+def _star_data(recs: list) -> dict:
+    out = {}
+    for rec in recs:
+        for i, c in enumerate(rec.get("chunks", [])):
+            url = f"https://doi.org/{rec['doi']}" if rec.get("doi") else ""
+            out[f"{rec['slug']}:{i}"] = {
+                "statement": c["statement"], "scope": c["scope"], "evidence": c["evidence"],
+                "generality": c["generality"], "type": c.get("type", ""),
+                "title": rec["title"], "year": rec.get("year"), "url": url}
+    return out
+
+
+def _record_block(r: dict, heading: str) -> str:
+    e = _html.escape
+    doi = f' &middot; <a href="https://doi.org/{e(r["doi"])}" target="_blank">doi:{e(r["doi"])}</a>' if r.get("doi") else ""
+    chunks = "".join(_chunk_div(c, r, f"{r['slug']}:{i}") for i, c in enumerate(r.get("chunks", [])))
+    return (f'<div class="today"><div class="k">{heading}</div>'
+            f'<b>{e(r["title"])}</b> ({r.get("year", "")}){doi}'
+            f'<p><b>Core idea:</b> {e(r.get("core_idea", ""))}</p>'
+            f'<p><b>Innovation:</b> {e(r.get("innovation", ""))}</p>'
+            + chunks
+            + f'<div class="syn"><b>Assistant synthesis (interpretation):</b> {e(r.get("synthesis", ""))}</div></div>')
+
+
+def render_history_page(db: dict, today: str) -> str:
+    recs = list(reversed(db.get("records", [])))
+    body = [f"<h1>Distillation history</h1><div class=\"sub\">{len(recs)} papers distilled, newest "
+            f"first &middot; updated {today}</div>"]
+    for r in recs:
+        body.append(_record_block(r, f"{_html.escape(r['date'])} &mdash; {r.get('source_mode', '')}"))
+    if not recs:
+        body.append("<p>Nothing distilled yet.</p>")
+    return _shell("MCSP intuition history", "".join(body))
+
+
+def render_starred_page(db: dict, today: str) -> str:
+    data = json.dumps(_star_data(db.get("records", [])))
+    body = (f"<h1>&#9733; My starred intuitions</h1>"
+            f"<div class=\"sub\">Chunks you starred anywhere in the handbook or history &middot; "
+            f"stored in this browser</div>"
+            f"<div><button class=\"copybtn\" id=\"copystars\">Copy as Markdown</button></div>"
+            f"<div id=\"starlist\"></div>"
+            f"<p id=\"emptymsg\" style=\"display:none;color:#6B6A63\">Nothing starred yet - "
+            f"click the &#9734; on any chunk in the <a href=\"intuition.html\">handbook</a> or "
+            f"<a href=\"intuition-history.html\">history</a>.</p>")
+    js = """
+<script>
+const DATA=%s;
+window.renderStars=function(){
+  const ids=(JSON.parse(localStorage.getItem('intuition_starred')||'[]')).filter(c=>DATA[c]);
+  const list=document.getElementById('starlist');list.innerHTML='';
+  ids.forEach(cid=>{const d=DATA[cid];const div=document.createElement('div');
+    div.className='chunk';div.dataset.cid=cid;
+    div.innerHTML=`<span class="cstar" title="Unstar">&#9733;</span>`+
+      `<div class="stmt"></div><div class="meta"></div><div class="ev"></div><div class="src"></div>`;
+    div.querySelector('.stmt').textContent=d.statement;
+    div.querySelector('.meta').textContent=`${d.type} · scope: ${d.scope} · ${d.generality}`;
+    div.querySelector('.ev').textContent=d.evidence;
+    div.querySelector('.src').innerHTML=d.url?`source: <a href="${d.url}" target="_blank"></a>`:'source: ';
+    const a=div.querySelector('.src a')||div.querySelector('.src');
+    a.textContent=`${d.title} (${d.year||''})`;
+    list.appendChild(div);});
+  document.getElementById('emptymsg').style.display=ids.length?'none':'block';
+};
+document.getElementById('copystars').addEventListener('click',ev=>{
+  const md=(JSON.parse(localStorage.getItem('intuition_starred')||'[]')).filter(c=>DATA[c]).map(c=>{const d=DATA[c];
+    return `- **${d.statement}**\\n    - scope: ${d.scope} | generality: ${d.generality}\\n    - evidence: ${d.evidence}\\n    - source: [${d.title} (${d.year||''})](${d.url})`;
+  }).join('\\n');
+  navigator.clipboard.writeText(md).then(()=>{ev.target.textContent='Copied!';setTimeout(()=>ev.target.textContent='Copy as Markdown',1500);});
+});
+</script>""" % data
+    return _shell("My starred intuitions", body, extra_js=js)
+
+
+def render_site_page(db: dict, today: str) -> str:
+    recs = db.get("records", [])
     parts = [f"<h1>&#128161; MCSP intuition handbook</h1>"
-             f"<div class=\"sub\">{sum(len(r.get('chunks',[])) for r in recs)} intuition chunks from "
-             f"{len(recs)} papers &middot; one paper distilled per day &middot; updated {today}</div>"]
-    star_data = {}                         # cid -> md-export payload for the copy button
+             f"<div class=\"sub\">{sum(len(r.get('chunks', [])) for r in recs)} intuition chunks "
+             f"from {len(recs)} papers &middot; one paper distilled per day &middot; updated {today}"
+             f" &middot; star &#9734; what you want to keep - it collects on the "
+             f"<a href=\"intuition-starred.html\">Starred page</a></div>"]
     if recs:
-        r = recs[-1]
-        doi = f' &middot; <a href="https://doi.org/{e(r["doi"])}" target="_blank">doi:{e(r["doi"])}</a>' if r.get("doi") else ""
-        today_chunks = "".join(_chunk_div(c, r, f"{r['slug']}:{i}")
-                               for i, c in enumerate(r.get("chunks", [])))
-        parts.append(
-            f'<div class="today"><div class="k">Today\'s paper &mdash; {e(r["date"])}</div>'
-            f'<b>{e(r["title"])}</b> ({r.get("year","")}){doi}'
-            f'<p><b>Core idea:</b> {e(r.get("core_idea",""))}</p>'
-            f'<p><b>Innovation:</b> {e(r.get("innovation",""))}</p>'
-            + today_chunks
-            + f'<div class="syn"><b>Assistant synthesis (interpretation):</b> {e(r.get("synthesis",""))}</div></div>')
-    # Starred collection (client-side, localStorage) + markdown export
-    parts.append(
-        '<div class="starbox" id="starbox" style="display:none">'
-        '<div class="k">&#9733; My starred intuitions (<span id="starcount">0</span>)'
-        '<button class="copybtn" id="copystars">Copy as Markdown</button></div>'
-        '<div id="starlist"></div></div>')
+        parts.append(_record_block(recs[-1], f"Today's paper &mdash; {recs[-1]['date']}"))
     parts.append('<div id="book">')
     for t in CHUNK_TYPES:
         rows = []
         for rec in recs:
             for i, c in enumerate(rec.get("chunks", [])):
                 if c.get("type") == t:
-                    cid = f"{rec['slug']}:{i}"
-                    url = f"https://doi.org/{rec['doi']}" if rec.get("doi") else ""
-                    star_data[cid] = {"statement": c["statement"], "scope": c["scope"],
-                                      "evidence": c["evidence"], "generality": c["generality"],
-                                      "title": rec["title"], "year": rec.get("year"), "url": url}
-                    rows.append(_chunk_div(c, rec, cid))
+                    rows.append(_chunk_div(c, rec, f"{rec['slug']}:{i}"))
         if rows:
             parts.append(f"<h2>{_html.escape(TYPE_TITLES[t])}</h2>" + "".join(rows))
     parts.append('</div>')
-    js = """
-<script>
-const DATA=%s;
-const KEY='intuition_starred';
-const get=()=>{try{return JSON.parse(localStorage.getItem(KEY))||[]}catch(e){return[]}};
-const save=a=>localStorage.setItem(KEY,JSON.stringify(a));
-function refresh(){
-  const s=new Set(get());
-  document.querySelectorAll('.chunk[data-cid]').forEach(el=>{
-    const b=el.querySelector('.cstar');
-    if(b){const on=s.has(el.dataset.cid);b.innerHTML=on?'&#9733;':'&#9734;';b.classList.toggle('on',on);}
-  });
-  const list=document.getElementById('starlist');list.innerHTML='';
-  const seen=new Set();let n=0;
-  document.querySelectorAll('#book .chunk[data-cid]').forEach(el=>{
-    const cid=el.dataset.cid;
-    if(s.has(cid)&&!seen.has(cid)){seen.add(cid);list.appendChild(el.cloneNode(true));n++;}
-  });
-  document.getElementById('starbox').style.display=n?'block':'none';
-  document.getElementById('starcount').textContent=n;
-}
-document.addEventListener('click',ev=>{
-  const b=ev.target.closest('.cstar');if(!b)return;
-  const cid=b.closest('.chunk').dataset.cid;let a=get();
-  a=a.includes(cid)?a.filter(x=>x!==cid):[...a,cid];save(a);refresh();
-});
-document.getElementById('copystars').addEventListener('click',ev=>{
-  ev.stopPropagation();
-  const md=get().filter(c=>DATA[c]).map(c=>{const d=DATA[c];
-    return `- **${d.statement}**\\n    - scope: ${d.scope} | generality: ${d.generality}\\n    - evidence: ${d.evidence}\\n    - source: [${d.title} (${d.year||''})](${d.url})`;
-  }).join('\\n');
-  navigator.clipboard.writeText(md).then(()=>{ev.target.textContent='Copied!';setTimeout(()=>ev.target.textContent='Copy as Markdown',1500);});
-});
-refresh();
-</script>""" % json.dumps(star_data)
-    body = "".join(parts)
-    return (f"<!doctype html><html><head><meta charset=\"utf-8\">"
-            f"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
-            f"<title>MCSP intuition handbook</title><style>{css}</style></head><body>"
-            f"<div class=\"wrap\"><div class=\"top\"><a href=\"index.html\">&larr; CSP Reading Room</a>"
-            f" &nbsp;&middot;&nbsp; <a href=\"learn.html\">Learn</a></div>{body}{js}</div></body></html>")
+    return _shell("MCSP intuition handbook", "".join(parts))
 
 
 def render_all(db: dict, vault: str) -> None:
@@ -299,8 +347,11 @@ def render_all(db: dict, vault: str) -> None:
     dest = os.path.join(vault, "wiki", "syntheses", "mcsp-intuition-handbook.md")
     os.makedirs(os.path.dirname(dest), exist_ok=True)
     open(dest, "w").write(render_vault_page(db, pages, today))
-    open(os.path.join(REPO, "site", "intuition.html"), "w").write(render_site_page(db, today))
-    print(f"[intuition] handbook -> {dest} + site/intuition.html "
+    site = os.path.join(REPO, "site")
+    open(os.path.join(site, "intuition.html"), "w").write(render_site_page(db, today))
+    open(os.path.join(site, "intuition-history.html"), "w").write(render_history_page(db, today))
+    open(os.path.join(site, "intuition-starred.html"), "w").write(render_starred_page(db, today))
+    print(f"[intuition] handbook -> {dest} + site/intuition{{,-history,-starred}}.html "
           f"({sum(len(r.get('chunks', [])) for r in db.get('records', []))} chunks)")
 
 
