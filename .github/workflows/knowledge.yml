@@ -19,6 +19,8 @@ on:
 
 permissions:
   contents: write
+  pages: write              # deploy the updated Learn/Intuition pages
+  id-token: write
 
 concurrency:
   group: knowledge-network
@@ -100,3 +102,21 @@ jobs:
           git diff --quiet --staged || git commit -m "knowledge: $(date -u +%F) Learn tab + manifest update"
           git pull --rebase origin ${GITHUB_REF_NAME} || true
           git push origin HEAD:${GITHUB_REF_NAME}
+
+      # Publish the freshly rendered pages: pushing to main is not enough -
+      # Pages serves whatever the last deploy uploaded.
+      - name: Upload site as Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: update
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
