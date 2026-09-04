@@ -130,6 +130,20 @@ KW  - ML-potential
 ER  - 
 
 TY  - GEN
+TI  - High-throughput Discovery of Magnetic Rare Earth Transition Metal Alloys
+AU  - Shuo Tao
+AU  - Osman Goni Ridwan
+AU  - Liqin Ke
+DA  - 2026/08/26
+PY  - 2026
+JO  - arXiv
+UR  - https://arxiv.org/abs/2608.25270v1
+AB  - We present an accelerated materials discovery framework that combines diffusion-based crystal structure generation with hierarchical screening to identify new rare-earth--transition-metal magnets simultaneously achieving high magnetization and thermodynamic stability. Using this workflow, we systematically explored over 3000 binary (R-T) and ternary (R-T-T$'$) compositions spanning R~$\in \{\text{Y, Sm}\}$, T~$\in \{\text{Fe, Co, Ni}\}$, and T$' \in \{\text{Ti, V, Cr, Mn, Cu, Zn}\}$, and filtered approximately 240{,}000 generated crystal structures through machine-learning interatomic potential prescreening and spin-polarized density functional theory validation. We identify 300+ low-energy magnetic candidates within 0.1~eV/atom above the convex hull at the DFT level, including 5 thermodynamically stable phases. The highest saturation magnetization reaches ${\sim}1.8$~T in Fe-rich binary and ternary phases (SmFe$_{12}$, YFe$_{12}$, YFe$_{18}$Ti and Sm$_2$Fe$_{16}$Mn). Symmetry analysis reveals that the majority of ternary candidates are subgroup derivatives of known binary prototypes through Wyckoff site splitting that accommodates T$'$ substitution. Site-resolved magnetic moment a
+KW  - CSP
+KW  - ML-potential
+ER  - 
+
+TY  - GEN
 TI  - Weisfeiler-Lehman subtree encoding for Bayesian optimization of atomic configurations
 AU  - Akira Kusaba
 AU  - Tatoshi Yonemori
@@ -170,22 +184,6 @@ DO  - 10.1186/s41313-026-00086-4
 UR  - https://doi.org/10.1186/s41313-026-00086-4
 KW  - CSP
 KW  - ML-potential
-ER  - 
-
-TY  - JOUR
-TI  - Universal Interatomic Potentials as Configuration-Space Generators for One-Shot and Iterative Fine-Tuning of Ab Initio-Accurate Material-Specific Models
-AU  - Jonas Hänseroth
-AU  - Aaron Flötotto
-AU  - Christian Dreßler
-DA  - 2026/09/01
-PY  - 2026
-JO  - The Journal of Physical Chemistry Letters
-DO  - 10.1021/acs.jpclett.6c02067
-UR  - https://doi.org/10.1021/acs.jpclett.6c02067
-AB  - Abstract Universal machine learning interatomic potentials (MLIPs) are rapidly becoming general-purpose tools for atomistic simulation, but their role in quantitative materials modeling when reactive events are involved remains unsettled. We compare five universal MLIPs across seven chemically diverse systems and find that strong performance on standard benchmarks does not guarantee accurate predictions of the target observables. In particular, zero-shot models do not reliably reproduce reactive, transport, or high-barrier processes, exemplified here in particular by the sulfur-vacancy jump in MoS2. We therefore benchmark a practical alternative against target observables: universal MLIPs are used to generate long molecular dynamics trajectories, the resulting configurations are subsampled and relabeled with DFT, and material-specific MLIPs are subsequently trained or fine-tuned on the resulting first-principles data sets. This workflow converts universal models into efficient configuration-space generators while retaining ab initio reference labels for training and turns their systematic softening of the potential energy surface from a liability into a sampling advantage. Across t
-KW  - CSP
-KW  - ML-potential
-KW  - benchmark
 ER  - 
 
 TY  - GEN

@@ -2,8 +2,8 @@
  {
   "date": "2026-09-04",
   "count": 17,
-  "new_count": 2,
-  "synthesis": "Generative and flow-based approaches dominate: Packora, SO(3) orientation flow analysis, and text-guided flow matching all probe generative CSP methods' capabilities and limits, alongside ML interatomic potential advances (uncertainty quantification, charge equilibration) supporting downstream ranking\u2014suggesting the field is consolidating around generative-model diagnostics rather than pure novelty",
+  "new_count": 3,
+  "synthesis": "Generative and flow-based approaches dominate, with two papers directly probing SO(3) orientation flows and text-guided flow matching for CSP, alongside Packora's systematic generative design framework\u2014suggesting active scrutiny of what these ML methods actually learn versus genetic/physical baselines like MLIP-driven hierarchical and shotgun CSP.",
   "top": [
    {
     "title": "Packora: Systematic Design for Generative Molecular Crystal Structure Prediction",

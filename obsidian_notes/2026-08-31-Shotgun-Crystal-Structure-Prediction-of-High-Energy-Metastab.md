@@ -18,7 +18,7 @@ tags:
 **Scores:** relevance 70 / significance 0
 
 ## Why it matters
-A shotgun-style, one-shot crystal structure prediction approach targeting high-energy metastable phases stable at ambient conditions, likely replacing iterative evolutionary search with massed parallel candidate generation and rapid screening.
+Likely introduces a "shotgun" high-throughput structure-generation strategy—massively parallel candidate sampling without iterative genetic evolution—to efficiently target high-energy metastable phases stable at ambient conditions.
 
 ## My notes
 
