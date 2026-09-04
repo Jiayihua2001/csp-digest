@@ -20,7 +20,7 @@ tags:
 **Field:** [[free-energy]]
 
 ## Why it matters
-Introduces a deep-learning framework to compute free energies incorporating nuclear quantum and finite-temperature effects directly within crystal structure prediction, rather than relying on static-lattice energy minimization alone.
+Integrates deep-learning-based free energy prediction (capturing nuclear quantum and finite-temperature effects) into crystal structure search, replacing static-energy ranking used in prior evolutionary CSP methods.
 
 ## My notes
 

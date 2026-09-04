@@ -18,7 +18,7 @@ tags:
 **Scores:** relevance 70 / significance 0
 
 ## Why it matters
-Likely introduces a "shotgun" high-throughput structure-generation strategy—massively parallel candidate sampling without iterative genetic evolution—to efficiently target high-energy metastable phases stable at ambient conditions.
+Introduces a "shotgun" CSP approach—broad, non-iterative structure sampling rather than sequential genetic-algorithm refinement—to efficiently identify high-energy metastable phases stable at ambient conditions.
 
 ## My notes
 
