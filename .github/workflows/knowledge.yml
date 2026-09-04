@@ -76,6 +76,13 @@ jobs:
           VAULT_PATH: ${{ github.workspace }}/vault
         run: python3 -u review/render_learn.py
 
+      - name: Intuition of the day (one paper distilled)
+        env:
+          VAULT_PATH: ${{ github.workspace }}/vault
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
+        run: python3 -u review/intuition.py --daily
+
       - name: Push vault changes
         working-directory: vault
         run: |
@@ -89,7 +96,7 @@ jobs:
         run: |
           git config user.name "csp-digest-knowledge-bot"
           git config user.email "actions@github.com"
-          git add review/corpus-manifest.json review/tree.json review/curriculum.json site/learn.html site/learn/ 2>/dev/null || true
+          git add review/corpus-manifest.json review/tree.json review/curriculum.json review/intuition.json site/learn.html site/learn/ site/intuition.html 2>/dev/null || true
           git diff --quiet --staged || git commit -m "knowledge: $(date -u +%F) Learn tab + manifest update"
           git pull --rebase origin ${GITHUB_REF_NAME} || true
           git push origin HEAD:${GITHUB_REF_NAME}
