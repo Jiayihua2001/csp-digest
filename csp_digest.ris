@@ -130,20 +130,6 @@ KW  - ML-potential
 ER  - 
 
 TY  - GEN
-TI  - High-throughput Discovery of Magnetic Rare Earth Transition Metal Alloys
-AU  - Shuo Tao
-AU  - Osman Goni Ridwan
-AU  - Liqin Ke
-DA  - 2026/08/26
-PY  - 2026
-JO  - arXiv
-UR  - https://arxiv.org/abs/2608.25270v1
-AB  - We present an accelerated materials discovery framework that combines diffusion-based crystal structure generation with hierarchical screening to identify new rare-earth--transition-metal magnets simultaneously achieving high magnetization and thermodynamic stability. Using this workflow, we systematically explored over 3000 binary (R-T) and ternary (R-T-T$'$) compositions spanning R~$\in \{\text{Y, Sm}\}$, T~$\in \{\text{Fe, Co, Ni}\}$, and T$' \in \{\text{Ti, V, Cr, Mn, Cu, Zn}\}$, and filtered approximately 240{,}000 generated crystal structures through machine-learning interatomic potential prescreening and spin-polarized density functional theory validation. We identify 300+ low-energy magnetic candidates within 0.1~eV/atom above the convex hull at the DFT level, including 5 thermodynamically stable phases. The highest saturation magnetization reaches ${\sim}1.8$~T in Fe-rich binary and ternary phases (SmFe$_{12}$, YFe$_{12}$, YFe$_{18}$Ti and Sm$_2$Fe$_{16}$Mn). Symmetry analysis reveals that the majority of ternary candidates are subgroup derivatives of known binary prototypes through Wyckoff site splitting that accommodates T$'$ substitution. Site-resolved magnetic moment a
-KW  - CSP
-KW  - ML-potential
-ER  - 
-
-TY  - GEN
 TI  - Weisfeiler-Lehman subtree encoding for Bayesian optimization of atomic configurations
 AU  - Akira Kusaba
 AU  - Tatoshi Yonemori

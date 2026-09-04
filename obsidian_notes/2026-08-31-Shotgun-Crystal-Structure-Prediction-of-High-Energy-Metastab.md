@@ -18,7 +18,7 @@ tags:
 **Scores:** relevance 70 / significance 0
 
 ## Why it matters
-Introduces a "shotgun" CSP approach—broad, parallel sampling of candidate structures—to identify high-energy metastable phases stable at ambient conditions, rather than only ground-state minima.
+A shotgun-style, one-shot crystal structure prediction approach targeting high-energy metastable phases stable at ambient conditions, likely replacing iterative evolutionary search with massed parallel candidate generation and rapid screening.
 
 ## My notes
 

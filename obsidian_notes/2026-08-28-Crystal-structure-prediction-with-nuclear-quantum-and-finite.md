@@ -5,7 +5,7 @@ source: journal
 venue: "Physical Review B"
 doi: 10.1103/3qjr-mgv7
 arxiv: 
-relevance: 80
+relevance: 70
 significance: 0
 tags:
   - CSP
@@ -16,11 +16,11 @@ tags:
 
 **Authors:** [[Anonymous]]
 **Link:** https://doi.org/10.1103/3qjr-mgv7
-**Scores:** relevance 80 / significance 0
+**Scores:** relevance 70 / significance 0
 **Field:** [[free-energy]]
 
 ## Why it matters
-Introduces deep learning of free-energy surfaces to incorporate nuclear quantum and finite-temperature effects directly into crystal structure prediction, moving beyond static zero-Kelvin energy minimization.
+Introduces a deep free energy learning approach that incorporates nuclear quantum and finite-temperature effects directly into crystal structure prediction, rather than relying on static 0 K lattice-energy minimization.
 
 ## My notes
 
