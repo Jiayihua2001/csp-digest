@@ -21,7 +21,7 @@ tags:
 **Field:** [[ML-potential]] [[benchmark]]
 
 ## Why it matters
-Introduces a Weisfeiler-Lehman subtree kernel—graph-based, explicit histogram features—as a drop-in BO descriptor, cutting BC2N ground-state search evaluations by ~2.6x versus one-hot encoding.
+Introduces a Weisfeiler-Lehman subtree kernel as an explicit-feature graph descriptor for Bayesian optimization, cutting BO$_2$N ground-state search evaluations by roughly half versus one-hot encoding.
 
 ## Abstract
 > The efficiency of Bayesian optimization (BO) of atomic configurations depends strongly on how configurations are encoded. We introduce the Weisfeiler-Lehman (WL) subtree kernel, which views configurations as element-labeled graphs and measures their similarity by how many local structural patterns they share, into Bayesian-optimization-based configuration search. Because this kernel is reproduced as the plain inner product of explicit features (L$^2$-normalized histograms of local topological patterns), introducing it reduces to introducing the corresponding features: the encoding enters existing BO frameworks as an ordinary descriptor. In a benchmark ground-state configuration search of cubic BC$_2$N evaluated with a universal machine-learning interatomic potential, the WL encoding reached the ground state almost immediately after a shared random initialization of 100 samples in every one of five independent rounds (108$\pm$5 evaluations on average), whereas the one-hot baseline required 280$\pm$122 evaluations; the WL-driven sampler first exhausted the degenerate ground-state group and then discovered the metastable degenerate groups from the bottom up, in order of increasing ene
