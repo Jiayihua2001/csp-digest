@@ -57,6 +57,13 @@ class TestRender(unittest.TestCase):
                        "Assistant synthesis (interpretation)", 'href="https://doi.org/10.1039/c5ce00045a"'):
             self.assertIn(needle, h)
         self.assertIn("2 intuition chunks from 1 papers", h)
+        # starring + explicit source URLs
+        self.assertIn('data-cid="nyman-day-statistics-2015:0"', h)
+        self.assertIn('class="cstar"', h)
+        self.assertIn('id="starlist"', h)
+        self.assertIn('id="copystars"', h)
+        self.assertIn("doi.org/10.1039/c5ce00045a", h)
+        self.assertIn("const DATA=", h)
 
     def test_abstract_only_flagged(self):
         rec2 = dict(REC, source_mode="metadata", slug="x2", chunks=[dict(REC["chunks"][0])])

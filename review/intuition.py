@@ -165,6 +165,23 @@ def render_vault_page(db: dict, pages: dict, today: str) -> str:
     return "\n".join(lines)
 
 
+def _chunk_div(c: dict, rec: dict, cid: str) -> str:
+    """One starrable chunk card with an explicit source line (title + DOI url)."""
+    e = _html.escape
+    url = f"https://doi.org/{rec['doi']}" if rec.get("doi") else ""
+    src_link = (f'<a href="{e(url)}" target="_blank">{e(rec["title"][:70])} ({rec.get("year", "")})</a>'
+                f' &mdash; {e(url.replace("https://", ""))}' if url
+                else f'{e(rec["title"][:70])} ({rec.get("year", "")})')
+    flag = "" if rec.get("source_mode") in ("pdf", "clipping") else " (abstract-only)"
+    return (f'<div class="chunk" data-cid="{e(cid)}">'
+            f'<span class="cstar" title="Star this intuition">&#9734;</span>'
+            f'<div class="stmt">{e(c["statement"])}</div>'
+            f'<div class="meta">{e(c["type"])} &middot; scope: {e(c["scope"])} &middot; '
+            f'<span class="gen-{e(c["generality"])}">{e(c["generality"])}</span>{flag}</div>'
+            f'<div class="ev">{e(c["evidence"])}</div>'
+            f'<div class="src">source: {src_link}</div></div>')
+
+
 def render_site_page(db: dict, today: str) -> str:
     e = _html.escape
     recs = db.get("records", [])
@@ -183,46 +200,93 @@ a{color:#2f5d52}
 .gen-established{color:#2f5d52;font-weight:700}.gen-suggested{color:#9c6b1f;font-weight:700}.gen-single-study{color:#B23A2E;font-weight:700}
 .syn{background:#F0F4F8;border-radius:6px;padding:8px 12px;font-size:13px;margin-top:8px;color:#2E2C27}
 .syn b{color:#3a5c53}
+.src{font-size:12px;color:#6B6A63;margin-top:5px}.src a{color:#2f5d52}
+.chunk{position:relative;padding-right:38px}
+.cstar{position:absolute;top:9px;right:11px;cursor:pointer;font-size:18px;color:#B4B3A8;user-select:none}
+.cstar.on{color:#C6893F}
+.starbox{background:#FBF7EC;border:1px solid #EAD9B0;border-left:4px solid #C6893F;border-radius:8px;padding:12px 16px;margin:10px 0 20px}
+.starbox .k{font-size:11.5px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:#a06a24;margin-bottom:4px}
+.copybtn{border:1px solid #C6893F;background:transparent;color:#a06a24;font:inherit;font-size:12.5px;border-radius:5px;padding:3px 10px;cursor:pointer;margin-left:10px}
+.copybtn:hover{background:#C6893F;color:#fff}
 """
     parts = [f"<h1>&#128161; MCSP intuition handbook</h1>"
              f"<div class=\"sub\">{sum(len(r.get('chunks',[])) for r in recs)} intuition chunks from "
              f"{len(recs)} papers &middot; one paper distilled per day &middot; updated {today}</div>"]
+    star_data = {}                         # cid -> md-export payload for the copy button
     if recs:
         r = recs[-1]
-        doi = f' &middot; <a href="https://doi.org/{e(r["doi"])}" target="_blank">doi</a>' if r.get("doi") else ""
+        doi = f' &middot; <a href="https://doi.org/{e(r["doi"])}" target="_blank">doi:{e(r["doi"])}</a>' if r.get("doi") else ""
+        today_chunks = "".join(_chunk_div(c, r, f"{r['slug']}:{i}")
+                               for i, c in enumerate(r.get("chunks", [])))
         parts.append(
             f'<div class="today"><div class="k">Today\'s paper &mdash; {e(r["date"])}</div>'
             f'<b>{e(r["title"])}</b> ({r.get("year","")}){doi}'
             f'<p><b>Core idea:</b> {e(r.get("core_idea",""))}</p>'
             f'<p><b>Innovation:</b> {e(r.get("innovation",""))}</p>'
-            + "".join(
-                f'<div class="chunk"><div class="stmt">{e(c["statement"])}</div>'
-                f'<div class="meta">{e(c["type"])} &middot; scope: {e(c["scope"])} &middot; '
-                f'<span class="gen-{e(c["generality"])}">{e(c["generality"])}</span></div>'
-                f'<div class="ev">{e(c["evidence"])}</div></div>'
-                for c in r.get("chunks", []))
+            + today_chunks
             + f'<div class="syn"><b>Assistant synthesis (interpretation):</b> {e(r.get("synthesis",""))}</div></div>')
+    # Starred collection (client-side, localStorage) + markdown export
+    parts.append(
+        '<div class="starbox" id="starbox" style="display:none">'
+        '<div class="k">&#9733; My starred intuitions (<span id="starcount">0</span>)'
+        '<button class="copybtn" id="copystars">Copy as Markdown</button></div>'
+        '<div id="starlist"></div></div>')
+    parts.append('<div id="book">')
     for t in CHUNK_TYPES:
         rows = []
         for rec in recs:
-            for c in rec.get("chunks", []):
+            for i, c in enumerate(rec.get("chunks", [])):
                 if c.get("type") == t:
-                    doi = f' <a href="https://doi.org/{e(rec["doi"])}" target="_blank">[src]</a>' if rec.get("doi") else ""
-                    flag = "" if rec.get("source_mode") in ("pdf", "clipping") else " (abstract-only)"
-                    rows.append(
-                        f'<div class="chunk"><div class="stmt">{e(c["statement"])}</div>'
-                        f'<div class="meta">scope: {e(c["scope"])} &middot; '
-                        f'<span class="gen-{e(c["generality"])}">{e(c["generality"])}</span>'
-                        f' &middot; {e(rec["title"][:55])}{doi}{flag}</div>'
-                        f'<div class="ev">{e(c["evidence"])}</div></div>')
+                    cid = f"{rec['slug']}:{i}"
+                    url = f"https://doi.org/{rec['doi']}" if rec.get("doi") else ""
+                    star_data[cid] = {"statement": c["statement"], "scope": c["scope"],
+                                      "evidence": c["evidence"], "generality": c["generality"],
+                                      "title": rec["title"], "year": rec.get("year"), "url": url}
+                    rows.append(_chunk_div(c, rec, cid))
         if rows:
             parts.append(f"<h2>{_html.escape(TYPE_TITLES[t])}</h2>" + "".join(rows))
+    parts.append('</div>')
+    js = """
+<script>
+const DATA=%s;
+const KEY='intuition_starred';
+const get=()=>{try{return JSON.parse(localStorage.getItem(KEY))||[]}catch(e){return[]}};
+const save=a=>localStorage.setItem(KEY,JSON.stringify(a));
+function refresh(){
+  const s=new Set(get());
+  document.querySelectorAll('.chunk[data-cid]').forEach(el=>{
+    const b=el.querySelector('.cstar');
+    if(b){const on=s.has(el.dataset.cid);b.innerHTML=on?'&#9733;':'&#9734;';b.classList.toggle('on',on);}
+  });
+  const list=document.getElementById('starlist');list.innerHTML='';
+  const seen=new Set();let n=0;
+  document.querySelectorAll('#book .chunk[data-cid]').forEach(el=>{
+    const cid=el.dataset.cid;
+    if(s.has(cid)&&!seen.has(cid)){seen.add(cid);list.appendChild(el.cloneNode(true));n++;}
+  });
+  document.getElementById('starbox').style.display=n?'block':'none';
+  document.getElementById('starcount').textContent=n;
+}
+document.addEventListener('click',ev=>{
+  const b=ev.target.closest('.cstar');if(!b)return;
+  const cid=b.closest('.chunk').dataset.cid;let a=get();
+  a=a.includes(cid)?a.filter(x=>x!==cid):[...a,cid];save(a);refresh();
+});
+document.getElementById('copystars').addEventListener('click',ev=>{
+  ev.stopPropagation();
+  const md=get().filter(c=>DATA[c]).map(c=>{const d=DATA[c];
+    return `- **${d.statement}**\\n    - scope: ${d.scope} | generality: ${d.generality}\\n    - evidence: ${d.evidence}\\n    - source: [${d.title} (${d.year||''})](${d.url})`;
+  }).join('\\n');
+  navigator.clipboard.writeText(md).then(()=>{ev.target.textContent='Copied!';setTimeout(()=>ev.target.textContent='Copy as Markdown',1500);});
+});
+refresh();
+</script>""" % json.dumps(star_data)
     body = "".join(parts)
     return (f"<!doctype html><html><head><meta charset=\"utf-8\">"
             f"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
             f"<title>MCSP intuition handbook</title><style>{css}</style></head><body>"
             f"<div class=\"wrap\"><div class=\"top\"><a href=\"index.html\">&larr; CSP Reading Room</a>"
-            f" &nbsp;&middot;&nbsp; <a href=\"learn.html\">Learn</a></div>{body}</div></body></html>")
+            f" &nbsp;&middot;&nbsp; <a href=\"learn.html\">Learn</a></div>{body}{js}</div></body></html>")
 
 
 def render_all(db: dict, vault: str) -> None:
