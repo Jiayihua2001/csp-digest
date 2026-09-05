@@ -18,7 +18,7 @@ tags:
 **Scores:** relevance 70 / significance 0
 
 ## Why it matters
-Introduces a "shotgun" CSP approach—broad, non-iterative structure sampling rather than sequential genetic-algorithm refinement—to efficiently identify high-energy metastable phases stable at ambient conditions.
+A shotgun-style, non-iterative CSP approach that broadly samples candidate structures upfront to efficiently target high-energy metastable phases stable only at ambient conditions, rather than relying on sequential generational search.
 
 ## My notes
 

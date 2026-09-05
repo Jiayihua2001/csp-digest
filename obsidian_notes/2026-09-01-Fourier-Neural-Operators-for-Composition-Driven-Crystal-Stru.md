@@ -21,7 +21,7 @@ tags:
 **Field:** [[generative-model]] [[ML-potential]]
 
 ## Why it matters
-Introduces a Fourier Neural Operator-based crystal-field solver, coupled with a low-dimensional cVAE lattice generator, to predict periodic density fields and reconstruct atomic structures directly from composition.
+Introduces a Fourier Neural Operator-based crystal-field solver, replacing local 3D-CNN/VAE voxel models, coupled with a conditional VAE generator and peak-detection reconstruction pipeline for composition-conditioned crystal structure discovery.
 
 ## Abstract
 > Crystalline materials discovery is essential for energy, electronics, and catalysis, but the vast chemical and structural space makes exhaustive screening infeasible. Existing voxel-based methods are limited by the local receptive fields of three-dimensional convolutional neural networks and the posterior collapse of high-dimensional variational autoencoders. Here, we develop a Fourier Neural Operator (FNO)-based crystal-field solver that maps a prescribed chemical formula and lattice parameters to periodic number-density and electron-density fields. By operating on global Fourier modes, the solver captures long-range correlations in periodic crystal fields beyond conventional local convolutions. Building on this solver, we construct a coupled generation-solving framework in which a conditional variational autoencoder generates diverse candidate lattice parameters in a low-dimensional basis-coefficient space, followed by density-field prediction and atomic reconstruction through peak detection, position optimization, and weight optimization. The reconstructed structures are further screened using voxel-level filtering, machine-learning interatomic-potential relaxation, and first-pr
