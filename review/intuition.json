@@ -83,6 +83,62 @@
     }
    ],
    "synthesis": "For GAtor 2.0, the sharpest lessons are about the generate/rank split and conformer handling. GA operators must sample crystal-relevant conformers, not just gas-phase minima (XXII/XXVI failures) - Genarris generation and mutation/crossover should preserve or explore in-crystal conformations, and any GA that relies on a cheap fitness for niching risks pruning a true structure before an accurate ranker (PBE0+MBD, MACE-OFF/AIMNet2/UMA) ever sees it, so the pool advanced from intermediate ranking should be generous. The 3-4 kJ/mol accuracy floor versus sub-kJ/mol polymorph gaps means GAtor's ranking layer should treat near-degenerate clusters as a set and, where gaps are tight, add harmonic free energies (which consistently helped here) rather than trusting static energy order. For multi-component/Z'>1 work, XXV warns that fixed protonation states blind you to salt/co-crystal disorder - run parallel neutral and charged searches and let a DFT/MLIP relaxation reveal proton migration. Finally, the cheap-beats-expensive result argues for MLIP-driven massive generation feeding selective DFT refinement, and the landscape-density heuristic gives GAtor a natural confidence metric: a flat, crowded low-energy basin means recommend more experiments, not one prediction."
+  },
+  {
+   "slug": "gator-2018",
+   "title": "GAtor: A First-Principles Genetic Algorithm for Molecular Crystal Structure Prediction",
+   "doi": "10.1021/acs.jctc.7b01152",
+   "year": 2018,
+   "tier": "B",
+   "source_mode": "clipping",
+   "date": "2026-09-05",
+   "core_idea": "GAtor is a massively parallel, first-principles genetic algorithm for molecular crystal structure prediction that uses dispersion-inclusive DFT (via FHI-aims) for local relaxations and energy evaluations, with molecular-crystal-specific breeding operators and machine-learning-based evolutionary niching to sample the potential energy surface broadly. Applied to four chemically diverse blind test targets, it recovered the experimental structures and other low-energy minima for all four.",
+   "innovation": "Introduces evolutionary niching: machine learning clusters the dynamically updated population by structural similarity and a cluster-based fitness function evolves multiple subpopulations, counteracting initial-pool and selection biases (genetic drift). Combines this with molecular-crystal-tailored crossover/mutation operators and a hierarchical DFT re-ranking scheme, all driven directly by first-principles energies rather than force fields.",
+   "chunks": [
+    {
+     "type": "principle",
+     "statement": "Evolutionary niching promotes uniform sampling of the PES by evolving several subpopulations simultaneously, which helps overcome initial-pool biases and selection biases (genetic drift) that otherwise collapse a GA onto a few basins.",
+     "scope": "GA-based molecular crystal structure prediction",
+     "evidence": "Paper: 'Evolutionary niching promotes uniform sampling of the potential energy surface by evolving several subpopulations, which helps overcome initial pool biases and selection biases (genetic drift).'",
+     "generality": "suggested"
+    },
+    {
+     "type": "principle",
+     "statement": "Clustering the dynamically updated population by structural similarity via machine learning and applying a cluster-based fitness function lets a GA reach disconnected, hard-to-reach regions of the energy landscape and locate numerous low-energy minima.",
+     "scope": "GA molecular CSP with descriptor/ML-based similarity clustering",
+     "evidence": "Paper: niching implemented 'by using machine learning to cluster ... population by structural similarity and then employing a cluster-based fitness function' increasing likelihood of 'locating numerous low-energy minima, including those located in disconnected, hard to reach regions.'",
+     "generality": "single-study"
+    },
+    {
+     "type": "pipeline_practice",
+     "statement": "GAtor performs the GA search with dispersion-inclusive DFT for local optimizations and energies, then re-relaxes and re-ranks the best generated structures with a hierarchy of increasingly accurate DFT functionals and dispersion methods.",
+     "scope": "First-principles molecular CSP pipeline (GAtor + FHI-aims)",
+     "evidence": "Paper: 'best structures generated are re-relaxed and re-ranked using a hierarchy of increasingly accurate DFT functionals and dispersion methods'; local optimizations/energies via FHI-aims with dispersion-inclusive DFT.",
+     "generality": "single-study"
+    },
+    {
+     "type": "principle",
+     "statement": "Breeding operators designed specifically for molecular crystals provide a deliberate balance between exploration (diversity) and exploitation (refining good structures).",
+     "scope": "GA operators for molecular crystals",
+     "evidence": "Paper: 'Breeding operators designed specifically for molecular crystals provide a balance between exploration and exploitation.'",
+     "generality": "suggested"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "Validate a CSP method on chemically diverse targets spanning different intermolecular interaction types; GAtor was benchmarked on four past blind test targets characterized by different interaction motifs and found the experimental plus other low-energy structures for all four.",
+     "scope": "Benchmarking molecular CSP methods against CSP blind test targets",
+     "evidence": "Paper: 'applied to a chemically diverse set of four past blind test targets, characterized by different types of intermolecular interactions. The experimentally observed structures and other low-energy structures are found for all four targets.'",
+     "generality": "single-study"
+    },
+    {
+     "type": "pitfall",
+     "statement": "Predicted crystal energy landscapes can produce a top-ranked putative structure that is not the experimentally reported form and differs in Z' and packing motif, so the lowest-energy prediction should not be assumed to be the known experimental polymorph.",
+     "scope": "Molecular CSP ranking; e.g. Target II 5-cyano-3-hydroxythiophene",
+     "evidence": "Paper: for Target II the top-ranked putative structure is a Z'=2, P-1, scaffold-packing-motif structure 'which has not been reported previously.'",
+     "generality": "single-study"
+    }
+   ],
+   "synthesis": "For GAtor 2.0 this founding paper anchors the design philosophy you are extending: the GA's power comes not from raw sampling but from actively fighting genetic drift, and evolutionary niching (ML clustering of the live population + cluster-based fitness) is the mechanism that keeps subpopulations alive in disconnected basins. As you swap FHI-aims relaxations for MLIPs (MACE-OFF, AIMNet2, UMA) and Genarris-generated pools, remember that the niching and molecular-specific operators are orthogonal to the energy backend -- the descriptors driving clustering are what preserve diversity, so descriptor choice directly controls whether niches map to real polymorph basins. The Target II result (a novel top-ranked Z'=2 structure) is a concrete reminder relevant to your Z'>1 and multi-component work: the GA readily finds low-energy putative forms that are not experimentally observed, so ranking fidelity (PBE0+MBD, and ultimately finite-temperature free energies) is where predictions live or die, not in generation coverage."
   }
  ]
 }
