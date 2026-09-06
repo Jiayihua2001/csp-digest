@@ -139,6 +139,83 @@
     }
    ],
    "synthesis": "For GAtor 2.0 this founding paper anchors the design philosophy you are extending: the GA's power comes not from raw sampling but from actively fighting genetic drift, and evolutionary niching (ML clustering of the live population + cluster-based fitness) is the mechanism that keeps subpopulations alive in disconnected basins. As you swap FHI-aims relaxations for MLIPs (MACE-OFF, AIMNet2, UMA) and Genarris-generated pools, remember that the niching and molecular-specific operators are orthogonal to the energy backend -- the descriptors driving clustering are what preserve diversity, so descriptor choice directly controls whether niches map to real polymorph basins. The Target II result (a novel top-ranked Z'=2 structure) is a concrete reminder relevant to your Z'>1 and multi-component work: the GA readily finds low-energy putative forms that are not experimentally observed, so ranking fidelity (PBE0+MBD, and ultimately finite-temperature free energies) is where predictions live or die, not in generation coverage."
+  },
+  {
+   "slug": "genarris-1",
+   "title": "Genarris: Random generation of molecular crystal structures and fast screening with a Harris approximation",
+   "doi": "10.1063/1.5014038",
+   "year": 2018,
+   "tier": "B",
+   "source_mode": "pdf",
+   "date": "2026-09-06",
+   "core_idea": "Genarris generates random molecular crystal structures of rigid molecules under physical constraints (symmetry, cell parameters, close-contact checks), then screens them cheaply using a Harris approximation (superposition of single-molecule densities evaluated with dispersion-inclusive DFT without self-consistency). Machine-learning clustering with a purpose-built relative coordinate descriptor (RCD) plus affinity propagation drives selection into three workflows (Diverse, Energy, Rigorous) tailored to different goals, including seeding genetic algorithms.",
+   "innovation": "First application of the Harris approximation to molecular-crystal configuration-space screening (fragments = whole molecules), implemented in FHI-aims with Wigner-matrix basis rotations. Introduces the relative coordinate descriptor (RCD) capturing relative positions/orientations of neighbor molecules rather than interatomic distances, and pairs it with affinity propagation clustering to resolve packing motifs and under-sampled regions.",
+   "chunks": [
+    {
+     "type": "principle",
+     "statement": "The Harris approximation (superposition of self-consistent single-molecule densities, energy evaluated without a self-consistency cycle) is accurate for weakly interacting molecules but fails when densities overlap; because it is non-variational, its binding-energy error is always negative and grows asymptotically as molecules get closer.",
+     "scope": "Rigid molecular crystals/dimers of small organics in the van der Waals regime; PBE+TS@Harris",
+     "evidence": "HA 'becomes exact when the molecules are far apart'; near equilibrium |dBE| small (0.0740, 0.0049, 0.0288 eV for targets II, XIII, XXII); 'Because of the non-variational nature of the HA, dBE(x) is always negative and its magnitude increases asymptotically with decreasing distance.'",
+     "generality": "suggested"
+    },
+    {
+     "type": "statistic",
+     "statement": "Harris-approximation binding energies and rankings agree remarkably well with self-consistent PBE+TS for randomly generated crystal pools, with r^2 for binding energies of 0.946-0.994 and for rankings 0.976-0.989 across close-contact settings.",
+     "scope": "2000-structure P21/n pools of Target XXII (nitrile-containing molecule), Z=4/Z'=1, sr = 0.500/0.625/0.750",
+     "evidence": "r^2 for BEs = 0.946, 0.960, 0.994 for sr=0.500, 0.625, 0.750; r^2 for rankings = 0.976, 0.989, 0.979; optimal at sr=0.625.",
+     "generality": "single-study"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "Set the close-contact cutoff (sr, fraction of summed vdW radii) in an intermediate window: too small admits unphysically close contacts that produce large negative HA errors, too large makes structures energetically too similar for the HA to resolve. An sr around 0.8-0.9 (or ~0.625 tuned) balances physicality against HA reliability and motif diversity.",
+     "scope": "HA-screened random pools of rigid small organics",
+     "evidence": "sr 'should be large enough to avoid unphysical structures... and small enough to allow for a diversity of crystal packing motifs'; default half-normal sr with bounds 0.9/0.05/0.8; sr=0.500 outliers had N...N contacts of 1.64, 1.80, 1.56 A; sr=0.750 pool too close in energy for HA to resolve.",
+     "generality": "single-study"
+    },
+    {
+     "type": "principle",
+     "statement": "A descriptor based on relative positions and orientations of neighboring molecules (RCD) captures crystal packing motifs (correlating with space-group symmetry) better than atom-distance descriptors like the RDF, which instead track unit-cell volume; RCD also better identifies pre-relaxation near-duplicates.",
+     "scope": "Rigid molecule crystals; comparison on 5000-structure raw pool of Target II",
+     "evidence": "RCD shows 'stronger correlation with space group symmetry' and 'weaker correlation with the unit cell volume' than RDF; RCD-AP 'grouped almost all the duplicate pairs together up to 7 clusters'; RCD consistently higher silhouette scores, increasing with cluster number while RDF's decrease.",
+     "generality": "single-study"
+    },
+    {
+     "type": "principle",
+     "statement": "Affinity propagation clustering resolves small, isolated, under-sampled regions of configuration space as distinct clusters (unlike k-means which merges satellite regions), and does so deterministically without a preset cluster count. This corrects sampling bias against rarely-generated packing motifs.",
+     "scope": "Clustering of crystal-structure pools / synthetic 2D-3D test data",
+     "evidence": "'While k-means groups three of the satellite regions together into one cluster, AP successfully identifies them as distinct clusters'; AP identified a distinct low-a cluster containing structures within 0.2 eV of the global minimum; AP 'does not depend on a randomized initialization'.",
+     "generality": "suggested"
+    },
+    {
+     "type": "pipeline_practice",
+     "statement": "Genarris workflows apply hierarchical screening: generate a large raw pool (5,000-10,000), evaluate energies (HA for Diverse/Energy, self-consistent DFT for Rigorous), then alternate RCD-AP clustering with energy-based selection, reducing to ~1% final pool and fully relaxing only at the end. Diverse selects cluster exemplars for maximal spread; Energy over-clusters to concentrate on low-energy basins; Rigorous iterates cluster/select/partial-relax down to 5% then energy-selects.",
+     "scope": "Genarris Diverse/Energy/Rigorous workflows for rigid molecules, Z=4/Z'=1",
+     "evidence": "Raw pools of 5,000 (II, XIII) and 10,000 (XXII); 'each step of the Diverse and Energy workflows reduces the pool to 10%'; final pool 1% of raw; Rigorous repeats until pool <5%, then purely energy-based selection to 1%; full relaxation only for final pools.",
+     "generality": "single-study"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "To seed a genetic algorithm, prefer a maximally diverse initial population over a low-energy one: the Diverse pool gave the best GA convergence to representative low-energy motifs and consistently found the experimental structures, while Energy-seeded runs were inconsistent and Random-seeded runs performed worst.",
+     "scope": "GAtor genetic-algorithm runs on Targets II, XIII, XXII from Genarris pools",
+     "evidence": "'starting the GA from the Diverse pool results in the best performance... consistently find the experimental structures'; Energy pool 'leads to inconsistent performance'; Random pools 'consistently exhibit the worse performance'. 'We recommend using the Diverse workflow of Genarris to produce initial pools for GAtor.'",
+     "generality": "single-study"
+    },
+    {
+     "type": "pitfall",
+     "statement": "Energy-selective screening over-samples low-energy basins, increasing the chance that similar structures relax into the same minimum (more post-relaxation duplicates) and leaving high-energy but distinct packing motifs under-sampled; the HA's largest ranking errors also occur precisely in the low-energy region that energy selection emphasizes, degrading r^2 step-to-step.",
+     "scope": "HA-ranked energy-selective workflows for rigid small organics",
+     "evidence": "Energy workflow 'tends to yield a higher number of duplicates' (e.g., 26 and 28 dup pairs for II and XXII); 'Energy and Rigorous workflows under-sample or completely miss certain clusters... tend to be higher in energy'; 'In the Energy workflow r^2 deteriorates significantly... where the errors of the HA are most severe.'",
+     "generality": "single-study"
+    },
+    {
+     "type": "principle",
+     "statement": "van der Waals-dominated molecular crystals have many near-degenerate local minima, so accurate polymorph ranking demands energy resolution of a few meV; dispersion-inclusive DFT (especially many-body dispersion with hybrid functionals) is the de facto standard for final ranking, while generic force fields perform poorly.",
+     "scope": "Molecular crystal structure prediction generally (CSP blind tests)",
+     "evidence": "'weak van der Waals interactions... lead to many local minima that are extremely close in energy, requiring energy resolution of a few meV'; 'Generic force fields have consistently been demonstrated to produce poor results'; MBD with hybrid functionals 'shown to be highly accurate'.",
+     "generality": "established"
+    }
+   ],
+   "synthesis": "For GAtor 2.0, the central lesson is that initialization diversity beats initialization depth: seed the GA from a maximally spread pool (Genarris Diverse) so niching/crossover can reach distinct packing motifs, rather than pre-committing to HA-ranked low-energy basins where the cheap energy method is least reliable and where duplicate collapse is worst. The RCD-AP machinery is directly reusable as a niching/duplicate-detection metric in the GA itself, since RCD tracks packing motifs (space-group-like) rather than cell volume and cleanly isolates rare, under-sampled funnels that random generation and energy selection both miss. When swapping the HA screening layer for modern MLIPs (MACE-OFF, AIMNet2, UMA), keep the same discipline: enforce physical close-contact filters (the HA's failure mode maps onto MLIP extrapolation errors on overlapping densities), reserve expensive PBE0+MBD and finite-temperature free-energy corrections for the final ~1% pool, and remember that ranking errors concentrate in the near-degenerate low-energy window that ultimately decides polymorph order."
   }
  ]
 }
