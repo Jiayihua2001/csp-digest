@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-Introduces information-matching, an active-learning criterion that selects minimal, task-specific training configurations to inversely design compact, bespoke interatomic potentials matching a target model's accuracy.
+Introduces information-matching, an active-learning criterion that selects training configurations by matching Fisher information content, enabling inverse design of compact, task-specific interatomic potentials rather than general-purpose ones.
 
 ## My notes
 
