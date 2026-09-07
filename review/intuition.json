@@ -216,6 +216,90 @@
     }
    ],
    "synthesis": "For GAtor 2.0, the central lesson is that initialization diversity beats initialization depth: seed the GA from a maximally spread pool (Genarris Diverse) so niching/crossover can reach distinct packing motifs, rather than pre-committing to HA-ranked low-energy basins where the cheap energy method is least reliable and where duplicate collapse is worst. The RCD-AP machinery is directly reusable as a niching/duplicate-detection metric in the GA itself, since RCD tracks packing motifs (space-group-like) rather than cell volume and cleanly isolates rare, under-sampled funnels that random generation and energy selection both miss. When swapping the HA screening layer for modern MLIPs (MACE-OFF, AIMNet2, UMA), keep the same discipline: enforce physical close-contact filters (the HA's failure mode maps onto MLIP extrapolation errors on overlapping densities), reserve expensive PBE0+MBD and finite-temperature free-energy corrections for the final ~1% pool, and remember that ranking errors concentrate in the near-degenerate low-energy window that ultimately decides polymorph order."
+  },
+  {
+   "slug": "genarris-2",
+   "title": "Genarris 2.0: A random structure generator for molecular crystals",
+   "doi": "10.1016/j.cpc.2020.107170",
+   "year": 2020,
+   "tier": "B",
+   "source_mode": "pdf",
+   "date": "2026-09-07",
+   "core_idea": "Genarris 2.0 is an MPI-parallelized random molecular crystal structure generator that builds physically reasonable structures across all 230 space groups (general and special Wyckoff positions), using a machine-learned solid-form volume predictor, hierarchical intermolecular distance checks, and hydrogen-bond-aware cutoffs, followed by clustering/energy-based down-selection to produce a curated pool for CSP.",
+   "innovation": "Versus the original Genarris: MPI/mpi4py parallelization with FHI-aims run inside sub-communicators, a topological-fragment ML model for solid-form volume estimation trained on the CSD, systematic generation on special Wyckoff positions via molecular-axis/viewing-direction alignment, a three-stage hierarchical structure-check scheme (including rigorous non-orthogonal minimum-image via sphere decoding), and element-specific hydrogen-bond cutoff distances.",
+   "chunks": [
+    {
+     "type": "statistic",
+     "statement": "Solid-form volume (density) of a molecule varies across polymorphs with a standard deviation of ~2.95% - this sets a floor on how accurately any volume-estimation model can predict a specific polymorph's cell.",
+     "scope": "Homomolecular organic crystals at room temperature/standard pressure; 2,173 unique polymorph pairs from the 2017 CSD",
+     "evidence": "'The distribution has a standard deviation of 2.95% with respect to the solid form volume of the molecule... places a lower bound on the expected accuracy of estimated solid form molecular volumes.'",
+     "generality": "established"
+    },
+    {
+     "type": "statistic",
+     "statement": "A raw van der Waals sphere Monte Carlo volume underestimates true solid-form volume by a factor of ~1.47; a plain linear correction gives ~4.72% error, but adding topological-fragment features reduces error to ~2.93%, matching the polymorph density spread.",
+     "scope": "Chemically diverse CSD dataset, molecules 5-260 atoms spanning H,C,N,O, halogens, B,P,S,Si,Te,Se",
+     "evidence": "'the ratio... was found to be 1.47... standard deviation of 4.72% error... the fragment based model achieves an error of similar magnitude to the volume differences between polymorphs... sigma = 2.93%'",
+     "generality": "single-study"
+    },
+    {
+     "type": "statistic",
+     "statement": "About 70% of molecular crystals have molecules on general Wyckoff positions; the rest sit on special positions, most commonly two-fold axes (2), mirror planes (m), and inversion centers (bar-1).",
+     "scope": "CSD-wide analysis of molecular crystals (Pidcock et al.)",
+     "evidence": "'in 70.1% of the molecular crystals, molecules occupy general positions, and in the remaining structures molecules occupy special positions. Among the special positions, two-fold rotation (2), mirror planes (m), and inversion centers are the most frequent.'",
+     "generality": "established"
+    },
+    {
+     "type": "principle",
+     "statement": "Standard vdW cutoffs (0.85 x sum-of-radii) wrongly reject structures with strong X-H...Y hydrogen bonds because real H-bond contact distances are much shorter than typical vdW contacts; N/O donor-acceptor pairs need dedicated shorter cutoffs (effective sr ~0.55-0.62), while C-donor and halogen H-bonds are fine at 0.85.",
+     "scope": "Homomolecular crystals with O-H/N-H donors to O/N acceptors; cutoffs from CSD IsoStar distributions",
+     "evidence": "'the sum of the vdW radii multiplied by the default sr value of 0.85... exceeds a large number of non-bonded interaction distances... Using the default sr value, structures with strong hydrogen bonds, such as glycine, would be deemed unphysical'; Table 2 gives sr 0.55-0.62 for OH/NH...O/N.",
+     "generality": "established"
+    },
+    {
+     "type": "pipeline_practice",
+     "statement": "The generation loop is: estimate solid-form volume (relax single molecule + ML model) -> find compatible space groups within a symmetry tolerance -> per space group draw a cell volume from a Gaussian (mean = predicted volume, sigma = 3x prediction error) -> build random cell, place/orient molecule (random for general positions, axis-aligned for special positions) -> apply symmetry ops -> hierarchical distance checks -> add passing structures to raw pool.",
+     "scope": "Genarris 2.0 raw-pool generation for semi-rigid molecules with no rotatable bonds",
+     "evidence": "'A random volume is drawn from a Gaussian distribution whose mean and standard deviation are the predicted volume and three times the prediction error... The space group symmetry operations are then applied... The attempted structures that pass the intermolecular distance checks... are added to the raw pool.'",
+     "generality": "single-study"
+    },
+    {
+     "type": "pipeline_practice",
+     "statement": "Structure checking is done in three escalating stages to control the O(N^2) cost: Stage I ignores periodicity and uses center-of-mass/molecule-length screening (kills most bad structures cheaply), Stage II does approximate minimum-image distances in fractional coordinates after lattice reduction, and Stage III applies a rigorous sphere-decoder closest-vector solution only for the few non-orthogonal structures that survive.",
+     "scope": "Genarris 2.0 close-contact detection, including triclinic/oblique cells",
+     "evidence": "'Genarris 2.0 performs a series of three hierarchical structure checks. Failed structures are discarded at each stage... most of the unphysical structures generated are rejected at this stage [I]... only few non-orthogonal structures that pass Stage I and Stage II reach Stage III. Hence, the overall efficiency is not compromised.'",
+     "generality": "single-study"
+    },
+    {
+     "type": "principle",
+     "statement": "Space groups with glide planes and screw axes are easier to populate than those with mirror planes, because mirror-related molecules can overlap with their own mirror image; this biases which space groups are readily sampled even when a uniform distribution is targeted.",
+     "scope": "Random generation of rigid molecular crystals; illustrated for benzene Z=4 and glycine Z=4",
+     "evidence": "'space groups like P2/m (10), Pmm2 (25), and Pmmm (47) which have mirror planes are harder to generate as molecules that touch the planes overlap with their own mirror image. In contrast, space groups with glide planes and screws axes are easier to generate because symmetry-equivalent molecules are translated in space.'",
+     "generality": "suggested"
+    },
+    {
+     "type": "pitfall",
+     "statement": "Volume models trained on ambient-pressure CSD structures systematically over-predict cell volumes for high-pressure polymorphs; expect the predicted volume to be far from experiment when the target forms under pressure.",
+     "scope": "Benzene high-pressure Z=2 (P2_1/c) polymorph at 25 kbar vs ambient-trained model",
+     "evidence": "'Our prediction for Z = 4 is much closer to the experimental volume than for Z = 2 because the latter forms under pressure of 25 kbar whereas the volume estimation model was trained on structures obtained under ambient pressure.'",
+     "generality": "single-study"
+    },
+    {
+     "type": "pitfall",
+     "statement": "Unconstrained relaxation of pool structures can break or create symmetry, changing the apparent space group, Z, or Z', so the space group of a raw structure is not a reliable label for the relaxed structure.",
+     "scope": "DFT geometry optimization (PBE+TS, no lattice constraints) of glycine/benzene pools",
+     "evidence": "'Relaxation of the final pool may break existing symmetries or create new ones as there are no constraints imposed. This resulted in additional space groups with a different Z or Z'. For example, space group Cmc2_1 (36) and space group P1 were created after geometry optimization for glycine with Z = 2.'",
+     "generality": "single-study"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "Use the Robust down-selection workflow (RCD or RDF descriptor -> affinity-propagation cluster to ~10% -> single-point PBE+TS energies -> AP cluster again to ~10% keeping lowest-energy per cluster -> full relaxation) to produce a small, diverse, low-energy initial population rather than to guarantee finding the experimental structure.",
+     "scope": "Genarris 2.0 curated-pool generation feeding downstream search (e.g., genetic algorithms)",
+     "evidence": "'the goal of the Robust workflow is not necessarily to find the experimental structure but to produce an initial population for a structure search algorithm, such as a genetic algorithm.' Default cluster count is 10% of the pool; workflow uses AP clustering then energy-based selection then relaxation.",
+     "generality": "single-study"
+    }
+   ],
+   "synthesis": "For GAtor 2.0, Genarris is the front end that seeds the initial GA population, so its biases become the GA's starting biases. Three lessons transfer directly: (1) The ML volume predictor's ~3% floor and its ambient-pressure training bias mean the initial cell volumes for high-pressure or unusually dense targets will be off - worth widening the volume-sampling sigma or seeding hand-built cells when chasing such polymorphs. (2) The special-Wyckoff generation and glide/screw-vs-mirror sampling bias matter for niching: if you want diversity across space groups (and for Z'>1 or high-symmetry molecules like benzene), you must actively ensure special positions and mirror-plane groups are represented, because random generation under-samples them and energy selection can further prune them. (3) Symmetry can change under relaxation, so any GA fingerprint/niching scheme keyed on space group should re-detect symmetry post-relaxation rather than trust the generated label. Finally, the H-bond cutoff insight is a practical reminder that for strongly H-bonded systems (amino acids, pharmaceuticals) generic vdW filters throw away the very dense, physically correct structures the GA needs in its gene pool."
   }
  ]
 }
