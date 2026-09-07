@@ -20,7 +20,7 @@ tags:
 **Field:** [[free-energy]]
 
 ## Why it matters
-A deep-learning free-energy model integrates nuclear quantum and finite-temperature effects directly into crystal structure prediction, extending genetic-algorithm searches beyond static-lattice, classical-nuclei approximations.
+Introduces a deep learning framework that predicts crystal structures by directly learning free energy surfaces incorporating nuclear quantum and finite-temperature effects, beyond static lattice-energy minimization.
 
 ## My notes
 

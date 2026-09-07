@@ -20,7 +20,7 @@ tags:
 **Field:** [[generative-model]]
 
 ## Why it matters
-Introduces CrystalGRW, a generative diffusion-like model using geodesic random walks on Riemannian manifolds (lattice, coordinates, atom types) to sample crystal structures conditioned on targeted crystallographic properties.
+Introduces CrystalGRW, a generative diffusion-style model that samples crystal structures via geodesic random walks on Riemannian manifolds, enabling property-targeted generation constrained to specific space groups or lattice symmetries.
 
 ## My notes
 

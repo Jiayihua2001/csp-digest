@@ -18,7 +18,7 @@ tags:
 **Scores:** relevance 70 / significance 0
 
 ## Why it matters
-Introduces a "shotgun" sampling strategy—generating and screening massive random/quasi-random structure populations in parallel rather than iterative evolutionary refinement—to efficiently locate high-energy metastable polymorphs stable only at ambient conditions.
+Introduces a "shotgun" CSP approach—generating and screening large batches of candidate structures in parallel—to efficiently target high-energy metastable phases stable at ambient conditions.
 
 ## My notes
 
