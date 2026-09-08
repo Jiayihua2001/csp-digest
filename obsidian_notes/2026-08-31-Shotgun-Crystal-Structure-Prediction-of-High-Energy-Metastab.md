@@ -18,7 +18,7 @@ tags:
 **Scores:** relevance 70 / significance 0
 
 ## Why it matters
-Introduces a "shotgun" CSP approach—generating and screening large batches of candidate structures in parallel—to efficiently target high-energy metastable phases stable at ambient conditions.
+Introduces a "shotgun" CSP strategy—massively parallel, non-iterative random/enumerative structure sampling coupled with rapid screening—to efficiently locate high-energy metastable phases stable at ambient conditions, bypassing traditional generation-based evolut
 
 ## My notes
 
