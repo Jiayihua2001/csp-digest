@@ -300,6 +300,83 @@
     }
    ],
    "synthesis": "For GAtor 2.0, Genarris is the front end that seeds the initial GA population, so its biases become the GA's starting biases. Three lessons transfer directly: (1) The ML volume predictor's ~3% floor and its ambient-pressure training bias mean the initial cell volumes for high-pressure or unusually dense targets will be off - worth widening the volume-sampling sigma or seeding hand-built cells when chasing such polymorphs. (2) The special-Wyckoff generation and glide/screw-vs-mirror sampling bias matter for niching: if you want diversity across space groups (and for Z'>1 or high-symmetry molecules like benzene), you must actively ensure special positions and mirror-plane groups are represented, because random generation under-samples them and energy selection can further prune them. (3) Symmetry can change under relaxation, so any GA fingerprint/niching scheme keyed on space group should re-detect symmetry post-relaxation rather than trust the generated label. Finally, the H-bond cutoff insight is a practical reminder that for strongly H-bonded systems (amino acids, pharmaceuticals) generic vdW filters throw away the very dense, physically correct structures the GA needs in its gene pool."
+  },
+  {
+   "slug": "genarris-3",
+   "title": "Genarris 3.0: Generating Close-Packed Molecular Crystal Structures with Rigid Press",
+   "doi": "10.1021/acs.jctc.5c01080",
+   "year": 2025,
+   "tier": "B",
+   "source_mode": "clipping",
+   "date": "2026-09-08",
+   "core_idea": "Genarris 3.0 generates random molecular crystal structures in all compatible space groups (Z'=1) and introduces the 'Rigid Press' algorithm, which uses a regularized, differentiable hard-sphere potential to compress the unit cell into a close-packed arrangement based purely on geometry, with no energy evaluations. It is coupled to a clustering-and-down-selection workflow using MLIPs (MACE-OFF23(L)) in early stages and dispersion-inclusive DFT (PBE+MBD) for final ranking, and was demonstrated on six chemically diverse targets.",
+   "innovation": "The Rigid Press geometric close-packing algorithm (regularized hard-sphere potential, symmetry-preserving, ~2 orders of magnitude cheaper than MLIP relaxation), combined with a diversity-preserving affinity-propagation clustering and multi-structure-per-cluster selection workflow that mitigates inaccurate MLIP energy rankings; also a systematic assessment of general-purpose MACE-OFF transferability across chemistries including energetic materials.",
+   "chunks": [
+    {
+     "type": "statistic",
+     "statement": "Energy differences between molecular crystal polymorphs are usually only a few kJ/mol, which is what demands high-accuracy ranking methods.",
+     "scope": "Molecular crystal polymorphs in general (CSP context)",
+     "evidence": "'the energy differences between polymorphs are usually only a few kJ/mol, requiring high accuracy.' In results, aspirin Form II vs Form I differ by 0.69 kJ/mol (PBE+MBD, 0 K); putative EM structures lie 2.69 kJ/mol (CL-20) and 1.69 kJ/mol (DNI) above experimental forms.",
+     "generality": "established"
+    },
+    {
+     "type": "principle",
+     "statement": "A regularized hard-sphere potential can drive close packing purely geometrically: freezing internal molecular geometry and optimizing lattice vectors, molecular positions and orientations to minimize cell volume subject to intermolecular distance penalties reproduces near-experimental unit cell volumes without any energy evaluation.",
+     "scope": "Rigid, single-conformer molecules, Z'=1, all space groups; demonstrated on 6 targets including H-bonded, van der Waals, and energetic crystals",
+     "evidence": "Rigid Press minimizes F(s)=V(s)+P_contact(s) with piecewise differentiable penalty; after Rigid Press, cell volumes are close to experimental (slightly underestimated for aspirin/Target XXII/Target I; very close for dense delta-HMX and DNI). Matches to experiment appear for all targets only after Rigid Press.",
+     "generality": "single-study"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "Pre-optimize randomly generated structures with Rigid Press before MLIP/DFT relaxation: it costs up to 2 orders of magnitude less than MLIP relaxation and sharply reduces the number of downstream relaxation steps, and for some targets a match to the experimental structure is only found when Rigid Press is used.",
+     "scope": "CSP workflows relaxing thousands to millions of putative structures",
+     "evidence": "'The computational cost of Rigid Press optimization is lower by up to 2 orders of magnitude than relaxation using MLIPs.' For epsilon-CL-20, a match to experiment can only be found with Rigid Press (SI). SI Fig S1 shows Rigid Press pre-optimization reduces MACE-OFF relaxation steps.",
+     "generality": "single-study"
+    },
+    {
+     "type": "pipeline_practice",
+     "statement": "The Genarris 3.0 CSP down-selection pipeline runs: generate ~4000 structures per compatible space group at 1.5x inflated volume -> Rigid Press compression -> loose-tolerance duplicate removal per space group -> MACE-OFF SPE + affinity-propagation clustering to 10% -> MACE-OFF full relaxation + duplicate removal -> AP cluster to 100, keep up to 5 within 10 kJ/mol per cluster -> PBE+MBD SPE + AP cluster (keep all within 10 kJ/mol) -> final PBE+MBD relaxation + duplicate removal.",
+     "scope": "Genarris 3.0 CSP workflow, Z'=1; thresholds are user-tunable",
+     "evidence": "Detailed workflow in Methods: s_r=0.95 proximity check for generation, Rigid Press default s_r=0.85, StructureMatcher tolerances 0.5/0.5/10deg; AP clustering to 10% then 100 clusters; 10 kJ/mol windows; PBE+MBD final relaxation Tier 2 tight, 3x3x3 k-grid.",
+     "generality": "single-study"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "When selecting survivors from clusters in a hierarchical CSP workflow, keep multiple low-energy structures per cluster (e.g., up to 5 within a 10 kJ/mol window) rather than only the single lowest-energy structure, because an inaccurate MLIP can rank the true structure poorly and a strict energy cutoff would discard it.",
+     "scope": "Hierarchical CSP with general-purpose MLIP early-stage ranking, especially chemistries far from training data (energetic materials)",
+     "evidence": "For DNI the experimental structure is ranked #79 (19.3 kJ/mol above min) by MACE-OFF but becomes the global minimum at PBE+MBD SPE; it survives because it is 2nd in its cluster and up-to-5-within-10-kJ/mol selection is used. Procedure especially benefits delta-HMX and epsilon-CL-20.",
+     "generality": "single-study"
+    },
+    {
+     "type": "pitfall",
+     "statement": "General-purpose MLIPs (MACE-OFF23(L)) give strongly chemistry-dependent accuracy: excellent for drug-like molecules (aspirin, Target I) but markedly worse for chemistries underrepresented in training (Target XXII and especially energetic materials with nitrogen-rich groups), degrading both geometry relaxation and energy ranking.",
+     "scope": "MACE-OFF23(L) trained on SPICE 1.0 (drug-like molecules); molecular crystal relaxation and ranking vs PBE+MBD",
+     "evidence": "Relaxation match rates (RMSD30<1A): aspirin 86.6%, Target I 91.0%, Target XXII 80.2%, epsilon-CL-20 73.7%, delta-HMX 61.8%, DNI 56.9%. Ranking MAE/RMSE: <5 kJ/mol and Kendall >0.7 for aspirin/Target I; 9-13 kJ/mol and Kendall 0.5-0.6 for Target XXII/CL-20/DNI; >20 kJ/mol and Kendall <0.4 for delta-HMX. Experimental structure misranked as #12 (HMX), #8 (CL-20), #19 (DNI) by MACE-OFF.",
+     "generality": "single-study"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "Dispersion-inclusive DFT remains indispensable for final ranking; validate general-purpose MLIP performance per system, and if inadequate, train a system-specific potential (e.g., AIMNet2) rather than trusting out-of-the-box MLIP energies.",
+     "scope": "CSP energy ranking; especially chemistries far from MLIP training data",
+     "evidence": "A system-specific AIMNet2 for CL-20 gives higher match rate, lower RMSD30, lower energy MAE and higher Kendall vs PBE+MBD than MACE-OFF, ranking the experimental structure #4 at 2.50 kJ/mol above minimum. Authors 'suggest exercising caution' and recommend case-by-case validation.",
+     "generality": "single-study"
+    },
+    {
+     "type": "principle",
+     "statement": "Highly constrained (high-symmetry) space groups reduce the configurational degrees of freedom, making the correct structure easier to generate randomly, but also produce more symmetry-equivalent duplicates; a large fraction of duplicates signals exhaustive sampling of that space group.",
+     "scope": "Random structure generation across space groups with special Wyckoff positions, Z'=1",
+     "evidence": "delta-HMX (P6_1) yielded 268/52,573 matches at initial generation vs 0-1 for other targets; after generation duplicate removal reduces pools by factors of 5-20 (largest 19-20 for Target I and delta-HMX). High-symmetry/centered groups (e.g., Cm, Nos. 75-81) generate more duplicates.",
+     "generality": "single-study"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "Relative stability of near-degenerate polymorphs can invert between 0 K lattice energy and finite-temperature free energy, so finite-temperature (e.g., QHA) corrections are needed when two forms are within ~1 kJ/mol.",
+     "scope": "Near-degenerate polymorphs (aspirin Forms I and II), dispersion-inclusive DFT",
+     "evidence": "PBE+MBD at 0 K ranks Form II below Form I by 0.69 kJ/mol, but PBE+MBD QHA free energy at 300 K predicts Form I more stable than Form II by 1.10 kJ/mol, consistent with experiment; prior studies note relative stability depends on method and free-energy corrections.",
+     "generality": "single-study"
+    }
+   ],
+   "synthesis": "For GAtor 2.0, Genarris 3.0's Rigid Press is the natural upstream partner: seeding the GA's initial population with geometrically close-packed, symmetry-consistent structures should improve the quality and diversity of the parent pool while cutting expensive relaxation steps, and its pure-geometry nature makes it a cheap 'repair' operator that GA offspring could be passed through before energy evaluation. The affinity-propagation-plus-multiple-per-cluster selection philosophy directly informs GA niching: keeping several low-energy members within an energy window per structural niche guards against a noisy fitness surrogate (an MLIP) prematurely purging the true global minimum - a real risk given the paper's demonstration that MACE-OFF misranks energetic-material structures by 8-19 positions. The central cautionary lesson for GAtor's fitness function is that a general-purpose MLIP's error is chemistry-dependent and can exceed the entire polymorph energy spread (a few kJ/mol), so for targets outside SPICE-like drug chemistry (energetic materials, unusual heteroatom motifs, Z'>1 or multi-component systems) the group should validate against PBE+MBD/PBE0+MBD, use system-specific AIMNet2 potentials, and reserve dispersion-inclusive DFT for final ranking. Finally, the aspirin 0 K/300 K inversion is a reminder that GA rankings and reported landscapes near degeneracy should be treated as provisional until finite-temperature (QHA) corrections are applied."
   }
  ]
 }
