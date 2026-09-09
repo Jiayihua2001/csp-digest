@@ -5,7 +5,7 @@ source: journal
 venue: "Physical Review B"
 doi: 10.1103/3qjr-mgv7
 arxiv: 
-relevance: 80
+relevance: 70
 significance: 0
 tags:
   - CSP
@@ -16,11 +16,11 @@ tags:
 
 **Authors:** [[Anonymous]]
 **Link:** https://doi.org/10.1103/3qjr-mgv7
-**Scores:** relevance 80 / significance 0
+**Scores:** relevance 70 / significance 0
 **Field:** [[free-energy]]
 
 ## Why it matters
-Introduces deep-learning-based free energy prediction that integrates nuclear quantum and finite-temperature vibrational effects directly into crystal structure prediction, moving beyond static 0 K energy ranking.
+Introduces a deep-learning-based free-energy surrogate integrated into crystal structure prediction, enabling nuclear quantum and finite-temperature effects to guide genetic-algorithm searches beyond static 0 K enthalpy ranking.
 
 ## My notes
 

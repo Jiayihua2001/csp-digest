@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-09-09",
+  "count": 20,
+  "new_count": 4,
+  "synthesis": "Generative/flow-based CSP methods (Packora, SO(3) orientation flow analysis, text-guided flow matching) mark a clear push toward deep generative alternatives to classical GA search, while a parallel cluster of MLIP benchmarking/uncertainty papers signals growing scrutiny of force-field reliability for CSP energy ranking, including on high-energy and noncovalent systems",
+  "top": [
+   {
+    "title": "Packora: Systematic Design for Generative Molecular Crystal Structure Prediction",
+    "relevance": 92,
+    "significance": 0
+   },
+   {
+    "title": "Hierarchical Crystal Structure Prediction of Zeolitic Imidazolate Frameworks Using DFT and Machine-Learned Interatomic Potentials",
+    "relevance": 65,
+    "significance": 12
+   },
+   {
+    "title": "What an SO(3) orientation flow can and cannot learn in molecular-crystal structure prediction",
+    "relevance": 80,
+    "significance": 0
+   }
+  ]
+ },
+ {
   "date": "2026-09-08",
   "count": 18,
   "new_count": 1,

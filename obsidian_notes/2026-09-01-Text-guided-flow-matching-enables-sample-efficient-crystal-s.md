@@ -4,7 +4,7 @@ date: 2026-09-01
 source: arXiv
 venue: "arXiv"
 doi: 
-arxiv: 2609.01076v1
+arxiv: 2609.01076v2
 relevance: 70
 significance: 0
 tags:
@@ -16,12 +16,12 @@ tags:
 # Text-guided flow matching enables sample-efficient crystal structure generation
 
 **Authors:** [[Wentao Li]]
-**Link:** https://arxiv.org/abs/2609.01076v1
+**Link:** https://arxiv.org/abs/2609.01076v2
 **Scores:** relevance 70 / significance 0
 **Field:** [[generative-model]] [[benchmark]]
 
 ## Why it matters
-TFMat introduces text-conditioned flow matching—using structured materials-language priors to steer a CrystalFlow generator—boosting sample-efficient match rates (92.04% on MP-20 with 20 candidates) over unconditioned CrystalFlow baselines.
+TFMat introduces text-conditioned flow matching—using structured materials language as a semantic prior atop CrystalFlow—boosting sample-efficient match rates and distributional fidelity in crystal structure generation.
 
 ## Abstract
 > Crystal generators can now propose periodic structures, but their control interfaces remain poorly matched to the mixed descriptors used in materials design. Text provides a compact way to combine composition, symmetry, prototype and property cues, yet it has not been clear whether such information can steer flow-based crystal generation. Here we introduce TFMat, a text-conditioned flow-matching framework that uses structured materials language as a semantic prior for a CrystalFlow generator. Across Perov-5, Carbon-24 and MP-20 crystal structure prediction benchmarks, TFMat improves one-candidate match rates over CrystalFlow and reaches a 92.04% MP-20 match rate with 20 candidates; in de novo generation, it improves element-count and density distribution alignment while retaining coarse property consistency in composition-selected outputs. These results position structured text as an inspectable control layer for translating human-readable materials intent into candidate crystals for downstream simulation and validation.
