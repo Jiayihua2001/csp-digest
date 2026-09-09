@@ -377,6 +377,83 @@
     }
    ],
    "synthesis": "For GAtor 2.0, Genarris 3.0's Rigid Press is the natural upstream partner: seeding the GA's initial population with geometrically close-packed, symmetry-consistent structures should improve the quality and diversity of the parent pool while cutting expensive relaxation steps, and its pure-geometry nature makes it a cheap 'repair' operator that GA offspring could be passed through before energy evaluation. The affinity-propagation-plus-multiple-per-cluster selection philosophy directly informs GA niching: keeping several low-energy members within an energy window per structural niche guards against a noisy fitness surrogate (an MLIP) prematurely purging the true global minimum - a real risk given the paper's demonstration that MACE-OFF misranks energetic-material structures by 8-19 positions. The central cautionary lesson for GAtor's fitness function is that a general-purpose MLIP's error is chemistry-dependent and can exceed the entire polymorph energy spread (a few kJ/mol), so for targets outside SPICE-like drug chemistry (energetic materials, unusual heteroatom motifs, Z'>1 or multi-component systems) the group should validate against PBE+MBD/PBE0+MBD, use system-specific AIMNet2 potentials, and reserve dispersion-inclusive DFT for final ranking. Finally, the aspirin 0 K/300 K inversion is a reminder that GA rankings and reported landscapes near degeneracy should be treated as provisional until finite-temperature (QHA) corrections are applied."
+  },
+  {
+   "slug": "hoja-pbe0-mbd-2019",
+   "title": "Reliable and practical computational description of molecular crystal polymorphs",
+   "doi": "10.1126/sciadv.aau3338",
+   "year": 2019,
+   "tier": "D",
+   "source_mode": "clipping",
+   "date": "2026-09-09",
+   "core_idea": "A two-stage CSP protocol combining GRACE Monte Carlo parallel-tempering sampling with a hierarchical first-principles energy ranking (PBE0+MBD static lattice energy plus PBE+TS harmonic vibrational free energies) correctly ranks the experimental polymorph as most stable across a diverse set of five sixth-blind-test systems. For the hardest flexible system (XXIII, 5 polymorphs), all experimental forms fall within the top ~4.3 kJ/mol, and finite-temperature/anharmonic corrections further compress them. The work demonstrates that exchange (hybrid), many-body dispersion, and vibrational entropy are all individually necessary to achieve ~1 kJ/mol ranking accuracy.",
+   "innovation": "Merges the best-performing sampling engine (Neumann/GRACE) with the best-performing ranking physics (Tkatchenko DFT+MBD) from the same blind test into a single validated, computationally feasible final-refinement protocol, and systematically layers in hybrid exchange, MBD, harmonic Fvib, quasi-harmonic thermal expansion, and Morse anharmonicity to quantify each contribution's effect on relative stability.",
+   "chunks": [
+    {
+     "type": "statistic",
+     "statement": "Reliable polymorph ranking requires relative (free) energies converged to roughly 1 kJ/mol per molecule, and coexisting/experimentally observed polymorphs typically span only a few kJ/mol.",
+     "scope": "Molecular crystal polymorphs including flexible, salt, and cocrystal systems from the sixth CCDC blind test",
+     "evidence": "Paper: 'need for relative (free) energies to within ~1 kJ/mol per molecule'; for XXIII all five experimental forms fall within top 4.3 kJ/mol (~1 kcal/mol) and within a 3 kJ/mol interval, 'within the expected energy range associated with coexisting polymorphs'.",
+     "generality": "established"
+    },
+    {
+     "type": "principle",
+     "statement": "Three physical effects are each individually necessary for quantitative rankings: hybrid exchange (Pauli repulsion / reduced self-interaction error), beyond-pairwise many-body dispersion, and vibrational (entropic) free energy; which one dominates is system-dependent.",
+     "scope": "Diverse molecular crystals (rigid, flexible, salt, cocrystal), PBE0+MBD+Fvib framework",
+     "evidence": "'all of the three previously mentioned theoretical effects are required'; Pauli exchange 'plays a crucial role for system XXII, while MBD effects are the most important factor for system XXVI'; harmonic Fvib has 'by far the largest impact' for XXIII and XXV.",
+     "generality": "suggested"
+    },
+    {
+     "type": "pipeline_practice",
+     "statement": "The recommended final-refinement pipeline: (1) take top ~100 sampled structures per system, (2) full PBE+TS geometry/lattice relaxation without symmetry constraints + duplicate removal, (3) PBE+MBD tight-settings relative energies, (4) PBE0+MBD static lattice energies (approximated via light-level hybrid correction added to tight PBE+MBD), (5) add PBE+TS harmonic vibrational free energies at the experimental temperature.",
+     "scope": "Final-stage ranking of a limited structure set (~100-500 structures) after external sampling; not a from-scratch search method",
+     "evidence": "Materials and Methods describe exactly this order; 'this computational procedure is intended for the final stability ranking of a molecular CSP using a limited structure set'; total 501 structures, 15-992 atoms.",
+     "generality": "single-study"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "Compute expensive PBE0+MBD and vibrational free energies only for the low-energy window, not all structures: hybrid energies for structures within ~4.5 kJ/mol of the PBE+MBD ranking and Fvib for structures within ~3 kJ/mol of the PBE0+MBD ranking.",
+     "scope": "Cost-constrained final ranking of molecular crystals",
+     "evidence": "'PBE0 + MBD calculations are available for (at least) the structures located within the top 4.5 kJ/mol'; 'Vibrational free energies were calculated for (at least) all structures that are located within the top 3 kJ/mol according to the PBE0 + MBD ranking'.",
+     "generality": "single-study"
+    },
+    {
+     "type": "statistic",
+     "statement": "Vibrational free energies dominate the compute cost: a single PBE0+MBD point ranges ~3.5 CPU-h (15 atoms) to ~750 CPU-h (896 atoms), while harmonic Fvib ranges 180 to 45,000 CPU-h; adding QHA + Morse anharmonicity increases total cost by roughly 10x.",
+     "scope": "FHI-aims all-electron calculations on 2.4-GHz Xeon E5-2680 v4 cores, unit cells 15-992 atoms",
+     "evidence": "Reported CPU timings; QHA adds 4700 CPU-h and Morse adds 4300 CPU-h on top of 950 CPU-h for form A of XXIII, 'increase the computation time by approximately a factor of 10'.",
+     "generality": "single-study"
+    },
+    {
+     "type": "statistic",
+     "statement": "Neglecting thermal expansion causes underestimation of 0 K unit cell volumes by ~3.6% vs 300 K experiment; the quasi-harmonic approximation (thermal pressure fit to Murnaghan EOS) recovers this to within ~1.0% on average.",
+     "scope": "PBE+TS optimized molecular crystals (system XXIII and blind-test structures), room temperature",
+     "evidence": "'we underestimate these unit cell volumes by 3.6% on average'; QHA 'predict room temperature unit cell volumes to within 1.0% on average'.",
+     "generality": "single-study"
+    },
+    {
+     "type": "statistic",
+     "statement": "Thermal expansion (QHA) plus anharmonicity (Morse) shift relative stabilities modestly: max change ~1.4 kJ/mol (avg 0.4) from thermal expansion alone, and avg ~1.1 kJ/mol (max 2.9) versus harmonic-at-0K when both are included; some reordering occurs but the overall energy window is preserved.",
+     "scope": "System XXIII (flexible molecule, 5 polymorphs) Z'=1 and Z'=2 structures",
+     "evidence": "'largest observed change ... amounts to 1.4 kJ/mol ... but is only 0.4 kJ/mol on average'; 'changes the relative stabilities ... on average by only 1.1 kJ/mol with a maximum observed change of 2.9 kJ/mol'; anharmonicity brings all Z'=1 forms within 0.4 kJ/mol.",
+     "generality": "single-study"
+    },
+    {
+     "type": "pitfall",
+     "statement": "Thermodynamic ranking can predict an unobserved structure more stable than all known forms; the true experimental form may be kinetically favored, so a low predicted energy does not guarantee experimental realizability without considering nucleation/growth kinetics and solvent.",
+     "scope": "Complex polymorphic landscapes with many structures in a few kJ/mol (e.g. flexible drug candidate XXIII)",
+     "evidence": "Str. N70 is ~1.5-3 kJ/mol more stable than any experimental form yet unobserved; 'we hypothesize that form A might be kinetically favored'; 'thermodynamics alone is insufficient for understanding polymorph crystallization'.",
+     "generality": "single-study"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "For Z'>1 handling, use the sampling list that explicitly includes Z'=2 structures; missing an experimental form (XXIII form E) can happen simply because it fell just outside the energetic window used for Z'=2 candidates.",
+     "scope": "Multi-molecule asymmetric unit (Z'=2) molecular crystals in CSP",
+     "evidence": "'we used the list that also included Z' = 2 structures'; form E 'was located just outside the energetic window considered for the Z' = 2 structures'.",
+     "generality": "single-study"
+    }
+   ],
+   "synthesis": "For GAtor 2.0, this paper is the canonical template for the ranking half of MCSP and a cautionary tale about the search half. The GA plays the role GRACE plays here: its job is to guarantee the true low-energy basins survive into a small final pool, because the expensive PBE0+MBD+Fvib refinement can only reorder what it is given and cannot rescue a form the GA never generated (form E fell out of the window). The tiered energy protocol maps directly onto a GAtor descriptor/MLIP funnel: cheap surrogate (MLIP or PBE+TS) for the GA fitness and niching, then PBE+MBD to fix pairwise-dispersion errors, then hybrid exchange for charge-transfer/salt cases, then vibrational entropy last and only on the top few kJ/mol. The message that all three physics ingredients are individually decisive, and system-dependent, argues that MACE-OFF/AIMNet2/UMA surrogates used inside the GA should be validated against PBE0+MBD+Fvib on the low-energy window before trusting rankings, and that finite-T (QHA + anharmonicity) matters most for flexible, entropy-driven systems like XXIII where forms sit within ~1 kJ/mol. The N70 result is a direct motivation for niching that preserves diverse packing motifs (e.g. distinct sheet-stacking) even at similar energy, and a reminder that GA-predicted 'most stable' structures need kinetic/solvent caveats before claiming they are experimentally accessible."
   }
  ]
 }
