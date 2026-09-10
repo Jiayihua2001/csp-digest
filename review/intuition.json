@@ -454,6 +454,83 @@
     }
    ],
    "synthesis": "For GAtor 2.0, this paper is the canonical template for the ranking half of MCSP and a cautionary tale about the search half. The GA plays the role GRACE plays here: its job is to guarantee the true low-energy basins survive into a small final pool, because the expensive PBE0+MBD+Fvib refinement can only reorder what it is given and cannot rescue a form the GA never generated (form E fell out of the window). The tiered energy protocol maps directly onto a GAtor descriptor/MLIP funnel: cheap surrogate (MLIP or PBE+TS) for the GA fitness and niching, then PBE+MBD to fix pairwise-dispersion errors, then hybrid exchange for charge-transfer/salt cases, then vibrational entropy last and only on the top few kJ/mol. The message that all three physics ingredients are individually decisive, and system-dependent, argues that MACE-OFF/AIMNet2/UMA surrogates used inside the GA should be validated against PBE0+MBD+Fvib on the low-energy window before trusting rankings, and that finite-T (QHA + anharmonicity) matters most for flexible, entropy-driven systems like XXIII where forms sit within ~1 kJ/mol. The N70 result is a direct motivation for niching that preserves diverse packing motifs (e.g. distinct sheet-stacking) even at similar energy, and a reminder that GA-predicted 'most stable' structures need kinetic/solvent caveats before claiming they are experimentally accessible."
+  },
+  {
+   "slug": "pyxtal-2021",
+   "title": "PyXtal: A Python library for crystal structure generation and symmetry analysis",
+   "doi": "10.1016/j.cpc.2020.107810",
+   "year": 2020,
+   "tier": "E",
+   "source_mode": "pdf",
+   "date": "2026-09-10",
+   "core_idea": "PyXtal is an open-source Python library that generates random symmetric crystal structures (and clusters) from just a symmetry group and chemical composition, for atomic and molecular systems across 0D-3D. It places atoms/molecules into Wyckoff positions using a general-to-special merging scheme and, for molecules, automatically detects molecular point-group symmetry to allow occupation of special Wyckoff sites (non-integer/arbitrary Z').",
+   "innovation": "First standalone code to generate molecular crystals with arbitrary Z' (fractional to multiple integers) by aligning molecular point-group operations with Wyckoff site symmetry, and to support low-dimensional systems (point/rod/layer groups), plus symmetry-relation structure modulation (group-subgroup transitions). Prior tools (Randspg for atomic 3D; Genarris 2.0 for some non-integer Z') were more limited.",
+   "chunks": [
+    {
+     "type": "statistic",
+     "statement": "About 90% of organic crystals in the CSD have Z'=1, which is why most CSP efforts restrict generation to a few common space groups with one molecule in the asymmetric unit.",
+     "scope": "Organic molecular crystals in the Cambridge Structure Database",
+     "evidence": "'While 90% of organic crystals in the Cambridge Structure Database (CSD) have Z'=1' and 'most organic crystals tend to crystallize in only a few space groups with Z' = 1'",
+     "generality": "established"
+    },
+    {
+     "type": "principle",
+     "statement": "Starting global optimization from already-symmetric trial structures finds the global energy minimum in fewer attempts than purely random generation, because symmetry biases sampling toward realistic, higher-symmetry configurations that nature prefers.",
+     "scope": "Global optimization / CSP for atomic clusters and crystals",
+     "evidence": "'It is generally believed that by beginning with already-symmetric structures, fewer attempts are needed to find the global energy minimum'; benchmarks show symmetric seeding found ground states while random did not.",
+     "generality": "established"
+    },
+    {
+     "type": "statistic",
+     "statement": "For Lennard-Jones clusters, pre-symmetrized starting structures found the ground state 278/10000 (N=38), 73/10000 (N=55), and 1/10000 (N=75) times, while non-symmetric random starts found it zero times in all three sizes.",
+     "scope": "LJ clusters of size 38, 55, 75; 10000 structures each, CG local optimization",
+     "evidence": "'With pre-symmetrization, the ground state was found 278 times for size 38 clusters, 73 times for size 55, and 1 time for size 75. Without pre-symmetrization, the ground state was not found at all.'",
+     "generality": "single-study"
+    },
+    {
+     "type": "principle",
+     "statement": "Pre-symmetrization spans structure space more broadly (higher average energy, more diverse) whereas purely random structures cluster tightly around a narrow 'glassy' energy range, especially for larger systems.",
+     "scope": "LJ clusters and elemental C/Si crystals (2-16 atoms/cell)",
+     "evidence": "'pre-symmetrization spans the possible structure space more effectively, while purely random structures are more clustered around a specific energy range' and 'prevent the clustering of glassy structures found in pure random generations for large systems'",
+     "generality": "suggested"
+    },
+    {
+     "type": "principle",
+     "statement": "A molecule can only occupy a Wyckoff position if its point group contains the site symmetry as a subgroup AND it is oriented so its symmetry axes align with the site symmetry axes; orientation and shape (not just position) determine WP compatibility for molecules.",
+     "scope": "Molecular crystals, molecules on special Wyckoff positions",
+     "evidence": "'if the object is instead a molecule, then the WP compatibility is also determined by orientation and shape' and the requirement to be 'sufficiently symmetric' and 'oriented such that its symmetry operations are aligned with the Wyckoff site symmetry'",
+     "generality": "established"
+    },
+    {
+     "type": "pipeline_practice",
+     "statement": "PyXtal's generation pipeline runs in order: check Wyckoff compatibility with stoichiometry, generate lattice, insert Wyckoff positions from largest (general) to smallest multiplicity, merge close atoms into special positions, then distance-check; each step retries up to a max before failing.",
+     "scope": "Random symmetric structure generation, atomic and molecular",
+     "evidence": "Flowchart: 'Wyckoff Compatibility Check, Lattice Generation, Wyckoff Position Insertion, Wyckoff Merging, Distance Check' and 'PyXtal starts with the largest available WP... in order of descending multiplicity'",
+     "generality": "single-study"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "By default do not generate crystals containing mirror (inverted) copies of chiral molecules, since a chiral molecule's mirror image can have different chemical/biological properties; enable inversion only when appropriate.",
+     "scope": "Molecular crystals of chiral molecules, especially pharmaceutical applications",
+     "evidence": "'a chiral molecule's mirror image will possess different chemical or biological properties... By default, PyXtal does not generate crystals with mirror copies of chiral molecules. The user can choose to allow inversion if desired.'",
+     "generality": "established"
+    },
+    {
+     "type": "pitfall",
+     "statement": "Modeling molecules as spheres for intermolecular distance checks (center-center only) fails for anisotropic molecules like benzene, which can overlap under some rotations even when centers are far apart; direct atom-atom checking is needed and is the dominant cost for molecular crystal generation.",
+     "scope": "Molecular crystal generation with non-spherical molecules",
+     "evidence": "'a spherical model works poorly for irregularly shaped molecules like benzene... short separations along the perpendicular axis, but must be further apart along the planar axes' and 'this is typically the largest time cost for generation of molecular crystals'",
+     "generality": "established"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "To generate new candidate structures while preserving symmetry, perturb only the asymmetric unit (free WP coordinates, molecular orientation along allowed axes, flexible dihedrals, and symmetry-constrained cell); to model phase transitions or diversify, use group-subgroup (translationengleiche/klassengleiche) transitions with Wyckoff splitting and cell transformation.",
+     "scope": "Symmetry-constrained structure modulation for CSP and phase-transition studies",
+     "evidence": "'perturb only the atoms in the asymmetric unit... the whole molecule can be reoriented along the allowed rotational axes. If the molecule has flexible rotors, additional perturbation on these dihedral angles' and group-subgroup transition 'randomly pick one possible transformation path between G and H'",
+     "generality": "suggested"
+    }
+   ],
+   "synthesis": "For GAtor 2.0, the key transferable lessons are about the front end (Genarris-style generation) and the operators. PyXtal quantifies the field intuition your group already relies on: symmetric seeding dramatically outperforms unbiased random sampling not just in hit rate but in diversity, avoiding the 'glassy' clustering that wastes GA population slots on redundant amorphous-like structures. The molecular-orientation-into-special-WP algorithm is directly relevant to your Z'>1 and multi-component interests: it gives a concrete recipe for populating non-integer/arbitrary Z' by matching molecular point-group axes to site-symmetry axes, which is exactly the generation capability GAtor needs to reach the Z'>1 polymorphs (aspirin, ROY, glycine) that dominate hard blind-test targets. The chirality default (no mirror copies) is a practical initialization safeguard for pharma-relevant chiral molecules. Finally, the group-subgroup and asymmetric-unit perturbation machinery suggests symmetry-preserving GA mutation operators - mutating only free WP coordinates, molecular orientations, and dihedrals keeps offspring on the physically meaningful manifold, and controlled symmetry-lowering via group-subgroup transitions is a principled crossover/mutation move for exploring related polymorphs (e.g., cubic-to-tetragonal splitting) rather than blind Cartesian perturbation."
   }
  ]
 }
