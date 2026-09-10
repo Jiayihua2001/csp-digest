@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-Introduces an active-learning framework that selects bespoke training configurations for interatomic potentials by matching Fisher-information content, rather than relying on generic sampling or error-driven selection.
+Introduces active learning by information-matching to inversely design bespoke, minimal-domain interatomic potentials, selecting training configurations that match target information content rather than broad transferability.
 
 ## My notes
 

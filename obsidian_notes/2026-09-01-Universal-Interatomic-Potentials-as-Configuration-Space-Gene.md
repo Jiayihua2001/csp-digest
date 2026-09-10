@@ -28,7 +28,7 @@ Material-Specific Models
 **Field:** [[ML-potential]] [[benchmark]]
 
 ## Why it matters
-Repurposes universal MLIPs' known energy-surface softening as a sampling advantage—using them to generate configurations for one-shot/iterative DFT-relabeled fine-tuning into accurate material-specific potentials.
+Uses universal MLIPs' systematic PES-softening bias as an efficient configuration-space sampler, whose DFT-relabeled trajectories then train accurate material-specific fine-tuned models.
 
 ## Abstract
 > Abstract Universal machine learning interatomic potentials (MLIPs) are rapidly becoming general-purpose tools for atomistic simulation, but their role in quantitative materials modeling when reactive events are involved remains unsettled. We compare five universal MLIPs across seven chemically diverse systems and find that strong performance on standard benchmarks does not guarantee accurate predictions of the target observables. In particular, zero-shot models do not reliably reproduce reactive, transport, or high-barrier processes, exemplified here in particular by the sulfur-vacancy jump in MoS2. We therefore benchmark a practical alternative against target observables: universal MLIPs are used to generate long molecular dynamics trajectories, the resulting configurations are subsampled and relabeled with DFT, and material-specific MLIPs are subsequently trained or fine-tuned on the resulting first-principles data sets. This workflow converts universal models into efficient configuration-space generators while retaining ab initio reference labels for training and turns their systematic softening of the potential energy surface from a liability into a sampling advantage. Across t

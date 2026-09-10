@@ -18,7 +18,7 @@ tags:
 **Scores:** relevance 70 / significance 0
 
 ## Why it matters
-Introduces a "shotgun" random/high-throughput sampling-based CSP approach targeting high-energy metastable polymorphs stable only at ambient conditions, rather than global-minimum ground states.
+Introduces a "shotgun" CSP approach—likely combining rapid random/generative structure sampling with machine-learning screening—to efficiently locate high-energy metastable phases stable at ambient conditions, bypassing exhaustive evolutionary searches.
 
 ## My notes
 

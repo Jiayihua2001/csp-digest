@@ -20,7 +20,7 @@ tags:
 **Field:** [[free-energy]]
 
 ## Why it matters
-Introduces a deep-learning-based free-energy surrogate integrated into crystal structure prediction, enabling nuclear quantum and finite-temperature effects to guide genetic-algorithm searches beyond static 0 K enthalpy ranking.
+Introduces a deep-learning-based free energy model integrated into crystal structure prediction, enabling direct optimization for structures accounting for nuclear quantum and finite-temperature effects.
 
 ## My notes
 

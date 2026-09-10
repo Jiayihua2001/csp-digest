@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-09-10",
+  "count": 22,
+  "new_count": 2,
+  "synthesis": "Generative flow-based CSP dominates (Packora, uFlowCSP, SO(3) orientation flow, text-guided flow matching), signaling convergence toward flow-matching as the default generative paradigm alongside diffusion. Parallel emphasis on MLIP reliability (benchmarking, uncertainty quantification, failure-mode discovery) reflects growing scrutiny of force-",
+  "top": [
+   {
+    "title": "Packora: Systematic Design for Generative Molecular Crystal Structure Prediction",
+    "relevance": 92,
+    "significance": 0
+   },
+   {
+    "title": "uFlowCSP: Crystal Structure Prediction using Mean flow generative models",
+    "relevance": 90,
+    "significance": 0
+   },
+   {
+    "title": "Hierarchical Crystal Structure Prediction of Zeolitic Imidazolate Frameworks Using DFT and Machine-Learned Interatomic Potentials",
+    "relevance": 65,
+    "significance": 12
+   }
+  ]
+ },
+ {
   "date": "2026-09-09",
   "count": 20,
   "new_count": 4,

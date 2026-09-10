@@ -21,7 +21,7 @@ tags:
 **Field:** [[ML-potential]] [[free-energy]]
 
 ## Why it matters
-Introduces Hessian-derived Taylor-expansion data augmentation (UniAug and ModeAug) that injects curvature information into MLIP training without architecture changes or higher-order backpropagation.
+Introduces two Hessian-derived data-augmentation schemes—isotropic (UniAug) and normal-mode-weighted (ModeAug) displacement via Taylor expansion—that inject Hessian information into MLIP training without architectural changes or higher-order backpropag
 
 ## Abstract
 > While machine-learning interatomic potentials (MLIPs) have successfully learned potential energy surfaces (PES) and atomic forces, many practical applications, such as vibrational analysis and transition state search, rely heavily on the PES Hessian. Yet, standard MLIPs tend to be trained on energy and forces alone, leaving Hessian information largely unexploited. Meanwhile, existing methods that explicitly incorporate the Hessian into training objectives require architectural modifications and introduce significant computational and memory overheads due to higher-order backpropagation. To address these limitations, we propose two Hessian-derived data augmentation schemes: isotropic Gaussian displacement (\textbf{UniAug}) and normal mode-weighted displacement (\textbf{ModeAug}). Both methods utilize simple Taylor expansions, achieving effective augmentation without altering training objectives or extending the autograd graph. This allows seamless, plug-and-play integration with existing architectures and training pipelines. Comprehensive evaluations across non-equilibrium and equilibrium datasets demonstrate that our approach enhances model accuracy while providing practical, task-

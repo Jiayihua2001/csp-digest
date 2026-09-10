@@ -21,7 +21,7 @@ tags:
 **Field:** [[ML-potential]] [[benchmark]]
 
 ## Why it matters
-Introduces MLIP Detective, an agentic physics-informed hypothesis-generation-and-screening framework that autonomously discovers hidden u-MLIP failure modes beyond fixed benchmarks, surfacing a novel MACE-MPA-0 adsorption
+Introduces MLIP Detective, an agentic framework that autonomously generates and screens physics-informed failure hypotheses for universal MLIPs, uncovering a specific systematic energy anomaly beyond standard benchmarks.
 
 ## Abstract
 > Universal machine-learning interatomic potentials (u-MLIPs) aim to generalize across diverse configurations. Benchmarks enable reproducible evaluation but may not expose failures outside their predefined scope. Here, we show that physics-informed search can complement benchmark-based evaluation by uncovering hidden failure modes. We introduce MLIP Detective, an agentic framework for active failure mode discovery. Starting from benchmark evidence, MLIP Detective generates falsifiable, physics-informed failure hypotheses, screens them with inexpensive simulations, and escalates only the most suspicious cases to human experts together with proposed verification protocols. Without issue-specific prompting, MLIP Detective identified and characterized a systematic anomaly in MACE-MPA-0: the model predicted some relaxed adsorbate-surface systems involving O- or F-containing adsorbates to be higher in energy than their corresponding separated fragments. Using cross-model comparisons, MLIP Detective further inferred a likely training-data origin for the anomaly, consistent with recent reports.
