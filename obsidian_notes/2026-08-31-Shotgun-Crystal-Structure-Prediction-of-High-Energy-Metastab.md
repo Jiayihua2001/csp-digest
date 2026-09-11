@@ -18,7 +18,7 @@ tags:
 **Scores:** relevance 70 / significance 0
 
 ## Why it matters
-Introduces a "shotgun" CSP approach—likely combining rapid random/generative structure sampling with machine-learning screening—to efficiently locate high-energy metastable phases stable at ambient conditions, bypassing exhaustive evolutionary searches.
+Introduces a "shotgun" CSP strategy—massively parallel, non-evolutionary sampling of candidate structures—to efficiently locate high-energy metastable phases stable at ambient conditions, bypassing iterative genetic-algorithm optimization.
 
 ## My notes
 

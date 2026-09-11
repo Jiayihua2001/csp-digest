@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-Introduces active learning by information-matching to inversely design bespoke, minimal-domain interatomic potentials, selecting training configurations that match target information content rather than broad transferability.
+Introduces "information-matching," an active-learning criterion that selects training configurations by matching Fisher information content, enabling inverse design of task-specific, minimal-data interatomic potentials rather than general-purpose ones.
 
 ## My notes
 

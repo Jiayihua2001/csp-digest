@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-Introduces a budget-resolved, retrospective response-witness selector (using coverage-vs-reference model disagreement) that outperforms coverage-based sampling only above ~20% training-set size, revealing a crossover absent from prior single-budget comparisons.
+Introduces a budget-resolved comparison showing coverage-based selection wins at small training fractions while response/disagreement-based (witness) selection overtakes it at larger fractions (~20%) for MACE potentials.
 
 ## Abstract
 > Selecting compact training sets for machine-learned interatomic potentials requires deciding whether to preserve structural diversity or target configurations on which models disagree. The better choice can depend on how much data is retained, making a comparison at one training-set size insufficient. Here we link selection criteria to prediction accuracy through a budget-resolved comparison of retrained MACE models on GAP-20 Carbon and pooled revised MD17. Structural coverage is compared with a response-guided selector that targets disagreement between a coverage-trained model and a full-data reference. This retrospective response witness tests the value of model disagreement for compressing an already labelled pool. At 5\%, coverage gives smaller absolute deviations from the full-data error than random sampling across four force endpoints in both datasets. The witness has larger deviations than coverage at 1\% and 5\%, but the ordering reverses at 20\%. At 20\%, witness-selected models also lower direct held-out force errors by 0.46--5.89\% relative to coverage, with all eight paired training-seed intervals favouring the witness. Six errors fall below the full-data reference. Mea

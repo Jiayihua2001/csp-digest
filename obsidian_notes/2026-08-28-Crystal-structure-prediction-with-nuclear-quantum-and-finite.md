@@ -5,7 +5,7 @@ source: journal
 venue: "Physical Review B"
 doi: 10.1103/3qjr-mgv7
 arxiv: 
-relevance: 70
+relevance: 80
 significance: 0
 tags:
   - CSP
@@ -16,11 +16,11 @@ tags:
 
 **Authors:** [[Anonymous]]
 **Link:** https://doi.org/10.1103/3qjr-mgv7
-**Scores:** relevance 70 / significance 0
+**Scores:** relevance 80 / significance 0
 **Field:** [[free-energy]]
 
 ## Why it matters
-Introduces a deep-learning-based free energy model integrated into crystal structure prediction, enabling direct optimization for structures accounting for nuclear quantum and finite-temperature effects.
+Combines evolutionary crystal structure search with deep learning-based free energy prediction to incorporate nuclear quantum and finite-temperature effects directly into the search, rather than relying on static 0 K enthalpy ranking.
 
 ## My notes
 
