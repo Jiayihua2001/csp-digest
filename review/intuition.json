@@ -531,6 +531,83 @@
     }
    ],
    "synthesis": "For GAtor 2.0, the key transferable lessons are about the front end (Genarris-style generation) and the operators. PyXtal quantifies the field intuition your group already relies on: symmetric seeding dramatically outperforms unbiased random sampling not just in hit rate but in diversity, avoiding the 'glassy' clustering that wastes GA population slots on redundant amorphous-like structures. The molecular-orientation-into-special-WP algorithm is directly relevant to your Z'>1 and multi-component interests: it gives a concrete recipe for populating non-integer/arbitrary Z' by matching molecular point-group axes to site-symmetry axes, which is exactly the generation capability GAtor needs to reach the Z'>1 polymorphs (aspirin, ROY, glycine) that dominate hard blind-test targets. The chirality default (no mirror copies) is a practical initialization safeguard for pharma-relevant chiral molecules. Finally, the group-subgroup and asymmetric-unit perturbation machinery suggests symmetry-preserving GA mutation operators - mutating only free WP coordinates, molecular orientations, and dihedrals keeps offspring on the physically meaningful manifold, and controlled symmetry-lowering via group-subgroup transitions is a principled crossover/mutation move for exploring related polymorphs (e.g., cubic-to-tetragonal splitting) rather than blind Cartesian perturbation."
+  },
+  {
+   "slug": "fastcsp",
+   "title": "FastCSP: Accelerated Molecular Crystal Structure Prediction with Universal Model for Atoms",
+   "doi": "10.48550/arxiv.2508.02641",
+   "year": 2025,
+   "tier": "G",
+   "source_mode": "pdf",
+   "date": "2026-09-11",
+   "core_idea": "FastCSP is an end-to-end molecular CSP workflow driven entirely by a single pretrained universal MLIP (UMA), covering conformer generation, random structure generation (Genarris 3), relaxation, ranking, and optional free-energy and conformer-energy corrections. It matches dispersion-inclusive DFT (PBE-D3) fidelity for both semi-rigid and flexible molecules without any system-specific fine-tuning or DFT re-ranking, recovering all 74 experimental polymorphs across 38 compounds within 9 kJ/mol of the global minimum.",
+   "innovation": "Prior MLIP-based CSP either used system-specific models trained per-target (e.g., AIMNet2 in blind test 7) or retained a final DFT re-ranking step. FastCSP uses a single pretrained multi-task model, exploiting complementarity between the OMC task (PBE-D3, periodic, accurate for intermolecular/packing) and the OMol task (wB97M-V, finite molecules, accurate for intramolecular conformer energies) to build an OMC->OMol conformer correction that fixes GGA delocalization error without any post-hoc high-level DFT.",
+   "chunks": [
+    {
+     "type": "statistic",
+     "statement": "Competing polymorphs are typically separated by only a few kJ/mol; all 74 experimental polymorphs in the benchmark fall within 9 kJ/mol of the predicted global minimum, and single-polymorph experimental structures lie within 5 kJ/mol (vast majority within 2 kJ/mol).",
+     "scope": "28 semi-rigid + 10 flexible organic molecules, Z'<=1, ambient (plus a few high-pressure) polymorphs",
+     "evidence": "'Different polymorphs are often separated by only a few kJ/mol per molecule'; 'All experimentally observed polymorphs fall within 9 kJ/mol of the predicted global minimum'; 'all experimentally observed structures fall within 5 kJ/mol... with the vast majority within 2 kJ/mol'",
+     "generality": "established"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "Apply an OMC->OMol (intramolecular) conformer energy correction when the experimental structure differs from the GGA global minimum primarily by molecular conformation - i.e., for conformational polymorphs where GGA delocalization error overstabilizes planar/conjugated conformers; it is not beneficial (and can hurt) for rigid molecules or when intermolecular interactions dominate.",
+     "scope": "Flexible molecules with conformational polymorphism (ROY, Target X, Target XXII); ineffective for semi-rigid molecules and worsened Target XVIII",
+     "evidence": "Conformer correction lifted ROY's Y form from rank #336 to #1 and recovered Y > YT04 > R ordering; improved Target X from #5 to #1 and Target XXII to #1; 'no appreciable benefit for the semi-rigid compounds'; worsened Target XVIII from #1 to #22",
+     "generality": "suggested"
+    },
+    {
+     "type": "principle",
+     "statement": "GGA/semi-local functionals (PBE) suffer delocalization error that overstabilizes extended pi-conjugation, artificially lowering the energy of flatter (small-dihedral) molecular conformations and biasing the ranking of conformational polymorphs; this bias propagates doubly because planar conformers also pack more favorably. A pretrained MLIP faithfully reproduces this same error since it is trained on GGA data.",
+     "scope": "Conformationally flexible molecules with rotatable bonds connecting conjugated systems (ROY S-C-N-C torsion, Target X amide-ring conjugation)",
+     "evidence": "'Semi-local functionals... overstabilize extended pi-conjugation, artificially lowering the energy of molecular conformations with smaller (more planar)... dihedral angles'; UMA-OMC torsion scan 'closely tracks B86bPBE-XDM', overstabilizing planar minimum by ~4 kJ/mol vs CCSD(T)",
+     "generality": "established"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "Quasi-harmonic free-energy corrections at finite temperature are NOT universally beneficial: they tend to improve recall for flexible molecules but slightly worsen it for semi-rigid molecules, and do not reliably fix polymorph ordering. Do not assume adding QHA free energies improves rankings.",
+     "scope": "Molecular crystal polymorph ranking at 300 K via QHA; benchmark of 38 organic molecules",
+     "evidence": "'for the semi-rigid compounds the free energy corrections make the recall slightly worse'; 'for flexible compounds... overall improvement in recall'; 'free energy corrections did not necessarily improve the stability ranking among polymorphs' - mirroring blind test 7 findings",
+     "generality": "established"
+    },
+    {
+     "type": "pipeline_practice",
+     "statement": "The FastCSP pipeline order is: (1) RDKit multi-sampler conformer generation + UMA-OMol relaxation + Butina clustering with energy gate; (2) Genarris 3 random crystal generation across compatible space groups/Z with Rigid Press close-packing; (3) StructureMatcher deduplication (removes ~67% semi-rigid, ~43% flexible); (4) full UMA-OMC relaxation + second deduplication; (5) rank by lattice energy; optional QHA free energy and OMC->OMol conformer corrections.",
+     "scope": "End-to-end MLIP-driven CSP workflow, Z'<=1",
+     "evidence": "Figure 1 and Methods: conformer generation -> Genarris random generation + Rigid Press + dedup -> UMA-OMC relaxation + dedup -> ranking, with optional free energy and conformer corrections; 'an average of 67% for the Semi-Rigid and 43% for the Flexible molecules' removed at first dedup",
+     "generality": "single-study"
+    },
+    {
+     "type": "pitfall",
+     "statement": "Relative-energy error metrics are highly sensitive to the reference choice when the MLIP and DFT predict DIFFERENT global minima. Referencing each method to its own minimum can hide large disagreements; using a common (DFT) reference exposes them.",
+     "scope": "Systems where UMA and PBE-D3 global minima differ (ROY, Target I, Target XVI, imidazole, nicotinamide, etc.)",
+     "evidence": "For ROY, MAE is 0.94 kJ/mol when each method uses its own global minimum but jumps to 7.26 kJ/mol when the PBE-D3 minimum is the common reference",
+     "generality": "suggested"
+    },
+    {
+     "type": "pitfall",
+     "statement": "Universal MLIPs degrade for chemistry underrepresented in training data: molecules with rare functional groups or scaffolds (diazo/diazide-carbonyl in Target XVI, aryl-CF2-SO2 linker in Target XXXI) show the worst energy MAE (2.32 and 1.96 kJ/mol) and lowest rank correlations, because the underrepresented group forms the structural core determining packing.",
+     "scope": "OMC25-trained UMA on molecular crystals with functional groups <0.1% of training set",
+     "evidence": "'molecules with diazo functional groups comprise <0.1% of the training set of the OMC25 dataset'; Target XVI worst-case MAE 2.32 kJ/mol, Spearman 0.51; the 'underrepresented chemistry constitutes the structural core'",
+     "generality": "single-study"
+    },
+    {
+     "type": "statistic",
+     "statement": "A single MLIP relaxation step is ~5,600x cheaper (CPU-core-h per GPU-h) than a corresponding dispersion-inclusive DFT ionic step, and an initial DFT single-point ~22,000x. Reproducing the ~2.3M-structure campaign with DFT would need ~1.6e9 CPU-core-h (192,000 CPU-core-years) vs ~1e5 GPU-h for the MLIP.",
+     "scope": "UMA-Small v1.1 on V100 vs VASP 6.3 PBE-D3, molecular crystal relaxations",
+     "evidence": "'each MLIP relaxation step is on average ~5,600x... cheaper than a corresponding dispersion-inclusive DFT ionic step'; 'Reproducing the same trajectories with DFT would require... a combined 1.6e9 CPU-core-h'",
+     "generality": "single-study"
+    },
+    {
+     "type": "principle",
+     "statement": "Seeding CSP with a conformer that matches the crystal geometry neither guarantees nor is strictly required for recovering the experimental structure, because intermolecular packing forces ultimately reshape the molecular conformation during relaxation; a somewhat-different initial conformer can still relax into the correct crystal. A pool of ~20 conformers (fewer than 10 usually suffices) gives comfortable coverage.",
+     "scope": "Flexible molecules up to 4 rotatable bonds; conformer pools from RDKit + UMA-OMol",
+     "evidence": "'seeding the workflow with conformers that match the crystal geometry does not, in and of itself, guarantee successful CSP because intermolecular interactions ultimately determine the final relaxed molecular structure'; highest-ranked conformer needed was rank #17; 'fewer than 10 conformers would have sufficed for most systems'",
+     "generality": "suggested"
+    }
+   ],
+   "synthesis": "For GAtor 2.0, the most transferable lesson is the two-tier energy strategy: use a cheap universal MLIP (OMC-level, PBE-D3-like) for the GA fitness/relaxation loop where you need thousands of evaluations and packing accuracy, but recognize it inherits GGA delocalization error verbatim - so for conformationally flexible or Z'>1 targets you must layer a higher-theory intramolecular correction (OMol/wB97M-V single-points on extracted monomers) to rebalance conformer vs packing energy before final ranking. This replaces the expensive PBE0+MBD re-ranking that currently gates GAtor throughput, and the ROY result (rank 336 -> 1) shows the correction can flip the global minimum, which matters directly for GA niching: your fitness landscape's basins will be systematically mislocated for conjugated flexible molecules unless corrected, so niches built on raw MLIP energy could converge to the wrong 'stable' conformational family. Practically, run the GA with a generous but modest conformer/torsion seed pool (Genarris already samples this), lean on aggressive deduplication to prune the population, treat finite-T free energies as a diagnostic rather than an automatic ranking improvement, and always sanity-check MLIP-vs-DFT agreement using a common reference minimum plus a check that your target's functional groups are actually represented in OMC25/OMol25 - underrepresented scaffolds (the kind of exotic chemistry that shows up in blind tests) are exactly where the universal model quietly fails and where per-system fine-tuning or DFT is still warranted."
   }
  ]
 }
