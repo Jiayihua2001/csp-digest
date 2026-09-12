@@ -608,6 +608,62 @@
     }
    ],
    "synthesis": "For GAtor 2.0, the most transferable lesson is the two-tier energy strategy: use a cheap universal MLIP (OMC-level, PBE-D3-like) for the GA fitness/relaxation loop where you need thousands of evaluations and packing accuracy, but recognize it inherits GGA delocalization error verbatim - so for conformationally flexible or Z'>1 targets you must layer a higher-theory intramolecular correction (OMol/wB97M-V single-points on extracted monomers) to rebalance conformer vs packing energy before final ranking. This replaces the expensive PBE0+MBD re-ranking that currently gates GAtor throughput, and the ROY result (rank 336 -> 1) shows the correction can flip the global minimum, which matters directly for GA niching: your fitness landscape's basins will be systematically mislocated for conjugated flexible molecules unless corrected, so niches built on raw MLIP energy could converge to the wrong 'stable' conformational family. Practically, run the GA with a generous but modest conformer/torsion seed pool (Genarris already samples this), lean on aggressive deduplication to prune the population, treat finite-T free energies as a diagnostic rather than an automatic ranking improvement, and always sanity-check MLIP-vs-DFT agreement using a common reference minimum plus a check that your target's functional groups are actually represented in OMC25/OMol25 - underrepresented scaffolds (the kind of exotic chemistry that shows up in blind tests) are exactly where the universal model quietly fails and where per-system fine-tuning or DFT is still warranted."
+  },
+  {
+   "slug": "blind-test-1",
+   "title": "A test of crystal structure prediction of small organic molecules",
+   "doi": "10.1107/s0108768100004584",
+   "year": 2000,
+   "tier": "A",
+   "source_mode": "metadata",
+   "date": "2026-09-12",
+   "core_idea": "The first CCDC blind test (1999) evaluated whether CSP methods could predict organic crystal structures from connectivity alone. With 11 participants proposing up to three structures each for four compounds, no method was consistently reliable, though seven proposed structures matched experiment. The central lesson: lattice-energy CSP finds many structures within a few kJ/mol of the global minimum, so ranking is dominated by force-field details.",
+   "innovation": "Established the community-wide, double-blind CSP benchmarking format: predict from 2D connectivity only, limited number of submissions, and objective comparison to experimental (in some cases withheld) crystal structures across many independent methodologies.",
+   "chunks": [
+    {
+     "type": "statistic",
+     "statement": "Lattice-energy CSP typically finds many candidate structures packed within only a few kJ/mol of the global minimum.",
+     "scope": "Small organic molecules from the first CCDC blind test (four compounds, force-field lattice-energy methods)",
+     "evidence": "'many structures are found within a few kJ mol(-1) of the global minimum'",
+     "generality": "established"
+    },
+    {
+     "type": "pitfall",
+     "statement": "Because candidates are energetically dense near the minimum, the fine detail of force-field methodology and parametrization determines which structure ranks first, so ranking is not robust.",
+     "scope": "Force-field lattice-energy CSP of small organics",
+     "evidence": "'The fine detail of the force-field methodology and parametrization influences the energy ranking within each method.'",
+     "generality": "established"
+    },
+    {
+     "type": "statistic",
+     "statement": "Across 11 participants proposing up to 3 structures each for 4 compounds, only 7 proposed structures were classified as 'correct' and no program was consistently reliable.",
+     "scope": "1999 CCDC blind test, four small organic compounds",
+     "evidence": "'11 participants...at most three structures for each compound...seven proposed structures were close to an experimental one and were classified as correct...No program gave consistently reliable results.'",
+     "generality": "single-study"
+    },
+    {
+     "type": "pitfall",
+     "statement": "Polymorphism is a major failure mode: for a compound with two known polymorphs, only one form was predicted correctly.",
+     "scope": "One compound in the 1999 blind test with two observed polymorphs",
+     "evidence": "'One compound occurred in two polymorphs, but only one form was predicted correctly among the calculated structures.'",
+     "generality": "single-study"
+    },
+    {
+     "type": "principle",
+     "statement": "CSP methods are best framed as generators of a plausible set of candidate polymorphs rather than definitive predictors of the observed structure.",
+     "scope": "Lattice-energy CSP of small organics circa 2000",
+     "evidence": "'present methods may be useful in providing a set of structures as possible polymorphs for a given molecular structure.'",
+     "generality": "established"
+    },
+    {
+     "type": "pipeline_practice",
+     "statement": "The blind-test protocol gives predictors only the atomic connectivity and limits them to a small number of ranked candidate structures per compound.",
+     "scope": "CCDC blind test format",
+     "evidence": "'given only the atomic connectivity...allowed to propose at most three structures for each compound.'",
+     "generality": "established"
+    }
+   ],
+   "synthesis": "This is the founding document of the intuition that dooms naive energy ranking: dozens of structures crowd within a few kJ/mol, so whoever ranks them decides the answer, not the search. For GAtor 2.0 the implication is twofold. First, the GA's job is fundamentally sound framing - generate a diverse, near-complete set of low-energy candidates (as Genarris does) rather than betting everything on the single global minimum; niching exists precisely because the relevant answers live in a dense energy band. Second, the whole modern push toward dispersion-inclusive DFT (PBE0+MBD) and accurate MLIPs (MACE-OFF, AIMNet2, UMA) plus finite-temperature free energies is a direct response to this paper's diagnosis: when polymorphs differ by <2 kJ/mol, only ranking accuracy comparable to that gap can distinguish them, and force-field parametrization noise (or MLIP error) will scramble the order. The single-polymorph-predicted failure foreshadows why capturing the full polymorph landscape - and by extension Z'>1 and multi-component crystals - remains the hard part 25 years later."
   }
  ]
 }
