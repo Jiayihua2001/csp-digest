@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-09-12",
+  "count": 20,
+  "new_count": 1,
+  "synthesis": "Flow-matching/diffusion approaches dominate CSP generative modeling today (uFlowCSP, SO(3) orientation flow, text-guided flow matching, CrystalGRW), alongside a strong MLIP-scrutiny cluster benchmarking force fields for intermolecular interactions, high-energy systems, and failure modes\u2014suggesting the field is consolidating generative methods while st",
+  "top": [
+   {
+    "title": "uFlowCSP: Crystal Structure Prediction using Mean flow generative models",
+    "relevance": 80,
+    "significance": 0
+   },
+   {
+    "title": "Hierarchical Crystal Structure Prediction of Zeolitic Imidazolate Frameworks Using DFT and Machine-Learned Interatomic Potentials",
+    "relevance": 65,
+    "significance": 12
+   },
+   {
+    "title": "What an SO(3) orientation flow can and cannot learn in molecular-crystal structure prediction",
+    "relevance": 76,
+    "significance": 0
+   }
+  ]
+ },
+ {
   "date": "2026-09-11",
   "count": 20,
   "new_count": 2,
