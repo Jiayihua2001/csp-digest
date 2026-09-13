@@ -664,6 +664,62 @@
     }
    ],
    "synthesis": "This is the founding document of the intuition that dooms naive energy ranking: dozens of structures crowd within a few kJ/mol, so whoever ranks them decides the answer, not the search. For GAtor 2.0 the implication is twofold. First, the GA's job is fundamentally sound framing - generate a diverse, near-complete set of low-energy candidates (as Genarris does) rather than betting everything on the single global minimum; niching exists precisely because the relevant answers live in a dense energy band. Second, the whole modern push toward dispersion-inclusive DFT (PBE0+MBD) and accurate MLIPs (MACE-OFF, AIMNet2, UMA) plus finite-temperature free energies is a direct response to this paper's diagnosis: when polymorphs differ by <2 kJ/mol, only ranking accuracy comparable to that gap can distinguish them, and force-field parametrization noise (or MLIP error) will scramble the order. The single-polymorph-predicted failure foreshadows why capturing the full polymorph landscape - and by extension Z'>1 and multi-component crystals - remains the hard part 25 years later."
+  },
+  {
+   "slug": "blind-test-2",
+   "title": "Crystal structure prediction of small organic molecules: a second blind test",
+   "doi": "10.1107/s0108768102005669",
+   "year": 2002,
+   "tier": "A",
+   "source_mode": "metadata",
+   "date": "2026-09-13",
+   "core_idea": "The second blind test of organic crystal structure prediction (CSP2001) gave 17 participants only chemical diagrams for three molecules and asked them to predict crystal structures within named common space groups, ranking by minimum calculated lattice energy. Success was modest: 2 correct for molecule 1, 4 for molecule 2, and 0 for the flexible molecule 3, with the correct structure often present in low-energy lists but ranked worse than the allowed top three.",
+   "innovation": "An objective, collaborative benchmark of independent CSP programs on unpublished structures, expanding on the first (CSP1999) test, adding a flexible molecule and a secondary test using non-indexed powder diffraction data to aid prediction.",
+   "chunks": [
+    {
+     "type": "statistic",
+     "statement": "In a blind test of three molecules, correct predictions among ~17 participants were only 2 for molecule 1, 4 for molecule 2, and 0 for the torsionally flexible molecule 3.",
+     "scope": "Small organic molecules, restricted to named common space groups, CSP2001 workshop",
+     "evidence": "'two correct predictions for the first molecule, four for the second molecule and none for the third molecule (which had torsional flexibility)'",
+     "generality": "single-study"
+    },
+    {
+     "type": "pitfall",
+     "statement": "The correct structure frequently appears in the sorted low-energy list but at a rank beyond the top three, so lattice-energy ranking alone often fails to place the true polymorph at the top.",
+     "scope": "Lattice-energy-ranked CSP of small organics, CSP2001",
+     "evidence": "'The correct structure was often present in the sorted low-energy lists from the participants but at a ranking position greater than three.'",
+     "generality": "single-study"
+    },
+    {
+     "type": "principle",
+     "statement": "Molecular flexibility (torsional degrees of freedom) sharply degrades CSP success, since conformational freedom expands the search space and complicates energy ranking.",
+     "scope": "Flexible vs rigid small organic molecules",
+     "evidence": "Molecule 3, described as having torsional flexibility, received zero correct predictions vs 2-4 for the others.",
+     "generality": "suggested"
+    },
+    {
+     "type": "pipeline_practice",
+     "statement": "The standard CSP methodology builds theoretical crystal structures from a molecular model within specified space groups and predicts based on minimum calculated lattice energy, allowing a small number (three) of ranked submissions.",
+     "scope": "Circa-2001 CSP programs for small organics",
+     "evidence": "'a molecular model is used to construct theoretical crystal structures in given space groups, and prediction is usually based on the minimum calculated lattice energy. A maximum of three predictions were allowed per molecule.'",
+     "generality": "established"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "Non-indexed powder diffraction data can be brought in as a secondary discriminator to select among candidate structures when pure ab initio energy ranking is insufficient.",
+     "scope": "CSP post-processing when experimental powder data is available",
+     "evidence": "'The use of non-indexed powder diffraction data was investigated in a secondary test, after completion of the ab initio submissions.'",
+     "generality": "single-study"
+    },
+    {
+     "type": "principle",
+     "statement": "No single CSP method is completely reliable; the blind test provides an objective measure of both successes and failures of current methodologies.",
+     "scope": "CSP methods for small organic molecules as of 2001",
+     "evidence": "'Although no one method can be said to be completely reliable, this workshop gives an objective measure of the success and failure of current methodologies.'",
+     "generality": "established"
+    }
+   ],
+   "synthesis": "This early blind test frames the enduring GAtor-era problem: generating the right structure is often possible (it lands in the low-energy list) but RANKING it to the top is the bottleneck. For GAtor 2.0 that argues energy accuracy (dispersion-inclusive DFT, PBE0+MBD, or well-validated MLIPs like MACE-OFF/AIMNet2/UMA) matters as much as search coverage, and that reporting whether the experimental structure is generated at all should be separated from whether it ranks first. The zero-hit flexible molecule foreshadows why conformer sampling and conformer energy corrections are central to modern generation (Genarris) and why Z'>1/multi-component cases remain hard. It also legitimizes hybrid workflows: use experimental constraints (even non-indexed powder data) as a downstream filter when the energy landscape is too flat to discriminate polymorphs."
   }
  ]
 }
