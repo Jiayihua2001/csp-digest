@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-A hierarchical CSP workflow couples machine-learned interatomic potentials with DFT screening to efficiently predict zeolitic imidazolate framework polymorphs at scale beyond prior pure-DFT approaches.
+A hierarchical CSP workflow couples machine-learned interatomic potentials for rapid screening with DFT refinement, enabling high-throughput structure search for zeolitic imidazolate frameworks previously computationally intractable.
 
 ## Abstract
 > Crystal structure prediction (CSP) is emerging as a powerful method for the computational design of metal-organic frameworks (MOFs). In this article we employ CSP to perform high-throughput exploration of the...

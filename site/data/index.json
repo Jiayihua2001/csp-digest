@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-09-13",
+  "count": 6,
+  "new_count": 0,
+  "synthesis": "Notable convergence on machine-learned potentials as the CSP workhorse\u2014hierarchical DFT/MLIP for ZIFs, MLIP benchmarking for noncovalent interactions, and universal potentials for fine-tuning\u2014alongside two generative/ML methodology papers (SO(3) orientation flows, CrystalGRW) probing where learned models succeed or fail structurally.",
+  "top": [
+   {
+    "title": "Hierarchical Crystal Structure Prediction of Zeolitic Imidazolate Frameworks Using DFT and Machine-Learned Interatomic Potentials",
+    "relevance": 65,
+    "significance": 12
+   },
+   {
+    "title": "What an SO(3) orientation flow can and cannot learn in molecular-crystal structure prediction",
+    "relevance": 80,
+    "significance": 0
+   },
+   {
+    "title": "Critical benchmarking of machine-learned interatomic potentials for intermolecular and noncovalent interactions",
+    "relevance": 90,
+    "significance": 12
+   }
+  ]
+ },
+ {
   "date": "2026-09-12",
   "count": 20,
   "new_count": 1,

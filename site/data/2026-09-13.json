@@ -1,0 +1,266 @@
+{
+ "date": "2026-09-13",
+ "scope": "molecular",
+ "synthesis": "Notable convergence on machine-learned potentials as the CSP workhorse\u2014hierarchical DFT/MLIP for ZIFs, MLIP benchmarking for noncovalent interactions, and universal potentials for fine-tuning\u2014alongside two generative/ML methodology papers (SO(3) orientation flows, CrystalGRW) probing where learned models succeed or fail structurally.",
+ "generated_at": "2026-09-13T13:52:35.092670Z",
+ "items": [
+  {
+   "src": "journal",
+   "title": "Hierarchical Crystal Structure Prediction of Zeolitic Imidazolate Frameworks Using DFT and Machine-Learned Interatomic Potentials",
+   "date": "2026-09-04",
+   "doi": "10.1039/d6sc04307k",
+   "authors": [
+    "Yizhi Xu",
+    "Jordan Dorrell",
+    "Katarina Lisac"
+   ],
+   "authors_all": [
+    "Yizhi Xu",
+    "Jordan Dorrell",
+    "Katarina Lisac",
+    "Ivana Brekalo",
+    "James Darby",
+    "Andrew J. Morris",
+    "Mihails Arhangelskis"
+   ],
+   "corresponding": [
+    "Mihails Arhangelskis"
+   ],
+   "cited_by": 0,
+   "venue": "Chemical Science",
+   "abstract": "Crystal structure prediction (CSP) is emerging as a powerful method for the computational design of metal-organic frameworks (MOFs). In this article we employ CSP to perform high-throughput exploration of the...",
+   "matched": [
+    "molecular crystal structure prediction",
+    "machine learning interatomic potential",
+    "organic crystal polymorph prediction",
+    "universal interatomic potential",
+    "genetic algorithm crystal structure prediction"
+   ],
+   "tags": [
+    "ML-potential"
+   ],
+   "relevance": 65,
+   "significance": 12,
+   "score": 77,
+   "screen": {
+    "relevance": 6,
+    "reason": "MOF-CSP with DFT+MLIPs hierarchy; methodology transfers to molecular crystals but not direct MCSP."
+   },
+   "summary": "A hierarchical CSP workflow couples machine-learned interatomic potentials for rapid screening with DFT refinement, enabling high-throughput structure search for zeolitic imidazolate frameworks previously computationally intractable.",
+   "first_seen": "2026-09-04",
+   "is_new": false
+  },
+  {
+   "src": "ChemRxiv",
+   "title": "What an SO(3) orientation flow can and cannot learn in molecular-crystal structure prediction",
+   "date": "2026-09-04",
+   "doi": "10.26434/chemrxiv.15008279/v1",
+   "authors": [
+    "Frank Cai"
+   ],
+   "authors_all": [
+    "Frank Cai"
+   ],
+   "corresponding": [
+    "Frank Cai"
+   ],
+   "cited_by": 0,
+   "venue": "ChemRxiv",
+   "abstract": "Rigid-body factorization is an appealing route to molecular-crystal structure prediction: freezing each molecule\u2019s conformer reduces a crystal to a lattice, a set of fractional centroids on the torus T3, and a per-molecule orientation on SO(3). Whether the orientation field is actually learnable on real molecular crystals has not been examined. We introduce SymMC-Flow, a space-groupconditioned rigid-body flow on lattice\u00d7T3\u00d7SO(3), used as a diagnostic study on 1,127 crystals from the Cambridge Structural Database. The lattice and centroid flows learn normally, but the absolute per-molecule orientation flow remains at its predict-zero floor. We trace this to a decomposition of the orientation target, Rm = rot(gm) \u00b7 Rasym, into a space-group-determined relative rotation between symmetry copies and the asymmetric unit\u2019s gauge-arbitrary free orientation, which is not learnable from composition and packing; the relative part is. Re-gauging to cancel the free part lifts held-out non-reference orientation loss by 27% (versus \u223c0% for the absolute target) and reconstructs 13.7% (mean over three seeds) of held-out multi-copy packings exactly under StructureMatcher, against 0% for the predict-",
+   "matched": [
+    "molecular crystal structure prediction",
+    "organic crystal polymorph prediction",
+    "crystal energy landscape molecular",
+    "genetic algorithm crystal structure prediction"
+   ],
+   "tags": [
+    "conformational",
+    "space-group"
+   ],
+   "relevance": 80,
+   "significance": 0,
+   "score": 76,
+   "screen": {
+    "relevance": 8,
+    "reason": "Novel generative flow architecture for rigid-body MCSP factorization; identifies fundamental learnability limits in orie"
+   },
+   "summary": "Introducing SymMC-Flow, a space-group-conditioned rigid-body flow, this work shows absolute per-molecule orientation is unlearnable due to gauge-arbitrary free rotation, while re-gauging to the relative symmetry-copy rotation restores lear",
+   "first_seen": "2026-09-04",
+   "is_new": false
+  },
+  {
+   "src": "journal",
+   "title": "Critical benchmarking of machine-learned interatomic potentials for intermolecular and noncovalent interactions",
+   "date": "2026-09-07",
+   "doi": "10.1088/2632-2153/aea39f",
+   "authors": [
+    "Kamal Nayal",
+    "IlKwon Cho",
+    "Olexandr Isayev"
+   ],
+   "authors_all": [
+    "Kamal Nayal",
+    "IlKwon Cho",
+    "Olexandr Isayev"
+   ],
+   "corresponding": [
+    "Olexandr Isayev"
+   ],
+   "cited_by": 0,
+   "venue": "Machine Learning: Science and Technology",
+   "abstract": "Abstract Accurate benchmarking of intermolecular interaction energies is central to evaluating quantum chemical methods and guiding the development of reliable machine-learned interatomic potentials (MLIPs). We benchmark five MLIPs (AIMNet2(2023), AIMNet2(2025), MACE-OFF23(M), MACE-OMol, and UMA-S-OMol) across twenty-one datasets spanning hydrogen-bonded, dispersion- and pi-dominated, sigma-hole, ionic and charge transfer, and repulsive nonequilibrium interactions, with reference values at or near CCSD(T)/CBS accuracy. AIMNet2(2025) is a continually pretrained variant of AIMNet2(2023) that retains the original architecture but incorporates 3.8 million additional structures curated to improve noncovalent interactions (NCIs). AIMNet2(2025) improves on its predecessor across nearly all benchmark categories, with the largest gains in the hydrogen-bonded, sigma-hole, and repulsive regimes, while remaining competitive with the much larger MACE-OMol and UMA-S-OMol. The supramolecular S12L and L7 benchmarks show only marginal improvement: every evaluated MLIP exhibits large errors driven by a small number of pathological complexes. Two factors beyond intrinsic model quality significantly i",
+   "matched": [
+    "machine learning interatomic potential",
+    "universal interatomic potential"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "ML-potential",
+    "lattice-energy",
+    "benchmark"
+   ],
+   "relevance": 90,
+   "significance": 12,
+   "score": 67,
+   "screen": {
+    "relevance": 9,
+    "reason": "Benchmarks MLIPs (AIMNet2, MACE-OFF, UMA) directly used in group's CSP workflow for noncovalent interactions."
+   },
+   "summary": "Systematically benchmarks five MLIPs across twenty-one noncovalent-interaction datasets, introducing AIMNet2(2025), a continually pretrained model showing broad accuracy gains yet persistent supramolecular-complex failures.",
+   "first_seen": "2026-09-08",
+   "is_new": false
+  },
+  {
+   "src": "journal",
+   "title": "Shotgun Crystal Structure Prediction of High-Energy Metastable Materials at Ambient Conditions",
+   "date": "2026-08-31",
+   "doi": "10.34133/energymatadv.0460",
+   "authors": [
+    "Linyuan Wen",
+    "Dongyu Liu",
+    "Tao Yu"
+   ],
+   "authors_all": [
+    "Linyuan Wen",
+    "Dongyu Liu",
+    "Tao Yu",
+    "Alexandra M. Musatova",
+    "Leonid I. Kushchuk",
+    "Mikhail R. Antanyazov",
+    "Zhenxiong Huang",
+    "Igor A. Mezentsev",
+    "Alexey I. Kartsev",
+    "Andrey S. Vasenko",
+    "Yingzhe Liu"
+   ],
+   "corresponding": [
+    "Yingzhe Liu"
+   ],
+   "cited_by": 0,
+   "venue": "Energy Material Advances",
+   "abstract": "",
+   "matched": [
+    "molecular crystal structure prediction",
+    "organic crystal polymorph prediction",
+    "crystal energy landscape molecular",
+    "genetic algorithm crystal structure prediction"
+   ],
+   "tags": [],
+   "relevance": 70,
+   "significance": 0,
+   "score": 60,
+   "screen": {
+    "relevance": 7,
+    "reason": "CSP methodology for metastable materials; high-energy polymorph ranking relevant to MCSP workflow."
+   },
+   "summary": "Introduces a \"shotgun\" CSP approach\u2014likely massively parallel, non-iterative structure sampling\u2014targeting high-energy metastable phases stable only at ambient conditions, rather than ground-state minima.",
+   "first_seen": "2026-08-31",
+   "is_new": false
+  },
+  {
+   "src": "journal",
+   "title": "CrystalGRW: generative modeling of crystal structures with targeted crystallographic properties via geodesic random walks",
+   "date": "2026-08-31",
+   "doi": "10.1038/s41598-026-62470-x",
+   "authors": [
+    "Krit Tangsongcharoen",
+    "Teerachote Pakornchote",
+    "Chayanon Atthapak"
+   ],
+   "authors_all": [
+    "Krit Tangsongcharoen",
+    "Teerachote Pakornchote",
+    "Chayanon Atthapak",
+    "Natthaphon Choomphon-anomakhun",
+    "Annop Ektarawong",
+    "Bj\u00f6rn Alling",
+    "Christopher Sutton",
+    "Thiti Bovornratanaraks",
+    "Thiparat Chotibut"
+   ],
+   "corresponding": [
+    "Thiparat Chotibut"
+   ],
+   "cited_by": 0,
+   "venue": "Scientific Reports",
+   "abstract": "",
+   "matched": [
+    "generative model crystal structure"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "generative-model"
+   ],
+   "relevance": 70,
+   "significance": 0,
+   "score": 40,
+   "screen": {
+    "relevance": 7,
+    "reason": "Novel generative model for crystal structures with property targeting; clear transfer potential to polymorph generation"
+   },
+   "summary": "Introduces CrystalGRW, a diffusion-style generative model using geodesic random walks on Riemannian manifolds (rather than genetic/evolutionary search) to sample crystal structures conditioned on target crystallographic properties.",
+   "first_seen": "2026-08-31",
+   "is_new": false
+  },
+  {
+   "src": "journal",
+   "title": "Universal Interatomic\nPotentials as Configuration-Space\nGenerators for One-Shot and Iterative Fine-Tuning of Ab Initio-Accurate\nMaterial-Specific Models",
+   "date": "2026-09-01",
+   "doi": "10.1021/acs.jpclett.6c02067",
+   "authors": [
+    "Jonas Ha\u0308nseroth",
+    "Aaron Flo\u0308totto",
+    "Christian Dre\u00dfler"
+   ],
+   "authors_all": [
+    "Jonas Ha\u0308nseroth",
+    "Aaron Flo\u0308totto",
+    "Christian Dre\u00dfler"
+   ],
+   "corresponding": [
+    "Christian Dre\u00dfler"
+   ],
+   "cited_by": 0,
+   "venue": "The Journal of Physical\nChemistry Letters",
+   "abstract": "Abstract Universal machine learning interatomic potentials (MLIPs) are rapidly becoming general-purpose tools for atomistic simulation, but their role in quantitative materials modeling when reactive events are involved remains unsettled. We compare five universal MLIPs across seven chemically diverse systems and find that strong performance on standard benchmarks does not guarantee accurate predictions of the target observables. In particular, zero-shot models do not reliably reproduce reactive, transport, or high-barrier processes, exemplified here in particular by the sulfur-vacancy jump in MoS2. We therefore benchmark a practical alternative against target observables: universal MLIPs are used to generate long molecular dynamics trajectories, the resulting configurations are subsampled and relabeled with DFT, and material-specific MLIPs are subsequently trained or fine-tuned on the resulting first-principles data sets. This workflow converts universal models into efficient configuration-space generators while retaining ab initio reference labels for training and turns their systematic softening of the potential energy surface from a liability into a sampling advantage. Across t",
+   "matched": [
+    "universal interatomic potential"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "ML-potential",
+    "benchmark"
+   ],
+   "relevance": 70,
+   "significance": 0,
+   "score": 30,
+   "screen": {
+    "relevance": 7,
+    "reason": "Universal MLIPs as configuration generators for fine-tuning; direct transfer to CSP structure search and sampling strate"
+   },
+   "summary": "Repurposes universal MLIPs as configuration-space samplers\u2014exploiting their PES-softening bias to generate diverse trajectories\u2014for one-shot/iterative DFT relabeling into accurate, material-specific fine-tuned potentials.",
+   "first_seen": "2026-09-01",
+   "is_new": false
+  }
+ ]
+}

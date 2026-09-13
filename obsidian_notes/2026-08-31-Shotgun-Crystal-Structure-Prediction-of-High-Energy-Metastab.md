@@ -18,7 +18,7 @@ tags:
 **Scores:** relevance 70 / significance 0
 
 ## Why it matters
-Introduces a "shotgun" CSP approach—likely combining rapid, large-scale structure sampling with machine-learning screening—to efficiently locate high-energy metastable phases stable at ambient conditions, rather than only ground-state structures.
+Introduces a "shotgun" CSP approach—likely massively parallel, non-iterative structure sampling—targeting high-energy metastable phases stable only at ambient conditions, rather than ground-state minima.
 
 ## My notes
 
