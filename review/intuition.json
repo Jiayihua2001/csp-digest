@@ -720,6 +720,69 @@
     }
    ],
    "synthesis": "This early blind test frames the enduring GAtor-era problem: generating the right structure is often possible (it lands in the low-energy list) but RANKING it to the top is the bottleneck. For GAtor 2.0 that argues energy accuracy (dispersion-inclusive DFT, PBE0+MBD, or well-validated MLIPs like MACE-OFF/AIMNet2/UMA) matters as much as search coverage, and that reporting whether the experimental structure is generated at all should be separated from whether it ranks first. The zero-hit flexible molecule foreshadows why conformer sampling and conformer energy corrections are central to modern generation (Genarris) and why Z'>1/multi-component cases remain hard. It also legitimizes hybrid workflows: use experimental constraints (even non-indexed powder data) as a downstream filter when the energy landscape is too flat to discriminate polymorphs."
+  },
+  {
+   "slug": "blind-test-3",
+   "title": "A third blind test of crystal structure prediction",
+   "doi": "10.1107/s0108768105016563",
+   "year": 2005,
+   "tier": "A",
+   "source_mode": "metadata",
+   "date": "2026-09-14",
+   "core_idea": "The third CSP blind test (CSP2004, hosted by CCDC) evaluated 18 groups predicting crystal structures of three molecules given only molecular diagrams, with most methods relying on global lattice-energy minimization. Success rates dropped versus prior blind tests, with only one correct prediction among the three targets within the allowed three guesses.",
+   "innovation": "Relative to CSP1999 and CSP2001, this test removed space-group restrictions and allowed Z'=2 structures, deliberately increasing search-space difficulty and exposing weaknesses in handling multiple independent molecules and conformational flexibility.",
+   "chunks": [
+    {
+     "type": "statistic",
+     "statement": "In CSP2004, out of three blind target molecules and three allowed predictions each, only one target was correctly predicted, a lower success rate than the two prior blind tests.",
+     "scope": "CSP blind test 2004; small rigid + flexible molecules; 18 participating groups",
+     "evidence": "'Success rates within the three submitted predictions were lower than in the previous tests - there was only one successful prediction for any of the three blind molecules.'",
+     "generality": "single-study"
+    },
+    {
+     "type": "principle",
+     "statement": "Most CSP methods share a common core: global minimization of the lattice energy to rank likely structures, so ranking quality is bounded by the accuracy of the energy model.",
+     "scope": "CSP methodologies circa 2004",
+     "evidence": "'A range of methodologies... although most are based on the global minimization of the lattice energy.'",
+     "generality": "established"
+    },
+    {
+     "type": "pitfall",
+     "statement": "A molecule that appears 'simplest' (small, rigid, common atoms) can still defeat prediction if the real crystal has more than one molecule in the asymmetric unit (Z'>1).",
+     "scope": "small rigid organic molecule that crystallized with Z'=2",
+     "evidence": "'For the simplest rigid molecule, this lack of success is partly due to the observed structure crystallizing with two molecules in the asymmetric unit.'",
+     "generality": "single-study"
+    },
+    {
+     "type": "pitfall",
+     "statement": "Flexible molecules remained unpredicted, repeating the failure of the previous blind test, because energy models struggle to describe conformational and packing energies simultaneously.",
+     "scope": "conformationally flexible target molecule; blind tests 2001 and 2004",
+     "evidence": "'As in the 2001 blind test, there was no success in predicting the structure of the flexible molecule... necessity for better energy models, capable of simultaneously describing conformational and packing energies with high accuracy.'",
+     "generality": "suggested"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "Search procedures need explicit extension to handle Z'>1 crystals and conformational flexibility; treating these as afterthoughts leaves known thermodynamically favored polymorphs unreachable.",
+     "scope": "lattice-energy-minimization CSP workflows",
+     "evidence": "'need for improvements in search procedures for crystals with more than one independent molecule, as well as for molecules with conformational flexibility.'",
+     "generality": "suggested"
+    },
+    {
+     "type": "principle",
+     "statement": "Even a perfect thermodynamic ranking cannot fully predict observed polymorphs, because nucleation and crystal growth kinetics determine which low-energy structures actually form.",
+     "scope": "molecular crystal polymorphism generally",
+     "evidence": "'Which of these are actually realised is also influenced by as yet insufficiently understood processes of nucleation and crystal growth.'",
+     "generality": "established"
+    },
+    {
+     "type": "pipeline_practice",
+     "statement": "The blind test protocol gives participants only 2D molecular diagrams and requires three ranked candidate structures per target, with the true structure withheld until submission.",
+     "scope": "CCDC CSP blind test format 2004",
+     "evidence": "'the participants were given molecular diagrams of three molecules and asked to submit three predictions for the most likely crystal structure of each.'",
+     "generality": "established"
+    }
+   ],
+   "synthesis": "For GAtor 2.0 the CSP2004 lessons are directly on the critical path: the two hardest failure modes flagged here, Z'>1 packings and conformational flexibility, are exactly the frontiers modern GA-MCSP still pushes on. The Z'=2 surprise on a 'simple' rigid molecule is a caution that Genarris generation and GA crossover/mutation operators must sample larger asymmetric units and richer symmetry rather than assuming Z'=1, and that niching must maintain diversity across Z' families so a correct multi-molecule minimum is not crowded out. The abstract's core message that energy models must describe conformation and packing simultaneously with high accuracy is precisely the case for dispersion-inclusive DFT (PBE0+MBD) reranking and for conformer-energy-aware MLIPs (MACE-OFF, AIMNet2, UMA); a GA that optimizes an inaccurate surface will converge confidently to the wrong crystal. Finally, the nucleation/growth caveat reminds you that even flawless finite-temperature free-energy ranking only predicts what is thermodynamically accessible, not what nature selects, so blind-test scoring should reward populating the low-energy landscape, not just top-1 hits."
   }
  ]
 }
