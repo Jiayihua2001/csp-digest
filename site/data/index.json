@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-09-14",
+  "count": 7,
+  "new_count": 1,
+  "synthesis": "Generative and ML-potential approaches dominate: symmetry-aware diffusion (NextCrystal, CrystalGRW), hierarchical DFT/MLIP workflows for ZIFs, and a critical MLIP benchmark for noncovalent interactions. The SO(3) orientation-flow analysis stands out as a rare mechanistic critique of what generative models actually learn in molecular",
+  "top": [
+   {
+    "title": "NextCrystal: a Symmetry-Driven Generative Framework for Crystal Structure Prediction",
+    "relevance": 80,
+    "significance": 8
+   },
+   {
+    "title": "Hierarchical Crystal Structure Prediction of Zeolitic Imidazolate Frameworks Using DFT and Machine-Learned Interatomic Potentials",
+    "relevance": 65,
+    "significance": 12
+   },
+   {
+    "title": "What an SO(3) orientation flow can and cannot learn in molecular-crystal structure prediction",
+    "relevance": 80,
+    "significance": 0
+   }
+  ]
+ },
+ {
   "date": "2026-09-13",
   "count": 6,
   "new_count": 0,

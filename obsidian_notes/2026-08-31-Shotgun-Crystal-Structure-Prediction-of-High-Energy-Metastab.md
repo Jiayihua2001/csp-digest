@@ -18,7 +18,7 @@ tags:
 **Scores:** relevance 70 / significance 0
 
 ## Why it matters
-Introduces a "shotgun" CSP approach—likely massively parallel, non-iterative structure sampling—targeting high-energy metastable phases stable only at ambient conditions, rather than ground-state minima.
+Introduces a "shotgun" random/high-throughput sampling approach for crystal structure prediction, targeting high-energy metastable phases stable only at ambient conditions rather than global-minimum ground states.
 
 ## My notes
 
