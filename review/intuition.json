@@ -783,6 +783,55 @@
     }
    ],
    "synthesis": "For GAtor 2.0 the CSP2004 lessons are directly on the critical path: the two hardest failure modes flagged here, Z'>1 packings and conformational flexibility, are exactly the frontiers modern GA-MCSP still pushes on. The Z'=2 surprise on a 'simple' rigid molecule is a caution that Genarris generation and GA crossover/mutation operators must sample larger asymmetric units and richer symmetry rather than assuming Z'=1, and that niching must maintain diversity across Z' families so a correct multi-molecule minimum is not crowded out. The abstract's core message that energy models must describe conformation and packing simultaneously with high accuracy is precisely the case for dispersion-inclusive DFT (PBE0+MBD) reranking and for conformer-energy-aware MLIPs (MACE-OFF, AIMNet2, UMA); a GA that optimizes an inaccurate surface will converge confidently to the wrong crystal. Finally, the nucleation/growth caveat reminds you that even flawless finite-temperature free-energy ranking only predicts what is thermodynamically accessible, not what nature selects, so blind-test scoring should reward populating the low-energy landscape, not just top-1 hits."
+  },
+  {
+   "slug": "blind-test-4",
+   "title": "Significant progress in predicting the crystal structures of small organic molecules \u2013 a report on the fourth blind test",
+   "doi": "10.1107/s0108768109004066",
+   "year": 2009,
+   "tier": "A",
+   "source_mode": "metadata",
+   "date": "2026-09-15",
+   "core_idea": "The fourth blind test of crystal structure prediction (2009) evaluated the state of computational CSP by challenging 14 groups to predict four target crystal structures (three single-component, one 1:1 cocrystal) from molecular diagrams alone. It demonstrated a dramatic improvement over previous blind tests, with 13 successful predictions and at least two groups getting each target right.",
+   "innovation": "First blind test to show a marked jump in success rates, including one group correctly predicting all four targets as first-ranked choices; also introduced a cocrystal (1:1) as a target, extending CSP beyond single-component systems.",
+   "chunks": [
+    {
+     "type": "statistic",
+     "statement": "In the fourth blind test, 14 groups tackled four targets; there were 13 successful predictions overall, with at least two groups correctly predicting each of the four target structures.",
+     "scope": "Small, fairly rigid organic molecules; three single-component crystals and one 1:1 cocrystal; three allowed predictions per target.",
+     "evidence": "'14 research groups which took part... four target systems: three single-component crystal structures and a 1:1 cocrystal... in total, there were 13 successful predictions and, for each of the four targets, at least two groups correctly predicted the observed crystal structure.'",
+     "generality": "established"
+    },
+    {
+     "type": "principle",
+     "statement": "CSP success rates improved dramatically between the third and fourth blind tests, attributed to important improvements in modelling (generation and ranking) methods.",
+     "scope": "Small, fairly rigid organic molecules as of 2009.",
+     "evidence": "'The results demonstrate a dramatic improvement in rates of success over previous blind tests... The results reflect important improvements in modelling methods.'",
+     "generality": "established"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "For small and fairly rigid molecules, CSP calculations are reliable enough to constructively help understand crystallization and polymorphism; results should not be extrapolated to larger or more flexible molecules.",
+     "scope": "Small, fairly rigid organic molecules only, as demonstrated in the 2009 blind test.",
+     "evidence": "'at least for the small and fairly rigid types of molecules included in this blind test, such calculations can be constructively applied to help understand crystallization and polymorphism.'",
+     "generality": "established"
+    },
+    {
+     "type": "pitfall",
+     "statement": "Top-ranked CSP success can come at considerable computational expense; getting the observed structure as the first ranked choice may require methods too costly for routine application.",
+     "scope": "Blind test conditions; the one group that correctly ranked all four targets first.",
+     "evidence": "'one participating group who correctly predicted all four crystal structures as their first ranked choice, albeit at a considerable computational expense.'",
+     "generality": "single-study"
+    },
+    {
+     "type": "pipeline_practice",
+     "statement": "The blind test protocol gives participants only molecular diagrams, withholds the experimentally determined (unpublished) structures via an independent referee, and allows three ranked predictions per target - a two-stage generate-then-rank challenge.",
+     "scope": "CSP blind test methodology, fourth test (2009).",
+     "evidence": "'Participants were challenged to predict the crystal structures... given only their molecular diagrams, while the recently determined but as-yet unpublished crystal structures were withheld by an independent referee. Three predictions were allowed for each system.'",
+     "generality": "established"
+    }
+   ],
+   "synthesis": "For GAtor 2.0, this blind test is a historical benchmark showing that even by 2009 the generate-then-rank paradigm worked well for small rigid Z'=1 molecules - which is exactly why modern GA-CSP effort has shifted toward the hard cases (flexible molecules, Z'>1, cocrystals, finite-temperature effects). The single cocrystal target foreshadowed multi-component CSP where your niching and structure generation (Genarris) must handle stoichiometric composition and packing space that is far larger. The lesson that first-rank success came 'at considerable computational expense' is precisely the motivation for MLIP surrogates (MACE-OFF, AIMNet2, UMA) plus dispersion-inclusive DFT (PBE0+MBD) reranking: you want the accuracy that ranks the true structure at the top without the exhaustive cost. Treat the 'small and rigid' caveat as a boundary marker - GA operators, niching, and finite-temperature free-energy ranking are the tools for pushing beyond where 2009 methods succeeded.\n\nConfidence: low - digest is from abstract/metadata only; specific target identities, per-method energies, and ranking details are not available."
   }
  ]
 }
