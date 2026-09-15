@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-09-15",
+  "count": 8,
+  "new_count": 1,
+  "synthesis": "Generative/flow-based CSP dominates today\u2014NextCrystal, uFlowCSP, text-guided flow matching, and an SO(3) orientation-flow analysis\u2014signalling continued momentum away from classical GA/random search toward diffusion/flow generative models, alongside MLIP benchmarking and hierarchical DFT+MLIP work on ZIFs.",
+  "top": [
+   {
+    "title": "Crystal Structure Prediction and 0 K Stability Assessment of Hypothetical Re3Zr Polymorphs: Vibrational, Elastic, and Electronic Properties",
+    "relevance": 90,
+    "significance": 0
+   },
+   {
+    "title": "NextCrystal: a Symmetry-Driven Generative Framework for Crystal Structure Prediction",
+    "relevance": 80,
+    "significance": 8
+   },
+   {
+    "title": "Hierarchical Crystal Structure Prediction of Zeolitic Imidazolate Frameworks Using DFT and Machine-Learned Interatomic Potentials",
+    "relevance": 65,
+    "significance": 12
+   }
+  ]
+ },
+ {
   "date": "2026-09-14",
   "count": 7,
   "new_count": 1,
