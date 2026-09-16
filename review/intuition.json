@@ -832,6 +832,76 @@
     }
    ],
    "synthesis": "For GAtor 2.0, this blind test is a historical benchmark showing that even by 2009 the generate-then-rank paradigm worked well for small rigid Z'=1 molecules - which is exactly why modern GA-CSP effort has shifted toward the hard cases (flexible molecules, Z'>1, cocrystals, finite-temperature effects). The single cocrystal target foreshadowed multi-component CSP where your niching and structure generation (Genarris) must handle stoichiometric composition and packing space that is far larger. The lesson that first-rank success came 'at considerable computational expense' is precisely the motivation for MLIP surrogates (MACE-OFF, AIMNet2, UMA) plus dispersion-inclusive DFT (PBE0+MBD) reranking: you want the accuracy that ranks the true structure at the top without the exhaustive cost. Treat the 'small and rigid' caveat as a boundary marker - GA operators, niching, and finite-temperature free-energy ranking are the tools for pushing beyond where 2009 methods succeeded.\n\nConfidence: low - digest is from abstract/metadata only; specific target identities, per-method energies, and ranking details are not available."
+  },
+  {
+   "slug": "ts-vdw-2009",
+   "title": "Accurate Molecular Van Der Waals Interactions from Ground-State Electron Density and Free-Atom Reference Data",
+   "doi": "10.1103/physrevlett.102.073005",
+   "year": 2009,
+   "tier": "D",
+   "source_mode": "pdf",
+   "date": "2026-09-16",
+   "core_idea": "This paper introduces the TS (Tkatchenko-Scheffler) van der Waals method: a parameter-free way to compute pairwise C6 dispersion coefficients and vdW radii for atoms in molecules by rescaling accurate free-atom reference values (Chu-Dalgarno) using the ratio of the atom's Hirshfeld-partitioned effective volume in the molecule to its free-atom volume. Effective atomic polarizabilities, and hence C6 coefficients, thus respond automatically to the local bonding environment from the ground-state electron density.",
+   "innovation": "Prior density-based C6 schemes had 15-20% average errors (up to 40-60%) because DFT polarizabilities are grossly overestimated; earlier C6/R6 corrections (Grimme) fit parameters empirically to experimental C6 or post-HF binding energies. TS instead uses the electron density only to compute the RELATIVE polarizability (effective/free-atom volume ratio), keeping absolute accuracy from free-atom references, cutting the C6 error to 5.5% and making the coefficients depend explicitly on hybridization/bonding without fitting.",
+   "chunks": [
+    {
+     "type": "statistic",
+     "statement": "The TS method reproduces intermolecular C6 coefficients with a mean absolute relative error of 5.5% (4.5% if H2 is excluded) against 1225 experimental DOSD-derived pairs, a factor of 2-3 better than prior ground-state-density C6 methods (which had 15-20% average, 40-60% max errors).",
+     "scope": "8 atoms and 42 small-to-medium organic/inorganic molecules (up to C8H18), Z'=1 gas-phase geometries",
+     "evidence": "'mean absolute error in the C6 coefficients is 5.5%... for 1225 intermolecular pairs'; 'if the H2 molecule is excluded... the MARE drops down to 4.5%'; existing methods errors '15%-20% on average and maximum deviation of 40%-60%'",
+     "generality": "established"
+    },
+    {
+     "type": "principle",
+     "statement": "Effective atomic C6 coefficients depend strongly on an atom's bonding environment; using the ground-state density to rescale free-atom polarizabilities automatically captures hybridization state and charge polarization (e.g. carbon C6 ranges 24-33, matching sp3-methane vs sp2-benzene expectations).",
+     "scope": "Light main-group atoms (C, N, O, H, Si, S, Cl, F) in molecules and simple solids",
+     "evidence": "atom-in-molecule C6 for C ranges 24.1-33.0 vs free-atom 46.6, matching Wu-Yang 22.1-29.8; graphene C=33.0 (near benzene sp2 30.3), diamond C=38.6 vs methane sp3 24.1",
+     "generality": "established"
+    },
+    {
+     "type": "principle",
+     "statement": "Computing C6 from the RATIO of effective to free-atom Hirshfeld volumes makes the result nearly independent of the exchange-correlation functional, because density differences between functionals cancel in the ratio.",
+     "scope": "LDA, PBE, BLYP tested on the molecular database",
+     "evidence": "MARE in C6 between LDA and PBE is 1.4% (max 3.8%), BLYP vs PBE 0.68% (max 2.1%); 'difference in the electron density between xc functionals is compensated when computing the ratio'",
+     "generality": "established"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "The assumption that the polarizability-to-volume proportionality constant is unchanged from free atom to atom-in-molecule (set to unity) is excellent for most molecules but breaks down for very small systems, especially H2.",
+     "scope": "Small molecules; H2 is the worst case",
+     "evidence": "'this approximation breaks down only for the smallest H2 molecule, with deviation of 44%'; already for N2 and CO2 error < 10%",
+     "generality": "single-study"
+    },
+    {
+     "type": "pitfall",
+     "statement": "Pairwise C6/R6 summation neglects nonadditive many-body/higher-order effects and can fail qualitatively for metallic low-dimensional systems; the atoms-in-molecules concept itself breaks where atomic partitioning is ill-defined.",
+     "scope": "Metallic low-dimensional systems and cases where atoms-in-molecules cannot be applied",
+     "evidence": "'a pairwise summation of C6R6 interactions can fail qualitatively for metallic low-dimensional systems due to nonadditive higher-order effects'",
+     "generality": "established"
+    },
+    {
+     "type": "pipeline_practice",
+     "statement": "To couple the long-range dispersion to DFT one needs a short-range damping function with vdW radii scaled by the effective volume; the recommended Fermi damping steepness d=20 works for 12<d<45 (small d corrupts covalent bonds, large d gives kinked curves), leaving one system-specific scaling parameter sR (0.94 for PBE) fit to the S22 CCSD(T) benchmark.",
+     "scope": "CNOH light elements; PBE functional benchmarked on S22 dimers (23 meV CH4 to 0.9 eV uracil)",
+     "evidence": "'choice of d=20 turned out to satisfy both constraints'; 'sR... single empirical parameter'; 'sR coefficient for PBE is 0.94'",
+     "generality": "single-study"
+    },
+    {
+     "type": "statistic",
+     "statement": "TS+PBE gives a mean absolute error of 13 meV on the S22 benchmark (20/13/6 meV for H-bonded/vdW/mixed), versus 20 meV (29/20/9) for empirical C6+vdW-radii schemes; the improvement in H-bonded systems comes from larger effective vdW radii for atoms in hydrogen bonds.",
+     "scope": "S22 database of 22 noncovalent dimers, PBE functional",
+     "evidence": "'MAE of our approach on the S22 database is 13 meV (20, 13, and 6 meV...)... compared to 20 meV (29, 20, and 9 meV) when using empirical C6 coefficients'",
+     "generality": "single-study"
+    },
+    {
+     "type": "principle",
+     "statement": "Hydrogen bonding measurably redistributes polarizability: the donor H and donor O become more polarizable while the acceptor O and its H become less polarizable, and this is a purely electronic effect visible at fixed geometry.",
+     "scope": "Water dimer as illustrative case",
+     "evidence": "'hydrogen involved in the hydrogen bond becomes significantly more polarizable along with the donor oxygen... acceptor oxygen becomes less polarizable'; 'change in the C6 coefficients is a purely electronic effect' at fixed geometry",
+     "generality": "single-study"
+    }
+   ],
+   "synthesis": "TS is the dispersion foundation on which GAtor's lattice-energy ranking (PBE0+MBD, whose MBD is the many-body successor to this pairwise TS) is built, so understanding its logic is directly load-bearing for CSP ranking decisions. Two lessons matter most for MCSP: (1) the density-ratio construction means C6 coefficients adapt to each polymorph's local bonding/H-bonding environment automatically - so ranking near-degenerate polymorphs that differ mainly in H-bond networks genuinely benefits from environment-dependent dispersion rather than fixed atomic C6, which is exactly the regime where polymorph energies sit within a few kJ/mol. (2) The explicit warning that pairwise C6/R6 misses nonadditive many-body screening is the reason GAtor should prefer MBD (or MBD-derived methods) over plain TS/D2-style corrections for dense, extended crystals where collective response is strong; this also flags that MLIP dispersion (MACE-OFF, AIMNet2) must be checked for whether it captures beyond-pairwise effects. The near functional-independence of the volume ratio is reassuring for cross-functional consistency, but the H2/small-molecule breakdown and the single empirical sR per functional are reminders that damping/short-range coupling still carries system-specific risk when comparing polymorphs at their true equilibrium contact distances."
   }
  ]
 }
