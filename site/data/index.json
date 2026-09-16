@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-09-16",
+  "count": 13,
+  "new_count": 3,
+  "synthesis": "Generative CSP is diversifying beyond diffusion toward flow-matching (uFlowCSP, SO(3) orientation flows) and symmetry-driven approaches (NextCrystal), while MLIP reliability dominates the supporting literature\u2014benchmarking, physics-informed pretraining, and failure-mode discovery suggest growing scrutiny of force fields underpinning CSP pip",
+  "top": [
+   {
+    "title": "NextCrystal: a Symmetry-Driven Generative Framework for Crystal Structure Prediction",
+    "relevance": 80,
+    "significance": 8
+   },
+   {
+    "title": "Exotic centrosymmetric phase of acentric urea under high pressure",
+    "relevance": 80,
+    "significance": 0
+   },
+   {
+    "title": "uFlowCSP: Crystal Structure Prediction using Mean flow generative models",
+    "relevance": 80,
+    "significance": 0
+   }
+  ]
+ },
+ {
   "date": "2026-09-15",
   "count": 8,
   "new_count": 1,
