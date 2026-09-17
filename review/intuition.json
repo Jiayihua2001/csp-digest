@@ -902,6 +902,83 @@
     }
    ],
    "synthesis": "TS is the dispersion foundation on which GAtor's lattice-energy ranking (PBE0+MBD, whose MBD is the many-body successor to this pairwise TS) is built, so understanding its logic is directly load-bearing for CSP ranking decisions. Two lessons matter most for MCSP: (1) the density-ratio construction means C6 coefficients adapt to each polymorph's local bonding/H-bonding environment automatically - so ranking near-degenerate polymorphs that differ mainly in H-bond networks genuinely benefits from environment-dependent dispersion rather than fixed atomic C6, which is exactly the regime where polymorph energies sit within a few kJ/mol. (2) The explicit warning that pairwise C6/R6 misses nonadditive many-body screening is the reason GAtor should prefer MBD (or MBD-derived methods) over plain TS/D2-style corrections for dense, extended crystals where collective response is strong; this also flags that MLIP dispersion (MACE-OFF, AIMNet2) must be checked for whether it captures beyond-pairwise effects. The near functional-independence of the volume ratio is reassuring for cross-functional consistency, but the H2/small-molecule breakdown and the single empirical sR per functional are reminders that damping/short-range coupling still carries system-specific risk when comparing polymorphs at their true equilibrium contact distances."
+  },
+  {
+   "slug": "mbd-2012",
+   "title": "Accurate and Efficient Method for Many-Body van der Waals Interactions",
+   "doi": "10.1103/physrevlett.108.236402",
+   "year": 2012,
+   "tier": "D",
+   "source_mode": "pdf",
+   "date": "2026-09-17",
+   "core_idea": "The paper introduces the many-body dispersion (MBD) method: it augments the Tkatchenko-Scheffler atom-in-molecule vdW scheme with a classical self-consistent screening (SCS) equation to capture long-range electrostatic (de)polarization, then computes the fully nonadditive vdW energy to infinite order via coupled quantum harmonic oscillators (CFDM). Screening and many-body effects are shown to matter even for small molecules and become crucial for biomolecule conformers and molecular crystals.",
+   "innovation": "Prior vdW corrections neglected long-range electrostatic screening and truncated many-body effects at pairwise (or three-body Axilrod-Teller). This work adds SCS screening to effective atomic polarizabilities and solves a coupled-oscillator Hamiltonian for the vdW energy to infinite order in the dipole approximation, all at negligible computational cost, with a single physically motivated range-separation parameter per functional.",
+   "chunks": [
+    {
+     "type": "principle",
+     "statement": "Pairwise-additive dispersion overestimates polarizability and C6 in large/extended systems because it ignores long-range electrostatic screening (depolarization) from distant fluctuating dipoles; self-consistent screening corrects this.",
+     "scope": "Finite-gap molecules, hydrogen-saturated Si clusters, and bulk Si",
+     "evidence": "TS-vdW C6 error grows with cluster size to 27% for Si172H120 and 68% overestimation for Si bulk C6; adding SCS gives depolarization reducing bulk error to just 8%.",
+     "generality": "single-study"
+    },
+    {
+     "type": "statistic",
+     "statement": "Many-body/screening corrections shift molecular-crystal cohesive energies by well over 100 meV/molecule, turning a large overbinding into near-experimental agreement.",
+     "scope": "Benzene molecular crystal at experimental geometry, PBE-based",
+     "evidence": "PBE+TS-vdW gives 690 meV/molecule vs experiment 518-560 meV/molecule; PBE+MBD yields 565 meV/molecule.",
+     "generality": "single-study"
+    },
+    {
+     "type": "statistic",
+     "statement": "MBD substantially improves intermolecular binding energies over pairwise TS-vdW on standard benchmarks.",
+     "scope": "S22 intermolecular database, binding energies 23-895 meV, vs CCSD(T) basis-set limit",
+     "evidence": "MARE decreased from 9.2% (PBE+TS-vdW) to 5.4% (PBE+MBD); vdW-bound subset MARE reduced by ~10%.",
+     "generality": "single-study"
+    },
+    {
+     "type": "statistic",
+     "statement": "Many-body dispersion can flip conformational rankings: pairwise dispersion may predict the wrong most-stable conformer.",
+     "scope": "27 conformers of alanine tetrapeptide (Ace-Ala3-NMe), PBE0-based, vs CCSD(T)",
+     "evidence": "PBE0+TS-vdW MAE 0.52 kcal/mol but predicts wrong most-stable conformer and wrong hierarchy; PBE0+MBD MAE 0.29 kcal/mol, correct most-stable conformer; differences reach ~1 kcal/mol.",
+     "generality": "single-study"
+    },
+    {
+     "type": "principle",
+     "statement": "The screened many-body vdW energy is obtained as the difference of zero-point energies between coupled and uncoupled oscillators, and this coupled-oscillator model can be derived as an approximation to the exact ACFDT correlation energy.",
+     "scope": "Systems where the polarizability is even in frequency with simple poles on/below the real axis",
+     "evidence": "EvdW = (1/2)sum sqrt(lambda_p) - (3/2)sum omega_p; derivable from ACFDT since correlation energy equals difference of zero-point energies under those pole conditions.",
+     "generality": "established"
+    },
+    {
+     "type": "principle",
+     "statement": "Anisotropy in molecular polarizability comes largely from long-range dipole field screening, not just atomic partitioning; screening becomes less important for integrated C6 because response grows isotropic at high imaginary frequency.",
+     "scope": "17 small molecules H2 to cyclohexane, N2 example",
+     "evidence": "TS-vdW fractional anisotropy error 80%, reduced to 23% with SCS; TS-vdW C6 error (5.5%) far better than static polarizability error (~12%) because response isotropizes at large i-omega.",
+     "generality": "suggested"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "Couple the many-body dispersion to the DFT functional through a range-separated (damped) Coulomb potential rather than ad hoc pairwise damping functions, fitting one beta parameter per functional.",
+     "scope": "DFA+MBD with GGA/hybrid functionals; beta>=2 so potential vanishes at zero distance",
+     "evidence": "beta=2.56 for PBE, 2.53 for PBE0, fit to S22; vdW radius R_vdW_p = (alpha_SCS/alpha_free)^(1/3) R_vdW,free from coupled-cluster free-atom reference.",
+     "generality": "single-study"
+    },
+    {
+     "type": "pipeline_practice",
+     "statement": "MBD workflow: partition density into atoms (Hirshfeld), build TS effective atomic polarizabilities, solve SCS for screened static polarizability and characteristic frequency, then diagonalize the 3Nx3N coupled-oscillator matrix for the vdW energy.",
+     "scope": "Finite-gap molecules and condensed matter, atoms modeled as Gaussian QHOs",
+     "evidence": "SCS omega defined to reproduce C6_SCS from Casimir-Polder integral; MBD energy for 1000 atoms takes ~3 min on a single processor (DFT not included).",
+     "generality": "established"
+    },
+    {
+     "type": "pitfall",
+     "statement": "Truncating many-body vdW at three-body Axilrod-Teller can give even the wrong sign for the many-body vdW energy.",
+     "scope": "General many-body dispersion beyond pairwise",
+     "evidence": "Stated that three-body Axilrod-Teller treatment 'might even give the wrong sign for the many-body vdW energy'.",
+     "generality": "established"
+    }
+   ],
+   "synthesis": "For GAtor 2.0, this is the physics case for why PBE0+MBD (rather than pairwise TS-vdW or D3) is the right final ranking method: molecular crystals are exactly the extended, densely-packed systems where long-range depolarization suppresses overbinding by >100 meV/molecule and where many-body terms can reorder near-degenerate polymorphs whose energy differences are only a few kJ/mol. The conformer result is directly relevant to Z'>1 and flexible molecules where GA must resolve conformational hierarchies -- pairwise dispersion can pick the wrong most-stable structure. Practically, MBD's negligible cost (~3 min/1000 atoms) means it is affordable for large candidate pools, and the screened, anisotropic polarizabilities it produces are also a physically grounded basis for dispersion-aware descriptors used in de-duplication and niching."
   }
  ]
 }
