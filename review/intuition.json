@@ -979,6 +979,76 @@
     }
    ],
    "synthesis": "For GAtor 2.0, this is the physics case for why PBE0+MBD (rather than pairwise TS-vdW or D3) is the right final ranking method: molecular crystals are exactly the extended, densely-packed systems where long-range depolarization suppresses overbinding by >100 meV/molecule and where many-body terms can reorder near-degenerate polymorphs whose energy differences are only a few kJ/mol. The conformer result is directly relevant to Z'>1 and flexible molecules where GA must resolve conformational hierarchies -- pairwise dispersion can pick the wrong most-stable structure. Practically, MBD's negligible cost (~3 min/1000 atoms) means it is affordable for large candidate pools, and the screened, anisotropic polarizabilities it produces are also a physically grounded basis for dispersion-aware descriptors used in de-duplication and niching."
+  },
+  {
+   "slug": "aspirin-anharmonicity-2014",
+   "title": "Role of Dispersion Interactions in the Polymorphism and Entropic Stabilization of the Aspirin Crystal",
+   "doi": "10.1103/physrevlett.113.055701",
+   "year": 2014,
+   "tier": "D",
+   "source_mode": "pdf",
+   "date": "2026-09-18",
+   "core_idea": "Aspirin forms I and II are degenerate in lattice energy (within ~0.1 kJ/mol), so lattice-energy ranking cannot explain why form I dominates. Including many-body dispersion (MBD) in both the lattice energy AND the phonons reveals an entropic, finite-temperature mechanism: MBD softens low-frequency phonons in form I (via plasmon-phonon coupling), raising its vibrational entropy and making it thermodynamically more stable at room temperature by ~2.56 kJ/mol.",
+   "innovation": "First demonstration that many-body vdW interactions affect not just lattice energies but lattice vibrations, uncovering a coupling between collective electronic (plasmon) fluctuations and low-frequency phonons that shifts frequencies down. Prior work treated the polymorphs as degenerate and invoked kinetics; this provides a thermodynamic, entropy-driven explanation and also rules out mechanical instability of form II.",
+   "chunks": [
+    {
+     "type": "statistic",
+     "statement": "The two observed aspirin polymorphs are essentially degenerate in lattice energy, with 0 K differences of order 0.1 kJ/mol; MBD gives +0.04 kJ/mol, TS gives -0.18 kJ/mol, and PBE0+MBD differs from PBE+MBD by only 0.1 kJ/mol.",
+     "scope": "Aspirin forms I and II, static 0 K DFT lattice energies with pairwise (TS) and many-body (MBD) dispersion",
+     "evidence": "Table I: PBE+TS -0.18, PBE+MBD 0.04 kJ/mol; text: 'very small energy differences of the order of 0.1 kJ/mol... essentially degenerate'; 'PBE0+MBD... differing by only 0.1 kJ/mol'",
+     "generality": "single-study"
+    },
+    {
+     "type": "statistic",
+     "statement": "Zero-point energy corrections to the polymorph energy difference are small (0.2-0.3 kJ/mol, consistent with a prior 0.4 kJ/mol), but the finite-temperature vibrational free-energy contribution at 298 K is large and method-dependent: PBE+MBD gives a +2.56 kJ/mol preference for form I while PBE+TS gives a -0.68 kJ/mol preference for form II.",
+     "scope": "Aspirin forms I/II, harmonic free energies at 298 K, PBE+TS vs PBE+MBD",
+     "evidence": "Table I: PBE+MBD+Fvib(298 K) 2.56, PBE+TS+Fvib(298 K) -0.68 kJ/mol; ZPE 0.2-0.3 kJ/mol",
+     "generality": "single-study"
+    },
+    {
+     "type": "principle",
+     "statement": "Many-body dispersion couples collective electronic (plasmon-like) excitations to lattice phonons: although plasmon energies (~8 eV) are ~1000x larger than phonon energies (tens of meV), the change in vdW energy along phonon motions is several meV, enough to renormalize and soften low-frequency phonons. Geometry-dependent static polarizability drives this renormalization while atomic reference frequencies stay fixed.",
+     "scope": "Molecular crystals with soft low-frequency lattice/librational modes; demonstrated for aspirin via the MBD Hamiltonian",
+     "evidence": "MBD energy Eq (2); 'change of the vdW energy associated to characteristic phonon motions... on the order of several meV, making plasmon-phonon coupling possible'; MBD introduces four modes at 28-34 cm-1 absent in pure PBE",
+     "generality": "single-study"
+    },
+    {
+     "type": "principle",
+     "statement": "Lower-frequency phonon modes are more easily thermally populated, so a polymorph with softer lattice vibrations has higher vibrational entropy and lower free energy. Entropic stabilization can flip a ranking that lattice energy alone leaves ambiguous.",
+     "scope": "Nearly lattice-energy-degenerate polymorphs at finite temperature (harmonic free energy)",
+     "evidence": "'lower-frequency vibrations of form I are more easily thermally populated, increasing its entropy and ultimately leading to a lower free energy'",
+     "generality": "suggested"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "When candidate polymorphs are near-degenerate in lattice energy, compute finite-temperature free energies including phonons treated with the same dispersion model used for the energy; pairwise vs many-body dispersion can give qualitatively opposite rankings, so the vibrational treatment must be dispersion-consistent.",
+     "scope": "Ranking near-degenerate molecular crystal polymorphs where thermal effects may dominate",
+     "evidence": "PBE+TS predicts form II stable, PBE+MBD predicts form I stable by 2.56 kJ/mol; 'majority of the PBE+MBD free-energy difference arises from thermal vibrational contributions'",
+     "generality": "single-study"
+    },
+    {
+     "type": "pitfall",
+     "statement": "Pairwise dispersion (TS) can misplace internal degrees of freedom that couple to phonons: TS gave a methyl torsion of 47.1 deg while MBD gave 60.1 deg, matching the 20 K neutron value of 58.2 deg. Wrong geometry propagates into wrong vibrational spectra and thus wrong free-energy rankings.",
+     "scope": "Molecular crystals with flexible/rotatable groups (methyl torsions) sensitive to dispersion model",
+     "evidence": "PBE+TS torsion 47.1 deg vs PBE+MBD 60.1 deg vs neutron 58.2 deg at 20 K; similar >10 deg difference for form II",
+     "generality": "single-study"
+    },
+    {
+     "type": "pitfall",
+     "statement": "Directional elastic measurements can mislead about relative stability: nanoindentation suggested form II is 'considerably softer' and mechanically unstable, but full Young's-modulus analysis showed form II is only softer along some directions and much stiffer in the e1e3 plane (transverse to its stronger hydrogen bonds), which the experiments never probed. Both forms satisfy the Born stability criterion.",
+     "scope": "Elastic/mechanical stability assessment of molecular crystal polymorphs",
+     "evidence": "Fig 4; 'nanoindentation experiments did not probe along this hard direction'; lambda_min = 2.60 GPa (form I), 1.86 GPa (form II), both positive; exp lambda_min 2.40 GPa at 300 K",
+     "generality": "single-study"
+    },
+    {
+     "type": "statistic",
+     "statement": "Dispersion treatment strongly affects computed elastic moduli: MBD reduces bulk modulus by over 20% vs TS (form I bulk 12.40 -> 9.58 GPa; exp 7.77 GPa), and even flips the qualitative ordering of the shear modulus (TS: form I 5.08 > form II 4.33; MBD: form I 4.00 < form II 4.67 GPa).",
+     "scope": "Aspirin forms I/II elastic constants, PBE+TS vs PBE+MBD vs 300 K experiment",
+     "evidence": "Table II: bulk moduli and shear moduli listed; 'MBD reduces the bulk modulus by over 20% compared to TS'",
+     "generality": "single-study"
+    }
+   ],
+   "synthesis": "For GAtor 2.0 this is a cautionary tale about the endpoint of any GA-MCSP pipeline: after the GA converges on a pool of low-energy structures ranked by dispersion-inclusive DFT (PBE0+MBD), near-degenerate survivors (which aspirin-like landscapes will always produce) cannot be discriminated by lattice energy at all. The paper shows the discriminating physics is vibrational entropy, and critically that the SAME dispersion model must be used for the phonons, not just the static energy - a pairwise vs many-body choice can invert the winner. Practically: (1) treat sub-~2 kJ/mol energy gaps in the final ranking as unresolved without free energies; (2) budget for harmonic (or quasi-harmonic) phonon calculations on the top candidates; (3) beware that MLIPs (MACE-OFF, AIMNet2, UMA) used for cheap relaxation/ranking may not capture the plasmon-phonon softening or the correct methyl-torsion geometry that MBD does, so validate soft-mode frequencies and flexible-group torsions before trusting entropy-driven rankings. The methyl-torsion error also flags that flexible-molecule conformers coupled to lattice modes are a place where cheaper dispersion/energy models silently corrupt downstream vibrational thermodynamics."
   }
  ]
 }
