@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-09-18",
+  "count": 4,
+  "new_count": 0,
+  "synthesis": "Symmetry-aware generative CSP continues to advance (NextCrystal, SO(3) orientation flow work probing failure modes), alongside growing scrutiny of MLIP reliability for noncovalent interactions\u2014suggesting the field is maturing toward critically validating ML tools rather than just deploying them.",
+  "top": [
+   {
+    "title": "NextCrystal: a Symmetry-Driven Generative Framework for Crystal Structure Prediction",
+    "relevance": 80,
+    "significance": 8
+   },
+   {
+    "title": "What an SO(3) orientation flow can and cannot learn in molecular-crystal structure prediction",
+    "relevance": 80,
+    "significance": 0
+   },
+   {
+    "title": "Critical benchmarking of machine-learned interatomic potentials for intermolecular and noncovalent interactions",
+    "relevance": 90,
+    "significance": 12
+   }
+  ]
+ },
+ {
   "date": "2026-09-17",
   "count": 3,
   "new_count": 0,

@@ -1,0 +1,171 @@
+{
+ "date": "2026-09-18",
+ "scope": "molecular",
+ "synthesis": "Symmetry-aware generative CSP continues to advance (NextCrystal, SO(3) orientation flow work probing failure modes), alongside growing scrutiny of MLIP reliability for noncovalent interactions\u2014suggesting the field is maturing toward critically validating ML tools rather than just deploying them.",
+ "generated_at": "2026-09-18T12:25:12.403299Z",
+ "items": [
+  {
+   "src": "journal",
+   "title": "NextCrystal: a Symmetry-Driven Generative Framework for Crystal Structure Prediction",
+   "date": "2026-09-14",
+   "doi": "10.1088/0256-307x/43/10/100802",
+   "authors": [
+    "Jinming Mu",
+    "Lixin He",
+    "Xudong Zhu"
+   ],
+   "authors_all": [
+    "Jinming Mu",
+    "Lixin He",
+    "Xudong Zhu",
+    "Shi Yin"
+   ],
+   "corresponding": [
+    "Shi Yin"
+   ],
+   "cited_by": 0,
+   "venue": "Chinese Physics Letters",
+   "abstract": "Abstract Crystal structure prediction (CSP), which aims to predict the 3D atomic arrangement of a crystal from its composition, is central to materials discovery and mechanistic understanding. Crystal symmetry plays a crucial role in CSP, but given the composition in a unit cell, existing methods either struggle with the NP-hard combinatorial challenge of enforcing symmetry rigorously or rely on retrieving known templates, inherently limiting both physical fidelity and the discovery of genuinely new materials. To address this challenge, we introduce NextCrystal, a symmetry-driven generative framework that employs language models to encode chemical semantics and directly generate fine-grained Wyckoff site patterns from atomic stoichiometry, without retrieving pre-existing structural templates at inference. To overcome the combinatorial complexity of site assignments, we incorporate domain knowledge via an efficient, linear-complexity heuristic beam search, rigorously enforcing algebraic consistency between site multiplicities and atomic stoichiometry. By integrating this symmetry-consistent template into a diffusion backbone, the framework constrains the stochastic generative trajec",
+   "matched": [
+    "generative model crystal structure",
+    "molecular crystal structure prediction",
+    "organic crystal polymorph prediction",
+    "genetic algorithm crystal structure prediction"
+   ],
+   "tags": [
+    "generative-model"
+   ],
+   "relevance": 80,
+   "significance": 8,
+   "score": 88,
+   "screen": {
+    "relevance": 8,
+    "reason": "Novel symmetry-driven generative framework for direct CSP; language models + diffusion with Wyckoff constraints\u2014clear MC"
+   },
+   "summary": "NextCrystal introduces a language-model-driven, template-free generator that directly predicts fine-grained Wyckoff site patterns via a linear-complexity heuristic beam search, enforcing symmetry consistency within a diffusion-based CSP pipeline.",
+   "first_seen": "2026-09-14",
+   "is_new": false
+  },
+  {
+   "src": "ChemRxiv",
+   "title": "What an SO(3) orientation flow can and cannot learn in molecular-crystal structure prediction",
+   "date": "2026-09-04",
+   "doi": "10.26434/chemrxiv.15008279/v1",
+   "authors": [
+    "Frank Cai"
+   ],
+   "authors_all": [
+    "Frank Cai"
+   ],
+   "corresponding": [
+    "Frank Cai"
+   ],
+   "cited_by": 0,
+   "venue": "ChemRxiv",
+   "abstract": "Rigid-body factorization is an appealing route to molecular-crystal structure prediction: freezing each molecule\u2019s conformer reduces a crystal to a lattice, a set of fractional centroids on the torus T3, and a per-molecule orientation on SO(3). Whether the orientation field is actually learnable on real molecular crystals has not been examined. We introduce SymMC-Flow, a space-groupconditioned rigid-body flow on lattice\u00d7T3\u00d7SO(3), used as a diagnostic study on 1,127 crystals from the Cambridge Structural Database. The lattice and centroid flows learn normally, but the absolute per-molecule orientation flow remains at its predict-zero floor. We trace this to a decomposition of the orientation target, Rm = rot(gm) \u00b7 Rasym, into a space-group-determined relative rotation between symmetry copies and the asymmetric unit\u2019s gauge-arbitrary free orientation, which is not learnable from composition and packing; the relative part is. Re-gauging to cancel the free part lifts held-out non-reference orientation loss by 27% (versus \u223c0% for the absolute target) and reconstructs 13.7% (mean over three seeds) of held-out multi-copy packings exactly under StructureMatcher, against 0% for the predict-",
+   "matched": [
+    "crystal energy landscape molecular",
+    "molecular crystal structure prediction",
+    "organic crystal polymorph prediction",
+    "genetic algorithm crystal structure prediction"
+   ],
+   "tags": [
+    "conformational",
+    "space-group"
+   ],
+   "relevance": 80,
+   "significance": 0,
+   "score": 76,
+   "screen": {
+    "relevance": 8,
+    "reason": "Novel generative flow method for rigid-body MCSP with systematic analysis of SO(3) learnability."
+   },
+   "summary": "Introducing SymMC-Flow, a space-group-conditioned rigid-body flow diagnosing that absolute molecular orientation is unlearnable due to gauge freedom, while re-gauging to isolate the space-group-determined relative rotation enables exact packing reconst",
+   "first_seen": "2026-09-04",
+   "is_new": false
+  },
+  {
+   "src": "journal",
+   "title": "Critical benchmarking of machine-learned interatomic potentials for intermolecular and noncovalent interactions",
+   "date": "2026-09-07",
+   "doi": "10.1088/2632-2153/aea39f",
+   "authors": [
+    "Kamal Nayal",
+    "IlKwon Cho",
+    "Olexandr Isayev"
+   ],
+   "authors_all": [
+    "Kamal Nayal",
+    "IlKwon Cho",
+    "Olexandr Isayev"
+   ],
+   "corresponding": [
+    "Olexandr Isayev"
+   ],
+   "cited_by": 0,
+   "venue": "Machine Learning: Science and Technology",
+   "abstract": "Abstract Accurate benchmarking of intermolecular interaction energies is central to evaluating quantum chemical methods and guiding the development of reliable machine-learned interatomic potentials (MLIPs). We benchmark five MLIPs (AIMNet2(2023), AIMNet2(2025), MACE-OFF23(M), MACE-OMol, and UMA-S-OMol) across twenty-one datasets spanning hydrogen-bonded, dispersion- and pi-dominated, sigma-hole, ionic and charge transfer, and repulsive nonequilibrium interactions, with reference values at or near CCSD(T)/CBS accuracy. AIMNet2(2025) is a continually pretrained variant of AIMNet2(2023) that retains the original architecture but incorporates 3.8 million additional structures curated to improve noncovalent interactions (NCIs). AIMNet2(2025) improves on its predecessor across nearly all benchmark categories, with the largest gains in the hydrogen-bonded, sigma-hole, and repulsive regimes, while remaining competitive with the much larger MACE-OMol and UMA-S-OMol. The supramolecular S12L and L7 benchmarks show only marginal improvement: every evaluated MLIP exhibits large errors driven by a small number of pathological complexes. Two factors beyond intrinsic model quality significantly i",
+   "matched": [
+    "machine learning interatomic potential",
+    "universal interatomic potential"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "ML-potential",
+    "lattice-energy",
+    "benchmark"
+   ],
+   "relevance": 90,
+   "significance": 12,
+   "score": 67,
+   "screen": {
+    "relevance": 9,
+    "reason": "Direct benchmarking of AIMNet2, MACE-OFF, UMA MLIPs critical for MCSP lattice-energy ranking."
+   },
+   "summary": "Systematically benchmarks five MLIPs (including a newly curated AIMNet2(2025) variant) across 21 CCSD(T)/CBS-level noncovalent interaction datasets, exposing pathological supramolecular failure cases and confounding evaluation factors.",
+   "first_seen": "2026-09-08",
+   "is_new": false
+  },
+  {
+   "src": "journal",
+   "title": "Cross-Property Transfer Learning and Generative Crystal Design for Accelerated Discovery of Low-Thermal-Conductivity Materials",
+   "date": "2026-09-10",
+   "doi": "10.1021/acsami.6c10770",
+   "authors": [
+    "Harpriya Minhas",
+    "Rahul Kumar Sharma",
+    "Biswarup Pathak"
+   ],
+   "authors_all": [
+    "Harpriya Minhas",
+    "Rahul Kumar Sharma",
+    "Biswarup Pathak"
+   ],
+   "corresponding": [
+    "Biswarup Pathak"
+   ],
+   "cited_by": 0,
+   "venue": "ACS Applied Materials &amp; Interfaces",
+   "abstract": "Abstract Identifying crystalline materials with intrinsically low lattice thermal conductivity (\u03baL) remains a major challenge in thermoelectric design due to complex phonon transport mechanisms and the limited availability of high-quality datasets. Although first-principles methods provide accurate \u03baL predictions, their high computational cost limits large-scale screening. Here, we present a unified deep learning framework that combines graph neural networks (GNNs), cross-property transfer learning (TL), and transformer-based generative crystal modeling for accelerated \u03baL prediction and materials discovery. Benchmarking CGCNN, DeeperGATGNN, and ALIGNN on a curated dataset of 3925 materials identifies ALIGNN as the best-performing model, emphasizing the importance of capturing local bonding environments, bond-angle correlations, and many-body interactions. Cross-property TL across six auxiliary properties further reveals that energy-based source tasks provide the most transferable latent representations for \u03baL prediction. To explore materials beyond existing databases, the transformer-based generative model CrystaLLM is employed to generate 10,000 unique crystal structures. Subseque",
+   "matched": [
+    "generative model crystal structure"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "generative-model",
+    "free-energy",
+    "benchmark"
+   ],
+   "relevance": 70,
+   "significance": 0,
+   "score": 50,
+   "screen": {
+    "relevance": 7,
+    "reason": "GNN/transformer generative crystals + transfer learning applicable to CSP; \u03baL-focus limits direct relevance."
+   },
+   "summary": "Combines ALIGNN-based \u03baL prediction with cross-property transfer learning from energy-based tasks and CrystaLLM generative sampling to discover novel low-thermal-conductivity crystals beyond existing databases.",
+   "first_seen": "2026-09-10",
+   "is_new": false
+  }
+ ]
+}
