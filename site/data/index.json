@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-09-19",
+  "count": 3,
+  "new_count": 0,
+  "synthesis": "Two themes stand out: symmetry-aware generative CSP (NextCrystal) and MLIP validation for noncovalent/intermolecular interactions, both directly relevant to genetic-algorithm CSP pipelines\u2014one as a potential complementary generative approach, the other as a benchmarking check on energy models used to rank structures.",
+  "top": [
+   {
+    "title": "NextCrystal: a Symmetry-Driven Generative Framework for Crystal Structure Prediction",
+    "relevance": 80,
+    "significance": 8
+   },
+   {
+    "title": "Critical benchmarking of machine-learned interatomic potentials for intermolecular and noncovalent interactions",
+    "relevance": 90,
+    "significance": 12
+   },
+   {
+    "title": "Cross-Property Transfer Learning and Generative Crystal Design for Accelerated Discovery of Low-Thermal-Conductivity Materials",
+    "relevance": 70,
+    "significance": 0
+   }
+  ]
+ },
+ {
   "date": "2026-09-18",
   "count": 4,
   "new_count": 0,
