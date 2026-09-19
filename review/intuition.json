@@ -1049,6 +1049,55 @@
     }
    ],
    "synthesis": "For GAtor 2.0 this is a cautionary tale about the endpoint of any GA-MCSP pipeline: after the GA converges on a pool of low-energy structures ranked by dispersion-inclusive DFT (PBE0+MBD), near-degenerate survivors (which aspirin-like landscapes will always produce) cannot be discriminated by lattice energy at all. The paper shows the discriminating physics is vibrational entropy, and critically that the SAME dispersion model must be used for the phonons, not just the static energy - a pairwise vs many-body choice can invert the winner. Practically: (1) treat sub-~2 kJ/mol energy gaps in the final ranking as unresolved without free energies; (2) budget for harmonic (or quasi-harmonic) phonon calculations on the top candidates; (3) beware that MLIPs (MACE-OFF, AIMNet2, UMA) used for cheap relaxation/ranking may not capture the plasmon-phonon softening or the correct methyl-torsion geometry that MBD does, so validate soft-mode frequencies and flexible-group torsions before trusting entropy-driven rankings. The methyl-torsion error also flags that flexible-molecule conformers coupled to lattice modes are a place where cheaper dispersion/energy models silently corrupt downstream vibrational thermodynamics."
+  },
+  {
+   "slug": "blind-test-5",
+   "title": "Towards crystal structure prediction of complex organic compounds \u2013 a report on the fifth blind test",
+   "doi": "10.1107/s0108768111042868",
+   "year": 2011,
+   "tier": "A",
+   "source_mode": "metadata",
+   "date": "2026-09-19",
+   "core_idea": "The fifth CSP blind test (CSP2010) evaluated diverse computational methods against six organic targets spanning rigid molecules, a semi-flexible molecule, a 1:1 salt, a large flexible molecule, and a polymorphic hydrate. At least one group succeeded on every target, and dispersion-corrected DFT emerged as a reliable route for ranking the smaller systems.",
+   "innovation": "Introduced two new, harder target categories not present in prior blind tests: a large, highly flexible molecule and a multi-polymorph hydrate; and provided the first strong evidence that DFT-D can reliably predict small-molecule crystal structures.",
+   "chunks": [
+    {
+     "type": "principle",
+     "statement": "Dispersion-corrected DFT (DFT-D) can reliably predict the crystal structures of small rigid organic molecules, marking a maturation of lattice-energy ranking methods.",
+     "scope": "Small rigid and semi-flexible organic molecules, Z'=1-scale targets in CSP2010",
+     "evidence": "Abstract: 'there is now evidence that methodologies such as dispersion-corrected density functional theory (DFT-D) are able to reliably do so' for the three smallest molecules",
+     "generality": "suggested"
+    },
+    {
+     "type": "statistic",
+     "statement": "Every target in CSP2010 (six molecules across five categories) had at least one successful blind prediction, and the large flexible molecule was correctly ranked first by two groups.",
+     "scope": "Six CSP2010 organic targets; each group submitted three predictions per attempted target",
+     "evidence": "Abstract: 'There was at least one successful prediction for each target, and two groups were able to successfully predict the structure of the large flexible molecule as their first place submission'",
+     "generality": "single-study"
+    },
+    {
+     "type": "pitfall",
+     "statement": "Success rates can drop for the smallest, seemingly easiest molecules even as harder targets are solved, so fewer groups succeeding is not simple evidence of harder targets.",
+     "scope": "CSP2010 vs CSP2007 comparison of the three smallest molecules",
+     "evidence": "Abstract: 'not as many groups successfully predicted the structures of the three smallest molecules as in CSP2007'",
+     "generality": "single-study"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "Treat molecular flexibility, salts, and hydrates/solvates as distinct difficulty tiers requiring dedicated handling beyond rigid-molecule protocols.",
+     "scope": "CSP target categories: rigid, semi-flexible, 1:1 salt, large flexible, polymorphic hydrate",
+     "evidence": "Abstract distinguishes 'two rigid molecules, one semi-flexible molecule and a 1:1 salt' from 'new challenging categories - a larger, much more flexible molecule and a hydrate with more than one polymorph'",
+     "generality": "suggested"
+    },
+    {
+     "type": "pipeline_practice",
+     "statement": "The blind-test protocol has groups submit a limited number of ranked predictions (three per target) using their own end-to-end generation-plus-ranking methodologies, enabling head-to-head method comparison.",
+     "scope": "CSP2010 collaborative blind test organized at CCDC",
+     "evidence": "Abstract: 'A range of methodologies was used by the participating groups... Each group submitted three predictions for each target it attempted'",
+     "generality": "established"
+    }
+   ],
+   "synthesis": "For GAtor 2.0, CSP2010 is the historical inflection point where dispersion-inclusive DFT (the ancestor of your PBE0+MBD ranking stage) proved trustworthy for small rigid organics -- validating the two-stage 'generate broadly, re-rank with dispersion-DFT' philosophy your GA embodies. The lesson that flexible molecules, salts, and hydrates form separate difficulty tiers maps directly onto why GAtor invests in conformer-aware generation (Genarris), Z'>1 and multi-component handling, and why niching matters: the search must populate the correct low-energy region before any ranking method can succeed. The counterintuitive dip in success on the smallest molecules is a reminder that ranking-energy accuracy, not just sampling, decides blind-test wins -- motivating MLIP pre-screening plus high-level DFT and, where polymorphs sit within a few kJ/mol, finite-temperature free-energy corrections."
   }
  ]
 }
