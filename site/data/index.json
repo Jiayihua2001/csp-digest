@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-09-20",
+  "count": 3,
+  "new_count": 0,
+  "synthesis": "Two threads stand out: symmetry-aware generative CSP (NextCrystal) and MLIP benchmarking for noncovalent/intermolecular forces, both relevant to GA-CSP energy models and structure generation. The thermal-conductivity transfer-learning paper is more tangential, targeting inorganic property discovery rather than molecular crystal packing.",
+  "top": [
+   {
+    "title": "NextCrystal: a Symmetry-Driven Generative Framework for Crystal Structure Prediction",
+    "relevance": 90,
+    "significance": 8
+   },
+   {
+    "title": "Critical benchmarking of machine-learned interatomic potentials for intermolecular and noncovalent interactions",
+    "relevance": 90,
+    "significance": 12
+   },
+   {
+    "title": "Cross-Property Transfer Learning and Generative Crystal Design for Accelerated Discovery of Low-Thermal-Conductivity Materials",
+    "relevance": 70,
+    "significance": 0
+   }
+  ]
+ },
+ {
   "date": "2026-09-19",
   "count": 3,
   "new_count": 0,
