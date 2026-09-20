@@ -1098,6 +1098,62 @@
     }
    ],
    "synthesis": "For GAtor 2.0, CSP2010 is the historical inflection point where dispersion-inclusive DFT (the ancestor of your PBE0+MBD ranking stage) proved trustworthy for small rigid organics -- validating the two-stage 'generate broadly, re-rank with dispersion-DFT' philosophy your GA embodies. The lesson that flexible molecules, salts, and hydrates form separate difficulty tiers maps directly onto why GAtor invests in conformer-aware generation (Genarris), Z'>1 and multi-component handling, and why niching matters: the search must populate the correct low-energy region before any ranking method can succeed. The counterintuitive dip in success on the smallest molecules is a reminder that ranking-energy accuracy, not just sampling, decides blind-test wins -- motivating MLIP pre-screening plus high-level DFT and, where polymorphs sit within a few kJ/mol, finite-temperature free-energy corrections."
+  },
+  {
+   "slug": "blind-test-7-part1",
+   "title": "The seventh blind test of crystal structure prediction: structure generation methods",
+   "doi": "10.1107/s2052520624007492",
+   "year": 2024,
+   "tier": "A",
+   "source_mode": "metadata",
+   "date": "2026-09-20",
+   "core_idea": "The seventh CCDC blind test of crystal structure prediction evaluated many CSP groups against seven targets spanning a wide complexity range (Si/I molecule, Cu coordination complex, near-rigid molecule, cocrystal, flexible polymorphic agrochemical, highly flexible drug candidate, morpholine salt). This first part focuses on structure generation: methods succeeded broadly on the small flexible agrochemical but few handled the higher-complexity systems, and new frontiers included PXRD-assisted determination, cocrystal stoichiometry prediction, and blind disorder prediction.",
+   "innovation": "First blind test where two groups blindly predicted crystallographic disorder; also demonstrated CSP-assisted structure solution from a low-quality PXRD pattern and explored predicting cocrystal stoichiometry. Included metal coordination complexes and salts among targets, pushing beyond neutral rigid/flexible organics.",
+   "chunks": [
+    {
+     "type": "statistic",
+     "statement": "The seventh blind test featured seven target systems of increasing difficulty: a Si- and I-containing molecule, a copper coordination complex, a near-rigid molecule, a cocrystal, a small flexible polymorphic agrochemical, a highly flexible polymorphic drug candidate, and a polymorphic morpholine salt.",
+     "scope": "CCDC seventh blind test target set (2024)",
+     "evidence": "Abstract lists 'seven target systems of varying complexity' with the specific chemistries enumerated.",
+     "generality": "established"
+    },
+    {
+     "type": "principle",
+     "statement": "Molecular flexibility and system complexity, more than molecule size alone, govern CSP success: many methods reproduced the small but flexible agrochemical, yet few succeeded on the higher-complexity systems (metal complex, highly flexible drug, salt, cocrystal).",
+     "scope": "Blind-test-scale comparison across diverse organic/metal-organic/ionic systems",
+     "evidence": "'many CSP methods performed well for the small but flexible agrochemical compound... while few groups were successful for the systems of higher complexity.'",
+     "generality": "suggested"
+    },
+    {
+     "type": "pipeline_practice",
+     "statement": "CSP can be coupled to experimental PXRD to solve structures from poor-quality diffraction data: candidate structures from prediction are matched against a low-quality PXRD pattern to identify the experimental form.",
+     "scope": "PXRD-assisted structure determination exercise within the blind test",
+     "evidence": "'A PXRD-assisted exercise demonstrated the use of CSP in successfully determining a crystal structure from a low-quality PXRD pattern.'",
+     "generality": "single-study"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "When cocrystal stoichiometry is unknown, CSP can be used to predict the likely stoichiometry, with multiple viable methodological approaches available.",
+     "scope": "Cocrystal target in the blind test",
+     "evidence": "'The use of CSP in the prediction of likely cocrystal stoichiometry was also explored, demonstrating multiple possible approaches.'",
+     "generality": "single-study"
+    },
+    {
+     "type": "pitfall",
+     "statement": "Crystallographic disorder is both an analysis challenge and a genuine physical outcome that most CSP workflows do not model; blindly predicting disorder was rare and considered a major achievement, so ignoring disorder can cause missed or mismatched predictions.",
+     "scope": "Blind test targets exhibiting disorder",
+     "evidence": "'Crystallographic disorder emerged as an important theme... as both a challenge for analysis and a major achievement where two groups blindly predicted the existence of disorder for the first time.'",
+     "generality": "single-study"
+    },
+    {
+     "type": "pitfall",
+     "statement": "Different CSP methods can converge on largely the same set of predicted structures, meaning apparent agreement across groups may reflect shared sampling limitations rather than independent confirmation of the landscape.",
+     "scope": "Large-scale comparison of predicted structure sets across blind-test groups",
+     "evidence": "'large-scale comparisons of the sets of predicted crystal structures also showed that some methods yield sets that largely contain the same crystal structures.'",
+     "generality": "suggested"
+    }
+   ],
+   "synthesis": "For GAtor 2.0, this blind test reframes the hard cases as exactly the ones you target: high molecular flexibility, Z'>1/salts/cocrystals, and metal coordination complexes are where most methods fail, so a GA's ability to recombine and niche across a rugged, high-dimensional landscape is most valuable precisely there. The finding that many methods produce overlapping structure sets is a warning that generation diversity is a real bottleneck - your GA operators and niching should be evaluated on whether they discover structures other pipelines miss, not just on hit rate against known forms. The PXRD-assisted and cocrystal-stoichiometry exercises suggest concrete deployment modes for GAtor: feeding low-quality experimental data to prune GA populations, and searching over stoichiometry as an additional degree of freedom. Finally, disorder emerging as a first-time achievement flags a modeling gap worth building into finite-temperature stability analysis, since ranking with static DFT/MLIP energies will systematically mishandle disordered targets."
   }
  ]
 }
