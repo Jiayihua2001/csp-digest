@@ -1154,6 +1154,76 @@
     }
    ],
    "synthesis": "For GAtor 2.0, this blind test reframes the hard cases as exactly the ones you target: high molecular flexibility, Z'>1/salts/cocrystals, and metal coordination complexes are where most methods fail, so a GA's ability to recombine and niche across a rugged, high-dimensional landscape is most valuable precisely there. The finding that many methods produce overlapping structure sets is a warning that generation diversity is a real bottleneck - your GA operators and niching should be evaluated on whether they discover structures other pipelines miss, not just on hit rate against known forms. The PXRD-assisted and cocrystal-stoichiometry exercises suggest concrete deployment modes for GAtor: feeding low-quality experimental data to prune GA populations, and searching over stoichiometry as an additional degree of freedom. Finally, disorder emerging as a first-time achievement flags a modeling gap worth building into finite-temperature stability analysis, since ranking with static DFT/MLIP energies will systematically mishandle disordered targets."
+  },
+  {
+   "slug": "blind-test-7-part2",
+   "title": "The seventh blind test of crystal structure prediction: structure ranking methods",
+   "doi": "10.1107/s2052520624008679",
+   "year": 2024,
+   "tier": "A",
+   "source_mode": "metadata",
+   "date": "2026-09-21",
+   "core_idea": "The seventh CSP blind test's ranking phase evaluated how well diverse energy methods order candidate crystal structures by stability, using standardized seeded structure sets across multiple targets. Periodic dispersion-inclusive DFT methods broadly agreed with experiment within expected error, while a system-specific machine-learned potential (AIMNet) showed promise as an efficient alternative. Free-energy corrections and consensus-based reasoning improved conclusions only in select cases.",
+   "innovation": "Second part of the 7th blind test focused specifically on ranking (decoupled from generation) via standardized seeded structure sets, enabling head-to-head comparison of ranking methods; notable inclusion of machine-learned potentials (system-specific AIMnet) benchmarked against periodic DFT-D, and use of a non-energy-based scoring function.",
+   "chunks": [
+    {
+     "type": "pipeline_practice",
+     "statement": "The ranking exercise decoupled structure ranking from generation by giving participants standardized sets of candidate structures seeded from a range of structure-generation methods, so ranking methods could be compared on a common footing.",
+     "scope": "7th CSP blind test, ranking phase, molecular crystal targets",
+     "evidence": "'The exercise involved standardized sets of structures seeded from a range of structure generation methods.'",
+     "generality": "single-study"
+    },
+    {
+     "type": "statistic",
+     "statement": "Across 22 participating groups, ranking methods spanned periodic DFT-D, machine-learned potentials, empirical and quantum-chemistry-derived force fields, combinations thereof, plus one non-energy-based scoring function.",
+     "scope": "7th CSP blind test participant methods",
+     "evidence": "'Participants from 22 groups applied several periodic DFT-D methods, machine learned potentials, force fields... and one non-energy-based scoring function was used.'",
+     "generality": "single-study"
+    },
+    {
+     "type": "principle",
+     "statement": "Periodic dispersion-inclusive DFT (DFT-D) remains the reference-quality ranking method: it agreed with experimental data within expected error margins across targets.",
+     "scope": "molecular crystal ranking, 7th blind test targets",
+     "evidence": "'periodic DFT-D methods overall agreed with experimental data within expected error margins'",
+     "generality": "established"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "System-specific machine-learned potentials (AIMnet) can serve as an efficient alternative to DFT for ranking, matching experiment in many cases though not universally.",
+     "scope": "molecular crystals; system-specific trained AIMnet potentials",
+     "evidence": "'one machine learned model, applying system-specific AIMnet potentials, agreed with experiment in many cases demonstrating promise as an efficient alternative to DFT-based methods'",
+     "generality": "suggested"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "Ambient-temperature free-energy calculations improve rankings only in some cases, not as a blanket rule; here they helped for targets XXVII and XXXI.",
+     "scope": "finite-temperature ranking corrections, specific blind-test targets",
+     "evidence": "'The calculation of free energies at ambient temperatures offered improvement of predictions only in some cases (for targets XXVII and XXXI).'",
+     "generality": "single-study"
+    },
+    {
+     "type": "principle",
+     "statement": "When independent periodic DFT methods reach consensus that the experimental form sits well above the global minimum, this can indicate an as-yet-unobserved more stable polymorph rather than a ranking error.",
+     "scope": "target XXXII; consensus across periodic DFT methods",
+     "evidence": "'For target XXXII, a consensus was reached across periodic DFT methods, with consistently high predicted energies of experimental forms relative to the global minimum (above 4 kJ/mol at both low and ambient temperatures) suggesting a more stable polymorph is likely not yet observed.'",
+     "generality": "single-study"
+    },
+    {
+     "type": "statistic",
+     "statement": "In target XXXII, experimental forms were consistently predicted above 4 kJ/mol relative to the global minimum at both low and ambient temperatures.",
+     "scope": "target XXXII, periodic DFT methods",
+     "evidence": "'consistently high predicted energies of experimental forms relative to the global minimum (above 4 kJ mol-1 at both low and ambient temperatures)'",
+     "generality": "single-study"
+    },
+    {
+     "type": "pitfall",
+     "statement": "Many high-accuracy ranking approaches consumed vast computational resources; efficiency is a recognized bottleneck and future need, not a solved problem.",
+     "scope": "CSP ranking methods generally",
+     "evidence": "'highlighting the need for greater efficiency considering the vast amounts of resources utilized in many cases'",
+     "generality": "established"
+    }
+   ],
+   "synthesis": "For GAtor 2.0, this blind test reinforces the standard two-stage logic: generation (Genarris) then ranking, and the ranking phase here deliberately isolated the second stage so lessons transfer directly to your energy-ranking layer. The headline for MLIP strategy is that a system-specifically trained AIMnet matched DFT in many cases -- consistent with the MACE-OFF/AIMNet2/UMA direction -- but 'in many cases' not all, so a DFT-D (PBE0+MBD-class) reranking of GA-surviving candidates remains the safety net. Treat finite-temperature free energies as a targeted tool: apply them when near-degenerate candidates cluster within a few kJ/mol, since they only changed outcomes for 2 targets. Finally, the XXXII consensus lesson is important for GA interpretation -- if your GA consistently places the observed structure >4 kJ/mol above your global minimum across multiple energy methods, favor the hypothesis of a missing (unobserved) polymorph over blaming your operators/niching, and the vast-resource warning argues for using MLIPs to prune before expensive DFT within the GA loop."
   }
  ]
 }
