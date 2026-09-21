@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-09-21",
+  "count": 4,
+  "new_count": 0,
+  "synthesis": "Notable cluster around ML-driven CSP: NextCrystal offers a symmetry-constrained generative approach worth tracking against GA baselines, while the MLIP benchmarking paper is directly relevant for validating force fields used in molecular crystal energy ranking. Otherwise a quiet day for GA-specific methods.",
+  "top": [
+   {
+    "title": "Crystal Structure Prediction and 0 K Stability Assessment of Hypothetical Re3Zr Polymorphs: Vibrational, Elastic, and Electronic Properties",
+    "relevance": 90,
+    "significance": 0
+   },
+   {
+    "title": "NextCrystal: a Symmetry-Driven Generative Framework for Crystal Structure Prediction",
+    "relevance": 80,
+    "significance": 8
+   },
+   {
+    "title": "Critical benchmarking of machine-learned interatomic potentials for intermolecular and noncovalent interactions",
+    "relevance": 90,
+    "significance": 12
+   }
+  ]
+ },
+ {
   "date": "2026-09-20",
   "count": 3,
   "new_count": 0,

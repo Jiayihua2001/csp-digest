@@ -22,7 +22,7 @@ tags:
 **Field:** [[ML-potential]] [[lattice-energy]] [[benchmark]]
 
 ## Why it matters
-Introduces AIMNet2(2025), a continually pretrained AIMNet2 variant with 3.8M added structures targeting noncovalent interactions, and systematically benchmarks it against four other MLIPs across 21 CCSD(T)/CBS-level intermolec
+Introduces AIMNet2(2025), a continually pretrained AIMNet2 variant fine-tuned on 3.8M curated structures, and systematically benchmarks it against four other MLIPs across 21 CCSD(T)/CBS-level noncovalent interaction
 
 ## Abstract
 > Abstract Accurate benchmarking of intermolecular interaction energies is central to evaluating quantum chemical methods and guiding the development of reliable machine-learned interatomic potentials (MLIPs). We benchmark five MLIPs (AIMNet2(2023), AIMNet2(2025), MACE-OFF23(M), MACE-OMol, and UMA-S-OMol) across twenty-one datasets spanning hydrogen-bonded, dispersion- and pi-dominated, sigma-hole, ionic and charge transfer, and repulsive nonequilibrium interactions, with reference values at or near CCSD(T)/CBS accuracy. AIMNet2(2025) is a continually pretrained variant of AIMNet2(2023) that retains the original architecture but incorporates 3.8 million additional structures curated to improve noncovalent interactions (NCIs). AIMNet2(2025) improves on its predecessor across nearly all benchmark categories, with the largest gains in the hydrogen-bonded, sigma-hole, and repulsive regimes, while remaining competitive with the much larger MACE-OMol and UMA-S-OMol. The supramolecular S12L and L7 benchmarks show only marginal improvement: every evaluated MLIP exhibits large errors driven by a small number of pathological complexes. Two factors beyond intrinsic model quality significantly i
