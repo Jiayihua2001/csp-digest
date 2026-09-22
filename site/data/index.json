@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-09-22",
+  "count": 5,
+  "new_count": 3,
+  "synthesis": "Quiet day for GA-specific CSP: focus is on ML/generative alternatives\u2014benchmarking (inorganic CSP, OMC-bench), symmetry-driven generative models (NextCrystal), and hybrid ML potentials\u2014rather than genetic-algorithm methodology itself.",
+  "top": [
+   {
+    "title": "Crystal Structure Prediction of Inorganic Materials: A Benchmark and Modern Evaluation",
+    "relevance": 92,
+    "significance": 0
+   },
+   {
+    "title": "NextCrystal: a Symmetry-Driven Generative Framework for Crystal Structure Prediction",
+    "relevance": 80,
+    "significance": 8
+   },
+   {
+    "title": "Cross-Property Transfer Learning and Generative Crystal Design for Accelerated Discovery of Low-Thermal-Conductivity Materials",
+    "relevance": 70,
+    "significance": 0
+   }
+  ]
+ },
+ {
   "date": "2026-09-21",
   "count": 4,
   "new_count": 0,

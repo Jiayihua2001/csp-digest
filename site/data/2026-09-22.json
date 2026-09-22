@@ -1,0 +1,228 @@
+{
+ "date": "2026-09-22",
+ "scope": "molecular",
+ "synthesis": "Quiet day for GA-specific CSP: focus is on ML/generative alternatives\u2014benchmarking (inorganic CSP, OMC-bench), symmetry-driven generative models (NextCrystal), and hybrid ML potentials\u2014rather than genetic-algorithm methodology itself.",
+ "generated_at": "2026-09-22T12:49:18.235772Z",
+ "items": [
+  {
+   "src": "journal",
+   "title": "Crystal Structure Prediction of Inorganic Materials: A Benchmark and Modern Evaluation",
+   "date": "2026-09-22",
+   "doi": "10.1002/aidi.70162",
+   "authors": [
+    "Lai Wei",
+    "Sadman Sadeed Omee",
+    "Rongzhi Dong"
+   ],
+   "authors_all": [
+    "Lai Wei",
+    "Sadman Sadeed Omee",
+    "Rongzhi Dong",
+    "Nihang Fu",
+    "Yuqi Song",
+    "Edirisuriya M. Dilanga Siriwardane",
+    "Meiling Xu",
+    "Ming Hu",
+    "Chris Wolverton",
+    "Jianjun Hu"
+   ],
+   "corresponding": [
+    "Jianjun Hu"
+   ],
+   "cited_by": 0,
+   "venue": "Advanced Intelligent Discovery",
+   "abstract": "Crystal structure prediction (CSP) of inorganic materials is a fundamental challenge in computational materials science, yet the field has historically lacked well\u2010defined benchmarks and comprehensive evaluations. We address this gap by introducing CSP180, a standardized benchmark of 180 inorganic materials, and evaluate 13 state\u2010of\u2010the\u2010art CSP algorithms spanning template\u2010based, machine learning (ML) potential\u2010based, and deep learning\u2010based approaches, none relying on density functional theory (DFT). As a baseline, we also assess the leading DFT\u2010based algorithms, CALYPSO and USPEX, on a 23\u2010structure subset with simpler compositions. Template\u2010based methods, such as TCSP and CSPML, achieve the highest space group match rates (58.9% and 47.2%) when a suitable template exists, while de novo algorithms struggle to identify correct space groups, with the best performers reaching only around 17%. On the 23\u2010structure subset, ML potential\u2010based algorithms prove highly competitive with DFT\u2010based methods at identifying lower\u2010energy structures, and this performance depends strongly on both potential quality and search algorithm efficiency. This assessment provides a standardized framework, qu",
+   "matched": [
+    "organic crystal polymorph prediction",
+    "molecular crystal structure prediction",
+    "genetic algorithm crystal structure prediction"
+   ],
+   "tags": [
+    "genetic-algorithm",
+    "ML-potential",
+    "space-group",
+    "benchmark"
+   ],
+   "relevance": 92,
+   "significance": 0,
+   "score": 92,
+   "screen": {
+    "relevance": 6,
+    "reason": "Inorganic CSP benchmark; ML potentials competitive with DFT. Limited direct molecular-crystal transfer."
+   },
+   "summary": "Introduces CSP180, a standardized 180-structure benchmark, and systematically compares 13 non-DFT CSP algorithms against DFT-based CALYPSO/USPEX baselines under uniform metrics.",
+   "first_seen": "2026-09-22",
+   "is_new": true
+  },
+  {
+   "src": "journal",
+   "title": "NextCrystal: a Symmetry-Driven Generative Framework for Crystal Structure Prediction",
+   "date": "2026-09-14",
+   "doi": "10.1088/0256-307x/43/10/100802",
+   "authors": [
+    "Jinming Mu",
+    "Lixin He",
+    "Xudong Zhu"
+   ],
+   "authors_all": [
+    "Jinming Mu",
+    "Lixin He",
+    "Xudong Zhu",
+    "Shi Yin"
+   ],
+   "corresponding": [
+    "Shi Yin"
+   ],
+   "cited_by": 0,
+   "venue": "Chinese Physics Letters",
+   "abstract": "Abstract Crystal structure prediction (CSP), which aims to predict the 3D atomic arrangement of a crystal from its composition, is central to materials discovery and mechanistic understanding. Crystal symmetry plays a crucial role in CSP, but given the composition in a unit cell, existing methods either struggle with the NP-hard combinatorial challenge of enforcing symmetry rigorously or rely on retrieving known templates, inherently limiting both physical fidelity and the discovery of genuinely new materials. To address this challenge, we introduce NextCrystal, a symmetry-driven generative framework that employs language models to encode chemical semantics and directly generate fine-grained Wyckoff site patterns from atomic stoichiometry, without retrieving pre-existing structural templates at inference. To overcome the combinatorial complexity of site assignments, we incorporate domain knowledge via an efficient, linear-complexity heuristic beam search, rigorously enforcing algebraic consistency between site multiplicities and atomic stoichiometry. By integrating this symmetry-consistent template into a diffusion backbone, the framework constrains the stochastic generative trajec",
+   "matched": [
+    "organic crystal polymorph prediction",
+    "generative model crystal structure",
+    "molecular crystal structure prediction",
+    "genetic algorithm crystal structure prediction"
+   ],
+   "tags": [
+    "generative-model"
+   ],
+   "relevance": 80,
+   "significance": 8,
+   "score": 88,
+   "screen": {
+    "relevance": 8,
+    "reason": "Novel generative framework for polymorph candidate generation using symmetry constraints and diffusion models."
+   },
+   "summary": "NextCrystal is novel for using a language model with linear-complexity heuristic beam search to generate template-free, stoichiometry-consistent Wyckoff site patterns guiding symmetry-constrained diffusion-based structure generation.",
+   "first_seen": "2026-09-14",
+   "is_new": false
+  },
+  {
+   "src": "journal",
+   "title": "Cross-Property Transfer Learning and Generative Crystal Design for Accelerated Discovery of Low-Thermal-Conductivity Materials",
+   "date": "2026-09-10",
+   "doi": "10.1021/acsami.6c10770",
+   "authors": [
+    "Harpriya Minhas",
+    "Rahul Kumar Sharma",
+    "Biswarup Pathak"
+   ],
+   "authors_all": [
+    "Harpriya Minhas",
+    "Rahul Kumar Sharma",
+    "Biswarup Pathak"
+   ],
+   "corresponding": [
+    "Biswarup Pathak"
+   ],
+   "cited_by": 0,
+   "venue": "ACS Applied Materials &amp; Interfaces",
+   "abstract": "Abstract Identifying crystalline materials with intrinsically low lattice thermal conductivity (\u03baL) remains a major challenge in thermoelectric design due to complex phonon transport mechanisms and the limited availability of high-quality datasets. Although first-principles methods provide accurate \u03baL predictions, their high computational cost limits large-scale screening. Here, we present a unified deep learning framework that combines graph neural networks (GNNs), cross-property transfer learning (TL), and transformer-based generative crystal modeling for accelerated \u03baL prediction and materials discovery. Benchmarking CGCNN, DeeperGATGNN, and ALIGNN on a curated dataset of 3925 materials identifies ALIGNN as the best-performing model, emphasizing the importance of capturing local bonding environments, bond-angle correlations, and many-body interactions. Cross-property TL across six auxiliary properties further reveals that energy-based source tasks provide the most transferable latent representations for \u03baL prediction. To explore materials beyond existing databases, the transformer-based generative model CrystaLLM is employed to generate 10,000 unique crystal structures. Subseque",
+   "matched": [
+    "generative model crystal structure"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "generative-model",
+    "free-energy",
+    "benchmark"
+   ],
+   "relevance": 70,
+   "significance": 0,
+   "score": 50,
+   "screen": {
+    "relevance": 7,
+    "reason": "GNN+transfer learning for crystal properties; generative modeling (CrystaLLM) for structure exploration transferable to "
+   },
+   "summary": "Combines ALIGNN-based \u03baL prediction with cross-property transfer learning from energy-related tasks and CrystaLLM-generated candidate structures to accelerate low-thermal-conductivity materials discovery.",
+   "first_seen": "2026-09-10",
+   "is_new": false
+  },
+  {
+   "src": "journal",
+   "title": "OMC-bench and AtomBit-OMC: task-aligned benchmarks and robust, interpretable machine-learned interatomic potentials for organic molecular crystals",
+   "date": "2026-09-21",
+   "doi": "10.1038/s41524-026-02315-3",
+   "authors": [
+    "Muyu Lu",
+    "Chengxi Zhao",
+    "Siyu Hu"
+   ],
+   "authors_all": [
+    "Muyu Lu",
+    "Chengxi Zhao",
+    "Siyu Hu",
+    "Danyang Chen",
+    "Chen Wang",
+    "Yixi Zhang",
+    "Yaolong Zhang",
+    "Man Luo",
+    "Fan Yu",
+    "Zhuoying Zhu",
+    "Bin Jiang",
+    "Guangming Tan",
+    "Weile Jia",
+    "Jun Jiang",
+    "Linjiang Chen"
+   ],
+   "corresponding": [
+    "Linjiang Chen"
+   ],
+   "cited_by": 0,
+   "venue": "npj Computational Materials",
+   "abstract": "",
+   "matched": [
+    "universal interatomic potential"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "ML-potential",
+    "benchmark"
+   ],
+   "relevance": 90,
+   "significance": 8,
+   "score": 38,
+   "screen": {
+    "relevance": 9,
+    "reason": "Direct MLIP benchmarks for organic molecular crystals; task-aligned evaluation for CSP."
+   },
+   "summary": "Introduces OMC-bench, a task-aligned benchmark for organic molecular crystals, alongside AtomBit-OMC, a robust and interpretable machine-learned interatomic potential tailored to this domain.",
+   "first_seen": "2026-09-22",
+   "is_new": true
+  },
+  {
+   "src": "journal",
+   "title": "Hybrid ab initio and empirical machine learning models for the potential energy surface",
+   "date": "2026-09-21",
+   "doi": "10.1103/x3hc-52cp",
+   "authors": [
+    "Anonymous"
+   ],
+   "authors_all": [
+    "Anonymous"
+   ],
+   "corresponding": [
+    "Anonymous"
+   ],
+   "cited_by": 0,
+   "venue": "Physical Review Letters",
+   "abstract": "",
+   "matched": [
+    "machine learning interatomic potential"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "ML-potential"
+   ],
+   "relevance": 70,
+   "significance": 0,
+   "score": 25,
+   "screen": {
+    "relevance": 7,
+    "reason": "Hybrid ab initio-ML PES modeling directly applicable to CSP lattice-energy ranking."
+   },
+   "summary": "Introduces a hybrid framework coupling ab initio-derived energies with empirical machine-learning corrections to model potential energy surfaces, potentially accelerating crystal structure prediction within evolutionary search algorithms.",
+   "first_seen": "2026-09-22",
+   "is_new": true
+  }
+ ]
+}
