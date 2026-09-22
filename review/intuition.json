@@ -1224,6 +1224,48 @@
     }
    ],
    "synthesis": "For GAtor 2.0, this blind test reinforces the standard two-stage logic: generation (Genarris) then ranking, and the ranking phase here deliberately isolated the second stage so lessons transfer directly to your energy-ranking layer. The headline for MLIP strategy is that a system-specifically trained AIMnet matched DFT in many cases -- consistent with the MACE-OFF/AIMNet2/UMA direction -- but 'in many cases' not all, so a DFT-D (PBE0+MBD-class) reranking of GA-surviving candidates remains the safety net. Treat finite-temperature free energies as a targeted tool: apply them when near-degenerate candidates cluster within a few kJ/mol, since they only changed outcomes for 2 targets. Finally, the XXXII consensus lesson is important for GA interpretation -- if your GA consistently places the observed structure >4 kJ/mol above your global minimum across multiple energy methods, favor the hypothesis of a missing (unobserved) polymorph over blaming your operators/niching, and the vast-resource warning argues for using MLIPs to prune before expensive DFT within the GA loop."
+  },
+  {
+   "slug": "group16-aimnet2-blindtest",
+   "title": "Efficient Molecular Crystal Structure Prediction and Stability Assessment with AIMNet2 Neural Network Potentials",
+   "doi": "10.1021/acs.cgd.5c01001",
+   "year": 2025,
+   "tier": "B",
+   "source_mode": "metadata",
+   "date": "2026-09-22",
+   "core_idea": "AIMNet2 machine-learned interatomic potentials can be trained on gas-phase, dispersion-corrected DFT reference data of molecular clusters (n-mers) and then extended to crystalline environments to rank candidate crystal structures by lattice energy. This avoids expensive periodic DFT while accurately capturing the physics of thermodynamic crystal stability, as demonstrated in the CCDC seventh blind test.",
+   "innovation": "Rather than training MLIPs on periodic DFT data, target-specific AIMNet2 potentials are trained purely on gas-phase n-mer (molecular cluster) DFT calculations and shown to transfer to periodic crystal energy ranking, dramatically reducing the cost of millions of energy evaluations in CSP.",
+   "chunks": [
+    {
+     "type": "principle",
+     "statement": "Interatomic potentials trained only on gas-phase dispersion-corrected DFT of molecular clusters (n-mers) can successfully extend to crystalline environments and correctly rank structures by relative stability, implying that crystal cohesive physics is largely reconstructable from cluster interactions.",
+     "scope": "Molecular crystals across pharmaceutical, optoelectronic, and agrochemical systems in the CCDC seventh blind test; target-specific AIMNet2 potentials",
+     "evidence": "'potentials trained on gas phase dispersion-corrected DFT reference data of n-mers successfully extend to crystalline environments, accurately characterizing the CSP landscape and correctly ranking structures'",
+     "generality": "single-study"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "Use target-specific MLIPs (trained per system on n-mer DFT) rather than self-consistent first-principles calculations when the CSP workflow requires millions of energy evaluations, especially for complex molecular systems with many atoms per unit cell.",
+     "scope": "Routine CSP lattice-energy ranking of molecular crystals with large/complex unit cells",
+     "evidence": "'self-consistent first-principles calculations become prohibitively expensive, especially when millions of energy evaluations are required for complex molecular systems with many atoms per unit cell'",
+     "generality": "suggested"
+    },
+    {
+     "type": "pipeline_practice",
+     "statement": "A CSP workflow ranks candidate structures by lattice energy to assess relative stability; here that ranking step is accelerated by substituting AIMNet2 MLIPs trained on n-mer DFT for full DFT energy evaluations.",
+     "scope": "CSP workflows for molecular crystals",
+     "evidence": "'Computational CSP workflows typically rank candidate structures by lattice energy to assess relative stability' and the presented approach 'significantly accelerates CSP by training target-specific machine-learned interatomic potentials'",
+     "generality": "established"
+    },
+    {
+     "type": "pitfall",
+     "statement": "The demonstration is on target-specific potentials trained per system, so the transferability of gas-phase-trained MLIPs to arbitrary new molecular crystals without retraining is not established by this work.",
+     "scope": "AIMNet2 n-mer-trained MLIPs for molecular CSP",
+     "evidence": "Abstract emphasizes 'target-specific AIMNet2 interatomic potentials' trained on per-system n-mer reference data rather than a single universal potential",
+     "generality": "single-study"
+    }
+   ],
+   "synthesis": "For GAtor 2.0, this is a direct template for a cheap-but-physical energy engine inside the GA loop: because the genetic algorithm demands enormous numbers of relaxations and re-rankings, an n-mer-trained AIMNet2 could replace PBE0+MBD as the inner ranking oracle, reserving dispersion-inclusive DFT for final re-ranking. The claim that cluster-only training reproduces periodic stability is appealing because n-mer training data are naturally aligned with the conformer/intermolecular-interaction structure that GA crossover and mutation operators shuffle, and it sidesteps the periodic-DFT bottleneck for large Z'>1 or multi-component cells. The main caution for GAtor is the target-specific nature: you likely need a per-target training campaign (generate n-mers, run dispersion-corrected DFT, fit AIMNet2) before the GA run, and you should validate that the MLIP preserves the fine <2 kJ/mol polymorph orderings and does not distort niching/diversity by smoothing the landscape."
   }
  ]
 }
