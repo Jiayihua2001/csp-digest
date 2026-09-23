@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-09-23",
+  "count": 6,
+  "new_count": 0,
+  "synthesis": "Mostly inorganic/generative-model CSP today (benchmarks, symmetry-driven generative frameworks, transfer learning for property-targeted design), with organic molecular crystals appearing mainly via a new ML-potential benchmark (OMC-bench/AtomBit-OMC) rather than genetic-algorithm methodology itself\u2014little directly relevant to GA-based CSP work.",
+  "top": [
+   {
+    "title": "Crystal Structure Prediction of Inorganic Materials: A Benchmark and Modern Evaluation",
+    "relevance": 92,
+    "significance": 0
+   },
+   {
+    "title": "Crystal Structure Prediction and 0 K Stability Assessment of Hypothetical Re3Zr Polymorphs: Vibrational, Elastic, and Electronic Properties",
+    "relevance": 90,
+    "significance": 0
+   },
+   {
+    "title": "NextCrystal: a Symmetry-Driven Generative Framework for Crystal Structure Prediction",
+    "relevance": 90,
+    "significance": 8
+   }
+  ]
+ },
+ {
   "date": "2026-09-22",
   "count": 5,
   "new_count": 3,

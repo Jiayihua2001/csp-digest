@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-Introduces a hybrid framework coupling ab initio-derived energies with empirical machine-learning corrections to model potential energy surfaces, potentially accelerating crystal structure prediction within evolutionary search algorithms.
+Combines ab initio-derived and empirically trained machine-learning potentials into a hybrid model, likely improving potential energy surface accuracy and transferability over either approach alone.
 
 ## My notes
 
