@@ -1266,6 +1266,55 @@
     }
    ],
    "synthesis": "For GAtor 2.0, this is a direct template for a cheap-but-physical energy engine inside the GA loop: because the genetic algorithm demands enormous numbers of relaxations and re-rankings, an n-mer-trained AIMNet2 could replace PBE0+MBD as the inner ranking oracle, reserving dispersion-inclusive DFT for final re-ranking. The claim that cluster-only training reproduces periodic stability is appealing because n-mer training data are naturally aligned with the conformer/intermolecular-interaction structure that GA crossover and mutation operators shuffle, and it sidesteps the periodic-DFT bottleneck for large Z'>1 or multi-component cells. The main caution for GAtor is the target-specific nature: you likely need a per-target training campaign (generate n-mers, run dispersion-corrected DFT, fit AIMNet2) before the GA run, and you should validate that the MLIP preserves the fine <2 kJ/mol polymorph orderings and does not distort niching/diversity by smoothing the landscape."
+  },
+  {
+   "slug": "price-review-2014",
+   "title": "Predicting crystal structures of organic compounds",
+   "doi": "10.1039/c3cs60279f",
+   "year": 2013,
+   "tier": "C",
+   "source_mode": "metadata",
+   "date": "2026-09-23",
+   "core_idea": "Organic crystal structure prediction searches for the thermodynamically most stable packing as a proxy for the observed experimental structure, but for many molecules multiple structures lie very close in energy, so CSP produces an energy landscape rather than a single answer. That landscape complements experimental solid-form screening by revealing which alternative packings are thermodynamically feasible.",
+   "innovation": "This is a review framing CSP not merely as global-minimum prediction but as a tool for mapping the crystal energy landscape, reinterpreting near-degenerate structures as potential polymorphs, disorder components, or unnucleatable-but-feasible packings.",
+   "chunks": [
+    {
+     "type": "principle",
+     "statement": "CSP is fundamentally a thermodynamic search: the global minimum of the crystal energy is taken as the prediction of the experimentally observed structure.",
+     "scope": "Organic molecular crystals; standard CSP methodology as of 2013.",
+     "evidence": "Abstract: 'methods are based on searching for the most thermodynamically stable crystal structure... The most stable (global minimum) structure provides a prediction of an experimental crystal structure.'",
+     "generality": "established"
+    },
+    {
+     "type": "principle",
+     "statement": "The predicted energy ranking is only as good as the approximations used to evaluate crystal energy; different molecules present different challenges to those approximations.",
+     "scope": "Organic CSP energy evaluation generally.",
+     "evidence": "Abstract: 'making various approximations in evaluating the crystal energy... depending on the specific molecule, there may be other structures which are very close in energy.'",
+     "generality": "established"
+    },
+    {
+     "type": "principle",
+     "statement": "Multiple low-energy structures near the global minimum are physically meaningful: they may be genuine polymorphs, components of static or dynamic disorder, or thermodynamically feasible packings with no accessible nucleation/growth route.",
+     "scope": "Molecules with flat/near-degenerate crystal energy landscapes.",
+     "evidence": "Abstract: 'the other structures on the crystal energy landscape may be polymorphs, components of static or dynamic disorder in observed structures, or there may be no route to nucleating and growing these structures.'",
+     "generality": "established"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "Use CSP as a complement to experimental solid-form screening to identify which alternative packings, beyond the known polymorphs, are thermodynamically accessible.",
+     "scope": "Pharmaceutical/solid-form development and polymorph risk assessment.",
+     "evidence": "Abstract: 'A major reason for performing CSP studies is as a complement to solid form screening to see which alternative packings to the known polymorphs are thermodynamically feasible.'",
+     "generality": "established"
+    },
+    {
+     "type": "pitfall",
+     "statement": "Thermodynamic feasibility does not guarantee observability: a low-energy predicted structure may never be realized because no kinetic route to nucleate and grow it exists.",
+     "scope": "Interpreting CSP energy landscapes vs experimental outcomes.",
+     "evidence": "Abstract: 'there may be no route to nucleating and growing these structures.'",
+     "generality": "established"
+    }
+   ],
+   "synthesis": "For GAtor 2.0 this review reinforces that the GA's job is not to return one winner but to populate and resolve the whole low-energy region of the landscape, because the physically interesting structures (polymorphs, disorder components, feasible-but-unnucleated packings) all live within a few kJ/mol of the global minimum. That is exactly why niching matters: aggressive niching preserves diverse near-degenerate minima instead of collapsing onto a single basin, and why the ranking backend (PBE0+MBD, dispersion-inclusive DFT, or MLIP screening with MACE-OFF/AIMNet2/UMA) must resolve energy gaps far finer than the spread of candidates. The pitfall that thermodynamic feasibility does not equal observability also warns against over-claiming: a GA-found global minimum that is not the experimental structure may still be correct as a feasible packing, so validation should compare against solid-form screening rather than a single crystal, and finite-temperature free-energy re-ranking may reshuffle these near-degenerate candidates."
   }
  ]
 }
