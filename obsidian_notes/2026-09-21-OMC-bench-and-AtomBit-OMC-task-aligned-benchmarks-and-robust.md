@@ -21,7 +21,7 @@ tags:
 **Field:** [[ML-potential]] [[benchmark]]
 
 ## Why it matters
-Introduces OMC-bench, a task-aligned benchmark for organic molecular crystals, paired with AtomBit-OMC, a robust and interpretable machine-learned interatomic potential tailored to this domain.
+Introduces OMC-bench, a task-aligned benchmark suite, alongside AtomBit-OMC, a robust and interpretable machine-learned interatomic potential tailored specifically for organic molecular crystals.
 
 ## My notes
 
