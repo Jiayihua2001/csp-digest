@@ -1315,6 +1315,48 @@
     }
    ],
    "synthesis": "For GAtor 2.0 this review reinforces that the GA's job is not to return one winner but to populate and resolve the whole low-energy region of the landscape, because the physically interesting structures (polymorphs, disorder components, feasible-but-unnucleated packings) all live within a few kJ/mol of the global minimum. That is exactly why niching matters: aggressive niching preserves diverse near-degenerate minima instead of collapsing onto a single basin, and why the ranking backend (PBE0+MBD, dispersion-inclusive DFT, or MLIP screening with MACE-OFF/AIMNet2/UMA) must resolve energy gaps far finer than the spread of candidates. The pitfall that thermodynamic feasibility does not equal observability also warns against over-claiming: a GA-found global minimum that is not the experimental structure may still be correct as a feasible packing, so validation should compare against solid-form screening rather than a single crystal, and finite-temperature free-energy re-ranking may reshuffle these near-degenerate candidates."
+  },
+  {
+   "slug": "day-review-2011",
+   "title": "Current approaches to predicting molecular organic crystal structures",
+   "doi": "10.1080/0889311x.2010.517526",
+   "year": 2011,
+   "tier": "C",
+   "source_mode": "metadata",
+   "date": "2026-09-24",
+   "core_idea": "This review surveys computational methods for predicting molecular organic crystal structures from little more than the molecular formula, centering on the dominant paradigm of global lattice energy minimization. It assesses progress and limitations by reference to the community blind tests that objectively benchmark the field.",
+   "innovation": "As a 2011 review, its contribution is a consolidated snapshot of the state of the art in crystal structure prediction (CSP), framing global lattice energy minimization as the common approach and using blind-test outcomes to gauge reliability rather than presenting a single new method.",
+   "chunks": [
+    {
+     "type": "principle",
+     "statement": "The dominant CSP strategy treats structure prediction as global minimization of the lattice energy over possible packing arrangements, assuming the observed form corresponds to a (near) global energy minimum.",
+     "scope": "Molecular organic crystals, as reviewed circa 2011",
+     "evidence": "Abstract: 'Methods used in crystal structure prediction are reviewed, with particular focus on the most common approach - global lattice energy minimization.'",
+     "generality": "established"
+    },
+    {
+     "type": "principle",
+     "statement": "The aspirational goal is prediction from no more than a structural formula, which is what makes CSP valuable for both designing novel-property materials and avoiding undesirable late-stage form changes in industrial molecules.",
+     "scope": "General motivation for organic CSP",
+     "evidence": "Abstract: predicting structure(s) 'ideally starting from no more than a structural formula' with value 'from the design of materials with novel properties to the avoidance of an undesirable change of form.'",
+     "generality": "established"
+    },
+    {
+     "type": "pipeline_practice",
+     "statement": "Community blind tests are the accepted mechanism for objectively monitoring progress and limitations of CSP methods.",
+     "scope": "CSP method benchmarking",
+     "evidence": "Abstract: '...the results of blind tests organized to objectively monitor developments in the field.'",
+     "generality": "established"
+    },
+    {
+     "type": "pitfall",
+     "statement": "CSP methods had recognized limitations as of this review; reliable prediction was not yet routine, so blind-test performance rather than internal claims should gauge trust.",
+     "scope": "State of the field circa 2011",
+     "evidence": "Abstract: 'Progress and current limitations are highlighted.'",
+     "generality": "established"
+    }
+   ],
+   "synthesis": "For GAtor 2.0, this review encodes the foundational premise the whole enterprise rests on: MCSP is a global optimization problem over the lattice-energy surface, which is exactly what a genetic algorithm with niching is built to attack. Two lessons carry forward: (1) the global-minimum assumption is only as good as the energy model, foreshadowing why the field moved from force fields to dispersion-inclusive DFT (PBE0+MBD) and now MLIPs (MACE-OFF, AIMNet2, UMA) - the search can be perfect and still rank the wrong polymorph if the ranking energy is wrong; and (2) blind tests remain the honest scoreboard, so GAtor development should be validated against them rather than self-reported success. The 'limitations' flagged in 2011 - kinetic vs thermodynamic forms, finite-temperature effects, Z'>1 and flexible/multi-component systems - are precisely the frontiers GAtor 2.0 targets today. Note: this is an abstract-only digest, so no quantitative claims (energy windows, blind-test success rates) could be extracted; treat as low-confidence framing."
   }
  ]
 }
