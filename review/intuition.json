@@ -1357,6 +1357,48 @@
     }
    ],
    "synthesis": "For GAtor 2.0, this review encodes the foundational premise the whole enterprise rests on: MCSP is a global optimization problem over the lattice-energy surface, which is exactly what a genetic algorithm with niching is built to attack. Two lessons carry forward: (1) the global-minimum assumption is only as good as the energy model, foreshadowing why the field moved from force fields to dispersion-inclusive DFT (PBE0+MBD) and now MLIPs (MACE-OFF, AIMNet2, UMA) - the search can be perfect and still rank the wrong polymorph if the ranking energy is wrong; and (2) blind tests remain the honest scoreboard, so GAtor development should be validated against them rather than self-reported success. The 'limitations' flagged in 2011 - kinetic vs thermodynamic forms, finite-temperature effects, Z'>1 and flexible/multi-component systems - are precisely the frontiers GAtor 2.0 targets today. Note: this is an abstract-only digest, so no quantitative claims (energy windows, blind-test success rates) could be extracted; treat as low-confidence framing."
+  },
+  {
+   "slug": "beran-review-2016",
+   "title": "Modeling Polymorphic Molecular Crystals with Electronic Structure Theory",
+   "doi": "10.1021/acs.chemrev.5b00648",
+   "year": 2016,
+   "tier": "C",
+   "source_mode": "metadata",
+   "date": "2026-09-25",
+   "core_idea": "This review surveys electronic structure methods for modeling molecular crystals and polymorphism, spanning periodic DFT, periodic MP2, fragment-based approaches, and diffusion Monte Carlo, and their application to lattice energies, structure prediction, phase diagrams, and spectroscopies. It frames electronic structure theory as an increasingly central tool for understanding and predicting molecular crystal polymorphism relevant to pharmaceuticals and organic materials.",
+   "innovation": "A comprehensive consolidation of the electronic structure toolkit for molecular crystals as of 2016, connecting method choices (dispersion, fragment methods, DMC) to specific polymorph-relevant properties.",
+   "chunks": [
+    {
+     "type": "principle",
+     "statement": "Accurate molecular crystal modeling requires electronic structure methods that treat weak intermolecular interactions (dispersion) correctly, since these interactions govern relative polymorph stability.",
+     "scope": "Molecular crystals broadly, including pharmaceuticals and organic semiconductors",
+     "evidence": "The review emphasizes electronic structure techniques for modeling molecular crystals and polymorphism, including dispersion-relevant periodic DFT, MP2, fragment methods, and DMC.",
+     "generality": "established"
+    },
+    {
+     "type": "pipeline_practice",
+     "statement": "Predicting polymorph-relevant properties involves computing lattice energies and structures, then extending to phase diagrams and comparison against vibrational and NMR spectroscopies for validation.",
+     "scope": "Electronic structure workflows for molecular crystal polymorphism",
+     "evidence": "The article discusses predicting lattice energies, structures, crystal structure prediction, polymorphism, phase diagrams, vibrational spectroscopies, and NMR spectroscopy.",
+     "generality": "established"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "When benchmark-quality lattice energies are needed beyond DFT accuracy, higher-level methods such as periodic MP2, fragment-based electronic structure, or diffusion Monte Carlo are appropriate references.",
+     "scope": "Small-to-moderate molecular crystals where correlated methods are tractable",
+     "evidence": "Reviews periodic second-order Moller-Plesset perturbation theory, fragment-based electronic structure methods, and diffusion Monte Carlo as modeling tools.",
+     "generality": "established"
+    },
+    {
+     "type": "principle",
+     "statement": "Fragment-based methods make correlated electronic structure of crystals tractable by decomposing the periodic system into molecular fragments and their interactions.",
+     "scope": "Molecular crystals amenable to fragment decomposition",
+     "evidence": "The review discusses fragment-based electronic structure methods among the techniques for modeling molecular crystals.",
+     "generality": "established"
+    }
+   ],
+   "synthesis": "For GAtor 2.0, this review is the physics backbone behind the ranking stage: the GA explores configuration space, but the fitness/final energetics depend entirely on getting dispersion-inclusive intermolecular interactions right, which is exactly why PBE0+MBD and MBD corrections matter for ordering near-degenerate polymorphs. The reminder that lattice energies, phase diagrams, and spectroscopic observables (vibrational, NMR) are all part of the validation loop reinforces that a GA-found low-energy structure is not the endpoint - finite-temperature free energies and experimental spectra decide real stability. The mention of fragment methods and DMC frames a benchmarking hierarchy: MLIPs (MACE-OFF, AIMNet2, UMA) and DFT candidates can and should be spot-checked against higher-tier correlated references where feasible, especially for the tight energy windows that separate competing polymorphs and Z'>1 arrangements. Note: this digest is from abstract-only metadata; specific numbers (polymorph energy spreads, method errors) should be pulled from the full text before use."
   }
  ]
 }
