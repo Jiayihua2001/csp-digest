@@ -1,0 +1,137 @@
+{
+ "date": "2026-09-25",
+ "scope": "molecular",
+ "synthesis": "Notable convergence on ML potentials for crystal energy surfaces: a dedicated organic molecular crystal benchmark/potential (OMC-bench/AtomBit-OMC), a symmetry-aware generative CSP framework (NextCrystal), and a hybrid ab initio/empirical PES approach\u2014collectively pushing faster, more transferable energy models for structure prediction.",
+ "generated_at": "2026-09-25T12:57:56.868712Z",
+ "items": [
+  {
+   "src": "journal",
+   "title": "NextCrystal: a Symmetry-Driven Generative Framework for Crystal Structure Prediction",
+   "date": "2026-09-14",
+   "doi": "10.1088/0256-307x/43/10/100802",
+   "authors": [
+    "Jinming Mu",
+    "Lixin He",
+    "Xudong Zhu"
+   ],
+   "authors_all": [
+    "Jinming Mu",
+    "Lixin He",
+    "Xudong Zhu",
+    "Shi Yin"
+   ],
+   "corresponding": [
+    "Shi Yin"
+   ],
+   "cited_by": 0,
+   "venue": "Chinese Physics Letters",
+   "abstract": "Abstract Crystal structure prediction (CSP), which aims to predict the 3D atomic arrangement of a crystal from its composition, is central to materials discovery and mechanistic understanding. Crystal symmetry plays a crucial role in CSP, but given the composition in a unit cell, existing methods either struggle with the NP-hard combinatorial challenge of enforcing symmetry rigorously or rely on retrieving known templates, inherently limiting both physical fidelity and the discovery of genuinely new materials. To address this challenge, we introduce NextCrystal, a symmetry-driven generative framework that employs language models to encode chemical semantics and directly generate fine-grained Wyckoff site patterns from atomic stoichiometry, without retrieving pre-existing structural templates at inference. To overcome the combinatorial complexity of site assignments, we incorporate domain knowledge via an efficient, linear-complexity heuristic beam search, rigorously enforcing algebraic consistency between site multiplicities and atomic stoichiometry. By integrating this symmetry-consistent template into a diffusion backbone, the framework constrains the stochastic generative trajec",
+   "matched": [
+    "generative model crystal structure",
+    "genetic algorithm crystal structure prediction",
+    "organic crystal polymorph prediction",
+    "molecular crystal structure prediction"
+   ],
+   "tags": [
+    "generative-model"
+   ],
+   "relevance": 80,
+   "significance": 8,
+   "score": 88,
+   "screen": {
+    "relevance": 8,
+    "reason": "Novel symmetry-driven generative framework for direct CSP; language models + diffusion for Wyckoff patterns; clear MCSP "
+   },
+   "summary": "NextCrystal introduces a language-model-driven, template-free generator of fine-grained Wyckoff site patterns coupled with a linear-complexity heuristic beam search enforcing multiplicity\u2013stoichiometry consistency, guiding a diffusion backbone for symm",
+   "first_seen": "2026-09-14",
+   "is_new": false
+  },
+  {
+   "src": "journal",
+   "title": "OMC-bench and AtomBit-OMC: task-aligned benchmarks and robust, interpretable machine-learned interatomic potentials for organic molecular crystals",
+   "date": "2026-09-21",
+   "doi": "10.1038/s41524-026-02315-3",
+   "authors": [
+    "Muyu Lu",
+    "Chengxi Zhao",
+    "Siyu Hu"
+   ],
+   "authors_all": [
+    "Muyu Lu",
+    "Chengxi Zhao",
+    "Siyu Hu",
+    "Danyang Chen",
+    "Chen Wang",
+    "Yixi Zhang",
+    "Yaolong Zhang",
+    "Man Luo",
+    "Fan Yu",
+    "Zhuoying Zhu",
+    "Bin Jiang",
+    "Guangming Tan",
+    "Weile Jia",
+    "Jun Jiang",
+    "Linjiang Chen"
+   ],
+   "corresponding": [
+    "Linjiang Chen"
+   ],
+   "cited_by": 0,
+   "venue": "npj Computational Materials",
+   "abstract": "",
+   "matched": [
+    "universal interatomic potential"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "ML-potential",
+    "benchmark"
+   ],
+   "relevance": 90,
+   "significance": 8,
+   "score": 38,
+   "screen": {
+    "relevance": 9,
+    "reason": "Direct benchmarks and MLIPs for organic molecular crystal structure prediction."
+   },
+   "summary": "Introduces OMC-bench, a task-aligned benchmark, alongside AtomBit-OMC, a robust interpretable machine-learned interatomic potential tailored specifically to organic molecular crystal structure prediction tasks.",
+   "first_seen": "2026-09-22",
+   "is_new": false
+  },
+  {
+   "src": "journal",
+   "title": "Hybrid ab initio and empirical machine learning models for the potential energy surface",
+   "date": "2026-09-21",
+   "doi": "10.1103/x3hc-52cp",
+   "authors": [
+    "Anonymous"
+   ],
+   "authors_all": [
+    "Anonymous"
+   ],
+   "corresponding": [
+    "Anonymous"
+   ],
+   "cited_by": 0,
+   "venue": "Physical Review Letters",
+   "abstract": "",
+   "matched": [
+    "machine learning interatomic potential"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "ML-potential"
+   ],
+   "relevance": 70,
+   "significance": 0,
+   "score": 25,
+   "screen": {
+    "relevance": 7,
+    "reason": "Hybrid ab initio-ML PES models transfer directly to MCSP energy ranking and structure search."
+   },
+   "summary": "Combines ab initio-derived features with empirical machine-learning potentials into a hybrid model, likely improving PES accuracy and transferability over either approach alone.",
+   "first_seen": "2026-09-22",
+   "is_new": false
+  }
+ ]
+}
