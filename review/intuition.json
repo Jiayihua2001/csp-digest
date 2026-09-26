@@ -1399,6 +1399,48 @@
     }
    ],
    "synthesis": "For GAtor 2.0, this review is the physics backbone behind the ranking stage: the GA explores configuration space, but the fitness/final energetics depend entirely on getting dispersion-inclusive intermolecular interactions right, which is exactly why PBE0+MBD and MBD corrections matter for ordering near-degenerate polymorphs. The reminder that lattice energies, phase diagrams, and spectroscopic observables (vibrational, NMR) are all part of the validation loop reinforces that a GA-found low-energy structure is not the endpoint - finite-temperature free energies and experimental spectra decide real stability. The mention of fragment methods and DMC frames a benchmarking hierarchy: MLIPs (MACE-OFF, AIMNet2, UMA) and DFT candidates can and should be spot-checked against higher-tier correlated references where feasible, especially for the tight energy windows that separate competing polymorphs and Z'>1 arrangements. Note: this digest is from abstract-only metadata; specific numbers (polymorph energy spreads, method errors) should be pulled from the full text before use."
+  },
+  {
+   "slug": "bowskill-review-2021",
+   "title": "Crystal Structure Prediction Methods for Organic Molecules: State of the Art",
+   "doi": "10.1146/annurev-chembioeng-060718-030256",
+   "year": 2021,
+   "tier": "C",
+   "source_mode": "metadata",
+   "date": "2026-09-26",
+   "core_idea": "This review surveys general-purpose crystal structure prediction (CSP) methodologies for organic molecules, framing them in a common structure-generation plus energy-ranking framework. It uses the six blind tests over ~2 decades as evidence that CSP has matured enough to tackle practically relevant systems.",
+   "innovation": "Places diverse CSP methods within a single unifying framework to expose their shared logic and key differences, and identifies the frontier research areas limiting reliability and applicability.",
+   "chunks": [
+    {
+     "type": "principle",
+     "statement": "General-purpose CSP methods decompose the problem into two coupled subtasks: generating candidate crystal structures and ranking them by lattice energy, and their differences largely reduce to choices made in each stage.",
+     "scope": "General-purpose CSP for organic molecules",
+     "evidence": "Abstract places methods 'within a common framework that highlights both their similarities and their differences.'",
+     "generality": "established"
+    },
+    {
+     "type": "statistic",
+     "statement": "Six CSP blind tests were organized over roughly two decades, serving as the community's benchmark of methodological progress.",
+     "scope": "Organic molecule CSP community",
+     "evidence": "'a series of six blind tests organized over the past 2 decades'",
+     "generality": "established"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "CSP methods have reached maturity sufficient to begin application to systems of practical (pharmaceutical/agrochemical) significance, not just small validation molecules.",
+     "scope": "Industrially relevant organic molecules",
+     "evidence": "'have now reached a stage of development where they can begin to be applied to systems of practical significance'",
+     "generality": "suggested"
+    },
+    {
+     "type": "pitfall",
+     "statement": "Reliability and applicability remain limited; ongoing research focus areas indicate CSP is not yet a fully solved, push-button technology across all molecule classes.",
+     "scope": "Broad organic CSP, including harder/larger systems",
+     "evidence": "Abstract cites 'improving the reliability and widening applicability' as the main focus of current research.",
+     "generality": "established"
+    }
+   ],
+   "synthesis": "For GAtor 2.0, this review's framing reinforces that a GA-based approach lives entirely within the standard generate-then-rank paradigm: your GA operators and niching are the 'structure generation' engine (analogous to Genarris sampling), while dispersion-inclusive DFT (PBE0+MBD) or MLIP surrogates (MACE-OFF, AIMNet2, UMA) supply the 'ranking' stage. The blind tests remain the shared yardstick to validate operator and energy-model choices. The paper's emphasis on reliability and widening applicability maps directly onto GAtor's open frontiers: Z'>1, multi-component crystals, and finite-temperature stability are exactly the 'practical significance' cases where naive lattice-energy ranking of a single GA population can mislead."
   }
  ]
 }
