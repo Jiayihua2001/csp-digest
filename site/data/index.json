@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-09-26",
+  "count": 5,
+  "new_count": 1,
+  "synthesis": "Mostly inorganic/generative-model and MLIP benchmarking work rather than GA-specific advances; notable is OMC-bench/AtomBit-OMC targeting organic molecular crystal MLIPs specifically, plus NextCrystal's symmetry-driven generative angle - both worth tracking for future GA-ML hybrid pipelines.",
+  "top": [
+   {
+    "title": "Crystal Structure Prediction of Inorganic Materials: A Benchmark and Modern Evaluation",
+    "relevance": 92,
+    "significance": 0
+   },
+   {
+    "title": "NextCrystal: a Symmetry-Driven Generative Framework for Crystal Structure Prediction",
+    "relevance": 80,
+    "significance": 8
+   },
+   {
+    "title": "Projected Hessian learning: Fast curvature supervision for accurate machine-learning interatomic potentials",
+    "relevance": 70,
+    "significance": 12
+   }
+  ]
+ },
+ {
   "date": "2026-09-25",
   "count": 3,
   "new_count": 0,

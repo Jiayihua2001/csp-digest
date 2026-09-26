@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-Combines ab initio-derived features with empirical machine-learning potentials into a hybrid model, likely improving PES accuracy and transferability over either approach alone.
+A hybrid scheme couples ab initio energy calculations with an empirical machine-learning correction term to model potential energy surfaces, likely improving accuracy-cost trade-offs for structure prediction/relaxation steps.
 
 ## My notes
 
