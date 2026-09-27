@@ -1441,6 +1441,48 @@
     }
    ],
    "synthesis": "For GAtor 2.0, this review's framing reinforces that a GA-based approach lives entirely within the standard generate-then-rank paradigm: your GA operators and niching are the 'structure generation' engine (analogous to Genarris sampling), while dispersion-inclusive DFT (PBE0+MBD) or MLIP surrogates (MACE-OFF, AIMNet2, UMA) supply the 'ranking' stage. The blind tests remain the shared yardstick to validate operator and energy-model choices. The paper's emphasis on reliability and widening applicability maps directly onto GAtor's open frontiers: Z'>1, multi-component crystals, and finite-temperature stability are exactly the 'practical significance' cases where naive lattice-energy ranking of a single GA population can mislead."
+  },
+  {
+   "slug": "beran-frontiers-2023",
+   "title": "Frontiers of molecular crystal structure prediction for pharmaceuticals and functional organic materials",
+   "doi": "10.1039/d3sc03903j",
+   "year": 2023,
+   "tier": "C",
+   "source_mode": "metadata",
+   "date": "2026-09-27",
+   "core_idea": "A perspective on the state of organic molecular crystal structure prediction (CSP), arguing that CSP for small rigid molecules is becoming routine while flexible molecules remain harder but increasingly tractable, and that CSP is transitioning from a validation tool to a driver of experimental discovery of new solid forms.",
+   "innovation": "Rather than a new method, it synthesizes recent field-wide progress and presents case studies (pharmaceuticals, porous organics, photomechanical crystals, organic semiconductors, NMR crystallography) to show CSP now guiding experiment, and highlights the open challenge of predicting which computed structures are actually experimentally realizable.",
+   "chunks": [
+    {
+     "type": "principle",
+     "statement": "CSP reliability scales inversely with molecular flexibility: small, mostly rigid molecules are near-routine, while larger highly flexible molecules are much harder because conformational degrees of freedom explode the search and energy landscape.",
+     "scope": "Organic molecular crystals generally",
+     "evidence": "Abstract: predictions for small, mostly rigid molecules 'quickly becoming routine'; larger flexible molecules 'more challenging' but predictable with 'increasing rates of success'.",
+     "generality": "established"
+    },
+    {
+     "type": "principle",
+     "statement": "CSP has matured enough to invert the traditional workflow, driving experimental discovery of new solid forms rather than merely rationalizing observed structures after the fact.",
+     "scope": "Organic solid state, pharmaceuticals and functional materials",
+     "evidence": "Abstract: advances 'ushering in a new era where crystal structure prediction drives the experimental discovery of new solid forms.'",
+     "generality": "suggested"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "CSP is now a practical tool across diverse application domains: pharmaceutical polymorphism, porous organic materials, photomechanical crystals, organic semiconductors, and NMR crystallography.",
+     "scope": "Functional and pharmaceutical organic crystals",
+     "evidence": "Abstract lists case studies 'to pharmaceuticals, porous organic materials, photomechanical crystals, organic semi-conductors, and nuclear magnetic resonance crystallography.'",
+     "generality": "established"
+    },
+    {
+     "type": "pitfall",
+     "statement": "A predicted (low-energy) crystal structure is not necessarily experimentally realizable; understanding which predicted forms can actually be produced remains an outstanding challenge.",
+     "scope": "CSP-generated landscapes broadly",
+     "evidence": "Abstract: 'efforts to improve our understanding of which predicted crystal structures can actually be produced experimentally and other outstanding challenges.'",
+     "generality": "established"
+    }
+   ],
+   "synthesis": "For GAtor 2.0, this perspective frames the strategic stakes: the search side (GA operators, niching, Genarris generation) is maturing for rigid Z'=1 organics, so the remaining frontier value lies in (1) handling molecular flexibility, which for a GA means treating conformers as part of the genome or coupling to MLIP relaxation, and (2) closing the gap between low lattice energy and experimental realizability. The 'which structures actually form' problem is precisely where finite-temperature free energies, kinetic accessibility, and better ranking (PBE0+MBD, MACE-OFF/AIMNet2/UMA screening) should be aimed, since a GA landscape rich in near-degenerate minima is only useful if you can flag the realizable subset. The multi-domain applicability also suggests GAtor's operators should be validated beyond pharmaceuticals into porous, photomechanical, and semiconductor crystals where packing motifs differ."
   }
  ]
 }
