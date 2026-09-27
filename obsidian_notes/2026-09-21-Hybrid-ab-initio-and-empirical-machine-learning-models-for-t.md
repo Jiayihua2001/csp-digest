@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-A hybrid scheme couples ab initio energy calculations with an empirical machine-learning correction term to model potential energy surfaces, likely improving accuracy-cost trade-offs for structure prediction/relaxation steps.
+A hybrid ab initio/empirical machine-learning potential-energy-surface model that fuses physics-based empirical terms with ML-learned corrections, likely improving accuracy-efficiency trade-offs over pure DFT or pure ML surrogates for CSP energy ev
 
 ## My notes
 

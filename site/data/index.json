@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-09-27",
+  "count": 6,
+  "new_count": 2,
+  "synthesis": "Two threads stand out: a symmetry-driven generative CSP model (NextCrystal) and a dedicated organic molecular crystal MLIP benchmark/model (OMC-bench/AtomBit-OMC), alongside broader critical reviews of MLIP benchmarking and uncertainty quantification\u2014suggesting a maturing push toward rigor and validation rather than new algorithmic break",
+  "top": [
+   {
+    "title": "NextCrystal: a Symmetry-Driven Generative Framework for Crystal Structure Prediction",
+    "relevance": 80,
+    "significance": 8
+   },
+   {
+    "title": "Projected Hessian learning: Fast curvature supervision for accurate machine-learning interatomic potentials",
+    "relevance": 70,
+    "significance": 12
+   },
+   {
+    "title": "OMC-bench and AtomBit-OMC: task-aligned benchmarks and robust, interpretable machine-learned interatomic potentials for organic molecular crystals",
+    "relevance": 90,
+    "significance": 8
+   }
+  ]
+ },
+ {
   "date": "2026-09-26",
   "count": 5,
   "new_count": 1,

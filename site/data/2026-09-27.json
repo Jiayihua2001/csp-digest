@@ -1,0 +1,262 @@
+{
+ "date": "2026-09-27",
+ "scope": "molecular",
+ "synthesis": "Two threads stand out: a symmetry-driven generative CSP model (NextCrystal) and a dedicated organic molecular crystal MLIP benchmark/model (OMC-bench/AtomBit-OMC), alongside broader critical reviews of MLIP benchmarking and uncertainty quantification\u2014suggesting a maturing push toward rigor and validation rather than new algorithmic break",
+ "generated_at": "2026-09-27T13:16:04.494890Z",
+ "items": [
+  {
+   "src": "journal",
+   "title": "NextCrystal: a Symmetry-Driven Generative Framework for Crystal Structure Prediction",
+   "date": "2026-09-14",
+   "doi": "10.1088/0256-307x/43/10/100802",
+   "authors": [
+    "Jinming Mu",
+    "Lixin He",
+    "Xudong Zhu"
+   ],
+   "authors_all": [
+    "Jinming Mu",
+    "Lixin He",
+    "Xudong Zhu",
+    "Shi Yin"
+   ],
+   "corresponding": [
+    "Shi Yin"
+   ],
+   "cited_by": 0,
+   "venue": "Chinese Physics Letters",
+   "abstract": "Abstract Crystal structure prediction (CSP), which aims to predict the 3D atomic arrangement of a crystal from its composition, is central to materials discovery and mechanistic understanding. Crystal symmetry plays a crucial role in CSP, but given the composition in a unit cell, existing methods either struggle with the NP-hard combinatorial challenge of enforcing symmetry rigorously or rely on retrieving known templates, inherently limiting both physical fidelity and the discovery of genuinely new materials. To address this challenge, we introduce NextCrystal, a symmetry-driven generative framework that employs language models to encode chemical semantics and directly generate fine-grained Wyckoff site patterns from atomic stoichiometry, without retrieving pre-existing structural templates at inference. To overcome the combinatorial complexity of site assignments, we incorporate domain knowledge via an efficient, linear-complexity heuristic beam search, rigorously enforcing algebraic consistency between site multiplicities and atomic stoichiometry. By integrating this symmetry-consistent template into a diffusion backbone, the framework constrains the stochastic generative trajec",
+   "matched": [
+    "generative model crystal structure",
+    "organic crystal polymorph prediction",
+    "genetic algorithm crystal structure prediction",
+    "molecular crystal structure prediction"
+   ],
+   "tags": [
+    "generative-model"
+   ],
+   "relevance": 80,
+   "significance": 8,
+   "score": 88,
+   "screen": {
+    "relevance": 8,
+    "reason": "Novel symmetry-driven generative framework for polymorph candidate generation; direct MCSP application with methodologic"
+   },
+   "summary": "NextCrystal introduces a language-model-driven, template-free generator of fine-grained Wyckoff site patterns paired with a linear-complexity beam search enforcing stoichiometry-multiplicity consistency, feeding a symmetry-constrained diffusion backbone",
+   "first_seen": "2026-09-14",
+   "is_new": false
+  },
+  {
+   "src": "journal",
+   "title": "Projected Hessian learning: Fast curvature supervision for accurate machine-learning interatomic potentials",
+   "date": "2026-09-25",
+   "doi": "10.1088/2632-2153/aeac9b",
+   "authors": [
+    "Austin Rodriguez",
+    "Justin Smith",
+    "Sakib Matin"
+   ],
+   "authors_all": [
+    "Austin Rodriguez",
+    "Justin Smith",
+    "Sakib Matin",
+    "Nicholas Lubbers",
+    "Kipton Barros",
+    "Jose Mendoza Cortes"
+   ],
+   "corresponding": [
+    "Jose Mendoza Cortes"
+   ],
+   "cited_by": 0,
+   "venue": "Machine Learning: Science and Technology",
+   "abstract": "Abstract The Hessian matrix of second derivatives contains substantially richer information about the local geometry of the potential energy surface than energies and forces alone. Although incorporating full Hessians into machine-learning interatomic potential (MLIP) training can significantly improve accuracy and robustness, the quadratic computational and memory cost of explicitly constructing and storing Hessian matrices has limited its practical use. Here, we introduce Projected Hessian Learning (PHL), a scalable second-order training&amp;#xD;framework that incorporates curvature information using only Hessian\u2013vector products (HVPs). By avoiding explicit Hessian construction and instead projecting curvature along stochastic probe directions, PHL reduces the cost of second-derivative supervision to near force-level complexity. The resulting dense-probe trace estimator is unbiased and exhibits favorable scaling with system size, enabling curvature-informed training without quadratic memory growth. We evaluated various training approaches on a chemically diverse dataset of reactants, products, transition states, intrinsic reaction coordinates, and normal-mode sampled geometries g",
+   "matched": [
+    "machine learning interatomic potential",
+    "universal interatomic potential"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "ML-potential"
+   ],
+   "relevance": 70,
+   "significance": 12,
+   "score": 72,
+   "screen": {
+    "relevance": 7,
+    "reason": "Novel MLIP training via curvature supervision; direct applicability to CSP energy ranking and structure search."
+   },
+   "summary": "Projected Hessian Learning introduces a scalable Hessian-vector-product-based curvature supervision method, using stochastic probe directions to enable unbiased, near force-level-cost second-order training of MLIPs without explicit quadratic-cost Hessian construction.",
+   "first_seen": "2026-09-26",
+   "is_new": false
+  },
+  {
+   "src": "journal",
+   "title": "OMC-bench and AtomBit-OMC: task-aligned benchmarks and robust, interpretable machine-learned interatomic potentials for organic molecular crystals",
+   "date": "2026-09-21",
+   "doi": "10.1038/s41524-026-02315-3",
+   "authors": [
+    "Muyu Lu",
+    "Chengxi Zhao",
+    "Siyu Hu"
+   ],
+   "authors_all": [
+    "Muyu Lu",
+    "Chengxi Zhao",
+    "Siyu Hu",
+    "Danyang Chen",
+    "Chen Wang",
+    "Yixi Zhang",
+    "Yaolong Zhang",
+    "Man Luo",
+    "Fan Yu",
+    "Zhuoying Zhu",
+    "Bin Jiang",
+    "Guangming Tan",
+    "Weile Jia",
+    "Jun Jiang",
+    "Linjiang Chen"
+   ],
+   "corresponding": [
+    "Linjiang Chen"
+   ],
+   "cited_by": 0,
+   "venue": "npj Computational Materials",
+   "abstract": "",
+   "matched": [
+    "universal interatomic potential"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "ML-potential",
+    "benchmark"
+   ],
+   "relevance": 90,
+   "significance": 8,
+   "score": 38,
+   "screen": {
+    "relevance": 9,
+    "reason": "Direct MLIP benchmark for organic molecular crystals; CSP-aligned evaluation"
+   },
+   "summary": "Introduces OMC-bench, a task-aligned benchmark, alongside AtomBit-OMC, a robust interpretable machine-learned interatomic potential tailored specifically for organic molecular crystal structure prediction tasks.",
+   "first_seen": "2026-09-22",
+   "is_new": false
+  },
+  {
+   "src": "journal",
+   "title": "Benchmarking Practices for ML Interatomic Potentials: A Critical Review of Methodological Pitfalls and What Was Missed (2017\u20132023)",
+   "date": "2026-09-27",
+   "doi": "10.68159/l189247610",
+   "authors": [
+    "Paolo Ricci",
+    "Marco De Luca",
+    "Giulia Ferraro"
+   ],
+   "authors_all": [
+    "Paolo Ricci",
+    "Marco De Luca",
+    "Giulia Ferraro",
+    "Antonio Russo"
+   ],
+   "corresponding": [
+    "Antonio Russo"
+   ],
+   "cited_by": 0,
+   "venue": "Journal of Computational and Data-Driven Materials Engineering",
+   "abstract": "",
+   "matched": [
+    "universal interatomic potential"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "ML-potential",
+    "benchmark"
+   ],
+   "relevance": 70,
+   "significance": 0,
+   "score": 30,
+   "screen": {
+    "relevance": 7,
+    "reason": "MLIP benchmarking methodology directly informs CSP accelerator selection and validation."
+   },
+   "summary": "A systematic critical review exposing recurring methodological flaws\u2014likely inconsistent train/test splits, energy-force weighting biases, and insufficient extrapolation testing\u2014in ML interatomic potential benchmarks from 2017\u20132023, proposing corrective best practices.",
+   "first_seen": "2026-09-27",
+   "is_new": true
+  },
+  {
+   "src": "journal",
+   "title": "Uncertainty Quantification for ML Interatomic Potentials: A Review of Methods, Hidden Assumptions, and Unresolved Questions",
+   "date": "2026-09-27",
+   "doi": "10.68159/p918703755",
+   "authors": [
+    "Daniel Fischer",
+    "Laura Meier",
+    "Thomas Braun"
+   ],
+   "authors_all": [
+    "Daniel Fischer",
+    "Laura Meier",
+    "Thomas Braun",
+    "Stefan Koch",
+    "Felix Roth"
+   ],
+   "corresponding": [
+    "Felix Roth"
+   ],
+   "cited_by": 0,
+   "venue": "Journal of Computational and Data-Driven Materials Engineering",
+   "abstract": "",
+   "matched": [
+    "universal interatomic potential"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "ML-potential"
+   ],
+   "relevance": 70,
+   "significance": 0,
+   "score": 25,
+   "screen": {
+    "relevance": 7,
+    "reason": "UQ methods for MLIPs directly applicable to CSP energy ranking & structure selection."
+   },
+   "summary": "Likely offers a critical synthesis exposing hidden statistical assumptions and unresolved calibration issues across existing uncertainty-quantification methods for machine-learned interatomic potentials, rather than proposing a new UQ technique itself.",
+   "first_seen": "2026-09-27",
+   "is_new": true
+  },
+  {
+   "src": "journal",
+   "title": "Hybrid ab initio and empirical machine learning models for the potential energy surface",
+   "date": "2026-09-21",
+   "doi": "10.1103/x3hc-52cp",
+   "authors": [
+    "Anonymous"
+   ],
+   "authors_all": [
+    "Anonymous"
+   ],
+   "corresponding": [
+    "Anonymous"
+   ],
+   "cited_by": 0,
+   "venue": "Physical Review Letters",
+   "abstract": "",
+   "matched": [
+    "machine learning interatomic potential"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "ML-potential"
+   ],
+   "relevance": 70,
+   "significance": 0,
+   "score": 25,
+   "screen": {
+    "relevance": 7,
+    "reason": "Hybrid ML-QM potentials for PES; clear transfer to MCSP structure ranking/search acceleration"
+   },
+   "summary": "A hybrid ab initio/empirical machine-learning potential-energy-surface model that fuses physics-based empirical terms with ML-learned corrections, likely improving accuracy-efficiency trade-offs over pure DFT or pure ML surrogates for CSP energy ev",
+   "first_seen": "2026-09-22",
+   "is_new": false
+  }
+ ]
+}
