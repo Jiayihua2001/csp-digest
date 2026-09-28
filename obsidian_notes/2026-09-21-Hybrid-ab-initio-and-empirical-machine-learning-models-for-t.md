@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-A hybrid ab initio/empirical machine-learning potential-energy-surface model that fuses physics-based empirical terms with ML-learned corrections, likely improving accuracy-efficiency trade-offs over pure DFT or pure ML surrogates for CSP energy ev
+A hybrid ab initio/empirical machine-learning potential energy surface model that combines quantum-mechanical calculations with data-driven learned corrections to improve accuracy and transferability over either approach alone.
 
 ## My notes
 

@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-09-28",
+  "count": 7,
+  "new_count": 0,
+  "synthesis": "Mostly MLIP infrastructure and benchmarking today\u2014curvature-aware training, uncertainty quantification, and methodological critiques\u2014rather than GA advances. Two directly relevant items: an inorganic CSP benchmark study and NextCrystal's symmetry-driven generative approach, plus OMC-bench targeting organic molecular crystal potentials specifically for CSP workflows.",
+  "top": [
+   {
+    "title": "Crystal Structure Prediction of Inorganic Materials: A Benchmark and Modern Evaluation",
+    "relevance": 92,
+    "significance": 0
+   },
+   {
+    "title": "NextCrystal: a Symmetry-Driven Generative Framework for Crystal Structure Prediction",
+    "relevance": 80,
+    "significance": 8
+   },
+   {
+    "title": "Projected Hessian learning: Fast curvature supervision for accurate machine-learning interatomic potentials",
+    "relevance": 70,
+    "significance": 12
+   }
+  ]
+ },
+ {
   "date": "2026-09-27",
   "count": 6,
   "new_count": 2,
