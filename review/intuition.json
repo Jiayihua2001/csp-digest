@@ -1483,6 +1483,55 @@
     }
    ],
    "synthesis": "For GAtor 2.0, this perspective frames the strategic stakes: the search side (GA operators, niching, Genarris generation) is maturing for rigid Z'=1 organics, so the remaining frontier value lies in (1) handling molecular flexibility, which for a GA means treating conformers as part of the genome or coupling to MLIP relaxation, and (2) closing the gap between low lattice energy and experimental realizability. The 'which structures actually form' problem is precisely where finite-temperature free energies, kinetic accessibility, and better ranking (PBE0+MBD, MACE-OFF/AIMNet2/UMA screening) should be aimed, since a GA landscape rich in near-degenerate minima is only useful if you can flag the realizable subset. The multi-domain applicability also suggests GAtor's operators should be validated beyond pharmaceuticals into porous, photomechanical, and semiconductor crystals where packing motifs differ."
+  },
+  {
+   "slug": "facts-fictions-polymorphism",
+   "title": "Facts and fictions about polymorphism",
+   "doi": "10.1039/c5cs00227c",
+   "year": 2015,
+   "tier": "C",
+   "source_mode": "metadata",
+   "date": "2026-09-28",
+   "core_idea": "A large-scale, multi-source analysis (CSD, 229 industrial solid-form screens, and 446 DFT-d computed polymorphic crystals) that separates myths from facts about which molecules become polymorphic and how much polymorphs differ energetically. It debunks common assumptions (e.g., that flexibility or size drives polymorphism) and quantifies polymorph incidence and energy gaps.",
+   "innovation": "Combined three independent, unusually large data sources - crystallographic (CSD), industrial screening statistics from two pharma companies over 8-15+ years, and modern dispersion-corrected DFT energetics - to give evidence-based, population-level statistics rather than anecdote-driven lore about polymorphism.",
+   "chunks": [
+    {
+     "type": "statistic",
+     "statement": "Energy differences between polymorphs are usually less than 1 kcal/mol (~4.2 kJ/mol), but conformational polymorphs can differ by larger amounts, up to 2.5 kcal/mol (~10.5 kJ/mol) in the studied dataset.",
+     "scope": "446 polymorphic organic crystals with energies from modern DFT-d methods",
+     "evidence": "'the energy difference between polymorphs is usually less than 1 kcal mol(-1), conformational polymorphs are capable of differing by larger values (up to 2.5 kcal mol(-1) in our dataset)'",
+     "generality": "established"
+    },
+    {
+     "type": "statistic",
+     "statement": "Polymorphism is common: about one in three CSD compounds are polymorphic, at least one in two in industrial screening sets, rising to up to three in four when compounds are screened intensively.",
+     "scope": "CSD compounds and 229 Roche/Lilly solid-form screens",
+     "evidence": "'one in three compounds in the CSD are polymorphic whilst at least one in two compounds from the Roche and Lilly set display polymorphism with a higher estimate of up to three in four when compounds are screened intensively'",
+     "generality": "established"
+    },
+    {
+     "type": "principle",
+     "statement": "Molecular flexibility and size do not correlate with a compound's propensity to be polymorphic - contrary to common assumption.",
+     "scope": "Organic molecules in CSD and industrial datasets",
+     "evidence": "'molecular flexibility or size has no correlation with the ability of a compound to be polymorphic'",
+     "generality": "suggested"
+    },
+    {
+     "type": "principle",
+     "statement": "Chiral molecules are less prone to polymorphism than their achiral counterparts, while hydrogen-bonding capability confers only a slightly higher propensity to polymorphism.",
+     "scope": "Organic molecules across CSD/industrial datasets",
+     "evidence": "'Chiral molecules... were found to be less prone to polymorphism than their achiral counterparts and compounds able to hydrogen bond exhibit only a slightly higher propensity to polymorphism than those which do not'",
+     "generality": "suggested"
+    },
+    {
+     "type": "pitfall",
+     "statement": "Population statistics give expectations but cannot predict polymorphic behavior of a specific compound; targeted prediction and realization of polymorphs remains unsolved.",
+     "scope": "Any single compound's polymorph screening or prediction",
+     "evidence": "'each compound constitutes a new challenge and prediction and realization of targeted polymorphism still remains a holy grail of materials sciences'",
+     "generality": "established"
+    }
+   ],
+   "synthesis": "For GAtor 2.0, the ~1 kcal/mol (~4 kJ/mol) typical polymorph gap sets the accuracy bar your lattice-energy ranking (PBE0+MBD, and any MLIP surrogate like MACE-OFF/AIMNet2/UMA) must clear to be discriminative - errors above this window will scramble the low-energy landscape you care about. Crucially, conformational polymorphs can span up to ~2.5 kcal/mol, so for flexible molecules your GA must aggressively sample conformers/torsions in generation (Genarris) and your energy method must correctly capture intramolecular conformational energy penalties, or you will miss or mis-rank real polymorphs. The finding that flexibility and size don't predict polymorphism means you cannot pre-filter or down-prioritize search effort based on molecular complexity - every target may be richly polymorphic, and intensive screening finds up to 3-in-4 are polymorphic, arguing for wide, diversity-preserving niching rather than premature convergence to a single putative global minimum."
   }
  ]
 }
