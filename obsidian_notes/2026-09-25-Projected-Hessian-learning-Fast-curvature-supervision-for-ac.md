@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-Introduces Projected Hessian Learning, using stochastic Hessian–vector products and a dense-probe trace estimator to supervise MLIP training with curvature information at near force-level cost, avoiding explicit quadratic-cost Hessian construction.
+Introduces Projected Hessian Learning, which supervises MLIP training with stochastic Hessian-vector-product trace estimates, avoiding explicit Hessian construction while achieving near force-level computational cost.
 
 ## Abstract
 > Abstract The Hessian matrix of second derivatives contains substantially richer information about the local geometry of the potential energy surface than energies and forces alone. Although incorporating full Hessians into machine-learning interatomic potential (MLIP) training can significantly improve accuracy and robustness, the quadratic computational and memory cost of explicitly constructing and storing Hessian matrices has limited its practical use. Here, we introduce Projected Hessian Learning (PHL), a scalable second-order training framework that incorporates curvature information using only Hessian–vector products (HVPs). By avoiding explicit Hessian construction and instead projecting curvature along stochastic probe directions, PHL reduces the cost of second-derivative supervision to near force-level complexity. The resulting dense-probe trace estimator is unbiased and exhibits favorable scaling with system size, enabling curvature-informed training without quadratic memory growth. We evaluated various training approaches on a chemically diverse dataset of reactants, products, transition states, intrinsic reaction coordinates, and normal-mode sampled geometries generated

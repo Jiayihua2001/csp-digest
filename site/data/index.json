@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-09-29",
+  "count": 20,
+  "new_count": 13,
+  "synthesis": "Heavy emphasis on generative/flow-based CSP (OMatG-flash, ANCHOR, symmetry-aware flow matching, topology-stratified flows) and benchmarking efforts (inorganic CSP benchmark, deep generative CSP prototype-dependence study, OMC-bench), suggesting the field is consolidating around evaluating and scaling ML-driven structure generation",
+  "top": [
+   {
+    "title": "Crystal Structure Prediction of Inorganic Materials: A Benchmark and Modern Evaluation",
+    "relevance": 92,
+    "significance": 0
+   },
+   {
+    "title": "Deep Generative Crystal Structure Prediction: A Benchmark Study and a Controlled Test of Prototype Dependence",
+    "relevance": 87,
+    "significance": 0
+   },
+   {
+    "title": "OMatG-flash: An All-Atom Flow Map with Reinforce Adjoint Matching for Scalable Materials Discovery",
+    "relevance": 85,
+    "significance": 0
+   }
+  ]
+ },
+ {
   "date": "2026-09-28",
   "count": 7,
   "new_count": 0,

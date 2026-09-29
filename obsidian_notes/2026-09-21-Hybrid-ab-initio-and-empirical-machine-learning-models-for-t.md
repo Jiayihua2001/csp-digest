@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-A hybrid ab initio/empirical machine-learning potential energy surface model that combines quantum-mechanical calculations with data-driven learned corrections to improve accuracy and transferability over either approach alone.
+Introduces a hybrid ML potential-energy-surface model combining ab initio data with empirical interatomic potentials, likely improving accuracy and transferability for crystal structure energy predictions over purely data-driven or empirical approaches alone.
 
 ## My notes
 
