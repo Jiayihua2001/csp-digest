@@ -1532,6 +1532,34 @@
     }
    ],
    "synthesis": "For GAtor 2.0, the ~1 kcal/mol (~4 kJ/mol) typical polymorph gap sets the accuracy bar your lattice-energy ranking (PBE0+MBD, and any MLIP surrogate like MACE-OFF/AIMNet2/UMA) must clear to be discriminative - errors above this window will scramble the low-energy landscape you care about. Crucially, conformational polymorphs can span up to ~2.5 kcal/mol, so for flexible molecules your GA must aggressively sample conformers/torsions in generation (Genarris) and your energy method must correctly capture intramolecular conformational energy penalties, or you will miss or mis-rank real polymorphs. The finding that flexibility and size don't predict polymorphism means you cannot pre-filter or down-prioritize search effort based on molecular complexity - every target may be richly polymorphic, and intensive screening finds up to 3-in-4 are polymorphic, arguing for wide, diversity-preserving niching rather than premature convergence to a single putative global minimum."
+  },
+  {
+   "slug": "nyman-day-statistics-2015",
+   "title": "Static and lattice vibrational energy differences between polymorphs",
+   "doi": "10.1039/c5ce00045a",
+   "year": 2015,
+   "tier": "C",
+   "source_mode": "metadata",
+   "date": "2026-09-29",
+   "core_idea": "This study computes lattice energy, vibrational entropy, and free energy differences across more than 500 pairs of known organic polymorphs, providing a large-sample statistical characterization of how small the energetic separations between real polymorphs actually are. It establishes the typical magnitudes practitioners should expect when ranking crystal structures.",
+   "innovation": "Rather than analyzing single systems, it aggregates over 500 polymorph pairs to give distribution-level statistics on both static lattice-energy differences and the finite-temperature (vibrational free energy) corrections that can reorder them.",
+   "chunks": [
+    {
+     "type": "statistic",
+     "statement": "Energy, entropy, and free energy differences between known polymorphs were computed for over 500 polymorph pairs, giving a large-sample view of how closely spaced real polymorphs are energetically.",
+     "scope": "Known organic molecular crystal polymorph pairs from the literature/database sample used in the study",
+     "evidence": "Abstract: 'Lattice energy, entropy and free energy differences for over 500 pairs of known polymorphs are computed and discussed.'",
+     "generality": "established"
+    },
+    {
+     "type": "principle",
+     "statement": "Lattice (vibrational) free energy has two separable contributions relevant to polymorph ranking: the static lattice energy and the temperature-dependent vibrational entropy/free energy term, and both must be considered because they can differ between polymorphs.",
+     "scope": "Molecular crystal polymorphs at finite temperature",
+     "evidence": "Title and abstract distinguish 'static and lattice vibrational energy differences' and compute 'energy, entropy and free energy differences'.",
+     "generality": "established"
+    }
+   ],
+   "synthesis": "For GAtor 2.0, the central takeaway from Nyman & Day is that real polymorphs sit within a very narrow energy window, so any ranking method (PBE0+MBD, MLIPs like MACE-OFF/AIMNet2/UMA) must resolve differences far smaller than typical DFT error bars, and vibrational free energy corrections can reorder the static ranking. Practically, this argues for keeping deep, densely populated pools of near-degenerate candidates through GA niching rather than trusting fine static energy rankings, and for computing finite-temperature (harmonic/quasi-harmonic) free energies on top-ranked structures before declaring a predicted global minimum. NOTE: this digest is from abstract/metadata only (low confidence); the specific magnitudes (the well-known result that most polymorph energy differences are under a few kJ/mol) should be verified against the full text before being used as design thresholds."
   }
  ]
 }
