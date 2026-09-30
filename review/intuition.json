@@ -1560,6 +1560,69 @@
     }
    ],
    "synthesis": "For GAtor 2.0, the central takeaway from Nyman & Day is that real polymorphs sit within a very narrow energy window, so any ranking method (PBE0+MBD, MLIPs like MACE-OFF/AIMNet2/UMA) must resolve differences far smaller than typical DFT error bars, and vibrational free energy corrections can reorder the static ranking. Practically, this argues for keeping deep, densely populated pools of near-degenerate candidates through GA niching rather than trusting fine static energy rankings, and for computing finite-temperature (harmonic/quasi-harmonic) free energies on top-ranked structures before declaring a predicted global minimum. NOTE: this digest is from abstract/metadata only (low confidence); the specific magnitudes (the well-known result that most polymorph energy differences are under a few kJ/mol) should be verified against the full text before being used as design thresholds."
+  },
+  {
+   "slug": "neumann-tailormade-ff-2005",
+   "title": "Energy Ranking of Molecular Crystals Using Density Functional Theory Calculations and an Empirical van der Waals Correction",
+   "doi": "10.1021/jp050121r",
+   "year": 2005,
+   "tier": "D",
+   "source_mode": "metadata",
+   "date": "2026-09-30",
+   "core_idea": "Neumann and Perrin combined plane-wave DFT (VASP) with an empirical atom-atom C6/r^6 van der Waals correction, carefully damped at short range, to optimize and rank molecular crystal structures with unprecedented accuracy. Careful parametrization of the damping functions balances the DFT and dispersion contributions to lattice energy, yielding ~1% agreement in unit-cell lengths and correct polymorph ranking in 5 of 6 test molecules.",
+   "innovation": "One of the first practical dispersion-corrected DFT (DFT-D style) hybrid methods for molecular crystal lattice-energy ranking, with element-specific C6 coefficients fit to experimental dipole oscillator strength data and damping functions tuned against low-temperature experimental crystal structures.",
+   "chunks": [
+    {
+     "type": "principle",
+     "statement": "Standard DFT (semilocal functionals) lacks long-range dispersion, so accurate molecular crystal energies require adding an empirical van der Waals term as a sum of atom-atom pair potentials, each an asymptotic C6/r^6 attraction multiplied by a short-range damping function.",
+     "scope": "Molecular crystals of organics containing H, C, N, O, F, Cl, S; plane-wave DFT (VASP)",
+     "evidence": "vdW correction expressed as sum over atom-atom pair potentials, each the product of an asymptotic C(6,A,B)/r(6) term and a damping function d(A,B)(r); empirical parameters provided for H, C, N, O, F, Cl, S.",
+     "generality": "established"
+    },
+    {
+     "type": "principle",
+     "statement": "The damping function that governs the crossover from C6/r^6 at long range to a finite interaction at short range is the critical parameter: it sets the balance between the DFT lattice energy and the empirical dispersion contribution, and must be carefully parametrized.",
+     "scope": "Dispersion-corrected DFT lattice-energy methods for molecular crystals",
+     "evidence": "'The careful parametrization of the damping functions is of crucial importance to obtain the correct balance between the DFT part of the lattice energy and the contribution from the empirical van der Waals correction.'",
+     "generality": "established"
+    },
+    {
+     "type": "pipeline_practice",
+     "statement": "Determine C6 coefficients by least-squares fitting to reference molecular C6 values (here from Meath's dipole oscillator strength distributions, following Wu and Yang), then adjust damping functions to best reproduce experimental low-temperature crystal unit cells.",
+     "scope": "Parametrization of empirical vdW correction for molecular crystal DFT",
+     "evidence": "C6 coefficients determined by least-squares fitting to molecular C6 coefficients from Meath (dipole oscillator strength distributions); damping functions adjusted to best match experimental low-temperature crystal structures.",
+     "generality": "single-study"
+    },
+    {
+     "type": "statistic",
+     "statement": "A well-parametrized dispersion-corrected DFT method can reproduce experimental unit-cell lengths to about 1% on average.",
+     "scope": "Set of experimental low-temperature molecular crystal structures used in parametrization",
+     "evidence": "'On average, the experimental and the calculated unit cell lengths deviate by 1%.'",
+     "generality": "single-study"
+    },
+    {
+     "type": "statistic",
+     "statement": "Dispersion-corrected DFT ranked the experimentally observed low-temperature polymorph as the most stable in 5 of 6 test molecules.",
+     "scope": "Six small molecules: ethane, ethylene, acetylene, methanol, acetic acid, urea; packings from Polymorph Predictor",
+     "evidence": "'In five out of six cases, the experimentally observed low-temperature crystal structure corresponds to the most stable calculated structure.'",
+     "generality": "single-study"
+    },
+    {
+     "type": "pipeline_practice",
+     "statement": "Standard CSP energy-ranking workflow generates many candidate packings with a cheap generator (Polymorph Predictor) first, then re-optimizes and re-ranks the survivors with the more expensive accurate method.",
+     "scope": "Molecular crystal structure prediction of small rigid molecules",
+     "evidence": "'crystal packings ... generated with Accelrys' Polymorph Predictor in a first step and optimized with the hybrid method in a second step.'",
+     "generality": "established"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "Validate a lattice-energy method against low-temperature experimental structures specifically, because comparing calculated (effectively 0 K) geometries to room-temperature cells introduces thermal-expansion error.",
+     "scope": "Parametrization and benchmarking of molecular crystal energy methods",
+     "evidence": "Damping functions adjusted against a set of 'experimental low temperature crystal structures'; 5/6 success reported for the 'experimentally observed low-temperature crystal structure'.",
+     "generality": "suggested"
+    }
+   ],
+   "synthesis": "For GAtor 2.0 this 2005 paper is the ancestor of the dispersion-inclusive DFT ranking you rely on: it established that molecular crystal ranking hinges on (1) adding dispersion to DFT and (2) getting the short-range damping right, which is exactly why modern GAtor uses PBE0+MBD rather than plain PBE. The two-stage generate-then-reoptimize workflow (Polymorph Predictor -> hybrid DFT) mirrors your Genarris-generates / GA-explores / DFT-reranks pipeline, and the sobering lesson is that even a well-tuned method missed 1 of 6 - a reminder that near-degenerate polymorphs (energy gaps well below method error) can flip ordering, motivating your interest in MLIP prescreening, finite-temperature free energies, and careful benchmarking against low-temperature experimental structures rather than room-temperature cells."
   }
  ]
 }
