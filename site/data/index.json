@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-09-30",
+  "count": 19,
+  "new_count": 2,
+  "synthesis": "Heavy generative-model day: multiple deep-learning CSP benchmarks/critiques (inorganic and molecular) alongside new flow-matching/diffusion architectures (OMatG-flash, ANCHOR, symmetry-aware flow matching), suggesting the field is consolidating around rigorous evaluation of ML crystal generators versus classical GA approaches, plus a theoretical",
+  "top": [
+   {
+    "title": "Where Should Physics Enter a Molecular Crystal Generator?",
+    "relevance": 92,
+    "significance": 0
+   },
+   {
+    "title": "Crystal Structure Prediction of Inorganic Materials: A Benchmark and Modern Evaluation",
+    "relevance": 92,
+    "significance": 0
+   },
+   {
+    "title": "Deep Generative Crystal Structure Prediction: A Benchmark Study and a Controlled Test of Prototype Dependence",
+    "relevance": 87,
+    "significance": 0
+   }
+  ]
+ },
+ {
   "date": "2026-09-29",
   "count": 20,
   "new_count": 13,
