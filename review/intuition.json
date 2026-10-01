@@ -1623,6 +1623,69 @@
     }
    ],
    "synthesis": "For GAtor 2.0 this 2005 paper is the ancestor of the dispersion-inclusive DFT ranking you rely on: it established that molecular crystal ranking hinges on (1) adding dispersion to DFT and (2) getting the short-range damping right, which is exactly why modern GAtor uses PBE0+MBD rather than plain PBE. The two-stage generate-then-reoptimize workflow (Polymorph Predictor -> hybrid DFT) mirrors your Genarris-generates / GA-explores / DFT-reranks pipeline, and the sobering lesson is that even a well-tuned method missed 1 of 6 - a reminder that near-degenerate polymorphs (energy gaps well below method error) can flip ordering, motivating your interest in MLIP prescreening, finite-temperature free energies, and careful benchmarking against low-temperature experimental structures rather than room-temperature cells."
+  },
+  {
+   "slug": "dmacrys-2010",
+   "title": "Modelling organic crystal structures using distributed multipole and polarizability-based model intermolecular potentials",
+   "doi": "10.1039/c004164e",
+   "year": 2010,
+   "tier": "D",
+   "source_mode": "metadata",
+   "date": "2026-10-01",
+   "core_idea": "DMACRYS is a crystal lattice simulation program for organic CSP that optimizes lattice energy and second-derivative properties using anisotropic atom-atom model potentials grounded in the theory of intermolecular forces. The central lesson is that reproducing known crystal structures is comparatively easy, but computing the polymorphic energy differences to the few-kJ/mol accuracy needed for pharmaceutical applications is extremely sensitive to modelling assumptions.",
+   "innovation": "Adds an accurate induction (polarization) energy contribution to the lattice energy via atomic anisotropic dipole polarizability models, on top of distributed multipole electrostatics and anisotropic atom-atom repulsion plus damped dispersion up to R^-10, and can compute THz lattice modes and the elastic tensor for free-energy estimates.",
+   "chunks": [
+    {
+     "type": "statistic",
+     "statement": "Pharmaceutical CSP requires relative lattice energies accurate to within a few kJ/mol to distinguish polymorphs.",
+     "scope": "Organic pharmaceutical molecules; polymorph ranking (demonstrated on carbamazepine C15H12N2O, four polymorphs)",
+     "evidence": "Abstract: 'calculating the polymorphic energy differences to the accuracy of a few kJ mol(-1) required for applications is very demanding'",
+     "generality": "established"
+    },
+    {
+     "type": "principle",
+     "statement": "Reproducing/optimizing known crystal structures is relatively easy, but computing the small energy differences between polymorphs to application-grade accuracy is the hard part and is highly sensitive to modelling assumptions.",
+     "scope": "Organic molecular crystals, lattice-energy modelling",
+     "evidence": "Abstract: 'whilst reproducing crystal structures is relatively easy, calculating the polymorphic energy differences ... is very demanding of assumptions made in the modelling'",
+     "generality": "established"
+    },
+    {
+     "type": "principle",
+     "statement": "Accurate electrostatics for organic crystals require anisotropic descriptions: distributed multipoles (ranks up to hexadecapole, Q with t=00..44s) rather than point charges, because molecular charge density is directional (lone pairs, pi systems).",
+     "scope": "Atom-atom model intermolecular potentials for organic crystals",
+     "evidence": "Abstract describes 'anisotropic atom-atom model intermolecular potentials' and a 'distributed multipole electrostatic model (Q, t = 00,...,44s)'",
+     "generality": "established"
+    },
+    {
+     "type": "principle",
+     "statement": "Induction (polarization) energy can be a non-negligible contribution to lattice energy and is captured by atomic anisotropic dipole polarizabilities that model how the crystal field distorts the molecular charge density.",
+     "scope": "Model intermolecular potentials for organic crystals",
+     "evidence": "Abstract: 'a new feature ... accurate model for the induction energy ... uses atomic anisotropic dipole polarizability models (alpha) to evaluate the changes in the molecular charge density induced by the electrostatic field within the crystal'",
+     "generality": "single-study"
+    },
+    {
+     "type": "pipeline_practice",
+     "statement": "A CSP energy pipeline must balance throughput and accuracy: fast evaluation of thousands to millions of candidate structures followed by the most accurate possible relative energies.",
+     "scope": "Organic CSP workflows",
+     "evidence": "Abstract: 'requires both the fast assessment of thousands to millions of crystal structures and the greatest possible accuracy in their relative energies'",
+     "generality": "established"
+    },
+    {
+     "type": "pipeline_practice",
+     "statement": "Lattice-energy minimizers should reduce space-group symmetry to escape transition states (saddle points) and compute second-derivative properties (phonons) to confirm a true minimum; k=0 rigid-body lattice modes and the elastic tensor then enable free-energy estimates.",
+     "scope": "DMACRYS-style lattice optimization of rigid-molecule organic crystals",
+     "evidence": "Abstract: can 'reduce the symmetry of the spacegroup to move away from a transition state', 'calculate the second derivative properties', and 'calculated terahertz frequency k = 0 rigid-body lattice modes and elastic tensor can be used to estimate free energies'",
+     "generality": "established"
+    },
+    {
+     "type": "pitfall",
+     "statement": "The choice of atomic typing and the form of the empirical exp-6 repulsion-dispersion model is itself a major modelling assumption; different atom-type definitions give different energies, so apparent rankings can be artifacts of the potential rather than physics.",
+     "scope": "Empirically fitted isotropic exp-6 atom-atom potentials for organics",
+     "evidence": "Abstract: 'a range of empirically fitted isotropic exp-6 atom-atom models with different definitions of atomic types' combined with the statement that energy differences are 'very demanding of assumptions made in the modelling'",
+     "generality": "suggested"
+    }
+   ],
+   "synthesis": "For GAtor 2.0 this paper is a reminder that the hard constraint in MCSP is not finding and relaxing structures but ranking near-degenerate polymorphs to within a few kJ/mol, which is exactly the regime where your final ranker (PBE0+MBD, or an MLIP like MACE-OFF/AIMNet2/UMA) must be trusted. Price's emphasis on anisotropic electrostatics and explicit induction is the physical content that modern dispersion-inclusive DFT and message-passing MLIPs must implicitly recapture; where an MLIP flattens lone-pair directionality or many-body polarization, you should expect ranking errors on exactly the hydrogen-bonded/polar systems (like carbamazepine) that dominate pharma CSP. The second-derivative/phonon machinery DMACRYS exposes (k=0 THz modes, elastic tensor, saddle-point escape via symmetry breaking) is the lineage of your finite-temperature free-energy workflow: GA energy rankings are a 0 K approximation, and vibrational/entropic corrections plus confirmation that a candidate is a true minimum (not a transition state) should gate your final selection. Finally, the 'results depend on the potential/assumptions' warning maps directly onto MLIP choice and training coverage: treat your energy model as a tunable assumption and cross-check contentious rankings with a higher tier."
   }
  ]
 }
