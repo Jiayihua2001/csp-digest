@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-Likely offers a critical synthesis exposing hidden assumptions and unresolved gaps in existing UQ methods for ML interatomic potentials, rather than proposing a new UQ algorithm itself.
+Systematically reviews and critiques uncertainty-quantification methods for machine-learning interatomic potentials, exposing hidden assumptions and unresolved issues rather than proposing a new UQ technique itself.
 
 ## My notes
 

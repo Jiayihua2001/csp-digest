@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-10-01",
+  "count": 21,
+  "new_count": 4,
+  "synthesis": "Heavy convergence on flow-matching generators for crystal structure prediction, with multiple groups probing where physics/symmetry should be embedded (RL guidance, equivariance, prototype dependence) alongside two benchmark/evaluation papers and a complexity-theory piece on energy minimization hardness\u2014suggesting the field is consolidating methodology while still debating fundamentals.",
+  "top": [
+   {
+    "title": "Riemannian Flow Models with Reinforcement Learning for Molecular Crystal Structure Prediction",
+    "relevance": 94,
+    "significance": 0
+   },
+   {
+    "title": "Where Should Physics Enter a Molecular Crystal Generator?",
+    "relevance": 92,
+    "significance": 0
+   },
+   {
+    "title": "Crystal Structure Prediction of Inorganic Materials: A Benchmark and Modern Evaluation",
+    "relevance": 92,
+    "significance": 0
+   }
+  ]
+ },
+ {
   "date": "2026-09-30",
   "count": 19,
   "new_count": 2,

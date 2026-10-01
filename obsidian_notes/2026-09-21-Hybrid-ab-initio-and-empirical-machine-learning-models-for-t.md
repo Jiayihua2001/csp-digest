@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-A hybrid potential-energy-surface framework combines ab initio-derived and empirical machine-learning models, likely improving accuracy-efficiency trade-offs for structure/energy prediction over purely ab initio or empirical approaches alone.
+A hybrid ab initio/empirical machine-learning potential-energy-surface model combines quantum-mechanical calculations with empirical force-field terms within a single ML framework to improve accuracy and transferability over either approach alone.
 
 ## My notes
 
