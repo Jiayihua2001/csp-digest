@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-10-02",
+  "count": 23,
+  "new_count": 3,
+  "synthesis": "Heavy convergence on flow-matching/RL-guided generators for CSP (molecular and inorganic), with multiple groups probing where physics/symmetry should be embedded and benchmarking prototype dependence. Notably, hardness-of-energy-minimization theory and disordered/annotation-free CSP (EP-Flow) suggest the field is maturing beyond pure generative hype toward rig",
+  "top": [
+   {
+    "title": "Riemannian Flow Models with Reinforcement Learning for Molecular Crystal Structure Prediction",
+    "relevance": 94,
+    "significance": 0
+   },
+   {
+    "title": "Where Should Physics Enter a Molecular Crystal Generator?",
+    "relevance": 92,
+    "significance": 0
+   },
+   {
+    "title": "Crystal Structure Prediction of Inorganic Materials: A Benchmark and Modern Evaluation",
+    "relevance": 92,
+    "significance": 0
+   }
+  ]
+ },
+ {
   "date": "2026-10-01",
   "count": 21,
   "new_count": 4,

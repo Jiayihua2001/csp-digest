@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-Systematically reviews and critiques uncertainty-quantification methods for machine-learning interatomic potentials, exposing hidden assumptions and unresolved issues rather than proposing a new UQ technique itself.
+Likely synthesizes and critiques existing uncertainty-quantification techniques for ML interatomic potentials, exposing hidden assumptions and open challenges rather than proposing a new algorithm.
 
 ## My notes
 

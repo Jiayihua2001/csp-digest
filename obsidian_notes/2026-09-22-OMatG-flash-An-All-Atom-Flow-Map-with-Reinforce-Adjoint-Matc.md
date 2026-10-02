@@ -21,7 +21,7 @@ tags:
 **Field:** [[generative-model]] [[benchmark]]
 
 ## Why it matters
-Introduces OMatG-flash, an all-atom flow-map model for CSP/DNG that cuts inference steps and wall-clock time by an order of magnitude via Reinforce Adjoint Matching fine-tuning, matching SOTA accuracy.
+Introduces OMatG-flash, an all-atom flow map achieving order-of-magnitude faster inorganic crystal sampling than diffusion/flow models, with Reinforce Adjoint Matching fine-tuning improving CSP match rates and RMSE.
 
 ## Abstract
 > The discovery of novel inorganic materials drives technological breakthroughs in critical fields such as computing and energy storage. Generative AI has promised to accelerate the materials discovery pipeline, but state-of-the-art flow and diffusion models remain bottlenecked by the cost of proposing candidate materials. To address this, we introduce OMatG-flash, an all-atom flow map for inorganic crystal structure prediction (CSP) and de novo generation (DNG). OMatG-flash is a Pareto-optimal inference engine for materials, sampling candidate materials with an order of magnitude fewer inference steps and less wall-clock time than existing flow and diffusion models while demonstrating benchmark performance on par with the state-of-the-art. To enable post-training fine-tuning we apply Reinforce Adjoint Matching to flow maps, further improving match rates and RMSE on the unconditional CSP task. OMatG-flash showcases the potential of flow maps to accelerate generation of high-quality candidate inorganic materials and demonstrates a step forward in sample throughput necessary for data-hungry materials discovery workflows.

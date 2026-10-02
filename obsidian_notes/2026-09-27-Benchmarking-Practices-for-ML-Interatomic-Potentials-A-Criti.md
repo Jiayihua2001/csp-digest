@@ -21,7 +21,7 @@ tags:
 **Field:** [[ML-potential]] [[benchmark]]
 
 ## Why it matters
-Likely contribution: a systematic audit exposing recurring benchmarking flaws (dataset leakage, inconsistent error metrics, missing uncertainty estimates) in ML interatomic potential evaluations from 2017–2023, proposing corrected best-practice guidel
+A systematic critical review exposing recurring methodological flaws—inconsistent train/test splits, cherry-picked metrics, and missing uncertainty quantification—in ML interatomic potential benchmarks from 2017–2023, likely proposing standardized evaluation guidel
 
 ## My notes
 
