@@ -1735,6 +1735,55 @@
     }
    ],
    "synthesis": "For GAtor 2.0, the key takeaway is that 0 K lattice energies (even from PBE0+MBD or MLIPs) are not the final word on stability: roughly one in five polymorph pairs can swap order by their melting point once vibrational free energy is added. A GA that only ranks on static lattice energy risks discarding or mis-prioritizing candidates that become most stable at experimental temperatures. The reassuring corollary is that thermal expansion itself contributes little to free energy differences, so a cheaper harmonic/quasi-harmonic phonon correction (or thermal-pressure approximation) likely captures most of the re-ranking without full temperature-dependent cell optimization. This argues for a two-stage pipeline: broad GA search and static ranking, then phonon-based free energy refinement on the low-energy shortlist to catch enantiotropic cases. The approach was validated here only with an anisotropic multipole force field, so transferring it to MLIP-driven phonons (MACE-OFF, AIMNet2, UMA) in GAtor is a sensible but untested extension worth benchmarking."
+  },
+  {
+   "slug": "firaha-nature-2023",
+   "title": "Predicting crystal form stability under real-world conditions",
+   "doi": "10.1038/s41586-023-06587-3",
+   "year": 2023,
+   "tier": "D",
+   "source_mode": "metadata",
+   "date": "2026-10-03",
+   "core_idea": "The paper advances in silico crystal form selection by improving the accuracy of solid-solid free-energy calculations and placing crystal forms of different stoichiometries (anhydrates and hydrates of varying water content) on a single energy landscape as a function of temperature and relative humidity, with quantified error bars. This turns CSP from a 0 K ranking exercise into an actionable, real-world-conditions tool.",
+   "innovation": "New vs prior work: a reliable experimental benchmark for solid-solid free-energy differences, quantified statistical errors on computed free energies (1-2 kJ/mol), and a method to put different hydrate stoichiometries on the same free-energy landscape as a function of temperature and relative humidity.",
+   "chunks": [
+    {
+     "type": "statistic",
+     "statement": "Modern free-energy calculations for crystal form ranking can reach standard errors of about 1-2 kJ/mol for industrially relevant compounds.",
+     "scope": "Molecular organic crystals, industrially relevant (pharma-like) compounds, finite-temperature solid-solid free-energy differences",
+     "evidence": "'The calculated free energies have standard errors of 1-2 kJ mol-1 for industrially relevant compounds'",
+     "generality": "single-study"
+    },
+    {
+     "type": "principle",
+     "statement": "Crystal-form selection is a free-energy problem, not a static 0 K lattice-energy problem: stability depends on temperature and relative humidity, and different crystal forms must be compared on a common free-energy landscape.",
+     "scope": "Molecular crystals including anhydrates and hydrates of different stoichiometries",
+     "evidence": "'placing both hydrate crystal structures of different stoichiometries and anhydrate crystal structures on the same energy landscape ... as a function of temperature and relative humidity'",
+     "generality": "suggested"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "When comparing crystal forms with different compositions (e.g., hydrates of different water content vs anhydrates, or solvates), you must place them on a common free-energy reference that accounts for the chemical potential of the exchanged component (water/solvent) at given T and RH.",
+     "scope": "Multi-component molecular crystals: hydrates of varying stoichiometry, solvates",
+     "evidence": "'the method to place crystal structures with different hydrate stoichiometries on the same energy landscape can be extended to other multi-component systems, including solvates'",
+     "generality": "suggested"
+    },
+    {
+     "type": "pipeline_practice",
+     "statement": "An actionable CSP workflow quantifies statistical errors on computed free energies and validates them against a dedicated experimental benchmark of solid-solid free-energy differences before using rankings to direct crystal form selection.",
+     "scope": "Industrial crystal form selection workflows for molecular crystals",
+     "evidence": "'constructing a reliable experimental benchmark for solid-solid free-energy differences, quantifying statistical errors for the computed free energies'",
+     "generality": "single-study"
+    },
+    {
+     "type": "pitfall",
+     "statement": "Energy rankings reported without error bars can mislead because computed form differences fall within the method's own uncertainty; conclusions should be stated relative to defined error bars.",
+     "scope": "Free-energy ranking of molecular crystal forms",
+     "evidence": "'with defined error bars' and reported 'standard errors of 1-2 kJ mol-1' imply differences of comparable magnitude are not resolvable",
+     "generality": "suggested"
+    }
+   ],
+   "synthesis": "For GAtor 2.0, this is a reminder that the GA's PBE0+MBD lattice-energy ranking is only the first stage of a real stability answer: the forms that survive niching and local optimization at 0 K must ultimately be re-ranked by finite-temperature free energies, and for pharma-relevant blind-test targets by free energies that also depend on relative humidity when hydrates or solvates are in play. Two operational lessons translate directly: (1) report error bars (1-2 kJ/mol here) and treat near-degenerate GA structures as unresolved rather than ranked, since polymorph gaps are routinely inside this uncertainty; (2) multi-component and Z'>1 crystals require a common reference that handles the exchanged species' chemical potential, so GAtor's structure generation (Genarris) and scoring for hydrates/solvates should carry composition-aware free-energy bookkeeping rather than comparing total energies of differently-sized cells. MLIPs (MACE-OFF, AIMNet2, UMA) can make the needed phonon/free-energy sampling affordable, but their rankings should be anchored to an experimental solid-solid benchmark in the same spirit."
   }
  ]
 }
