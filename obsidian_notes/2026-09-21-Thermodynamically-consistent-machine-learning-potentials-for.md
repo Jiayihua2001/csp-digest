@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-Introduces machine-learning interatomic potentials trained to enforce thermodynamic consistency with applied electrode potential, enabling accurate constant-potential molecular dynamics simulations of electrochemical interfaces.
+A machine learning interatomic potential framework enforcing thermodynamic consistency for constant-potential electrochemical simulations, enabling accurate modeling of charged electrode–electrolyte interfaces at fixed applied voltage.
 
 ## My notes
 

@@ -1,0 +1,1015 @@
+{
+ "date": "2026-10-03",
+ "scope": "molecular",
+ "synthesis": "Generative flow-matching models dominate CSP today, with several papers probing where physics/symmetry priors should be embedded (equivariance, Riemannian geometry, RL-guided sampling) and benchmarking against prototype dependence\u2014signaling the field is maturing toward rigorous evaluation rather than just new generators. A hardness-theory paper on energy minimization complements this with complexity-theoretic",
+ "generated_at": "2026-10-03T12:44:32.076873Z",
+ "items": [
+  {
+   "src": "arXiv",
+   "title": "Riemannian Flow Models with Reinforcement Learning for Molecular Crystal Structure Prediction",
+   "date": "2026-09-30",
+   "arxiv_id": "2609.39773v1",
+   "url": "https://arxiv.org/abs/2609.39773v1",
+   "authors": [
+    "Thomas Egg",
+    "Harry Winston Sullivan",
+    "Maya M. Martirossyan"
+   ],
+   "authors_all": [
+    "Thomas Egg",
+    "Harry Winston Sullivan",
+    "Maya M. Martirossyan",
+    "Philipp H\u00f6llmer",
+    "Cheng Zeng",
+    "Adrian Roitberg",
+    "Mingjie Liu",
+    "Richard Hennig",
+    "Sapna Sarupria",
+    "Ellad B. Tadmor",
+    "Stefano Martiniani"
+   ],
+   "venue": "arXiv",
+   "abstract": "Crystal structure governs material properties, making crystal structure prediction (CSP) a fundamental problem in materials science. Generative models are a promising approach for solving this problem, but the prevalence of polymorphism, coupled with large unit cells and complex packing geometry, makes the molecular CSP task challenging for existing models. To address this, we introduce Coarse-Grained Open Materials Generation (CG-OMatG), an equivariant Riemannian flow-based generative model. CG-OMatG predicts molecular crystal structures \\textit{via} a coarse-grained, hierarchical representation. CG-OMatG treats molecules as rigid bodies---performing both inter- and intra-molecular message passing to construct a geometric representation for molecular packings---and learns to reconstruct molecule centroid positions, orientations, and lattice parameters, conditioned on chemical species and conformer geometry. We train the model on subsets of the Open Molecular Crystals (OMC25) and Cambridge Structural Database (CSD) datasets. Further, we fine-tune the model \\textit{via} policy gradient reinforcement learning to steer the model towards generating low-energy candidate structures. We v",
+   "matched": [
+    "abs:\"crystal structure prediction\"",
+    "abs:\"generative model\" AND abs:\"crystal structure\"",
+    "abs:\"molecular crystal\" AND abs:polymorph",
+    "abs:\"crystal structure prediction\" AND abs:generative"
+   ],
+   "tags": [
+    "generative-model",
+    "polymorphism",
+    "conformational",
+    "space-group"
+   ],
+   "relevance": 94,
+   "significance": 0,
+   "score": 94,
+   "screen": {
+    "relevance": 9,
+    "reason": "Direct molecular-CSP via novel Riemannian flow generative model with RL energy steering."
+   },
+   "summary": "Introduces CG-OMatG, an equivariant Riemannian flow model using coarse-grained rigid-body molecular representations plus RL fine-tuning to generate low-energy molecular crystal packings.",
+   "first_seen": "2026-10-01",
+   "is_new": false
+  },
+  {
+   "src": "arXiv",
+   "title": "Where Should Physics Enter a Molecular Crystal Generator?",
+   "date": "2026-09-28",
+   "arxiv_id": "2609.36398v1",
+   "url": "https://arxiv.org/abs/2609.36398v1",
+   "authors": [
+    "Haocheng Tang",
+    "Junmei Wang",
+    "Wengong Jin"
+   ],
+   "authors_all": [
+    "Haocheng Tang",
+    "Junmei Wang",
+    "Wengong Jin"
+   ],
+   "venue": "arXiv",
+   "abstract": "Generative models make molecular crystal structure prediction fast, but their samples still exhibit geometric and packing violations. Physics can be introduced during training, post-training, or inference, yet these choices are rarely compared with the generator and physical signal held fixed. We introduce CrystAF, an all-atom crystal flow-map generation model, and use it with the UMA interatomic potential to systematically study where physics should enter. Post-training learns physical preferences directly into CrystAF, improving molecular validity and crystal packing while leaving sampling unchanged: physics is paid for once during training rather than repeatedly at deployment. In contrast, UMA relaxation is effective at repairing local clashes but makes generation 6--26$\\times$ slower, while learning from relaxed targets provides little benefit. These routes are complementary rather than competing. Physics-informed post-training first shifts the generated distribution toward more physically reasonable structures, after which inexpensive inference-time corrections further remove clashes and restore stereochemistry that the generator cannot represent. Importantly, the same post-tr",
+   "matched": [
+    "abs:\"crystal structure prediction\"",
+    "abs:\"generative model\" AND abs:\"crystal structure\"",
+    "abs:\"crystal structure prediction\" AND abs:generative"
+   ],
+   "tags": [
+    "generative-model",
+    "ML-potential",
+    "space-group"
+   ],
+   "relevance": 92,
+   "significance": 0,
+   "score": 92,
+   "screen": {
+    "relevance": 9,
+    "reason": "Direct MCSP generative-model method with physics integration strategy, MLIP (UMA) deployment, systematic study."
+   },
+   "summary": "Introduces CrystAF, an all-atom crystal flow-map generator, and systematically compares training-, post-training-, and inference-time physics integration (via UMA potential), showing physics-informed post-training cheaply improves validity while complementing costly inference-time relaxation.",
+   "first_seen": "2026-09-30",
+   "is_new": false
+  },
+  {
+   "src": "journal",
+   "title": "Crystal Structure Prediction of Inorganic Materials: A Benchmark and Modern Evaluation",
+   "date": "2026-09-22",
+   "doi": "10.1002/aidi.70162",
+   "authors": [
+    "Lai Wei",
+    "Sadman Sadeed Omee",
+    "Rongzhi Dong"
+   ],
+   "authors_all": [
+    "Lai Wei",
+    "Sadman Sadeed Omee",
+    "Rongzhi Dong",
+    "Nihang Fu",
+    "Yuqi Song",
+    "Edirisuriya M. Dilanga Siriwardane",
+    "Meiling Xu",
+    "Ming Hu",
+    "Chris Wolverton",
+    "Jianjun Hu"
+   ],
+   "corresponding": [
+    "Jianjun Hu"
+   ],
+   "cited_by": 0,
+   "venue": "Advanced Intelligent Discovery",
+   "abstract": "Crystal structure prediction (CSP) of inorganic materials is a fundamental challenge in computational materials science, yet the field has historically lacked well\u2010defined benchmarks and comprehensive evaluations. We address this gap by introducing CSP180, a standardized benchmark of 180 inorganic materials, and evaluate 13 state\u2010of\u2010the\u2010art CSP algorithms spanning template\u2010based, machine learning (ML) potential\u2010based, and deep learning\u2010based approaches, none relying on density functional theory (DFT). As a baseline, we also assess the leading DFT\u2010based algorithms, CALYPSO and USPEX, on a 23\u2010structure subset with simpler compositions. Template\u2010based methods, such as TCSP and CSPML, achieve the highest space group match rates (58.9% and 47.2%) when a suitable template exists, while de novo algorithms struggle to identify correct space groups, with the best performers reaching only around 17%. On the 23\u2010structure subset, ML potential\u2010based algorithms prove highly competitive with DFT\u2010based methods at identifying lower\u2010energy structures, and this performance depends strongly on both potential quality and search algorithm efficiency. This assessment provides a standardized framework, qu",
+   "matched": [
+    "molecular crystal structure prediction",
+    "genetic algorithm crystal structure prediction",
+    "organic crystal polymorph prediction"
+   ],
+   "tags": [
+    "genetic-algorithm",
+    "ML-potential",
+    "space-group",
+    "benchmark"
+   ],
+   "relevance": 92,
+   "significance": 0,
+   "score": 92,
+   "screen": {
+    "relevance": 6,
+    "reason": "Inorganic CSP benchmark & algorithm evaluation; transfer value for search strategies & MLIP ranking assessment."
+   },
+   "summary": "Introduces CSP180, a standardized 180-material benchmark systematically comparing 13 non-DFT CSP algorithms (template, ML-potential, deep learning) against DFT baselines (CALYPSO, USPEX) for the first time.",
+   "first_seen": "2026-09-22",
+   "is_new": false
+  },
+  {
+   "src": "arXiv",
+   "title": "Deep Generative Crystal Structure Prediction: A Benchmark Study and a Controlled Test of Prototype Dependence",
+   "date": "2026-09-22",
+   "arxiv_id": "2609.26502v1",
+   "url": "https://arxiv.org/abs/2609.26502v1",
+   "authors": [
+    "Lai Wei",
+    "Rongzhi Dong",
+    "Ying Feng"
+   ],
+   "authors_all": [
+    "Lai Wei",
+    "Rongzhi Dong",
+    "Ying Feng",
+    "Madeline Miklos",
+    "Jianjun Hu"
+   ],
+   "venue": "arXiv",
+   "abstract": "Deep generative models are widely reported to enable de novo crystal structure prediction (CSP), but their capability has not been measured consistently against template-based methods. We evaluate 12 representative generative CSP models, spanning latent-variable, diffusion, flow-matching, autoregressive, and manifold random-walk architectures, against TCSP 2.0 on 180 test structures and a leakage-controlled subset of 46. All methods use identical structure-matching, symmetry, and consensus criteria. Template retrieval is the strongest single method, reaching 68.3% top-1 success; symmetry-aware EquiCSP (66.4%) and Uni-3DAR (62.9%) form the next tier. However, comparison with TCSP 2.0 shows that most structures correctly predicted by generative models are also correctly predicted by template substitution. Thus, the set of structures uniquely reachable by generation is small, limiting its practical advantage for discovering structures outside existing prototype libraries. To test the source of this performance, we removed entire stoichiometric prototype families from the training set and retrained the strongest generative model. Accuracy declined by 50-78% across four families, establ",
+   "matched": [
+    "abs:\"crystal structure prediction\"",
+    "abs:\"generative model\" AND abs:\"crystal structure\"",
+    "abs:\"crystal structure prediction\" AND abs:generative"
+   ],
+   "tags": [
+    "generative-model",
+    "benchmark"
+   ],
+   "relevance": 87,
+   "significance": 0,
+   "score": 87,
+   "screen": {
+    "relevance": 7,
+    "reason": "Benchmark of generative models for CSP; reveals prototype dependence limits but limited direct MCSP applicability."
+   },
+   "summary": "Introduces a leakage-controlled benchmark unifying 12 generative CSP models against template retrieval (TCSP 2.0), revealing most generative successes overlap with templates and performance drops 50-78% when prototype families are excluded from training.",
+   "first_seen": "2026-09-29",
+   "is_new": false
+  },
+  {
+   "src": "arXiv",
+   "title": "OMatG-flash: An All-Atom Flow Map with Reinforce Adjoint Matching for Scalable Materials Discovery",
+   "date": "2026-09-22",
+   "arxiv_id": "2609.26402v1",
+   "url": "https://arxiv.org/abs/2609.26402v1",
+   "authors": [
+    "Thomas Egg",
+    "Harry Winston Sullivan",
+    "Ellad B. Tadmor"
+   ],
+   "authors_all": [
+    "Thomas Egg",
+    "Harry Winston Sullivan",
+    "Ellad B. Tadmor",
+    "Stefano Martiniani"
+   ],
+   "venue": "arXiv",
+   "abstract": "The discovery of novel inorganic materials drives technological breakthroughs in critical fields such as computing and energy storage. Generative AI has promised to accelerate the materials discovery pipeline, but state-of-the-art flow and diffusion models remain bottlenecked by the cost of proposing candidate materials. To address this, we introduce OMatG-flash, an all-atom flow map for inorganic crystal structure prediction (CSP) and de novo generation (DNG). OMatG-flash is a Pareto-optimal inference engine for materials, sampling candidate materials with an order of magnitude fewer inference steps and less wall-clock time than existing flow and diffusion models while demonstrating benchmark performance on par with the state-of-the-art. To enable post-training fine-tuning we apply Reinforce Adjoint Matching to flow maps, further improving match rates and RMSE on the unconditional CSP task. OMatG-flash showcases the potential of flow maps to accelerate generation of high-quality candidate inorganic materials and demonstrates a step forward in sample throughput necessary for data-hungry materials discovery workflows.",
+   "matched": [
+    "abs:\"crystal structure prediction\"",
+    "abs:\"crystal structure prediction\" AND abs:generative"
+   ],
+   "tags": [
+    "generative-model",
+    "benchmark"
+   ],
+   "relevance": 85,
+   "significance": 0,
+   "score": 85,
+   "screen": {
+    "relevance": 7,
+    "reason": "Flow-map generative model for inorganic CSP; methodologically novel but not molecular-specific."
+   },
+   "summary": "Introduces OMatG-flash, an all-atom flow-map model for crystal structure prediction/generation that cuts inference steps and wall-clock time by an order of magnitude, further boosted by extending Reinforce Adjoint Matching fine-tuning to flow maps.",
+   "first_seen": "2026-09-29",
+   "is_new": false
+  },
+  {
+   "src": "arXiv",
+   "title": "EP-Flow: Disordered Crystal Structure Prediction without Site-Level Annotations",
+   "date": "2026-10-01",
+   "arxiv_id": "2610.01315v1",
+   "url": "https://arxiv.org/abs/2610.01315v1",
+   "authors": [
+    "Qiuliang Liu",
+    "Liming Wu",
+    "Qi Li"
+   ],
+   "authors_all": [
+    "Qiuliang Liu",
+    "Liming Wu",
+    "Qi Li",
+    "Zhonglong Peng",
+    "Chang Chen",
+    "Xiaolong Chen",
+    "Wenbing Huang",
+    "Shifeng Jin"
+   ],
+   "venue": "arXiv",
+   "abstract": "Generative models have made rapid progress in ordered crystal structure prediction, yet many functional materials are intrinsically disordered, with substitutional mixing, vacancies, or interstitial species controlling their properties. Existing crystal generators either assume deterministic site occupations or require site-level disorder annotations, which are often unavailable when the chemical formula is the primary input. We formulate disordered crystal structure prediction through an Occupancy Distribution Matrix (ODM), a continuous site-by-species representation that unifies ordered crystals, solid solutions, vacancy disorder, and interstitial occupancy. A valid ODM must satisfy coupled site-wise occupancy, mass-conservation, and non-negativity constraints, placing each sample on a formula-dependent transportation polytope. We propose Entropic Polytope Flow (EP-Flow), a marginal-constrained flow matching framework that canonicalizes heterogeneous polytopes into a shared double-centered space, learns a marginal-preserving flow, and recovers feasible occupancies through a Sinkhorn inverse map. By jointly generating occupancies, fractional coordinates, and lattice parameters, EP",
+   "matched": [
+    "abs:\"crystal structure prediction\"",
+    "abs:\"generative model\" AND abs:\"crystal structure\"",
+    "abs:\"crystal structure prediction\" AND abs:generative"
+   ],
+   "tags": [
+    "generative-model"
+   ],
+   "relevance": 80,
+   "significance": 0,
+   "score": 80,
+   "screen": {
+    "relevance": 7,
+    "reason": "Novel generative framework for disordered crystal structure prediction; transfer potential to MCSP polymorph generation "
+   },
+   "summary": "Introduces EP-Flow, a flow-matching model using an Occupancy Distribution Matrix and Sinkhorn-based transportation-polytope mapping to predict disordered crystal structures directly from chemical formulas, without site-level annotations.",
+   "first_seen": "2026-10-02",
+   "is_new": false
+  },
+  {
+   "src": "arXiv",
+   "title": "Let CSP Be Your ANCHOR: Adaptive Crystal Search over Frozen Structure Priors",
+   "date": "2026-09-27",
+   "arxiv_id": "2609.33407v2",
+   "url": "https://arxiv.org/abs/2609.33407v2",
+   "authors": [
+    "Emma Lei Hovmand",
+    "Jonas Elsborg",
+    "Melih Kandemir"
+   ],
+   "authors_all": [
+    "Emma Lei Hovmand",
+    "Jonas Elsborg",
+    "Melih Kandemir",
+    "Arghya Bhowmik"
+   ],
+   "venue": "arXiv",
+   "abstract": "De novo crystal generation (DNG) models decide where to search in composition space and how to generate structures with one set of weights. We argue that discovery is better served by separating the two. A crystal structure prediction (CSP) model is a physical prior that should be improved by likelihood training, while rewards, including novelty measured against the search's own history, should act on a search over compositions. We introduce ANCHOR, a GRPO composition policy trained with multi-objective rewards around a frozen CSP model, and continuous adaptive novelty (CAN), a graded novelty score against known structures and a growing discovery history. Using the frozen CSP model as a fixed ruler under one evaluator, we test where adaptation should act. Replacing DNG compositions with ANCHOR's policy on the same CSP backbone raises MSUN from 11.4% to 47.6% and SUN from 1.1% to 22.1% at 99.9% formula uniqueness. Fine-tuning DNG models directly on the same rewards instead moves their composition marginal without raising their on-hull fraction. We show that KL-regularized fine-tuning of a DNG model can only reweight chemistry the pretrained model already supports by a bounded factor",
+   "matched": [
+    "abs:\"crystal structure prediction\"",
+    "abs:\"crystal structure prediction\" AND abs:generative"
+   ],
+   "tags": [],
+   "relevance": 80,
+   "significance": 0,
+   "score": 75,
+   "screen": {
+    "relevance": 8,
+    "reason": "Novel generative-model search strategy with frozen CSP prior; direct molecular crystal generation with composition-struc"
+   },
+   "summary": "Decouples composition search from structure generation via ANCHOR, a GRPO-trained composition policy with continuous adaptive novelty rewards operating over a frozen CSP model, boosting SUN rate from 1.1% to 22.1%.",
+   "first_seen": "2026-10-01",
+   "is_new": false
+  },
+  {
+   "src": "journal",
+   "title": "Projected Hessian learning: Fast curvature supervision for accurate machine-learning interatomic potentials",
+   "date": "2026-09-25",
+   "doi": "10.1088/2632-2153/aeac9b",
+   "authors": [
+    "Austin Rodriguez",
+    "Justin Smith",
+    "Sakib Matin"
+   ],
+   "authors_all": [
+    "Austin Rodriguez",
+    "Justin Smith",
+    "Sakib Matin",
+    "Nicholas Lubbers",
+    "Kipton Barros",
+    "Jose Mendoza Cortes"
+   ],
+   "corresponding": [
+    "Jose Mendoza Cortes"
+   ],
+   "cited_by": 0,
+   "venue": "Machine Learning: Science and Technology",
+   "abstract": "Abstract The Hessian matrix of second derivatives contains substantially richer information about the local geometry of the potential energy surface than energies and forces alone. Although incorporating full Hessians into machine-learning interatomic potential (MLIP) training can significantly improve accuracy and robustness, the quadratic computational and memory cost of explicitly constructing and storing Hessian matrices has limited its practical use. Here, we introduce Projected Hessian Learning (PHL), a scalable second-order training framework that incorporates curvature information using only Hessian\u2013vector products (HVPs). By avoiding explicit Hessian construction and instead projecting curvature along stochastic probe directions, PHL reduces the cost of second-derivative supervision to near force-level complexity. The resulting dense-probe trace estimator is unbiased and exhibits favorable scaling with system size, enabling curvature-informed training without quadratic memory growth. We evaluated various training approaches on a chemically diverse dataset of reactants, products, transition states, intrinsic reaction coordinates, and normal-mode sampled geometries generated",
+   "matched": [
+    "machine learning interatomic potential",
+    "universal interatomic potential"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "ML-potential"
+   ],
+   "relevance": 70,
+   "significance": 12,
+   "score": 72,
+   "screen": {
+    "relevance": 7,
+    "reason": "Novel MLIP training method improving accuracy/robustness; direct application to CSP energy ranking."
+   },
+   "summary": "Introduces Projected Hessian Learning, using stochastic Hessian\u2013vector products to supervise MLIP training with near force-level cost instead of explicit quadratic-scaling Hessian matrices.",
+   "first_seen": "2026-09-26",
+   "is_new": false
+  },
+  {
+   "src": "journal",
+   "title": "On the Hardness of Energy Minimisation for Crystal Structure Prediction",
+   "date": "2026-09-29",
+   "doi": "10.46298/fi.7374",
+   "authors": [
+    "Duncan Adamson",
+    "Argyrios Deligkas",
+    "Vladimir Gusev"
+   ],
+   "authors_all": [
+    "Duncan Adamson",
+    "Argyrios Deligkas",
+    "Vladimir Gusev",
+    "Igor Potapov"
+   ],
+   "corresponding": [
+    "Igor Potapov"
+   ],
+   "cited_by": 0,
+   "venue": "Fundamenta Informaticae",
+   "abstract": "Crystal Structure Prediction (csp) is one of the central and most challenging problems in materials science and computational chemistry. In csp, the goal is to find a configuration of ions in 3D space that yields the lowest potential energy. Finding an efficient procedure to solve this complex optimisation question is a well known open problem. Due to the exponentially large search space, the problem has been referred in several materials-science papers as &amp;quot;NP-Hard and very challenging&amp;quot; without a formal proof. This paper fills a gap in the literature providing the first set of formally proven NP-Hardness results for a variant of csp with various realistic constraints. In particular, we focus on the problem of removal: the goal is to find a substructure with minimal potential energy, by removing a subset of the ions. Our main contributions are NP-Hardness results for the csp removal problem, new embeddings of combinatorial graph problems into geometrical settings, and a more systematic exploration of the energy function to reveal the complexity of csp. In a wider context, our results contribute to the analysis of computational problems for weighted graphs embedded ",
+   "matched": [
+    "crystal energy landscape molecular",
+    "genetic algorithm crystal structure prediction",
+    "organic crystal polymorph prediction",
+    "molecular crystal structure prediction",
+    "generative model crystal structure"
+   ],
+   "tags": [],
+   "relevance": 70,
+   "significance": 0,
+   "score": 60,
+   "screen": {
+    "relevance": 7,
+    "reason": "Formal NP-hardness analysis of CSP search space; theoretical foundation for algorithm design."
+   },
+   "summary": "Delivers the first formal NP-hardness proofs for a constrained \"removal\" variant of crystal structure prediction, via novel embeddings of combinatorial graph problems into geometric ion configurations.",
+   "first_seen": "2026-09-30",
+   "is_new": false
+  },
+  {
+   "src": "arXiv",
+   "title": "Symmetry-Aware Flow Matching for End-to-end Molecular Crystal Generation",
+   "date": "2026-09-28",
+   "arxiv_id": "2609.34690v1",
+   "url": "https://arxiv.org/abs/2609.34690v1",
+   "authors": [
+    "Wendi Cai",
+    "Fanyang Mo"
+   ],
+   "authors_all": [
+    "Wendi Cai",
+    "Fanyang Mo"
+   ],
+   "venue": "arXiv",
+   "abstract": "Molecular crystal packing shapes properties from drug bioavailability to charge transport, yet generating realistic structures requires coordinating molecular flexibility, intermolecular interactions and symmetry. Here we introduce SALA, a flow-matching model built on state--context separation: it evolves only asymmetric-unit (ASU) atomic coordinates and symmetry-compatible lattice parameters while predicting their updates from the full periodic environment. Conditioned on molecular graphs and a space group, SALA generates molecular conformation, lattice geometry and packing end to end while preserving the specified symmetry. Across 799 held-out crystals spanning four chemical classes and all seven crystal systems, SALA achieves a 72.0\\% hit rate from 50 candidates per target, compared with 8.1\\% for an atomistic full-cell generative baseline. Mean best-candidate packing root-mean-square deviation decreases from 4.48 to 1.70~\u00c5, with the advantage widening as system size and symmetry multiplicity increase. SALA thus enables end-to-end generation of complex, symmetry-constrained molecular crystals, with potential applications in CSP, structure-based pharmaceutical polymorph design an",
+   "matched": [
+    "abs:\"molecular crystal\" AND abs:polymorph"
+   ],
+   "tags": [
+    "generative-model",
+    "ML-potential",
+    "polymorphism",
+    "space-group"
+   ],
+   "relevance": 90,
+   "significance": 0,
+   "score": 54,
+   "screen": {
+    "relevance": 9,
+    "reason": "Novel symmetry-aware generative model for end-to-end molecular crystal structure generation with strong CSP benchmark re"
+   },
+   "summary": "Introduces SALA, a flow-matching model using state\u2013context separation to evolve only asymmetric-unit coordinates and symmetry-compatible lattice parameters, enabling end-to-end symmetry-preserving molecular crystal generation that dramatically outperforms an atom",
+   "first_seen": "2026-09-29",
+   "is_new": false
+  },
+  {
+   "src": "arXiv",
+   "title": "BranchIP: Learning Adaptive Equivariant Computation for Interatomic Potentials",
+   "date": "2026-10-01",
+   "arxiv_id": "2610.02013v1",
+   "url": "https://arxiv.org/abs/2610.02013v1",
+   "authors": [
+    "Laura Zichi",
+    "Gil Harari",
+    "Chuin Wei Tan"
+   ],
+   "authors_all": [
+    "Laura Zichi",
+    "Gil Harari",
+    "Chuin Wei Tan",
+    "Marc L. Descoteaux",
+    "Albert Zhu",
+    "Menghang Wang",
+    "Yoel Zimmermann",
+    "H. T. Kung",
+    "Boris Kozinsky"
+   ],
+   "venue": "arXiv",
+   "abstract": "Equivariant machine learning interatomic potentials (MLIPs) have revolutionized atomistic modeling, but accurate treatment of complex materials and molecular systems demands expensive models. This limits simulation length- and time-scales, with tensor products a key computational bottleneck. The recent emergence of foundation-scale MLIPs further exacerbates this challenge. We present Branch Interatomic Potential (BranchIP), a single-model framework for learned adaptive tensor product computation, trained with a novel distillation loss. In our experiments on two systems of physical interest, a heterogeneous catalysis system and a proton-conducting solid acid electrolyte, BranchIP accelerates MLIPs across model sizes by up to $2.4\\times$ while reducing memory usage by up to $2.6\\times$. This is achieved while maintaining physical fidelity. Furthermore, the learned adaptive computation provides model interpretability by revealing which interactions demand deeper computation and showing how computational depth relates to chemical complexity and dynamics.",
+   "matched": [
+    "abs:\"interatomic potential\" AND abs:\"machine learning\""
+   ],
+   "ai4sci": true,
+   "tags": [
+    "ML-potential"
+   ],
+   "relevance": 70,
+   "significance": 8,
+   "score": 48,
+   "screen": {
+    "relevance": 7,
+    "reason": "MLIP efficiency innovation with transfer potential; accelerates CSP sampling but not core structure-prediction method."
+   },
+   "summary": "Introduces BranchIP, a single-model framework with learned adaptive equivariant tensor-product branching and a novel distillation loss, cutting MLIP compute/memory while preserving accuracy and interpretability.",
+   "first_seen": "2026-10-03",
+   "is_new": true
+  },
+  {
+   "src": "journal",
+   "title": "Convolutional Kernel-Embedded\n                    E\n                    (3)-Equivariant\nNetworks (KEN): Overcoming Architectural Rigidity in Machine Learning\nInteratomic Potentials",
+   "date": "2026-10-02",
+   "doi": "10.1021/acs.jctc.6c01109",
+   "authors": [
+    "Jha Gautam"
+   ],
+   "authors_all": [
+    "Jha Gautam"
+   ],
+   "corresponding": [
+    "Jha Gautam"
+   ],
+   "cited_by": 0,
+   "venue": "Journal of Chemical Theory\nand Computation",
+   "abstract": "Abstract Machine learning interatomic potentials (MLIPs) have emerged as scalable alternatives to first-principles methods such as density functional theory (DFT). Among them, E(3)-equivariant graph neural networks (GNNs) like PACE and MACE are highly accurate but structurally rigid, limiting the incorporation of rich, multichannel electronic descriptors. We introduce convolutional kernel-embedded E(3)-equivariant networks (KEN), a hybrid architecture that combines the local environmental extraction of 2D convolutional kernels with the many-body expressivity of an E(3)-equivariant GNN backbone. This design preserves symmetry while enabling flexible, multimodal input features without increasing training data requirements. Trained and tested on heavy element 26 (HE26) dataset, KEN was compared with MACE-osaka26 model. Further validation on lattice parameter prediction through Birch\u2013Murnaghan equation of state, magnetic moment prediction, and comparison with CHGNet framework, and microcanonical molecular dynamics confirms robust energy conservation and accurate reproduction of the forces, and thus, demonstrates a viable pathway to overcoming architectural rigidity in state-of-the-art ",
+   "matched": [
+    "machine learning interatomic potential",
+    "universal interatomic potential"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "ML-potential"
+   ],
+   "relevance": 70,
+   "significance": 0,
+   "score": 45,
+   "screen": {
+    "relevance": 7,
+    "reason": "Novel E(3)-equivariant MLIP architecture improving on MACE; direct relevance to CSP acceleration via better potentials."
+   },
+   "summary": "KEN introduces a hybrid architecture embedding 2D convolutional kernels within E(3)-equivariant GNN backbones, enabling flexible multichannel/multimodal descriptors without sacrificing symmetry or requiring more training data.",
+   "first_seen": "2026-10-03",
+   "is_new": true
+  },
+  {
+   "src": "arXiv",
+   "title": "E3J: An Efficient and Open-Source Backend for Euclidean Equivariant Operations on GPU and TPU",
+   "date": "2026-09-28",
+   "arxiv_id": "2609.35099v1",
+   "url": "https://arxiv.org/abs/2609.35099v1",
+   "authors": [
+    "Olivier Peltre",
+    "Armand Picard",
+    "Adrien Pichard"
+   ],
+   "authors_all": [
+    "Olivier Peltre",
+    "Armand Picard",
+    "Adrien Pichard",
+    "Miguel Bragan\u00e7a",
+    "Luca Giacomoni",
+    "Valentin Heyraud",
+    "Zachary Weller-Davies",
+    "Christoph Brunken",
+    "Jules Tilly"
+   ],
+   "venue": "arXiv",
+   "abstract": "We present e3j, a fast Euclid-equivariance backend for geometric deep learning applications with JAX bindings for GPU and TPU. Leveraging both optimized CUDA and Pallas kernels and algorithmic improvements, the library achieves state-of-the-art throughput and runtime on both forward and backward paths. On a machine learning interatomic potential (MLIP) use case, it outperforms established backends, measuring up to 34% speed-up over cuEquivariance on water box NPT simulation using MACE, while remaining fully open source. E3j achieves over 80% efficiency over the H100 maximum memory bandwidth on tensor product operations, and in many cases more than doubles throughput of message passing convolutions forward compared to previously available backends. In addition, with the release of dedicated Pallas TPU kernel, e3j opens the possibility of large scale equivariant deep learning workloads on TPU architectures, which has so far been difficult to achieve. Our benchmarks show that e3j also achieves over 80% of a TPUv6e memory bandwidth, up to one order of magnitude more than e3nn-jax. The library is available on GitHub, PyPI and is released under an open source Apache 2.0 license.",
+   "matched": [
+    "abs:\"interatomic potential\" AND abs:\"machine learning\""
+   ],
+   "ai4sci": true,
+   "tags": [
+    "ML-potential",
+    "benchmark"
+   ],
+   "relevance": 70,
+   "significance": 0,
+   "score": 45,
+   "screen": {
+    "relevance": 7,
+    "reason": "GPU/TPU backend accelerates MACE MLIPs for CSP; enables larger-scale equivariant ML workloads."
+   },
+   "summary": "Introduces e3j, an open-source JAX library with optimized CUDA and Pallas kernels\u2014including the first dedicated TPU kernel\u2014delivering state-of-the-art equivariant tensor-product and message-passing throughput on both GPUs and TPUs.",
+   "first_seen": "2026-09-29",
+   "is_new": false
+  },
+  {
+   "src": "arXiv",
+   "title": "Topology-Stratified Materials Discovery with A Flow-Based Generative Model",
+   "date": "2026-09-22",
+   "arxiv_id": "2609.26547v1",
+   "url": "https://arxiv.org/abs/2609.26547v1",
+   "authors": [
+    "Jingyi Zhou",
+    "Oyshee Chowdhury",
+    "Noah Oyeniran"
+   ],
+   "authors_all": [
+    "Jingyi Zhou",
+    "Oyshee Chowdhury",
+    "Noah Oyeniran",
+    "Chongze Hu"
+   ],
+   "venue": "arXiv",
+   "abstract": "Accurate generation of crystal structures is the foundation to the discovery of high-performance materials for extreme-environment applications, such as aerospace, additive manufacturing, and fusion energy systems. Although generative modeling has emerged as a promising approach for crystal design, its performance remains limited by the complex crystal structures and diverse chemical compositions. In this work, we develop UFO-MGen, a universal flow-based generative model that learns topological features of Wyckoff representations and leverages this information to accurately generate crystals across vast structural and chemical spaces. Compared with state-of-the-art generative models, UFO-MGen achieves the highest crystal generation success rate under a rigorous multi-stability evaluation framework, the highest SUN (stable, unique, novel) rate, and a remarkable extrapolation capability that has not been reported by previous models. Furthermore, a fine-tuning module is implemented to UFO-MGen for property-constrained crystal generation, enabling the inverse materials design toward target properties. The UFO-MGen opens a new avenue for accelerated materials discovery and providing a f",
+   "matched": [
+    "abs:\"generative model\" AND abs:\"crystal structure\""
+   ],
+   "ai4sci": true,
+   "tags": [
+    "generative-model"
+   ],
+   "relevance": 70,
+   "significance": 0,
+   "score": 40,
+   "screen": {
+    "relevance": 7,
+    "reason": "Flow-based generative model for crystal structures; transfers to molecular-crystal generation but focuses on inorganic."
+   },
+   "summary": "Introduces UFO-MGen, a flow-based generative model conditioned on Wyckoff-position topology to stratify crystal structures, achieving state-of-the-art SUN rates and unprecedented extrapolation to novel structural/chemical spaces.",
+   "first_seen": "2026-09-29",
+   "is_new": false
+  },
+  {
+   "src": "arXiv",
+   "title": "Colour me shocked: Exact Molecular Hessians from local MLIPs in O(N) time using sparse differentiation!",
+   "date": "2026-09-21",
+   "arxiv_id": "2609.24720v1",
+   "url": "https://arxiv.org/abs/2609.24720v1",
+   "authors": [
+    "Luca Thiede",
+    "Andreas Burger",
+    "Al\u00e1n Aspuru-Guzik"
+   ],
+   "authors_all": [
+    "Luca Thiede",
+    "Andreas Burger",
+    "Al\u00e1n Aspuru-Guzik"
+   ],
+   "venue": "arXiv",
+   "abstract": "The Hessian of the energy with respect to the nuclear positions is indispensable in atomistic modelling. However, constructing this matrix requires $O(N)$ Hessian vector products, traditionally limiting high-accuracy Hessians to small systems. Machine learning interatomic potentials (MLIPs) have accelerated atomistic modelling by providing highly accurate energies and forces at $O(N)$ cost, yet the resulting $O(N^2)$ cost of Hessians remains a practical bottleneck for large systems. Based on the insight that we can derive the sparsity pattern for an MLIP's Hessians in closed form, we show in this paper how to use techniques from sparse automatic differentiation to reduce the cost of a local MLIP's Hessians to a system-size-independent number of Hessian-vector products, yielding overall $O(N)$ total cost without any approximations. We benchmark our approach on a variety of systems ranging from alkane chains to water clusters to $A\\beta40$ conformers. Depending on the MLIP configuration, we achieve the linear scaling regime already on relatively small systems, resulting in large runtime reductions between 2$\\times$-15$\\times$ for these systems. This opens up the possibility of scalin",
+   "matched": [
+    "abs:\"interatomic potential\" AND abs:\"machine learning\""
+   ],
+   "ai4sci": true,
+   "tags": [
+    "ML-potential",
+    "conformational",
+    "benchmark"
+   ],
+   "relevance": 70,
+   "significance": 0,
+   "score": 35,
+   "screen": {
+    "relevance": 7,
+    "reason": "Novel MLIP Hessian acceleration via sparse autodiff. Direct CSP utility for lattice-energy ranking & geometry optimizati"
+   },
+   "summary": "Exploits the closed-form sparsity pattern of local MLIP Hessians with sparse automatic differentiation to compute exact molecular Hessians in O(N) time instead of O(N\u00b2), achieving 2\u201315\u00d7 speedups.",
+   "first_seen": "2026-09-29",
+   "is_new": false
+  },
+  {
+   "src": "arXiv",
+   "title": "ECENet: An Edge Cluster Expansion Line-Graph Neural Network",
+   "date": "2026-09-19",
+   "arxiv_id": "2609.23134v1",
+   "url": "https://arxiv.org/abs/2609.23134v1",
+   "authors": [
+    "R. Allen LaCour",
+    "Teresa Head-Gordon"
+   ],
+   "authors_all": [
+    "R. Allen LaCour",
+    "Teresa Head-Gordon"
+   ],
+   "venue": "arXiv",
+   "abstract": "Machine-learned interatomic potentials (MLIPs) have emerged as a promising alternative to classical force fields and first-principles theory for predicting the properties of chemical and material systems. Many MLIPs are graph neural networks with O(3)-equivariant features, whose accuracy comes at substantial computational cost. Here we introduce the edge cluster expansion (ECE), an analogue of the atomic cluster expansion in which the environment is expanded around edges between atom pairs rather than single atoms, and build upon it to develop the line-graph neural network ECENet. ECENet uses O(2)-equivariant features that persist on the edges between atoms, giving it natural access to O(2) operations that are cheaper and less restrictive than their O(3) counterparts. ECENet performs at the state of the art on the MD22 benchmark and lies on the accuracy-cost Pareto frontier when trained on the SPICE-MACE-OFF dataset. Furthermore, with long-range electrostatics implemented via latent Ewald summation, ECENet accurately predicts molecular dipole moments and the infrared spectrum of liquid water. The frontier ECENet architecture establishes equivariant edge-centered representations as ",
+   "matched": [
+    "abs:\"interatomic potential\" AND abs:\"machine learning\""
+   ],
+   "ai4sci": true,
+   "tags": [
+    "ML-potential",
+    "lattice-energy",
+    "benchmark"
+   ],
+   "relevance": 70,
+   "significance": 0,
+   "score": 35,
+   "screen": {
+    "relevance": 7,
+    "reason": "Novel MLIP architecture with clear CSP transfer; state-of-art accuracy-cost tradeoff for molecular systems."
+   },
+   "summary": "Introduces the edge cluster expansion\u2014expanding atomic environments around bonds rather than atoms\u2014enabling ECENet, an O(2)-equivariant line-graph MLIP that matches O(3)-equivariant accuracy at lower cost.",
+   "first_seen": "2026-09-29",
+   "is_new": false
+  },
+  {
+   "src": "arXiv",
+   "title": "Cluster-based Structural Similarity for Dataset Visualization and Data Selection for Machine Learning Interatomic Potentials",
+   "date": "2026-09-30",
+   "arxiv_id": "2609.39984v1",
+   "url": "https://arxiv.org/abs/2609.39984v1",
+   "authors": [
+    "Yuto Iwasaki",
+    "Miguel A. Caro"
+   ],
+   "authors_all": [
+    "Yuto Iwasaki",
+    "Miguel A. Caro"
+   ],
+   "venue": "arXiv",
+   "abstract": "Machine learning interatomic potentials (MLIPs) are essential components for accelerating simulation-driven materials design. Data-efficient MLIP training relies on data-selection strategies that maximize structural diversity while limiting computationally expensive first-principles calculations. A key challenge in such strategies is evaluating structural similarity, which involves a trade-off between retaining information on individual atomic environments and reducing computational cost. Here, we propose similarity evaluation methods that achieve both representational fidelity and computational efficiency. Our method represents each structure using a small set of characteristic atomic environments identified by k-medoids clustering and computes pairwise similarity through optimal matching between these representatives or their distributions. Molecular benchmarks demonstrate that our method is approximately 50 times faster than the baseline method while also more clearly distinguishing structures with different chemical compositions. Similarity-based data-selection benchmarks demonstrate that our methods improve the data efficiency and stability of force prediction in MLIPs.",
+   "matched": [
+    "abs:\"interatomic potential\" AND abs:\"machine learning\""
+   ],
+   "ai4sci": true,
+   "tags": [
+    "ML-potential",
+    "benchmark"
+   ],
+   "relevance": 70,
+   "significance": 0,
+   "score": 30,
+   "screen": {
+    "relevance": 7,
+    "reason": "Novel data-selection strategy for MLIP training; directly applicable to CSP workflows."
+   },
+   "summary": "Introduces a k-medoids-based cluster representation of atomic environments with optimal-matching similarity, enabling ~50x faster, more discriminative structural comparison for MLIP data selection.",
+   "first_seen": "2026-10-01",
+   "is_new": false
+  },
+  {
+   "src": "journal",
+   "title": "Benchmarking Practices for ML Interatomic Potentials: A Critical Review of Methodological Pitfalls and What Was Missed (2017\u20132023)",
+   "date": "2026-09-27",
+   "doi": "10.68159/l189247610",
+   "authors": [
+    "Paolo Ricci",
+    "Marco De Luca",
+    "Giulia Ferraro"
+   ],
+   "authors_all": [
+    "Paolo Ricci",
+    "Marco De Luca",
+    "Giulia Ferraro",
+    "Antonio Russo"
+   ],
+   "corresponding": [
+    "Antonio Russo"
+   ],
+   "cited_by": 0,
+   "venue": "Journal of Computational and Data-Driven Materials Engineering",
+   "abstract": "",
+   "matched": [
+    "universal interatomic potential"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "ML-potential",
+    "benchmark"
+   ],
+   "relevance": 70,
+   "significance": 0,
+   "score": 30,
+   "screen": {
+    "relevance": 7,
+    "reason": "Critical methodological review of MLIP benchmarking directly applicable to CSP potential validation."
+   },
+   "summary": "A systematic meta-analysis exposing recurring methodological flaws\u2014inconsistent train/test splits, cherry-picked error metrics, and neglected uncertainty quantification\u2014across seven years of ML interatomic potential benchmarking studies.",
+   "first_seen": "2026-09-27",
+   "is_new": false
+  },
+  {
+   "src": "arXiv",
+   "title": "From Energy-Force Weighting to Primal-Dual Optimization of Machine-Learned Interatomic Potentials",
+   "date": "2026-10-01",
+   "arxiv_id": "2610.00876v1",
+   "url": "https://arxiv.org/abs/2610.00876v1",
+   "authors": [
+    "Chenyu Wang",
+    "Yangshuai Wang",
+    "Lei Zhang"
+   ],
+   "authors_all": [
+    "Chenyu Wang",
+    "Yangshuai Wang",
+    "Lei Zhang"
+   ],
+   "venue": "arXiv",
+   "abstract": "Machine-learned interatomic potentials are commonly fitted by weighted-sum scalarization, which combines energy and force errors in a single loss. A nominal weight, however, identifies a potential only relative to the complete fitting protocol. We therefore treat energy--force balancing as a protocol-dependent problem of physical model selection. For fixed-basis atomic cluster expansion models of molten LiCl, liquid H$_2$O, and Si, the resulting scalarization paths contain dominated states at extreme weights. Their nondominated subsets depend on the solver, and the out-of-distribution Si path is nonmonotone. We replace direct weight selection by minimizing the regularized energy objective subject to an upper bound on the normalized force loss. Projected dual ascent adjusts the Lagrange multiplier from the force-constraint residual. A frozen-multiplier limited-memory quasi-Newton refinement then returns the final model. Across the three systems, the constrained procedure reaches the solver-matched low-error region and gives measured speedups of $6.7$--$8.9$ over completed scalarization scans under the stated timing convention. Physical-property calculations show that first-shell geo",
+   "matched": [
+    "abs:\"interatomic potential\" AND abs:\"machine learning\""
+   ],
+   "ai4sci": true,
+   "tags": [
+    "ML-potential"
+   ],
+   "relevance": 70,
+   "significance": 0,
+   "score": 25,
+   "screen": {
+    "relevance": 7,
+    "reason": "MLIP fitting methodology with potential CSP transfer; constrained optimization for potential training efficiency"
+   },
+   "summary": "Reframes energy\u2013force weighting in machine-learned interatomic potentials as constrained primal\u2013dual optimization (dual ascent plus quasi-Newton refinement) instead of scalarization, achieving 6.7\u20138.9\u00d7 speedups over weight-scan fitting.",
+   "first_seen": "2026-10-02",
+   "is_new": false
+  },
+  {
+   "src": "arXiv",
+   "title": "Reference-free certification of machine-learning interatomic potentials",
+   "date": "2026-09-30",
+   "arxiv_id": "2610.00585v1",
+   "url": "https://arxiv.org/abs/2610.00585v1",
+   "authors": [
+    "Jonas H\u00e4nseroth",
+    "Christian Dre\u00dfler"
+   ],
+   "authors_all": [
+    "Jonas H\u00e4nseroth",
+    "Christian Dre\u00dfler"
+   ],
+   "venue": "arXiv",
+   "abstract": "Universal machine-learning interatomic potentials now reach held-out energy and force errors so small that they no longer predict how a model behaves in simulation. Here we show that a potential can be graded without any reference calculation, against properties the exact Born-Oppenheimer surface satisfies by mathematical or physical necessity. We organise these properties into four families, symmetry and invariance, self-consistency and integrability, statistical-mechanical equilibrium and regularity, and turn them into fourteen inexpensive probes, each certifying against a target that is exact and independent of chemistry and reference method. Every probe therefore returns an absolute, architecture-comparable score from the energies, forces and stresses a potential already exposes, and reveals failures a fixed test set cannot. Applied to 64 pretrained potentials, the suite resolves two orders of magnitude of certified quality at comparable reported accuracy, and flags a fine-tuned potential whose reference errors improve while its surface degrades until molecular dynamics fails. An interactive leaderboard of all 64 models is available at https://jhaens.github.io/pescert-bench.",
+   "matched": [
+    "abs:\"interatomic potential\" AND abs:\"machine learning\""
+   ],
+   "ai4sci": true,
+   "tags": [
+    "ML-potential"
+   ],
+   "relevance": 70,
+   "significance": 0,
+   "score": 25,
+   "screen": {
+    "relevance": 7,
+    "reason": "MLIP quality certification crucial for CSP applications; architecture-agnostic validation transfers directly."
+   },
+   "summary": "Introduces a reference-free certification suite of fourteen physics-based probes\u2014spanning symmetry, integrability, and statistical-mechanical consistency\u2014to score machine-learning interatomic potentials without ground-truth data.",
+   "first_seen": "2026-10-02",
+   "is_new": false
+  },
+  {
+   "src": "arXiv",
+   "title": "A latent-space extrapolation grade built into graph atomic cluster expansion foundation potentials",
+   "date": "2026-09-30",
+   "arxiv_id": "2609.40060v1",
+   "url": "https://arxiv.org/abs/2609.40060v1",
+   "authors": [
+    "Yury Lysogorskiy",
+    "Anton Bochkarev",
+    "Ralf Drautz"
+   ],
+   "authors_all": [
+    "Yury Lysogorskiy",
+    "Anton Bochkarev",
+    "Ralf Drautz"
+   ],
+   "venue": "arXiv",
+   "abstract": "Foundation machine-learning interatomic potentials cover broad configurational and chemical spaces, but their reliability can vary across the atomic environments encountered during a simulation. Here we introduce the calibrated Mahalanobis (CALM) extrapolation grade $\u03b3$, a piecewise differentiable per-atom quantity integrated into GRACE foundation models and evaluated alongside energies and forces in a single model pass. We define $\u03b3$ from nearest-cluster Mahalanobis distances in latent feature space, setting $\u03b3=1$ from the training-distance distribution separately for each element and cluster. Controlled tests show that a normalized random projection of the invariant many-body basis detects structural and chemical extrapolation. On different foundation datasets, OMat24 and SMAX, $\u03b3$ correlates with atomic force errors and separates structures with different error distributions. The CALM grade adds percent-level computational cost, and its spatial gradient guides uncertainty-biased data collection toward configurations with larger absolute force errors.",
+   "matched": [
+    "abs:\"interatomic potential\" AND abs:\"machine learning\""
+   ],
+   "ai4sci": true,
+   "tags": [
+    "ML-potential"
+   ],
+   "relevance": 70,
+   "significance": 0,
+   "score": 25,
+   "screen": {
+    "relevance": 7,
+    "reason": "MLIP uncertainty quantification with per-atom extrapolation grades; valuable for reliable CSP structure ranking."
+   },
+   "summary": "Introduces the CALM extrapolation grade\u2014a calibrated, differentiable per-atom Mahalanobis distance in GRACE's latent cluster-expansion space\u2014enabling single-pass uncertainty estimates to guide active-learning data collection.",
+   "first_seen": "2026-10-01",
+   "is_new": false
+  },
+  {
+   "src": "journal",
+   "title": "Uncertainty Quantification for ML Interatomic Potentials: A Review of Methods, Hidden Assumptions, and Unresolved Questions",
+   "date": "2026-09-27",
+   "doi": "10.68159/p918703755",
+   "authors": [
+    "Daniel Fischer",
+    "Laura Meier",
+    "Thomas Braun"
+   ],
+   "authors_all": [
+    "Daniel Fischer",
+    "Laura Meier",
+    "Thomas Braun",
+    "Stefan Koch",
+    "Felix Roth"
+   ],
+   "corresponding": [
+    "Felix Roth"
+   ],
+   "cited_by": 0,
+   "venue": "Journal of Computational and Data-Driven Materials Engineering",
+   "abstract": "",
+   "matched": [
+    "universal interatomic potential"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "ML-potential"
+   ],
+   "relevance": 70,
+   "significance": 0,
+   "score": 25,
+   "screen": {
+    "relevance": 7,
+    "reason": "UQ methods for MLIPs directly applicable to CSP energy ranking & structure search confidence."
+   },
+   "summary": "Likely offers a critical taxonomy of uncertainty-quantification methods for ML interatomic potentials, exposing hidden statistical assumptions and open methodological gaps rather than proposing a new UQ algorithm itself.",
+   "first_seen": "2026-09-27",
+   "is_new": false
+  },
+  {
+   "src": "arXiv",
+   "title": "Multivariate conformal uncertainty propagation in multitask atomistic simulation: Successes and pitfalls",
+   "date": "2026-09-25",
+   "arxiv_id": "2609.31384v1",
+   "url": "https://arxiv.org/abs/2609.31384v1",
+   "authors": [
+    "Katharine Fisher",
+    "Michael Herbst",
+    "James Kermode"
+   ],
+   "authors_all": [
+    "Katharine Fisher",
+    "Michael Herbst",
+    "James Kermode",
+    "Youssef Marzouk"
+   ],
+   "venue": "arXiv",
+   "abstract": "Machine learning has become the standard tool for the design of interatomic potentials which balance efficiency and accuracy, but uncertainty quantification remains an open problem. Multiscale simulations introduce an additional challenge: robust uncertainty quantification across scales. Even within one scale, computations are often multistage, producing a sequence of target quantities, each dependent on the previous, and each with some uncertainty. Conformal methods have emerged as a model agnostic framework for recalibrating surrogate predictions to produce sets which contain the truth at a user-specified rate. For multistage workflows, we require uncertainty calibration for multiple chemical properties and atomistic configurations, and we want to propagate uncertainty sets to downstream quantities of interest. Such propagation should capture the error cancellations which occur in many downstream targets in materials science; for instance, an approximate energy difference is often more accurate than individual energy predictions. We present the first exploration of multivariate conformal methods for chemical properties, including Bonferroni-corrected hyperrectangles, hyperellipso",
+   "matched": [
+    "abs:\"interatomic potential\" AND abs:\"machine learning\""
+   ],
+   "ai4sci": true,
+   "tags": [
+    "ML-potential"
+   ],
+   "relevance": 70,
+   "significance": 0,
+   "score": 25,
+   "screen": {
+    "relevance": 7,
+    "reason": "Uncertainty quantification for MLIPs in multistage atomistic workflows; novel conformal methods applicable to CSP energy"
+   },
+   "summary": "Introduces multivariate conformal prediction\u2014Bonferroni-corrected hyperrectangles and hyperellipsoids\u2014to jointly calibrate and propagate uncertainty across multistage, multitask atomistic simulation workflows.",
+   "first_seen": "2026-09-29",
+   "is_new": false
+  },
+  {
+   "src": "journal",
+   "title": "Thermodynamically consistent machine learning potentials for constant-potential simulations",
+   "date": "2026-09-21",
+   "doi": "10.1103/9xzk-bg72",
+   "authors": [
+    "Anonymous"
+   ],
+   "authors_all": [
+    "Anonymous"
+   ],
+   "corresponding": [
+    "Anonymous"
+   ],
+   "cited_by": 0,
+   "venue": "Physical Review Letters",
+   "abstract": "",
+   "matched": [
+    "machine learning interatomic potential"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "ML-potential"
+   ],
+   "relevance": 70,
+   "significance": 0,
+   "score": 25,
+   "screen": {
+    "relevance": 7,
+    "reason": "Novel MLIP methodology (constant-potential) with potential CSP lattice-energy ranking applications."
+   },
+   "summary": "A machine learning interatomic potential framework enforcing thermodynamic consistency for constant-potential electrochemical simulations, enabling accurate modeling of charged electrode\u2013electrolyte interfaces at fixed applied voltage.",
+   "first_seen": "2026-09-24",
+   "is_new": false
+  },
+  {
+   "src": "journal",
+   "title": "Hybrid ab initio and empirical machine learning models for the potential energy surface",
+   "date": "2026-09-21",
+   "doi": "10.1103/x3hc-52cp",
+   "authors": [
+    "Anonymous"
+   ],
+   "authors_all": [
+    "Anonymous"
+   ],
+   "corresponding": [
+    "Anonymous"
+   ],
+   "cited_by": 0,
+   "venue": "Physical Review Letters",
+   "abstract": "",
+   "matched": [
+    "machine learning interatomic potential"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "ML-potential"
+   ],
+   "relevance": 70,
+   "significance": 0,
+   "score": 25,
+   "screen": {
+    "relevance": 7,
+    "reason": "Hybrid ab initio/ML PES modeling; direct MLIP methodology transfer to CSP ranking."
+   },
+   "summary": "A hybrid approach couples ab initio data with empirical-potential-informed machine learning to construct potential energy surfaces, likely reducing training-data requirements while retaining quantum-level accuracy.",
+   "first_seen": "2026-09-22",
+   "is_new": false
+  },
+  {
+   "src": "arXiv",
+   "title": "The Young-E(3) Tensor Product Decomposition for Rotation and Permutation Equivariant Cluster Expansions",
+   "date": "2026-09-25",
+   "arxiv_id": "2609.31895v1",
+   "url": "https://arxiv.org/abs/2609.31895v1",
+   "authors": [
+    "James M. Goff",
+    "Aidan P. Thompson"
+   ],
+   "authors_all": [
+    "James M. Goff",
+    "Aidan P. Thompson"
+   ],
+   "venue": "arXiv",
+   "abstract": "A generalization of fixed-lattice cluster expansions (CE) and atomic cluster expansions (ACE) is presented that expresses both rotation and permutation symmetries. By performing Schur--Weyl decomposition in Young subgroup-stabilized carriers, followed by joint coupling of rotation and permutation representations, arbitrary $S_N\\times SO(3)$ tensor product carriers are generated. This allows us to resolve complete, orthonormal joint rotation and permutation-adapted bases for arbitrary tensor product ranks and arbitrary angular and radial tensor product content. We show that this very general Young--E(3) (YE3T) tensor product basis contains the ACE basis as a subset, corresponding to the special case where permutation symmetry character is restricted to the fully symmetric carrier. Rather than constructing an overcomplete rotation and permutation-invariant basis and reducing it \\textit{a posteriori}, Barthelemy \\textit{et al.} recently demonstrated scaling benefits by not constructing an overcomplete basis. YE3T directly produces a complete orthonormal basis without an overcomplete step and rigorously extends to permutation characters beyond permutation-symmetric features. The YE3T d",
+   "matched": [
+    "abs:\"interatomic potential\" AND abs:\"machine learning\""
+   ],
+   "ai4sci": true,
+   "tags": [],
+   "relevance": 70,
+   "significance": 0,
+   "score": 20,
+   "screen": {
+    "relevance": 7,
+    "reason": "Novel equivariant basis theory for cluster expansions; direct MLIP architecture advancement with transfer to MCSP."
+   },
+   "summary": "Introduces the Young\u2013E(3) tensor-product basis, directly constructing a complete, orthonormal joint rotation- and permutation-adapted basis\u2014generalizing ACE beyond fully symmetric permutation characters without an overcomplete reduction step.",
+   "first_seen": "2026-09-29",
+   "is_new": false
+  }
+ ]
+}

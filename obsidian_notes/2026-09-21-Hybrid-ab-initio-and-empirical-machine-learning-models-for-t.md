@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-Hybrid framework couples ab initio-derived and empirical machine-learning potentials into a single model, likely improving potential-energy-surface accuracy while reducing first-principles computational cost.
+A hybrid approach couples ab initio data with empirical-potential-informed machine learning to construct potential energy surfaces, likely reducing training-data requirements while retaining quantum-level accuracy.
 
 ## My notes
 

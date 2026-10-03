@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-10-03",
+  "count": 26,
+  "new_count": 2,
+  "synthesis": "Generative flow-matching models dominate CSP today, with several papers probing where physics/symmetry priors should be embedded (equivariance, Riemannian geometry, RL-guided sampling) and benchmarking against prototype dependence\u2014signaling the field is maturing toward rigorous evaluation rather than just new generators. A hardness-theory paper on energy minimization complements this with complexity-theoretic",
+  "top": [
+   {
+    "title": "Riemannian Flow Models with Reinforcement Learning for Molecular Crystal Structure Prediction",
+    "relevance": 94,
+    "significance": 0
+   },
+   {
+    "title": "Where Should Physics Enter a Molecular Crystal Generator?",
+    "relevance": 92,
+    "significance": 0
+   },
+   {
+    "title": "Crystal Structure Prediction of Inorganic Materials: A Benchmark and Modern Evaluation",
+    "relevance": 92,
+    "significance": 0
+   }
+  ]
+ },
+ {
   "date": "2026-10-02",
   "count": 23,
   "new_count": 3,
