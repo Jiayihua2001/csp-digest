@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-Likely offers a critical taxonomy of uncertainty-quantification methods for ML interatomic potentials, exposing hidden statistical assumptions and open methodological gaps rather than proposing a new UQ algorithm itself.
+Likely offers a critical synthesis exposing hidden assumptions and unresolved methodological gaps in existing uncertainty quantification approaches for ML interatomic potentials, rather than proposing a new UQ technique itself.
 
 ## My notes
 

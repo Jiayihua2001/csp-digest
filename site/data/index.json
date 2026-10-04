@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-10-04",
+  "count": 24,
+  "new_count": 0,
+  "synthesis": "Flow-matching dominates CSP today, with multiple molecular and inorganic generators (Riemannian RL-flows, OMatG-flash, EP-Flow, symmetry-aware flows) alongside two reflective benchmark/hardness papers questioning prototype dependence and theoretical limits\u2014suggesting the field is both scaling generative approaches and critically re-examining evaluation rigor sim",
+  "top": [
+   {
+    "title": "Riemannian Flow Models with Reinforcement Learning for Molecular Crystal Structure Prediction",
+    "relevance": 94,
+    "significance": 0
+   },
+   {
+    "title": "Where Should Physics Enter a Molecular Crystal Generator?",
+    "relevance": 92,
+    "significance": 0
+   },
+   {
+    "title": "Crystal Structure Prediction of Inorganic Materials: A Benchmark and Modern Evaluation",
+    "relevance": 92,
+    "significance": 0
+   }
+  ]
+ },
+ {
   "date": "2026-10-03",
   "count": 26,
   "new_count": 2,

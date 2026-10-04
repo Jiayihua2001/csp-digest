@@ -22,7 +22,7 @@ tags:
 **Field:** [[ML-potential]] [[conformational]] [[benchmark]]
 
 ## Why it matters
-Exploits the closed-form sparsity pattern of local MLIP Hessians with sparse automatic differentiation to compute exact molecular Hessians in O(N) time instead of O(N²), achieving 2–15× speedups.
+Introduces a closed-form Hessian sparsity pattern for local MLIPs combined with sparse automatic differentiation, reducing exact Hessian computation from O(N²) to O(N) cost without approximation.
 
 ## Abstract
 > The Hessian of the energy with respect to the nuclear positions is indispensable in atomistic modelling. However, constructing this matrix requires $O(N)$ Hessian vector products, traditionally limiting high-accuracy Hessians to small systems. Machine learning interatomic potentials (MLIPs) have accelerated atomistic modelling by providing highly accurate energies and forces at $O(N)$ cost, yet the resulting $O(N^2)$ cost of Hessians remains a practical bottleneck for large systems. Based on the insight that we can derive the sparsity pattern for an MLIP's Hessians in closed form, we show in this paper how to use techniques from sparse automatic differentiation to reduce the cost of a local MLIP's Hessians to a system-size-independent number of Hessian-vector products, yielding overall $O(N)$ total cost without any approximations. We benchmark our approach on a variety of systems ranging from alkane chains to water clusters to $A\beta40$ conformers. Depending on the MLIP configuration, we achieve the linear scaling regime already on relatively small systems, resulting in large runtime reductions between 2$\times$-15$\times$ for these systems. This opens up the possibility of scalin

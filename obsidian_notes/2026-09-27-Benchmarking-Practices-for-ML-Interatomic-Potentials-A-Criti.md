@@ -21,7 +21,7 @@ tags:
 **Field:** [[ML-potential]] [[benchmark]]
 
 ## Why it matters
-A systematic meta-analysis exposing recurring methodological flaws—inconsistent train/test splits, cherry-picked error metrics, and neglected uncertainty quantification—across seven years of ML interatomic potential benchmarking studies.
+Introduces a systematic audit of benchmarking methodologies for ML interatomic potentials across 2017–2023 literature, identifying recurring evaluation flaws and proposing standardized criteria to enable fair cross-study comparison.
 
 ## My notes
 
