@@ -1784,6 +1784,62 @@
     }
    ],
    "synthesis": "For GAtor 2.0, this is a reminder that the GA's PBE0+MBD lattice-energy ranking is only the first stage of a real stability answer: the forms that survive niching and local optimization at 0 K must ultimately be re-ranked by finite-temperature free energies, and for pharma-relevant blind-test targets by free energies that also depend on relative humidity when hydrates or solvates are in play. Two operational lessons translate directly: (1) report error bars (1-2 kJ/mol here) and treat near-degenerate GA structures as unresolved rather than ranked, since polymorph gaps are routinely inside this uncertainty; (2) multi-component and Z'>1 crystals require a common reference that handles the exchanged species' chemical potential, so GAtor's structure generation (Genarris) and scoring for hydrates/solvates should carry composition-aware free-energy bookkeeping rather than comparing total energies of differently-sized cells. MLIPs (MACE-OFF, AIMNet2, UMA) can make the needed phonon/free-energy sampling affordable, but their rankings should be anchored to an experimental solid-solid benchmark in the same spirit."
+  },
+  {
+   "slug": "price-overprediction",
+   "title": "Is zeroth order crystal structure prediction (CSP_0) coming to maturity? What should we aim for in an ideal crystal structure prediction code?",
+   "doi": "10.1039/c8fd00121a",
+   "year": 2018,
+   "tier": "D",
+   "source_mode": "metadata",
+   "date": "2026-10-04",
+   "core_idea": "Price frames crystal structure prediction as a hierarchy: CSP_0 is the zeroth-order approach of searching for the global minimum of the lattice energy (0 K, static). She argues CSP_0 is maturing and useful for discovery, but the underlying hypothesis -- that crystallisation outcome equals the thermodynamic global minimum -- must be tested by modelling relative stability as a function of temperature, pressure, size, solvent and templates (CSP_thd), and ultimately extended toward an ideal code (CSP_aim) that can also address kinetically persistent, non-most-stable materials.",
+   "innovation": "Introduces an explicit conceptual taxonomy (CSP_0, CSP_thd, CSP_aim) to clarify what current lattice-energy-based CSP actually delivers versus what an ideal predictive code would need, reframing the field's goals rather than presenting a new method.",
+   "chunks": [
+    {
+     "type": "principle",
+     "statement": "CSP_0 means finding the global minimum of the static lattice energy; this is only the zeroth-order approximation to real crystallisation outcomes because it ignores temperature, pressure, kinetics, and environment.",
+     "scope": "General organic/molecular CSP as framed in the abstract",
+     "evidence": "Abstract: 'Crystal structure prediction based on searching for the global minimum in the lattice energy (CSP_0)' and the explicit naming as zeroth order.",
+     "generality": "established"
+    },
+    {
+     "type": "principle",
+     "statement": "The foundational assumption that the crystallisation outcome is determined by thermodynamics (the lattice-energy global minimum) is a hypothesis that needs testing, not a given.",
+     "scope": "Molecular crystals broadly",
+     "evidence": "Abstract: 'The basic hypothesis, that the outcome of crystallisation is determined by thermodynamics, needs examining.'",
+     "generality": "established"
+    },
+    {
+     "type": "principle",
+     "statement": "Many important materials persist, and may even form, when they are NOT the most thermodynamically stable structure -- so the global lattice-energy minimum is not always the observed/target form.",
+     "scope": "Functional materials, pharmaceutical polymorphs, metastable phases",
+     "evidence": "Abstract: 'many important materials persist, and indeed may be formed, when they are not the most thermodynamically stable structure.'",
+     "generality": "established"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "To move beyond CSP_0 toward realistic prediction (CSP_thd), model relative thermodynamic stability as a function not only of pressure and temperature but also of crystal size, solvent, and the presence of heterogeneous templates or impurities.",
+     "scope": "Crystallisation under real conditions",
+     "evidence": "Abstract: modelling 'relative thermodynamic stability not only as a function of pressure and temperature, but also of size, solvent and the presence of heterogeneous templates or impurities (CSP_thd).'",
+     "generality": "suggested"
+    },
+    {
+     "type": "principle",
+     "statement": "The applicability of CSP across material types is limited by our ability to model the variety of interatomic forces in different crystals.",
+     "scope": "All classes of materials CSP could target",
+     "evidence": "Abstract: progress 'depends on our ability to model the variety of interatomic forces in crystals.'",
+     "generality": "established"
+    },
+    {
+     "type": "pitfall",
+     "statement": "A CSP_0 ranked list that assumes the global lattice-energy minimum will crystallise can mislead, because observed/useful forms are often metastable and selected by kinetics or environment.",
+     "scope": "Interpreting CSP energy landscapes for discovery",
+     "evidence": "Abstract contrast between thermodynamic hypothesis and materials that 'persist... when they are not the most thermodynamically stable structure.'",
+     "generality": "suggested"
+    }
+   ],
+   "synthesis": "For GAtor 2.0 this is a reminder that the GA's objective -- the lattice-energy global minimum -- is CSP_0, a starting point rather than the ground truth of which polymorph crystallises. The near-degenerate basins the GA and niching discover matter precisely because kinetically trapped, metastable forms are often the real targets; so the pipeline should preserve and characterise the full low-energy ensemble, not just the global minimum. Price's CSP_thd agenda maps directly onto your finite-temperature stability and free-energy reranking work (and the choice of PBE0+MBD vs MLIP energies determines how trustworthy that ranking is), while CSP_aim motivates eventually coupling the landscape to temperature, solvent, and template effects that a bare energy ranking cannot capture. Note: digest is from abstract only; confidence low."
   }
  ]
 }
