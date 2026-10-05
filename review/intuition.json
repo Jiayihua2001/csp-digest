@@ -1840,6 +1840,55 @@
     }
    ],
    "synthesis": "For GAtor 2.0 this is a reminder that the GA's objective -- the lattice-energy global minimum -- is CSP_0, a starting point rather than the ground truth of which polymorph crystallises. The near-degenerate basins the GA and niching discover matter precisely because kinetically trapped, metastable forms are often the real targets; so the pipeline should preserve and characterise the full low-energy ensemble, not just the global minimum. Price's CSP_thd agenda maps directly onto your finite-temperature stability and free-energy reranking work (and the choice of PBE0+MBD vs MLIP energies determines how trustworthy that ranking is), while CSP_aim motivates eventually coupling the landscape to temperature, solvent, and template effects that a bare energy ranking cannot capture. Note: digest is from abstract only; confidence low."
+  },
+  {
+   "slug": "uspex-2006",
+   "title": "Crystal structure prediction using ab initio evolutionary techniques: Principles and applications",
+   "doi": "10.1063/1.2210932",
+   "year": 2006,
+   "tier": "E",
+   "source_mode": "metadata",
+   "date": "2026-10-05",
+   "core_idea": "Oganov and Glass merge ab initio total-energy calculations with a purpose-built evolutionary (genetic) algorithm (USPEX) to predict the most stable and low-energy metastable crystal structures for any compound at arbitrary P-T conditions without experimental input. The approach achieved a near-100% success rate across tens of test systems spanning ionic, covalent, metallic, and molecular crystals of up to 40 atoms per cell.",
+   "innovation": "A specifically devised evolutionary algorithm for crystals (as opposed to generic random search or simulated annealing), demonstrated to robustly find global minima across diverse bonding types and to work at arbitrary pressure-temperature conditions, resolving real high-pressure crystallography problems and discovering new phases.",
+   "chunks": [
+    {
+     "type": "principle",
+     "statement": "An evolutionary/genetic algorithm paired with ab initio energies can locate global-minimum crystal structures reliably because the population learns and concentrates sampling in promising regions of configuration space rather than exploring blindly.",
+     "scope": "Periodic crystal structure prediction across ionic, covalent, metallic, and molecular systems, up to ~40 atoms per unit cell",
+     "evidence": "Abstract: 'merging ab initio total-energy calculations and a specifically devised evolutionary algorithm... Physical reasons for the success of this methodology are discussed.'",
+     "generality": "established"
+    },
+    {
+     "type": "statistic",
+     "statement": "The evolutionary CSP method showed a nearly 100% success rate across a few tens of test cases, demonstrating robustness across bonding types.",
+     "scope": "Tens of test systems: ionic, covalent, metallic, molecular, <=40 atoms/cell",
+     "evidence": "Abstract: 'Extremely high (nearly 100%) success rate has been observed in a few tens of tests done so far.'",
+     "generality": "single-study"
+    },
+    {
+     "type": "principle",
+     "statement": "The method predicts not only the single most stable structure but also a set of low-energy metastable structures, which is essential because real materials often adopt metastable phases.",
+     "scope": "Crystal structure prediction at given P-T conditions",
+     "evidence": "Abstract: 'predict the most stable crystal structure and a number of low-energy metastable structures.'",
+     "generality": "established"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "Use ab initio evolutionary CSP when you need structures at specific, possibly extreme, pressure-temperature conditions without any experimental starting input.",
+     "scope": "Any P-T conditions, no experimental input required",
+     "evidence": "Abstract: 'for a given compound at any P-T conditions without requiring any experimental input.'",
+     "generality": "suggested"
+    },
+    {
+     "type": "principle",
+     "statement": "Evolutionary CSP can resolve open crystallographic problems and discover genuinely new stable and metastable phases, validating it as a discovery tool rather than only a reproduction tool.",
+     "scope": "High-pressure phases of O, S, C, N, CaCO3",
+     "evidence": "Abstract: new high-pressure structures including 'epsilon-oxygen, new phase of sulphur, new metastable phases of carbon, sulphur and nitrogen, stable and metastable phases of CaCO3.'",
+     "generality": "single-study"
+    }
+   ],
+   "synthesis": "This founding USPEX paper establishes the core credo behind all GA-based CSP, including GAtor 2.0: a well-designed evolutionary algorithm beats blind search because the population carries memory and recombination funnels effort toward low-energy basins. For molecular crystals specifically, the lessons transfer but the degrees of freedom shift from atomic positions to molecular orientation, packing, and conformation, which is why GAtor couples GA operators with niching to preserve diversity and avoid the premature convergence Oganov's design guards against. The emphasis on retaining a ladder of low-energy metastable structures (not just the global minimum) directly motivates why MCSP pipelines keep large candidate pools for subsequent high-accuracy re-ranking (PBE0+MBD or MLIP refinement), and the demonstrated success across bonding types is a reminder that GA machinery is bonding-agnostic while the energy model is what must be made dispersion-aware and conformationally accurate for organics."
   }
  ]
 }
