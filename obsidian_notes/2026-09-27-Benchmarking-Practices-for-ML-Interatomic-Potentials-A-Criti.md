@@ -21,7 +21,7 @@ tags:
 **Field:** [[ML-potential]] [[benchmark]]
 
 ## Why it matters
-Introduces a systematic audit of benchmarking methodologies for ML interatomic potentials across 2017–2023 literature, identifying recurring evaluation flaws and proposing standardized criteria to enable fair cross-study comparison.
+A systematic literature review likely identifies recurring methodological flaws—such as inconsistent error metrics, data leakage, and narrow test sets—in ML interatomic potential benchmarks from 2017–2023, proposing corrective best-practice guidelines.
 
 ## My notes
 

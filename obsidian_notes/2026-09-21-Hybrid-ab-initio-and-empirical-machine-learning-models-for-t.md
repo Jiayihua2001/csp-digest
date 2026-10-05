@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-A hybrid framework couples ab initio-derived energies with empirical machine-learning potentials to model potential energy surfaces, likely improving accuracy-efficiency trade-offs over purely ab initio or empirical approaches for crystal structure prediction.
+A hybrid approach combines ab initio-derived energies with empirical machine-learning corrections to construct potential energy surfaces, likely improving accuracy–cost trade-offs over pure DFT or purely empirical ML models for structure/energy prediction.
 
 ## My notes
 

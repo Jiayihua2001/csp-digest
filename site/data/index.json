@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-10-05",
+  "count": 22,
+  "new_count": 0,
+  "synthesis": "Heavy convergence on flow-matching/generative models for crystal structure prediction (six papers), with growing self-scrutiny\u2014benchmarking prototype dependence, questioning where physics should enter generators, and a complexity-theoretic hardness result for energy minimisation. GA methods are notably absent; the field is consolidating around deep generative approaches.",
+  "top": [
+   {
+    "title": "Riemannian Flow Models with Reinforcement Learning for Molecular Crystal Structure Prediction",
+    "relevance": 94,
+    "significance": 0
+   },
+   {
+    "title": "Where Should Physics Enter a Molecular Crystal Generator?",
+    "relevance": 92,
+    "significance": 0
+   },
+   {
+    "title": "Deep Generative Crystal Structure Prediction: A Benchmark Study and a Controlled Test of Prototype Dependence",
+    "relevance": 87,
+    "significance": 0
+   }
+  ]
+ },
+ {
   "date": "2026-10-04",
   "count": 24,
   "new_count": 0,
