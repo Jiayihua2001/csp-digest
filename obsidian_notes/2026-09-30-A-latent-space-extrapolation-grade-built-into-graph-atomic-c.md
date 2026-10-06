@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-Introduces the CALM extrapolation grade—a calibrated, piecewise differentiable per-atom Mahalanobis distance in GRACE's latent space—enabling near-free, gradient-guided uncertainty quantification for active learning.
+Introduces the CALM extrapolation grade—a calibrated, per-atom Mahalanobis distance in GRACE's latent many-body basis—enabling single-pass, gradient-usable uncertainty estimates to guide active-learning data collection.
 
 ## Abstract
 > Foundation machine-learning interatomic potentials cover broad configurational and chemical spaces, but their reliability can vary across the atomic environments encountered during a simulation. Here we introduce the calibrated Mahalanobis (CALM) extrapolation grade $γ$, a piecewise differentiable per-atom quantity integrated into GRACE foundation models and evaluated alongside energies and forces in a single model pass. We define $γ$ from nearest-cluster Mahalanobis distances in latent feature space, setting $γ=1$ from the training-distance distribution separately for each element and cluster. Controlled tests show that a normalized random projection of the invariant many-body basis detects structural and chemical extrapolation. On different foundation datasets, OMat24 and SMAX, $γ$ correlates with atomic force errors and separates structures with different error distributions. The CALM grade adds percent-level computational cost, and its spatial gradient guides uncertainty-biased data collection toward configurations with larger absolute force errors.

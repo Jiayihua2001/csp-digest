@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-10-06",
+  "count": 24,
+  "new_count": 3,
+  "synthesis": "Flow-based generative methods now dominate CSP, with multiple competing variants (conditional flow, Riemannian, reinforcement-tuned, symmetry-aware) for molecular crystals plus benchmarking efforts questioning prototype dependence and generator physics\u2014suggesting the field is consolidating around flow matching while still debating fundamentals and evaluation rigor.",
+  "top": [
+   {
+    "title": "Molecular Crystal Structure Prediction from Conditional Flow on the Unit Cells",
+    "relevance": 90,
+    "significance": 8
+   },
+   {
+    "title": "Riemannian Flow Models with Reinforcement Learning for Molecular Crystal Structure Prediction",
+    "relevance": 94,
+    "significance": 0
+   },
+   {
+    "title": "Where Should Physics Enter a Molecular Crystal Generator?",
+    "relevance": 92,
+    "significance": 0
+   }
+  ]
+ },
+ {
   "date": "2026-10-05",
   "count": 22,
   "new_count": 0,
