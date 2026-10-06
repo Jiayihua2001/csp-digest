@@ -1889,6 +1889,48 @@
     }
    ],
    "synthesis": "This founding USPEX paper establishes the core credo behind all GA-based CSP, including GAtor 2.0: a well-designed evolutionary algorithm beats blind search because the population carries memory and recombination funnels effort toward low-energy basins. For molecular crystals specifically, the lessons transfer but the degrees of freedom shift from atomic positions to molecular orientation, packing, and conformation, which is why GAtor couples GA operators with niching to preserve diversity and avoid the premature convergence Oganov's design guards against. The emphasis on retaining a ladder of low-energy metastable structures (not just the global minimum) directly motivates why MCSP pipelines keep large candidate pools for subsequent high-accuracy re-ranking (PBE0+MBD or MLIP refinement), and the demonstrated success across bonding types is a reminder that GA machinery is bonding-agnostic while the energy model is what must be made dispersion-aware and conformationally accurate for organics."
+  },
+  {
+   "slug": "airss-2011",
+   "title": "Ab initio random structure searching",
+   "doi": "10.1088/0953-8984/23/5/053201",
+   "year": 2011,
+   "tier": "E",
+   "source_mode": "metadata",
+   "date": "2026-10-06",
+   "core_idea": "Ab initio random structure searching (AIRSS) is a simple, robust method for predicting stable material structures by generating many random initial configurations and relaxing them with first-principles (DFT) methods. The approach relies on the idea that sensible random starting structures, when relaxed, land in low-energy basins often enough to find ground states and competitive polymorphs.",
+   "innovation": "Rather than using biased or evolutionary operators, AIRSS emphasizes stochastic generation of randomized but physically sensible starting structures (controlled by constraints like cell volume, minimum separations, symmetry, and units) followed by local DFT relaxation, demonstrating this simple strategy works across solids, defects, surfaces, and clusters.",
+   "chunks": [
+    {
+     "type": "principle",
+     "statement": "Knowing the atomic arrangement is prerequisite to computing or understanding any material property, which is why structure searching is foundational to materials prediction.",
+     "scope": "General first-principles materials prediction",
+     "evidence": "'It is essential to know the arrangement of the atoms in a material in order to compute and understand its properties.'",
+     "generality": "established"
+    },
+    {
+     "type": "principle",
+     "statement": "Relaxing many randomly generated starting structures with DFT is sufficient to discover stable structures; simplicity and robustness can rival more elaborate search schemes.",
+     "scope": "DFT-based structure search across solids, defects, surfaces, clusters",
+     "evidence": "Describes 'our simple, elegant and powerful approach to searching for structures with DFT, which we call ab initio random structure searching (AIRSS).'",
+     "generality": "suggested"
+    },
+    {
+     "type": "pipeline_practice",
+     "statement": "The core workflow is: generate random candidate structures, locally relax each with first-principles electronic structure (DFT), and rank by energy to identify stable arrangements.",
+     "scope": "AIRSS applied to solids, point defects, surfaces, and clusters",
+     "evidence": "'Searching for stable structures of materials using first-principles electronic structure methods, such as density-functional-theory (DFT)' via the AIRSS approach.",
+     "generality": "suggested"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "Random structure searching is applicable beyond bulk crystals - to point defects, surfaces, and clusters - making it a general tool when the configuration space is unknown.",
+     "scope": "Solids, point defects, surfaces, clusters (per reviewed applications)",
+     "evidence": "'Applications to discovering the structures of solids, point defects, surfaces, and clusters are reviewed.'",
+     "generality": "single-study"
+    }
+   ],
+   "synthesis": "AIRSS is the philosophical counterpoint to GAtor-style genetic MCSP: both start from random candidates, but GA adds crossover/mutation and niching to exploit learned structure, whereas AIRSS bets that unbiased random generation plus local relaxation is enough. For GAtor 2.0, the AIRSS lesson is that the quality of initial random generation (sensible constraints - volume, minimum intermolecular separations, symmetry/space-group biasing, Z' handling in Genarris) often matters as much as the operators layered on top; a strong randomized seeding pool improves what any GA can find. It also reinforces that local relaxation under a good energy model (your dispersion-inclusive DFT or MLIPs like MACE-OFF/AIMNet2/UMA) is the step that turns noisy random guesses into physically meaningful minima, so improvements to the relaxation engine propagate to both random and genetic search strategies."
   }
  ]
 }
