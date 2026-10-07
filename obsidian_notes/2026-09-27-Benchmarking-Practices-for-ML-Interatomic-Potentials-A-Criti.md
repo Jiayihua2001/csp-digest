@@ -21,7 +21,7 @@ tags:
 **Field:** [[ML-potential]] [[benchmark]]
 
 ## Why it matters
-A systematic critical review identifying recurring methodological pitfalls—likely including inconsistent train/test splits, energy/force weighting, and extrapolation testing—in benchmarking ML interatomic potentials from 2017–2023.
+Systematically catalogs recurring methodological flaws—such as inconsistent train/test splits, cherry-picked error metrics, and neglected uncertainty quantification—across 2017–2023 ML interatomic potential benchmarks, proposing standardized reporting guidelines
 
 ## My notes
 

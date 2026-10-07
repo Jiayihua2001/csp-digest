@@ -18,7 +18,7 @@ tags:
 **Scores:** relevance 70 / significance 0
 
 ## Why it matters
-Introduces the Young-E(3) tensor product basis—combining Schur–Weyl decomposition with joint S_N×SO(3) coupling—yielding a complete, orthonormal rotation- and permutation-adapted descriptor basis that generalizes ACE beyond
+Introduces the Young–E(3) tensor product basis, directly yielding a complete, orthonormal joint SO(3)×S_N-equivariant cluster-expansion basis—generalizing ACE beyond fully permutation-symmetric features without overcompletion.
 
 ## Abstract
 > A generalization of fixed-lattice cluster expansions (CE) and atomic cluster expansions (ACE) is presented that expresses both rotation and permutation symmetries. By performing Schur--Weyl decomposition in Young subgroup-stabilized carriers, followed by joint coupling of rotation and permutation representations, arbitrary $S_N\times SO(3)$ tensor product carriers are generated. This allows us to resolve complete, orthonormal joint rotation and permutation-adapted bases for arbitrary tensor product ranks and arbitrary angular and radial tensor product content. We show that this very general Young--E(3) (YE3T) tensor product basis contains the ACE basis as a subset, corresponding to the special case where permutation symmetry character is restricted to the fully symmetric carrier. Rather than constructing an overcomplete rotation and permutation-invariant basis and reducing it \textit{a posteriori}, Barthelemy \textit{et al.} recently demonstrated scaling benefits by not constructing an overcomplete basis. YE3T directly produces a complete orthonormal basis without an overcomplete step and rigorously extends to permutation characters beyond permutation-symmetric features. The YE3T d

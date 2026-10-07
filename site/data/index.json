@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-10-07",
+  "count": 21,
+  "new_count": 1,
+  "synthesis": "Heavy convergence on flow-based generative CSP today\u2014five independent papers (conditional flow, Riemannian+RL, physics-informed design, disorder-aware, symmetry-aware) signal flow matching has displaced diffusion as the dominant paradigm; ANCHOR's frozen-prior search and a theoretical hardness paper offer useful counterpoints to the generative-model rush.",
+  "top": [
+   {
+    "title": "Molecular Crystal Structure Prediction from Conditional Flow on the Unit Cells",
+    "relevance": 90,
+    "significance": 8
+   },
+   {
+    "title": "Riemannian Flow Models with Reinforcement Learning for Molecular Crystal Structure Prediction",
+    "relevance": 94,
+    "significance": 0
+   },
+   {
+    "title": "Where Should Physics Enter a Molecular Crystal Generator?",
+    "relevance": 92,
+    "significance": 0
+   }
+  ]
+ },
+ {
   "date": "2026-10-06",
   "count": 24,
   "new_count": 3,
