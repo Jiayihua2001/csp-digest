@@ -1931,6 +1931,62 @@
     }
    ],
    "synthesis": "AIRSS is the philosophical counterpoint to GAtor-style genetic MCSP: both start from random candidates, but GA adds crossover/mutation and niching to exploit learned structure, whereas AIRSS bets that unbiased random generation plus local relaxation is enough. For GAtor 2.0, the AIRSS lesson is that the quality of initial random generation (sensible constraints - volume, minimum intermolecular separations, symmetry/space-group biasing, Z' handling in Genarris) often matters as much as the operators layered on top; a strong randomized seeding pool improves what any GA can find. It also reinforces that local relaxation under a good energy model (your dispersion-inclusive DFT or MLIPs like MACE-OFF/AIMNet2/UMA) is the step that turns noisy random guesses into physically meaningful minima, so improvements to the relaxation engine propagate to both random and genetic search strategies."
+  },
+  {
+   "slug": "crystalpredictor",
+   "title": "Ab initio crystal structure prediction\u2014I. Rigid molecules",
+   "doi": "10.1002/jcc.20165",
+   "year": 2004,
+   "tier": "E",
+   "source_mode": "metadata",
+   "date": "2026-10-07",
+   "core_idea": "An early (2004) ab initio molecular CSP method that predicts crystal structures from atomic connectivity alone by globally minimizing lattice enthalpy, using QM-derived distributed multipoles/charges for electrostatics and a parallelized four-step global optimization to search space groups including less common ones and Z'>1 cases.",
+   "innovation": "Automatic, QM-based optimal selection and positioning of distributed charges for electrostatics, combined with a parallelized four-step global optimization enabling broader searches into rarer space groups and multiple molecules in the asymmetric unit (Z'>1) than previously feasible.",
+   "chunks": [
+    {
+     "type": "principle",
+     "statement": "Molecular crystal structure prediction can be framed as global minimization of the lattice enthalpy, with candidate polymorphs appearing as local minima of that energy surface.",
+     "scope": "Rigid organic molecules, predicted from atomic connectivity only",
+     "evidence": "Abstract: 'based on the global minimization of the lattice enthalpy of the crystal'; 'identification of the local minima of the lattice enthalpy surface'",
+     "generality": "established"
+    },
+    {
+     "type": "principle",
+     "statement": "Accurate electrostatics is critical for molecular crystal energetics, and QM-derived distributed charges (optimally selected/positioned) better represent the molecular charge distribution than simple atom-centered point charges.",
+     "scope": "Rigid organic molecules with QM-informed force-field models",
+     "evidence": "Abstract: 'electrostatic interactions is accomplished through a set of distributed charges that are optimally and automatically selected and positioned based on results of quantum mechanical calculations'",
+     "generality": "suggested"
+    },
+    {
+     "type": "pipeline_practice",
+     "statement": "The workflow is a four-step global optimization: generate/search candidate packings (across space groups and Z'), then locate and rank local minima of lattice enthalpy, run in parallel to cover more of the solution space.",
+     "scope": "Rigid-molecule CSP, 2004 methodology",
+     "evidence": "Abstract: 'A four-step global optimization algorithm is used for the identification of the local minima... A parallelized implementation... permits a much more extensive search of the solution space'",
+     "generality": "single-study"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "To capture less frequently occurring space groups and Z'>1 crystals, the search must be deliberately broadened; restricting to common space groups and Z'=1 risks missing viable structures.",
+     "scope": "Rigid-molecule CSP",
+     "evidence": "Abstract: more extensive search 'allowing the identification of crystal structures in less frequently occurring space groups and with more than one molecule in the asymmetric unit'",
+     "generality": "suggested"
+    },
+    {
+     "type": "pitfall",
+     "statement": "The experimentally observed structure is reliably found among the most stable predicted candidates but is not necessarily the lattice-energy global minimum, so taking the single lowest-energy structure as 'the answer' can mislead.",
+     "scope": "Four test molecules including a Z'=2 case (hexa-azacyclazine, Pbca)",
+     "evidence": "Abstract: 'In all cases, the experimentally known structure is among the most stable predicted structures, but not necessarily the global minimum.'",
+     "generality": "single-study"
+    },
+    {
+     "type": "statistic",
+     "statement": "Validation covered four diverse systems spanning Z'=1 and Z'=2 and several space groups: P2(1)/a, P2(1)/c, Pbca (Z'=2), and P6(3)/m.",
+     "scope": "Four specific rigid molecules (aza-bicyclononanedione, allopurinol, hexa-azacyclazine, triethylenediamine)",
+     "evidence": "Abstract lists the four predicted structures with their space groups and Z' values",
+     "generality": "single-study"
+    }
+   ],
+   "synthesis": "This paper encodes the foundational logic GAtor 2.0 still rests on: CSP is global optimization over a lattice-energy surface whose local minima are candidate polymorphs, and the correct structure lands among the low-energy set rather than necessarily at the minimum (the ranking problem that PBE0+MBD and MLIP reranking later target). For a GA practitioner, the key durable lessons are (1) electrostatics/charge representation quality gates energetic fidelity, foreshadowing why modern dispersion-inclusive DFT and MLIPs matter; (2) the search must explicitly reach rare space groups and Z'>1, which is precisely what niching and diverse operator design in GAtor are meant to preserve against premature convergence to common-packing Z'=1 basins; and (3) because the experimental structure is only 'near the top,' a GA should retain a diverse low-energy pool for high-level reranking rather than optimizing hard toward a single global minimum. It is a 2004 single-study method on four molecules, so treat the specific claims as historical context, not benchmarks."
   }
  ]
 }
