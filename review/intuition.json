@@ -1987,6 +1987,55 @@
     }
    ],
    "synthesis": "This paper encodes the foundational logic GAtor 2.0 still rests on: CSP is global optimization over a lattice-energy surface whose local minima are candidate polymorphs, and the correct structure lands among the low-energy set rather than necessarily at the minimum (the ranking problem that PBE0+MBD and MLIP reranking later target). For a GA practitioner, the key durable lessons are (1) electrostatics/charge representation quality gates energetic fidelity, foreshadowing why modern dispersion-inclusive DFT and MLIPs matter; (2) the search must explicitly reach rare space groups and Z'>1, which is precisely what niching and diverse operator design in GAtor are meant to preserve against premature convergence to common-packing Z'=1 basins; and (3) because the experimental structure is only 'near the top,' a GA should retain a diverse low-energy pool for high-level reranking rather than optimizing hard toward a single global minimum. It is a 2004 single-study method on four molecules, so treat the specific claims as historical context, not benchmarks."
+  },
+  {
+   "slug": "grace-angew-2008",
+   "title": "A Major Advance in Crystal Structure Prediction",
+   "doi": "10.1002/anie.200704247",
+   "year": 2008,
+   "tier": "E",
+   "source_mode": "metadata",
+   "date": "2026-10-08",
+   "core_idea": "Neumann, Leusen, and Kendrick introduced a crystal structure prediction method that couples a tailor-made force field for rapid search with dispersion-corrected DFT for final energy ranking. In the 2007 CSP blind test the method correctly predicted all four target structures, including a cocrystal, marking a step-change in CSP reliability.",
+   "innovation": "The combination of a system-specific tailor-made force field with a dispersion-corrected (van der Waals) DFT re-ranking stage, achieving an unprecedented clean sweep of a blind test including a multi-component (cocrystal) system.",
+   "chunks": [
+    {
+     "type": "pipeline_practice",
+     "statement": "Effective CSP uses a two-tier scheme: a fast tailor-made force field to generate and screen candidate structures, then dispersion-corrected DFT to rank the survivors.",
+     "scope": "Molecular organic crystals including a cocrystal, as evaluated in the 2007 CSP blind test",
+     "evidence": "Abstract: 'combines a tailor-made force field with a density functional theory method incorporating a van der Waals correction for dispersive interactions.'",
+     "generality": "established"
+    },
+    {
+     "type": "principle",
+     "statement": "Dispersion (van der Waals) interactions must be explicitly included to get molecular crystal lattice energies right; plain DFT alone is insufficient for ranking.",
+     "scope": "Molecular organic crystals",
+     "evidence": "Abstract emphasizes 'a density functional theory method incorporating a van der Waals correction for dispersive interactions' as central to success.",
+     "generality": "established"
+    },
+    {
+     "type": "statistic",
+     "statement": "The method correctly predicted the experimental structure for all four blind-test compounds, one of which was a cocrystal.",
+     "scope": "2007 CSP blind test, four target compounds",
+     "evidence": "Abstract: 'the method predicts the correct crystal structure for all four compounds, one of which is a cocrystal.'",
+     "generality": "single-study"
+    },
+    {
+     "type": "principle",
+     "statement": "A 'tailor-made' (system-specific) force field, rather than a generic transferable one, improves the quality of the candidate pool fed into expensive ranking.",
+     "scope": "Molecular organic crystals in CSP",
+     "evidence": "Abstract specifies a 'tailor-made force field' as a key ingredient.",
+     "generality": "suggested"
+    },
+    {
+     "type": "pitfall",
+     "statement": "Blind-test success on four compounds demonstrates capability but does not establish general reliability across chemical space; small-sample wins can overstate robustness.",
+     "scope": "Interpreting the 2007 blind-test result",
+     "evidence": "Only four compounds were tested; abstract reports success on all four without broader statistics.",
+     "generality": "single-study"
+    }
+   ],
+   "synthesis": "This paper is the historical proof-of-concept behind GAtor 2.0's ranking philosophy: cheap search, expensive dispersion-aware re-ranking. For a GA-based MCSP workflow, the force field (or today an MLIP like MACE-OFF/AIMNet2/UMA) plays the 'tailor-made' role of generating and diversifying the population cheaply, while dispersion-inclusive DFT (PBE0+MBD) does the final energetic ranking where sub-kJ/mol polymorph gaps live. The cocrystal success foreshadows the multi-component and Z'>1 challenges you target, and the small-sample caveat is directly relevant: a GA that nails a handful of blind-test systems still needs niching and broad sampling to avoid overclaiming generality."
   }
  ]
 }
