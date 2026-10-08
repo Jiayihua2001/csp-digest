@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-10-08",
+  "count": 21,
+  "new_count": 1,
+  "synthesis": "Flow-based generative models dominate today's CSP output\u2014five separate papers (conditional flow, Riemannian/RL flow, EP-Flow, ANCHOR, symmetry-aware flow matching) converge on generative approaches, alongside a complementary piece asking where physics constraints should actually enter these generators\u2014suggesting the field is consolidating around flow/diffusion architectures while still debating induct",
+  "top": [
+   {
+    "title": "Molecular Crystal Structure Prediction from Conditional Flow on the Unit Cells",
+    "relevance": 90,
+    "significance": 8
+   },
+   {
+    "title": "Riemannian Flow Models with Reinforcement Learning for Molecular Crystal Structure Prediction",
+    "relevance": 94,
+    "significance": 0
+   },
+   {
+    "title": "Where Should Physics Enter a Molecular Crystal Generator?",
+    "relevance": 92,
+    "significance": 0
+   }
+  ]
+ },
+ {
   "date": "2026-10-07",
   "count": 21,
   "new_count": 1,

@@ -20,7 +20,7 @@ tags:
 **Field:** [[space-group]]
 
 ## Why it matters
-Introduces a conditional flow model predicting invariant lattice descriptors (from molecular graph, Hall setting, Z') to decouple symmetry, unit cell, and packing in molecular CSP, achieving 83/84 experimental matches.
+Introduces a conditional flow model predicting invariant lattice descriptors (lattice minima, Selling scalars) from molecular graph/Hall setting/Z′, enabling decoupled unit-cell reconstruction and molecular packing search for CSP.
 
 ## Abstract
 > A molecular crystal structure is jointly described by its space group symmetry, unit cell, and the molecular alignment within the asymmetric unit. Concurrently predicting all three variables is a daunting task, as it mixes discrete symmetry choices with a high-dimensional search in the continuous space. To address this challenge, we decouple these variables using a three-step generation process. Specifically, we train a flow model to learn the conditional distribution of invariant lattice descriptors (e.g. direct- and reciprocal-lattice successive minima and Selling scalars) from a molecular graph, a Hall setting, and the number of molecules in the asymmetric unit ($Z'$). Using a two sequential quasi-random sampling processes, we first reconstruct the cell parameters that match the predicted lattice invariants and density requirements, and then conduct a molecular packing search within the give symmetry and unit cell constraint. On 84 single-component systems with $Z' \le 1$, our approach reproduces experimental matches for 83 systems; the remaining failure stems from force-field limitations in preserving the experimental structure. These results demonstrate that learned cell propo
