@@ -2036,6 +2036,34 @@
     }
    ],
    "synthesis": "This paper is the historical proof-of-concept behind GAtor 2.0's ranking philosophy: cheap search, expensive dispersion-aware re-ranking. For a GA-based MCSP workflow, the force field (or today an MLIP like MACE-OFF/AIMNet2/UMA) plays the 'tailor-made' role of generating and diversifying the population cheaply, while dispersion-inclusive DFT (PBE0+MBD) does the final energetic ranking where sub-kJ/mol polymorph gaps live. The cocrystal success foreshadows the multi-component and Z'>1 challenges you target, and the small-sample caveat is directly relevant: a GA that nails a handful of blind-test systems still needs niching and broad sampling to avoid overclaiming generality."
+  },
+  {
+   "slug": "high-z-prime-2015",
+   "title": "Packing Problems: High Z ? Crystal Structures and Their Relationship to Cocrystals, Inclusion Compounds, and Polymorphism",
+   "doi": "10.1021/cr500564z",
+   "year": 2015,
+   "tier": "F",
+   "source_mode": "metadata",
+   "date": "2026-10-09",
+   "core_idea": "This review surveys high Z' crystal structures (more than one molecule in the asymmetric unit) and relates them to cocrystals, inclusion compounds, and polymorphism. The provided fragment illustrates that molecular shape - specifically the thickness of a substituent on monoalcohols - dictates how molecules pack and whether multiple molecules appear in the asymmetric unit.",
+   "innovation": "Connects the phenomenon of Z'>1 packing to systematic molecular shape/steric constraints and links it to related solid-form phenomena (cocrystals, inclusion compounds, polymorphism), rather than treating high-Z' structures as anomalies.",
+   "chunks": [
+    {
+     "type": "principle",
+     "statement": "Molecular shape, particularly the thickness of substituents, controls which packing motifs and symmetry operations are favored; hydrogen-bonded assemblies (e.g. monoalcohols) can pack as chains, rings, or higher-order symmetric arrangements depending on steric bulk.",
+     "scope": "Hydrogen-bonded monoalcohols with variable substituent thickness; illustrative of molecular organic crystals",
+     "evidence": "Figure 8 caption: thin substituents pack by translation or 2_1 screw/glide; thicker substituents favor rings; thicker still give more than one molecule in the asymmetric unit; very thick substituents pack about higher-order screw or improper rotation axes",
+     "generality": "single-study"
+    },
+    {
+     "type": "principle",
+     "statement": "Z'>1 (more than one symmetry-independent molecule per asymmetric unit) can arise as a natural consequence of steric/geometric packing demands, placing it on a continuum with cocrystals, inclusion compounds, and polymorphism rather than as a mere pathology.",
+     "scope": "High Z' molecular crystals generally, per review framing",
+     "evidence": "Title and framing relate high Z' crystal structures to cocrystals, inclusion compounds, and polymorphism; Fig 8c cites thicker substituents giving more than one molecule in the asymmetric unit",
+     "generality": "suggested"
+    }
+   ],
+   "synthesis": "For GAtor 2.0, this review's lesson reinforces that Z'>1 is not a rare curiosity but a structural outcome driven by molecular shape and hydrogen-bonding geometry - exactly the regime where standard Z'=1 CSP pipelines fail. If a molecule has bulky or awkwardly-shaped substituents that frustrate simple translational/screw packing, the GA search space must explicitly include multiple independent molecules in the asymmetric unit, with operators and niching capable of handling the larger configurational degrees of freedom. Genarris-style structure generation should be seeded to sample higher-Z' space for such shapes, and ranking should anticipate that the lowest-energy packing may require ring or higher-symmetry motifs rather than the most compact simple-translation arrangement. NOTE: this digest is abstract/figure-caption only (low confidence); the specific thickness-to-packing rules are illustrative, not quantitative, and should be verified against the full review before being used to parameterize search heuristics."
   }
  ]
 }
