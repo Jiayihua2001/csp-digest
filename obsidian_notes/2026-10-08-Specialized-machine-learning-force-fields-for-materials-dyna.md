@@ -21,7 +21,7 @@ tags:
 **Field:** [[ML-potential]] [[lattice-energy]]
 
 ## Why it matters
-Proposes a framework for physics-driven specialization and observable-specific validation of MLIPs, clarifying when task-specific versus universal foundation potentials best capture complex materials dynamics.
+Argues for physics-driven specialization of MLIPs—tailoring architectures, training data, and nonlocal terms to specific dynamical regimes—and proposes observable-specific validation across four challenging application domains.
 
 ## Abstract
 > Machine learning interatomic potentials (MLIPs) are transforming atomistic simulations by accessing unprecedented length and time scales. While pretrained equivariant graph neural networks achieve robust zero-shot performance for near-equilibrium properties across broad chemical spaces, their translation to complex materials dynamics remains fundamentally challenged by out-of-distribution reactive states, representation biases, and computational scaling limits. In this Review, we examine how physics-driven specialization extends the applicability of MLIPs to complex dynamical systems. We systematically evaluate the structural trade-offs in MLIP design: the undersampling of highly strained configurations, the prohibitive computational overhead of high-order message-passing architectures, and the necessity of nonlocal interactions for open and field-coupled systems. Through four demanding application contexts - electrified interfaces, compositionally fluctuating open systems, multiphase evolution, and large-scale fracture - we establish a framework for observable-specific validation. Highlighting the complementary roles of universal foundation models and task-specific potentials, we 

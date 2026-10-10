@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-A critical review likely exposes hidden assumptions and unresolved gaps in existing uncertainty quantification methods for ML interatomic potentials, rather than proposing a new method itself.
+Likely a critical review synthesizing uncertainty-quantification methods for ML interatomic potentials, exposing hidden assumptions and open questions rather than proposing a new algorithm.
 
 ## My notes
 

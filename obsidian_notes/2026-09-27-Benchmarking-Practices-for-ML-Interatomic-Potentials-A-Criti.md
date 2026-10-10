@@ -21,7 +21,7 @@ tags:
 **Field:** [[ML-potential]] [[benchmark]]
 
 ## Why it matters
-A systematic meta-review likely identifies and categorizes recurring methodological flaws—such as inconsistent train/test splits, limited chemical diversity, and benchmark leakage—across ML interatomic potential evaluations from 2017–2023.
+A critical meta-analysis exposing systematic methodological flaws—likely including data leakage, inconsistent train/test splits, and cherry-picked metrics—across seven years of ML interatomic potential benchmarking studies.
 
 ## My notes
 

@@ -23,7 +23,7 @@ tags:
 **Field:** [[generative-model]] [[polymorphism]] [[conformational]] [[space-group]]
 
 ## Why it matters
-CG-OMatG introduces an equivariant Riemannian flow-based generative model using coarse-grained rigid-body molecular representations, fine-tuned with policy-gradient reinforcement learning to steer generation toward low-energy molecular crystal packings.
+Introduces CG-OMatG, an equivariant Riemannian flow-based model using rigid-body coarse-graining of molecules, fine-tuned via policy-gradient RL to favor low-energy molecular crystal packings.
 
 ## Abstract
 > Crystal structure governs material properties, making crystal structure prediction (CSP) a fundamental problem in materials science. Generative models are a promising approach for solving this problem, but the prevalence of polymorphism, coupled with large unit cells and complex packing geometry, makes the molecular CSP task challenging for existing models. To address this, we introduce Coarse-Grained Open Materials Generation (CG-OMatG), an equivariant Riemannian flow-based generative model. CG-OMatG predicts molecular crystal structures \textit{via} a coarse-grained, hierarchical representation. CG-OMatG treats molecules as rigid bodies---performing both inter- and intra-molecular message passing to construct a geometric representation for molecular packings---and learns to reconstruct molecule centroid positions, orientations, and lattice parameters, conditioned on chemical species and conformer geometry. We train the model on subsets of the Open Molecular Crystals (OMC25) and Cambridge Structural Database (CSD) datasets. Further, we fine-tune the model \textit{via} policy gradient reinforcement learning to steer the model towards generating low-energy candidate structures. We v

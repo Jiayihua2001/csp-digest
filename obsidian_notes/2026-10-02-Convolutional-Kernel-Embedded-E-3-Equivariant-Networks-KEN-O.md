@@ -29,7 +29,7 @@ Interatomic Potentials
 **Field:** [[ML-potential]]
 
 ## Why it matters
-Introduces KEN, a hybrid architecture embedding 2D convolutional kernels within E(3)-equivariant GNNs to flexibly incorporate multichannel electronic descriptors without extra training data, validated on HE26 against MACE and CHGNet.
+KEN introduces a hybrid architecture embedding 2D convolutional kernels within an E(3)-equivariant GNN backbone, enabling flexible multimodal/electronic descriptor input without added training data, validated on heavy-element HE26 systems.
 
 ## Abstract
 > Abstract Machine learning interatomic potentials (MLIPs) have emerged as scalable alternatives to first-principles methods such as density functional theory (DFT). Among them, E(3)-equivariant graph neural networks (GNNs) like PACE and MACE are highly accurate but structurally rigid, limiting the incorporation of rich, multichannel electronic descriptors. We introduce convolutional kernel-embedded E(3)-equivariant networks (KEN), a hybrid architecture that combines the local environmental extraction of 2D convolutional kernels with the many-body expressivity of an E(3)-equivariant GNN backbone. This design preserves symmetry while enabling flexible, multimodal input features without increasing training data requirements. Trained and tested on heavy element 26 (HE26) dataset, KEN was compared with MACE-osaka26 model. Further validation on lattice parameter prediction through Birch–Murnaghan equation of state, magnetic moment prediction, and comparison with CHGNet framework, and microcanonical molecular dynamics confirms robust energy conservation and accurate reproduction of the forces, and thus, demonstrates a viable pathway to overcoming architectural rigidity in state-of-the-art 
