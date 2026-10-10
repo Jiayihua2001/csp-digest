@@ -2064,6 +2064,55 @@
     }
    ],
    "synthesis": "For GAtor 2.0, this review's lesson reinforces that Z'>1 is not a rare curiosity but a structural outcome driven by molecular shape and hydrogen-bonding geometry - exactly the regime where standard Z'=1 CSP pipelines fail. If a molecule has bulky or awkwardly-shaped substituents that frustrate simple translational/screw packing, the GA search space must explicitly include multiple independent molecules in the asymmetric unit, with operators and niching capable of handling the larger configurational degrees of freedom. Genarris-style structure generation should be seeded to sample higher-Z' space for such shapes, and ranking should anticipate that the lowest-energy packing may require ring or higher-symmetry motifs rather than the most compact simple-translation arrangement. NOTE: this digest is abstract/figure-caption only (low confidence); the specific thickness-to-packing rules are illustrative, not quantitative, and should be verified against the full review before being used to parameterize search heuristics."
+  },
+  {
+   "slug": "mace-off",
+   "title": "MACE-OFF: Short-Range Transferable Machine Learning Force Fields for Organic Molecules",
+   "doi": "10.1021/jacs.4c07099",
+   "year": 2025,
+   "tier": "G",
+   "source_mode": "metadata",
+   "date": "2026-10-10",
+   "core_idea": "MACE-OFF is a series of short-range, transferable machine-learning force fields for organic molecules, trained on high-level first-principles reference data. It aims to replace classical empirical force fields by delivering near-quantum accuracy and transferability across gas- and condensed-phase organic systems at relatively low cost.",
+   "innovation": "Unlike classical empirical force fields (dominant for 50+ years but limited in accuracy/transferability) and unlike models requiring explicit long-range terms, MACE-OFF shows that a short-range MLIP trained on high-level QM data can accurately capture diverse gas- and condensed-phase properties including molecular crystals, liquids, quantum nuclear effects, solvation free energies, and protein dynamics.",
+   "chunks": [
+    {
+     "type": "principle",
+     "statement": "A purely short-range equivariant message-passing ML force field can reproduce a wide range of organic molecular properties without explicitly modeling long-range electrostatics, provided it is trained on high-level quantum reference data.",
+     "scope": "Organic molecules in gas and condensed phases (molecular crystals, liquids, solvated peptides/proteins)",
+     "evidence": "Paper 'demonstrates the remarkable capabilities of short-range models by accurately predicting a wide variety of gas- and condensed-phase properties of molecular systems.'",
+     "generality": "single-study"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "Consider MACE-OFF when you need near-first-principles accuracy for organic molecular systems but at a cost far below explicit QM/DFT, including for molecular crystals, torsion scans of unseen molecules, and condensed-phase simulations.",
+     "scope": "Organic molecules; drug discovery, CSP, and biomolecular dynamics contexts",
+     "evidence": "Abstract positions MACE-OFF as enabling 'first-principles simulations of molecular systems for the broader chemistry community at high accuracy and relatively low computational cost' and lists CSP as a target application.",
+     "generality": "single-study"
+    },
+    {
+     "type": "principle",
+     "statement": "Classical empirical force fields generally lack the accuracy and transferability needed for predictive first-principles modeling of organic systems, motivating ML replacements.",
+     "scope": "Biomolecular simulation, drug discovery, crystal structure prediction",
+     "evidence": "'Classical empirical force fields ... generally lack the accuracy and transferability required for first-principles predictive modeling.'",
+     "generality": "established"
+    },
+    {
+     "type": "pipeline_practice",
+     "statement": "MACE-OFF is validated across escalating tests: dihedral torsion scans of unseen molecules, molecular crystals and liquids (including quantum nuclear effects), explicit-solvent free energy surfaces, peptide folding, and nanosecond solvated-protein dynamics.",
+     "scope": "Organic molecules and biomolecules in gas and condensed phases",
+     "evidence": "Abstract enumerates torsion scans, molecular crystals/liquids with quantum nuclear effects, explicit-solvent free energy surfaces, peptide folding, and nanosecond fully solvated protein simulations.",
+     "generality": "single-study"
+    },
+    {
+     "type": "pitfall",
+     "statement": "This digest is from abstract/metadata only; specific accuracy numbers (energy/force RMSEs, polymorph rankings, lattice energy errors) are not available here and must not be assumed.",
+     "scope": "Any quantitative claim about MACE-OFF performance",
+     "evidence": "No full text provided; abstract gives qualitative claims ('accurate', 'reliable') without reported error magnitudes.",
+     "generality": "single-study"
+    }
+   ],
+   "synthesis": "For GAtor 2.0, MACE-OFF is a candidate MLIP in the same tier as AIMNet2 and UMA for fast pre-ranking and local relaxation of GA-generated molecular crystal candidates before expensive PBE0+MBD. Its claimed strength on molecular crystals and quantum nuclear effects is directly relevant to lattice-energy ranking and finite-temperature stability, but a key caveat is that MACE-OFF is explicitly short-range: molecular crystal lattice energies hinge on long-range dispersion and electrostatics, so you should validate whether its short-range training captures the fine (<~few kJ/mol) polymorph energy separations that decide CSP rankings, and treat it as a filter/geometry optimizer rather than a final arbiter until benchmarked against your dispersion-inclusive DFT on your own Z'=1 and Z'>1 systems. Accurate transferable torsion scans are especially valuable for conformer-rich flexible molecules where GA structure generation and conformer energetics matter."
   }
  ]
 }
