@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-Likely a critical review synthesizing uncertainty-quantification methods for ML interatomic potentials, exposing hidden assumptions and open questions rather than proposing a new algorithm.
+Likely offers a critical review synthesizing uncertainty quantification methods for ML interatomic potentials, exposing hidden assumptions and open questions rather than proposing a new method.
 
 ## My notes
 

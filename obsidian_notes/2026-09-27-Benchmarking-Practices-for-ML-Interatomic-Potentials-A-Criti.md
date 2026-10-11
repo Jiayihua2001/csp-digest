@@ -21,7 +21,7 @@ tags:
 **Field:** [[ML-potential]] [[benchmark]]
 
 ## Why it matters
-A critical meta-analysis exposing systematic methodological flaws—likely including data leakage, inconsistent train/test splits, and cherry-picked metrics—across seven years of ML interatomic potential benchmarking studies.
+Likely a systematic audit exposing inconsistent benchmarking protocols across ML interatomic potential studies, proposing standardized metrics/datasets to enable fair, reproducible cross-method comparisons (inferred; no abstract provided).
 
 ## My notes
 

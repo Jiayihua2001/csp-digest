@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-10-11",
+  "count": 24,
+  "new_count": 0,
+  "synthesis": "Flow-matching/diffusion models dominate CSP again\u2014five distinct approaches (conditional flow, Riemannian+RL, symmetry-aware, EP-Flow for disordered crystals, physics-placement analysis) signal a crowded generative-modeling race, while genetic-algorithm work is absent except the complexity-theory piece on energy minimisation hardness.",
+  "top": [
+   {
+    "title": "Molecular Crystal Structure Prediction from Conditional Flow on the Unit Cells",
+    "relevance": 90,
+    "significance": 8
+   },
+   {
+    "title": "Riemannian Flow Models with Reinforcement Learning for Molecular Crystal Structure Prediction",
+    "relevance": 94,
+    "significance": 0
+   },
+   {
+    "title": "Where Should Physics Enter a Molecular Crystal Generator?",
+    "relevance": 92,
+    "significance": 0
+   }
+  ]
+ },
+ {
   "date": "2026-10-10",
   "count": 24,
   "new_count": 2,
