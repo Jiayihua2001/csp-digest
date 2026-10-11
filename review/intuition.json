@@ -2113,6 +2113,62 @@
     }
    ],
    "synthesis": "For GAtor 2.0, MACE-OFF is a candidate MLIP in the same tier as AIMNet2 and UMA for fast pre-ranking and local relaxation of GA-generated molecular crystal candidates before expensive PBE0+MBD. Its claimed strength on molecular crystals and quantum nuclear effects is directly relevant to lattice-energy ranking and finite-temperature stability, but a key caveat is that MACE-OFF is explicitly short-range: molecular crystal lattice energies hinge on long-range dispersion and electrostatics, so you should validate whether its short-range training captures the fine (<~few kJ/mol) polymorph energy separations that decide CSP rankings, and treat it as a filter/geometry optimizer rather than a final arbiter until benchmarked against your dispersion-inclusive DFT on your own Z'=1 and Z'>1 systems. Accurate transferable torsion scans are especially valuable for conformer-rich flexible molecules where GA structure generation and conformer energetics matter."
+  },
+  {
+   "slug": "aimnet2",
+   "title": "AIMNet2: a neural network potential to meet your neutral, charged, organic, and elemental-organic needs",
+   "doi": "10.1039/d4sc08572h",
+   "year": 2025,
+   "tier": "G",
+   "source_mode": "metadata",
+   "date": "2026-10-11",
+   "core_idea": "AIMNet2 is a second-generation atoms-in-molecules neural network potential trained on 20 million hybrid quantum chemistry calculations, covering up to 14 chemical elements in both neutral and charged states. It combines ML-parameterized short-range terms with physics-based long-range terms to achieve broad transferability across organics and element-organic chemistry without system-specific retraining.",
+   "innovation": "Broad transferability across neutral AND charged species and 14 elements (including 'exotic' element-organic bonding), with explicit physics-based long-range terms and charge-state handling, rather than a narrow organics-only model requiring retraining per application.",
+   "chunks": [
+    {
+     "type": "statistic",
+     "statement": "AIMNet2 covers species composed of up to 14 chemical elements in both neutral and charged states, spanning the majority of non-metallic compounds.",
+     "scope": "Molecular organic and element-organic species, neutral and charged; non-metallic chemistry",
+     "evidence": "Abstract: 'applicable to species composed of up to 14 chemical elements in both neutral and charged states, making it a valuable model for modeling the majority of non-metallic compounds.'",
+     "generality": "single-study"
+    },
+    {
+     "type": "statistic",
+     "statement": "The model was trained on an exhaustive dataset of ~20 million hybrid quantum chemical calculations.",
+     "scope": "Training data provenance for AIMNet2",
+     "evidence": "Abstract: 'Using an exhaustive dataset of 20 million hybrid quantum chemical calculations...'",
+     "generality": "single-study"
+    },
+    {
+     "type": "principle",
+     "statement": "Combining ML-parameterized short-range interactions with explicit physics-based long-range terms yields generalizability that extends well outside the training distribution, from simple organics to exotic element-organic bonding.",
+     "scope": "Neural network interatomic potentials for molecular systems",
+     "evidence": "Abstract: 'combines ML-parameterized short-range and physics-based long-range terms to attain generalizability that reaches from simple organics to diverse molecules with exotic element-organic bonding.'",
+     "generality": "suggested"
+    },
+    {
+     "type": "statistic",
+     "statement": "AIMNet2 outperforms semi-empirical GFN-xTB and is reported on par with reference DFT for interaction energy contributions, conformer search, torsion rotation profiles, and geometry optimization from molecules to macromolecules.",
+     "scope": "Molecular tasks: interaction energies, conformer search, torsion scans, geometry optimization",
+     "evidence": "Abstract: 'AIMNet2 outperforms semi-empirical GFN-xTB and is on par with reference density functional theory for interaction energy contributions, conformer search tasks, torsion rotation profiles, and molecular-to-macromolecular geometry optimization.'",
+     "generality": "single-study"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "Use a broadly transferable MLIP like AIMNet2 when you want to avoid curating new quantum chemical data and retraining for each new chemical system.",
+     "scope": "Workflows needing coverage across diverse chemistries without per-system fine-tuning",
+     "evidence": "Abstract: 'a significant step toward providing access to MLIPs that avoid the crucial limitation of curating additional quantum chemical data and retraining with each new application.'",
+     "generality": "suggested"
+    },
+    {
+     "type": "pitfall",
+     "statement": "MLIP efficiency gains are only meaningful when the model is genuinely transferable outside its training set; models achieving broad transferability are rarely actually reported/validated.",
+     "scope": "General MLIP adoption",
+     "evidence": "Abstract: 'the benefits of such efficiency are only impactful when an MLIP uniquely enables insight... or is broadly transferable outside of the training dataset, where models achieving the latter are seldom reported.'",
+     "generality": "suggested"
+    }
+   ],
+   "synthesis": "For GAtor 2.0, AIMNet2's explicit charge-state handling and element coverage make it a candidate relaxer/ranker for multi-component and ionic/charged molecular crystals where typical organics-only MLIPs (e.g. MACE-OFF) may falter, and its conformer-search and torsion accuracy matters directly for Z'>1 and flexible-molecule CSP where intramolecular conformational energetics enter the lattice-energy ranking. As a molecular (not periodic) potential, treat it cautiously as a fast pre-screen for GA-generated structures and conformer-energy corrections rather than a final dispersion-inclusive DFT (PBE0+MBD) replacement; polymorph energy windows are tiny (sub-kJ/mol), so any claim of 'on par with DFT' must be re-validated for crystal relative energies before trusting it to re-rank near-degenerate candidates. Note all numbers here are abstract-only and low-confidence."
   }
  ]
 }
