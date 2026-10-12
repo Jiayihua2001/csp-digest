@@ -76,19 +76,6 @@ KW  - generative-model
 ER  - 
 
 TY  - GEN
-TI  - Let CSP Be Your ANCHOR: Adaptive Crystal Search over Frozen Structure Priors
-AU  - Emma Lei Hovmand
-AU  - Jonas Elsborg
-AU  - Melih Kandemir
-DA  - 2026/09/27
-PY  - 2026
-JO  - arXiv
-UR  - https://arxiv.org/abs/2609.33407v2
-AB  - De novo crystal generation (DNG) models decide where to search in composition space and how to generate structures with one set of weights. We argue that discovery is better served by separating the two. A crystal structure prediction (CSP) model is a physical prior that should be improved by likelihood training, while rewards, including novelty measured against the search's own history, should act on a search over compositions. We introduce ANCHOR, a GRPO composition policy trained with multi-objective rewards around a frozen CSP model, and continuous adaptive novelty (CAN), a graded novelty score against known structures and a growing discovery history. Using the frozen CSP model as a fixed ruler under one evaluator, we test where adaptation should act. Replacing DNG compositions with ANCHOR's policy on the same CSP backbone raises MSUN from 11.4% to 47.6% and SUN from 1.1% to 22.1% at 99.9% formula uniqueness. Fine-tuning DNG models directly on the same rewards instead moves their composition marginal without raising their on-hull fraction. We show that KL-regularized fine-tuning of a DNG model can only reweight chemistry the pretrained model already supports by a bounded factor
-KW  - CSP
-ER  - 
-
-TY  - GEN
 TI  - ManifoldCache: Training-Free Diffusion Acceleration via Constraint Manifold Caching
 AU  - Prashant Pandey
 AU  - Devineni Sri Venkatraya Chowdary
@@ -130,6 +117,23 @@ KW  - generative-model
 KW  - ML-potential
 KW  - polymorphism
 KW  - space-group
+ER  - 
+
+TY  - GEN
+TI  - Accuracy of Vibrational Properties of Machine-Learning Force Fields for Molecular Crystal Transformations
+AU  - Natalia Goncharova
+AU  - Oskar Schweighofer
+AU  - Johannes Hoja
+DA  - 2026/10/09
+PY  - 2026
+JO  - arXiv
+UR  - https://arxiv.org/abs/2610.13902v1
+AB  - Machine-learning force fields (MLFFs) enable the calculation of transformation pathways in molecular crystals at a fraction of the computational cost of density functional theory (DFT). However, a good agreement in energies and structures does not necessarily imply an accurate description of vibrational properties, which are essential for characterizing transition states and determining free energies at finite temperatures. Herein, we assess the accuracy of system-specific SO3krates MLFFs trained on PBE+MBD reference data for describing vibrational properties of molecular crystal transformations. As examples, we consider a polymorph transition of 1,4-diiodobenzene and a single-crystal-to-single-crystal Diels-Alder reaction. The transition state structures obtained from solid-state nudged-elastic-band (NEB) calculations with the MLFFs exhibit a single imaginary $Γ$-point frequency associated with the respective transformation. Compared with PBE+MBD, the mean absolute errors of $Γ$-point vibrational frequencies and relative harmonic free energies at 300 K are about 3 cm$^{-1}$ and 1 kJ/mol, respectively. Furthermore, we compare for the Diels-Alder reaction a collective transformation
+KW  - CSP
+KW  - ML-potential
+KW  - free-energy
+KW  - lattice-energy
+KW  - polymorphism
 ER  - 
 
 TY  - JOUR
@@ -197,7 +201,7 @@ AU  - Yuan Tian
 DA  - 2026/10/08
 PY  - 2026
 JO  - arXiv
-UR  - https://arxiv.org/abs/2610.12151v1
+UR  - https://arxiv.org/abs/2610.12151v2
 AB  - Machine learning interatomic potentials (MLIPs) are transforming atomistic simulations by accessing unprecedented length and time scales. While pretrained equivariant graph neural networks achieve robust zero-shot performance for near-equilibrium properties across broad chemical spaces, their translation to complex materials dynamics remains fundamentally challenged by out-of-distribution reactive states, representation biases, and computational scaling limits. In this Review, we examine how physics-driven specialization extends the applicability of MLIPs to complex dynamical systems. We systematically evaluate the structural trade-offs in MLIP design: the undersampling of highly strained configurations, the prohibitive computational overhead of high-order message-passing architectures, and the necessity of nonlocal interactions for open and field-coupled systems. Through four demanding application contexts - electrified interfaces, compositionally fluctuating open systems, multiphase evolution, and large-scale fracture - we establish a framework for observable-specific validation. Highlighting the complementary roles of universal foundation models and task-specific potentials, we
 KW  - CSP
 KW  - ML-potential
@@ -219,21 +223,6 @@ KW  - benchmark
 ER  - 
 
 TY  - JOUR
-TI  - Benchmarking Practices for ML Interatomic Potentials: A Critical Review of Methodological Pitfalls and What Was Missed (2017–2023)
-AU  - Paolo Ricci
-AU  - Marco De Luca
-AU  - Giulia Ferraro
-DA  - 2026/09/27
-PY  - 2026
-JO  - Journal of Computational and Data-Driven Materials Engineering
-DO  - 10.68159/l189247610
-UR  - https://doi.org/10.68159/l189247610
-KW  - CSP
-KW  - ML-potential
-KW  - benchmark
-ER  - 
-
-TY  - JOUR
 TI  - Symbolic ensemble learning enables discovery of fast accurate physics-based interatomic potentials
 AU  - Bilvin Varughese
 AU  - Aditya Koneru
@@ -243,6 +232,20 @@ PY  - 2026
 JO  - Physical Review Materials
 DO  - 10.1103/gkpd-gtzp
 UR  - https://doi.org/10.1103/gkpd-gtzp
+KW  - CSP
+KW  - ML-potential
+ER  - 
+
+TY  - GEN
+TI  - Assessing the Reliability of Foundational Machine Learning Potentials for Evaluating the Veracity of the Crystallography Open Database
+AU  - Justinas Šlepavičius
+AU  - Antanas Vaitkus
+AU  - Andrius Merkys
+DA  - 2026/10/08
+PY  - 2026
+JO  - arXiv
+UR  - https://arxiv.org/abs/2610.11246v1
+AB  - The Crystallography Open Database (COD) contains over half a million experimentally determined crystal structures. Validation of crystallographic data proceeds at three hierarchical levels, the third of which assesses the physical plausibility of structures. This level has typically relied on empirical heuristics or expert judgment, which are slow and error-prone given the size of crystallographic databases and the rate at which new structures are deposited. Here we assess whether universal machine-learning interatomic potentials (MLIPs) can automate this level of validation. Of the 522 086 COD entries, 317 457 (60.8\%) passed a data-quality filter removing disordered structures, formula mismatches and unmodelled solvent. These structures were relaxed with M3GNet, and 314 153 (99.0\%) converged without a large change in cell volume. For most entries the relaxed and deposited volumes are nearly identical. Convergence and volume change thus provide simple criteria for identifying relaxations that do not confirm the deposited structure. A manual inspection of 327 structures showed that no single descriptor threshold (energy, largest force, or atomic displacement) separates valid from
 KW  - CSP
 KW  - ML-potential
 ER  - 
@@ -326,20 +329,6 @@ PY  - 2026
 JO  - arXiv
 UR  - https://arxiv.org/abs/2609.40060v1
 AB  - Foundation machine-learning interatomic potentials cover broad configurational and chemical spaces, but their reliability can vary across the atomic environments encountered during a simulation. Here we introduce the calibrated Mahalanobis (CALM) extrapolation grade $γ$, a piecewise differentiable per-atom quantity integrated into GRACE foundation models and evaluated alongside energies and forces in a single model pass. We define $γ$ from nearest-cluster Mahalanobis distances in latent feature space, setting $γ=1$ from the training-distance distribution separately for each element and cluster. Controlled tests show that a normalized random projection of the invariant many-body basis detects structural and chemical extrapolation. On different foundation datasets, OMat24 and SMAX, $γ$ correlates with atomic force errors and separates structures with different error distributions. The CALM grade adds percent-level computational cost, and its spatial gradient guides uncertainty-biased data collection toward configurations with larger absolute force errors.
-KW  - CSP
-KW  - ML-potential
-ER  - 
-
-TY  - JOUR
-TI  - Uncertainty Quantification for ML Interatomic Potentials: A Review of Methods, Hidden Assumptions, and Unresolved Questions
-AU  - Daniel Fischer
-AU  - Laura Meier
-AU  - Thomas Braun
-DA  - 2026/09/27
-PY  - 2026
-JO  - Journal of Computational and Data-Driven Materials Engineering
-DO  - 10.68159/p918703755
-UR  - https://doi.org/10.68159/p918703755
 KW  - CSP
 KW  - ML-potential
 ER  - 

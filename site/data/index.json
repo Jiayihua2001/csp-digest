@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-10-12",
+  "count": 23,
+  "new_count": 3,
+  "synthesis": "Flow-matching/diffusion generators dominate CSP methodology today, with five independent groups (unit-cell conditional flows, Riemannian+RL, symmetry-aware flow matching, EP-Flow for disorder, and a physics-placement analysis) converging on generative approaches\u2014suggesting rapid consolidation around flow-based architectures as the field's new standard, alongside a complexity-the",
+  "top": [
+   {
+    "title": "Molecular Crystal Structure Prediction from Conditional Flow on the Unit Cells",
+    "relevance": 90,
+    "significance": 8
+   },
+   {
+    "title": "Riemannian Flow Models with Reinforcement Learning for Molecular Crystal Structure Prediction",
+    "relevance": 94,
+    "significance": 0
+   },
+   {
+    "title": "Where Should Physics Enter a Molecular Crystal Generator?",
+    "relevance": 92,
+    "significance": 0
+   }
+  ]
+ },
+ {
   "date": "2026-10-11",
   "count": 24,
   "new_count": 0,

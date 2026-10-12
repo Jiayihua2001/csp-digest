@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-Introduces a symbolic-regression ensemble approach to automatically derive fast, accurate physics-based interatomic potentials, potentially accelerating energy/force evaluations within genetic-algorithm crystal structure prediction workflows.
+Introduces a symbolic-regression-based ensemble learning framework to automatically discover fast, accurate physics-based interatomic potentials, replacing hand-derived or purely data-driven force-field forms.
 
 ## My notes
 
