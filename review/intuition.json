@@ -2169,6 +2169,62 @@
     }
    ],
    "synthesis": "For GAtor 2.0, AIMNet2's explicit charge-state handling and element coverage make it a candidate relaxer/ranker for multi-component and ionic/charged molecular crystals where typical organics-only MLIPs (e.g. MACE-OFF) may falter, and its conformer-search and torsion accuracy matters directly for Z'>1 and flexible-molecule CSP where intramolecular conformational energetics enter the lattice-energy ranking. As a molecular (not periodic) potential, treat it cautiously as a fast pre-screen for GA-generated structures and conformer-energy corrections rather than a final dispersion-inclusive DFT (PBE0+MBD) replacement; polymorph energy windows are tiny (sub-kJ/mol), so any claim of 'on par with DFT' must be re-validated for crystal relative energies before trusting it to re-rank near-degenerate candidates. Note all numbers here are abstract-only and low-confidence."
+  },
+  {
+   "slug": "wengert-delta-ml-2021",
+   "title": "Data-efficient machine learning for molecular crystal structure prediction",
+   "doi": "10.1039/d0sc05765g",
+   "year": 2021,
+   "tier": "G",
+   "source_mode": "metadata",
+   "date": "2026-10-12",
+   "core_idea": "The paper presents a Delta-machine learning approach for molecular crystal structure prediction that corrects a cheap physics-based baseline (DFTB, which handles long-range/dispersion efficiently) with a short-range ML model trained on high-quality first-principles data. Crucially, the reference training data never requires a single periodic calculation at the reference level, enabling high accuracy across many trial polymorphs at low cost.",
+   "innovation": "It builds a Delta-ML correction on top of DFTB so that long-range many-body dispersion and H-bonding are described by the physics baseline while ML only learns the short-range correction - allowing the reference level to even be a wavefunction method, without any periodic reference calculations.",
+   "chunks": [
+    {
+     "type": "principle",
+     "statement": "Molecular CSP requires assessing a large number of trial polymorphs that lie in a very narrow energy range, so screening demands high accuracy at low cost simultaneously.",
+     "scope": "Organic molecular crystal structure prediction",
+     "evidence": "'screening a huge space of possible polymorphs in a narrow energy range requires the assessment of a large number of trial structures with high accuracy'",
+     "generality": "established"
+    },
+    {
+     "type": "principle",
+     "statement": "Ranking molecular crystals correctly hinges on capturing the subtle interplay between intermolecular interactions such as H-bonding and many-body dispersion.",
+     "scope": "Molecular crystals with H-bonding and dispersion-dominated packing",
+     "evidence": "'adequately describing the subtle interplay between intermolecular interactions such as H-bonding and many-body dispersion effects'",
+     "generality": "established"
+    },
+    {
+     "type": "pipeline_practice",
+     "statement": "A Delta-ML workflow splits the problem: a physics-based baseline (DFTB) captures long-range interactions efficiently, while a short-range ML model trained on first-principles data supplies the correction to reference-level accuracy.",
+     "scope": "Delta-ML models for molecular crystals, DFTB baseline",
+     "evidence": "'enhancing a physics-based description of long-range interactions at the density functional tight binding (DFTB) level ... with a short-range ML model trained on high-quality first-principles reference data'",
+     "generality": "single-study"
+    },
+    {
+     "type": "pitfall",
+     "statement": "Reference calculations for periodic systems with many atoms can become prohibitively expensive at higher levels of theory, limiting what accuracy is affordable in CSP.",
+     "scope": "Periodic QM reference calculations for many-atom systems",
+     "evidence": "'reference calculations for periodic systems with many atoms can become prohibitively expensive for higher levels of theory'",
+     "generality": "established"
+    },
+    {
+     "type": "decision_rule",
+     "statement": "When the reference method is too expensive to run periodically, train the ML correction on non-periodic (cluster/molecular) high-level data so no periodic reference calculation is needed - this makes even wavefunction methods usable for CSP.",
+     "scope": "Molecular materials where long-range physics is handled by the baseline",
+     "evidence": "'without the need for a single periodic calculation at the reference level of theory ... this even allows the use of wavefunction methods in CSP'",
+     "generality": "single-study"
+    },
+    {
+     "type": "principle",
+     "statement": "Combining ML with high-quality QM data yields models with an unrivalled accuracy/cost ratio, but the ultimate bottleneck is the cost of generating the reference data itself.",
+     "scope": "ML interatomic potentials/property models trained on QM data",
+     "evidence": "'can yield models with an unrivalled accuracy/cost ratio. However, such methods are ultimately limited by the computational effort required to produce the reference data'",
+     "generality": "established"
+    }
+   ],
+   "synthesis": "For GAtor 2.0, this paper reinforces that the ranking bottleneck is not generating structures but affordably evaluating them at a level that resolves sub-kJ/mol polymorph gaps where H-bonding and many-body dispersion fight. The Delta-ML strategy - cheap physics baseline for long-range/MBD physics plus a short-range learned correction trained without periodic reference calculations - is philosophically aligned with how modern MLIPs (MACE-OFF, AIMNet2, UMA) are deployed as pre-screens before PBE0+MBD. The key transferable intuition is that you can decouple the expensive reference (even wavefunction-level) from periodic evaluation by letting ML learn only the short-range delta, which could let a GA fitness function approach reference accuracy over thousands of candidate crystals (including Z'>1 and multi-component) without a full periodic high-level DFT run per structure. Note this is an abstract-only, single-system digest; treat the specific claims as promising directions rather than validated across the chemical diversity GAtor targets."
   }
  ]
 }
