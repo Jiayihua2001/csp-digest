@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-10-13",
+  "count": 18,
+  "new_count": 2,
+  "synthesis": "Notable cluster of ML-generative CSP methods: Riemannian flow models with RL and EP-Flow (disordered structures without site labels) signal continued diversification beyond classical GA sampling, alongside a theoretical hardness analysis of energy minimisation\u2014useful context for why these alternatives are proliferating.",
+  "top": [
+   {
+    "title": "Investigation of Lamotrigine Crystal Polymorphs Using Crystal Structure Prediction and Terahertz Spectroscopy",
+    "relevance": 90,
+    "significance": 0
+   },
+   {
+    "title": "Riemannian Flow Models with Reinforcement Learning for Molecular Crystal Structure Prediction",
+    "relevance": 90,
+    "significance": 0
+   },
+   {
+    "title": "EP-Flow: Disordered Crystal Structure Prediction without Site-Level Annotations",
+    "relevance": 70,
+    "significance": 0
+   }
+  ]
+ },
+ {
   "date": "2026-10-12",
   "count": 23,
   "new_count": 3,
