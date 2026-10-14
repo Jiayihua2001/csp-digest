@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-10-14",
+  "count": 18,
+  "new_count": 4,
+  "synthesis": "Flow-based generative models continue displacing GAN/basin-hopping approaches for CSP, with three distinct entries today (unit-cell conditional flow, Riemannian flow+RL, disordered-structure EP-Flow) signaling a methodological consolidation. Otherwise a steady diet of MLIP refinements\u2014phonon accuracy, noise resilience, equivariant architectures\u2014with no",
+  "top": [
+   {
+    "title": "Molecular Crystal Structure Prediction from Conditional Flow on the Unit Cells",
+    "relevance": 90,
+    "significance": 8
+   },
+   {
+    "title": "Riemannian Flow Models with Reinforcement Learning for Molecular Crystal Structure Prediction",
+    "relevance": 94,
+    "significance": 0
+   },
+   {
+    "title": "Investigation of Lamotrigine Crystal Polymorphs Using Crystal Structure Prediction and Terahertz Spectroscopy",
+    "relevance": 90,
+    "significance": 0
+   }
+  ]
+ },
+ {
   "date": "2026-10-13",
   "count": 18,
   "new_count": 2,
