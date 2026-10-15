@@ -11,23 +11,6 @@ KW  - CSP
 KW  - space-group
 ER  - 
 
-TY  - GEN
-TI  - Riemannian Flow Models with Reinforcement Learning for Molecular Crystal Structure Prediction
-AU  - Thomas Egg
-AU  - Harry Winston Sullivan
-AU  - Maya M. Martirossyan
-DA  - 2026/09/30
-PY  - 2026
-JO  - arXiv
-UR  - https://arxiv.org/abs/2609.39773v1
-AB  - Crystal structure governs material properties, making crystal structure prediction (CSP) a fundamental problem in materials science. Generative models are a promising approach for solving this problem, but the prevalence of polymorphism, coupled with large unit cells and complex packing geometry, makes the molecular CSP task challenging for existing models. To address this, we introduce Coarse-Grained Open Materials Generation (CG-OMatG), an equivariant Riemannian flow-based generative model. CG-OMatG predicts molecular crystal structures \textit{via} a coarse-grained, hierarchical representation. CG-OMatG treats molecules as rigid bodies---performing both inter- and intra-molecular message passing to construct a geometric representation for molecular packings---and learns to reconstruct molecule centroid positions, orientations, and lattice parameters, conditioned on chemical species and conformer geometry. We train the model on subsets of the Open Molecular Crystals (OMC25) and Cambridge Structural Database (CSD) datasets. Further, we fine-tune the model \textit{via} policy gradient reinforcement learning to steer the model towards generating low-energy candidate structures. We v
-KW  - CSP
-KW  - generative-model
-KW  - polymorphism
-KW  - conformational
-KW  - space-group
-ER  - 
-
 TY  - JOUR
 TI  - Investigation of Lamotrigine Crystal Polymorphs Using Crystal Structure Prediction and Terahertz Spectroscopy
 AU  - Salvatore Zarrella
@@ -206,6 +189,34 @@ AB  - Machine learning interatomic potentials (MLIPs) are transforming atomistic
 KW  - CSP
 KW  - ML-potential
 KW  - lattice-energy
+ER  - 
+
+TY  - GEN
+TI  - Risk-Controlled DFT Selection for Machine-Learned Interatomic Potentials
+AU  - Kun Ryu
+AU  - Yeo Jin Jung
+AU  - Shyue Ping Ong
+DA  - 2026/10/14
+PY  - 2026
+JO  - arXiv
+UR  - https://arxiv.org/abs/2610.19630v1
+AB  - Automated materials discovery requires evaluating large pools of candidate configurations, with density functional theory (DFT) as a major throughput bottleneck. Pretrained machine-learned interatomic potentials (MLIPs) approximate DFT cheaply, but their errors vary by orders of magnitude across configurations, making it difficult to decide when to trust the MLIP predictions and when to fall back to DFT. We frame this decision as a risk-controlled selection problem and solve it within a conformal risk control (CRC) framework. Each configuration is mapped from atomic numbers and Cartesian coordinates to a fixed geometric descriptor, which a lightweight predictor uses to estimate an MLIP-DFT disagreement score in energy, average force, and maximum force. CRC then calibrates this score into a selection threshold for DFT labeling such that the MLIP error on the unselected configurations, which keep their MLIP labels, stays below a user-chosen fraction $α$ of the expected error. Under an identical guarantee across eight dataset-MLIP pairs, our predictor routes 7% and 14% fewer configurations to DFT at $α=0.3$ than committee baselines. Because committee disagreement overlooks errors the
+KW  - CSP
+KW  - ML-potential
+ER  - 
+
+TY  - GEN
+TI  - LunaTP: Enabling Efficient and Scalable Tensor Product for Equivariant MLIPs
+AU  - Yuanchang Zhou
+AU  - Mingzhen Li
+AU  - Chen Wang
+DA  - 2026/10/13
+PY  - 2026
+JO  - arXiv
+UR  - https://arxiv.org/abs/2610.18393v1
+AB  - Equivariant machine learning interatomic potentials (MLIPs) promise atomistic simulations with accuracy approaching that of quantum-mechanical calculations. However, the high computational cost of their core Clebsch--Gordan tensor product (CGTP) convolutions severely limits model scalability and efficiency. In this paper, we rethink the parallel execution of CGTP convolutions and introduce LunaTP. Built on node-centric execution, LunaTP exploits path-group parallelism and multi-level reuse to accelerate CGTP convolutions and higher-order derivative computation while preserving the underlying mathematical formulation. On an NVIDIA H100 GPU, LunaTP achieves kernel speedups of up to 250.0$\times$ over e3nn and 17.1$\times$ over OpenEquivariance. It also delivers end-to-end training throughput gains of up to 28.7$\times$ over e3nn and 3.11$\times$ over OpenEquivariance. Finally, LunaTP demonstrates scalability and robust performance across models, workload scales, and GPUs, delivering substantial acceleration for training and atomistic simulation with high-accuracy equivariant MLIPs.
+KW  - CSP
+KW  - ML-potential
 ER  - 
 
 TY  - GEN

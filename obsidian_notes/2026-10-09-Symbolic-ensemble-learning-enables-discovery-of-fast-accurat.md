@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-Likely introduces a symbolic-regression-based ensemble framework that automatically generates fast, accurate physics-based interatomic potentials, potentially improving CSP energy evaluations over hand-derived or black-box ML potentials.
+Likely introduces a symbolic-regression-based ensemble framework that automatically discovers interpretable, physics-based interatomic potentials balancing accuracy and computational speed, rather than relying on fixed-form or black-box machine-learning potentials.
 
 ## My notes
 

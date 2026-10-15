@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-A single universal interatomic potential (HIP) directly predicts Hessians (and thus vibrational/stability data) without finite-difference derivatives, accelerating crystal structure stability screening.
+A Hessian-informed interatomic potential trained to predict energies and forces directly without requiring explicit derivative (Hessian) computation during training or inference, likely improving efficiency for tasks like transition-state search and crystal structure optimization.
 
 ## My notes
 

@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-10-15",
+  "count": 19,
+  "new_count": 2,
+  "synthesis": "Generative/flow-based CSP is gaining traction (conditional flow on unit cells, EP-Flow for disordered structures), alongside continued MLIP infrastructure work (noise-resilient training, body-ordered potential limits, HIP Hessians). Lamotrigine polymorph study pairs CSP with THz spectroscopy validation\u2014a useful experimental tie-in rather than a methods",
+  "top": [
+   {
+    "title": "Molecular Crystal Structure Prediction from Conditional Flow on the Unit Cells",
+    "relevance": 90,
+    "significance": 8
+   },
+   {
+    "title": "Investigation of Lamotrigine Crystal Polymorphs Using Crystal Structure Prediction and Terahertz Spectroscopy",
+    "relevance": 90,
+    "significance": 0
+   },
+   {
+    "title": "EP-Flow: Disordered Crystal Structure Prediction without Site-Level Annotations",
+    "relevance": 80,
+    "significance": 0
+   }
+  ]
+ },
+ {
   "date": "2026-10-14",
   "count": 18,
   "new_count": 4,
