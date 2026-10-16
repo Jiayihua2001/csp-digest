@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-A Hessian-informed interatomic potential trained to predict energies and forces directly without requiring explicit derivative (Hessian) computation during training or inference, likely improving efficiency for tasks like transition-state search and crystal structure optimization.
+Direct prediction of per-atom forces and stress—and Hessian eigenspectra—from a single network forward pass, bypassing energy differentiation used by conventional interatomic potentials.
 
 ## My notes
 

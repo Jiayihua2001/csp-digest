@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-10-16",
+  "count": 17,
+  "new_count": 1,
+  "synthesis": "Generative CSP continues diversifying beyond GAs, with a conditional flow-matching approach for unit cells joining diffusion-based methods, alongside a combined CSP/THz spectroscopy study resolving lamotrigine polymorphs. Otherwise a heavy ML-potential day (phonons, Hessians, body-ordering, noise-resilience) but little directly tied to GA-based",
+  "top": [
+   {
+    "title": "Molecular Crystal Structure Prediction from Conditional Flow on the Unit Cells",
+    "relevance": 90,
+    "significance": 8
+   },
+   {
+    "title": "Investigation of Lamotrigine Crystal Polymorphs Using Crystal Structure Prediction and Terahertz Spectroscopy",
+    "relevance": 90,
+    "significance": 0
+   },
+   {
+    "title": "ManifoldCache: Training-Free Diffusion Acceleration via Constraint Manifold Caching",
+    "relevance": 70,
+    "significance": 0
+   }
+  ]
+ },
+ {
   "date": "2026-10-15",
   "count": 19,
   "new_count": 2,
