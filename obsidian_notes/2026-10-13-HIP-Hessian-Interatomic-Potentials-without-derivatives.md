@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-Direct prediction of per-atom forces and stress—and Hessian eigenspectra—from a single network forward pass, bypassing energy differentiation used by conventional interatomic potentials.
+A single neural network directly predicts atomic Hessians—bypassing double differentiation of energy—yielding faster, more accurate interatomic potentials for curvature-dependent tasks like transition-state search.
 
 ## My notes
 
