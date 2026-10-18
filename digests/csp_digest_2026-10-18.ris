@@ -1,0 +1,250 @@
+TY  - JOUR
+TI  - Investigation of Lamotrigine Crystal Polymorphs Using Crystal Structure Prediction and Terahertz Spectroscopy
+AU  - Salvatore Zarrella
+AU  - Mizuki Mohara
+AU  - Kei Shimura
+DA  - 2026/10/09
+PY  - 2026
+JO  - Crystal Growth &amp; Design
+DO  - 10.1021/acs.cgd.6c00916
+UR  - https://doi.org/10.1021/acs.cgd.6c00916
+AB  - Abstract Crystal structure prediction (CSP) plays a significant role in exploring the crystal polymorphism of pharmaceutical solids. Determination of the atomic-level structures of crystalline materials is a fundamental step in understanding their bulk physical and chemical properties and behavior in drug products. CSP can be performed using numerous computational approaches, but all ultimately require comparison with experimental measurements to confirm the CSP findings. In this work, terahertz (THz) vibrational spectroscopy is combined with powder X-ray diffraction (PXRD) to demonstrate a new metrics framework for the validation of CSP investigations. Terahertz spectroscopy probes the low-frequency (≤150 cm−1) lattice vibrations of molecular crystals and provides a polymorph specific spectral profile that complements diffraction methods. This methodology is applied to the anti-epileptic drug lamotrigine, the subject of multiple crystal engineering studies to improve its formulated performance. A CSP search was performed on lamotrigine starting with a fast molecular mechanics survey for initial crystal structure candidates (∼800,000 structures), followed by high-accuracy solid-sta
+KW  - CSP
+KW  - ML-potential
+KW  - free-energy
+KW  - polymorphism
+ER  - 
+
+TY  - JOUR
+TI  - A MACE interatomic potential for two dimensional and curved sp2 carbon: family level transfer benchmarks and a SOAP based structural novelty map
+AU  - Yunus Emre Okyayli
+AU  - Dilara Ickecan
+AU  - Dogan Erbahar
+DA  - 2026/10/17
+PY  - 2026
+JO  - Computational Materials Science
+DO  - 10.1016/j.commatsci.2026.115176
+UR  - https://doi.org/10.1016/j.commatsci.2026.115176
+KW  - CSP
+KW  - ML-potential
+KW  - benchmark
+ER  - 
+
+TY  - GEN
+TI  - All-electron machine-learned orbital-free density functional for periodic CHNO systems
+AU  - Marc K. Ickler
+AU  - Andreas Hermann
+AU  - Fred A. Hamprecht
+DA  - 2026/10/13
+PY  - 2026
+JO  - arXiv
+UR  - https://arxiv.org/abs/2610.17975v1
+AB  - We introduce STRUCTURES-P, a machine-learned all-electron orbital-free density functional for periodic CHNO systems. Electrostatics are evaluated analytically in an atom-centered Gaussian basis, while an equivariant network learns the kinetic and exchange-correlation energy from energies and gradients of non-ground-state densities. Minimizing the functional from a superposition of atomic densities recovers the Kohn-Sham ground state: on held-out crystals, the density error falls from 6.7% to 0.4% of the electron count and the energy error reaches 0.25 mHa per atom, half that of a same-architecture interatomic potential. A single functional can be trained for both isolated molecules and periodic systems, and the model generalizes to larger unit cells. It largely preserves relative-energy rankings and reproduces convex-hull vertices on the tested H-N composition slice. Together, these results demonstrate the viability of machine-learned all-electron orbital-free DFT for variational density optimization and energy evaluation in fixed-geometry solids.
+KW  - CSP
+KW  - generative-model
+KW  - ML-potential
+KW  - lattice-energy
+ER  - 
+
+TY  - GEN
+TI  - Accuracy of Vibrational Properties of Machine-Learning Force Fields for Molecular Crystal Transformations
+AU  - Natalia Goncharova
+AU  - Oskar Schweighofer
+AU  - Johannes Hoja
+DA  - 2026/10/09
+PY  - 2026
+JO  - arXiv
+UR  - https://arxiv.org/abs/2610.13902v1
+AB  - Machine-learning force fields (MLFFs) enable the calculation of transformation pathways in molecular crystals at a fraction of the computational cost of density functional theory (DFT). However, a good agreement in energies and structures does not necessarily imply an accurate description of vibrational properties, which are essential for characterizing transition states and determining free energies at finite temperatures. Herein, we assess the accuracy of system-specific SO3krates MLFFs trained on PBE+MBD reference data for describing vibrational properties of molecular crystal transformations. As examples, we consider a polymorph transition of 1,4-diiodobenzene and a single-crystal-to-single-crystal Diels-Alder reaction. The transition state structures obtained from solid-state nudged-elastic-band (NEB) calculations with the MLFFs exhibit a single imaginary $Γ$-point frequency associated with the respective transformation. Compared with PBE+MBD, the mean absolute errors of $Γ$-point vibrational frequencies and relative harmonic free energies at 300 K are about 3 cm$^{-1}$ and 1 kJ/mol, respectively. Furthermore, we compare for the Diels-Alder reaction a collective transformation
+KW  - CSP
+KW  - ML-potential
+KW  - free-energy
+KW  - lattice-energy
+KW  - polymorphism
+ER  - 
+
+TY  - JOUR
+TI  - Targeted fine-tuning of machine-learning interatomic potentials for phonons and phase transitions
+AU  - Jonas Grandel
+AU  - Philipp Benner
+AU  - Janine George
+DA  - 2026/10/07
+PY  - 2026
+JO  - npj Computational Materials
+DO  - 10.1038/s41524-026-02338-w
+UR  - https://doi.org/10.1038/s41524-026-02338-w
+AB  - Abstract Machine-learning interatomic potentials are widely used as computationally efficient surrogates for density functional theory in atomistic simulations, enabling large-scale and long-time modeling of materials systems. Here, we investigate how different fine-tuning strategies affect the prediction of harmonic phonon band structures, thermal and elastic properties, and the potential-energy surface along unstable phonon modes. We show that substantial improvements can be achieved with very limited additional data, with as few as 10 material-specific training structures. We investigate targeted L 2 -SP ( L 2 -TSP) for this application, combining regularization toward the pre-trained model with selective fine-tuning of the first two representation-building layers, alongside transfer learning and multihead fine-tuning, with an additional comparison to low-rank LoRA for phonon prediction. Across 53 materials, L 2 -TSP achieves the most consistent overall performance, reducing phonon errors while also improving predictions of thermodynamic and elastic properties. Importantly, models with similar harmonic phonon accuracy can differ substantially in their prediction of dynamical ins
+KW  - CSP
+KW  - ML-potential
+KW  - free-energy
+ER  - 
+
+TY  - JOUR
+TI  - Noise-resilient training of machine learning interatomic potentials
+AU  - Terry C. W. Lam
+AU  - Niamh O’Neill
+AU  - Christoph Schran
+DA  - 2026/10/13
+PY  - 2026
+JO  - The Journal of Chemical Physics
+DO  - 10.1063/5.0327092
+UR  - https://doi.org/10.1063/5.0327092
+AB  - The accuracy of machine learning interatomic potentials suffers from reference data that contain numerical noise. Often originating from unconverged or inconsistent electronic-structure calculations, this noise is challenging to identify. Existing mitigation strategies, such as manual filtering or iterative refinement of outliers, require either substantial expert effort or multiple expensive retraining cycles, making them difficult to scale to large datasets. Here, we introduce a noise-resilient training method that automatically down-weighs noisy samples, without requiring additional reference calculations. By tracking the loss distribution via an exponential moving average, this unsupervised method identifies outliers throughout a single training run. We show that this approach prevents overfitting and matches the performance of iterative refinement baselines with significantly reduced overhead. The method’s effectiveness is demonstrated by recovering accurate physical observables for liquid water from unconverged reference data, including diffusion coefficients. Furthermore, we validate its scalability by training a foundation model for organic chemistry on the SPICE dataset, w
+KW  - CSP
+KW  - ML-potential
+ER  - 
+
+TY  - JOUR
+TI  - Architecture-agnostic knowledge distillation for machine-learning interatomic potentials
+AU  - Chen Wang
+AU  - Siyu Hu
+AU  - Guangming Tan
+DA  - 2026/10/09
+PY  - 2026
+JO  - Neural Networks
+DO  - 10.1016/j.neunet.2026.109742
+UR  - https://doi.org/10.1016/j.neunet.2026.109742
+KW  - CSP
+KW  - ML-potential
+ER  - 
+
+TY  - GEN
+TI  - Overcoming the limitations of body-ordered potentials for atomistic machine learning
+AU  - Filippo Bigi
+AU  - Michelangelo Domina
+AU  - Maximilian Lloyd Ach
+DA  - 2026/10/07
+PY  - 2026
+JO  - arXiv
+UR  - https://arxiv.org/abs/2610.10830v1
+AB  - Machine-learning interatomic potentials have become indispensable tools in atomistic simulations. The most popular models rely heavily on physical priors, such as locality, smoothness and symmetry, that are assumed to improve the accuracy and transferability of the trained models. However, recent evidence suggests that, in the data-rich regime, unconstrained models that learn symmetry from the data can achieve very competitive accuracy and computational efficiency, without sacrificing stability and generalization power. Many equivariant symmetric architectures historically rely on the assumption that the interatomic potential can be approximated well by a convergentcluster expansion, i.e., a decomposition in terms associated to atomic pairs, triplets, quadruplets, and higher-order tuples. We describe an architecture that incorporates locality, smoothness, and symmetry priors, but that -- thanks to a computationally efficient tensor product formulation -- does not assume low-order truncation of the body-ordered series.
+KW  - CSP
+KW  - ML-potential
+ER  - 
+
+TY  - JOUR
+TI  - HIP: Hessian Interatomic Potentials without derivatives
+AU  - Andreas Burger
+AU  - Luca Thiede
+AU  - Nikolaj Rønne
+DA  - 2026/10/13
+PY  - 2026
+JO  - Nature Computational Science
+DO  - 10.1038/s43588-026-01066-x
+UR  - https://doi.org/10.1038/s43588-026-01066-x
+KW  - CSP
+KW  - ML-potential
+ER  - 
+
+TY  - GEN
+TI  - Pressure-transferable universal machine-learning potentials: the WBM-MatPES benchmark and Tuga-FF
+AU  - Pierre-Paul De Breuck
+AU  - Thalis H. B. da Silva
+AU  - Antoine Loew
+DA  - 2026/10/10
+PY  - 2026
+JO  - arXiv
+UR  - https://arxiv.org/abs/2610.14891v1
+AB  - Universal machine-learning interatomic potentials hold the promise to replace costly ab initio calculations in materials science workflows. However, the accuracy and transferability of current models are limited by the availability of training data. We release WBM-MatPES, a dataset of 182 thousand structures recomputed with consistent MatPES settings, together with two reference convex hulls of different depths and test sets at six pressures up to 150 GPa. These datasets reproduce a realistic discovery workflow and allow potentials to be ranked systematically at this level of theory, similar to the Matbench Discovery leaderboard at the Materials Project settings. In this benchmark, five published MatPES potentials agree within 12 meV/atom at 25 GPa, yet their errors increase dramatically to 0.4-5 eV/atom at 150 GPa. To address this limitation, we develop Tuga-FF, a graph transformer trained on datasets spanning ambient and high-pressure configurations alike. Tuga-FF is the most accurate model in the benchmark at ambient pressure, with an energy error of 13.6 meV/atom, and maintains an error of just 21 meV/atom at 150 GPa. We believe this benchmark will encourage the community to tr
+KW  - CSP
+KW  - ML-potential
+KW  - benchmark
+ER  - 
+
+TY  - GEN
+TI  - Specialized machine learning force fields for materials dynamics
+AU  - Yue Wu
+AU  - Haoyu Wan
+AU  - Yuan Tian
+DA  - 2026/10/08
+PY  - 2026
+JO  - arXiv
+UR  - https://arxiv.org/abs/2610.12151v2
+AB  - Machine learning interatomic potentials (MLIPs) are transforming atomistic simulations by accessing unprecedented length and time scales. While pretrained equivariant graph neural networks achieve robust zero-shot performance for near-equilibrium properties across broad chemical spaces, their translation to complex materials dynamics remains fundamentally challenged by out-of-distribution reactive states, representation biases, and computational scaling limits. In this Review, we examine how physics-driven specialization extends the applicability of MLIPs to complex dynamical systems. We systematically evaluate the structural trade-offs in MLIP design: the undersampling of highly strained configurations, the prohibitive computational overhead of high-order message-passing architectures, and the necessity of nonlocal interactions for open and field-coupled systems. Through four demanding application contexts - electrified interfaces, compositionally fluctuating open systems, multiphase evolution, and large-scale fracture - we establish a framework for observable-specific validation. Highlighting the complementary roles of universal foundation models and task-specific potentials, we
+KW  - CSP
+KW  - ML-potential
+KW  - lattice-energy
+ER  - 
+
+TY  - GEN
+TI  - Hierarchical universal open structure dataset for atomistic modeling
+AU  - Sofiia Chorna
+AU  - Cesare Malosso
+AU  - Jonathan Schmidt
+DA  - 2026/10/15
+PY  - 2026
+JO  - arXiv
+UR  - https://arxiv.org/abs/2610.21771v1
+AB  - Atomic-scale simulations have been transformed by machine-learning models that predict the properties of atomistic structures with the accuracy of quantum calculations, but at a small fraction of the cost. These models have increased dramatically in generality, thanks to the availability of synthetic datasets of ever-increasing size and scope. The proliferation of datasets, with properties often computed using different levels of electronic-structure approximation, is problematic, as there is often overlap between different datasets, and strong correlations between structures obtained with short molecular dynamics trajectories or geometry optimization. To address these problems, we introduce a protocol to stratify a dataset into a hierarchy of nested subsets, subsampling from the coarsest to the finest resolution based on an "ecumetric" built to reflect the latent space representation of several popular universal machine-learning interatomic potentials. We then use this approach to combine most of the open structural datasets currently available, consolidating them into MAD-COSMO, a well-organized collection of almost 1.7 billion structures, whose $2^{24}$ most diverse members form
+KW  - CSP
+KW  - ML-potential
+ER  - 
+
+TY  - GEN
+TI  - Risk-Controlled DFT Selection for Machine-Learned Interatomic Potentials
+AU  - Kun Ryu
+AU  - Yeo Jin Jung
+AU  - Shyue Ping Ong
+DA  - 2026/10/14
+PY  - 2026
+JO  - arXiv
+UR  - https://arxiv.org/abs/2610.19630v1
+AB  - Automated materials discovery requires evaluating large pools of candidate configurations, with density functional theory (DFT) as a major throughput bottleneck. Pretrained machine-learned interatomic potentials (MLIPs) approximate DFT cheaply, but their errors vary by orders of magnitude across configurations, making it difficult to decide when to trust the MLIP predictions and when to fall back to DFT. We frame this decision as a risk-controlled selection problem and solve it within a conformal risk control (CRC) framework. Each configuration is mapped from atomic numbers and Cartesian coordinates to a fixed geometric descriptor, which a lightweight predictor uses to estimate an MLIP-DFT disagreement score in energy, average force, and maximum force. CRC then calibrates this score into a selection threshold for DFT labeling such that the MLIP error on the unselected configurations, which keep their MLIP labels, stays below a user-chosen fraction $α$ of the expected error. Under an identical guarantee across eight dataset-MLIP pairs, our predictor routes 7% and 14% fewer configurations to DFT at $α=0.3$ than committee baselines. Because committee disagreement overlooks errors the
+KW  - CSP
+KW  - ML-potential
+ER  - 
+
+TY  - GEN
+TI  - LunaTP: Enabling Efficient and Scalable Tensor Product for Equivariant MLIPs
+AU  - Yuanchang Zhou
+AU  - Mingzhen Li
+AU  - Chen Wang
+DA  - 2026/10/13
+PY  - 2026
+JO  - arXiv
+UR  - https://arxiv.org/abs/2610.18393v1
+AB  - Equivariant machine learning interatomic potentials (MLIPs) promise atomistic simulations with accuracy approaching that of quantum-mechanical calculations. However, the high computational cost of their core Clebsch--Gordan tensor product (CGTP) convolutions severely limits model scalability and efficiency. In this paper, we rethink the parallel execution of CGTP convolutions and introduce LunaTP. Built on node-centric execution, LunaTP exploits path-group parallelism and multi-level reuse to accelerate CGTP convolutions and higher-order derivative computation while preserving the underlying mathematical formulation. On an NVIDIA H100 GPU, LunaTP achieves kernel speedups of up to 250.0$\times$ over e3nn and 17.1$\times$ over OpenEquivariance. It also delivers end-to-end training throughput gains of up to 28.7$\times$ over e3nn and 3.11$\times$ over OpenEquivariance. Finally, LunaTP demonstrates scalability and robust performance across models, workload scales, and GPUs, delivering substantial acceleration for training and atomistic simulation with high-accuracy equivariant MLIPs.
+KW  - CSP
+KW  - ML-potential
+ER  - 
+
+TY  - GEN
+TI  - On the Theoretical Limits of Learning Unconstrained Interatomic Potentials
+AU  - Prajwal Ananth
+AU  - Shuwen Yue
+DA  - 2026/10/10
+PY  - 2026
+JO  - arXiv
+UR  - https://arxiv.org/abs/2610.15078v1
+AB  - Machine-learned interatomic potentials (MLIPs) accelerate molecular dynamics (MD) simulations by learning the energies and forces that govern atomic motion. Recent work has shown that relaxing physical inductive biases can improve computational efficiency and predictive accuracy, raising the question of whether energy-and-force matching alone is sufficient to ensure accurate sampling. We show that, for unconstrained hypothesis classes, the relationship between prediction error and sampling accuracy is exponentially ill-conditioned in dimension. In particular, prediction errors that decay exponentially with dimension can coexist with nearly maximal total variation distance between the learned and target distributions. We identify two failure mechanisms. The first is kinetic trapping, where relaxation to an accurate learned equilibrium requires exponentially long times, even when simulations are initialized from training configurations at which energies and forces are matched exactly. The second is equilibrium mismatch, where the learned stationary distribution itself remains far from the target. Under explicit assumptions, we show that equilibrium mismatch can persist even in local,
+KW  - CSP
+KW  - ML-potential
+ER  - 
+
+TY  - JOUR
+TI  - Symbolic ensemble learning enables discovery of fast accurate physics-based interatomic potentials
+AU  - Bilvin Varughese
+AU  - Aditya Koneru
+AU  - Adil Muhammad
+DA  - 2026/10/09
+PY  - 2026
+JO  - Physical Review Materials
+DO  - 10.1103/gkpd-gtzp
+UR  - https://doi.org/10.1103/gkpd-gtzp
+KW  - CSP
+KW  - ML-potential
+ER  - 
+
+TY  - GEN
+TI  - NEMORA: Neural Equivariant Multipole Operators for Long-Range Atomistic Learning
+AU  - Jay L. Kaplan
+AU  - Samuel Varner
+AU  - Rebecca Willett
+DA  - 2026/10/07
+PY  - 2026
+JO  - arXiv
+UR  - https://arxiv.org/abs/2610.10776v1
+AB  - Equivariant graph neural networks have emerged as foundational architectures for machine-learned interatomic potentials, approaching quantum-chemical accuracy at a fraction of the computational cost. These models describe local atomic environments accurately, but finite spatial cutoffs truncate long-range information flow, and stacking message-passing layers can lead to over-smoothing and over-squashing. Existing long-range extensions either prescribe a fixed analytical propagation kernel, restrict long-range communication to scalars or degree-preserving channels, are only approximately equivariant, or incur super-linear computational cost. Combining learnable long-range equivariant transport with multiscale many-body expressivity and efficient scaling for larger systems remains a central challenge. We introduce Neural Equivariant Multipole Operators (NEMORA), a neural equivariant extension of the Fast Multipole Method (FMM) for learning long-range tensorial representations. NEMORA generalizes the FMM's analytical multipole expansion and translation operators to learned equivariant counterparts on an adaptive spatial hierarchy. Its operators couple angular degrees and form many-bod
+KW  - CSP
+KW  - ML-potential
+ER  - 

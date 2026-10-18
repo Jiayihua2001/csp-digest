@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-A single neural network directly predicts atomic Hessians—bypassing double differentiation of energy—yielding faster, more accurate interatomic potentials for curvature-dependent tasks like transition-state search.
+Introduces an interatomic potential that predicts Hessians (and thus forces/energies) directly via learned equivariant features, bypassing costly double differentiation of the potential energy surface.
 
 ## My notes
 

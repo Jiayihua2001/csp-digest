@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-10-18",
+  "count": 17,
+  "new_count": 1,
+  "synthesis": "Mostly a machine-learning interatomic potential methods day (fine-tuning, distillation, noise resilience, Hessian-based, pressure transferability) rather than CSP-specific work; the direct CSP item\u2014lamotrigine polymorph prediction validated against terahertz spectroscopy\u2014stands out as the only genuine structure-prediction application.",
+  "top": [
+   {
+    "title": "Investigation of Lamotrigine Crystal Polymorphs Using Crystal Structure Prediction and Terahertz Spectroscopy",
+    "relevance": 90,
+    "significance": 0
+   },
+   {
+    "title": "A MACE interatomic potential for two dimensional and curved sp2 carbon: family level transfer benchmarks and a SOAP based structural novelty map",
+    "relevance": 70,
+    "significance": 12
+   },
+   {
+    "title": "All-electron machine-learned orbital-free density functional for periodic CHNO systems",
+    "relevance": 70,
+    "significance": 0
+   }
+  ]
+ },
+ {
   "date": "2026-10-17",
   "count": 19,
   "new_count": 0,

@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-Introduces architecture-agnostic knowledge distillation for machine-learning interatomic potentials, enabling teacher-student transfer across differing network architectures rather than requiring matched architectures as in prior distillation approaches.
+Likely introduces a knowledge-distillation framework transferring learned energy/force representations between structurally dissimilar machine-learning interatomic potential architectures, enabling smaller models to inherit larger teacher models' accuracy without matching network design.
 
 ## My notes
 
