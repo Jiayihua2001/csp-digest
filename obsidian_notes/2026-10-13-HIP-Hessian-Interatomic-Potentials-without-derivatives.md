@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-Introduces an interatomic potential that predicts Hessians (and thus forces/energies) directly via learned equivariant features, bypassing costly double differentiation of the potential energy surface.
+A Hessian-derivative-free interatomic potential architecture that directly predicts energy-Hessian-informed quantities (e.g., force constants) without backpropagating second derivatives, enabling faster, scalable curvature-aware energy predictions for crystal structure relaxation
 
 ## My notes
 

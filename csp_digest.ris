@@ -15,6 +15,20 @@ KW  - free-energy
 KW  - polymorphism
 ER  - 
 
+TY  - GEN
+TI  - A Comprehensive Survey of Crystal Structural Prototypes: Construction, Classification, and Applications
+AU  - Jianjun Hu
+AU  - Ying Feng
+AU  - Rongzhi Dong
+DA  - 2026/10/15
+PY  - 2026
+JO  - arXiv
+UR  - https://arxiv.org/abs/2610.22600v1
+AB  - Crystal structural prototypes describe recurring atomic arrangements across chemically distinct materials. Prototype libraries are built through crystallographic curation, standardization, geometric matching, local-environment clustering, and periodic-graph analysis, and support chemical substitution, derivative enumeration, high-throughput screening, structure solution, crystal structure prediction (CSP), and generative design. This survey compares methods by the structural information they retain and the equivalence rules they impose, distinguishing crystallographic structure types, geometric realizations, chemistry-anonymous topologies, and chemical decorations. We review curated and automatically extracted prototype libraries (AFLOW, CSPD, LAE-ICSPD, EMFDTW, TYPIX, ICSD structure types), their source databases, and algorithms for assigning family membership. A GraphID-based analysis of samples from ICSD, the Materials Project, OQMD, and LeMat shows that the 100 most frequent families in each sample cover 30 to 67 percent of analyzed structures, while 72 to 82 percent of observed families are singletons. The GraphIDs of up to 76 percent of structures change when the neighbor tol
+KW  - CSP
+KW  - generative-model
+ER  - 
+
 TY  - JOUR
 TI  - A MACE interatomic potential for two dimensional and curved sp2 carbon: family level transfer benchmarks and a SOAP based structural novelty map
 AU  - Yunus Emre Okyayli
@@ -28,6 +42,22 @@ UR  - https://doi.org/10.1016/j.commatsci.2026.115176
 KW  - CSP
 KW  - ML-potential
 KW  - benchmark
+ER  - 
+
+TY  - GEN
+TI  - Active Learning for Interatomic Potentials: A Review of Uncertainty-Driven Data Efficiency
+AU  - Ilya V. Chepkasov
+AU  - Alexander V. Shapeev
+AU  - Alexander G. Kvashnin
+DA  - 2026/10/16
+PY  - 2026
+JO  - arXiv
+UR  - https://arxiv.org/abs/2610.23776v1
+AB  - Developing a machine learning interatomic potential (MLIP) that is accurate for the specific conditions under which it will be applied, rather than simply for the predefined configurations chosen by the model developer, is a significant challenge in atomistic simulation. Active learning (AL) addresses this challenge by closing the loop between candidate generation, data selection, reference calculation, and model updating. Here, we survey more than seventy studies, with an emphasis on work from 2020 to 2026, to understand how active learning has evolved from a niche, on-the-fly training technique for query-by-committee and Gaussian process force fields into a diverse family of data-efficient strategies. he reviewed examples include on-the-fly molecular dynamics, active data selection for fine-tuning pretrained models, kernel- and representation-based acquisition using frozen pretrained models, and reaction-aware sampling for chemical systems far from equilibrium. We explore the use of active learning in elemental and alloy mechanics, hydrogen and ion diffusion, ferroelectrics and effective Hamiltonians of functional materials, reactive and photochemical dynamics, high-entropy and c
+KW  - CSP
+KW  - ML-potential
+KW  - free-energy
+KW  - lattice-energy
 ER  - 
 
 TY  - GEN
@@ -108,20 +138,6 @@ KW  - CSP
 KW  - ML-potential
 ER  - 
 
-TY  - GEN
-TI  - Overcoming the limitations of body-ordered potentials for atomistic machine learning
-AU  - Filippo Bigi
-AU  - Michelangelo Domina
-AU  - Maximilian Lloyd Ach
-DA  - 2026/10/07
-PY  - 2026
-JO  - arXiv
-UR  - https://arxiv.org/abs/2610.10830v1
-AB  - Machine-learning interatomic potentials have become indispensable tools in atomistic simulations. The most popular models rely heavily on physical priors, such as locality, smoothness and symmetry, that are assumed to improve the accuracy and transferability of the trained models. However, recent evidence suggests that, in the data-rich regime, unconstrained models that learn symmetry from the data can achieve very competitive accuracy and computational efficiency, without sacrificing stability and generalization power. Many equivariant symmetric architectures historically rely on the assumption that the interatomic potential can be approximated well by a convergentcluster expansion, i.e., a decomposition in terms associated to atomic pairs, triplets, quadruplets, and higher-order tuples. We describe an architecture that incorporates locality, smoothness, and symmetry priors, but that -- thanks to a computationally efficient tensor product formulation -- does not assume low-order truncation of the body-ordered series.
-KW  - CSP
-KW  - ML-potential
-ER  - 
-
 TY  - JOUR
 TI  - HIP: Hessian Interatomic Potentials without derivatives
 AU  - Andreas Burger
@@ -134,6 +150,21 @@ DO  - 10.1038/s43588-026-01066-x
 UR  - https://doi.org/10.1038/s43588-026-01066-x
 KW  - CSP
 KW  - ML-potential
+ER  - 
+
+TY  - GEN
+TI  - Linear response for machine-learned interatomic potentials: phonons at arbitrary wave vectors from the primitive cell
+AU  - Thalis H. B. da Silva
+AU  - Hai-Chen Wang
+AU  - Miguel A. L. Marques
+DA  - 2026/10/16
+PY  - 2026
+JO  - arXiv
+UR  - https://arxiv.org/abs/2610.23545v1
+AB  - Phonon calculations with machine-learned interatomic potentials are almost exclusively performed with finite displacements in supercells, an approach that is exact only at wave vectors commensurate with the supercell and whose error depends on the range of the force constants. In message-passing networks this range grows with the number of layers, and reaches 140 angstrom for the deepest universal models. Here we show that the dynamical matrix of a message-passing potential can be obtained exactly in the primitive cell, at any wave vector, as the linear response of the forces to a displacement modulated by a Bloch phase, in the spirit of density-functional perturbation theory. The phase enters only where the features of neighboring atoms are gathered, and the trained model is used without modification. One further derivative yields group velocities and mode Grüneisen parameters analytically. We apply the method to NequIP and Prophet, and reproduce the Hessians of supercells to machine precision. Using these results as a reference, we find that the supercells commonly employed in high-throughput calculations lead to errors of several tenths of a THz in the phonon frequencies, and th
+KW  - CSP
+KW  - ML-potential
+KW  - free-energy
 ER  - 
 
 TY  - GEN
@@ -195,20 +226,6 @@ KW  - ML-potential
 ER  - 
 
 TY  - GEN
-TI  - LunaTP: Enabling Efficient and Scalable Tensor Product for Equivariant MLIPs
-AU  - Yuanchang Zhou
-AU  - Mingzhen Li
-AU  - Chen Wang
-DA  - 2026/10/13
-PY  - 2026
-JO  - arXiv
-UR  - https://arxiv.org/abs/2610.18393v1
-AB  - Equivariant machine learning interatomic potentials (MLIPs) promise atomistic simulations with accuracy approaching that of quantum-mechanical calculations. However, the high computational cost of their core Clebsch--Gordan tensor product (CGTP) convolutions severely limits model scalability and efficiency. In this paper, we rethink the parallel execution of CGTP convolutions and introduce LunaTP. Built on node-centric execution, LunaTP exploits path-group parallelism and multi-level reuse to accelerate CGTP convolutions and higher-order derivative computation while preserving the underlying mathematical formulation. On an NVIDIA H100 GPU, LunaTP achieves kernel speedups of up to 250.0$\times$ over e3nn and 17.1$\times$ over OpenEquivariance. It also delivers end-to-end training throughput gains of up to 28.7$\times$ over e3nn and 3.11$\times$ over OpenEquivariance. Finally, LunaTP demonstrates scalability and robust performance across models, workload scales, and GPUs, delivering substantial acceleration for training and atomistic simulation with high-accuracy equivariant MLIPs.
-KW  - CSP
-KW  - ML-potential
-ER  - 
-
-TY  - GEN
 TI  - On the Theoretical Limits of Learning Unconstrained Interatomic Potentials
 AU  - Prajwal Ananth
 AU  - Shuwen Yue
@@ -231,20 +248,6 @@ PY  - 2026
 JO  - Physical Review Materials
 DO  - 10.1103/gkpd-gtzp
 UR  - https://doi.org/10.1103/gkpd-gtzp
-KW  - CSP
-KW  - ML-potential
-ER  - 
-
-TY  - GEN
-TI  - NEMORA: Neural Equivariant Multipole Operators for Long-Range Atomistic Learning
-AU  - Jay L. Kaplan
-AU  - Samuel Varner
-AU  - Rebecca Willett
-DA  - 2026/10/07
-PY  - 2026
-JO  - arXiv
-UR  - https://arxiv.org/abs/2610.10776v1
-AB  - Equivariant graph neural networks have emerged as foundational architectures for machine-learned interatomic potentials, approaching quantum-chemical accuracy at a fraction of the computational cost. These models describe local atomic environments accurately, but finite spatial cutoffs truncate long-range information flow, and stacking message-passing layers can lead to over-smoothing and over-squashing. Existing long-range extensions either prescribe a fixed analytical propagation kernel, restrict long-range communication to scalars or degree-preserving channels, are only approximately equivariant, or incur super-linear computational cost. Combining learnable long-range equivariant transport with multiscale many-body expressivity and efficient scaling for larger systems remains a central challenge. We introduce Neural Equivariant Multipole Operators (NEMORA), a neural equivariant extension of the Fast Multipole Method (FMM) for learning long-range tensorial representations. NEMORA generalizes the FMM's analytical multipole expansion and translation operators to learned equivariant counterparts on an adaptive spatial hierarchy. Its operators couple angular degrees and form many-bod
 KW  - CSP
 KW  - ML-potential
 ER  - 

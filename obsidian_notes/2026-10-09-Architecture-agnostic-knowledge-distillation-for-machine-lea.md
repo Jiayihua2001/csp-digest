@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-Likely introduces a knowledge-distillation framework transferring learned energy/force representations between structurally dissimilar machine-learning interatomic potential architectures, enabling smaller models to inherit larger teacher models' accuracy without matching network design.
+Applies knowledge distillation to transfer energy/force predictions across structurally different machine-learning interatomic potential architectures, enabling smaller or differently-designed student models to retain teacher-level accuracy without architecture-matched constraints.
 
 ## My notes
 
