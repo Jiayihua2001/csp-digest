@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-10-20",
+  "count": 19,
+  "new_count": 2,
+  "synthesis": "Mostly a machine-learning interatomic potentials methods day (uncertainty/active learning, distillation, noise resilience, Hessian-free training, phonon linear response); the one direct CSP item pairs crystal structure prediction with terahertz spectroscopy for lamotrigine polymorphs\u2014limited genetic-algorithm-specific news.",
+  "top": [
+   {
+    "title": "Investigation of Lamotrigine Crystal Polymorphs Using Crystal Structure Prediction and Terahertz Spectroscopy",
+    "relevance": 90,
+    "significance": 0
+   },
+   {
+    "title": "A Comprehensive Survey of Crystal Structural Prototypes: Construction, Classification, and Applications",
+    "relevance": 80,
+    "significance": 0
+   },
+   {
+    "title": "A MACE interatomic potential for two dimensional and curved sp2 carbon: family level transfer benchmarks and a SOAP based structural novelty map",
+    "relevance": 70,
+    "significance": 12
+   }
+  ]
+ },
+ {
   "date": "2026-10-19",
   "count": 17,
   "new_count": 3,

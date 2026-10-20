@@ -138,6 +138,21 @@ KW  - CSP
 KW  - ML-potential
 ER  - 
 
+TY  - GEN
+TI  - Understanding compression-extension error asymmetry in universal machine-learning interatomic potentials
+AU  - Hongwei Du
+AU  - Dingyang Lv
+AU  - Boyan Zhang
+DA  - 2026/10/17
+PY  - 2026
+JO  - arXiv
+UR  - https://arxiv.org/abs/2610.24514v1
+AB  - Universal machine-learning interatomic potentials are increasingly used across diverse materials, yet their reliability under directional deformation remains unclear. We compare compression and extension along paired deformation paths from the same parent structures for eleven pretrained potentials. The benchmark comprises 1,963 Materials Project trajectory (MPtrj) parents and 1,286 experimental-source MinX-Eq parents at six strain magnitudes from 1% to 10%. Density-functional theory provides references for isotropic, uniaxial and biaxial loading in MPtrj and isotropic loading in MinX-Eq. At $\pm 10\%$, every model has a larger median force error under compression, with pooled isotropic compression-to-extension ratios of 2.12 and 3.30 for MPtrj and MinX-Eq. Decomposing error growth into DFT force-scale growth and relative-error evolution shows that relative errors decrease on both branches, faster under compression in MPtrj but slower under compression in MinX-Eq. Force-scale matching moves the error ratios toward unity, although MinX-Eq retains a compression-side excess across models. Radial and SOAP analyses place compressed structures at shorter separations and farther from publ
+KW  - CSP
+KW  - ML-potential
+KW  - benchmark
+ER  - 
+
 TY  - JOUR
 TI  - HIP: Hessian Interatomic Potentials without derivatives
 AU  - Andreas Burger
@@ -183,18 +198,17 @@ KW  - benchmark
 ER  - 
 
 TY  - GEN
-TI  - Specialized machine learning force fields for materials dynamics
-AU  - Yue Wu
-AU  - Haoyu Wan
-AU  - Yuan Tian
-DA  - 2026/10/08
+TI  - Challenging Atomistic Foundation Models on Disordered Carbons
+AU  - Joseph Hart
+AU  - Samuel G. H. Brookes
+AU  - Fabian L. Thiemann
+DA  - 2026/10/19
 PY  - 2026
 JO  - arXiv
-UR  - https://arxiv.org/abs/2610.12151v2
-AB  - Machine learning interatomic potentials (MLIPs) are transforming atomistic simulations by accessing unprecedented length and time scales. While pretrained equivariant graph neural networks achieve robust zero-shot performance for near-equilibrium properties across broad chemical spaces, their translation to complex materials dynamics remains fundamentally challenged by out-of-distribution reactive states, representation biases, and computational scaling limits. In this Review, we examine how physics-driven specialization extends the applicability of MLIPs to complex dynamical systems. We systematically evaluate the structural trade-offs in MLIP design: the undersampling of highly strained configurations, the prohibitive computational overhead of high-order message-passing architectures, and the necessity of nonlocal interactions for open and field-coupled systems. Through four demanding application contexts - electrified interfaces, compositionally fluctuating open systems, multiphase evolution, and large-scale fracture - we establish a framework for observable-specific validation. Highlighting the complementary roles of universal foundation models and task-specific potentials, we
+UR  - https://arxiv.org/abs/2610.26701v1
+AB  - Foundation machine-learned interatomic potentials (MLIPs) promise broad transferability, yet their out-of-domain reliability is hard to establish. Here, we use pure and O/H-containing disordered carbon spanning multiple phases, competing hybridisations and porous frameworks to stress-test six popular foundation MLIPs. We first screen all six on density functional theory (DFT) energy and force errors and binding curves, then subject four to melt-quench-anneal molecular dynamics and evaluate the resulting structural observables. Binding curves and O/H-containing trajectories reveal unphysical extrapolation and dynamical failures that low DFT energy and force errors fail to reveal. Of the models tested, MACE-MH-1 is the most consistently robust, with low DFT errors and stable MD. Despite differing architectures, OMAT-based models share structural biases, highlighting the importance of training coverage. All four models generate structures of nanoporous carbon that reproduce the principal experimental and specialised carbon potential signatures. Incorporating O/H leaves short-range order largely unchanged but shifts pore-size distributions towards larger pores. These results emphasise
 KW  - CSP
 KW  - ML-potential
-KW  - lattice-energy
 ER  - 
 
 TY  - GEN
@@ -221,6 +235,20 @@ PY  - 2026
 JO  - arXiv
 UR  - https://arxiv.org/abs/2610.19630v1
 AB  - Automated materials discovery requires evaluating large pools of candidate configurations, with density functional theory (DFT) as a major throughput bottleneck. Pretrained machine-learned interatomic potentials (MLIPs) approximate DFT cheaply, but their errors vary by orders of magnitude across configurations, making it difficult to decide when to trust the MLIP predictions and when to fall back to DFT. We frame this decision as a risk-controlled selection problem and solve it within a conformal risk control (CRC) framework. Each configuration is mapped from atomic numbers and Cartesian coordinates to a fixed geometric descriptor, which a lightweight predictor uses to estimate an MLIP-DFT disagreement score in energy, average force, and maximum force. CRC then calibrates this score into a selection threshold for DFT labeling such that the MLIP error on the unselected configurations, which keep their MLIP labels, stays below a user-chosen fraction $α$ of the expected error. Under an identical guarantee across eight dataset-MLIP pairs, our predictor routes 7% and 14% fewer configurations to DFT at $α=0.3$ than committee baselines. Because committee disagreement overlooks errors the
+KW  - CSP
+KW  - ML-potential
+ER  - 
+
+TY  - GEN
+TI  - LunaTP: Enabling Efficient and Scalable Tensor Product for Equivariant MLIPs
+AU  - Yuanchang Zhou
+AU  - Mingzhen Li
+AU  - Chen Wang
+DA  - 2026/10/13
+PY  - 2026
+JO  - arXiv
+UR  - https://arxiv.org/abs/2610.18393v1
+AB  - Equivariant machine learning interatomic potentials (MLIPs) promise atomistic simulations with accuracy approaching that of quantum-mechanical calculations. However, the high computational cost of their core Clebsch--Gordan tensor product (CGTP) convolutions severely limits model scalability and efficiency. In this paper, we rethink the parallel execution of CGTP convolutions and introduce LunaTP. Built on node-centric execution, LunaTP exploits path-group parallelism and multi-level reuse to accelerate CGTP convolutions and higher-order derivative computation while preserving the underlying mathematical formulation. On an NVIDIA H100 GPU, LunaTP achieves kernel speedups of up to 250.0$\times$ over e3nn and 17.1$\times$ over OpenEquivariance. It also delivers end-to-end training throughput gains of up to 28.7$\times$ over e3nn and 3.11$\times$ over OpenEquivariance. Finally, LunaTP demonstrates scalability and robust performance across models, workload scales, and GPUs, delivering substantial acceleration for training and atomistic simulation with high-accuracy equivariant MLIPs.
 KW  - CSP
 KW  - ML-potential
 ER  - 

@@ -23,7 +23,7 @@ tags:
 **Field:** [[ML-potential]] [[free-energy]] [[lattice-energy]] [[polymorphism]]
 
 ## Why it matters
-Benchmarks system-specific SO3krates MLFFs against PBE+MBD for Γ-point phonons and harmonic free energies across molecular-crystal transition-state pathways, quantifying ~3 cm⁻¹/1 kJ mol⁻¹
+Benchmarks SO3krates MLFFs against PBE+MBD for molecular-crystal transition states, showing ~3 cm⁻¹ frequency and ~1 kJ/mol free-energy errors across polymorph and Diels–Alder NEB pathways.
 
 ## Abstract
 > Machine-learning force fields (MLFFs) enable the calculation of transformation pathways in molecular crystals at a fraction of the computational cost of density functional theory (DFT). However, a good agreement in energies and structures does not necessarily imply an accurate description of vibrational properties, which are essential for characterizing transition states and determining free energies at finite temperatures. Herein, we assess the accuracy of system-specific SO3krates MLFFs trained on PBE+MBD reference data for describing vibrational properties of molecular crystal transformations. As examples, we consider a polymorph transition of 1,4-diiodobenzene and a single-crystal-to-single-crystal Diels-Alder reaction. The transition state structures obtained from solid-state nudged-elastic-band (NEB) calculations with the MLFFs exhibit a single imaginary $Γ$-point frequency associated with the respective transformation. Compared with PBE+MBD, the mean absolute errors of $Γ$-point vibrational frequencies and relative harmonic free energies at 300 K are about 3 cm$^{-1}$ and 1 kJ/mol, respectively. Furthermore, we compare for the Diels-Alder reaction a collective transformation

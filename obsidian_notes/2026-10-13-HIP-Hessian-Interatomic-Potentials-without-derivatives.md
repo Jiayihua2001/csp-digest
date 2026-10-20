@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-A Hessian-derivative-free interatomic potential architecture that directly predicts energy-Hessian-informed quantities (e.g., force constants) without backpropagating second derivatives, enabling faster, scalable curvature-aware energy predictions for crystal structure relaxation
+A Hessian-free interatomic potential architecture that directly predicts energy-conserving force fields without backpropagating through derivatives, likely cutting training and inference cost versus gradient-based MLIPs.
 
 ## My notes
 

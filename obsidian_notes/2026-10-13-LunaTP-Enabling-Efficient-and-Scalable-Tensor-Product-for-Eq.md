@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-LunaTP introduces path-group parallelism with multi-level reuse for node-centric Clebsch–Gordan tensor products, achieving up to 250× kernel and 28.7× end-to-end training speedups over e3nn.
+LunaTP introduces path-group parallelism and multi-level reuse for node-centric Clebsch–Gordan tensor product execution, delivering up to 250× kernel and 28.7× end-to-end training speedups for equivariant MLIPs.
 
 ## Abstract
 > Equivariant machine learning interatomic potentials (MLIPs) promise atomistic simulations with accuracy approaching that of quantum-mechanical calculations. However, the high computational cost of their core Clebsch--Gordan tensor product (CGTP) convolutions severely limits model scalability and efficiency. In this paper, we rethink the parallel execution of CGTP convolutions and introduce LunaTP. Built on node-centric execution, LunaTP exploits path-group parallelism and multi-level reuse to accelerate CGTP convolutions and higher-order derivative computation while preserving the underlying mathematical formulation. On an NVIDIA H100 GPU, LunaTP achieves kernel speedups of up to 250.0$\times$ over e3nn and 17.1$\times$ over OpenEquivariance. It also delivers end-to-end training throughput gains of up to 28.7$\times$ over e3nn and 3.11$\times$ over OpenEquivariance. Finally, LunaTP demonstrates scalability and robust performance across models, workload scales, and GPUs, delivering substantial acceleration for training and atomistic simulation with high-accuracy equivariant MLIPs.
