@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-Knowledge distillation transfers predictive accuracy from large, high-cost machine-learning interatomic potentials to smaller, architecture-different student models regardless of network design, enabling faster CSP-relevant energy/force evaluations without retraining from scratch.
+Introduces an architecture-agnostic knowledge-distillation framework that transfers accuracy from large machine-learning interatomic potentials into smaller, faster student models regardless of network design.
 
 ## My notes
 

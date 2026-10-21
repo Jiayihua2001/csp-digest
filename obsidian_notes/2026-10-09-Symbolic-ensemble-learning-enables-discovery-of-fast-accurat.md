@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-Introduces a symbolic-regression ensemble-learning framework to automatically discover fast, physically interpretable interatomic potentials, rather than relying on fixed functional forms or black-box machine-learning models.
+Introduces a symbolic-ensemble-learning framework that automatically discovers interpretable, physics-based interatomic potentials balancing computational speed with accuracy, rather than relying on black-box machine-learning force fields.
 
 ## My notes
 

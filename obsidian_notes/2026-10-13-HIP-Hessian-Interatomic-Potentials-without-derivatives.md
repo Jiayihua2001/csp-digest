@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-A Hessian-free interatomic potential architecture that directly predicts energy-conserving force fields without backpropagating through derivatives, likely cutting training and inference cost versus gradient-based MLIPs.
+Introduces a Hessian-aware interatomic potential trained to predict energies and forces without requiring explicit second-derivative (Hessian) computation during training, enabling efficient curvature-informed structure optimization and relaxation for crystal structure prediction.
 
 ## My notes
 
