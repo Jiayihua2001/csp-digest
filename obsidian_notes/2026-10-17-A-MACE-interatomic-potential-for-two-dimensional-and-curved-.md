@@ -21,7 +21,7 @@ tags:
 **Field:** [[ML-potential]] [[benchmark]]
 
 ## Why it matters
-A transferable MACE machine-learning potential for sp2 carbon is benchmarked across diverse 2D/curved carbon families (fullerenes, nanotubes, graphene variants), paired with a SOAP-based structural novelty map to quantify extrapolation risk bey
+A family-transferable MACE machine-learning potential for sp² carbon, benchmarked across diverse 2D and curved allotrope families and paired with a SOAP-based structural novelty map to flag configurations poorly represented in training data.
 
 ## My notes
 

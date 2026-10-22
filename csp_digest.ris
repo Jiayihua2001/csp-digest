@@ -15,20 +15,6 @@ KW  - free-energy
 KW  - polymorphism
 ER  - 
 
-TY  - GEN
-TI  - A Comprehensive Survey of Crystal Structural Prototypes: Construction, Classification, and Applications
-AU  - Jianjun Hu
-AU  - Ying Feng
-AU  - Rongzhi Dong
-DA  - 2026/10/15
-PY  - 2026
-JO  - arXiv
-UR  - https://arxiv.org/abs/2610.22600v1
-AB  - Crystal structural prototypes describe recurring atomic arrangements across chemically distinct materials. Prototype libraries are built through crystallographic curation, standardization, geometric matching, local-environment clustering, and periodic-graph analysis, and support chemical substitution, derivative enumeration, high-throughput screening, structure solution, crystal structure prediction (CSP), and generative design. This survey compares methods by the structural information they retain and the equivalence rules they impose, distinguishing crystallographic structure types, geometric realizations, chemistry-anonymous topologies, and chemical decorations. We review curated and automatically extracted prototype libraries (AFLOW, CSPD, LAE-ICSPD, EMFDTW, TYPIX, ICSD structure types), their source databases, and algorithms for assigning family membership. A GraphID-based analysis of samples from ICSD, the Materials Project, OQMD, and LeMat shows that the 100 most frequent families in each sample cover 30 to 67 percent of analyzed structures, while 72 to 82 percent of observed families are singletons. The GraphIDs of up to 76 percent of structures change when the neighbor tol
-KW  - CSP
-KW  - generative-model
-ER  - 
-
 TY  - JOUR
 TI  - A MACE interatomic potential for two dimensional and curved sp2 carbon: family level transfer benchmarks and a SOAP based structural novelty map
 AU  - Yunus Emre Okyayli
@@ -54,6 +40,20 @@ PY  - 2026
 JO  - arXiv
 UR  - https://arxiv.org/abs/2610.27762v1
 AB  - Deep generative modeling has achieved remarkable progress in crystal generation. Given the rich symmetries inherent in crystalline structures, recent work has sought to explicitly incorporate space-group symmetry into generative models, enabling more effective exploration of novel symmetry templates. Yet introducing symmetry templates increases the combinatorial complexity of stoichiometric relationships between atomic species and crystallographic sites, while creating a fundamental tension between flexible exploration of discrete crystallographic templates and faithful realization of these templates as continuous three-dimensional structures. To address these challenges, we propose CrystalAR, a unified autoregressive framework that models Wyckoff symmetry templates and complete crystal structures within a single generative sequence. Specifically, CrystalAR reformulates continuous coordinate generation as a symmetry-conditioned hierarchy of discrete spatial localization decisions, autoregressively refining the positions of all symmetry-inequivalent sites across resolution levels while jointly modeling their spatial configuration within each level. This discrete hierarchical formula
+KW  - CSP
+KW  - generative-model
+ER  - 
+
+TY  - GEN
+TI  - A Comprehensive Survey of Crystal Structural Prototypes: Construction, Classification, and Applications
+AU  - Jianjun Hu
+AU  - Ying Feng
+AU  - Rongzhi Dong
+DA  - 2026/10/15
+PY  - 2026
+JO  - arXiv
+UR  - https://arxiv.org/abs/2610.22600v1
+AB  - Crystal structural prototypes describe recurring atomic arrangements across chemically distinct materials. Prototype libraries are built through crystallographic curation, standardization, geometric matching, local-environment clustering, and periodic-graph analysis, and support chemical substitution, derivative enumeration, high-throughput screening, structure solution, crystal structure prediction (CSP), and generative design. This survey compares methods by the structural information they retain and the equivalence rules they impose, distinguishing crystallographic structure types, geometric realizations, chemistry-anonymous topologies, and chemical decorations. We review curated and automatically extracted prototype libraries (AFLOW, CSPD, LAE-ICSPD, EMFDTW, TYPIX, ICSD structure types), their source databases, and algorithms for assigning family membership. A GraphID-based analysis of samples from ICSD, the Materials Project, OQMD, and LeMat shows that the 100 most frequent families in each sample cover 30 to 67 percent of analyzed structures, while 72 to 82 percent of observed families are singletons. The GraphIDs of up to 76 percent of structures change when the neighbor tol
 KW  - CSP
 KW  - generative-model
 ER  - 
@@ -105,22 +105,6 @@ KW  - ML-potential
 KW  - free-energy
 KW  - lattice-energy
 KW  - polymorphism
-ER  - 
-
-TY  - JOUR
-TI  - Targeted fine-tuning of machine-learning interatomic potentials for phonons and phase transitions
-AU  - Jonas Grandel
-AU  - Philipp Benner
-AU  - Janine George
-DA  - 2026/10/07
-PY  - 2026
-JO  - npj Computational Materials
-DO  - 10.1038/s41524-026-02338-w
-UR  - https://doi.org/10.1038/s41524-026-02338-w
-AB  - Abstract Machine-learning interatomic potentials are widely used as computationally efficient surrogates for density functional theory in atomistic simulations, enabling large-scale and long-time modeling of materials systems. Here, we investigate how different fine-tuning strategies affect the prediction of harmonic phonon band structures, thermal and elastic properties, and the potential-energy surface along unstable phonon modes. We show that substantial improvements can be achieved with very limited additional data, with as few as 10 material-specific training structures. We investigate targeted L 2 -SP ( L 2 -TSP) for this application, combining regularization toward the pre-trained model with selective fine-tuning of the first two representation-building layers, alongside transfer learning and multihead fine-tuning, with an additional comparison to low-rank LoRA for phonon prediction. Across 53 materials, L 2 -TSP achieves the most consistent overall performance, reducing phonon errors while also improving predictions of thermodynamic and elastic properties. Importantly, models with similar harmonic phonon accuracy can differ substantially in their prediction of dynamical ins
-KW  - CSP
-KW  - ML-potential
-KW  - free-energy
 ER  - 
 
 TY  - JOUR
@@ -197,6 +181,20 @@ KW  - benchmark
 ER  - 
 
 TY  - GEN
+TI  - Challenging Atomistic Foundation Models on Disordered Carbons
+AU  - Joseph Hart
+AU  - Samuel G. H. Brookes
+AU  - Fabian L. Thiemann
+DA  - 2026/10/19
+PY  - 2026
+JO  - arXiv
+UR  - https://arxiv.org/abs/2610.26701v1
+AB  - Foundation machine-learned interatomic potentials (MLIPs) promise broad transferability, yet their out-of-domain reliability is hard to establish. Here, we use pure and O/H-containing disordered carbon spanning multiple phases, competing hybridisations and porous frameworks to stress-test six popular foundation MLIPs. We first screen all six on density functional theory (DFT) energy and force errors and binding curves, then subject four to melt-quench-anneal molecular dynamics and evaluate the resulting structural observables. Binding curves and O/H-containing trajectories reveal unphysical extrapolation and dynamical failures that low DFT energy and force errors fail to reveal. Of the models tested, MACE-MH-1 is the most consistently robust, with low DFT errors and stable MD. Despite differing architectures, OMAT-based models share structural biases, highlighting the importance of training coverage. All four models generate structures of nanoporous carbon that reproduce the principal experimental and specialised carbon potential signatures. Incorporating O/H leaves short-range order largely unchanged but shifts pore-size distributions towards larger pores. These results emphasise
+KW  - CSP
+KW  - ML-potential
+ER  - 
+
+TY  - GEN
 TI  - Hierarchical universal open structure dataset for atomistic modeling
 AU  - Sofiia Chorna
 AU  - Cesare Malosso
@@ -220,6 +218,20 @@ PY  - 2026
 JO  - arXiv
 UR  - https://arxiv.org/abs/2610.19630v1
 AB  - Automated materials discovery requires evaluating large pools of candidate configurations, with density functional theory (DFT) as a major throughput bottleneck. Pretrained machine-learned interatomic potentials (MLIPs) approximate DFT cheaply, but their errors vary by orders of magnitude across configurations, making it difficult to decide when to trust the MLIP predictions and when to fall back to DFT. We frame this decision as a risk-controlled selection problem and solve it within a conformal risk control (CRC) framework. Each configuration is mapped from atomic numbers and Cartesian coordinates to a fixed geometric descriptor, which a lightweight predictor uses to estimate an MLIP-DFT disagreement score in energy, average force, and maximum force. CRC then calibrates this score into a selection threshold for DFT labeling such that the MLIP error on the unselected configurations, which keep their MLIP labels, stays below a user-chosen fraction $α$ of the expected error. Under an identical guarantee across eight dataset-MLIP pairs, our predictor routes 7% and 14% fewer configurations to DFT at $α=0.3$ than committee baselines. Because committee disagreement overlooks errors the
+KW  - CSP
+KW  - ML-potential
+ER  - 
+
+TY  - GEN
+TI  - LunaTP: Enabling Efficient and Scalable Tensor Product for Equivariant MLIPs
+AU  - Yuanchang Zhou
+AU  - Mingzhen Li
+AU  - Chen Wang
+DA  - 2026/10/13
+PY  - 2026
+JO  - arXiv
+UR  - https://arxiv.org/abs/2610.18393v1
+AB  - Equivariant machine learning interatomic potentials (MLIPs) promise atomistic simulations with accuracy approaching that of quantum-mechanical calculations. However, the high computational cost of their core Clebsch--Gordan tensor product (CGTP) convolutions severely limits model scalability and efficiency. In this paper, we rethink the parallel execution of CGTP convolutions and introduce LunaTP. Built on node-centric execution, LunaTP exploits path-group parallelism and multi-level reuse to accelerate CGTP convolutions and higher-order derivative computation while preserving the underlying mathematical formulation. On an NVIDIA H100 GPU, LunaTP achieves kernel speedups of up to 250.0$\times$ over e3nn and 17.1$\times$ over OpenEquivariance. It also delivers end-to-end training throughput gains of up to 28.7$\times$ over e3nn and 3.11$\times$ over OpenEquivariance. Finally, LunaTP demonstrates scalability and robust performance across models, workload scales, and GPUs, delivering substantial acceleration for training and atomistic simulation with high-accuracy equivariant MLIPs.
 KW  - CSP
 KW  - ML-potential
 ER  - 

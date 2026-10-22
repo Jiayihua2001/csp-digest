@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-10-22",
+  "count": 18,
+  "new_count": 0,
+  "synthesis": "Quiet day for GA-driven CSP specifically\u2014only one directly relevant paper (lamotrigine polymorphs via CSP+THz spectroscopy). The rest is machine-learning-potential infrastructure (uncertainty, distillation, Hessians, phonons, pressure-transferability), useful future scoring engines but no new search-method advances.",
+  "top": [
+   {
+    "title": "Investigation of Lamotrigine Crystal Polymorphs Using Crystal Structure Prediction and Terahertz Spectroscopy",
+    "relevance": 90,
+    "significance": 0
+   },
+   {
+    "title": "A MACE interatomic potential for two dimensional and curved sp2 carbon: family level transfer benchmarks and a SOAP based structural novelty map",
+    "relevance": 70,
+    "significance": 12
+   },
+   {
+    "title": "CrystalAR: Autoregressive Modeling for Symmetric Crystal Generation",
+    "relevance": 70,
+    "significance": 0
+   }
+  ]
+ },
+ {
   "date": "2026-10-21",
   "count": 17,
   "new_count": 1,

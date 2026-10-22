@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-Introduces an architecture-agnostic knowledge-distillation framework that transfers accuracy from large machine-learning interatomic potentials into smaller, faster student models regardless of network design.
+Knowledge distillation transfers energy/force predictions from a high-accuracy teacher interatomic potential to a smaller, architecture-independent student model, enabling faster MLIPs usable in CSP without retraining on costly ab initio data.
 
 ## My notes
 
