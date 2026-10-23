@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-Knowledge distillation transfers energy/force predictions from a high-accuracy teacher interatomic potential to a smaller, architecture-independent student model, enabling faster MLIPs usable in CSP without retraining on costly ab initio data.
+Knowledge distillation transfers accuracy from large, high-fidelity machine-learning interatomic potentials to smaller, architecture-different student models, cutting computational cost without requiring matched network structures—likely enabling faster, distilled surrogate potentials to accelerate energ
 
 ## My notes
 

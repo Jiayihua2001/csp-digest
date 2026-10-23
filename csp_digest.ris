@@ -15,6 +15,20 @@ KW  - free-energy
 KW  - polymorphism
 ER  - 
 
+TY  - GEN
+TI  - A Comprehensive Survey of Crystal Structural Prototypes: Construction, Classification, and Applications
+AU  - Jianjun Hu
+AU  - Ying Feng
+AU  - Rongzhi Dong
+DA  - 2026/10/15
+PY  - 2026
+JO  - arXiv
+UR  - https://arxiv.org/abs/2610.22600v1
+AB  - Crystal structural prototypes describe recurring atomic arrangements across chemically distinct materials. Prototype libraries are built through crystallographic curation, standardization, geometric matching, local-environment clustering, and periodic-graph analysis, and support chemical substitution, derivative enumeration, high-throughput screening, structure solution, crystal structure prediction (CSP), and generative design. This survey compares methods by the structural information they retain and the equivalence rules they impose, distinguishing crystallographic structure types, geometric realizations, chemistry-anonymous topologies, and chemical decorations. We review curated and automatically extracted prototype libraries (AFLOW, CSPD, LAE-ICSPD, EMFDTW, TYPIX, ICSD structure types), their source databases, and algorithms for assigning family membership. A GraphID-based analysis of samples from ICSD, the Materials Project, OQMD, and LeMat shows that the 100 most frequent families in each sample cover 30 to 67 percent of analyzed structures, while 72 to 82 percent of observed families are singletons. The GraphIDs of up to 76 percent of structures change when the neighbor tol
+KW  - CSP
+KW  - generative-model
+ER  - 
+
 TY  - JOUR
 TI  - A MACE interatomic potential for two dimensional and curved sp2 carbon: family level transfer benchmarks and a SOAP based structural novelty map
 AU  - Yunus Emre Okyayli
@@ -38,22 +52,8 @@ AU  - Zhi Zheng
 DA  - 2026/10/20
 PY  - 2026
 JO  - arXiv
-UR  - https://arxiv.org/abs/2610.27762v1
+UR  - https://arxiv.org/abs/2610.27762v2
 AB  - Deep generative modeling has achieved remarkable progress in crystal generation. Given the rich symmetries inherent in crystalline structures, recent work has sought to explicitly incorporate space-group symmetry into generative models, enabling more effective exploration of novel symmetry templates. Yet introducing symmetry templates increases the combinatorial complexity of stoichiometric relationships between atomic species and crystallographic sites, while creating a fundamental tension between flexible exploration of discrete crystallographic templates and faithful realization of these templates as continuous three-dimensional structures. To address these challenges, we propose CrystalAR, a unified autoregressive framework that models Wyckoff symmetry templates and complete crystal structures within a single generative sequence. Specifically, CrystalAR reformulates continuous coordinate generation as a symmetry-conditioned hierarchy of discrete spatial localization decisions, autoregressively refining the positions of all symmetry-inequivalent sites across resolution levels while jointly modeling their spatial configuration within each level. This discrete hierarchical formula
-KW  - CSP
-KW  - generative-model
-ER  - 
-
-TY  - GEN
-TI  - A Comprehensive Survey of Crystal Structural Prototypes: Construction, Classification, and Applications
-AU  - Jianjun Hu
-AU  - Ying Feng
-AU  - Rongzhi Dong
-DA  - 2026/10/15
-PY  - 2026
-JO  - arXiv
-UR  - https://arxiv.org/abs/2610.22600v1
-AB  - Crystal structural prototypes describe recurring atomic arrangements across chemically distinct materials. Prototype libraries are built through crystallographic curation, standardization, geometric matching, local-environment clustering, and periodic-graph analysis, and support chemical substitution, derivative enumeration, high-throughput screening, structure solution, crystal structure prediction (CSP), and generative design. This survey compares methods by the structural information they retain and the equivalence rules they impose, distinguishing crystallographic structure types, geometric realizations, chemistry-anonymous topologies, and chemical decorations. We review curated and automatically extracted prototype libraries (AFLOW, CSPD, LAE-ICSPD, EMFDTW, TYPIX, ICSD structure types), their source databases, and algorithms for assigning family membership. A GraphID-based analysis of samples from ICSD, the Materials Project, OQMD, and LeMat shows that the 100 most frequent families in each sample cover 30 to 67 percent of analyzed structures, while 72 to 82 percent of observed families are singletons. The GraphIDs of up to 76 percent of structures change when the neighbor tol
 KW  - CSP
 KW  - generative-model
 ER  - 
@@ -166,30 +166,29 @@ KW  - free-energy
 ER  - 
 
 TY  - GEN
-TI  - Pressure-transferable universal machine-learning potentials: the WBM-MatPES benchmark and Tuga-FF
-AU  - Pierre-Paul De Breuck
-AU  - Thalis H. B. da Silva
-AU  - Antoine Loew
-DA  - 2026/10/10
+TI  - Unconstrained learning of equivariant atomistic properties
+AU  - Joseph W. Abbott
+AU  - Paolo Pegolo
+AU  - Pol Febrer
+DA  - 2026/10/22
 PY  - 2026
 JO  - arXiv
-UR  - https://arxiv.org/abs/2610.14891v1
-AB  - Universal machine-learning interatomic potentials hold the promise to replace costly ab initio calculations in materials science workflows. However, the accuracy and transferability of current models are limited by the availability of training data. We release WBM-MatPES, a dataset of 182 thousand structures recomputed with consistent MatPES settings, together with two reference convex hulls of different depths and test sets at six pressures up to 150 GPa. These datasets reproduce a realistic discovery workflow and allow potentials to be ranked systematically at this level of theory, similar to the Matbench Discovery leaderboard at the Materials Project settings. In this benchmark, five published MatPES potentials agree within 12 meV/atom at 25 GPa, yet their errors increase dramatically to 0.4-5 eV/atom at 150 GPa. To address this limitation, we develop Tuga-FF, a graph transformer trained on datasets spanning ambient and high-pressure configurations alike. Tuga-FF is the most accurate model in the benchmark at ambient pressure, with an energy error of 13.6 meV/atom, and maintains an error of just 21 meV/atom at 150 GPa. We believe this benchmark will encourage the community to tr
+UR  - https://arxiv.org/abs/2610.31183v1
+AB  - Machine-learned interatomic potentials based on graph neural networks (GNNs) have made first-principles accuracy routine for the potential energy surface (PES). Their backbones, often O(3)-equivariant by design, are increasingly used to learn other atomistic properties. Many of these are of high angular order or pseudotensorial character, defined per atom, or expanded on large atom-centered basis sets. Such targets strain equivariant GNNs, whose tensor products grow steeply in cost with angular order and can fail to represent the target if truncated, forcing difficult trade-offs between hyperparameters. Unconstrained models like the Point-Edge Transformer (PET) instead replace explicit O(3) algebra with edge-to-edge attention and learn equivariance from data, so that the same backbone can in principle learn any equivariant property. We demonstrate how to use PET to learn molecular dipoles and polarizabilities, NMR chemical shielding tensors, and auxiliary-basis expansions of the electron density. Increasing the backbone size systematically improves both accuracy and equivariance error, and targeted architectural and training choices reduce the symmetry breaking further. PET matches
 KW  - CSP
 KW  - ML-potential
-KW  - benchmark
 ER  - 
 
 TY  - GEN
-TI  - Challenging Atomistic Foundation Models on Disordered Carbons
-AU  - Joseph Hart
-AU  - Samuel G. H. Brookes
-AU  - Fabian L. Thiemann
-DA  - 2026/10/19
+TI  - Foundation-Model Supervision of Distilled Potentials for Million-Atom Molecular Dynamics
+AU  - Xiaoqing Liu
+AU  - Yangshuai Wang
+AU  - Lei Shen
+DA  - 2026/10/16
 PY  - 2026
 JO  - arXiv
-UR  - https://arxiv.org/abs/2610.26701v1
-AB  - Foundation machine-learned interatomic potentials (MLIPs) promise broad transferability, yet their out-of-domain reliability is hard to establish. Here, we use pure and O/H-containing disordered carbon spanning multiple phases, competing hybridisations and porous frameworks to stress-test six popular foundation MLIPs. We first screen all six on density functional theory (DFT) energy and force errors and binding curves, then subject four to melt-quench-anneal molecular dynamics and evaluate the resulting structural observables. Binding curves and O/H-containing trajectories reveal unphysical extrapolation and dynamical failures that low DFT energy and force errors fail to reveal. Of the models tested, MACE-MH-1 is the most consistently robust, with low DFT errors and stable MD. Despite differing architectures, OMAT-based models share structural biases, highlighting the importance of training coverage. All four models generate structures of nanoporous carbon that reproduce the principal experimental and specialised carbon potential signatures. Incorporating O/H leaves short-range order largely unchanged but shifts pore-size distributions towards larger pores. These results emphasise
+UR  - https://arxiv.org/abs/2610.23371v1
+AB  - Machine-learned interatomic potentials distilled from foundation models enable fast large-scale molecular dynamics (MD), but they can fail locally in chemical environments that their training data did not sample. System-averaged error metrics and small random audits often miss such sparse or isolated failures. Here we use an exact equivariant foundation model, MACE-MPA-0, to check every atom of million-atom production simulations. Reorganizing two-layer MACE inference into a receiver-chunked three-pass schedule that keeps no per-edge intermediates resident reduces the marginal memory per atom 340-fold, evaluates up to $2.86\times10^{7}$ atoms on a single H200 GPU, and supervises $10^{6}$-atom trajectories in LAMMPS at 1.3% of the run time. Distilled MACE students run four to nine times slower than NEP89 with 0.95-1.28 times the teacher's force error against density functional theory (DFT). In molten SiO$_2$, whole-system checks uncover a persistent tail of under-coordinated atoms hidden by the system-averaged error and an isolated, unphysical O-O contact that a 1% random audit misses 94% of the time. On-the-fly retraining on teacher-labelled 13-Å clusters, with the force loss restr
 KW  - CSP
 KW  - ML-potential
 ER  - 
@@ -232,19 +231,6 @@ PY  - 2026
 JO  - arXiv
 UR  - https://arxiv.org/abs/2610.18393v1
 AB  - Equivariant machine learning interatomic potentials (MLIPs) promise atomistic simulations with accuracy approaching that of quantum-mechanical calculations. However, the high computational cost of their core Clebsch--Gordan tensor product (CGTP) convolutions severely limits model scalability and efficiency. In this paper, we rethink the parallel execution of CGTP convolutions and introduce LunaTP. Built on node-centric execution, LunaTP exploits path-group parallelism and multi-level reuse to accelerate CGTP convolutions and higher-order derivative computation while preserving the underlying mathematical formulation. On an NVIDIA H100 GPU, LunaTP achieves kernel speedups of up to 250.0$\times$ over e3nn and 17.1$\times$ over OpenEquivariance. It also delivers end-to-end training throughput gains of up to 28.7$\times$ over e3nn and 3.11$\times$ over OpenEquivariance. Finally, LunaTP demonstrates scalability and robust performance across models, workload scales, and GPUs, delivering substantial acceleration for training and atomistic simulation with high-accuracy equivariant MLIPs.
-KW  - CSP
-KW  - ML-potential
-ER  - 
-
-TY  - GEN
-TI  - On the Theoretical Limits of Learning Unconstrained Interatomic Potentials
-AU  - Prajwal Ananth
-AU  - Shuwen Yue
-DA  - 2026/10/10
-PY  - 2026
-JO  - arXiv
-UR  - https://arxiv.org/abs/2610.15078v1
-AB  - Machine-learned interatomic potentials (MLIPs) accelerate molecular dynamics (MD) simulations by learning the energies and forces that govern atomic motion. Recent work has shown that relaxing physical inductive biases can improve computational efficiency and predictive accuracy, raising the question of whether energy-and-force matching alone is sufficient to ensure accurate sampling. We show that, for unconstrained hypothesis classes, the relationship between prediction error and sampling accuracy is exponentially ill-conditioned in dimension. In particular, prediction errors that decay exponentially with dimension can coexist with nearly maximal total variation distance between the learned and target distributions. We identify two failure mechanisms. The first is kinetic trapping, where relaxation to an accurate learned equilibrium requires exponentially long times, even when simulations are initialized from training configurations at which energies and forces are matched exactly. The second is equilibrium mismatch, where the learned stationary distribution itself remains far from the target. Under explicit assumptions, we show that equilibrium mismatch can persist even in local,
 KW  - CSP
 KW  - ML-potential
 ER  - 

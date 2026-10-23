@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-10-23",
+  "count": 17,
+  "new_count": 3,
+  "synthesis": "Mostly a machine-learning-potential methods day (uncertainty, distillation, Hessians, noise-resilience) rather than CSP proper. The one direct CSP item\u2014Lamotrigine polymorph prediction validated with THz spectroscopy\u2014pairs with a separate MLFF vibrational-accuracy study, both touching crystal dynamics; CrystalAR offers a new generative angle",
+  "top": [
+   {
+    "title": "Investigation of Lamotrigine Crystal Polymorphs Using Crystal Structure Prediction and Terahertz Spectroscopy",
+    "relevance": 90,
+    "significance": 0
+   },
+   {
+    "title": "A Comprehensive Survey of Crystal Structural Prototypes: Construction, Classification, and Applications",
+    "relevance": 80,
+    "significance": 0
+   },
+   {
+    "title": "A MACE interatomic potential for two dimensional and curved sp2 carbon: family level transfer benchmarks and a SOAP based structural novelty map",
+    "relevance": 70,
+    "significance": 12
+   }
+  ]
+ },
+ {
   "date": "2026-10-22",
   "count": 18,
   "new_count": 0,
