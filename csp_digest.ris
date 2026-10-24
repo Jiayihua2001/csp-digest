@@ -1,20 +1,3 @@
-TY  - JOUR
-TI  - Investigation of Lamotrigine Crystal Polymorphs Using Crystal Structure Prediction and Terahertz Spectroscopy
-AU  - Salvatore Zarrella
-AU  - Mizuki Mohara
-AU  - Kei Shimura
-DA  - 2026/10/09
-PY  - 2026
-JO  - Crystal Growth &amp; Design
-DO  - 10.1021/acs.cgd.6c00916
-UR  - https://doi.org/10.1021/acs.cgd.6c00916
-AB  - Abstract Crystal structure prediction (CSP) plays a significant role in exploring the crystal polymorphism of pharmaceutical solids. Determination of the atomic-level structures of crystalline materials is a fundamental step in understanding their bulk physical and chemical properties and behavior in drug products. CSP can be performed using numerous computational approaches, but all ultimately require comparison with experimental measurements to confirm the CSP findings. In this work, terahertz (THz) vibrational spectroscopy is combined with powder X-ray diffraction (PXRD) to demonstrate a new metrics framework for the validation of CSP investigations. Terahertz spectroscopy probes the low-frequency (≤150 cm−1) lattice vibrations of molecular crystals and provides a polymorph specific spectral profile that complements diffraction methods. This methodology is applied to the anti-epileptic drug lamotrigine, the subject of multiple crystal engineering studies to improve its formulated performance. A CSP search was performed on lamotrigine starting with a fast molecular mechanics survey for initial crystal structure candidates (∼800,000 structures), followed by high-accuracy solid-sta
-KW  - CSP
-KW  - ML-potential
-KW  - free-energy
-KW  - polymorphism
-ER  - 
-
 TY  - GEN
 TI  - A Comprehensive Survey of Crystal Structural Prototypes: Construction, Classification, and Applications
 AU  - Jianjun Hu
@@ -90,23 +73,6 @@ KW  - ML-potential
 KW  - lattice-energy
 ER  - 
 
-TY  - GEN
-TI  - Accuracy of Vibrational Properties of Machine-Learning Force Fields for Molecular Crystal Transformations
-AU  - Natalia Goncharova
-AU  - Oskar Schweighofer
-AU  - Johannes Hoja
-DA  - 2026/10/09
-PY  - 2026
-JO  - arXiv
-UR  - https://arxiv.org/abs/2610.13902v1
-AB  - Machine-learning force fields (MLFFs) enable the calculation of transformation pathways in molecular crystals at a fraction of the computational cost of density functional theory (DFT). However, a good agreement in energies and structures does not necessarily imply an accurate description of vibrational properties, which are essential for characterizing transition states and determining free energies at finite temperatures. Herein, we assess the accuracy of system-specific SO3krates MLFFs trained on PBE+MBD reference data for describing vibrational properties of molecular crystal transformations. As examples, we consider a polymorph transition of 1,4-diiodobenzene and a single-crystal-to-single-crystal Diels-Alder reaction. The transition state structures obtained from solid-state nudged-elastic-band (NEB) calculations with the MLFFs exhibit a single imaginary $Γ$-point frequency associated with the respective transformation. Compared with PBE+MBD, the mean absolute errors of $Γ$-point vibrational frequencies and relative harmonic free energies at 300 K are about 3 cm$^{-1}$ and 1 kJ/mol, respectively. Furthermore, we compare for the Diels-Alder reaction a collective transformation
-KW  - CSP
-KW  - ML-potential
-KW  - free-energy
-KW  - lattice-energy
-KW  - polymorphism
-ER  - 
-
 TY  - JOUR
 TI  - Noise-resilient training of machine learning interatomic potentials
 AU  - Terry C. W. Lam
@@ -118,20 +84,6 @@ JO  - The Journal of Chemical Physics
 DO  - 10.1063/5.0327092
 UR  - https://doi.org/10.1063/5.0327092
 AB  - The accuracy of machine learning interatomic potentials suffers from reference data that contain numerical noise. Often originating from unconverged or inconsistent electronic-structure calculations, this noise is challenging to identify. Existing mitigation strategies, such as manual filtering or iterative refinement of outliers, require either substantial expert effort or multiple expensive retraining cycles, making them difficult to scale to large datasets. Here, we introduce a noise-resilient training method that automatically down-weighs noisy samples, without requiring additional reference calculations. By tracking the loss distribution via an exponential moving average, this unsupervised method identifies outliers throughout a single training run. We show that this approach prevents overfitting and matches the performance of iterative refinement baselines with significantly reduced overhead. The method’s effectiveness is demonstrated by recovering accurate physical observables for liquid water from unconverged reference data, including diffusion coefficients. Furthermore, we validate its scalability by training a foundation model for organic chemistry on the SPICE dataset, w
-KW  - CSP
-KW  - ML-potential
-ER  - 
-
-TY  - JOUR
-TI  - Architecture-agnostic knowledge distillation for machine-learning interatomic potentials
-AU  - Chen Wang
-AU  - Siyu Hu
-AU  - Guangming Tan
-DA  - 2026/10/09
-PY  - 2026
-JO  - Neural Networks
-DO  - 10.1016/j.neunet.2026.109742
-UR  - https://doi.org/10.1016/j.neunet.2026.109742
 KW  - CSP
 KW  - ML-potential
 ER  - 
@@ -180,15 +132,15 @@ KW  - ML-potential
 ER  - 
 
 TY  - GEN
-TI  - Foundation-Model Supervision of Distilled Potentials for Million-Atom Molecular Dynamics
-AU  - Xiaoqing Liu
-AU  - Yangshuai Wang
-AU  - Lei Shen
-DA  - 2026/10/16
+TI  - Challenging Atomistic Foundation Models on Disordered Carbons
+AU  - Joseph Hart
+AU  - Samuel G. H. Brookes
+AU  - Fabian L. Thiemann
+DA  - 2026/10/19
 PY  - 2026
 JO  - arXiv
-UR  - https://arxiv.org/abs/2610.23371v1
-AB  - Machine-learned interatomic potentials distilled from foundation models enable fast large-scale molecular dynamics (MD), but they can fail locally in chemical environments that their training data did not sample. System-averaged error metrics and small random audits often miss such sparse or isolated failures. Here we use an exact equivariant foundation model, MACE-MPA-0, to check every atom of million-atom production simulations. Reorganizing two-layer MACE inference into a receiver-chunked three-pass schedule that keeps no per-edge intermediates resident reduces the marginal memory per atom 340-fold, evaluates up to $2.86\times10^{7}$ atoms on a single H200 GPU, and supervises $10^{6}$-atom trajectories in LAMMPS at 1.3% of the run time. Distilled MACE students run four to nine times slower than NEP89 with 0.95-1.28 times the teacher's force error against density functional theory (DFT). In molten SiO$_2$, whole-system checks uncover a persistent tail of under-coordinated atoms hidden by the system-averaged error and an isolated, unphysical O-O contact that a 1% random audit misses 94% of the time. On-the-fly retraining on teacher-labelled 13-Å clusters, with the force loss restr
+UR  - https://arxiv.org/abs/2610.26701v1
+AB  - Foundation machine-learned interatomic potentials (MLIPs) promise broad transferability, yet their out-of-domain reliability is hard to establish. Here, we use pure and O/H-containing disordered carbon spanning multiple phases, competing hybridisations and porous frameworks to stress-test six popular foundation MLIPs. We first screen all six on density functional theory (DFT) energy and force errors and binding curves, then subject four to melt-quench-anneal molecular dynamics and evaluate the resulting structural observables. Binding curves and O/H-containing trajectories reveal unphysical extrapolation and dynamical failures that low DFT energy and force errors fail to reveal. Of the models tested, MACE-MH-1 is the most consistently robust, with low DFT errors and stable MD. Despite differing architectures, OMAT-based models share structural biases, highlighting the importance of training coverage. All four models generate structures of nanoporous carbon that reproduce the principal experimental and specialised carbon potential signatures. Incorporating O/H leaves short-range order largely unchanged but shifts pore-size distributions towards larger pores. These results emphasise
 KW  - CSP
 KW  - ML-potential
 ER  - 
@@ -231,20 +183,6 @@ PY  - 2026
 JO  - arXiv
 UR  - https://arxiv.org/abs/2610.18393v1
 AB  - Equivariant machine learning interatomic potentials (MLIPs) promise atomistic simulations with accuracy approaching that of quantum-mechanical calculations. However, the high computational cost of their core Clebsch--Gordan tensor product (CGTP) convolutions severely limits model scalability and efficiency. In this paper, we rethink the parallel execution of CGTP convolutions and introduce LunaTP. Built on node-centric execution, LunaTP exploits path-group parallelism and multi-level reuse to accelerate CGTP convolutions and higher-order derivative computation while preserving the underlying mathematical formulation. On an NVIDIA H100 GPU, LunaTP achieves kernel speedups of up to 250.0$\times$ over e3nn and 17.1$\times$ over OpenEquivariance. It also delivers end-to-end training throughput gains of up to 28.7$\times$ over e3nn and 3.11$\times$ over OpenEquivariance. Finally, LunaTP demonstrates scalability and robust performance across models, workload scales, and GPUs, delivering substantial acceleration for training and atomistic simulation with high-accuracy equivariant MLIPs.
-KW  - CSP
-KW  - ML-potential
-ER  - 
-
-TY  - JOUR
-TI  - Symbolic ensemble learning enables discovery of fast accurate physics-based interatomic potentials
-AU  - Bilvin Varughese
-AU  - Aditya Koneru
-AU  - Adil Muhammad
-DA  - 2026/10/09
-PY  - 2026
-JO  - Physical Review Materials
-DO  - 10.1103/gkpd-gtzp
-UR  - https://doi.org/10.1103/gkpd-gtzp
 KW  - CSP
 KW  - ML-potential
 ER  - 

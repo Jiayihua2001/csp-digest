@@ -1,49 +1,5 @@
 [
  {
-  "src": "journal",
-  "title": "Investigation of Lamotrigine Crystal Polymorphs Using Crystal Structure Prediction and Terahertz Spectroscopy",
-  "date": "2026-10-09",
-  "doi": "10.1021/acs.cgd.6c00916",
-  "authors": [
-   "Salvatore Zarrella",
-   "Mizuki Mohara",
-   "Kei Shimura"
-  ],
-  "authors_all": [
-   "Salvatore Zarrella",
-   "Mizuki Mohara",
-   "Kei Shimura",
-   "Timothy M. Korter"
-  ],
-  "corresponding": [
-   "Timothy M. Korter"
-  ],
-  "cited_by": 0,
-  "venue": "Crystal Growth &amp; Design",
-  "abstract": "Abstract Crystal structure prediction (CSP) plays a significant role in exploring the crystal polymorphism of pharmaceutical solids. Determination of the atomic-level structures of crystalline materials is a fundamental step in understanding their bulk physical and chemical properties and behavior in drug products. CSP can be performed using numerous computational approaches, but all ultimately require comparison with experimental measurements to confirm the CSP findings. In this work, terahertz (THz) vibrational spectroscopy is combined with powder X-ray diffraction (PXRD) to demonstrate a new metrics framework for the validation of CSP investigations. Terahertz spectroscopy probes the low-frequency (\u2264150 cm\u22121) lattice vibrations of molecular crystals and provides a polymorph specific spectral profile that complements diffraction methods. This methodology is applied to the anti-epileptic drug lamotrigine, the subject of multiple crystal engineering studies to improve its formulated performance. A CSP search was performed on lamotrigine starting with a fast molecular mechanics survey for initial crystal structure candidates (\u223c800,000 structures), followed by high-accuracy solid-sta",
-  "matched": [
-   "genetic algorithm crystal structure prediction",
-   "molecular crystal structure prediction",
-   "generative model crystal structure",
-   "organic crystal polymorph prediction"
-  ],
-  "tags": [
-   "ML-potential",
-   "free-energy",
-   "polymorphism"
-  ],
-  "relevance": 90,
-  "significance": 0,
-  "score": 90,
-  "screen": {
-   "relevance": 7,
-   "reason": "CSP methodology + validation framework for molecular crystals; THz spectroscopy adds experimental validation layer to co"
-  },
-  "summary": "Combines terahertz spectroscopy with PXRD as a joint validation metric for CSP-generated lamotrigine polymorph candidates, beyond diffraction-only confirmation.",
-  "first_seen": "2026-10-10",
-  "is_new": false
- },
- {
   "src": "arXiv",
   "title": "A Comprehensive Survey of Crystal Structural Prototypes: Construction, Classification, and Applications",
   "date": "2026-10-15",
@@ -65,8 +21,8 @@
   "venue": "arXiv",
   "abstract": "Crystal structural prototypes describe recurring atomic arrangements across chemically distinct materials. Prototype libraries are built through crystallographic curation, standardization, geometric matching, local-environment clustering, and periodic-graph analysis, and support chemical substitution, derivative enumeration, high-throughput screening, structure solution, crystal structure prediction (CSP), and generative design. This survey compares methods by the structural information they retain and the equivalence rules they impose, distinguishing crystallographic structure types, geometric realizations, chemistry-anonymous topologies, and chemical decorations. We review curated and automatically extracted prototype libraries (AFLOW, CSPD, LAE-ICSPD, EMFDTW, TYPIX, ICSD structure types), their source databases, and algorithms for assigning family membership. A GraphID-based analysis of samples from ICSD, the Materials Project, OQMD, and LeMat shows that the 100 most frequent families in each sample cover 30 to 67 percent of analyzed structures, while 72 to 82 percent of observed families are singletons. The GraphIDs of up to 76 percent of structures change when the neighbor tol",
   "matched": [
-   "abs:\"crystal structure prediction\"",
-   "abs:\"crystal structure prediction\" AND abs:generative"
+   "abs:\"crystal structure prediction\" AND abs:generative",
+   "abs:\"crystal structure prediction\""
   ],
   "tags": [
    "generative-model"
@@ -76,9 +32,9 @@
   "score": 80,
   "screen": {
    "relevance": 7,
-   "reason": "Prototype libraries and structural classification enable CSP via derivative enumeration and generative design; strong me"
+   "reason": "Prototype libraries and structural classification support CSP; transfer potential for candidate generation and structure"
   },
-  "summary": "Provides a comparative survey and GraphID-based empirical analysis of crystal prototype libraries, quantifying family frequency/singleton distributions and neighbor-tolerance sensitivity across ICSD, Materials Project, OQMD, and LeMat.",
+  "summary": "Provides the first systematic survey unifying crystal-prototype construction/classification methods, plus a cross-database GraphID analysis quantifying prototype frequency, singleton prevalence, and tolerance-sensitivity across ICSD, Materials Project, OQMD, and",
   "first_seen": "2026-10-19",
   "is_new": false
  },
@@ -104,8 +60,8 @@
   "venue": "Computational Materials Science",
   "abstract": "",
   "matched": [
-   "universal interatomic potential",
-   "machine learning interatomic potential"
+   "machine learning interatomic potential",
+   "universal interatomic potential"
   ],
   "ai4sci": true,
   "tags": [
@@ -117,9 +73,9 @@
   "score": 77,
   "screen": {
    "relevance": 7,
-   "reason": "MLIP (MACE) development with transfer-learning benchmarks; direct tool for CSP acceleration."
+   "reason": "MLIP development (MACE) with transfer-learning benchmarks; applicable to molecular crystal modeling."
   },
-  "summary": "A single MACE interatomic potential is trained across multiple sp2 carbon families (planar and curved) and benchmarked for cross-family transferability using a SOAP-based descriptor map that quantifies structural novelty relative to the training set.",
+  "summary": "A transferable MACE machine-learning potential for sp2 carbon is benchmarked across planar and curved nanostructure families, paired with a SOAP-based descriptor map quantifying structural novelty/extrapolation risk.",
   "first_seen": "2026-10-18",
   "is_new": false
  },
@@ -146,9 +102,9 @@
   "venue": "arXiv",
   "abstract": "Deep generative modeling has achieved remarkable progress in crystal generation. Given the rich symmetries inherent in crystalline structures, recent work has sought to explicitly incorporate space-group symmetry into generative models, enabling more effective exploration of novel symmetry templates. Yet introducing symmetry templates increases the combinatorial complexity of stoichiometric relationships between atomic species and crystallographic sites, while creating a fundamental tension between flexible exploration of discrete crystallographic templates and faithful realization of these templates as continuous three-dimensional structures. To address these challenges, we propose CrystalAR, a unified autoregressive framework that models Wyckoff symmetry templates and complete crystal structures within a single generative sequence. Specifically, CrystalAR reformulates continuous coordinate generation as a symmetry-conditioned hierarchy of discrete spatial localization decisions, autoregressively refining the positions of all symmetry-inequivalent sites across resolution levels while jointly modeling their spatial configuration within each level. This discrete hierarchical formula",
   "matched": [
-   "abs:\"generative model\" AND abs:\"crystal structure\"",
+   "abs:\"crystal structure prediction\" AND abs:generative",
    "abs:\"crystal structure prediction\"",
-   "abs:\"crystal structure prediction\" AND abs:generative"
+   "abs:\"generative model\" AND abs:\"crystal structure\""
   ],
   "tags": [
    "generative-model"
@@ -158,11 +114,11 @@
   "score": 62,
   "screen": {
    "relevance": 7,
-   "reason": "Autoregressive generative model with explicit symmetry handling; direct polymorph candidate generation method with trans"
+   "reason": "Novel autoregressive generative method for symmetric crystal structures; clear MCSP polymorph candidate generation trans"
   },
-  "summary": "Introduces CrystalAR, a single autoregressive model that jointly generates Wyckoff symmetry templates and continuous atomic coordinates via hierarchical discretized spatial localization, unifying symmetry-template exploration with structure realization.",
+  "summary": "Introduces CrystalAR, an autoregressive model unifying Wyckoff symmetry-template selection and coordinate generation as hierarchical discrete spatial-localization decisions within a single generative sequence.",
   "first_seen": "2026-10-23",
-  "is_new": true
+  "is_new": false
  },
  {
   "src": "arXiv",
@@ -196,9 +152,9 @@
   "score": 50,
   "screen": {
    "relevance": 7,
-   "reason": "Active learning for MLIPs directly accelerates CSP workflows; uncertainty-driven sampling optimizes training data for st"
+   "reason": "Active learning for MLIPs directly relevant to accelerating CSP via uncertainty-driven sampling and model efficiency."
   },
-  "summary": "Synthesizes 70+ studies into a unified taxonomy of uncertainty-driven active-learning strategies for interatomic potentials, tracing their evolution from on-the-fly MD toward data-efficient fine-tuning of pretrained models.",
+  "summary": "Synthesizes 70+ studies (2020\u20132026) into a unified taxonomy of active-learning acquisition strategies\u2014on-the-fly, pretrained-model fine-tuning, kernel-based, and reaction-aware\u2014for data-efficient interatomic potential development.",
   "first_seen": "2026-10-19",
   "is_new": false
  },
@@ -234,48 +190,10 @@
   "score": 50,
   "screen": {
    "relevance": 7,
-   "reason": "ML orbital-free DFT for CHNO crystals; rapid energy evaluation for CSP ranking, but limited to fixed geometries."
+   "reason": "ML orbital-free DFT for CHNO crystals; energy ranking and convex-hull relevance to polymorph ranking, but fixed-geometry"
   },
-  "summary": "Introduces STRUCTURES-P, an equivariant machine-learned all-electron orbital-free density functional trained on non-ground-state densities, enabling variational density optimization that recovers Kohn-Sham energetics for periodic CHNO crystals and molecules alike.",
+  "summary": "Introduces STRUCTURES-P, an all-electron machine-learned orbital-free density functional combining analytic Gaussian-basis electrostatics with an equivariant network trained on non-ground-state densities, enabling variational density optimization for periodic CHNO crystals.",
   "first_seen": "2026-10-14",
-  "is_new": false
- },
- {
-  "src": "arXiv",
-  "title": "Accuracy of Vibrational Properties of Machine-Learning Force Fields for Molecular Crystal Transformations",
-  "date": "2026-10-09",
-  "arxiv_id": "2610.13902v1",
-  "url": "https://arxiv.org/abs/2610.13902v1",
-  "authors": [
-   "Natalia Goncharova",
-   "Oskar Schweighofer",
-   "Johannes Hoja"
-  ],
-  "authors_all": [
-   "Natalia Goncharova",
-   "Oskar Schweighofer",
-   "Johannes Hoja"
-  ],
-  "venue": "arXiv",
-  "abstract": "Machine-learning force fields (MLFFs) enable the calculation of transformation pathways in molecular crystals at a fraction of the computational cost of density functional theory (DFT). However, a good agreement in energies and structures does not necessarily imply an accurate description of vibrational properties, which are essential for characterizing transition states and determining free energies at finite temperatures. Herein, we assess the accuracy of system-specific SO3krates MLFFs trained on PBE+MBD reference data for describing vibrational properties of molecular crystal transformations. As examples, we consider a polymorph transition of 1,4-diiodobenzene and a single-crystal-to-single-crystal Diels-Alder reaction. The transition state structures obtained from solid-state nudged-elastic-band (NEB) calculations with the MLFFs exhibit a single imaginary $\u0393$-point frequency associated with the respective transformation. Compared with PBE+MBD, the mean absolute errors of $\u0393$-point vibrational frequencies and relative harmonic free energies at 300 K are about 3 cm$^{-1}$ and 1 kJ/mol, respectively. Furthermore, we compare for the Diels-Alder reaction a collective transformation",
-  "matched": [
-   "abs:\"molecular crystal\" AND abs:polymorph"
-  ],
-  "tags": [
-   "ML-potential",
-   "free-energy",
-   "lattice-energy",
-   "polymorphism"
-  ],
-  "relevance": 80,
-  "significance": 0,
-  "score": 50,
-  "screen": {
-   "relevance": 8,
-   "reason": "MLFF accuracy for molecular crystal transformations; direct polymorph-transition methodology with vibrational validation"
-  },
-  "summary": "Systematically benchmarks SO3krates MLFFs against PBE+MBD for \u0393-point vibrational frequencies and harmonic free energies at transition states of molecular crystal transformations, revealing sub-kJ/mol accuracy previously unverified.",
-  "first_seen": "2026-10-12",
   "is_new": false
  },
  {
@@ -301,8 +219,8 @@
   "venue": "The Journal of Chemical Physics",
   "abstract": "The accuracy of machine learning interatomic potentials suffers from reference data that contain numerical noise. Often originating from unconverged or inconsistent electronic-structure calculations, this noise is challenging to identify. Existing mitigation strategies, such as manual filtering or iterative refinement of outliers, require either substantial expert effort or multiple expensive retraining cycles, making them difficult to scale to large datasets. Here, we introduce a noise-resilient training method that automatically down-weighs noisy samples, without requiring additional reference calculations. By tracking the loss distribution via an exponential moving average, this unsupervised method identifies outliers throughout a single training run. We show that this approach prevents overfitting and matches the performance of iterative refinement baselines with significantly reduced overhead. The method\u2019s effectiveness is demonstrated by recovering accurate physical observables for liquid water from unconverged reference data, including diffusion coefficients. Furthermore, we validate its scalability by training a foundation model for organic chemistry on the SPICE dataset, w",
   "matched": [
-   "universal interatomic potential",
-   "machine learning interatomic potential"
+   "machine learning interatomic potential",
+   "universal interatomic potential"
   ],
   "ai4sci": true,
   "tags": [
@@ -313,50 +231,9 @@
   "score": 45,
   "screen": {
    "relevance": 7,
-   "reason": "MLIP training robustness directly applicable to CSP reference-data generation; novel noise-handling method transfers to "
+   "reason": "Novel MLIP training robustness method; directly applicable to noisy DFT data in CSP workflows."
   },
-  "summary": "Introduces an unsupervised, single-run training method that tracks per-sample loss via exponential moving average to automatically down-weight noisy reference data without extra DFT calculations or retraining cycles.",
-  "first_seen": "2026-10-13",
-  "is_new": false
- },
- {
-  "src": "journal",
-  "title": "Architecture-agnostic knowledge distillation for machine-learning interatomic potentials",
-  "date": "2026-10-09",
-  "doi": "10.1016/j.neunet.2026.109742",
-  "authors": [
-   "Chen Wang",
-   "Siyu Hu",
-   "Guangming Tan"
-  ],
-  "authors_all": [
-   "Chen Wang",
-   "Siyu Hu",
-   "Guangming Tan",
-   "Weile Jia"
-  ],
-  "corresponding": [
-   "Weile Jia"
-  ],
-  "cited_by": 0,
-  "venue": "Neural Networks",
-  "abstract": "",
-  "matched": [
-   "universal interatomic potential",
-   "machine learning interatomic potential"
-  ],
-  "ai4sci": true,
-  "tags": [
-   "ML-potential"
-  ],
-  "relevance": 70,
-  "significance": 0,
-  "score": 45,
-  "screen": {
-   "relevance": 7,
-   "reason": "Novel ML method for accelerating MLIPs; direct transfer to CSP lattice-energy ranking."
-  },
-  "summary": "Knowledge distillation transfers accuracy from large, high-fidelity machine-learning interatomic potentials to smaller, architecture-different student models, cutting computational cost without requiring matched network structures\u2014likely enabling faster, distilled surrogate potentials to accelerate energ",
+  "summary": "Introduces an unsupervised, single-pass training method that automatically down-weights noisy reference-data samples via an exponential moving average of per-sample loss, avoiding costly iterative retraining.",
   "first_seen": "2026-10-13",
   "is_new": false
  },
@@ -398,9 +275,9 @@
   "score": 37,
   "screen": {
    "relevance": 7,
-   "reason": "Novel MLIP training paradigm; avoids derivative computation for potential fitting."
+   "reason": "Novel MLIP architecture avoiding derivatives; direct accelerator for CSP structure ranking/search."
   },
-  "summary": "A Hessian-informed interatomic potential trained to predict energies and forces directly without requiring explicit derivative (force/Hessian) computations, likely speeding up relaxation and transition-state searches in CSP workflows.",
+  "summary": "A machine-learned interatomic potential predicts Hessians (energy second derivatives) directly from structure, bypassing costly autodifferentiation or finite-difference force derivatives.",
   "first_seen": "2026-10-14",
   "is_new": false
  },
@@ -435,9 +312,9 @@
   "score": 30,
   "screen": {
    "relevance": 7,
-   "reason": "MLIP phonon methodology; transfer to lattice-energy ranking via Hessian; modest direct CSP relevance."
+   "reason": "MLIP phonon methodology with transfer potential; not direct CSP but improves MLIP reliability for structure ranking."
   },
-  "summary": "Introduces a density-functional-perturbation-theory-style linear-response method enabling exact, arbitrary-wavevector phonon dynamical matrices directly from message-passing potentials' primitive cells, bypassing supercell finite-displacement errors.",
+  "summary": "Introduces a linear-response scheme that computes exact primitive-cell dynamical matrices at arbitrary wave vectors for message-passing MLIPs, eliminating supercell truncation errors.",
   "first_seen": "2026-10-19",
   "is_new": false
  },
@@ -477,30 +354,31 @@
   "score": 25,
   "screen": {
    "relevance": 7,
-   "reason": "Novel attention-based equivariant architecture for MLIPs; clear transfer to molecular-crystal property prediction and en"
+   "reason": "Novel ML architecture for learning equivariant atomistic properties; clear MLIP transfer potential for CSP energy/force "
   },
-  "summary": "Extends the unconstrained Point-Edge Transformer backbone\u2014replacing explicit O(3) tensor algebra with learned edge-to-edge attention\u2014to accurately predict diverse high-rank equivariant atomistic properties (dipoles, polarizabilities, NM",
+  "summary": "Extends the unconstrained (non-O(3)-equivariant-by-design) PET architecture, trained purely from data, to accurately predict diverse high-order/pseudotensorial atomistic properties\u2014dipoles, polarizabilities, NMR shielding tensors, and density",
   "first_seen": "2026-10-23",
-  "is_new": true
+  "is_new": false
  },
  {
   "src": "arXiv",
-  "title": "Foundation-Model Supervision of Distilled Potentials for Million-Atom Molecular Dynamics",
-  "date": "2026-10-16",
-  "arxiv_id": "2610.23371v1",
-  "url": "https://arxiv.org/abs/2610.23371v1",
+  "title": "Challenging Atomistic Foundation Models on Disordered Carbons",
+  "date": "2026-10-19",
+  "arxiv_id": "2610.26701v1",
+  "url": "https://arxiv.org/abs/2610.26701v1",
   "authors": [
-   "Xiaoqing Liu",
-   "Yangshuai Wang",
-   "Lei Shen"
+   "Joseph Hart",
+   "Samuel G. H. Brookes",
+   "Fabian L. Thiemann"
   ],
   "authors_all": [
-   "Xiaoqing Liu",
-   "Yangshuai Wang",
-   "Lei Shen"
+   "Joseph Hart",
+   "Samuel G. H. Brookes",
+   "Fabian L. Thiemann",
+   "Christoph Schran"
   ],
   "venue": "arXiv",
-  "abstract": "Machine-learned interatomic potentials distilled from foundation models enable fast large-scale molecular dynamics (MD), but they can fail locally in chemical environments that their training data did not sample. System-averaged error metrics and small random audits often miss such sparse or isolated failures. Here we use an exact equivariant foundation model, MACE-MPA-0, to check every atom of million-atom production simulations. Reorganizing two-layer MACE inference into a receiver-chunked three-pass schedule that keeps no per-edge intermediates resident reduces the marginal memory per atom 340-fold, evaluates up to $2.86\\times10^{7}$ atoms on a single H200 GPU, and supervises $10^{6}$-atom trajectories in LAMMPS at 1.3% of the run time. Distilled MACE students run four to nine times slower than NEP89 with 0.95-1.28 times the teacher's force error against density functional theory (DFT). In molten SiO$_2$, whole-system checks uncover a persistent tail of under-coordinated atoms hidden by the system-averaged error and an isolated, unphysical O-O contact that a 1% random audit misses 94% of the time. On-the-fly retraining on teacher-labelled 13-\u00c5 clusters, with the force loss restr",
+  "abstract": "Foundation machine-learned interatomic potentials (MLIPs) promise broad transferability, yet their out-of-domain reliability is hard to establish. Here, we use pure and O/H-containing disordered carbon spanning multiple phases, competing hybridisations and porous frameworks to stress-test six popular foundation MLIPs. We first screen all six on density functional theory (DFT) energy and force errors and binding curves, then subject four to melt-quench-anneal molecular dynamics and evaluate the resulting structural observables. Binding curves and O/H-containing trajectories reveal unphysical extrapolation and dynamical failures that low DFT energy and force errors fail to reveal. Of the models tested, MACE-MH-1 is the most consistently robust, with low DFT errors and stable MD. Despite differing architectures, OMAT-based models share structural biases, highlighting the importance of training coverage. All four models generate structures of nanoporous carbon that reproduce the principal experimental and specialised carbon potential signatures. Incorporating O/H leaves short-range order largely unchanged but shifts pore-size distributions towards larger pores. These results emphasise ",
   "matched": [
    "abs:\"interatomic potential\" AND abs:\"machine learning\""
   ],
@@ -513,11 +391,11 @@
   "score": 25,
   "screen": {
    "relevance": 7,
-   "reason": "MLIP distillation and foundation-model supervision directly applicable to CSP lattice-energy ranking; large-scale MD val"
+   "reason": "MLIP stress-testing and validation relevant to CSP; disordered systems less central than crystals."
   },
-  "summary": "Introduces a memory-efficient MACE inference schedule enabling atom-wise, whole-trajectory DFT-level auditing of million-atom MD, exposing rare local failures invisible to averaged metrics or random sampling.",
-  "first_seen": "2026-10-23",
-  "is_new": true
+  "summary": "Introduces a disordered-carbon (pure and O/H-containing) stress-test benchmark combining DFT error metrics with melt-quench-anneal MD, showing low DFT errors mask unphysical dynamical extrapolation across six foundation MLIPs.",
+  "first_seen": "2026-10-20",
+  "is_new": false
  },
  {
   "src": "arXiv",
@@ -550,9 +428,9 @@
   "score": 25,
   "screen": {
    "relevance": 7,
-   "reason": "Large-scale ML dataset for universal MLIPs; diversity sampling aids MLIP training for CSP acceleration."
+   "reason": "Large-scale MLIP training dataset with diversity sampling; valuable for MCSP model development but not algorithm/method "
   },
-  "summary": "Introduces an \"ecumetric\"-based hierarchical subsampling protocol to merge overlapping open structural datasets into MAD-COSMO, a deduplicated ~1.7-billion-structure hierarchy with nested diverse subsets.",
+  "summary": "Introduces an \"ecumetric\"-based hierarchical subsampling protocol to merge open atomistic datasets into MAD-COSMO, a deduplicated, diversity-stratified ~1.7-billion-structure benchmark collection.",
   "first_seen": "2026-10-16",
   "is_new": false
  },
@@ -588,9 +466,9 @@
   "score": 25,
   "screen": {
    "relevance": 7,
-   "reason": "MLIP error quantification & selective DFT labeling directly accelerates CSP screening workflows."
+   "reason": "MLIP error quantification & selective DFT labeling strategy directly applicable to CSP lattice-energy ranking workflows."
   },
-  "summary": "Introduces a conformal-risk-control framework with a lightweight geometric-descriptor predictor of MLIP\u2013DFT disagreement, selectively routing configurations to DFT with guaranteed error bounds, cutting DFT calls 7\u201314% versus committee methods.",
+  "summary": "Introduces a conformal-risk-control framework that uses a lightweight geometric-descriptor predictor of MLIP-DFT disagreement to set provably bounded DFT-selection thresholds, cutting DFT calls 7\u201314% versus committee baselines.",
   "first_seen": "2026-10-15",
   "is_new": false
  },
@@ -627,55 +505,10 @@
   "score": 25,
   "screen": {
    "relevance": 7,
-   "reason": "MLIP computational efficiency directly enables faster CSP ranking; equivariant architectures core to modern potentials."
+   "reason": "MLIP acceleration directly enabling scalable equivariant potentials for CSP applications; methodologically novel infrast"
   },
-  "summary": "LunaTP introduces path-group parallelism and multi-level reuse for node-centric Clebsch\u2013Gordan tensor product execution, achieving up to 250\u00d7 kernel and 28.7\u00d7 training speedups over e3nn.",
+  "summary": "LunaTP introduces path-group parallelism and multi-level reuse in a node-centric GPU kernel for Clebsch\u2013Gordan tensor products, achieving up to 250\u00d7 speedup over e3nn.",
   "first_seen": "2026-10-15",
-  "is_new": false
- },
- {
-  "src": "journal",
-  "title": "Symbolic ensemble learning enables discovery of fast accurate physics-based interatomic potentials",
-  "date": "2026-10-09",
-  "doi": "10.1103/gkpd-gtzp",
-  "authors": [
-   "Bilvin Varughese",
-   "Aditya Koneru",
-   "Adil Muhammad"
-  ],
-  "authors_all": [
-   "Bilvin Varughese",
-   "Aditya Koneru",
-   "Adil Muhammad",
-   "Troy D. Loeffler",
-   "Sukriti Manna",
-   "Subramanian K. R. S. Sankaranarayanan",
-   "Jan Michael Y. Carrillo",
-   "Orcun Yildiz",
-   "Thomas Peterka"
-  ],
-  "corresponding": [
-   "Thomas Peterka"
-  ],
-  "cited_by": 0,
-  "venue": "Physical Review Materials",
-  "abstract": "",
-  "matched": [
-   "universal interatomic potential"
-  ],
-  "ai4sci": true,
-  "tags": [
-   "ML-potential"
-  ],
-  "relevance": 70,
-  "significance": 0,
-  "score": 25,
-  "screen": {
-   "relevance": 7,
-   "reason": "Novel MLIP discovery method; potential to automate potential generation for MCSP workflows."
-  },
-  "summary": "Introduces a symbolic-ensemble-learning framework that automatically discovers fast, accurate physics-based interatomic potentials, likely combining genetic-programming-style symbolic regression with ensembling for improved speed-accuracy tradeoffs versus hand-derived",
-  "first_seen": "2026-10-10",
   "is_new": false
  }
 ]

@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-Extends the unconstrained Point-Edge Transformer backbone—replacing explicit O(3) tensor algebra with learned edge-to-edge attention—to accurately predict diverse high-rank equivariant atomistic properties (dipoles, polarizabilities, NM
+Extends the unconstrained (non-O(3)-equivariant-by-design) PET architecture, trained purely from data, to accurately predict diverse high-order/pseudotensorial atomistic properties—dipoles, polarizabilities, NMR shielding tensors, and density
 
 ## Abstract
 > Machine-learned interatomic potentials based on graph neural networks (GNNs) have made first-principles accuracy routine for the potential energy surface (PES). Their backbones, often O(3)-equivariant by design, are increasingly used to learn other atomistic properties. Many of these are of high angular order or pseudotensorial character, defined per atom, or expanded on large atom-centered basis sets. Such targets strain equivariant GNNs, whose tensor products grow steeply in cost with angular order and can fail to represent the target if truncated, forcing difficult trade-offs between hyperparameters. Unconstrained models like the Point-Edge Transformer (PET) instead replace explicit O(3) algebra with edge-to-edge attention and learn equivariance from data, so that the same backbone can in principle learn any equivariant property. We demonstrate how to use PET to learn molecular dipoles and polarizabilities, NMR chemical shielding tensors, and auxiliary-basis expansions of the electron density. Increasing the backbone size systematically improves both accuracy and equivariance error, and targeted architectural and training choices reduce the symmetry breaking further. PET matches

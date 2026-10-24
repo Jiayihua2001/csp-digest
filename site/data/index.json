@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-10-24",
+  "count": 13,
+  "new_count": 0,
+  "synthesis": "Quiet day for CSP specifically\u2014no genetic-algorithm or structure-prediction methods papers; the field's attention is dominated by machine-learning interatomic potentials (uncertainty, Hessians, noise-resilience, active learning) and a new autoregressive crystal generator, CrystalAR, as a generative alternative worth monitoring.",
+  "top": [
+   {
+    "title": "A Comprehensive Survey of Crystal Structural Prototypes: Construction, Classification, and Applications",
+    "relevance": 80,
+    "significance": 0
+   },
+   {
+    "title": "A MACE interatomic potential for two dimensional and curved sp2 carbon: family level transfer benchmarks and a SOAP based structural novelty map",
+    "relevance": 70,
+    "significance": 12
+   },
+   {
+    "title": "CrystalAR: Autoregressive Modeling for Symmetric Crystal Generation",
+    "relevance": 70,
+    "significance": 0
+   }
+  ]
+ },
+ {
   "date": "2026-10-23",
   "count": 17,
   "new_count": 3,

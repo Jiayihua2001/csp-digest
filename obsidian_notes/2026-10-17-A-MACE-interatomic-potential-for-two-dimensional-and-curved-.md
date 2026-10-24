@@ -21,7 +21,7 @@ tags:
 **Field:** [[ML-potential]] [[benchmark]]
 
 ## Why it matters
-A single MACE interatomic potential is trained across multiple sp2 carbon families (planar and curved) and benchmarked for cross-family transferability using a SOAP-based descriptor map that quantifies structural novelty relative to the training set.
+A transferable MACE machine-learning potential for sp2 carbon is benchmarked across planar and curved nanostructure families, paired with a SOAP-based descriptor map quantifying structural novelty/extrapolation risk.
 
 ## My notes
 

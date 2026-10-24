@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-A Hessian-informed interatomic potential trained to predict energies and forces directly without requiring explicit derivative (force/Hessian) computations, likely speeding up relaxation and transition-state searches in CSP workflows.
+A machine-learned interatomic potential predicts Hessians (energy second derivatives) directly from structure, bypassing costly autodifferentiation or finite-difference force derivatives.
 
 ## My notes
 
