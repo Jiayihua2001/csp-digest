@@ -1,5 +1,28 @@
 [
  {
+  "date": "2026-10-25",
+  "count": 12,
+  "new_count": 0,
+  "synthesis": "Mostly interatomic-potential methodology (uncertainty, active learning, Hessians, phonons, noise resilience) rather than CSP-specific work. CrystalAR is the only direct generative-CSP contribution, suggesting symmetry-aware autoregressive generation remains an active but incremental direction; otherwise a quiet day for genetic-algorithm CSP specifically.",
+  "top": [
+   {
+    "title": "A Comprehensive Survey of Crystal Structural Prototypes: Construction, Classification, and Applications",
+    "relevance": 80,
+    "significance": 0
+   },
+   {
+    "title": "A MACE interatomic potential for two dimensional and curved sp2 carbon: family level transfer benchmarks and a SOAP based structural novelty map",
+    "relevance": 70,
+    "significance": 12
+   },
+   {
+    "title": "CrystalAR: Autoregressive Modeling for Symmetric Crystal Generation",
+    "relevance": 70,
+    "significance": 0
+   }
+  ]
+ },
+ {
   "date": "2026-10-24",
   "count": 13,
   "new_count": 0,

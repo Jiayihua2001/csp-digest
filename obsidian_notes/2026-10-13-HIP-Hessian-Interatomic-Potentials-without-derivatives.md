@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-A machine-learned interatomic potential predicts Hessians (energy second derivatives) directly from structure, bypassing costly autodifferentiation or finite-difference force derivatives.
+Replaces derivative-based force/stress computation in interatomic potentials with a direct, learned Hessian prediction, enabling faster, derivative-free access to second-order energy information for applications like crystal structure optimization.
 
 ## My notes
 
