@@ -1,0 +1,3434 @@
+{
+"10.1002/adts.70577": {
+"date": "2026-10-26",
+"lane": "mcsp",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of standard DFT to one specific alloy (NiMnAs); not a methodological MCSP advance"
+},
+"10.1016/j.colsurfa.2026.142102": {
+"date": "2026-10-26",
+"lane": "mcsp",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of computation to one materials system (MXene oxidation mechanism); not MCSP methods or landmark AI-for-scie"
+},
+"10.1016/j.jallcom.2026.191971": {
+"date": "2026-10-26",
+"lane": "mcsp",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental phosphor synthesis and luminescence work on one material; no computational or AI method."
+},
+"10.1016/j.jssc.2026.126385": {
+"date": "2026-10-26",
+"lane": "mcsp",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental synthesis of potassium sulfides; no computational or AI method evident."
+},
+"10.1016/j.matdes.2026.117347": {
+"date": "2026-10-26",
+"lane": "mcsp",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental implantation and characterization of Ga2O3 polymorphs; no computational or AI method evident."
+},
+"10.1021/acsaem.6c02543": {
+"date": "2026-10-26",
+"lane": "mcsp",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of DFT/AIMD to hydrogen storage in one porous SiC polymorph; not MCSP methodology or landmark AI work."
+},
+"10.1021/acsnano.6c12416": {
+"date": "2026-10-26",
+"lane": "mcsp",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of ML potential MD to one system (Ga2O3); not MCSP methods or landmark AI-for-science."
+},
+"10.1021/acssensors.6c01924": {
+"date": "2026-10-26",
+"lane": "mcsp",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of deep learning to CaCO3 polymorph sensing in microfluidic biomineralization; not MCSP or landmark AI-for-s"
+},
+"10.1021/jacs.6c16379": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of ML screening to battery electrolyte diluents; not MCSP, not a landmark AI-for-science result"
+},
+"10.1038/s41586-026-11126-x": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Subseasonal weather forecasting is an unrelated field to molecular crystal structure prediction and not a landmark AI-fo"
+},
+"10.1038/s42256-026-01310-z": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Medical image restoration foundation model is unrelated to MCSP and not a landmark AI-for-science result."
+},
+"10.1038/s42256-026-01319-4": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Fluid dynamics perspective on physics-informed ML; not MCSP, not a landmark AI-for-science method, likely a review."
+},
+"10.1038/s43588-026-01045-2": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "LLM benchmarking on coordinate-category property prediction; empirical limitation study, not a landmark or MCSP methodol"
+},
+"10.1038/s43588-026-01073-y": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Dataset and benchmark paper in immunology (TCR-pHLA binding), not a method advance in MCSP or landmark AI-for-science."
+},
+"10.1055/a-2977-1370": {
+"date": "2026-10-26",
+"lane": "mcsp",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental process development for one API's polymorphs; no computational or AI method, application to one system."
+},
+"10.1073/pnas.2526451123": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Data-driven stability/resolvent analysis for fluid and climate systems; outside MCSP and not a landmark AI-for-science a"
+},
+"10.1073/pnas.2531748123": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Social-science LLM validation and benchmarking; unrelated to MCSP or landmark AI-for-science theory."
+},
+"10.1073/pnas.2533077123": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Learned chaotic dynamics emulator with boundedness constraints; outside MCSP and not a landmark AI-for-science method."
+},
+"10.1073/pnas.2609978123": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "LLM activation steering method; not MCSP, not a landmark AI-for-science or foundational theory paper."
+},
+"10.1073/pnas.2610400123": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Neuroscience connectome modeling; unrelated to crystal structure prediction or AI-for-science landmarks."
+},
+"10.1073/pnas.2616364123": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Developmental psychology behavioral study on emotion and reward learning; unrelated to MCSP or AI for science."
+},
+"10.1073/pnas.2626989123": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of ML to painting attribution; not MCSP, not a landmark AI-for-science or foundational theory result."
+},
+"10.1103/m2js-yzky": {
+"date": "2026-10-26",
+"lane": "mcsp",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental Raman study of nickelate materials; no computational or AI method, unrelated to MCSP or AI-for-science."
+},
+"10.1109/lra.2026.3747582": {
+"date": "2026-10-26",
+"lane": "mcsp",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Robotics locomotion paper, unrelated to molecular crystal structure prediction or AI-for-science landmarks."
+},
+"10.1126/sciadv.aef0605": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of a deep autoencoder to insect wing morphology; unrelated to MCSP or landmark AI-for-science theory."
+},
+"10.1126/sciadv.aeg9183": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Applies ML to one alloy system (ductile iron) with experiments; not MCSP or landmark AI-for-science theory"
+},
+"10.1126/sciadv.aei0840": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Theoretical immunology model of T cell exhaustion; unrelated to MCSP or landmark AI-for-science work."
+},
+"10.1126/science.aeh7930": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Clinical diagnosis with language models; unrelated to MCSP or core AI-for-science landmarks; benchmark/system paper."
+},
+"10.1126/science.ael4888": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Legal and economic commentary on copyright and generative AI; not a methodological AI-for-science or MCSP advance."
+},
+"10.26434/chemrxiv.15010487/v1": {
+"date": "2026-10-26",
+"lane": "mcsp",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of QM/MM photophysics to one Pt(II) polymorph system; not crystal structure prediction methodology"
+},
+"2610.16051": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Benchmark re-run in topology optimization; outside MCSP and not a landmark AI-for-science advance."
+},
+"2610.16212": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Spatial transcriptomics domain identification; unrelated to MCSP or landmark AI-for-science theory."
+},
+"2610.16391": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "LLM retrosynthesis planning is off-topic for MCSP; not a landmark AI-for-science result"
+},
+"2610.16396": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Applies sampling methods to PDE benchmarks; not MCSP, not a landmark AI-for-science result."
+},
+"2610.16504": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Physics-informed ML architecture applied to welding case study; unrelated to MCSP or landmark AI-for-science work."
+},
+"2610.16582": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Generic physics-informed diffusion training tweak (penalty reweighting); not MCSP, not a landmark or foundational AI-for"
+},
+"2610.16586": {
+"contribution": "Octree-based hierarchical occupancy flow plus atom-type/offset flow for 3D molecule generation, giving coarse-to-fine spatial resolution and training-free shape/region conditioning; evaluated on QM9 and GEOM-DRUG.",
+"date": "2026-10-26",
+"lane": "ai4sci",
+"low_quality": false,
+"model": "claude-opus-5-5",
+"q1": 2,
+"q2": 2,
+"q3": 2,
+"stage": "judge",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Competent incremental generative-model architecture on standard benchmarks; molecules not crystals, limited transfer to MCSP, not a landmark."
+},
+"2610.16656": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Wireless propagation ML model; unrelated to molecular crystal structure prediction or landmark AI-for-science work"
+},
+"2610.16812": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Symbolic regression solver strategy; not MCSP, not a landmark AI-for-science method."
+},
+"2610.16940": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Benchmark/implementation study of Cover Trees for nearest neighbor search; off-topic for MCSP and AI-for-science landmar"
+},
+"2610.16980": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Educational workflow/tooling for non-programmers; not an MCSP method or landmark AI-for-science advance."
+},
+"2610.16995": {
+"contribution": "Learns the carre du champ operator of an underlying process from naturally perturbed observations, giving observation-equivariant intrinsic diffusion geometry transferable across data spaces.",
+"date": "2026-10-26",
+"lane": "ai4sci",
+"low_quality": false,
+"model": "claude-opus-5-5",
+"q1": 2,
+"q2": 2,
+"q3": 3,
+"stage": "judge",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Interesting geometric-learning theory from Bronstein group, but niche representation learning, far from MCSP and not landmark AI4Sci; MD evaluation is peripheral."
+},
+"2610.16996": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of a graph neural operator to concrete penetration stress fields; unrelated to molecular crystal structure p"
+},
+"2610.17030": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Condensed-matter electron-hole bilayer physics; neural-network VMC applied to one system, not MCSP or landmark AI-for-sc"
+},
+"2610.17171": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Workflow/tooling paper on ionic liquid solvent screening with uncertainty; not MCSP or landmark AI-for-science theory."
+},
+"2610.17221": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Neural PDE surrogate data-cost scaling; not MCSP, not a landmark AI-for-science result"
+},
+"2610.17226": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Implicit solvation correction for MLIPs; an incremental ML-potential tweak, not MCSP or landmark AI-for-science theory."
+},
+"2610.17244": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Molecular generation via discrete flow matching; new generator architecture, not MCSP or landmark AI-for-science theory"
+},
+"2610.17246": {
+"contribution": "Frozen LLM acts as curriculum-building judge whose preferences on sampled candidates are distilled into flow/diffusion scientific generators via DPO, replacing explicit proxy rewards.",
+"date": "2026-10-26",
+"lane": "ai4sci",
+"low_quality": false,
+"model": "claude-opus-5-5",
+"q1": 2,
+"q2": 3,
+"q3": 2,
+"stage": "judge",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Interesting LLM-as-judge alignment of generators, but evidence unclear, LLM-judgment reliability questionable; incremental combination of DPO and curricula, not foundational or MCSP-relevant."
+},
+"2610.17370": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "LLM test-time harness optimization for generic scientific search; not MCSP, not landmark or foundational theory."
+},
+"2610.17456": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "LLM collaboration evaluation paper; unrelated to MCSP or landmark AI-for-science work."
+},
+"2610.17483": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Evaluation diagnostics for PDE surrogates; not MCSP, not a landmark AI-for-science result, and falls outside the reader'"
+},
+"2610.17696": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Protein pocket prediction with a new dataset and method; off-topic for MCSP and not a landmark AI-for-science result."
+},
+"2610.17730": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "LoRA fine-tuning method for general CV/NLP; not MCSP, not a landmark AI-for-science paper."
+},
+"2610.17804": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "LLM agent learning in a toy Tetris fracture game; not MCSP or landmark AI-for-science theory"
+},
+"2610.17832": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Agentic Bayesian optimization framework with offline benchmark pools; not MCSP, not landmark AI-for-science, mainly tool"
+},
+"2610.17975": {
+"contribution": "Extends machine-learned all-electron orbital-free DFT to periodic CHNO crystals, with analytic Gaussian-basis electrostatics and a learned kinetic+XC functional; variational density minimization recovers KS densities and energies.",
+"date": "2026-10-26",
+"lane": "ai4sci",
+"low_quality": false,
+"model": "claude-opus-5-5",
+"q1": 3,
+"q2": 3,
+"q3": 3,
+"stage": "judge",
+"v": "2026-10-26.1",
+"verdict": "skim",
+"why": "Credible, concrete step toward ML-OFDFT for molecular crystals, relevant to lattice-energy ranking, but fixed-geometry, small-scale validation; incremental extension of prior STRUCTURES25 work."
+},
+"2610.18025": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "LLM test-time reasoning harness on diagnosis/abstract reasoning benchmarks; not MCSP, not a landmark AI-for-science resu"
+},
+"2610.18125": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Incremental generative compression method; not MCSP, not a landmark AI-for-science advance."
+},
+"2610.18164": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "New GNN message-passing architecture tweak; not MCSP, landmark, or foundational AI-for-science theory"
+},
+"2610.18481": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Protein tokenizer with benchmark gains; a tokenization/architecture method outside MCSP and not a landmark AI-for-scienc"
+},
+"2610.18597": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Audio Foley generation application; unrelated to MCSP or landmark AI-for-science theory."
+},
+"2610.18651": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Benchmark re-run study of chemical language model pretraining; not MCSP, not a landmark or foundational AI-for-science m"
+},
+"2610.18724": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Education-focused OCR evasion framework and dataset; unrelated to MCSP or AI-for-science landmarks."
+},
+"2610.18730": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Manufacturing carbon-footprint transfer learning; unrelated to molecular crystal structure prediction or landmark AI-for"
+},
+"2610.18851": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "LLM-based multi-objective molecular optimization for drug discovery; not MCSP, not a landmark AI-for-science result"
+},
+"2610.18933": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Pipeline/tooling paper orchestrating coding agents; not a landmark or MCSP methodological advance."
+},
+"2610.18938": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "LLM agent framework for symbolic regression and a benchmark; not MCSP, not a landmark AI-for-science method."
+},
+"2610.18949": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of ML architecture to perovskite solar cell device performance; not MCSP or landmark AI-for-science theory."
+},
+"2610.19011": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Benchmark and protocol paper for docking-based molecular optimization; drug design, not MCSP or landmark AI-for-science "
+},
+"2610.19123": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Molecular seeded optimization for drug discovery; off-topic for MCSP and not a landmark AI-for-science result."
+},
+"2610.19159": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Benchmark/evaluation dataset paper on AI agents; not a landmark method or MCSP advance."
+},
+"2610.19324": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Graph transformer attention-sink analysis on molecular GNNs; not MCSP, not landmark AI-for-science, incremental architec"
+},
+"2610.19385": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "LLM unlearning method; unrelated to MCSP or landmark AI-for-science work."
+},
+"2610.19404": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Benchmark/dataset for MOF synthesis active learning; not MCSP or a landmark AI-for-science advance."
+},
+"2610.19457": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "RL mode-collapse method for diverse sampling; not MCSP, not a landmark AI-for-science result"
+},
+"2610.19487": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Neuroscience theory on resolution-dependent interaction order; unrelated to MCSP or landmark AI-for-science work."
+},
+"2610.19493": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Neural operator for porous media flow; unrelated to molecular crystal structure prediction or landmark AI-for-science me"
+},
+"2610.19552": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Dynamical-systems forecasting with looped transformers; not MCSP, not a landmark AI-for-science result."
+},
+"2610.19592": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Protein sequence design via language model; off-topic for MCSP and not a landmark AI-for-science theory paper; dataset/a"
+},
+"2610.19602": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Glass dynamics theory (RFOT, viscoelastic seismology); unrelated to MCSP or landmark AI-for-science methods."
+},
+"2610.19620": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Amorphous silicon structural study using ML potentials; an application to one system, not MCSP or landmark AI-for-scienc"
+},
+"2610.19630": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Uncertainty-quantification variant for MLIPs with conformal calibration; explicitly excluded category, not MCSP methodol"
+},
+"2610.19738": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "New protein language model architecture/training efficiency work, not MCSP or a landmark AI-for-science method"
+},
+"2610.19781": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "String representation for graph generation; a tooling/representation paper, not MCSP or landmark AI-for-science theory."
+},
+"2610.19810": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Benchmark/evaluation of coding agents reproducing bio tools; benchmark-style paper, not a landmark or MCSP advance"
+},
+"2610.19821": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Reduced-order modeling for PDE-constrained optimization; unrelated to MCSP or landmark AI-for-science work."
+},
+"2610.19842": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Polaron dynamics application using ML-MD framework; not MCSP, not landmark AI-for-science or foundational theory."
+},
+"2610.19888": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of existing inference methods to fBM parameter estimation in anomalous diffusion; outside MCSP and not a lan"
+},
+"2610.19919": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "ML correction for electronic band structures; new ML model/tooling, not MCSP or landmark AI-for-science result"
+},
+"2610.19920": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "LLM agent for scaffold hopping in drug design; not MCSP, not a landmark AI-for-science method"
+},
+"2610.19942": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Symbolic regression network method; not MCSP, not a landmark AI-for-science result, and new architecture-style work"
+},
+"2610.19946": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Niche ML sampler method for graph generation; not MCSP, landmark, or foundational AI-for-science theory."
+},
+"2610.19967": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of PIMD/RT-TDDFT to liquid water HHG; unrelated to MCSP or landmark AI-for-science methods."
+},
+"2610.20012": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Chemistry LLM benchmark with evaluation tooling; a benchmark re-run/dataset type paper, not MCSP or landmark AI-for-scie"
+},
+"2610.20063": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of existing MACE potential to 2D defect sorption; not MCSP or landmark AI-for-science theory"
+},
+"2610.20154": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental HZO ferroelectric device endurance study; application to one material system, not MCSP or AI-for-science la"
+},
+"2610.20288": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Analysis of flow-matching interaction recovery across biology and chemistry; not MCSP, no new method or SOTA result"
+},
+"2610.20363": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Neural operator PDE surrogate with derivative features; not MCSP, not a landmark AI-for-science method."
+},
+"2610.20369": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Neural PDE surrogate refinement plug-in; unrelated to MCSP and not a landmark AI-for-science result"
+},
+"2610.20374": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Applies GNN representation to block-copolymer RPA instability; unrelated to MCSP and not a landmark AI-for-science advan"
+},
+"2610.20426": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Molecular communication with continual learning; unrelated to MCSP or landmark AI-for-science work."
+},
+"2610.20488": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Anharmonic vibrational spectroscopy methodology for small molecules; outside MCSP and landmark AI-for-science scope, and"
+},
+"2610.20498": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Structure identification methodology for simulations, not MCSP search or landmark AI-for-science; closer to tooling/clas"
+},
+"2610.20585": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "New ML architecture for PDE surrogates on AirFRANS benchmark; not MCSP and not a landmark AI-for-science result."
+},
+"2610.20595": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Condensed-matter tight-binding Landau-level theory for graphene-like lattices; unrelated to MCSP or AI-for-science landm"
+},
+"2610.20737": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Quantum n-representability/fermionic marginal problem; unrelated to MCSP or landmark AI-for-science work."
+},
+"2610.20779": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "LLM agent automating MBPT workflows; tooling/benchmark-style work outside MCSP and not a landmark AI-for-science method."
+},
+"2610.20922": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Foundational theory of compositionality via algorithmic information; not MCSP or landmark AI-for-science method."
+},
+"2610.20982": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Stat-mech phase study using normalizing flows as samplers; not MCSP or landmark AI-for-science theory."
+},
+"2610.21015": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Software/tooling paper for structure building via LLM agents; not MCSP method or landmark theory."
+},
+"2610.21050": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "LLM literature-mining pipeline and curated database for adsorption; a tooling/dataset paper, not MCSP or landmark AI-for"
+},
+"2610.21075": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Quantum chemistry integral-algorithm vectorization and software implementation; not MCSP, not landmark AI-for-science th"
+},
+"2610.21125": {
+"contribution": "Learns an amortized flow policy over initial noise of a frozen few-step generator so the pushforward matches the reward-tilted distribution, avoiding fine-tuning over-optimization and test-time search cost.",
+"date": "2026-10-26",
+"lane": "ai4sci",
+"low_quality": false,
+"model": "claude-opus-5-5",
+"q1": 2,
+"q2": 2,
+"q3": 2,
+"stage": "judge",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Competent reward-alignment trick for few-step image generators; incremental ML methodology, not landmark, little direct relevance to MCSP search or ranking."
+},
+"2610.21134": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Clinical IVF prediction on a small single-centre dataset; not MCSP or landmark AI-for-science methods."
+},
+"2610.21200": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Data poisoning/security study of protein language models; not MCSP or a landmark AI-for-science methodological advance."
+},
+"2610.21259": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of MD on an existing neural network potential to one Criegee intermediate; not MCSP or landmark AI-for-scien"
+},
+"2610.21275": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental TEM hardware/instrumentation paper; unrelated to MCSP or AI for science."
+},
+"2610.21385": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Nuclear few-body CFP construction in oscillator basis; unrelated to MCSP or AI-for-science landmarks."
+},
+"2610.21618": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental optoelectronic visual synapse device work; unrelated to MCSP or AI-for-science landmarks."
+},
+"2610.21637": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of MD/ML potential to one energetic material (TATB) bond cleavage; not MCSP or landmark AI-for-science."
+},
+"2610.21659": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Financial NLP benchmark availability contract; unrelated to MCSP or landmark AI-for-science work."
+},
+"2610.21698": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Plasmonic nanoparticle photothermal heat transfer; unrelated to molecular crystal structure prediction or AI for science"
+},
+"2610.21700": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Incremental ML-potential descriptor work for molecular PESs; not MCSP or landmark AI-for-science."
+},
+"2610.21707": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Vibrational spectroscopy of CO2 isotopologues; unrelated to MCSP or landmark AI-for-science work"
+},
+"2610.21755": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "LLM agent harness and RL pipeline for CAD; unrelated to MCSP or landmark AI-for-science methods."
+},
+"2610.21771": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Dataset and tooling paper for atomistic ML; excluded category, not a landmark or MCSP advance."
+},
+"2610.21805": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Multimodal embedding method for product clustering; unrelated to MCSP or landmark AI-for-science work, plus dataset/benc"
+},
+"2610.21834": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Nonlinear dynamics and resilience theory, unrelated to MCSP or AI-for-science landmarks."
+},
+"2610.21911": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Software/tooling paper for structural identification in MD; not MCSP method or landmark AI result."
+},
+"2610.21973": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Reservoir computing on ordinal-pattern networks; not MCSP, not a landmark AI-for-science or foundational result."
+},
+"2610.22024": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Inverse KS study of ionization energies for small molecules; foundational DFT theory but not MCSP or landmark AI-for-sci"
+},
+"2610.22025": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "QSAR semi-supervised data selection study; not MCSP, not a landmark AI-for-science method, and is a systematic benchmark"
+},
+"2610.22157": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Incremental PI-DeepONet architecture/implementation tweak for computational cost; not a landmark or MCSP advance"
+},
+"2610.22221": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Vision-audio probing of damping for materials; not MCSP, not a landmark AI-for-science method."
+},
+"2610.22243": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Agent-safety guard evaluation shortcut auditing; unrelated to MCSP or landmark AI-for-science methods."
+},
+"2610.22283": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Generic information-analysis method for high-dimensional data; not MCSP, not a landmark AI-for-science advance."
+},
+"2610.22284": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Electronic-structure functional theory for correlation; not MCSP, not landmark AI-for-science, no clear crystal predicti"
+},
+"2610.22402": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Molecular dynamics study of supercooled water physics; not MCSP or landmark AI-for-science work."
+},
+"2610.22445": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Evaluation of acceptance guards for scientific discovery; not MCSP, not a landmark AI-for-science result."
+},
+"2610.22446": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Neural operator architecture for PDE meshes; unrelated to MCSP and not a landmark AI-for-science result."
+},
+"2610.22523": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Cryo-EM representation learning via self-distillation; a pretrained model/application outside MCSP, not a landmark or MC"
+},
+"2610.22562": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of a new sequence-translation model to codon prediction; not MCSP, not landmark or foundational AI-for-scien"
+},
+"2610.22600": {
+"date": "2026-10-26",
+"lane": "mcsp",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Narrow survey of structural prototype libraries and classification; not a methodological MCSP advance."
+},
+"2610.22642": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of ML descriptors to magnetic kagome AHC; not MCSP or landmark AI-for-science theory."
+},
+"2610.22687": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Fusion reactor MDAO software/framework tooling; unrelated to MCSP or landmark AI-for-science results."
+},
+"2610.22763": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Generic Bayesian optimization method over discrete spaces; not MCSP or landmark AI-for-science, mainly molecular benchma"
+},
+"2610.22799": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Formal theory of time-dependent Liouville equation for ultrafast dynamics; not MCSP or landmark AI-for-science work."
+},
+"2610.22801": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental nonlinear optics of benzil-filled AAO membranes; no computational or AI method"
+},
+"2610.22903": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Niche PINN method for compressible multi-medium CFD; not MCSP, not a landmark AI-for-science result."
+},
+"2610.22911": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of existing MLIP and GCMC workflow to one semiconductor process (AS-ALD); not MCSP or landmark AI-for-scienc"
+},
+"2610.22925": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Training-algorithm/optimizer engineering for general neural nets; not MCSP or landmark AI-for-science theory."
+},
+"2610.23005": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Quantum chemistry excited-state method (ADC(3)/THC); unrelated to MCSP or landmark AI-for-science work."
+},
+"2610.23034": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Methodological PIP potential-energy-surface evaluation tooling for ML potentials; not MCSP, not landmark AI-for-science,"
+},
+"2610.23132": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental magnetism study on Co/Pt multilayers; no computational or AI method, unrelated to MCSP or AI for science."
+},
+"2610.23265": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Tokenizer architecture for molecular/protein generation; not MCSP, not a landmark or foundational advance."
+},
+"2610.23286": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of an existing MLIP to one alloy system's surface tension; not MCSP or landmark AI-for-science."
+},
+"2610.23291": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Electrochemical MD method for interfaces; off-topic from MCSP and landmark AI-for-science, mostly tooling/benchmarking"
+},
+"2610.23371": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Applies MLP distillation and supervision to molten SiO2 MD; ML-potential engineering/tooling, not MCSP or landmark AI-fo"
+},
+"2610.23452": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental ion-trap kinetics of astrochemical ions; no computational or AI method, unrelated to MCSP or AI-for-science"
+},
+"2610.23512": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Software/tooling paper for TOPAS diffraction analysis; not a methodological CSP or landmark AI advance"
+},
+"2610.23545": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Methodological advance for ML-potential phonons; largely incremental ML-potential tooling, not MCSP SOTA or landmark AI-"
+},
+"2610.23618": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Applied RAG tool for Bengali theatre planning; unrelated to MCSP or AI-for-science landmarks."
+},
+"2610.23627": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of first-principles segregation/decohesion calculations to specific Fe and TiN grain boundaries; not MCSP or"
+},
+"2610.23643": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Incremental ML-potential architecture extension for electric-field long-range electrostatics; not MCSP or landmark AI-fo"
+},
+"2610.23674": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Dislocation plasticity theory for FCC metals; unrelated to molecular crystal structure prediction or AI-for-science land"
+},
+"2610.23703": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Few-step distillation accelerating AlphaFold3/Boltz-2 diffusion; ML-acceleration tweak, not MCSP or landmark theory."
+},
+"2610.23717": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "New ML architecture for GW self-energy of molecules; not MCSP, not a landmark AI-for-science result"
+},
+"2610.23773": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Condensed-matter altermagnet spintronics theory; unrelated to MCSP or AI-for-science landmarks."
+},
+"2610.23776": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Narrow survey of active learning for MLIPs; uncertainty-driven and not a landmark or MCSP advance."
+},
+"2610.23811": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Applies standard ML models to concrete strength data; unrelated to MCSP or landmark AI-for-science work."
+},
+"2610.23814": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Theoretical model of DNA chirality-induced spin selectivity; unrelated to MCSP or landmark AI-for-science work."
+},
+"2610.23829": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental magneto-ionic switching in NiO nanoparticles; no computational or AI method, unrelated to MCSP or AI for sc"
+},
+"2610.24004": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of an existing VQLS to 1D heat conduction on hardware; not MCSP or landmark AI-for-science theory."
+},
+"2610.24074": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Software/tooling package for recoupling coefficients; unrelated to MCSP or AI-for-science landmarks."
+},
+"2610.24124": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Benchmark paper on drug design selectivity; off-topic for MCSP and not a landmark AI-for-science method."
+},
+"2610.24151": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Electrostatic BEM modeling of THz-SNOM tip; unrelated to MCSP or AI-for-science landmarks"
+},
+"2610.24185": {
+"contribution": "Tree-based inference-time search for generative models using stochastic interpolants that resample child nodes independently of the parent, improving path diversity and coverage under sparse rewards.",
+"date": "2026-10-26",
+"lane": "ai4sci",
+"low_quality": false,
+"model": "claude-opus-5-5",
+"q1": 2,
+"q2": 3,
+"q3": 2,
+"stage": "judge",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Incremental tweak to inference-time tree search for diffusion/interpolant samplers; it is loosely relevant to reward-guided structure generation but has no landmark evidence."
+},
+"2610.24210": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Residual stress in SPH solid mechanics; unrelated to MCSP or landmark AI-for-science methods."
+},
+"2610.24226": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Condensed-matter spintronics theory on chirality-induced spin selectivity; unrelated to MCSP or AI for science."
+},
+"2610.24291": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "LLM optimizer diagnostic benchmark study; not MCSP, not a landmark AI-for-science method or foundational theory."
+},
+"2610.24302": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Solid-state high-harmonic optics in one ferroelectric material; not MCSP or landmark AI-for-science theory"
+},
+"2610.24340": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Heat-conduction nanothermometry theory; unrelated to MCSP or AI-for-science landmarks."
+},
+"2610.24407": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Pretrained magnetic atomistic ML foundation model; resembles ML-potential architecture/training work outside MCSP and AI"
+},
+"2610.24418": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of MD and ML potentials to two specific COF systems; experimental PDF-led, not an MCSP or landmark methodolo"
+},
+"2610.24432": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "New ML potential for W-Ta plus application to one grain-boundary system; excluded categories"
+},
+"2610.24458": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Reverse target fishing for drug discovery; not MCSP, not a landmark AI-for-science result; introduces benchmark and data"
+},
+"2610.24460": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Perspective on water-driven porous silicon materials; experimental/engineering, unrelated to MCSP or AI for science."
+},
+"2610.24511": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Molecular generation with count constraints; not MCSP or landmark AI-for-science; a generative method applied to molecul"
+},
+"2610.24514": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Benchmark study of pretrained ML potentials' strain error asymmetry; benchmark/evaluation paper, not a landmark or MCSP "
+},
+"2610.24601": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of agent tooling to traditional Chinese medicine; not MCSP or landmark AI-for-science theory."
+},
+"2610.24661": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Legal-domain study of LLM constitution drafting; unrelated to MCSP or landmark AI-for-science methods."
+},
+"2610.24806": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Wet-lab aptamer design sandbox; not MCSP nor landmark AI-for-science theory; closer to application/pipeline work."
+},
+"2610.24828": {
+"contribution": "Inference-time gradient-free Feynman-Kac particle steering of pretrained crystal diffusion models over both continuous coordinates/lattice and discrete atom types, adding atom re-masking to revise committed compositions.",
+"date": "2026-10-26",
+"lane": "ai4sci",
+"low_quality": false,
+"model": "claude-opus-5-5",
+"q1": 2,
+"q2": 3,
+"q3": 2,
+"stage": "judge",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Competent incremental extension of FK steering to inorganic crystal diffusion; particle-selection-plus-remasking idea loosely transferable to GA-like search, but not landmark or MCSP."
+},
+"2610.24865": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Collective foraging/swarm biology theory; unrelated to MCSP or landmark AI-for-science work."
+},
+"2610.24908": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Interpretability regularizer for language-model SAEs; not MCSP, not a landmark AI-for-science result, and an incremental"
+},
+"2610.24934": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental biomechanics of one animal in granular media; not MCSP, AI-for-science, or foundational ML theory."
+},
+"2610.24989": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Software/tooling paper for X-ray diffraction analysis in dynamic compression experiments; not MCSP or landmark AI."
+},
+"2610.25029": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Ab initio photovoltaic transport applied to one material (monolayer GeS); not MCSP or landmark AI-for-science."
+},
+"2610.25061": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Neuroscience paper on brain-wide dynamics; unrelated to MCSP or AI-for-science landmarks."
+},
+"2610.25105": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of diffusion sampling to a vacancy stress case; not MCSP or landmark AI-for-science theory."
+},
+"2610.25163": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "New ML molecular representation training objective with benchmark evaluation; not MCSP or landmark AI-for-science theory"
+},
+"2610.25186": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Symmetry classification of 2D magnetism; unrelated to MCSP or landmark AI-for-science work."
+},
+"2610.25295": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of DFT and fine-tuned MACE to one materials system (HEB2 grain boundaries); not a methodological or landmark"
+},
+"2610.25382": {
+"date": "2026-10-26",
+"lane": "mcsp",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental thin-film and photonic fabrication work, unrelated to crystal structure prediction or AI for science."
+},
+"2610.25389": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Electricity market data timing leakage; unrelated to MCSP or foundational AI-for-science methods."
+},
+"2610.25409": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "PINN-style method for elliptic interface problems; unrelated to MCSP and not a landmark AI-for-science result."
+},
+"2610.25477": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Software/workflow framework for phonon transport with ML potentials; tooling and applications to specific materials, not"
+},
+"2610.25489": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Condensed-matter magneto-optics of altermagnets (MnTe); unrelated to MCSP or landmark AI-for-science work."
+},
+"2610.25502": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Inference-time steering of generative models via surrogate reward mixing; not a landmark or MCSP advance"
+},
+"2610.25565": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of generative topology optimization to bone scaffolds; not MCSP, not a landmark AI-for-science result."
+},
+"2610.25575": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Benchmark/dataset paper on RAG for perovskite photovoltaics; outside MCSP and not a landmark AI-for-science method."
+},
+"2610.25605": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Self-supervised solubility prediction pretraining; application of ML to one property, not MCSP or landmark AI-for-scienc"
+},
+"2610.25619": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of LLM agent to spectral analysis in self-driving labs; tooling/pipeline, not MCSP or landmark AI-for-scienc"
+},
+"2610.25662": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Literature-mining method demonstrated on 99-paper aerodynamics corpus; unrelated to MCSP or landmark AI-for-science work"
+},
+"2610.25671": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Quantitative finance IV surface reconstruction; unrelated to MCSP or AI-for-science landmarks"
+},
+"2610.25747": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "LLM-plus-Bayesian experimental design framework for generic model discovery; not MCSP, not a landmark AI-for-science res"
+},
+"2610.25775": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Property classification (magnetic ordering) via GNN+LLM fusion; not crystal structure prediction or landmark AI-for-scie"
+},
+"2610.25945": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Active matter hydrodynamics of chiral elastomers; unrelated to MCSP or AI-for-science landmarks."
+},
+"2610.25953": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Active matter hydrodynamic theory of chiral solids; unrelated to MCSP or landmark AI-for-science work."
+},
+"2610.25965": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental thin-film magnetism study of a single garnet system; no computational or AI method, off-topic."
+},
+"2610.26009": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Protein-glycan docking benchmark and dataset paper; off-topic from MCSP and a dataset/benchmark tooling paper."
+},
+"2610.26017": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental NMR method for protein quantification; unrelated to MCSP or AI for science."
+},
+"2610.26172": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental plant photoacoustic spectroscopy monitoring; no computational or AI method, unrelated to MCSP or AI for sci"
+},
+"2610.26293": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Condensed-matter transport theory on altermagnets; unrelated to MCSP or AI-for-science landmarks."
+},
+"2610.26301": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of fine-tuned MLIP to one material's defect kinetics; not MCSP or landmark AI-for-science"
+},
+"2610.26309": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of diffusion and FEA to mold-castable bracket design; not MCSP or landmark AI-for-science theory."
+},
+"2610.26367": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental optical imaging of VO2 phase domains; no crystal structure prediction or AI method."
+},
+"2610.26424": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Computational neuroscience of hippocampal replay; unrelated to MCSP or AI-for-science landmarks."
+},
+"2610.26495": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Applies PINN to nonsmooth contact dynamics; not MCSP or landmark AI-for-science theory; niche method variant"
+},
+"2610.26502": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of MD to irradiated tungsten thermal conductivity; not MCSP or landmark AI-for-science methods."
+},
+"2610.26591": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Population-balance model of perovskite film drying; not MCSP or AI-for-science landmark theory"
+},
+"2610.26605": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Continuum-robot surrogate modeling; unrelated to MCSP or landmark AI-for-science work"
+},
+"2610.26651": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Biosecurity study of protein language model data filtering; not MCSP, not a landmark AI-for-science advance."
+},
+"2610.26694": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Source-to-source AD tool for CUDA CFD solvers; a software/tooling paper outside MCSP and AI-for-science landmarks."
+},
+"2610.26701": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Benchmark stress-test of foundation MLIPs on disordered carbon; benchmark re-run/application, not a methodological advan"
+},
+"2610.26745": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Numerical method for electron repulsion integrals in dielectric media; not MCSP, AI-for-science landmark, or foundationa"
+},
+"2610.26747": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Protein language model architecture and pretraining; not MCSP, not a landmark AI-for-science method."
+},
+"2610.26829": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Benchmark re-run/evaluation study on protein structure agents; not MCSP or landmark AI-for-science theory."
+},
+"2610.26896": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Geometric filtering on the sphere for fluid turbulence; unrelated to MCSP or landmark AI-for-science work."
+},
+"2610.26963": {
+"contribution": "Pretrained transformer mapping spatio-temporal trajectories to symbolic PDEs, with Fourier/derivative augmentation, coefficient refinement, few-shot fine-tuning and hierarchical discovery across 20 PDE families.",
+"date": "2026-10-26",
+"lane": "ai4sci",
+"low_quality": false,
+"model": "claude-opus-5-5",
+"q1": 2,
+"q2": 2,
+"q3": 2,
+"stage": "judge",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Competent symbolic-regression foundation model from a strong group, but incremental within PDE discovery and far from MCSP needs; not landmark tier."
+},
+"2610.26984": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Applies ANN-accelerated tabulation to transcritical flow thermodynamics; engineering application outside MCSP and not a "
+},
+"2610.27001": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Drug-target affinity model for drug discovery; unrelated to MCSP and not a landmark AI-for-science result"
+},
+"2610.27036": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Benchmark/dataset and pipeline tooling for MOF electronic fields; explicitly excluded category."
+},
+"2610.27136": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of existing MLIP-based simulation to one planetary chemical system; not MCSP or landmark AI-for-science meth"
+},
+"2610.27230": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Agent framework and tooling for chemistry workflows; not MCSP or a landmark AI-for-science method"
+},
+"2610.27309": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Unrelated field: handwritten character recognition augmentation, not MCSP or landmark AI-for-science work."
+},
+"2610.27317": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "PDE discovery for fluids/plasmas; not MCSP, not a landmark AI-for-science method, incremental SINDy-style work."
+},
+"2610.27355": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental microfabrication and thermal processing platform; no computational or AI method, not MCSP."
+},
+"2610.27369": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Non-equilibrium statistical physics of interacting baths; unrelated to MCSP or AI-for-science landmarks."
+},
+"2610.27403": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Text-to-speech intonation interpretability; unrelated to molecular crystal structure prediction or landmark AI-for-scien"
+},
+"2610.27411": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Wannier disentanglement workflow for band structure; not MCSP, not landmark AI-for-science, tooling/method tweak in elec"
+},
+"2610.27412": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Interpretability analysis of a Tc predictor via NTK; an application of existing method, not MCSP or a landmark advance."
+},
+"2610.27469": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental optical spectroscopy of a TMD monolayer alloy; unrelated to crystal structure prediction or AI for science."
+},
+"2610.27486": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Optics of MoS2 films with experiments; unrelated to MCSP or AI-for-science foundational work."
+},
+"2610.27614": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "New GNN architecture applied to one hybrid solar cell property task; not MCSP or landmark AI-for-science theory"
+},
+"2610.27630": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental ultrafast X-ray spectroscopy on FeSb2; not computational, not MCSP or AI for science."
+},
+"2610.27638": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Peptide property prediction encoder; not MCSP, not a landmark or foundational AI-for-science result"
+},
+"2610.27762": {
+"contribution": "Autoregressive generator jointly modeling Wyckoff templates and coordinates, recasting continuous positions as hierarchical multi-resolution discrete localization decisions per symmetry-inequivalent site.",
+"date": "2026-10-26",
+"lane": "ai4sci",
+"low_quality": false,
+"model": "claude-opus-5-5",
+"q1": 2,
+"q2": 2,
+"q3": 2,
+"stage": "judge",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "One more symmetry-aware inorganic crystal generator in a crowded space; incremental over WyFormer/DiffCSP++/SymmCD, not MCSP, no landmark evidence in abstract."
+},
+"2610.27789": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Theoretical note on neural scaling law exponents; not MCSP, not a landmark AI-for-science result, and no clear methodolo"
+},
+"2610.27802": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Condensed-matter topological transport theory; unrelated to MCSP or AI-for-science landmarks."
+},
+"2610.27880": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Phonon Boltzmann transport numerical methods; unrelated to MCSP or landmark AI-for-science work."
+},
+"2610.27906": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Fluid dynamics software release for stability analysis; unrelated to MCSP or AI for science"
+},
+"2610.27993": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Telecom domain LLM engineering with data pipeline and distillation; unrelated to MCSP or landmark AI-for-science work."
+},
+"2610.28145": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Training-strategy tweak applied to an existing docking model; not MCSP or landmark AI-for-science theory."
+},
+"2610.28209": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Condensed-matter magnetism of one material (NiPS3); unrelated to MCSP or AI-for-science landmarks."
+},
+"2610.28224": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Model order reduction in RKHS theory; unrelated to MCSP or landmark AI-for-science work."
+},
+"2610.28312": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental liquid-crystal synthesis matrix; no crystal structure prediction or AI method, unrelated field."
+},
+"2610.28322": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "ECG electrolyte inference via manifold-regularized neural nets; unrelated to MCSP or landmark AI-for-science work."
+},
+"2610.28363": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Polycrystalline grain texture modeling; not MCSP, not a landmark AI-for-science or foundational theory result"
+},
+"2610.28426": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Quantum transport study of CoSi grain boundaries; unrelated to crystal structure prediction or AI for science."
+},
+"2610.28493": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of multiscale modeling to Zr oxide corrosion; not MCSP or landmark AI-for-science theory."
+},
+"2610.28500": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "LLM inference acceleration paper; unrelated to MCSP or landmark AI-for-science work"
+},
+"2610.28529": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Nonlinear Hall condensed-matter physics on a honeycomb model; not MCSP or landmark AI-for-science theory."
+},
+"2610.28543": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Discrete diffusion for logic/planning puzzles; not MCSP nor a landmark AI-for-science result."
+},
+"2610.28562": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "LLM-agent symbolic law discovery; not MCSP nor landmark AI-for-science; new benchmark and framework tooling"
+},
+"2610.28629": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Agentic framework for grain boundary simulation; tooling/application to nickel GBs, outside MCSP and landmark AI-for-sci"
+},
+"2610.28709": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of ML surrogate to radiation shielding; unrelated to MCSP or landmark AI-for-science work"
+},
+"2610.28943": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Protein sequence design application of diffusion steering; off-topic for MCSP and not a landmark AI-for-science result."
+},
+"2610.28967": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of existing ReaxFF and DFT to oxidized silicon nanowires; not crystal structure prediction or landmark AI wo"
+},
+"2610.28996": {
+"contribution": "Genetic algorithm using a differentiable effective-atom representation, with crossover that superimposes two parents and relaxes the combined structure, searching positions, species and atom count jointly.",
+"date": "2026-10-26",
+"lane": "ai4sci",
+"low_quality": false,
+"model": "claude-opus-5-5",
+"q1": 3,
+"q2": 4,
+"q3": 2,
+"stage": "judge",
+"v": "2026-10-26.1",
+"verdict": "skim",
+"why": "Novel GA crossover idea directly relevant to GAtor-style search, with concrete large-system results, but these are inorganic and defect systems rather than MCSP, and the advance is moderate."
+},
+"2610.29058": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of quantum-hybrid QUBO to ligand multiconformer crystallographic modeling; not MCSP or landmark AI-for-scien"
+},
+"2610.29111": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "New ML architecture for molecular magnetism; not MCSP or landmark AI-for-science theory"
+},
+"2610.29112": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of tooling to phosphorene nanotubes; not MCSP methodology or landmark AI-for-science work"
+},
+"2610.29270": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Stochastic biopolymer filament kinetics model; unrelated to MCSP or landmark AI-for-science work."
+},
+"2610.29362": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of flow matching to reflectometry inversion; not MCSP or landmark AI-for-science theory"
+},
+"2610.29386": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of DFT/cluster expansion to one alloy system (Fe-Si ordering); not MCSP or landmark AI-for-science."
+},
+"2610.29420": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental neutron scattering study of one magnetic material; unrelated to MCSP or AI-for-science."
+},
+"2610.29460": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Excited-state TDDFT method for MR-TADF emitters; outside MCSP and landmark AI-for-science scope."
+},
+"2610.29476": {
+"contribution": "Nonlinear Schrodinger bridge (SBNL) derived from mean-field-game forward-backward PDEs, solved via branching-diffusion probabilistic representation of semilinear PDEs; demonstrated on toy, Gross-Pitaevskii and MNIST-scale images.",
+"date": "2026-10-26",
+"lane": "ai4sci",
+"low_quality": false,
+"model": "claude-opus-5-5",
+"q1": 2,
+"q2": 2,
+"q3": 3,
+"stage": "judge",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Mathematically interesting extension of Schrodinger bridges, but validation is toy/MNIST-level with no evidence of advantage over existing bridges; distant from MCSP needs."
+},
+"2610.29589": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Input representation change for GNN property prediction; not MCSP or landmark AI-for-science theory, and largely interpr"
+},
+"2610.29614": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental-only thin-film magnetism study; no computational or AI method, unrelated to MCSP or AI for science."
+},
+"2610.29634": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Fine-tuning an MLIP variant for thermal conductivity; a training tweak and high-throughput application, not MCSP or land"
+},
+"2610.29703": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Methodological MD diffusivity analysis in soft matter; unrelated to MCSP or AI-for-science landmarks."
+},
+"2610.29719": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Fluid hydrodynamics of microalgae in sea spray; unrelated to MCSP or AI for science."
+},
+"2610.29753": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Self-supervised spectral denoising application for SERS/Raman; not MCSP or landmark AI-for-science theory."
+},
+"2610.29779": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Quantum chemistry ansatz generation on H2 only; not MCSP, not a landmark AI-for-science result"
+},
+"2610.29858": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental CVD synthesis and characterization of Fe3Ge nanoplates; no computational or AI method."
+},
+"2610.29895": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Review of literature-mining and LLM extraction for materials; not MCSP, not a landmark method, and is a narrow survey."
+},
+"2610.29909": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "New KAN architecture for tractable inference; uncertainty-quantification and ML-surrogate architecture, not MCSP or land"
+},
+"2610.30010": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of first-principles DFT to goldene nanoribbons; not MCSP, not landmark AI-for-science or foundational theory"
+},
+"2610.30086": {
+"contribution": "Diffusion transformer generating crystals over Wyckoff-orbit tokens given space group and occupied positions; guarantees symmetry, 100-1000x faster than symmetry-aware baselines, modest S.U.N. gain over SGFM.",
+"date": "2026-10-26",
+"lane": "ai4sci",
+"low_quality": false,
+"model": "claude-opus-5-5",
+"q1": 2,
+"q2": 3,
+"q3": 2,
+"stage": "judge",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Incremental inorganic generative-model improvement on MP-20; the Wyckoff-orbit tokenization is loosely relevant to symmetry-constrained MCSP generation, but it is not landmark."
+},
+"2610.30213": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Stochastic-process Monte Carlo estimator for 1D diffusions; not MCSP, not landmark AI-for-science theory."
+},
+"2610.30215": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "LLM-specialist latent connector protocol; not MCSP, not a landmark AI-for-science method or foundational theory."
+},
+"2610.30278": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Software/pipeline tooling paper for v2RDM quantum chemistry; not MCSP or landmark AI-for-science theory"
+},
+"2610.30292": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Evaluation environment and tooling for PDE coding agents; not MCSP, not a landmark AI-for-science method."
+},
+"2610.30375": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental diamond synthesis and optical characterization of GeV centers; no computational or AI method"
+},
+"2610.30394": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Venom peptide ion-channel classification with GNNs; application to one biological problem, outside MCSP and landmark AI-"
+},
+"2610.30398": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Software/tooling paper for nonlinear optical response calculations; unrelated to MCSP or landmark AI-for-science work."
+},
+"2610.30404": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Applies diffusion models to additive manufacturing microstructures; not MCSP or landmark AI-for-science theory."
+},
+"2610.30406": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Applies generic generative models to synthetic MD time series; not MCSP, not a landmark or foundational advance."
+},
+"2610.30411": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Acoustic inverse design application with printability constraints; not MCSP nor landmark AI-for-science theory."
+},
+"2610.30502": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Quantum-optics cavity analysis of Kitaev honeycomb topology; unrelated to MCSP or landmark AI-for-science methods."
+},
+"2610.30513": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of existing ML potentials to one aqueous electrolyte system with EXAFS; not MCSP or landmark theory."
+},
+"2610.30588": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "DNA-protein condensation physics; unrelated to crystal structure prediction or AI for science."
+},
+"2610.30591": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of existing methods to a specific material family (Na layered oxides); not a methodological MCSP or landmark"
+},
+"2610.30627": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Phenomenological IDP condensate phase model; unrelated to MCSP or landmark AI-for-science work."
+},
+"2610.30641": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Benchmark re-run of existing uMLIPs on intermetallics; not a methodological advance in MCSP or landmark AI-for-science r"
+},
+"2610.30668": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Protein-RNA binder design method; not MCSP or landmark AI-for-science theory, a narrow application"
+},
+"2610.30684": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of standard LDA+U and Wannier method to one specific material; not MCSP or landmark AI-for-science."
+},
+"2610.30746": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Raman spectroscopy ML for bacterial identification; unrelated to MCSP or landmark AI-for-science methods."
+},
+"2610.30749": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Active polymer physics with chemical reactions; unrelated to MCSP or landmark AI-for-science work"
+},
+"2610.30870": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "CALPHAD application to one alloy system (CoCrFeMnNi oxides); not MCSP or landmark AI-for-science work."
+},
+"2610.30903": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Benchmark and analysis of LLM identifier knowledge access; not MCSP, landmark AI-for-science, or foundational theory."
+},
+"2610.30929": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Symmetry analysis of piezo-Kerr response in magnets; unrelated to MCSP or landmark AI-for-science work"
+},
+"2610.30930": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Ultrafast valleytronics in SnSe; unrelated to MCSP or AI-for-science landmark work."
+},
+"2610.31148": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Evaluation methodology for LLM benchmarks on tool use; not MCSP or landmark AI-for-science work"
+},
+"2610.31183": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Architecture/training tweak for ML models learning atomistic tensor properties; not MCSP or landmark AI-for-science theo"
+},
+"2610.31206": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental-only characterization of Ni-Mn-Ga alloys; no computational or AI method involved."
+},
+"2610.31324": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Astrophysics radiation-hydrodynamics code extension for TDEs; unrelated to MCSP or AI-for-science landmarks."
+},
+"2610.31426": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Quantum mechanochemistry Franck-Condon theory; unrelated to MCSP or landmark AI-for-science work."
+},
+"2610.31495": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Bayesian optimisation method for high-dimensional latent spaces; generic BO, not MCSP or landmark AI-for-science theory"
+},
+"2610.31508": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Electronic transport in metallo-DNA nanowires; not crystal structure prediction or landmark AI-for-science theory."
+},
+"2610.31539": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "ML architecture with uncertainty quantification applied to adsorption/defect optimization; not MCSP or landmark theory"
+},
+"2610.31585": {
+"contribution": "Learns a stochastic path action (energy on trajectory space) anchored to a tractable reference process, enabling path ranking, steering, constrained optimization and sampling from one learned objective.",
+"date": "2026-10-26",
+"lane": "ai4sci",
+"low_quality": false,
+"model": "claude-opus-5-5",
+"q1": 3,
+"q2": 3,
+"q3": 3,
+"stage": "judge",
+"v": "2026-10-26.1",
+"verdict": "skim",
+"why": "Interesting path-space energy idea relevant to transition paths, but the abstract is truncated, gives no concrete results, and its MCSP relevance is indirect."
+},
+"2610.31725": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental magnetization and Raman study of LaFeO3 spin reorientation; not crystal structure prediction or AI for scie"
+},
+"2610.31732": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Condensed-matter altermagnetism in iron chains; unrelated to MCSP or AI-for-science landmarks."
+},
+"2610.31805": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Plasmonics of a gold monolayer via TDDFT; unrelated to MCSP or AI-for-science landmarks."
+},
+"2610.31830": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of existing MLMD to perovskite vibrational spectra; not MCSP, not landmark AI-for-science theory"
+},
+"2610.31855": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Incremental PINN training-optimizer tweak; not MCSP, not a landmark AI-for-science result."
+},
+"2610.31871": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental thin-film ellipsometry study of oxide redox kinetics; no computational or AI method, unrelated to MCSP or A"
+},
+"2610.31924": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental RSoXS characterization of thin films; ML used for analysis of one material system, not MCSP or landmark AI-"
+},
+"2610.31997": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Neuronal chimera-state dynamics on hypergraphs; unrelated to MCSP or landmark AI-for-science work."
+},
+"2610.32031": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental photoemission study of Ag12W- clusters; not MCSP or AI-for-science methodology."
+},
+"2610.32041": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Architecture tweak for ViT tokenization on Fourier data; not MCSP or landmark AI-for-science"
+},
+"2610.32046": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "LLM test-time memory method evaluated on mathematical tasks; not crystal structure prediction or a landmark AI-for-scien"
+},
+"2610.32072": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Elastic spring-network stress study; not MCSP, not AI-for-science landmark or foundational ML theory."
+},
+"2610.32075": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Computer graphics neural renderer architecture; unrelated to MCSP or landmark AI-for-science work."
+},
+"2610.32103": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Molecular lead optimization with language models; not MCSP, not a landmark AI-for-science result."
+},
+"2610.32121": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of effective-mass photoemission model to specific semiconductors; not MCSP or landmark AI-for-science work."
+},
+"2610.32195": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "LLM test-time principle-construction framework; not MCSP, not a landmark AI-for-science method or foundational theory"
+},
+"2610.32228": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental nonlinear optics on CIPS/PZT heterostructures; unrelated to MCSP or AI-for-science landmarks."
+},
+"2610.32261": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental Raman/SHG study of one material (alpha-MnTe); application to a single system, not MCSP or landmark AI-for-s"
+},
+"2610.32299": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Neural operator architecture for aerodynamic surrogates; off-topic for MCSP and not a landmark AI-for-science result."
+},
+"2610.32314": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Multi-domain application case studies of an unvetted framework; engineering/implementation paper, not MCSP or a landmark"
+},
+"2610.32341": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "First-principles flexo-optics for specific materials; unrelated to MCSP or landmark AI-for-science work"
+},
+"2610.32382": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of existing classifiers to learner speech L1 identification; unrelated to MCSP or landmark AI-for-science wo"
+},
+"2610.32392": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Multi-agent workflow/tooling for excited-state ML model building; applications to specific systems, not a landmark or MC"
+},
+"2610.32419": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental electron microscopy imaging of hypersound; not computational or AI-for-science, unrelated to MCSP."
+},
+"2610.32490": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Dataset/tooling paper on drug-protein bioactivity, unrelated to MCSP or landmark AI-for-science methods."
+},
+"2610.32505": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Adaptive Raman spectral acquisition with uncertainty-driven reconstruction; uncertainty variant and instrument applicati"
+},
+"2610.32591": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Biological active-matter chemotaxis pattern formation; unrelated to MCSP or AI-for-science landmarks."
+},
+"2610.32602": {
+"contribution": "Trajectory matching: conditions discrete flow matching on full action sequences between endpoints, enabling simulation-free training for structured actions such as fragment attachment and size changes; proven to subsume factorized DFM.",
+"date": "2026-10-26",
+"lane": "ai4sci",
+"low_quality": false,
+"model": "claude-opus-5-5",
+"q1": 3,
+"q2": 3,
+"q3": 3,
+"stage": "judge",
+"v": "2026-10-26.1",
+"verdict": "skim",
+"why": "Principled theoretical generalization of discrete flow matching from a strong group, but an incremental methodological extension with truncated empirical results and only indirect relevance to MCSP."
+},
+"2610.32642": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental defect engineering in SiC for quantum sensing; no computational or AI method, unrelated to MCSP or AI-for-s"
+},
+"2610.32650": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Generic graph generation VAE with WL colors; not MCSP, not a landmark AI-for-science result."
+},
+"2610.32652": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Niche nuclear quantum effects estimator variance reduction; not MCSP, not landmark AI-for-science, incremental ML-potent"
+},
+"2610.32678": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Database matching and ML property-model library; primarily dataset/tooling plus incremental GNN architecture, not a land"
+},
+"2610.32743": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Condensed-matter topological phase theory; unrelated to MCSP or landmark AI-for-science work."
+},
+"2610.32791": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Theoretical metallic-liquid G-state Ginzburg-Landau analogy; unrelated to MCSP or landmark AI-for-science methods."
+},
+"2610.32905": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of existing ML potential to one battery electrolyte system; not MCSP or landmark AI-for-science"
+},
+"2610.32910": {
+"contribution": "Defines regulariser-aware recommender regret for bandit-based estimators in regularised RL, proves uniform sampling attains lower bounds, and unifies bandit and search improvement as recommender MCTS.",
+"date": "2026-10-26",
+"lane": "ai4sci",
+"low_quality": false,
+"model": "claude-opus-5-5",
+"q1": 2,
+"q2": 2,
+"q3": 2,
+"stage": "judge",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Competent RL theory on MCTS estimation, incremental relative to AlphaZero-tier work; scientific-discovery experiments are peripheral and offer little transferable to MCSP search."
+},
+"2610.32926": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Nonlinear filtering via neural operators for SPDEs; not MCSP, not a landmark AI-for-science result."
+},
+"2610.32938": {
+"date": "2026-10-26",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Battery anode materials screening via DFT; not MCSP, not landmark AI-for-science or foundational theory"
+}
+}

@@ -1,24 +1,37 @@
 [
  {
   "date": "2026-10-26",
-  "count": 13,
-  "new_count": 0,
-  "synthesis": "Quiet day for molecular CSP specifically\u2014the batch is dominated by machine-learning interatomic potential methodology (uncertainty, noise-resilience, Hessians, active learning) and MLIP benchmarking, with only CrystalAR offering a generative-model angle on crystal structure generation relevant to CSP.",
+  "count": 4,
+  "new_count": 3,
+  "read_count": 0,
+  "skim_count": 4,
+  "synthesis": "Nothing reached 'read' today; four skims at best, with Hereditary Effective Atom Theory the most inspiring for structure prediction at scale. The worthwhile hour is the landmark: GNoME (Scaling deep learning for materials discovery, 2023), the reference point for discovery driven by generation and screening.",
+  "landmark": {
+   "id": "doi:10.1038/s41586-023-06735-9",
+   "title": "Scaling deep learning for materials discovery",
+   "url": "https://doi.org/10.1038/s41586-023-06735-9",
+   "lane": "mcsp",
+   "year": 2023,
+   "area": "mcsp-classic"
+  },
   "top": [
    {
-    "title": "A Comprehensive Survey of Crystal Structural Prototypes: Construction, Classification, and Applications",
+    "title": "Hereditary Effective Atom Theory for Large-Scale Atomic Structure Prediction",
     "relevance": 80,
-    "significance": 0
+    "significance": 60,
+    "verdict": "skim"
    },
    {
-    "title": "A MACE interatomic potential for two dimensional and curved sp2 carbon: family level transfer benchmarks and a SOAP based structural novelty map",
-    "relevance": 70,
-    "significance": 12
+    "title": "All-electron machine-learned orbital-free density functional for periodic CHNO systems",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
    },
    {
-    "title": "CrystalAR: Autoregressive Modeling for Symmetric Crystal Generation",
-    "relevance": 70,
-    "significance": 0
+    "title": "Action Learning for Scientific Simulations",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
    }
   ]
  },
