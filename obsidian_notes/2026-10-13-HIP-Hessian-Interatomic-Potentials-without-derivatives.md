@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-Introduces Hessian-informed interatomic potentials trained to predict energy/forces without explicit second-derivative computation, enabling efficient Hessian-aware predictions for applications like crystal structure optimization and transition-state searches.
+A Hessian-informed interatomic potential that predicts energies and forces directly without backpropagating through derivatives, likely enabling faster or more stable training/inference for ML potentials used in crystal structure relaxation.
 
 ## My notes
 

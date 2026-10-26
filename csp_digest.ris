@@ -132,6 +132,20 @@ KW  - ML-potential
 ER  - 
 
 TY  - GEN
+TI  - Challenging Atomistic Foundation Models on Disordered Carbons
+AU  - Joseph Hart
+AU  - Samuel G. H. Brookes
+AU  - Fabian L. Thiemann
+DA  - 2026/10/19
+PY  - 2026
+JO  - arXiv
+UR  - https://arxiv.org/abs/2610.26701v1
+AB  - Foundation machine-learned interatomic potentials (MLIPs) promise broad transferability, yet their out-of-domain reliability is hard to establish. Here, we use pure and O/H-containing disordered carbon spanning multiple phases, competing hybridisations and porous frameworks to stress-test six popular foundation MLIPs. We first screen all six on density functional theory (DFT) energy and force errors and binding curves, then subject four to melt-quench-anneal molecular dynamics and evaluate the resulting structural observables. Binding curves and O/H-containing trajectories reveal unphysical extrapolation and dynamical failures that low DFT energy and force errors fail to reveal. Of the models tested, MACE-MH-1 is the most consistently robust, with low DFT errors and stable MD. Despite differing architectures, OMAT-based models share structural biases, highlighting the importance of training coverage. All four models generate structures of nanoporous carbon that reproduce the principal experimental and specialised carbon potential signatures. Incorporating O/H leaves short-range order largely unchanged but shifts pore-size distributions towards larger pores. These results emphasise
+KW  - CSP
+KW  - ML-potential
+ER  - 
+
+TY  - GEN
 TI  - Hierarchical universal open structure dataset for atomistic modeling
 AU  - Sofiia Chorna
 AU  - Cesare Malosso
@@ -155,6 +169,20 @@ PY  - 2026
 JO  - arXiv
 UR  - https://arxiv.org/abs/2610.19630v1
 AB  - Automated materials discovery requires evaluating large pools of candidate configurations, with density functional theory (DFT) as a major throughput bottleneck. Pretrained machine-learned interatomic potentials (MLIPs) approximate DFT cheaply, but their errors vary by orders of magnitude across configurations, making it difficult to decide when to trust the MLIP predictions and when to fall back to DFT. We frame this decision as a risk-controlled selection problem and solve it within a conformal risk control (CRC) framework. Each configuration is mapped from atomic numbers and Cartesian coordinates to a fixed geometric descriptor, which a lightweight predictor uses to estimate an MLIP-DFT disagreement score in energy, average force, and maximum force. CRC then calibrates this score into a selection threshold for DFT labeling such that the MLIP error on the unselected configurations, which keep their MLIP labels, stays below a user-chosen fraction $α$ of the expected error. Under an identical guarantee across eight dataset-MLIP pairs, our predictor routes 7% and 14% fewer configurations to DFT at $α=0.3$ than committee baselines. Because committee disagreement overlooks errors the
+KW  - CSP
+KW  - ML-potential
+ER  - 
+
+TY  - GEN
+TI  - LunaTP: Enabling Efficient and Scalable Tensor Product for Equivariant MLIPs
+AU  - Yuanchang Zhou
+AU  - Mingzhen Li
+AU  - Chen Wang
+DA  - 2026/10/13
+PY  - 2026
+JO  - arXiv
+UR  - https://arxiv.org/abs/2610.18393v1
+AB  - Equivariant machine learning interatomic potentials (MLIPs) promise atomistic simulations with accuracy approaching that of quantum-mechanical calculations. However, the high computational cost of their core Clebsch--Gordan tensor product (CGTP) convolutions severely limits model scalability and efficiency. In this paper, we rethink the parallel execution of CGTP convolutions and introduce LunaTP. Built on node-centric execution, LunaTP exploits path-group parallelism and multi-level reuse to accelerate CGTP convolutions and higher-order derivative computation while preserving the underlying mathematical formulation. On an NVIDIA H100 GPU, LunaTP achieves kernel speedups of up to 250.0$\times$ over e3nn and 17.1$\times$ over OpenEquivariance. It also delivers end-to-end training throughput gains of up to 28.7$\times$ over e3nn and 3.11$\times$ over OpenEquivariance. Finally, LunaTP demonstrates scalability and robust performance across models, workload scales, and GPUs, delivering substantial acceleration for training and atomistic simulation with high-accuracy equivariant MLIPs.
 KW  - CSP
 KW  - ML-potential
 ER  - 

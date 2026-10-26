@@ -1,9 +1,9 @@
 [
  {
   "date": "2026-10-26",
-  "count": 11,
+  "count": 13,
   "new_count": 0,
-  "synthesis": "Quiet day for CSP specifically\u2014no genetic-algorithm or direct crystal structure prediction advances. The field's attention is dominated by machine-learned interatomic potentials (uncertainty, noise-resilience, Hessians, active learning), plus CrystalAR as a generative alternative worth monitoring for GA benchmarking comparisons.",
+  "synthesis": "Quiet day for molecular CSP specifically\u2014the batch is dominated by machine-learning interatomic potential methodology (uncertainty, noise-resilience, Hessians, active learning) and MLIP benchmarking, with only CrystalAR offering a generative-model angle on crystal structure generation relevant to CSP.",
   "top": [
    {
     "title": "A Comprehensive Survey of Crystal Structural Prototypes: Construction, Classification, and Applications",
