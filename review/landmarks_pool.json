@@ -1,0 +1,1714 @@
+{
+ "mined": "2026-10-26",
+ "pool": [
+  {
+   "id": "arxiv:2210.02747",
+   "doi": "10.48550/arxiv.2210.02747",
+   "arxiv_id": "2210.02747",
+   "url": "https://arxiv.org/abs/2210.02747",
+   "area": "generative-theory",
+   "title": "Flow Matching for Generative Modeling",
+   "year": 2022,
+   "citations": 192,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "Yaron Lipman",
+    "Ricky T. Q. Chen",
+    "Heli Ben-Hamu"
+   ],
+   "authors_n": 5,
+   "abstract": "We introduce a new paradigm for generative modeling built on Continuous Normalizing Flows (CNFs), allowing us to train CNFs at unprecedented scale. Specifically, we present the notion of Flow Matching (FM), a simulation-free approach for training CNFs based on regressing vector fields of fixed conditional probability paths. Flow Matching is compatible with a general family of Gaussian probability paths for transforming between noise and data samples -- which subsumes existing diffusion paths as specific instances. Interestingly, we find that employing FM with diffusion paths results in a more ",
+   "seed_title": "Flow Matching for Generative Modeling",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2006.11239",
+   "doi": "10.48550/arxiv.2006.11239",
+   "arxiv_id": "2006.11239",
+   "url": "https://arxiv.org/abs/2006.11239",
+   "area": "generative-theory",
+   "title": "Denoising Diffusion Probabilistic Models",
+   "year": 2020,
+   "citations": 8706,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "Jonathan Ho",
+    "Jain, Ajay",
+    "Pieter Abbeel"
+   ],
+   "authors_n": 3,
+   "abstract": "DiffuCpG 1. Introduction In this study, we used a generative AI diffusion model to address missing methylation data. We trained the model with Whole-Genome Bisulfite Sequencing data from 26 acute myeloid leukemia samples and validated it with Reduced Representation Bisulfite Sequencing data from 93 myelodysplastic syndrome and 13 normal samples. Additional testing included data from the Illumina 450k methylation array and Single-Cell Reduced Representation Bisulfite Sequencing on HepG2 cells. Our model, DiffuCpG, outperformed previous methods by integrating a broader range of genomic features,",
+   "seed_title": "Denoising Diffusion Probabilistic Models",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2011.13456",
+   "doi": "10.48550/arxiv.2011.13456",
+   "arxiv_id": "2011.13456",
+   "url": "https://arxiv.org/abs/2011.13456",
+   "area": "generative-theory",
+   "title": "Score-Based Generative Modeling through Stochastic Differential Equations",
+   "year": 2020,
+   "citations": 1951,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "Yang Sup Song",
+    "Jascha Sohl‐Dickstein",
+    "Diederik P. Kingma"
+   ],
+   "authors_n": 6,
+   "abstract": "Creating noise from data is easy; creating data from noise is generative modeling. We present a stochastic differential equation (SDE) that smoothly transforms a complex data distribution to a known prior distribution by slowly injecting noise, and a corresponding reverse-time SDE that transforms the prior distribution back into the data distribution by slowly removing the noise. Crucially, the reverse-time SDE depends only on the time-dependent gradient field (\\aka, score) of the perturbed data distribution. By leveraging advances in score-based generative modeling, we can accurately estimate",
+   "seed_title": "Score-Based Generative Modeling through Stochastic Differential Equations",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2209.03003",
+   "doi": "10.48550/arxiv.2209.03003",
+   "arxiv_id": "2209.03003",
+   "url": "https://arxiv.org/abs/2209.03003",
+   "area": "generative-theory",
+   "title": "Flow Straight and Fast: Learning to Generate and Transfer Data with Rectified Flow",
+   "year": 2022,
+   "citations": 124,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "Xingchao Liu",
+    "Chengyue Gong",
+    "Qiang Liu"
+   ],
+   "authors_n": 3,
+   "abstract": "We present rectified flow, a surprisingly simple approach to learning (neural) ordinary differential equation (ODE) models to transport between two empirically observed distributions π_0 and π_1, hence providing a unified solution to generative modeling and domain transfer, among various other tasks involving distribution transport. The idea of rectified flow is to learn the ODE to follow the straight paths connecting the points drawn from π_0 and π_1 as much as possible. This is achieved by solving a straightforward nonlinear least squares optimization problem, which can be easily scaled to l",
+   "seed_title": "Flow Straight and Fast: Learning to Generate and Transfer Data with Rectified Flow",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2303.08797",
+   "doi": "10.48550/arxiv.2303.08797",
+   "arxiv_id": "2303.08797",
+   "url": "https://arxiv.org/abs/2303.08797",
+   "area": "generative-theory",
+   "title": "Stochastic Interpolants: A Unifying Framework for Flows and Diffusions",
+   "year": 2023,
+   "citations": 32,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "Michael S. Albergo",
+    "Nicholas M. Boffi",
+    "Eric Vanden‐Eijnden"
+   ],
+   "authors_n": 3,
+   "abstract": "A class of generative models that unifies flow-based and diffusion-based methods is introduced. These models extend the framework proposed in Albergo and Vanden-Eijnden (2023), enabling the use of a broad class of continuous-time stochastic processes called stochastic interpolants to bridge any two probability density functions exactly in finite time. These interpolants are built by combining data from the two prescribed densities with an additional latent variable that shapes the bridge in a flexible way. The time-dependent density function of the interpolant is shown to satisfy a transport e",
+   "seed_title": "Stochastic Interpolants: A Unifying Framework for Flows and Diffusions",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2302.03660",
+   "doi": "10.48550/arxiv.2302.03660",
+   "arxiv_id": "2302.03660",
+   "url": "https://arxiv.org/abs/2302.03660",
+   "area": "generative-theory",
+   "title": "Flow Matching on General Geometries",
+   "year": 2023,
+   "citations": 6,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "Ricky T. Q. Chen",
+    "Yaron Lipman"
+   ],
+   "authors_n": 2,
+   "abstract": "We propose Riemannian Flow Matching (RFM), a simple yet powerful framework for training continuous normalizing flows on manifolds. Existing methods for generative modeling on manifolds either require expensive simulation, are inherently unable to scale to high dimensions, or use approximations for limiting quantities that result in biased training objectives. Riemannian Flow Matching bypasses these limitations and offers several advantages over previous approaches: it is simulation-free on simple geometries, does not require divergence computation, and computes its target vector field in close",
+   "seed_title": "Riemannian Flow Matching on General Geometries",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2010.02502",
+   "doi": "10.48550/arxiv.2010.02502",
+   "arxiv_id": "2010.02502",
+   "url": "https://arxiv.org/abs/2010.02502",
+   "area": "generative-theory",
+   "title": "Denoising Diffusion Implicit Models",
+   "year": 2020,
+   "citations": 2506,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "Jiaming Song",
+    "Chenlin Meng",
+    "Stefano Ermon"
+   ],
+   "authors_n": 3,
+   "abstract": "Denoising diffusion probabilistic models (DDPMs) have achieved high quality image generation without adversarial training, yet they require simulating a Markov chain for many steps to produce a sample. To accelerate sampling, we present denoising diffusion implicit models (DDIMs), a more efficient class of iterative implicit probabilistic models with the same training procedure as DDPMs. In DDPMs, the generative process is defined as the reverse of a Markovian diffusion process. We construct a class of non-Markovian diffusion processes that lead to the same training objective, but whose revers",
+   "seed_title": "Denoising Diffusion Implicit Models",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2207.12598",
+   "doi": "10.48550/arxiv.2207.12598",
+   "arxiv_id": "2207.12598",
+   "url": "https://arxiv.org/abs/2207.12598",
+   "area": "generative-theory",
+   "title": "Classifier-Free Diffusion Guidance",
+   "year": 2022,
+   "citations": 1125,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "Jonathan Ho",
+    "Tim Salimans"
+   ],
+   "authors_n": 2,
+   "abstract": "Classifier guidance is a recently introduced method to trade off mode coverage and sample fidelity in conditional diffusion models post training, in the same spirit as low temperature sampling or truncation in other types of generative models. Classifier guidance combines the score estimate of a diffusion model with the gradient of an image classifier and thereby requires training an image classifier separate from the diffusion model. It also raises the question of whether guidance can be performed without a classifier. We show that guidance can be indeed performed by a pure generative model w",
+   "seed_title": "Classifier-Free Diffusion Guidance",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2206.00364",
+   "doi": "10.52202/068431-1926",
+   "arxiv_id": "2206.00364",
+   "url": "https://arxiv.org/abs/2206.00364",
+   "area": "generative-theory",
+   "title": "Elucidating the Design Space of Diffusion-Based Generative Models",
+   "year": 2022,
+   "citations": 695,
+   "venue": "neural information processing systems",
+   "authors": [
+    "Tero Karras",
+    "Miika Aittala",
+    "Timo Aila"
+   ],
+   "authors_n": 4,
+   "abstract": "We argue that the theory and practice of diffusion-based generative models are currently unnecessarily convoluted and seek to remedy the situation by presenting a design space that clearly separates the concrete design choices. This lets us identify several changes to both the sampling and training processes, as well as preconditioning of the score networks. Together, our improvements yield new state-of-the-art FID of 1.79 for CIFAR-10 in a class-conditional setting and 1.97 in an unconditional setting, with much faster sampling (35 network evaluations per image) than prior designs. To further",
+   "seed_title": "Elucidating the Design Space of Diffusion-Based Generative Models",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:1503.03585",
+   "doi": "10.48550/arxiv.1503.03585",
+   "arxiv_id": "1503.03585",
+   "url": "https://arxiv.org/abs/1503.03585",
+   "area": "generative-theory",
+   "title": "Deep Unsupervised Learning using Nonequilibrium Thermodynamics",
+   "year": 2015,
+   "citations": 2636,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "Jascha Sohl‐Dickstein",
+    "Weiss, Eric A.",
+    "Niru Maheswaranathan"
+   ],
+   "authors_n": 4,
+   "abstract": "A central problem in machine learning involves modeling complex data-sets using highly flexible families of probability distributions in which learning, sampling, inference, and evaluation are still analytically or computationally tractable. Here, we develop an approach that simultaneously achieves both flexibility and tractability. The essential idea, inspired by non-equilibrium statistical physics, is to systematically and slowly destroy structure in a data distribution through an iterative forward diffusion process. We then learn a reverse diffusion process that restores structure in data, ",
+   "seed_title": "Deep Unsupervised Learning using Nonequilibrium Thermodynamics",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:1312.6114",
+   "doi": "10.48550/arxiv.1312.6114",
+   "arxiv_id": "1312.6114",
+   "url": "https://arxiv.org/abs/1312.6114",
+   "area": "generative-theory",
+   "title": "Auto-Encoding Variational Bayes",
+   "year": 2013,
+   "citations": 17804,
+   "venue": "UvA-DARE (University of Amsterdam)",
+   "authors": [
+    "Diederik P. Kingma",
+    "Max Welling"
+   ],
+   "authors_n": 2,
+   "abstract": "How can we perform efficient inference and learning in directed probabilistic models, in the presence of continuous latent variables with intractable posterior distributions, and large datasets? We introduce a stochastic variational inference and learning algorithm that scales to large datasets and, under some mild differentiability conditions, even works in the intractable case. Our contributions are two-fold. First, we show that a reparameterization of the variational lower bound yields a lower bound estimator that can be straightforwardly optimized using standard stochastic gradient methods",
+   "seed_title": "Auto-Encoding Variational Bayes",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:1406.2661",
+   "doi": "10.48550/arxiv.1406.2661",
+   "arxiv_id": "1406.2661",
+   "url": "https://arxiv.org/abs/1406.2661",
+   "area": "generative-theory",
+   "title": "Generative Adversarial Networks",
+   "year": 2014,
+   "citations": 4475,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "Ian Goodfellow",
+    "Jean Pouget-Abadie",
+    "Mehdi Mirza"
+   ],
+   "authors_n": 8,
+   "abstract": "Large Language Models (LLMS) rely on Key-Value (KV) caches to store attention context during autoregressive decoding. In long-sequence settings, the KV cache can consume large amounts of VRAM and become a practical bottleneck for throughput . We introduce KVHALO, an auxiliary reconstruction model that restores higher-fidelity KV tensors from a compressed cache state when required, reducing persistent memory footprint during inference. In our evaluation, KVHALO achieves up to 91.85% directional cosine alignment at convergence and reduces long-context degradation relative to a low-bit baseline u",
+   "seed_title": "Generative Adversarial Networks",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:1505.05770",
+   "doi": "10.48550/arxiv.1505.05770",
+   "arxiv_id": "1505.05770",
+   "url": "https://arxiv.org/abs/1505.05770",
+   "area": "generative-theory",
+   "title": "Variational Inference with Normalizing Flows",
+   "year": 2015,
+   "citations": 1913,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "Danilo Jimenez Rezende",
+    "Shakir Mohamed"
+   ],
+   "authors_n": 2,
+   "abstract": "The choice of approximate posterior distribution is one of the core problems in variational inference. Most applications of variational inference employ simple families of posterior approximations in order to allow for efficient inference, focusing on mean-field or other simple structured approximations. This restriction has a significant impact on the quality of inferences made using variational methods. We introduce a new approach for specifying flexible, arbitrarily complex and scalable approximate posterior distributions. Our approximations are distributions constructed through a normalizi",
+   "seed_title": "Variational Inference with Normalizing Flows",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2112.10752",
+   "doi": "10.48550/arxiv.2112.10752",
+   "arxiv_id": "2112.10752",
+   "url": "https://arxiv.org/abs/2112.10752",
+   "area": "generative-theory",
+   "title": "High-Resolution Image Synthesis with Latent Diffusion Models",
+   "year": 2021,
+   "citations": 736,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "Robin Rombach",
+    "Andreas Blattmann",
+    "Lorenz, Dominik"
+   ],
+   "authors_n": 5,
+   "abstract": "By decomposing the image formation process into a sequential application of denoising autoencoders, diffusion models (DMs) achieve state-of-the-art synthesis results on image data and beyond. Additionally, their formulation allows for a guiding mechanism to control the image generation process without retraining. However, since these models typically operate directly in pixel space, optimization of powerful DMs often consumes hundreds of GPU days and inference is expensive due to sequential evaluations. To enable DM training on limited computational resources while retaining their quality and ",
+   "seed_title": "High-Resolution Image Synthesis with Latent Diffusion Models",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2106.04399",
+   "doi": "10.48550/arxiv.2106.04399",
+   "arxiv_id": "2106.04399",
+   "url": "https://arxiv.org/abs/2106.04399",
+   "area": "generative-theory",
+   "title": "Flow Network based Generative Models for Non-Iterative Diverse Candidate Generation",
+   "year": 2021,
+   "citations": 70,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "Emmanuel Bengio",
+    "Moksh Jain",
+    "Maksym Korablyov"
+   ],
+   "authors_n": 5,
+   "abstract": "This paper is about the problem of learning a stochastic policy for generating an object (like a molecular graph) from a sequence of actions, such that the probability of generating an object is proportional to a given positive reward for that object. Whereas standard return maximization tends to converge to a single return-maximizing sequence, there are cases where we would like to sample a diverse set of high-return solutions. These arise, for example, in black-box function optimization when few rounds are possible, each with large batches of queries, where the batches should be diverse, e.g",
+   "seed_title": "Flow Network based Generative Models for Non-Iterative Diverse Candidate Generation",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2407.15595",
+   "doi": "10.52202/079017-4239",
+   "arxiv_id": "2407.15595",
+   "url": "https://arxiv.org/abs/2407.15595",
+   "area": "generative-theory",
+   "title": "Discrete Flow Matching",
+   "year": 2024,
+   "citations": 22,
+   "venue": "neural information processing systems",
+   "authors": [
+    "Itai Gat",
+    "Tal Remez",
+    "Neta Shaul"
+   ],
+   "authors_n": 8,
+   "abstract": "Despite Flow Matching and diffusion models having emerged as powerful generative paradigms for continuous variables such as images and videos, their application to high-dimensional discrete data, such as language, is still limited. In this work, we present Discrete Flow Matching, a novel discrete flow paradigm designed specifically for generating discrete data. Discrete Flow Matching offers several key contributions:(i) it works with a general family of probability paths interpolating between source and target distributions; (ii) it allows for a generic formula for sampling from these probabil",
+   "seed_title": "Discrete Flow Matching",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:1706.03762",
+   "doi": "10.65215/2q58a426",
+   "arxiv_id": "1706.03762",
+   "url": "https://arxiv.org/abs/1706.03762",
+   "area": "ml-foundations",
+   "title": "Attention Is All You Need",
+   "year": 2025,
+   "citations": 78342,
+   "venue": "",
+   "authors": [
+    "Ashish Vaswani",
+    "Noam Shazeer",
+    "Niki Parmar"
+   ],
+   "authors_n": 8,
+   "abstract": "The dominant sequence transduction models are based on complex recurrent or convolutional neural networks in an encoder-decoder configuration. The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely. Experiments on two machine translation tasks show these models to be superior in quality while being more parallelizable and requiring significantly less time to train. Our model achieves 28.4 BLEU on the W",
+   "seed_title": "Attention Is All You Need",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:1806.07366",
+   "doi": "10.48550/arxiv.1806.07366",
+   "arxiv_id": "1806.07366",
+   "url": "https://arxiv.org/abs/1806.07366",
+   "area": "ml-foundations",
+   "title": "Neural Ordinary Differential Equations",
+   "year": 2018,
+   "citations": 2094,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "Ricky T. Q. Chen",
+    "Yulia Rubanova",
+    "Jesse Bettencourt"
+   ],
+   "authors_n": 4,
+   "abstract": "We introduce a new family of deep neural network models. Instead of specifying a discrete sequence of hidden layers, we parameterize the derivative of the hidden state using a neural network. The output of the network is computed using a black-box differential equation solver. These continuous-depth models have constant memory cost, adapt their evaluation strategy to each input, and can explicitly trade numerical precision for speed. We demonstrate these properties in continuous-depth residual networks and continuous-time latent variable models. We also construct continuous normalizing flows, ",
+   "seed_title": "Neural Ordinary Differential Equations",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2001.08361",
+   "doi": "10.48550/arxiv.2001.08361",
+   "arxiv_id": "2001.08361",
+   "url": "https://arxiv.org/abs/2001.08361",
+   "area": "ml-foundations",
+   "title": "Scaling Laws for Neural Language Models",
+   "year": 2020,
+   "citations": 1747,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "Jared Kaplan A",
+    "Sam McCandlish",
+    "Tom Henighan"
+   ],
+   "authors_n": 10,
+   "abstract": "This paper develops a transport-validity theory for agentic AI interventions that are first screened on small systems and later considered for frontier-scale deployment. Rather than predicting absolute frontier performance, it asks when a comparative gain observed at small scale can be carried forward without overclaiming. The analysis targets an explicitly delimited class of operationally isolatable interventions whose effects can be compiled from logged event-local channels with bounded spillover and replayable extraction maps. The paper proves structured failure modes for naive extrapolatio",
+   "seed_title": "Scaling Laws for Neural Language Models",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:1806.01261",
+   "doi": "10.4230/lipics.cp.2025.27",
+   "arxiv_id": "1806.01261",
+   "url": "https://arxiv.org/abs/1806.01261",
+   "area": "ml-foundations",
+   "title": "Relational inductive biases, deep learning, and graph networks",
+   "year": 2018,
+   "citations": 2241,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "Peter Battaglia",
+    "Hamrick, Jessica B.",
+    "Victor Bapst"
+   ],
+   "authors_n": 27,
+   "abstract": "Artificial intelligence (AI) has undergone a renaissance recently, making major progress in key domains such as vision, language, control, and decision-making. This has been due, in part, to cheap data and cheap compute resources, which have fit the natural strengths of deep learning. However, many defining characteristics of human intelligence, which developed under much different pressures, remain out of reach for current approaches. In particular, generalizing beyond one's experiences--a hallmark of human intelligence from infancy--remains a formidable challenge for modern AI. The following",
+   "seed_title": "Relational inductive biases, deep learning, and graph networks",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:1704.01212",
+   "doi": "10.48550/arxiv.1704.01212",
+   "arxiv_id": "1704.01212",
+   "url": "https://arxiv.org/abs/1704.01212",
+   "area": "ml-foundations",
+   "title": "Neural Message Passing for Quantum Chemistry",
+   "year": 2017,
+   "citations": 5064,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "Justin Gilmer",
+    "Samuel S. Schoenholz",
+    "Patrick F. Riley"
+   ],
+   "authors_n": 5,
+   "abstract": "Supervised learning on molecules has incredible potential to be useful in chemistry, drug discovery, and materials science. Luckily, several promising and closely related neural network models invariant to molecular symmetries have already been described in the literature. These models learn a message passing algorithm and aggregation procedure to compute a function of their entire input graph. At this point, the next step is to find a particularly effective variant of this general approach and apply it to chemical prediction benchmarks until we either solve them or reach the limits of the app",
+   "seed_title": "Neural Message Passing for Quantum Chemistry",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:1802.08219",
+   "doi": "10.48550/arxiv.1802.08219",
+   "arxiv_id": "1802.08219",
+   "url": "https://arxiv.org/abs/1802.08219",
+   "area": "ml-foundations",
+   "title": "Tensor field networks: Rotation- and translation-equivariant neural networks for 3D point clouds",
+   "year": 2018,
+   "citations": 522,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "Nathaniel Thomas",
+    "Tess Smidt",
+    "Steven M. Kearnes"
+   ],
+   "authors_n": 7,
+   "abstract": "We introduce tensor field neural networks, which are locally equivariant to 3D rotations, translations, and permutations of points at every layer. 3D rotation equivariance removes the need for data augmentation to identify features in arbitrary orientations. Our network uses filters built from spherical harmonics; due to the mathematical consequences of this filter choice, each layer accepts as input (and guarantees as output) scalars, vectors, and higher-order tensors, in the geometric sense of these terms. We demonstrate the capabilities of tensor field networks with tasks in geometry, physi",
+   "seed_title": "Tensor field networks: Rotation- and translation-equivariant neural networks for 3D point clouds",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2102.09844",
+   "doi": "10.48550/arxiv.2102.09844",
+   "arxiv_id": "2102.09844",
+   "url": "https://arxiv.org/abs/2102.09844",
+   "area": "ml-foundations",
+   "title": "E(n) Equivariant Graph Neural Networks",
+   "year": 2021,
+   "citations": 396,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "Víctor García Satorras",
+    "Emiel Hoogeboom",
+    "Max Welling"
+   ],
+   "authors_n": 3,
+   "abstract": "This paper introduces a new model to learn graph neural networks equivariant to rotations, translations, reflections and permutations called E(n)-Equivariant Graph Neural Networks (EGNNs). In contrast with existing methods, our work does not require computationally expensive higher-order representations in intermediate layers while it still achieves competitive or better performance. In addition, whereas existing methods are limited to equivariance on 3 dimensional spaces, our model is easily scaled to higher-dimensional spaces. We demonstrate the effectiveness of our method on dynamical syste",
+   "seed_title": "E(n) Equivariant Graph Neural Networks",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2006.10503",
+   "doi": "10.48550/arxiv.2006.10503",
+   "arxiv_id": "2006.10503",
+   "url": "https://arxiv.org/abs/2006.10503",
+   "area": "ml-foundations",
+   "title": "SE(3)-Transformers: 3D Roto-Translation Equivariant Attention Networks",
+   "year": 2020,
+   "citations": 243,
+   "venue": "UvA-DARE (University of Amsterdam)",
+   "authors": [
+    "Fabian B. Fuchs",
+    "Daniel E. Worrall",
+    "Volker Fischer"
+   ],
+   "authors_n": 4,
+   "abstract": "We introduce the SE(3)-Transformer, a variant of the self-attention module for 3D point clouds and graphs, which is equivariant under continuous 3D roto-translations. Equivariance is important to ensure stable and predictable performance in the presence of nuisance transformations of the data input. A positive corollary of equivariance is increased weight-tying within the model. The SE(3)-Transformer leverages the benefits of self-attention to operate on large point clouds and graphs with varying number of points, while guaranteeing SE(3)-equivariance for robustness. We evaluate our model on a",
+   "seed_title": "SE(3)-Transformers: 3D Roto-Translation Equivariant Attention Networks",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2010.08895",
+   "doi": "10.48550/arxiv.2010.08895",
+   "arxiv_id": "2010.08895",
+   "url": "https://arxiv.org/abs/2010.08895",
+   "area": "ml-foundations",
+   "title": "Fourier Neural Operator for Parametric Partial Differential Equations",
+   "year": 2020,
+   "citations": 1294,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "Zongyi Li",
+    "Nikola Kovachki",
+    "Kamyar Azizzadenesheli"
+   ],
+   "authors_n": 7,
+   "abstract": "A notebook-first data science project asking a deliberately narrow question: when does a Fourier Neural Operator (FNO) provide forecast information beyond persistence for real sea-surface temperature fields, and at which spatial scales does that gain occur? The study uses NOAA/NCEI Optimum Interpolation Sea Surface Temperature (OISST) v2.1 over the Northeast Atlantic (roughly 30-50°N, 30-5°W) and evaluates 7-day-ahead field forecasting from the previous 14 daily SST fields. Training covers 2020-2024, validation 2025, and testing a frozen later holdout period. Splits are strictly temporal and p",
+   "seed_title": "Fourier Neural Operator for Parametric Partial Differential Equations",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1016/j.jcp.2018.10.045",
+   "doi": "10.1016/j.jcp.2018.10.045",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1016/j.jcp.2018.10.045",
+   "area": "ml-foundations",
+   "title": "Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations",
+   "year": 2018,
+   "citations": 20250,
+   "venue": "Journal of Computational Physics",
+   "authors": [
+    "Maziar Raissi",
+    "Paris G. Perdikaris",
+    "George Em Karniadakis"
+   ],
+   "authors_n": 3,
+   "abstract": "",
+   "seed_title": "Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2002.09405",
+   "doi": "10.48550/arxiv.2002.09405",
+   "arxiv_id": "2002.09405",
+   "url": "https://arxiv.org/abs/2002.09405",
+   "area": "ml-foundations",
+   "title": "Learning to Simulate Complex Physics with Graph Networks",
+   "year": 2020,
+   "citations": 573,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "Álvaro Sánchez‐González",
+    "Godwin, Jonathan",
+    "Tobias Pfaff"
+   ],
+   "authors_n": 6,
+   "abstract": "Here we present a machine learning framework and model implementation that can learn to simulate a wide variety of challenging physical domains, involving fluids, rigid solids, and deformable materials interacting with one another. Our framework---which we term \"Graph Network-based Simulators\" (GNS)---represents the state of a physical system with particles, expressed as nodes in a graph, and computes dynamics via learned message-passing. Our results show that our model can generalize from single-timestep predictions with thousands of particles during training, to different initial conditions,",
+   "seed_title": "Learning to Simulate Complex Physics with Graph Networks",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1038/nature16961",
+   "doi": "10.1038/nature16961",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1038/nature16961",
+   "area": "search-and-evolution",
+   "title": "Mastering the game of Go with deep neural networks and tree search",
+   "year": 2016,
+   "citations": 15596,
+   "venue": "Nature",
+   "authors": [
+    "David Silver",
+    "Aja Huang",
+    "Chris J. Maddison"
+   ],
+   "authors_n": 20,
+   "abstract": "",
+   "seed_title": "Mastering the game of Go with deep neural networks and tree search",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1038/nature24270",
+   "doi": "10.1038/nature24270",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1038/nature24270",
+   "area": "search-and-evolution",
+   "title": "Mastering the game of Go without human knowledge",
+   "year": 2017,
+   "citations": 9075,
+   "venue": "Nature",
+   "authors": [
+    "David Silver",
+    "Julian Schrittwieser",
+    "Karen Simonyan"
+   ],
+   "authors_n": 17,
+   "abstract": "",
+   "seed_title": "Mastering the game of Go without human knowledge",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1038/s41586-022-05172-4",
+   "doi": "10.1038/s41586-022-05172-4",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1038/s41586-022-05172-4",
+   "area": "search-and-evolution",
+   "title": "Discovering faster matrix multiplication algorithms with reinforcement learning",
+   "year": 2022,
+   "citations": 478,
+   "venue": "Nature",
+   "authors": [
+    "Alhussein Fawzi",
+    "Matej Balog",
+    "Aja Huang"
+   ],
+   "authors_n": 13,
+   "abstract": "Abstract Improving the efficiency of algorithms for fundamental computations can have a widespread impact, as it can affect the overall speed of a large amount of computations. Matrix multiplication is one such primitive task, occurring in many systems—from neural networks to scientific computing routines. The automatic discovery of algorithms using machine learning offers the prospect of reaching beyond human intuition and outperforming the current best human-designed algorithms. However, automating the algorithm discovery procedure is intricate, as the space of possible algorithms is enormou",
+   "seed_title": "Discovering faster matrix multiplication algorithms with reinforcement learning",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1038/s41586-023-06924-6",
+   "doi": "10.1038/s41586-023-06924-6",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1038/s41586-023-06924-6",
+   "area": "search-and-evolution",
+   "title": "Mathematical discoveries from program search with large language models",
+   "year": 2023,
+   "citations": 534,
+   "venue": "Nature",
+   "authors": [
+    "Bernardino Romera‐Paredes",
+    "Mohammadamin Barekatain",
+    "Alexander Novikov"
+   ],
+   "authors_n": 12,
+   "abstract": "Abstract Large language models (LLMs) have demonstrated tremendous capabilities in solving complex tasks, from quantitative reasoning to understanding natural language. However, LLMs sometimes suffer from confabulations (or hallucinations), which can result in them making plausible but incorrect statements 1,2 . This hinders the use of current large models in scientific discovery. Here we introduce FunSearch (short for searching in the function space), an evolutionary procedure based on pairing a pretrained LLM with a systematic evaluator. We demonstrate the effectiveness of this approach to s",
+   "seed_title": "Mathematical discoveries from program search with large language models",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1038/s41586-023-06747-5",
+   "doi": "10.1038/s41586-023-06747-5",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1038/s41586-023-06747-5",
+   "area": "search-and-evolution",
+   "title": "Solving olympiad geometry without human demonstrations",
+   "year": 2024,
+   "citations": 311,
+   "venue": "Nature",
+   "authors": [
+    "Trieu H. Trinh",
+    "Yuhuai Wu",
+    "Quoc Viet Le"
+   ],
+   "authors_n": 5,
+   "abstract": "Abstract Proving mathematical theorems at the olympiad level represents a notable milestone in human-level automated reasoning 1–4 , owing to their reputed difficulty among the world’s best talents in pre-university mathematics. Current machine-learning approaches, however, are not applicable to most mathematical domains owing to the high cost of translating human proofs into machine-verifiable format. The problem is even worse for geometry because of its unique translation challenges 1,5 , resulting in severe scarcity of training data. We propose AlphaGeometry, a theorem prover for Euclidean ",
+   "seed_title": "Solving olympiad geometry without human demonstrations",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2506.13131",
+   "doi": "10.48550/arxiv.2506.13131",
+   "arxiv_id": "2506.13131",
+   "url": "https://arxiv.org/abs/2506.13131",
+   "area": "search-and-evolution",
+   "title": "AlphaEvolve: A coding agent for scientific and algorithmic discovery",
+   "year": 2025,
+   "citations": 15,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "Novikov, Alexander",
+    "Vũ, Ngân",
+    "Eisenberger, Marvin"
+   ],
+   "authors_n": 18,
+   "abstract": "In this white paper, we present AlphaEvolve, an evolutionary coding agent that substantially enhances capabilities of state-of-the-art LLMs on highly challenging tasks such as tackling open scientific problems or optimizing critical pieces of computational infrastructure. AlphaEvolve orchestrates an autonomous pipeline of LLMs, whose task is to improve an algorithm by making direct changes to the code. Using an evolutionary approach, continuously receiving feedback from one or more evaluators, AlphaEvolve iteratively improves the algorithm, potentially leading to new scientific and practical d",
+   "seed_title": "AlphaEvolve: A coding agent for scientific and algorithmic discovery",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2206.08896",
+   "doi": "10.1007/978-981-99-3814-8_11",
+   "arxiv_id": "2206.08896",
+   "url": "https://arxiv.org/abs/2206.08896",
+   "area": "search-and-evolution",
+   "title": "Evolution Through Large Models",
+   "year": 2023,
+   "citations": 73,
+   "venue": "Genetic and evolutionary computation",
+   "authors": [
+    "Joel Lehman",
+    "Jonathan Gordon",
+    "Shawn Jain"
+   ],
+   "authors_n": 6,
+   "abstract": "",
+   "seed_title": "Evolution through Large Models",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:1504.04909",
+   "doi": "10.48550/arxiv.1504.04909",
+   "arxiv_id": "1504.04909",
+   "url": "https://arxiv.org/abs/1504.04909",
+   "area": "search-and-evolution",
+   "title": "Illuminating search spaces by mapping elites",
+   "year": 2015,
+   "citations": 407,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "Jean-Baptiste Mouret",
+    "Jeff Clune"
+   ],
+   "authors_n": 2,
+   "abstract": "Many fields use search algorithms, which automatically explore a search space to find high-performing solutions: chemists search through the space of molecules to discover new drugs; engineers search for stronger, cheaper, safer designs, scientists search for models that best explain data, etc. The goal of search algorithms has traditionally been to return the single highest-performing solution in a search space. Here we describe a new, fundamentally different type of algorithm that is more useful because it provides a holistic view of how high-performing solutions are distributed throughout a",
+   "seed_title": "Illuminating search spaces by mapping elites",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1162/EVCO_a_00025",
+   "doi": "10.1162/evco_a_00025",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1162/evco_a_00025",
+   "area": "search-and-evolution",
+   "title": "Abandoning Objectives: Evolution Through the Search for Novelty Alone",
+   "year": 2010,
+   "citations": 919,
+   "venue": "Evolutionary Computation",
+   "authors": [
+    "Joel Lehman",
+    "Kenneth Owen Stanley"
+   ],
+   "authors_n": 2,
+   "abstract": "In evolutionary computation, the fitness function normally measures progress toward an objective in the search space, effectively acting as an objective function. Through deception, such objective functions may actually prevent the objective from being reached. While methods exist to mitigate deception, they leave the underlying pathology untreated: Objective functions themselves may actively misdirect search toward dead ends. This paper proposes an approach to circumventing deception that also yields a new perspective on open-ended evolution. Instead of either explicitly seeking an objective ",
+   "seed_title": "Abandoning Objectives: Evolution Through the Search for Novelty Alone",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1109/4235.996017",
+   "doi": "10.1109/4235.996017",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1109/4235.996017",
+   "area": "search-and-evolution",
+   "title": "A fast and elitist multiobjective genetic algorithm: NSGA-II",
+   "year": 2002,
+   "citations": 49899,
+   "venue": "IEEE Transactions on Evolutionary Computation",
+   "authors": [
+    "Kalyanmoy Deb",
+    "Amrit Pratap",
+    "S. Agarwal"
+   ],
+   "authors_n": 4,
+   "abstract": "Multi-objective evolutionary algorithms (MOEAs) that use non-dominated sorting and sharing have been criticized mainly for: (1) their O(MN/sup 3/) computational complexity (where M is the number of objectives and N is the population size); (2) their non-elitism approach; and (3) the need to specify a sharing parameter. In this paper, we suggest a non-dominated sorting-based MOEA, called NSGA-II (Non-dominated Sorting Genetic Algorithm II), which alleviates all of the above three difficulties. Specifically, a fast non-dominated sorting approach with O(MN/sup 2/) computational complexity is pres",
+   "seed_title": "A fast and elitist multiobjective genetic algorithm: NSGA-II",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1162/106365601750190398",
+   "doi": "10.1162/106365601750190398",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1162/106365601750190398",
+   "area": "search-and-evolution",
+   "title": "Completely Derandomized Self-Adaptation in Evolution Strategies",
+   "year": 2001,
+   "citations": 4381,
+   "venue": "Evolutionary Computation",
+   "authors": [
+    "Nikolaus Hansen C",
+    "Andreas Ostermeier"
+   ],
+   "authors_n": 2,
+   "abstract": "This paper puts forward two useful methods for self-adaptation of the mutation distribution - the concepts of derandomization and cumulation. Principle shortcomings of the concept of mutative strategy parameter control and two levels of derandomization are reviewed. Basic demands on the self-adaptation of arbitrary (normal) mutation distributions are developed. Applying arbitrary, normal mutation distributions is equivalent to applying a general, linear problem encoding. The underlying objective of mutative strategy parameter control is roughly to favor previously selected mutation steps in th",
+   "seed_title": "Completely Derandomized Self-Adaptation in Evolution Strategies",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1109/JPROC.2015.2494218",
+   "doi": "10.1109/jproc.2015.2494218",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1109/jproc.2015.2494218",
+   "area": "search-and-evolution",
+   "title": "Taking the Human Out of the Loop: A Review of Bayesian Optimization",
+   "year": 2015,
+   "citations": 6121,
+   "venue": "Proceedings of the IEEE",
+   "authors": [
+    "Bobak Shahriari",
+    "Kevin Swersky",
+    "Ziyu Wang"
+   ],
+   "authors_n": 5,
+   "abstract": "Big Data applications are typically associated with systems involving large numbers of users, massive complex software systems, and large-scale heterogeneous computing and storage architectures. The construction of such systems involves many distributed design choices. The end products (e.g., recommendation systems, medical analysis tools, real-time game engines, speech recognizers) thus involve many tunable configuration parameters. These parameters are often specified and hard-coded into the software by various developers or teams. If optimized jointly, these parameters can result in signifi",
+   "seed_title": "Taking the Human Out of the Loop: A Review of Bayesian Optimization",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1021/jp970984n",
+   "doi": "10.1021/jp970984n",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1021/jp970984n",
+   "area": "search-and-evolution",
+   "title": "Global Optimization by Basin-Hopping and the Lowest Energy Structures of Lennard-Jones Clusters Containing up to 110 Atoms",
+   "year": 1997,
+   "citations": 3027,
+   "venue": "The Journal of Physical Chemistry A",
+   "authors": [
+    "David J. Wales",
+    "Jonathan P. K. Doye"
+   ],
+   "authors_n": 2,
+   "abstract": "We describe a global optimization technique using “basin-hopping” in which the potential energy surface is transformed into a collection of interpenetrating staircases. This method has been designed to exploit the features that recent work suggests must be present in an energy landscape for efficient relaxation to the global minimum. The transformation associates any point in configuration space with the local minimum obtained by a geometry optimization started from that point, effectively removing transition state regions from the problem. However, unlike other methods based upon hypersurface",
+   "seed_title": "Global Optimization by Basin-Hopping and the Lowest Energy Structures of Lennard-Jones Clusters Containing up to 110 Atoms",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:1712.06567",
+   "doi": "10.48550/arxiv.1712.06567",
+   "arxiv_id": "1712.06567",
+   "url": "https://arxiv.org/abs/1712.06567",
+   "area": "search-and-evolution",
+   "title": "Deep Neuroevolution: Genetic Algorithms Are a Competitive Alternative for Training Deep Neural Networks for Reinforcement Learning",
+   "year": 2017,
+   "citations": 533,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "Felipe Petroski Such",
+    "Vashisht Madhavan",
+    "Edoardo Conti"
+   ],
+   "authors_n": 6,
+   "abstract": "Deep artificial neural networks (DNNs) are typically trained via gradient-based learning algorithms, namely backpropagation. Evolution strategies (ES) can rival backprop-based algorithms such as Q-learning and policy gradients on challenging deep reinforcement learning (RL) problems. However, ES can be considered a gradient-based algorithm because it performs stochastic gradient descent via an operation similar to a finite-difference approximation of the gradient. That raises the question of whether non-gradient-based evolutionary algorithms can work at DNN scales. Here we demonstrate they can",
+   "seed_title": "Deep Neuroevolution: Genetic Algorithms Are a Competitive Alternative for Training Deep Neural Networks for Reinforcement Learning",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1038/s41586-021-03819-2",
+   "doi": "10.1038/s41586-021-03819-2",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1038/s41586-021-03819-2",
+   "area": "protein",
+   "title": "Highly accurate protein structure prediction with AlphaFold",
+   "year": 2021,
+   "citations": 43588,
+   "venue": "Nature",
+   "authors": [
+    "John Jumper",
+    "Richard Evans",
+    "Alexander Pritzel"
+   ],
+   "authors_n": 34,
+   "abstract": "Abstract Proteins are essential to life, and understanding their structure can facilitate a mechanistic understanding of their function. Through an enormous experimental effort 1–4 , the structures of around 100,000 unique proteins have been determined 5 , but this represents a small fraction of the billions of known protein sequences 6,7 . Structural coverage is bottlenecked by the months to years of painstaking effort required to determine a single protein structure. Accurate computational approaches are needed to address this gap and to enable large-scale structural bioinformatics. Predicti",
+   "seed_title": "Highly accurate protein structure prediction with AlphaFold",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1038/s41586-024-07487-w",
+   "doi": "10.1038/s41586-024-07487-w",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1038/s41586-024-07487-w",
+   "area": "protein",
+   "title": "Accurate structure prediction of biomolecular interactions with AlphaFold 3",
+   "year": 2024,
+   "citations": 15713,
+   "venue": "Nature",
+   "authors": [
+    "Josh Abramson",
+    "Jonas Adler",
+    "Jack Dunger"
+   ],
+   "authors_n": 48,
+   "abstract": "Abstract The introduction of AlphaFold 2 1 has spurred a revolution in modelling the structure of proteins and their interactions, enabling a huge range of applications in protein modelling and design 2–6 . Here we describe our AlphaFold 3 model with a substantially updated diffusion-based architecture that is capable of predicting the joint structure of complexes including proteins, nucleic acids, small molecules, ions and modified residues. The new AlphaFold model demonstrates substantially improved accuracy over many previous specialized tools: far greater accuracy for protein–ligand intera",
+   "seed_title": "Accurate structure prediction of biomolecular interactions with AlphaFold 3",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1038/s41586-023-06415-8",
+   "doi": "10.1038/s41586-023-06415-8",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1038/s41586-023-06415-8",
+   "area": "protein",
+   "title": "De novo design of protein structure and function with RFdiffusion",
+   "year": 2023,
+   "citations": 2350,
+   "venue": "Nature",
+   "authors": [
+    "Joseph L. Watson",
+    "David Juergens",
+    "Nathaniel R. Bennett"
+   ],
+   "authors_n": 28,
+   "abstract": "Abstract There has been considerable recent progress in designing new proteins using deep-learning methods 1–9 . Despite this progress, a general deep-learning framework for protein design that enables solution of a wide range of design challenges, including de novo binder design and design of higher-order symmetric architectures, has yet to be described. Diffusion models 10,11 have had considerable success in image and language generative modelling but limited success when applied to protein modelling, probably due to the complexity of protein backbone geometry and sequence–structure relation",
+   "seed_title": "De novo design of protein structure and function with RFdiffusion",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1126/science.ade2574",
+   "doi": "10.1126/science.ade2574",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1126/science.ade2574",
+   "area": "protein",
+   "title": "Evolutionary-scale prediction of atomic-level protein structure with a language model",
+   "year": 2023,
+   "citations": 5543,
+   "venue": "Science",
+   "authors": [
+    "Zeming Lin",
+    "Halil Akin",
+    "Roshan Rao"
+   ],
+   "authors_n": 15,
+   "abstract": "Abstract Artificial intelligence has the potential to open insight into the structure of proteins at the scale of evolution. It has only recently been possible to extend protein structure prediction to two hundred million cataloged proteins. Characterizing the structures of the exponentially growing billions of protein sequences revealed by large scale gene sequencing experiments would necessitate a break-through in the speed of folding. Here we show that direct inference of structure from primary sequence using a large language model enables an order of magnitude speed-up in high resolution s",
+   "seed_title": "Evolutionary-scale prediction of atomic-level protein structure with a language model",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1073/pnas.2016239118",
+   "doi": "10.1073/pnas.2016239118",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1073/pnas.2016239118",
+   "area": "protein",
+   "title": "Biological structure and function emerge from scaling unsupervised learning to 250 million protein sequences",
+   "year": 2021,
+   "citations": 3270,
+   "venue": "Proceedings of the National Academy of Sciences",
+   "authors": [
+    "Alexander W. Rives",
+    "Joshua Meier",
+    "Tom Sercu"
+   ],
+   "authors_n": 11,
+   "abstract": "In the field of artificial intelligence, a combination of scale in data and model capacity enabled by unsupervised learning has led to major advances in representation learning and statistical generation. In the life sciences, the anticipated growth of sequencing promises unprecedented data on natural sequence diversity. Protein language modeling at the scale of evolution is a logical step toward predictive and generative artificial intelligence for biology. To this end, we use unsupervised learning to train a deep contextual language model on 86 billion amino acids across 250 million protein ",
+   "seed_title": "Biological structure and function emerge from scaling unsupervised learning to 250 million protein sequences",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1126/science.ads0018",
+   "doi": "10.1126/science.ads0018",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1126/science.ads0018",
+   "area": "protein",
+   "title": "Simulating 500 million years of evolution with a language model",
+   "year": 2025,
+   "citations": 934,
+   "venue": "Science",
+   "authors": [
+    "Thomas Hayes",
+    "Roshan Rao",
+    "Halil Akin"
+   ],
+   "authors_n": 25,
+   "abstract": "More than 3 billion years of evolution have produced an image of biology encoded into the space of natural proteins. Here, we show that language models trained at scale on evolutionary data can generate functional proteins that are far away from known proteins. We present ESM3, a frontier multimodal generative language model that reasons over the sequence, structure, and function of proteins. ESM3 can follow complex prompts combining its modalities and is highly responsive to alignment to improve its fidelity. We have prompted ESM3 to generate fluorescent proteins. Among the generations that w",
+   "seed_title": "Simulating 500 million years of evolution with a language model",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1126/science.adv9817",
+   "doi": "10.1126/science.adv9817",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1126/science.adv9817",
+   "area": "protein",
+   "title": "Scalable emulation of protein equilibrium ensembles with generative deep learning",
+   "year": 2025,
+   "citations": 346,
+   "venue": "Science",
+   "authors": [
+    "Sarah Lewis",
+    "Tim Hempel",
+    "José Jiménez-Luna"
+   ],
+   "authors_n": 28,
+   "abstract": "Following the sequence and structure revolutions, predicting functionally relevant protein structure changes at scale remains an outstanding challenge. We introduce BioEmu, a deep learning system that emulates protein equilibrium ensembles by generating thousands of statistically independent structures per hour on a single graphics processing unit (GPU). BioEmu integrates more than 200 milliseconds of molecular dynamics (MD) simulations, static structures, and experimental protein stabilities using new training algorithms. It captures diverse functional motions—including cryptic pocket formati",
+   "seed_title": "Scalable emulation of protein equilibrium ensembles with generative deep learning",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2210.01776",
+   "doi": "10.48550/arxiv.2210.01776",
+   "arxiv_id": "2210.01776",
+   "url": "https://arxiv.org/abs/2210.01776",
+   "area": "protein",
+   "title": "DiffDock: Diffusion Steps, Twists, and Turns for Molecular Docking",
+   "year": 2022,
+   "citations": 364,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "Gabriele Corso",
+    "Stärk, Hannes",
+    "Bowen Jing"
+   ],
+   "authors_n": 5,
+   "abstract": "Predicting the binding structure of a small molecule ligand to a protein -- a task known as molecular docking -- is critical to drug design. Recent deep learning methods that treat docking as a regression problem have decreased runtime compared to traditional search-based methods but have yet to offer substantial improvements in accuracy. We instead frame molecular docking as a generative modeling problem and develop DiffDock, a diffusion generative model over the non-Euclidean manifold of ligand poses. To do so, we map this manifold to the product space of the degrees of freedom (translationa",
+   "seed_title": "DiffDock: Diffusion Steps, Twists, and Turns for Molecular Docking",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1038/s41586-023-06735-9",
+   "doi": "10.1038/s41586-023-06735-9",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1038/s41586-023-06735-9",
+   "area": "materials-discovery",
+   "title": "Scaling deep learning for materials discovery",
+   "year": 2023,
+   "citations": 1511,
+   "venue": "Nature",
+   "authors": [
+    "Amil Merchant",
+    "Simon Batzner",
+    "Samuel S. Schoenholz"
+   ],
+   "authors_n": 6,
+   "abstract": "Abstract Novel functional materials enable fundamental breakthroughs across technological applications from clean energy to information processing 1–11 . From microchips to batteries and photovoltaics, discovery of inorganic crystals has been bottlenecked by expensive trial-and-error approaches. Concurrently, deep-learning models for language, vision and biology have showcased emergent predictive capabilities with increasing data and computation 12–14 . Here we show that graph networks trained at scale can reach unprecedented levels of generalization, improving the efficiency of materials disc",
+   "seed_title": "Scaling deep learning for materials discovery",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1038/s41586-025-08628-x",
+   "doi": "10.1038/s41586-025-08628-5",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1038/s41586-025-08628-5",
+   "area": "materials-discovery",
+   "title": "A generative model for inorganic materials design",
+   "year": 2025,
+   "citations": 513,
+   "venue": "Nature",
+   "authors": [
+    "Claudio Zeni",
+    "Robert Pinsler",
+    "Daniel Zügner"
+   ],
+   "authors_n": 26,
+   "abstract": "Abstract The design of functional materials with desired properties is essential in driving technological advances in areas such as energy storage, catalysis and carbon capture 1–3 . Generative models accelerate materials design by directly generating new materials given desired property constraints, but current methods have a low success rate in proposing stable crystals or can satisfy only a limited set of property constraints 4–11 . Here we present MatterGen, a model that generates stable, diverse inorganic materials across the periodic table and can further be fine-tuned to steer the gener",
+   "seed_title": "A generative model for inorganic materials design",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2110.06197",
+   "doi": "10.48550/arxiv.2110.06197",
+   "arxiv_id": "2110.06197",
+   "url": "https://arxiv.org/abs/2110.06197",
+   "area": "materials-discovery",
+   "title": "Crystal Diffusion Variational Autoencoder for Periodic Material Generation",
+   "year": 2021,
+   "citations": 107,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "Tian Xie",
+    "Xiang Fu",
+    "Octavian-Eugen Ganea"
+   ],
+   "authors_n": 5,
+   "abstract": "Generating the periodic structure of stable materials is a long-standing challenge for the material design community. This task is difficult because stable materials only exist in a low-dimensional subspace of all possible periodic arrangements of atoms: 1) the coordinates must lie in the local energy minimum defined by quantum mechanics, and 2) global stability also requires the structure to follow the complex, yet specific bonding preferences between different atom types. Existing methods fail to incorporate these factors and often lack proper invariances. We propose a Crystal Diffusion Vari",
+   "seed_title": "Crystal Diffusion Variational Autoencoder for Periodic Material Generation",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2309.04475",
+   "doi": "10.52202/075280-0767",
+   "arxiv_id": "2309.04475",
+   "url": "https://arxiv.org/abs/2309.04475",
+   "area": "materials-discovery",
+   "title": "Crystal Structure Prediction by Joint Equivariant Diffusion",
+   "year": 2023,
+   "citations": 45,
+   "venue": "neural information processing systems",
+   "authors": [
+    "Rui Jiao",
+    "Wenbing Huang",
+    "Peijia Lin"
+   ],
+   "authors_n": 7,
+   "abstract": "Crystal Structure Prediction (CSP) is crucial in various scientific disciplines. While CSP can be addressed by employing currently-prevailing generative models (e.g. diffusion models), this task encounters unique challenges owing to the symmetric geometry of crystal structures -- the invariance of translation, rotation, and periodicity. To incorporate the above symmetries, this paper proposes DiffCSP, a novel diffusion model to learn the structure distribution from stable crystals. To be specific, DiffCSP jointly generates the lattice and atom coordinates for each crystal by employing a period",
+   "seed_title": "Crystal Structure Prediction by Joint Equivariant Diffusion",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2406.04713",
+   "doi": "10.48550/arxiv.2406.04713",
+   "arxiv_id": "2406.04713",
+   "url": "https://arxiv.org/abs/2406.04713",
+   "area": "materials-discovery",
+   "title": "FlowMM: Generating Materials with Riemannian Flow Matching",
+   "year": 2024,
+   "citations": 9,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "B. Miller",
+    "Ricky T. Q. Chen",
+    "Anuroop Sriram"
+   ],
+   "authors_n": 4,
+   "abstract": "Crystalline materials are a fundamental component in next-generation technologies, yet modeling their distribution presents unique computational challenges. Of the plausible arrangements of atoms in a periodic lattice only a vanishingly small percentage are thermodynamically stable, which is a key indicator of the materials that can be experimentally realized. Two fundamental tasks in this area are to (a) predict the stable crystal structure of a known composition of elements and (b) propose novel compositions along with their stable structures. We present FlowMM, a pair of generative models t",
+   "seed_title": "FlowMM: Generating Materials with Riemannian Flow Matching",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2402.04379",
+   "doi": "10.48550/arxiv.2402.04379",
+   "arxiv_id": "2402.04379",
+   "url": "https://arxiv.org/abs/2402.04379",
+   "area": "materials-discovery",
+   "title": "Fine-Tuned Language Models Generate Stable Inorganic Materials as Text",
+   "year": 2024,
+   "citations": 31,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "Nate Gruver",
+    "Anuroop Sriram",
+    "Andrea Madotto"
+   ],
+   "authors_n": 6,
+   "abstract": "We propose fine-tuning large language models for generation of stable materials. While unorthodox, fine-tuning large language models on text-encoded atomistic data is simple to implement yet reliable, with around 90% of sampled structures obeying physical constraints on atom positions and charges. Using energy above hull calculations from both learned ML potentials and gold-standard DFT calculations, we show that our strongest model (fine-tuned LLaMA-2 70B) can generate materials predicted to be metastable at about twice the rate (49% vs 28%) of CDVAE, a competing diffusion model. Because of t",
+   "seed_title": "Fine-Tuned Language Models Generate Stable Inorganic Materials as Text",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2403.15734",
+   "doi": "10.1016/j.scib.2025.09.035",
+   "arxiv_id": "2403.15734",
+   "url": "https://arxiv.org/abs/2403.15734",
+   "area": "materials-discovery",
+   "title": "Space group informed transformer for crystalline materials generation",
+   "year": 2025,
+   "citations": 28,
+   "venue": "中国科学通报：英文版",
+   "authors": [
+    "Zhendong Cao",
+    "Xiaoshan Luo",
+    "Jian Lv"
+   ],
+   "authors_n": 4,
+   "abstract": "We introduce CrystalFormer, a transformer-based autoregressive model specifically designed for space group-controlled generation of crystalline materials. By explicitly incorporating space group symmetry, CrystalFormer greatly reduces the effective complexity of crystal space, which is essential for data-and compute-efficient generative modeling of crystalline materials. Leveraging the prominent discrete and sequential nature of the Wyckoff positions, CrystalFormer learns to generate crystals by directly predicting the species and coordinates of symmetry-inequivalent atoms in the unit cell. We",
+   "seed_title": "Space Group Informed Transformer for Crystalline Materials Generation",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2203.17003",
+   "doi": "10.48550/arxiv.2203.17003",
+   "arxiv_id": "2203.17003",
+   "url": "https://arxiv.org/abs/2203.17003",
+   "area": "materials-discovery",
+   "title": "Equivariant Diffusion for Molecule Generation in 3D",
+   "year": 2022,
+   "citations": 111,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "Emiel Hoogeboom",
+    "Víctor García Satorras",
+    "Clément Vignac"
+   ],
+   "authors_n": 4,
+   "abstract": "This work introduces a diffusion model for molecule generation in 3D that is equivariant to Euclidean transformations. Our E(3) Equivariant Diffusion Model (EDM) learns to denoise a diffusion process with an equivariant network that jointly operates on both continuous (atom coordinates) and categorical features (atom types). In addition, we provide a probabilistic analysis which admits likelihood computation of molecules using our model. Experimentally, the proposed method significantly outperforms previous 3D molecular generative methods regarding the quality of generated samples and efficien",
+   "seed_title": "Equivariant Diffusion for Molecule Generation in 3D",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2206.01729",
+   "doi": "10.48550/arxiv.2206.01729",
+   "arxiv_id": "2206.01729",
+   "url": "https://arxiv.org/abs/2206.01729",
+   "area": "materials-discovery",
+   "title": "Torsional Diffusion for Molecular Conformer Generation",
+   "year": 2022,
+   "citations": 90,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "Bowen Jing",
+    "Gabriele Corso",
+    "Chang, Jeffrey"
+   ],
+   "authors_n": 5,
+   "abstract": "Molecular conformer generation is a fundamental task in computational chemistry. Several machine learning approaches have been developed, but none have outperformed state-of-the-art cheminformatics methods. We propose torsional diffusion, a novel diffusion framework that operates on the space of torsion angles via a diffusion process on the hypertorus and an extrinsic-to-intrinsic score model. On a standard benchmark of drug-like molecules, torsional diffusion generates superior conformer ensembles compared to machine learning and cheminformatics methods in terms of both RMSD and chemical prop",
+   "seed_title": "Torsional Diffusion for Molecular Conformer Generation",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1103/PhysRevLett.120.145301",
+   "doi": "10.1103/physrevlett.120.145301",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1103/physrevlett.120.145301",
+   "area": "materials-discovery",
+   "title": "Crystal Graph Convolutional Neural Networks for an Accurate and Interpretable Prediction of Material Properties",
+   "year": 2018,
+   "citations": 2815,
+   "venue": "Physical Review Letters",
+   "authors": [
+    "Tian Xie",
+    "Jeffrey C. Grossman"
+   ],
+   "authors_n": 2,
+   "abstract": "The use of machine learning methods for accelerating the design of crystalline materials usually requires manually constructed feature vectors or complex transformation of atom coordinates to input the crystal structure, which either constrains the model to certain crystal types or makes it difficult to provide chemical insights. Here, we develop a crystal graph convolutional neural networks framework to directly learn material properties from the connection of atoms in the crystal, providing a universal and interpretable representation of crystalline materials. Our method provides a highly ac",
+   "seed_title": "Crystal Graph Convolutional Neural Networks for an Accurate and Interpretable Prediction of Material Properties",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1038/s41586-023-06734-w",
+   "doi": "10.1038/s41586-023-06734-w",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1038/s41586-023-06734-w",
+   "area": "materials-discovery",
+   "title": "An autonomous laboratory for the accelerated synthesis of inorganic materials",
+   "year": 2023,
+   "citations": 1022,
+   "venue": "Nature",
+   "authors": [
+    "Nathan J. Szymanski",
+    "Bernardus Rendy",
+    "Yuxing Fei"
+   ],
+   "authors_n": 16,
+   "abstract": ", we introduce the A-Lab, an autonomous laboratory for the solid-state synthesis of inorganic powders. This platform uses computations, historical data from the literature, machine learning (ML) and active learning to plan and interpret the outcomes of experiments performed using robotics. Over 17 days of continuous operation, the A-Lab realized 41 novel compounds from a set of 58 targets including a variety of oxides and phosphates that were identified using large-scale ab initio phase-stability data from the Materials Project and Google DeepMind. Synthesis recipes were proposed by natural-la",
+   "seed_title": "An autonomous laboratory for the accelerated synthesis of novel materials",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1038/s41586-018-0337-2",
+   "doi": "10.1038/s41586-018-0337-2",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1038/s41586-018-0337-2",
+   "area": "materials-discovery",
+   "title": "Machine learning for molecular and materials science",
+   "year": 2018,
+   "citations": 4940,
+   "venue": "Nature",
+   "authors": [
+    "Keith T. Butler",
+    "Daniel W. Davies",
+    "Hugh Cartwright"
+   ],
+   "authors_n": 5,
+   "abstract": "",
+   "seed_title": "Machine learning for molecular and materials science",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2308.14920",
+   "doi": "10.48550/arxiv.2308.14920",
+   "arxiv_id": "2308.14920",
+   "url": "https://arxiv.org/abs/2308.14920",
+   "area": "materials-discovery",
+   "title": "Matbench Discovery -- A framework to evaluate machine learning crystal stability predictions",
+   "year": 2023,
+   "citations": 32,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "Janosh Riebesell",
+    "Rhys E. A. Goodall",
+    "Philipp Benner"
+   ],
+   "authors_n": 10,
+   "abstract": "The rapid adoption of machine learning (ML) in domain sciences necessitates best practices and standardized benchmarking for performance evaluation. We present Matbench Discovery, an evaluation framework for ML energy models, applied as pre-filters for high-throughput searches of stable inorganic crystals. This framework addresses the disconnect between thermodynamic stability and formation energy, as well as retrospective vs. prospective benchmarking in materials discovery. We release a Python package to support model submissions and maintain an online leaderboard, offering insights into perf",
+   "seed_title": "Matbench Discovery - A framework to evaluate machine learning crystal stability predictions",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1038/s41586-023-06887-8",
+   "doi": "10.1038/s41586-023-06887-8",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1038/s41586-023-06887-8",
+   "area": "materials-discovery",
+   "title": "Discovery of a structural class of antibiotics with explainable deep learning",
+   "year": 2023,
+   "citations": 465,
+   "venue": "Nature",
+   "authors": [
+    "Felix J. Wong",
+    "Erica J. Zheng",
+    "Jacqueline A. Valeri"
+   ],
+   "authors_n": 21,
+   "abstract": "",
+   "seed_title": "Discovery of a structural class of antibiotics with explainable deep learning",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1126/science.aaw1147",
+   "doi": "10.1126/science.aaw1147",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1126/science.aaw1147",
+   "area": "simulation-and-sampling",
+   "title": "Boltzmann generators: Sampling equilibrium states of many-body systems with deep learning",
+   "year": 2019,
+   "citations": 745,
+   "venue": "Science",
+   "authors": [
+    "Frank Noé",
+    "Simon Olsson",
+    "Jonas Köhler"
+   ],
+   "authors_n": 4,
+   "abstract": "Computing equilibrium states in condensed-matter many-body systems, such as solvated proteins, is a long-standing challenge. Lacking methods for generating statistically independent equilibrium samples in \"one shot,\" vast computational effort is invested for simulating these systems in small steps, e.g., using molecular dynamics. Combining deep learning and statistical mechanics, we developed Boltzmann generators, which are shown to generate unbiased one-shot equilibrium samples of representative condensed-matter systems and proteins. Boltzmann generators use neural networks to learn a coordin",
+   "seed_title": "Boltzmann generators: Sampling equilibrium states of many-body systems with deep learning",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2306.15030",
+   "doi": "10.52202/075280-2617",
+   "arxiv_id": "2306.15030",
+   "url": "https://arxiv.org/abs/2306.15030",
+   "area": "simulation-and-sampling",
+   "title": "Equivariant flow matching",
+   "year": 2023,
+   "citations": 21,
+   "venue": "neural information processing systems",
+   "authors": [
+    "Leon Klein",
+    "Andreas Krämer",
+    "Frank Noé"
+   ],
+   "authors_n": 3,
+   "abstract": "Normalizing flows are a class of deep generative models that are especially interesting for modeling probability distributions in physics, where the exact likelihood of flows allows reweighting to known target energy functions and computing unbiased observables. For instance, Boltzmann generators tackle the long-standing sampling problem in statistical physics by training flows to produce equilibrium samples of many-body systems such as small molecules and proteins. To build effective models for such systems, it is crucial to incorporate the symmetries of the target energy into the model, whic",
+   "seed_title": "Equivariant flow matching",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2406.14426",
+   "doi": "10.52202/079017-1439",
+   "arxiv_id": "2406.14426",
+   "url": "https://arxiv.org/abs/2406.14426",
+   "area": "simulation-and-sampling",
+   "title": "Transferable Boltzmann Generators",
+   "year": 2024,
+   "citations": 18,
+   "venue": "neural information processing systems",
+   "authors": [
+    "Leon Klein",
+    "Frank Noé"
+   ],
+   "authors_n": 2,
+   "abstract": "The generation of equilibrium samples of molecular systems has been a long-standing problem in statistical physics. Boltzmann Generators are a generative machine learning method that addresses this issue by learning a transformation via a normalizing flow from a simple prior distribution to the target Boltzmann distribution of interest. Recently, flow matching has been employed to train Boltzmann Generators for small molecular systems in Cartesian coordinates. We extend this work and propose a first framework for Boltzmann Generators that are transferable across chemical space, such that they ",
+   "seed_title": "Transferable Boltzmann Generators",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1103/PhysRevLett.98.146401",
+   "doi": "10.1103/physrevlett.98.146401",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1103/physrevlett.98.146401",
+   "area": "simulation-and-sampling",
+   "title": "Generalized Neural-Network Representation of High-Dimensional Potential-Energy Surfaces",
+   "year": 2007,
+   "citations": 4996,
+   "venue": "Physical Review Letters",
+   "authors": [
+    "Jörg Behler",
+    "Michele Parrinello"
+   ],
+   "authors_n": 2,
+   "abstract": "The accurate description of chemical processes often requires the use of computationally demanding methods like density-functional theory (DFT), making long simulations of large systems unfeasible. In this Letter we introduce a new kind of neural-network representation of DFT potential-energy surfaces, which provides the energy and forces as a function of all atomic positions in systems of arbitrary size and is several orders of magnitude faster than DFT. The high accuracy of the method is demonstrated for bulk silicon and compared with empirical potentials and DFT. The method is general and c",
+   "seed_title": "Generalized Neural-Network Representation of High-Dimensional Potential-Energy Surfaces",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1103/PhysRevLett.104.136403",
+   "doi": "10.1103/physrevlett.104.136403",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1103/physrevlett.104.136403",
+   "area": "simulation-and-sampling",
+   "title": "Gaussian Approximation Potentials: The Accuracy of Quantum Mechanics, without the Electrons",
+   "year": 2010,
+   "citations": 3133,
+   "venue": "Physical Review Letters",
+   "authors": [
+    "Albert P. Bartók",
+    "Mike C. Payne",
+    "Risi Kondor"
+   ],
+   "authors_n": 4,
+   "abstract": "We introduce a class of interatomic potential models that can be automatically generated from data consisting of the energies and forces experienced by atoms, as derived from quantum mechanical calculations. The models do not have a fixed functional form and hence are capable of modeling complex potential energy landscapes. They are systematically improvable with more data. We apply the method to bulk crystals, and test it by calculating properties at high temperatures. Using the interatomic potential to generate the long molecular dynamics trajectories required for such calculations saves ord",
+   "seed_title": "Gaussian Approximation Potentials: The Accuracy of Quantum Mechanics, without the Electrons",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1038/s41467-022-29939-5",
+   "doi": "10.1038/s41467-022-29939-5",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1038/s41467-022-29939-5",
+   "area": "simulation-and-sampling",
+   "title": "E(3)-equivariant graph neural networks for data-efficient and accurate interatomic potentials",
+   "year": 2022,
+   "citations": 1925,
+   "venue": "Nature Communications",
+   "authors": [
+    "Simon Batzner",
+    "Albert Musaelian",
+    "Lixin Sun"
+   ],
+   "authors_n": 9,
+   "abstract": "This work presents Neural Equivariant Interatomic Potentials (NequIP), an E(3)-equivariant neural network approach for learning interatomic potentials from ab-initio calculations for molecular dynamics simulations. While most contemporary symmetry-aware models use invariant convolutions and only act on scalars, NequIP employs E(3)-equivariant convolutions for interactions of geometric tensors, resulting in a more information-rich and faithful representation of atomic environments. The method achieves state-of-the-art accuracy on a challenging and diverse set of molecules and materials while ex",
+   "seed_title": "E(3)-equivariant graph neural networks for data-efficient and accurate interatomic potentials",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2206.07697",
+   "doi": "10.48550/arxiv.2206.07697",
+   "arxiv_id": "2206.07697",
+   "url": "https://arxiv.org/abs/2206.07697",
+   "area": "simulation-and-sampling",
+   "title": "MACE: Higher Order Equivariant Message Passing Neural Networks for Fast and Accurate Force Fields",
+   "year": 2022,
+   "citations": 308,
+   "venue": "arXiv (Cornell University)",
+   "authors": [
+    "Ilyes Batatia",
+    "Dávid Péter Kovács",
+    "Gregor N. C. Simm"
+   ],
+   "authors_n": 5,
+   "abstract": "Creating fast and accurate force fields is a long-standing challenge in computational chemistry and materials science. Recently, several equivariant message passing neural networks (MPNNs) have been shown to outperform models built using other approaches in terms of accuracy. However, most MPNNs suffer from high computational cost and poor scalability. We propose that these limitations arise because MPNNs only pass two-body messages leading to a direct relationship between the number of layers and the expressivity of the network. In this work, we introduce MACE, a new equivariant MPNN model th",
+   "seed_title": "MACE: Higher Order Equivariant Message Passing Neural Networks for Fast and Accurate Force Fields",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2401.00096",
+   "doi": "10.1063/5.0297006",
+   "arxiv_id": "2401.00096",
+   "url": "https://arxiv.org/abs/2401.00096",
+   "area": "simulation-and-sampling",
+   "title": "A foundation model for atomistic materials chemistry",
+   "year": 2025,
+   "citations": 594,
+   "venue": "The Journal of Chemical Physics",
+   "authors": [
+    "Ilyes Batatia",
+    "Philipp Benner",
+    "Yuan Chiang"
+   ],
+   "authors_n": 88,
+   "abstract": "Atomistic simulations of matter, especially those that leverage first-principles (ab initio) electronic structure theory, provide a microscopic view of the world, underpinning much of our understanding of chemistry and materials science. Over the last decade or so, machine-learned force fields have transformed atomistic modeling by enabling simulations of ab initio quality over unprecedented time and length scales. However, early machine-learning (ML) force fields have largely been limited by (i) the substantial computational and human effort required to develop and validate potentials for eac",
+   "seed_title": "A foundation model for atomistic materials chemistry",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1103/PhysRevLett.120.143001",
+   "doi": "10.1103/physrevlett.120.143001",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1103/physrevlett.120.143001",
+   "area": "simulation-and-sampling",
+   "title": "Deep Potential Molecular Dynamics: A Scalable Model with the Accuracy of Quantum Mechanics",
+   "year": 2018,
+   "citations": 2273,
+   "venue": "Physical Review Letters",
+   "authors": [
+    "Linfeng Zhang",
+    "Jiequn Han",
+    "Han Wang"
+   ],
+   "authors_n": 5,
+   "abstract": "We introduce a scheme for molecular simulations, the deep potential molecular dynamics (DPMD) method, based on a many-body potential and interatomic forces generated by a carefully crafted deep neural network trained with ab initio data. The neural network model preserves all the natural symmetries in the problem. It is first-principles based in the sense that there are no ad hoc components aside from the network model. We show that the proposed scheme provides an efficient and accurate protocol in a variety of systems, including bulk materials and molecules. In all these cases, DPMD gives res",
+   "seed_title": "Deep Potential Molecular Dynamics: A Scalable Model with the Accuracy of Quantum Mechanics",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1126/sciadv.1603015",
+   "doi": "10.1126/sciadv.1603015",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1126/sciadv.1603015",
+   "area": "simulation-and-sampling",
+   "title": "Machine learning of accurate energy-conserving molecular force fields",
+   "year": 2017,
+   "citations": 1179,
+   "venue": "Science Advances",
+   "authors": [
+    "Stefan Chmiela",
+    "Alexandre Tkatchenko",
+    "Huziel E. Sauceda"
+   ],
+   "authors_n": 6,
+   "abstract": "for atomic forces using only 1000 conformational geometries for training. We demonstrate this accuracy for AIMD trajectories of molecules, including benzene, toluene, naphthalene, ethanol, uracil, and aspirin. The challenge of constructing conservative force fields is accomplished in our work by learning in a Hilbert space of vector-valued functions that obey the law of energy conservation. The GDML approach enables quantitative molecular dynamics simulations for molecules at a fraction of cost of explicit AIMD calculations, thereby allowing the construction of efficient force fields with the ",
+   "seed_title": "Machine learning of accurate energy-conserving molecular force fields",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:1706.08566",
+   "doi": "10.48550/arxiv.1706.08566",
+   "arxiv_id": "1706.08566",
+   "url": "https://arxiv.org/abs/1706.08566",
+   "area": "simulation-and-sampling",
+   "title": "SchNet: A continuous-filter convolutional neural network for modeling quantum interactions",
+   "year": 2017,
+   "citations": 464,
+   "venue": "Open Repository and Bibliography (University of Luxembourg)",
+   "authors": [
+    "Kristof T. Schütt",
+    "Pieter-Jan Kindermans",
+    "Huziel E. Sauceda"
+   ],
+   "authors_n": 6,
+   "abstract": "Deep learning has the potential to revolutionize quantum chemistry as it is ideally suited to learn representations for structured data and speed up the exploration of chemical space. While convolutional neural networks have proven to be the first choice for images, audio and video data, the atoms in molecules are not restricted to a grid. Instead, their precise locations contain essential physical information, that would get lost if discretized. Thus, we propose to use continuous-filter convolutional layers to be able to model local correlations without requiring the data to lie on a grid. We",
+   "seed_title": "SchNet: A continuous-filter convolutional neural network for modeling quantum interactions",
+   "match": 1.0
+  },
+  {
+   "id": "arxiv:2506.23971",
+   "doi": "10.52202/085713-4310",
+   "arxiv_id": "2506.23971",
+   "url": "https://arxiv.org/abs/2506.23971",
+   "area": "simulation-and-sampling",
+   "title": "UMA: A Family of Universal Models for Atoms",
+   "year": 2025,
+   "citations": 86,
+   "venue": "neural information processing systems",
+   "authors": [
+    "Brandon M. Wood",
+    "Misko Dzamba",
+    "Xiang Fu"
+   ],
+   "authors_n": 18,
+   "abstract": "The ability to quickly and accurately compute properties from atomic simulations is critical for advancing a large number of applications in chemistry and materials science including drug discovery, energy storage, and semiconductor manufacturing. To address this need, Meta FAIR presents a family of Universal Models for Atoms (UMA), designed to push the frontier of speed, accuracy, and generalization. UMA models are trained on half a billion unique 3D atomic structures (the largest training runs to date) by compiling data across multiple chemical domains, e.g. molecules, materials, and catalys",
+   "seed_title": "UMA: A Family of Universal Models for Atoms",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1038/s42256-023-00716-x",
+   "doi": "10.1038/s42256-023-00716-3",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1038/s42256-023-00716-3",
+   "area": "simulation-and-sampling",
+   "title": "CHGNet as a pretrained universal neural network potential for charge-informed atomistic modelling",
+   "year": 2023,
+   "citations": 932,
+   "venue": "Nature Machine Intelligence",
+   "authors": [
+    "Bowen Deng",
+    "Peichen Zhong",
+    "KyuJung Jun"
+   ],
+   "authors_n": 7,
+   "abstract": "Abstract Large-scale simulations with complex electron interactions remain one of the greatest challenges for atomistic modelling. Although classical force fields often fail to describe the coupling between electronic states and ionic rearrangements, the more accurate ab initio molecular dynamics suffers from computational complexity that prevents long-time and large-scale simulations, which are essential to study technologically relevant phenomena. Here we present the Crystal Hamiltonian Graph Neural Network (CHGNet), a graph neural network-based machine-learning interatomic potential (MLIP) ",
+   "seed_title": "CHGNet as a pretrained universal neural network potential for charge-informed atomistic modelling",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1038/s43588-022-00349-3",
+   "doi": "10.1038/s43588-022-00349-3",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1038/s43588-022-00349-3",
+   "area": "simulation-and-sampling",
+   "title": "A universal graph deep learning interatomic potential for the periodic table",
+   "year": 2022,
+   "citations": 992,
+   "venue": "Nature Computational Science",
+   "authors": [
+    "Chi Chen",
+    "Shyue Ping Ong"
+   ],
+   "authors_n": 2,
+   "abstract": "",
+   "seed_title": "A universal graph deep learning interatomic potential for the periodic table",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1038/s41586-023-06792-0",
+   "doi": "10.1038/s41586-023-06792-0",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1038/s41586-023-06792-0",
+   "area": "ai-agents-for-science",
+   "title": "Autonomous chemical research with large language models",
+   "year": 2023,
+   "citations": 1036,
+   "venue": "Nature",
+   "authors": [
+    "Daniil A. Boiko",
+    "Robert MacKnight",
+    "Ben Kline"
+   ],
+   "authors_n": 4,
+   "abstract": "Abstract Transformer-based large language models are making significant strides in various fields, such as natural language processing 1–5 , biology 6,7 , chemistry 8–10 and computer programming 11,12 . Here, we show the development and capabilities of Coscientist, an artificial intelligence system driven by GPT-4 that autonomously designs, plans and performs complex experiments by incorporating large language models empowered by tools such as internet and documentation search, code execution and experimental automation. Coscientist showcases its potential for accelerating research across six ",
+   "seed_title": "Autonomous chemical research with large language models",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1038/s41586-023-06221-2",
+   "doi": "10.1038/s41586-023-06221-2",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1038/s41586-023-06221-2",
+   "area": "ai-agents-for-science",
+   "title": "Scientific discovery in the age of artificial intelligence",
+   "year": 2023,
+   "citations": 1806,
+   "venue": "Nature",
+   "authors": [
+    "Hanchen Wang",
+    "Tianfan Fu",
+    "Yuanqi Du"
+   ],
+   "authors_n": 30,
+   "abstract": "",
+   "seed_title": "Scientific discovery in the age of artificial intelligence",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1038/s42256-024-00832-8",
+   "doi": "10.1038/s42256-024-00832-8",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1038/s42256-024-00832-8",
+   "area": "ai-agents-for-science",
+   "title": "Augmenting large language models with chemistry tools",
+   "year": 2024,
+   "citations": 781,
+   "venue": "Nature Machine Intelligence",
+   "authors": [
+    "Andres M Bran",
+    "Sam Cox",
+    "Oliver Tobias Schilter"
+   ],
+   "authors_n": 6,
+   "abstract": "Large language models (LLMs) have shown strong performance in tasks across domains but struggle with chemistry-related problems. These models also lack access to external knowledge sources, limiting their usefulness in scientific applications. We introduce ChemCrow, an LLM chemistry agent designed to accomplish tasks across organic synthesis, drug discovery and materials design. By integrating 18 expert-designed tools and using GPT-4 as the LLM, ChemCrow augments the LLM performance in chemistry, and new capabilities emerge. Our agent autonomously planned and executed the syntheses of an insec",
+   "seed_title": "Augmenting large language models with chemistry tools",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1126/science.adi2336",
+   "doi": "10.1126/science.adi2336",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1126/science.adi2336",
+   "area": "other-ai4sci",
+   "title": "Learning skillful medium-range global weather forecasting",
+   "year": 2023,
+   "citations": 1453,
+   "venue": "Science",
+   "authors": [
+    "Rémi Lam",
+    "Álvaro Sánchez‐González",
+    "Matthew Willson"
+   ],
+   "authors_n": 18,
+   "abstract": "Global medium-range weather forecasting is critical to decision-making across many social and economic domains. Traditional numerical weather prediction uses increased compute resources to improve forecast accuracy but does not directly use historical weather data to improve the underlying model. Here, we introduce GraphCast, a machine learning-based method trained directly from reanalysis data. It predicts hundreds of weather variables for the next 10 days at 0.25° resolution globally in under 1 minute. GraphCast significantly outperforms the most accurate operational deterministic systems on",
+   "seed_title": "Learning skillful medium-range global weather forecasting",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1038/s41586-023-06185-3",
+   "doi": "10.1038/s41586-023-06185-3",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1038/s41586-023-06185-3",
+   "area": "other-ai4sci",
+   "title": "Accurate medium-range global weather forecasting with 3D neural networks",
+   "year": 2023,
+   "citations": 1660,
+   "venue": "Nature",
+   "authors": [
+    "Kaifeng Bi",
+    "Lingxi Xie",
+    "Hengheng Zhang"
+   ],
+   "authors_n": 6,
+   "abstract": "Abstract Weather forecasting is important for science and society. At present, the most accurate forecast system is the numerical weather prediction (NWP) method, which represents atmospheric states as discretized grids and numerically solves partial differential equations that describe the transition between those states 1 . However, this procedure is computationally expensive. Recently, artificial-intelligence-based methods 2 have shown potential in accelerating weather forecasting by orders of magnitude, but the forecast accuracy is still significantly lower than that of NWP methods. Here w",
+   "seed_title": "Accurate medium-range global weather forecasting with 3D neural networks",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1038/sdata.2014.22",
+   "doi": "10.1038/sdata.2014.22",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1038/sdata.2014.22",
+   "area": "data-and-benchmarks",
+   "title": "Quantum chemistry structures and properties of 134 kilo molecules",
+   "year": 2014,
+   "citations": 1963,
+   "venue": "Scientific Data",
+   "authors": [
+    "Raghunathan Ramakrishnan",
+    "Pavlo O. Dral",
+    "Matthias Rupp"
+   ],
+   "authors_n": 4,
+   "abstract": "Computational de novo design of new drugs and materials requires rigorous and unbiased exploration of chemical compound space. However, large uncharted territories persist due to its size scaling combinatorially with molecular size. We report computed geometric, energetic, electronic, and thermodynamic properties for 134k stable small organic molecules made up of CHONF. These molecules correspond to the subset of all 133,885 species with up to nine heavy atoms (CONF) out of the GDB-17 chemical universe of 166 billion organic molecules. We report geometries minimal in energy, corresponding harm",
+   "seed_title": "Quantum chemistry structures and properties of 134 kilo molecules",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1021/acscatal.0c04525",
+   "doi": "10.1021/acscatal.0c04525",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1021/acscatal.0c04525",
+   "area": "data-and-benchmarks",
+   "title": "Open Catalyst 2020 (OC20) Dataset and Community Challenges",
+   "year": 2021,
+   "citations": 770,
+   "venue": "ACS Catalysis",
+   "authors": [
+    "Lowik Chanussot",
+    "Abhishek Das",
+    "Siddharth Goyal"
+   ],
+   "authors_n": 17,
+   "abstract": "Catalyst discovery and optimization is key to solving many societal and energy challenges including solar fuel synthesis, long-term energy storage, and renewable fertilizer production. Despite considerable effort by the catalysis community to apply machine learning models to the computational catalyst discovery process, it remains an open challenge to build models that can generalize across both elemental compositions of surfaces and adsorbate identity/configurations, perhaps because datasets have been smaller in catalysis than in related fields. To address this, we developed the OC20 dataset,",
+   "seed_title": "Open Catalyst 2020 (OC20) Dataset and Community Challenges",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1063/1.4812323",
+   "doi": "10.1063/1.4812323",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1063/1.4812323",
+   "area": "data-and-benchmarks",
+   "title": "Commentary: The Materials Project: A materials genome approach to accelerating materials innovation",
+   "year": 2013,
+   "citations": 13049,
+   "venue": "APL Materials",
+   "authors": [
+    "Anubhav Jain",
+    "Shyue Ping Ong",
+    "Geoffroy Hautier"
+   ],
+   "authors_n": 11,
+   "abstract": "Accelerating the discovery of advanced materials is essential for human welfare and sustainable, clean energy. In this paper, we introduce the Materials Project (www.materialsproject.org), a core program of the Materials Genome Initiative that uses high-throughput computing to uncover the properties of all known inorganic materials. This open dataset can be accessed through multiple channels for both interactive exploration and data mining. The Materials Project also seeks to create open-source platforms for developing robust, sophisticated materials analyses. Future efforts will enable users ",
+   "seed_title": "Commentary: The Materials Project: A materials genome approach to accelerating materials innovation",
+   "match": 1.0
+  },
+  {
+   "id": "doi:10.1038/nature14539",
+   "doi": "10.1038/nature14539",
+   "arxiv_id": "",
+   "url": "https://doi.org/10.1038/nature14539",
+   "area": "ml-foundations",
+   "title": "Deep learning",
+   "year": 2015,
+   "citations": 83989,
+   "venue": "Nature",
+   "authors": [
+    "Yann LeCun",
+    "Yoshua Bengio",
+    "Geoffrey E. Hinton"
+   ],
+   "authors_n": 3,
+   "abstract": "",
+   "seed_title": "Deep learning",
+   "match": 1.0
+  }
+ ],
+ "unresolved": []
+}

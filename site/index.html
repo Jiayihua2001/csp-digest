@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CSP Reading Room</title>
+<title>Reading Room</title>
 <style>
   :root{
     --bg:#faf9f6; --card:#fff; --ink:#23211c; --mut:#6b6a63; --line:#e6e4dc;
@@ -17,13 +17,14 @@
   .bar{max-width:860px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
   .brand{font-weight:700;font-size:17px;letter-spacing:.2px}
   .brand small{color:var(--mut);font-weight:400;font-size:12.5px}
-  nav{display:flex;gap:4px;margin-left:auto}
+  nav{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
   nav button{border:0;background:transparent;color:var(--mut);font:inherit;font-size:14px;
              padding:6px 12px;border-radius:7px;cursor:pointer}
   nav button.active{background:var(--accent);color:#fff}
   nav button .badge{display:inline-block;min-width:17px;padding:0 5px;margin-left:5px;border-radius:9px;
              background:var(--accent);color:#fff;font-size:11px;line-height:17px;text-align:center;vertical-align:middle}
   nav button.active .badge{background:#fff;color:var(--accent)}
+  nav a{border:0;color:var(--mut);font:inherit;font-size:14px;text-decoration:none;padding:6px 12px;border-radius:6px}
   .streak{font-size:12.5px;color:var(--mut);white-space:nowrap}
   .streak b{color:var(--accent)}
   main{max-width:860px;margin:0 auto;padding:22px 20px 80px}
@@ -31,21 +32,27 @@
          border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:13px 16px;margin-bottom:20px}
   .synth h2{margin:0 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.6px;color:var(--accent)}
   .synth p{margin:0;font-size:14.5px}
-  .daterow{display:flex;align-items:baseline;gap:10px;margin:8px 0 16px}
+  .daterow{display:flex;align-items:baseline;gap:10px;margin:8px 0 16px;flex-wrap:wrap}
   .daterow h1{font-size:19px;margin:0}
   .daterow .sub{color:var(--mut);font-size:13px}
   .controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
   .controls select,.controls input{font:inherit;font-size:13px;padding:5px 9px;border:1px solid var(--line);
          border-radius:7px;background:#fff;color:var(--ink)}
+  .group{margin:24px 0 10px;font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--mut)}
+  .group:first-of-type{margin-top:4px}
+  details.aside summary{cursor:pointer;color:var(--mut);font-size:13px;margin:18px 0 8px}
   .item{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:12px;
         transition:box-shadow .15s,transform .05s}
   .item:hover{box-shadow:0 3px 14px rgba(0,0,0,.06)}
   .item.unread{border-left:3px solid var(--accent)}
+  .item.skim{opacity:.85}
   .meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;font-size:12px;color:var(--mut)}
   .badge2{border:1px solid;border-radius:4px;padding:1px 7px;font-weight:600;font-size:11px}
   .wtag{color:var(--star);font-weight:600}
   .newdot{color:var(--accent);font-weight:700}
   .pubnew{background:#B23A2E;color:#fff;font-size:10px;font-weight:700;border-radius:3px;padding:1px 6px;letter-spacing:.5px}
+  .lane{font-size:10.5px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:var(--mut);
+        border:1px solid var(--line);border-radius:3px;padding:1px 6px}
   .title{font-weight:650;font-size:15.5px;color:var(--ink);text-decoration:none;display:block;margin-bottom:3px}
   .title:hover{color:var(--accent)}
   .authors{color:var(--mut);font-size:13px;margin-bottom:7px}
@@ -53,9 +60,14 @@
   .score{font-size:11px;font-weight:600;border-radius:3px;padding:2px 8px}
   .score.rel{background:#eaf1ef;color:var(--accent2)}
   .score.sig{background:#f6ece7;color:var(--accent)}
+  .score.fnd{background:#eef1f3;color:#3f4e5c}
+  .verdict{font-size:11px;font-weight:700;border-radius:3px;padding:2px 8px;text-transform:uppercase;letter-spacing:.4px}
+  .verdict.read{background:var(--accent2);color:#fff}
+  .verdict.skim{background:#e9e7df;color:#5a5850}
   .tag{font-size:11px;color:var(--chipink);background:var(--chip);border-radius:10px;padding:2px 9px;cursor:pointer}
   .summary{color:#2e2c27;font-size:13.5px;background:#f4f3ef;border-left:3px solid var(--accent);
            padding:7px 11px;border-radius:0 4px 4px 0;margin:7px 0}
+  .why{color:var(--mut);font-size:13px;margin:4px 0 2px}
   .abs{font-size:13px;color:#44423c;margin-top:7px;display:none}
   .abs.open{display:block}
   .row2{display:flex;gap:14px;align-items:center;margin-top:9px}
@@ -63,35 +75,45 @@
   .star.on{color:var(--star)}
   .lnk{font-size:12.5px;color:var(--accent2);background:transparent;border:0;cursor:pointer;padding:0}
   .empty{color:var(--mut);text-align:center;padding:60px 0}
+  .quiet{color:var(--mut);text-align:center;padding:34px 0;font-size:14px}
   .weekpick{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
   .weekpick button{font:inherit;font-size:13px;padding:5px 10px;border:1px solid var(--line);border-radius:7px;
            background:#fff;cursor:pointer}
   .weekpick button.active{background:var(--accent2);color:#fff;border-color:var(--accent2)}
   .cal{display:flex;flex-direction:column;gap:6px}
   .calday{display:flex;align-items:center;gap:12px;padding:9px 13px;background:#fff;border:1px solid var(--line);
-          border-radius:8px;cursor:pointer}
+          border-radius:8px;cursor:pointer;flex-wrap:wrap}
   .calday:hover{border-color:var(--accent)}
   .calday .d{font-weight:600;min-width:96px}
-  .calday .c{color:var(--mut);font-size:12.5px;min-width:64px}
-  .calday .s{color:#44423c;font-size:12.5px}
+  .calday .c{color:var(--mut);font-size:12.5px;min-width:120px}
+  .calday .s{color:#44423c;font-size:12.5px;flex:1}
   .exportbar{margin:4px 0 16px}
   .exportbar button{font:inherit;font-size:13px;padding:6px 12px;border:1px solid var(--accent2);color:var(--accent2);
            background:#fff;border-radius:7px;cursor:pointer}
+  .landmark{background:#f0f4f8;border:1px solid #d3dee7;border-left:4px solid var(--accent2);border-radius:10px;
+            padding:14px 16px;margin-bottom:20px}
+  .landmark .k{font-size:11.5px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:var(--accent2);margin-bottom:6px}
+  .landmark .title{font-size:16.5px}
+  .landmark p{margin:6px 0;font-size:13.5px}
+  .landmark p b{color:#3a5c53}
+  .landmark .qa{display:none;margin-top:6px}
+  .landmark.open .qa,.landmark.always .qa{display:block}
   footer{max-width:860px;margin:0 auto;padding:0 20px 40px;color:#b4b3a8;font-size:12px}
 </style>
 </head>
 <body>
 <header>
   <div class="bar">
-    <div class="brand">CSP Reading Room <small id="scopeLbl"></small></div>
+    <div class="brand">Reading Room <small id="scopeLbl"></small></div>
     <div class="streak" id="streak"></div>
     <nav>
       <button data-view="today" class="active">Today <span class="badge" id="unreadBadge" style="display:none"></span></button>
       <button data-view="week">This Week</button>
+      <button data-view="landmarks">Landmarks</button>
       <button data-view="history">History</button>
       <button data-view="starred">★ Starred <span class="badge" id="starBadge" style="display:none"></span></button>
-      <a href="learn.html" style="border:0;color:var(--mut);font:inherit;font-size:14px;text-decoration:none;padding:6px 12px;border-radius:6px">&#128218; Learn</a>
-      <a href="intuition.html" style="border:0;color:var(--mut);font:inherit;font-size:14px;text-decoration:none;padding:6px 12px;border-radius:6px">&#128161; Intuition</a>
+      <a href="learn.html">&#128218; Learn</a>
+      <a href="intuition.html">&#128161; Intuition</a>
     </nav>
   </div>
 </header>
@@ -100,6 +122,8 @@
 
 <script>
 const DATA = "data/";
+const TOP_PICKS = 3;
+const LANE = {ai4sci:"AI for Science", mcsp:"Molecular CSP"};
 const state = {manifest:[], dayCache:{}, view:"today", filterTag:null, weekOffset:0};
 const LS = {
   stars: JSON.parse(localStorage.getItem("csp_stars")||"{}"),
@@ -110,7 +134,7 @@ const LS = {
 function save(){ localStorage.setItem("csp_stars",JSON.stringify(LS.stars));
   localStorage.setItem("csp_read",JSON.stringify(LS.read));
   localStorage.setItem("csp_visits",JSON.stringify(LS.visits)); }
-function idOf(it){ return it.doi || it.arxiv_id || it.title; }
+function idOf(it){ return it.id || it.doi || it.arxiv_id || it.title; }
 
 async function loadManifest(){
   const r = await fetch(DATA+"index.json?_="+Date.now());
@@ -122,9 +146,12 @@ async function loadDay(date){
   const d = r.ok ? await r.json() : {date, items:[], synthesis:""};
   state.dayCache[date]=d; return d;
 }
-function esc(s){ return (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+function esc(s){ return (s||"").toString().replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
 function badgeColor(src){ return src==="arXiv"?"#9c4a2c":src==="ChemRxiv"?"#2f5d52":"#4a5b6b"; }
-function link(it){ return it.src==="arXiv"?(it.url||("https://arxiv.org/abs/"+it.arxiv_id)) : ("https://doi.org/"+it.doi); }
+function link(it){ return it.url ? it.url : (it.src==="arXiv"?("https://arxiv.org/abs/"+it.arxiv_id) : ("https://doi.org/"+it.doi)); }
+function scoreOf(it){ return it.score!=null ? it.score : ((it.relevance||0)+(it.significance||0)); }
+const VRANK = {read:0, skim:1};
+function sortByScore(items){ return [...items].sort((a,b)=>((VRANK[a.verdict]??0)-(VRANK[b.verdict]??0)) || (scoreOf(b)-scoreOf(a))); }
 
 function streakInfo(){
   const today=new Date().toISOString().slice(0,10);
@@ -133,28 +160,36 @@ function streakInfo(){
   for(;;){ const k=d.toISOString().slice(0,10); if(set.has(k)){s++; d.setDate(d.getDate()-1);} else break; }
   return s;
 }
+function scoresHtml(it){
+  const r=it.rubric;
+  if(r && r.q1!=null){
+    return `<span class="score sig" title="Worth 30 minutes?">worth 30 min ${r.q1}/5</span>
+      <span class="score rel" title="Inspiring for your work / AI4Sci?">inspiring ${r.q2}/5</span>
+      <span class="score fnd" title="Foundational knowledge or theory?">foundational ${r.q3}/5</span>
+      ${it.lane?`<span class="lane">${esc(LANE[it.lane]||it.lane)}</span>`:""}`;
+  }
+  return `<span class="score rel">relevance ${it.relevance||0}</span><span class="score sig">significance ${it.significance||0}</span>`;
+}
 function itemCard(it, dateForRead){
   const id=idOf(it), starred=!!LS.stars[id], isRead=!!LS.read[id];
   const bc=badgeColor(it.src);
   const tags=(it.tags||[]).map(t=>`<span class="tag" data-tag="${esc(t)}">${esc(t)}</span>`).join("");
-  const wl=(it.corresponding||[]).length&&it._wl?`<span class="wtag">★ ${esc((it._wl||[]).join(", "))}</span>`:"";
   const authors=(it.authors||[]).join(", ")+((it.authors||[]).length>=3?" et al.":"");
   const summ=it.summary?`<div class="summary"><b>Contribution:</b> ${esc(it.summary)}</div>`:"";
+  const why=(it.rubric&&it.rubric.why)?`<div class="why">${esc(it.rubric.why)}</div>`:"";
   const abs=it.abstract?`<div class="abs" id="abs-${esc(id)}">${esc(it.abstract)}</div>`:"";
-  return `<div class="item ${isRead?"":"unread"}" data-id="${esc(id)}">
+  const verdict=it.verdict?`<span class="verdict ${esc(it.verdict)}">${esc(it.verdict)}</span>`:"";
+  return `<div class="item ${isRead?"":"unread"} ${it.verdict==="skim"?"skim":""}" data-id="${esc(id)}">
     <div class="meta">
       <span class="badge2" style="color:${bc};border-color:${bc}">${esc(it.src||"journal")}</span>
       <span>${esc(it.date||dateForRead||"")}</span>
-      <span>${esc(it.venue||"")}</span>${wl}
+      <span>${esc(it.venue||"")}</span>
       ${it.is_new?'<span class="pubnew">NEW</span>':""}
-      ${isRead?"":'<span class="newdot">• new</span>'}
+      ${isRead?"":'<span class="newdot">• unread</span>'}
     </div>
     <a class="title" href="${link(it)}" target="_blank" rel="noopener">${esc(it.title||"")}</a>
     <div class="authors">${esc(authors)}</div>
-    <div class="scores">
-      <span class="score rel">relevance ${it.relevance||0}</span>
-      <span class="score sig">significance ${it.significance||0}</span>${tags}
-    </div>${summ}${abs}
+    <div class="scores">${verdict}${scoresHtml(it)}${tags}</div>${summ}${why}${abs}
     <div class="row2">
       <span class="star ${starred?"on":""}" data-star="${esc(id)}" title="Star this paper">${starred?"★":"☆"}</span>
       ${it.abstract?`<button class="lnk" data-abs="${esc(id)}">Abstract ▾</button>`:""}
@@ -162,9 +197,45 @@ function itemCard(it, dateForRead){
     </div>
   </div>`;
 }
-function markReadOnRender(items){ items.forEach(it=>{ /* read set on explicit open, not auto */ }); }
-
-function sortByScore(items){ return [...items].sort((a,b)=>((b.relevance||0)+(b.significance||0))-((a.relevance||0)+(a.significance||0))); }
+function landmarkCard(lm, opts){
+  if(!lm) return "";
+  const id=idOf(lm), starred=!!LS.stars[id];
+  const authors=(lm.authors||[]).join(", ")+((lm.authors_n||(lm.authors||[]).length)>3?" et al.":"");
+  const kind=lm.lane==="ai4sci"?"AI for Science landmark":"Molecular-CSP classic";
+  const always=(opts&&opts.always)?"always":"";
+  const when=(opts&&opts.date)?` · picked ${esc(opts.date)}`:"";
+  return `<div class="landmark ${always}" data-lm="${esc(id)}">
+    <div class="k">📚 Landmark of the day — ${esc(kind)}${when}</div>
+    <a class="title" href="${esc(lm.url||"#")}" target="_blank" rel="noopener">${esc(lm.title||"")}</a>
+    <div class="authors">${esc(authors)} (${esc(lm.year||"")}${lm.citations!=null?`, ${esc(lm.citations)} citations`:""}${lm.venue?`, ${esc(lm.venue)}`:""})</div>
+    <div class="qa">
+      <p><b>Worth 30 minutes?</b> ${esc(lm.worth_30_min)}</p>
+      <p><b>What it could inspire:</b> ${esc(lm.inspiration)}</p>
+      <p><b>Foundations to learn:</b> ${esc(lm.foundations)}</p>
+      <p><b>30-minute reading guide:</b> ${esc(lm.reading_guide)}</p>
+    </div>
+    <div class="row2">
+      <span class="star ${starred?"on":""}" data-star="${esc(id)}" title="Star this paper">${starred?"★":"☆"}</span>
+      ${always?"":`<button class="lnk" data-lmtoggle="${esc(id)}">Why read it ▾</button>`}
+      <a class="lnk" href="${esc(lm.url||"#")}" target="_blank" rel="noopener">Open ↗</a>
+    </div>
+  </div>`;
+}
+function groupedItems(items, dateForRead){
+  const judged=items.filter(it=>it.verdict);
+  if(!judged.length){ // legacy days (before the three-question gate)
+    return items.length ? items.map(it=>itemCard(it,dateForRead)).join("") : "";
+  }
+  const read=sortByScore(items.filter(it=>it.verdict==="read"));
+  const skim=sortByScore(items.filter(it=>it.verdict==="skim"));
+  const top=read.slice(0,TOP_PICKS), more=read.slice(TOP_PICKS);
+  let h="";
+  if(top.length) h+=`<div class="group">Top picks (${top.length})</div>`+top.map(it=>itemCard(it,dateForRead)).join("");
+  else h+=`<div class="quiet">Nothing passed the gate as “worth reading” in this window — a quiet day is a good day.</div>`;
+  if(more.length) h+=`<div class="group">More worth reading (${more.length})</div>`+more.map(it=>itemCard(it,dateForRead)).join("");
+  if(skim.length) h+=`<details class="aside"><summary>Set aside — skim if curious (${skim.length})</summary>${skim.map(it=>itemCard(it,dateForRead)).join("")}</details>`;
+  return h;
+}
 
 async function viewToday(){
   const app=document.getElementById("app");
@@ -173,17 +244,19 @@ async function viewToday(){
   const day=await loadDay(latest);
   let items=day.items||[];
   if(state.filterTag) items=items.filter(it=>(it.tags||[]).includes(state.filterTag));
-  items=sortByScore(items);
-  const newCount=items.filter(it=>!LS.read[idOf(it)]).length;
+  const nRead=items.filter(it=>it.verdict==="read").length, nSkim=items.filter(it=>it.verdict==="skim").length;
+  const unread=items.filter(it=>!LS.read[idOf(it)]).length;
   const tagOpts=[...new Set((day.items||[]).flatMap(it=>it.tags||[]))].sort();
+  const judged=items.some(it=>it.verdict);
   app.innerHTML=`
-    ${day.synthesis?`<div class="synth"><h2>What's new today</h2><p>${esc(day.synthesis)}</p></div>`:""}
-    <div class="daterow"><h1>${latest}</h1><span class="sub">${items.length} papers · ${newCount} unread</span></div>
+    ${day.synthesis?`<div class="synth"><h2>What's worth reading today</h2><p>${esc(day.synthesis)}</p></div>`:""}
+    ${landmarkCard(day.landmark,{always:true})}
+    <div class="daterow"><h1>${latest}</h1><span class="sub">${judged?`${nRead} worth reading · ${nSkim} set aside · `:`${items.length} papers · `}${unread} unread</span></div>
     <div class="controls">
       <select id="tagFilter"><option value="">All tags</option>${tagOpts.map(t=>`<option ${state.filterTag===t?"selected":""}>${esc(t)}</option>`).join("")}</select>
       <button class="lnk" id="markAll" style="border:1px solid var(--line);border-radius:7px;padding:5px 10px">Mark all read</button>
     </div>
-    ${items.map(it=>itemCard(it,latest)).join("")||'<div class="empty">Nothing matches this filter.</div>'}`;
+    ${groupedItems(items,latest)||(items.length?'':'<div class="empty">Nothing matches this filter.</div>')}`;
   document.getElementById("tagFilter").onchange=e=>{state.filterTag=e.target.value||null; render();};
   document.getElementById("markAll").onclick=()=>{items.forEach(it=>LS.read[idOf(it)]=1); save(); render();};
 }
@@ -191,17 +264,15 @@ async function viewToday(){
 async function viewWeek(){
   const app=document.getElementById("app");
   const dates=state.manifest.map(m=>m.date);
-  // group into 7-day windows from most recent
   const end=new Date(dates[0]||new Date()); end.setDate(end.getDate()-state.weekOffset*7);
   const start=new Date(end); start.setDate(start.getDate()-6);
   const inWin=d=>{const x=new Date(d);return x>=start&&x<=end;};
   const wdates=dates.filter(inWin);
-  let items=[];
-  for(const d of wdates){ const day=await loadDay(d); items=items.concat(day.items||[]); }
-  // dedupe by id, keep best score
-  const seen={}; items.forEach(it=>{const k=idOf(it); if(!seen[k]||((it.relevance||0)+(it.significance||0))>((seen[k].relevance||0)+(seen[k].significance||0))) seen[k]=it;});
+  let items=[]; const lms=[];
+  for(const d of wdates){ const day=await loadDay(d); items=items.concat(day.items||[]); if(day.landmark) lms.push({...day.landmark,_date:d}); }
+  const seen={}; items.forEach(it=>{const k=idOf(it); if(!seen[k]||scoreOf(it)>scoreOf(seen[k])) seen[k]=it;});
   items=sortByScore(Object.values(seen));
-  const top=items.slice(0,10);
+  const top=items.filter(it=>!it.verdict||it.verdict==="read").slice(0,10);
   const fmt=d=>d.toISOString().slice(0,10);
   app.innerHTML=`
     <div class="weekpick">
@@ -210,61 +281,82 @@ async function viewWeek(){
       <button ${state.weekOffset===2?'class="active"':""} data-wk="2">2 weeks ago</button>
       <button ${state.weekOffset===3?'class="active"':""} data-wk="3">3 weeks ago</button>
     </div>
-    <div class="daterow"><h1>Week of ${fmt(start)} → ${fmt(end)}</h1><span class="sub">${items.length} papers · top ${top.length}</span></div>
-    <div class="synth"><h2>Weekly picks</h2><p>The highest relevance+significance work this week, deduplicated across daily runs. Star what you want to keep.</p></div>
-    ${top.map(it=>itemCard(it)).join("")||'<div class="empty">No papers in this window.</div>'}`;
+    <div class="daterow"><h1>Week of ${fmt(start)} → ${fmt(end)}</h1><span class="sub">${items.length} papers kept · top ${top.length} · ${lms.length} landmarks</span></div>
+    <div class="synth"><h2>Weekly picks</h2><p>The highest-scoring “worth reading” papers this week, deduplicated across daily runs, followed by the week's landmarks. Star what you want to keep.</p></div>
+    ${top.map(it=>itemCard(it)).join("")||'<div class="empty">No papers passed the gate in this window.</div>'}
+    ${lms.length?`<div class="group">Landmarks this week</div>`+lms.map(lm=>landmarkCard(lm,{date:lm._date})).join(""):""}`;
   app.querySelectorAll("[data-wk]").forEach(b=>b.onclick=()=>{state.weekOffset=+b.dataset.wk; render();});
+}
+
+async function viewLandmarks(){
+  const app=document.getElementById("app");
+  const days=state.manifest.filter(m=>m.landmark);
+  const seen=new Set(); const lms=[];
+  for(const m of days){ const d=await loadDay(m.date); if(d.landmark && !seen.has(idOf(d.landmark))){ seen.add(idOf(d.landmark)); lms.push({...d.landmark,_date:m.date}); } }
+  const nAi=lms.filter(l=>l.lane==="ai4sci").length;
+  app.innerHTML=`<div class="daterow"><h1>Landmarks</h1><span class="sub">${lms.length} picked so far · ${nAi} AI for Science · ${lms.length-nAi} molecular CSP</span></div>
+    <div class="synth"><h2>Your canon</h2><p>One established paper per day, chosen for quality and novelty rather than date, each explained through the three questions: worth 30 minutes? inspiring for your work? foundational theory to learn?</p></div>
+    ${lms.map(lm=>landmarkCard(lm,{date:lm._date})).join("")||'<div class="empty">No landmarks yet. The daily job adds one per day.</div>'}`;
 }
 
 async function viewHistory(){
   const app=document.getElementById("app");
   if(!state.manifest.length){ app.innerHTML='<div class="empty">No history yet.</div>'; return; }
+  const cnt=m=>m.read_count!=null?`${m.read_count} read · ${m.skim_count||0} skim`:`${m.count} papers`;
   app.innerHTML=`<div class="daterow"><h1>History</h1><span class="sub">${state.manifest.length} days archived</span></div>
     <div class="cal">${state.manifest.map(m=>`
       <div class="calday" data-day="${m.date}">
-        <span class="d">${m.date}</span><span class="c">${m.count} papers</span>
-        <span class="s">${esc((m.synthesis||"").slice(0,110))}${(m.synthesis||"").length>110?"…":""}</span>
+        <span class="d">${m.date}</span><span class="c">${cnt(m)}</span>
+        <span class="s">${m.landmark?`📚 ${esc(m.landmark.title.slice(0,60))}${m.landmark.title.length>60?"…":""} · `:""}${esc((m.synthesis||"").slice(0,100))}${(m.synthesis||"").length>100?"…":""}</span>
       </div>`).join("")}</div>`;
   app.querySelectorAll("[data-day]").forEach(el=>el.onclick=async()=>{
     const day=await loadDay(el.dataset.day);
     const items=sortByScore(day.items||[]);
     app.innerHTML=`<div class="daterow"><h1>${el.dataset.day}</h1><span class="sub">${items.length} papers · <button class="lnk" id="back">← history</button></span></div>
-      ${day.synthesis?`<div class="synth"><h2>What's new</h2><p>${esc(day.synthesis)}</p></div>`:""}
-      ${items.map(it=>itemCard(it,el.dataset.day)).join("")}`;
-    document.getElementById("back").onclick=()=>viewHistory();
+      ${day.synthesis?`<div class="synth"><h2>What was worth reading</h2><p>${esc(day.synthesis)}</p></div>`:""}
+      ${landmarkCard(day.landmark,{always:true})}
+      ${groupedItems(items,el.dataset.day)||'<div class="empty">No papers that day.</div>'}`;
+    document.getElementById("back").onclick=()=>{viewHistory().then(bindCards);};
     bindCards();
   });
 }
 
+function allKnown(){
+  const byId={};
+  Object.values(state.dayCache).forEach(d=>{ (d.items||[]).forEach(it=>byId[idOf(it)]=it); if(d.landmark) byId[idOf(d.landmark)]=d.landmark; });
+  return byId;
+}
 function viewStarred(){
   const app=document.getElementById("app");
   const ids=Object.keys(LS.stars).filter(k=>LS.stars[k]);
-  const all=Object.values(state.dayCache).flatMap(d=>d.items||[]);
-  const byId={}; all.forEach(it=>byId[idOf(it)]=it);
+  const byId=allKnown();
   const items=ids.map(id=>byId[id]).filter(Boolean);
+  const papers=items.filter(it=>!it.worth_30_min), lms=items.filter(it=>it.worth_30_min);
   app.innerHTML=`<div class="daterow"><h1>★ Starred</h1><span class="sub">${ids.length} saved</span></div>
     <div class="exportbar"><button id="expRis">⬇ Export to Zotero (RIS)</button></div>
-    ${items.length?sortByScore(items).map(it=>itemCard(it)).join(""):
-      '<div class="empty">No starred papers yet. Click ☆ on any paper to save it here.<br><small>Open History to load older papers so their stars resolve.</small></div>'}`;
+    ${items.length?sortByScore(papers).map(it=>itemCard(it)).join("")+(lms.length?`<div class="group">Starred landmarks</div>`+lms.map(lm=>landmarkCard(lm,{always:true})).join(""):""):
+      '<div class="empty">No starred papers yet. Click ☆ on any paper or landmark to save it here.<br><small>Open History or Landmarks to load older entries so their stars resolve.</small></div>'}`;
   const btn=document.getElementById("expRis"); if(btn) btn.onclick=()=>exportRIS(items);
 }
 function exportRIS(items){
   const lines=[];
   items.forEach(it=>{
-    lines.push("TY  - "+(it.src==="arXiv"?"GEN":"JOUR"));
+    lines.push("TY  - "+((it.src==="arXiv"||it.arxiv_id&&!it.doi)?"GEN":"JOUR"));
     lines.push("TI  - "+(it.title||""));
     (it.authors||[]).forEach(a=>lines.push("AU  - "+a));
-    if(it.date){lines.push("PY  - "+it.date.slice(0,4)); lines.push("DA  - "+it.date.replace(/-/g,"/"));}
+    const y=it.date?it.date.slice(0,4):(it.year?String(it.year):"");
+    if(y) lines.push("PY  - "+y);
+    if(it.date) lines.push("DA  - "+it.date.replace(/-/g,"/"));
     if(it.venue) lines.push("JO  - "+it.venue);
     if(it.doi) lines.push("DO  - "+it.doi);
     lines.push("UR  - "+link(it));
     if(it.abstract) lines.push("AB  - "+it.abstract.replace(/\n/g," "));
-    ["CSP",...(it.tags||[])].forEach(t=>lines.push("KW  - "+t));
+    ["CSP",...(it.tags||[]),...(it.area?[it.area]:[])].forEach(t=>lines.push("KW  - "+t));
     lines.push("ER  - "); lines.push("");
   });
   const blob=new Blob([lines.join("\n")],{type:"application/x-research-info-systems"});
   const a=document.createElement("a"); a.href=URL.createObjectURL(blob);
-  a.download="csp_starred.ris"; a.click();
+  a.download="reading_room_starred.ris"; a.click();
 }
 
 function bindCards(){
@@ -277,9 +369,11 @@ function bindCards(){
     if(box){ box.classList.toggle("open"); LS.read[id]=1; save();
       const card=el.closest(".item"); if(card) card.classList.remove("unread"); }
   });
-  document.querySelectorAll(".title,[data-id] a.lnk[href]").forEach(a=>a.addEventListener("click",()=>{
-    const card=a.closest(".item"); if(card){ LS.read[idOf({doi:card.dataset.id,arxiv_id:card.dataset.id,title:card.dataset.id})]=1;
-      LS.read[card.dataset.id]=1; save(); card.classList.remove("unread"); }
+  document.querySelectorAll("[data-lmtoggle]").forEach(el=>el.onclick=()=>{
+    const card=el.closest(".landmark"); if(card){ card.classList.toggle("open"); el.textContent=card.classList.contains("open")?"Why read it ▴":"Why read it ▾"; }
+  });
+  document.querySelectorAll(".item .title,.item a.lnk[href]").forEach(a=>a.addEventListener("click",()=>{
+    const card=a.closest(".item"); if(card){ LS.read[card.dataset.id]=1; save(); card.classList.remove("unread"); }
   }));
   document.querySelectorAll("[data-tag]").forEach(el=>el.onclick=()=>{state.filterTag=el.dataset.tag; state.view="today"; render();});
 }
@@ -297,21 +391,21 @@ async function render(){
   const v=state.view;
   if(v==="today") await viewToday();
   else if(v==="week") await viewWeek();
+  else if(v==="landmarks") await viewLandmarks();
   else if(v==="history") await viewHistory();
   else if(v==="starred") viewStarred();
   bindCards(); updateBadges();
 }
 async function boot(){
   await loadManifest();
-  document.getElementById("scopeLbl").textContent = state.manifest[0]? "· molecular CSP" : "";
+  document.getElementById("scopeLbl").textContent = state.manifest[0]? "· molecular CSP + AI for Science" : "";
   const s=streakInfo();
   document.getElementById("streak").innerHTML = `🔥 <b>${s}</b>-day streak · ${Object.keys(LS.stars).length} starred`;
   document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{state.view=b.dataset.view; state.filterTag=null; render();});
-  // preload recent days so starred/week resolve without extra clicks
   for(const m of state.manifest.slice(0,10)) await loadDay(m.date);
   await render();
   LS.lastVisit=new Date().toISOString(); localStorage.setItem("csp_lastvisit",LS.lastVisit);
-  document.getElementById("foot").textContent="CSP Reading Room · data refreshed daily by GitHub Actions · stars saved in this browser";
+  document.getElementById("foot").textContent="Reading Room · every paper judged on three questions (worth 30 min? inspiring? foundational?) · data refreshed daily by GitHub Actions · stars saved in this browser";
 }
 boot();
 </script>
