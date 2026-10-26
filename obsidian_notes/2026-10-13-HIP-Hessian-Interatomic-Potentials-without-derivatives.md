@@ -20,7 +20,7 @@ tags:
 **Field:** [[ML-potential]]
 
 ## Why it matters
-Replaces derivative-based force/stress computation in interatomic potentials with a direct, learned Hessian prediction, enabling faster, derivative-free access to second-order energy information for applications like crystal structure optimization.
+Introduces Hessian-informed interatomic potentials trained to predict energy/forces without explicit second-derivative computation, enabling efficient Hessian-aware predictions for applications like crystal structure optimization and transition-state searches.
 
 ## My notes
 

@@ -21,7 +21,7 @@ tags:
 **Field:** [[ML-potential]] [[benchmark]]
 
 ## Why it matters
-A transferable MACE machine-learning potential for sp2 carbon, validated via family-level benchmarks across 2D/curved allotropes and a SOAP-based structural novelty/diversity map.
+A MACE machine-learning interatomic potential trained on sp2 carbon is benchmarked for transferability across 2D and curved carbon families using SOAP-based descriptors to map structural novelty beyond the training domain.
 
 ## My notes
 
