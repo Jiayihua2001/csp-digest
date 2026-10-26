@@ -5,7 +5,7 @@ on:
     # 07:23 UTC every day. Off-the-hour on purpose: top-of-hour
     # cron stampedes make shared-runner 429s much more likely.
     - cron: "23 7 * * *"
-  workflow_dispatch:        # lets you trigger a run manually from the Actions tab
+  workflow_dispatch:        # manual run from the Actions tab; from a non-main branch = dry run
     inputs:
       days:
         description: "Look-back window (days)"
@@ -55,7 +55,11 @@ jobs:
           cp csp_digest.ris  "digests/csp_digest_$D.ris"  2>/dev/null || true
           cp csp_digest.json "digests/csp_digest_$D.json" 2>/dev/null || true
 
+      # Only main keeps data. A manual run from any other branch (e.g. to
+      # validate a change with the real secrets) is a dry run: it still renders
+      # and deploys the site below, but commits nothing back.
       - name: Commit digest + accumulated site data
+        if: github.ref_name == 'main'
         run: |
           git config user.name  "csp-digest-bot"
           git config user.email "actions@github.com"
