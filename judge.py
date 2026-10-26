@@ -362,6 +362,7 @@ def run(items: list, cache_path: str = CACHE_PATH, api=None, today: str = None,
                          "verdict": "skip", "why": str(t.get("reason", ""))[:120],
                          "lane": "ai4sci" if it.get("ai4sci") else "mcsp"}
                     triaged_out += 1
+                    log(f"[triage] drop: {(it.get('title') or '')[:70]}  ({c['why']})", file=sys.stderr)
             if c is None:
                 attempted += 1
                 try:
@@ -380,6 +381,8 @@ def run(items: list, cache_path: str = CACHE_PATH, api=None, today: str = None,
                 c = {"v": PROMPT_VERSION, "model": jmodel, "date": today, "stage": "judge", **r}
                 c["verdict"] = verdict_from(c)
                 fresh += 1
+                log(f"[judge] {c['verdict']:4s} Q1={c['q1']} Q2={c['q2']} Q3={c['q3']} {c['lane']:7s} "
+                    f"{(it.get('title') or '')[:60]}  ({c['why']})", file=sys.stderr)
                 time.sleep(0.2)
             cache[pid] = c
         apply(it, c)

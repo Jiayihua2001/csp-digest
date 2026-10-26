@@ -55,6 +55,16 @@ jobs:
           cp csp_digest.ris  "digests/csp_digest_$D.ris"  2>/dev/null || true
           cp csp_digest.json "digests/csp_digest_$D.json" 2>/dev/null || true
 
+      - name: Upload the brief as a downloadable artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: digest-${{ github.run_number }}
+          path: |
+            csp_digest.html
+            csp_digest.json
+            csp_digest.ris
+          retention-days: 14
+
       # Only main keeps data. A manual run from any other branch (e.g. to
       # validate a change with the real secrets) is a dry run: it still renders
       # and deploys the site below, but commits nothing back.
