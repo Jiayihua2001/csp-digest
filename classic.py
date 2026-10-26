@@ -1,17 +1,14 @@
 #!/usr/bin/env python3
 """
-Classic of the day for csp-digest.
+Molecular-CSP classics pool for csp-digest (one of the two landmark lanes).
 
-Recommends one real, foundational CSP paper each run to build up knowledge of the
-field's canon (and to give quiet days something worth reading). Mines a pool of
-well-cited, established molecular-CSP papers from OpenAlex (real DOIs/metadata),
-skips ones already shown (a committed state file under site/data), and has a
-frontier model pick + explain the single most foundational unseen one for the
-user's focus. The paper is always a real OpenAlex record: the model only picks
-from the pool and explains it, so it cannot fabricate a citation. Never raises.
+Mines a pool of well-cited, established molecular-CSP papers from OpenAlex
+(real DOIs/metadata) and caches it in-repo so CI never needs OpenAlex. The
+daily pick and its three-question explanation live in landmarks.py; this
+module only builds the pool.
 
-Runnable standalone to preview a pick:
-    ANTHROPIC_API_KEY=... OPENALEX_MAILTO=you@cmu.edu python3 classic.py
+Refresh the cache locally (needs OPENALEX_API_KEY; stale after 45 days):
+    python3 classic.py
 
 Stdlib only.
 """
@@ -25,17 +22,10 @@ import time
 import urllib.parse
 import urllib.request
 
-try:
-    from analysis import PROFILE
-except Exception:  # noqa: BLE001
-    PROFILE = "Molecular crystal structure prediction with genetic-algorithm / evolutionary methods."
-
-MODEL_DEFAULT = "claude-opus-4-8"
-SEEN_PATH = os.path.join("site", "data", "classics_seen.json")
 # The classics pool is mostly static, so it's mined once (locally, where
 # OpenAlex works) and cached in-repo; CI runs never need OpenAlex at all.
 POOL_CACHE = os.path.join("review", "classics_pool.json")
-POOL_MAX_AGE_DAYS = 45
+POOL_MAX_AGE_DAYS = 365       # a canon barely changes; refresh by hand with `python3 classic.py`
 
 POOL_QUERIES = [
     "molecular crystal structure prediction",
@@ -123,63 +113,10 @@ def mine_pool() -> list:
     return sorted(pool.values(), key=lambda x: x["citations"], reverse=True)
 
 
-_SCHEMA = {
-    "type": "object", "additionalProperties": False,
-    "properties": {
-        "chosen_doi": {"type": "string"},
-        "why_foundational": {"type": "string"},
-        "how_it_connects": {"type": "string"},
-        "what_to_take_away": {"type": "string"},
-    },
-    "required": ["chosen_doi", "why_foundational", "how_it_connects", "what_to_take_away"],
-}
-
-
-def _pick(cands: list, model: str, key: str) -> dict:
-    listing = "\n".join(
-        f'{i + 1}. doi={c["doi"]} ({c["year"]}, {c["citations"]} cites) {c["title"]}\n   {c["abstract"][:280]}'
-        for i, c in enumerate(cands[:50]))
-    prompt = (
-        "You help a researcher build a mental map of crystal structure prediction (CSP). Profile:\n"
-        + PROFILE + "\n\nBelow are REAL, established, well-cited CSP papers from OpenAlex. Pick the SINGLE "
-        "most foundational one for this researcher to read to build core knowledge — a genuine cornerstone "
-        "(landmark method, benchmark/blind test, or defining review), not a narrow application. Return its "
-        "exact 'chosen_doi' FROM THE LIST (never invent a DOI). Then, grounded ONLY in the title/abstract "
-        "shown, write why_foundational, how_it_connects (to modern CSP, GA/evolutionary methods, current "
-        "work), and what_to_take_away (the one idea to internalize). Be accurate; do not assert results the "
-        "abstract doesn't state. Use plain ASCII punctuation only (no em-dashes or smart quotes)."
-        "\n\nPAPERS:\n" + listing
-    )
-    body = {"model": model, "max_tokens": 1500,
-            "output_config": {"format": {"type": "json_schema", "schema": _SCHEMA}},
-            "messages": [{"role": "user", "content": prompt}]}
-    req = urllib.request.Request("https://api.anthropic.com/v1/messages", data=json.dumps(body).encode(),
-                                 headers={"x-api-key": key, "anthropic-version": "2023-06-01",
-                                          "content-type": "application/json"})
-    with urllib.request.urlopen(req, timeout=120) as r:
-        resp = json.loads(r.read())
-    txt = "".join(b.get("text", "") for b in resp.get("content", []) if b.get("type") == "text").strip()
-    return json.loads(txt)
-
-
-def _load_seen(path: str) -> list:
-    try:
-        return json.load(open(path))
-    except Exception:  # noqa: BLE001
-        return []
-
-
-def _save_seen(path: str, dois: set) -> None:
-    try:
-        os.makedirs(os.path.dirname(path), exist_ok=True)
-        json.dump(sorted(dois), open(path, "w"), indent=1)
-    except Exception as e:  # noqa: BLE001
-        print(f"[warn] could not write {path}: {e}", file=sys.stderr)
-
-
 def _pool_cached() -> list:
     """Load the committed pool cache; re-mine only when stale AND OpenAlex is
-    reachable (a failed refresh falls back to the stale cache)."""
+    reachable (a failed refresh falls back to the stale cache). CI cannot reach
+    OpenAlex, so in practice the cache is refreshed locally and committed."""
     cached, age = [], 10**6
     if os.path.exists(POOL_CACHE):
         try:
@@ -203,35 +140,10 @@ def _pool_cached() -> list:
     return cached                      # stale cache beats no pool
 
 
-def classic_of_the_day(seen_path: str = SEEN_PATH, model: str | None = None) -> dict | None:
-    """Pick one foundational CSP paper not shown before; returns a dict or None."""
-    key = os.environ.get("ANTHROPIC_API_KEY")
-    if not key:
-        return None
-    model = model or os.environ.get("ANALYSIS_MODEL", MODEL_DEFAULT)
-    try:
-        seen = set(_load_seen(seen_path))
-        pool = _pool_cached()
-        cands = [c for c in pool if c["doi"] not in seen]
-        if not cands:
-            return None
-        sel = _pick(cands, model, key)
-        chosen = {c["doi"]: c for c in cands}.get(sel.get("chosen_doi")) or cands[0]
-        _save_seen(seen_path, seen | {chosen["doi"]})
-        return {
-            **chosen,
-            "url": f"https://doi.org/{chosen['doi']}",
-            "why_foundational": sel["why_foundational"],
-            "how_it_connects": sel["how_it_connects"],
-            "what_to_take_away": sel["what_to_take_away"],
-        }
-    except Exception as e:  # noqa: BLE001 - never break the digest
-        print(f"[warn] classic_of_the_day: {e}", file=sys.stderr)
-        return None
-
-
 if __name__ == "__main__":
-    if not os.environ.get("ANTHROPIC_API_KEY"):
-        sys.exit("Set ANTHROPIC_API_KEY first.")
-    c = classic_of_the_day(seen_path=os.environ.get("SEEN_PATH", "classics_seen.json"))
-    print(json.dumps(c, indent=2, ensure_ascii=False) if c else "no classic produced")
+    pool = mine_pool()
+    if not pool:
+        sys.exit("no pool mined (OpenAlex unreachable or budget exhausted)")
+    os.makedirs(os.path.dirname(POOL_CACHE), exist_ok=True)
+    json.dump({"mined": datetime.date.today().isoformat(), "pool": pool}, open(POOL_CACHE, "w"), indent=1)
+    print(f"{len(pool)} classics -> {POOL_CACHE}")

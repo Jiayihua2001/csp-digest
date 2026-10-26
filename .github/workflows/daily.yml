@@ -1,4 +1,4 @@
-name: CSP daily digest
+name: Daily reading digest
 
 on:
   schedule:
@@ -41,8 +41,8 @@ jobs:
           OPENALEX_MAILTO: ${{ secrets.OPENALEX_MAILTO }}
           DIGEST_DAYS: ${{ github.event.inputs.days || '14' }}
           OA_TRIES: "2"          # fail over to Crossref in ~2 min instead of ~21
-          CLASSIC_OF_DAY: "1"
-
+          LANDMARK_OF_DAY: "1"   # one canon paper per day (landmarks.py)
+          JUDGE_REQUIRED: "1"    # never publish unjudged papers as "worth reading"
           DIGEST_SCOPE: ${{ github.event.inputs.scope || 'molecular' }}
           BUILD_SITE: "1"
         run: python digest.py

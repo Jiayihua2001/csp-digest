@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
-"""Self-contained CSP literature digest.
+"""Self-contained reading digest: molecular CSP + AI-for-science landmarks.
 
-Queries OpenAlex (published articles + ChemRxiv preprints) and arXiv for recent
-crystal structure prediction papers (molecular + inorganic), filters off-field
-noise, deduplicates, ranks toward genetic-algorithm / evolutionary methods,
-tags watchlist authors, optionally adds a one-line AI "why it matters" per
-paper, and renders a styled single-file HTML brief.
+Two lanes feed one strict reading gate (judge.py):
+  mcsp    new molecular crystal structure prediction work from OpenAlex
+          (published + ChemRxiv), Crossref (CI fallback) and arXiv.
+  ai4sci  broad AI-for-science scouting: ML papers in high-visibility science
+          journals (Nature, Science, Nat Mach Intell, ...) and ML x science
+          arXiv categories. Deliberately broad - the judge, not the query,
+          decides what is worth reading.
+Every candidate is scored on the reader's three questions (worth 30 minutes?
+inspiring for their work? foundational theory?) and only read/skim verdicts
+are published - an empty day is a valid day. A "landmark of the day" from a
+curated canon (landmarks.py) gives every day one paper worth 30 minutes.
 
 No platform dependencies: uses public OpenAlex/arXiv APIs directly and the
 Anthropic Messages API for summaries. Designed to run in GitHub Actions or
@@ -17,12 +23,10 @@ Environment variables:
   OPENALEX_MAILTO    recommended contact email for the OpenAlex polite pool
   DIGEST_DAYS        look-back window in days (default 4)
   DIGEST_SCOPE       "molecular", "inorganic", or "both" (default both)
-  SUMMARY_MODEL      Anthropic model id (default claude-sonnet-5)
-  DIGEST_SCREEN      1 (default) = LLM-screen out irrelevant/experimental papers; 0 = off
-  SCREEN_MODEL       model for screening (default claude-haiku-4-5)
-  SCREEN_MIN_REL     keep papers scoring >= this (default 6)
-  SCREEN_MIN_REL_AI4SCI  higher bar for AI4Sci-scouted papers (default 7 - sparks only)
-  CLASSIC_OF_DAY     1 = show one foundational CSP paper per day (see classic.py)
+  JUDGE_MODEL / TRIAGE_MODEL / JUDGE_EFFORT   see judge.py (defaults claude-opus-5-5 /
+                     claude-haiku-5-5 / medium); DIGEST_JUDGE=0 publishes unjudged
+  JUDGE_REQUIRED     1 = refuse to publish when the judge could not run (CI default)
+  LANDMARK_OF_DAY    1 = pick one canon paper per day (see landmarks.py)
 """
 from __future__ import annotations
 import os
@@ -35,6 +39,8 @@ import datetime
 import urllib.parse
 import urllib.request
 import urllib.error
+
+import judge                      # three-question reading gate (same directory)
 
 # ----------------------------- configuration -----------------------------
 
@@ -59,18 +65,38 @@ ARXIV_QUERIES = [
     'abs:"crystal structure prediction" AND abs:generative',
 ]
 
-# Deliberately narrow AI4Sci scouting (transfer potential to MCSP). Items from
-# these queries bypass the CSP regex gates and instead face a HIGHER LLM-screen
-# bar (SCREEN_MIN_REL_AI4SCI): only high-quality, methodologically novel work.
-QUERIES_AI4SCI = [
-    "machine learning interatomic potential",
-    "universal interatomic potential",
-    "generative model crystal structure",
-]
+# AI-for-science lane. Broad on purpose: keyword scouting (the old MLIP queries)
+# filled the digest with incremental potential papers. Candidates from here skip
+# the CSP regex gates; the three-question judge decides, and most are skipped.
+#   journals: ML-flavoured papers in high-visibility science venues
+#   arXiv:    ML x science categories, and cs.LG papers about science
+AI4SCI_JOURNALS = {               # OpenAlex source id -> (ISSN for the Crossref fallback, AI-native?)
+    "S137773608": ("0028-0836", False),   # Nature
+    "S3880285": ("0036-8075", False),     # Science
+    "S2912241403": ("2522-5839", True),   # Nature Machine Intelligence (fetch everything)
+    "S4210228084": ("2662-8457", True),   # Nature Computational Science (fetch everything)
+    "S202193212": ("1755-4330", False),   # Nature Chemistry
+    "S103895331": ("1476-1122", False),   # Nature Materials
+    "S125754415": ("0027-8424", False),   # PNAS
+    "S2737427234": ("2375-2548", False),  # Science Advances
+    "S111155417": ("0002-7863", False),   # JACS
+}
+AI4SCI_TERMS = ["machine learning", "deep learning", "neural network", "generative model",
+                "language model", "foundation model"]
+# Local gate for journal-sourced AI4Sci candidates: Crossref's text search is
+# loose ("machine learning" also matches "machine-washed"), so require real ML
+# vocabulary in the title/abstract before spending a model call.
+AI4SCI_PAT = (r"\b(machine[- ]learn\w*|deep[- ]learn\w*|neural[- ]network\w*|generative|language model\w*|"
+              r"foundation model\w*|transformer\w*|diffusion model\w*|reinforcement learning|"
+              r"artificial intelligence|AI)\b")
 ARXIV_QUERIES_AI4SCI = [
-    'abs:"interatomic potential" AND abs:"machine learning"',
-    'abs:"generative model" AND abs:"crystal structure"',
+    '(cat:physics.chem-ph OR cat:cond-mat.mtrl-sci OR cat:physics.comp-ph OR cat:q-bio.BM '
+    'OR cat:physics.bio-ph) AND (abs:"deep learning" OR abs:"machine learning" OR '
+    'abs:"neural network" OR abs:generative OR abs:"language model" OR abs:"foundation model")',
+    'cat:cs.LG AND (abs:molecule OR abs:molecular OR abs:protein OR abs:crystal OR abs:materials '
+    'OR abs:chemistry OR abs:"scientific discovery" OR abs:"partial differential")',
 ]
+ARXIV_AI4SCI_MAX = 200            # newest N per query; ~12-18 days of volume
 PREPRINT_VENUE = "ChemRxiv"
 CHEMRXIV_SOURCE_ID = "S4393918830"  # OpenAlex source id for ChemRxiv
 
@@ -172,13 +198,15 @@ def _reconstruct_abstract(inv):
     return " ".join(w for _, w in words)[:1200]
 
 
-def fetch_openalex(query, since, work_type, venue=None):
+def fetch_openalex(query, since, work_type, venue=None, source_ids=None):
     # Filter by when OpenAlex INDEXED the work (created_date), not its nominal
     # publication_date: OpenAlex lags days-to-weeks, so a short publication_date
     # window misses papers that are, in practice, brand new to the index.
     filt = f"from_created_date:{since},title_and_abstract.search:{query},type:{work_type}"
     if venue == PREPRINT_VENUE:
         filt += f",primary_location.source.id:{CHEMRXIV_SOURCE_ID}"
+    if source_ids:                                   # restrict to given journals
+        filt += f",primary_location.source.id:{'|'.join(source_ids)}"
     url = OPENALEX + "?" + urllib.parse.urlencode(_oa_params({"filter": filt, "per-page": 100}))
     # OA_TRIES lets CI fail over to Crossref quickly instead of walking the
     # full 429 backoff ladder (GitHub runner IPs are throttled pre-auth).
@@ -225,7 +253,7 @@ def _jats_strip(text):
     return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", text or "")).strip()[:1200]
 
 
-def fetch_crossref(query, since, kind):
+def fetch_crossref(query, since, kind, issn=None):
     """CI-friendly fallback source. kind: 'journal' or 'chemrxiv'.
     Crossref indexes both journal articles and ChemRxiv preprints (posted-content
     under prefix 10.26434) and does not throttle datacenter IPs the way OpenAlex
@@ -233,8 +261,12 @@ def fetch_crossref(query, since, kind):
     filt = f"from-created-date:{since}," + (
         "type:journal-article" if kind == "journal"
         else f"type:posted-content,prefix:{CHEMRXIV_DOI_PREFIX}")
-    params = {"query.bibliographic": query, "filter": filt, "rows": 50,
+    if issn:
+        filt += f",issn:{issn}"
+    params = {"filter": filt, "rows": 50,
               "select": "DOI,title,created,author,container-title,abstract,is-referenced-by-count"}
+    if query:                                 # "" = everything in the window (small journals)
+        params["query.bibliographic"] = query
     mailto = os.environ.get("OPENALEX_MAILTO")
     if mailto:
         params["mailto"] = mailto
@@ -266,11 +298,11 @@ def fetch_crossref(query, since, kind):
     return out
 
 
-def fetch_arxiv(query, since):
+def fetch_arxiv(query, since, max_results=25):
     params = {
         "search_query": query,
         "start": 0,
-        "max_results": 25,
+        "max_results": max_results,
         "sortBy": "submittedDate",
         "sortOrder": "descending",
     }
@@ -307,7 +339,8 @@ def fetch_arxiv(query, since):
 # --------------------------- filter / rank --------------------------------
 
 def clean_title(t):
-    return re.sub(r"&lt;.*?&gt;|<[^>]+>", "", t or "").strip()
+    # Crossref/OpenAlex titles can carry markup and embedded newlines.
+    return re.sub(r"\s+", " ", re.sub(r"&lt;.*?&gt;|<[^>]+>", "", t or "")).strip()
 
 
 def csp_relevant(title):
@@ -521,165 +554,31 @@ def rank_items(items, scope="molecular"):
         # AI4Sci-scouted items skip the CSP regex gates (an MLIP paper rarely
         # says "structure prediction" in its title) - the LLM screen judges
         # them instead, against a higher bar.
-        if not it.get("ai4sci"):
+        if it.get("ai4sci"):
+            if it.get("src") != "arXiv" and not re.search(
+                    AI4SCI_PAT, it["title"] + " " + (it.get("abstract") or ""), re.I):
+                continue                       # journal text search matched loosely
+        else:
             if it.get("src") != "arXiv" and not csp_relevant(it["title"]):
                 continue
             if scope == "molecular" and not is_molecular(it):
                 continue
-        enrich_arxiv_from_openalex(it)
+            enrich_arxiv_from_openalex(it)
         it["tags"] = keyword_tags(it)
         it["relevance"] = relevance_score(it)
-        it["significance"] = significance_score(it, sset)
+        # AI4Sci candidates are many and get their real scores from the judge;
+        # skip the per-author OpenAlex enrichment (one call per author id).
+        it["significance"] = 0 if it.get("ai4sci") else significance_score(it, sset)
         it["score"] = it["relevance"] + it["significance"]     # combined sort key
         out.append(it)
     out.sort(key=lambda x: (x.get("score", 0), x.get("date") or ""), reverse=True)
     return out
 
 
-# ------------------------------ LLM screen --------------------------------
-
-SCREEN_PROMPT = (
-    "You score papers for a researcher in Noa Marom's group (CMU) whose core area is "
-    "FIRST-PRINCIPLES MOLECULAR CRYSTAL STRUCTURE PREDICTION (MCSP): polymorph candidate "
-    "generation (Genarris), genetic-algorithm search (GAtor), dispersion-DFT lattice-energy "
-    "ranking, and MLIPs (MACE-OFF, AIMNet2, UMA) accelerating CSP. They also scout AI-for-science "
-    "methods that could TRANSFER to MCSP.\n"
-    "Score relevance 1-10:\n"
-    "  9-10: direct molecular-CSP methods, benchmarks, blind tests, polymorph energy ranking\n"
-    "  6-8:  computational/ML methods with clear transfer potential to CSP (generative models for "
-    "crystals, MLIPs, structure search algorithms)\n"
-    "  5-7:  adjacent COMPUTATIONAL crystalline-materials structure prediction (inorganic CSP, "
-    "USPEX/CALYPSO-style searches)\n"
-    "  <=3:  EXPERIMENTAL-ONLY work (synthesis, characterization, XRD of made samples, devices, "
-    "sensors, mineralization) with no computational structure-prediction component - even if it "
-    "mentions polymorphs or crystals\n"
-    "  <=2:  unrelated fields\n"
-    "Quality bar for the 6-8 transfer band: reserve it for methodologically NOVEL work that could "
-    "genuinely spark new MCSP research (a new potential/architecture/search idea). Incremental "
-    "applications, benchmarks of existing tools on one system, or minor variations score <=5.\n"
-    "Reply with ONLY a JSON object: {\"relevance\": <int 1-10>, \"reason\": \"<= 12 words\"}"
-)
-
-
-def llm_screen(items):
-    """Drop papers an LLM judges irrelevant (experimental-only noise that survives
-    the regex filters). Fail-open: if the key is missing, screening is disabled,
-    or most calls fail, the list passes through unchanged - screening must never
-    blank the digest. Env: DIGEST_SCREEN=0 off, SCREEN_MODEL, SCREEN_MIN_REL."""
-    key = os.environ.get("ANTHROPIC_API_KEY")
-    if not key or os.environ.get("DIGEST_SCREEN", "1") == "0" or not items:
-        return items
-    model = os.environ.get("SCREEN_MODEL", "claude-haiku-4-5")
-    min_rel = int(os.environ.get("SCREEN_MIN_REL", "6"))
-    min_rel_ai = int(os.environ.get("SCREEN_MIN_REL_AI4SCI", "7"))   # sparks only
-    kept, failed = [], 0
-    for it in items:
-        prompt = (SCREEN_PROMPT + f"\n\nTitle: {it.get('title', '')}\n"
-                  f"Venue: {it.get('venue', '')}\nAbstract: {(it.get('abstract') or '(none)')[:1200]}")
-        body = json.dumps({"model": model, "max_tokens": 100,
-                           "messages": [{"role": "user", "content": prompt}]}).encode()
-        req = urllib.request.Request(
-            "https://api.anthropic.com/v1/messages", data=body,
-            headers={"x-api-key": key, "anthropic-version": "2023-06-01",
-                     "content-type": "application/json"})
-        try:
-            with urllib.request.urlopen(req, timeout=60) as r:
-                resp = json.loads(r.read())
-            text = "".join(b.get("text", "") for b in resp.get("content", [])).strip()
-            m = re.search(r"\{.*\}", text, re.S)
-            data = json.loads(m.group(0))
-            rel = max(1, min(10, int(data.get("relevance", 0))))
-            it["screen"] = {"relevance": rel, "reason": str(data.get("reason", ""))[:120]}
-            bar = min_rel_ai if it.get("ai4sci") else min_rel
-            if rel >= bar:
-                # align the displayed relevance badge with the score that
-                # actually gated the paper (regex scores are near-zero for
-                # ai4sci items and would look wrong on the card)
-                it["relevance"] = max(it.get("relevance", 0), rel * 10)
-                kept.append(it)
-            else:
-                print(f"[screen] drop rel={rel}: {(it.get('title') or '')[:60]}"
-                      f"  ({it['screen']['reason']})", file=sys.stderr)
-        except Exception as e:  # noqa: BLE001 - one bad call must not drop a paper
-            failed += 1
-            kept.append(it)                       # unscored papers are KEPT (fail-open)
-            print(f"[screen] unscored (kept): {(it.get('title') or '')[:50]}: {e}", file=sys.stderr)
-        time.sleep(0.2)
-    if failed > len(items) / 2:
-        print(f"[screen] {failed}/{len(items)} calls failed - screening unreliable, "
-              f"passing everything through", file=sys.stderr)
-        return items
-    print(f"[screen] kept {len(kept)}/{len(items)} (model {model}, min_rel {min_rel})")
-    return kept
-
-
-# ------------------------------ summaries ---------------------------------
-
-def summarize(items):
-    key = os.environ.get("ANTHROPIC_API_KEY")
-    if not key:
-        return items  # summaries are optional
-    model = os.environ.get("SUMMARY_MODEL", "claude-sonnet-5")
-    for it in items:
-        prompt = (
-            "You brief a crystal structure prediction (CSP) specialist who works on genetic-algorithm "
-            "and evolutionary methods. In ONE sentence (max 28 words), state the paper's specific "
-            "INNOVATION or CONTRIBUTION - what is new here vs prior work (a new method, operator, "
-            "descriptor, benchmark, or result). Lead with the novelty, be concrete, no hype, no 'this "
-            "paper'. If the abstract is missing, infer cautiously from the title and hedge.\n\n"
-            f"Title: {it.get('title','')}\nVenue: {it.get('venue','')}\nAbstract: {it.get('abstract') or '(none)'}"
-        )
-        body = json.dumps({
-            "model": model,
-            "max_tokens": 90,
-            "messages": [{"role": "user", "content": prompt}],
-        }).encode()
-        req = urllib.request.Request(
-            "https://api.anthropic.com/v1/messages", data=body,
-            headers={"x-api-key": key, "anthropic-version": "2023-06-01",
-                     "content-type": "application/json"})
-        try:
-            with urllib.request.urlopen(req, timeout=60) as r:
-                resp = json.loads(r.read())
-            it["summary"] = "".join(b.get("text", "") for b in resp.get("content", [])).strip()
-        except Exception:  # noqa: BLE001 - summary is best-effort
-            it["summary"] = ""
-        time.sleep(0.3)
-    return items
-
-
-def daily_synthesis(items):
-    """One-to-two sentence 'what's new today' across the day's papers.
-    Uses the same Anthropic path as summarize(); returns '' if no key/items."""
-    key = os.environ.get("ANTHROPIC_API_KEY")
-    if not key or not items:
-        return ""
-    model = os.environ.get("SUMMARY_MODEL", "claude-sonnet-5")
-    titles = "\n".join(f"- {i.get('title','')} ({i.get('venue','')})" for i in items[:12])
-    prompt = (
-        "You brief a molecular crystal structure prediction (CSP) specialist working on "
-        "genetic-algorithm methods. Given today's new papers below, write a 1-2 sentence synthesis "
-        "of what is notable today - themes, standout works, or 'quiet day' if minor. Max 45 words, "
-        "no hype, no 'today's papers'.\n\n" + titles
-    )
-    body = json.dumps({"model": model, "max_tokens": 130,
-                       "messages": [{"role": "user", "content": prompt}]}).encode()
-    req = urllib.request.Request(
-        "https://api.anthropic.com/v1/messages", data=body,
-        headers={"x-api-key": key, "anthropic-version": "2023-06-01",
-                 "content-type": "application/json"})
-    try:
-        with urllib.request.urlopen(req, timeout=60) as r:
-            resp = json.loads(r.read())
-        return "".join(b.get("text", "") for b in resp.get("content", [])).strip()
-    except Exception:  # noqa: BLE001
-        return ""
-
-
-def write_site_data(items, scope, synthesis, site_dir="site"):
+def write_site_data(items, scope, synthesis, landmark=None, site_dir="site"):
     """Write the day's data + update the manifest the website reads.
-      site/data/<YYYY-MM-DD>.json  - full item list for the day
-      site/data/index.json         - manifest: [{date, count, synthesis, top:[...]}]
+      site/data/<YYYY-MM-DD>.json  - full item list (+ landmark) for the day
+      site/data/index.json         - manifest: [{date, count, read_count, ..., landmark, top}]
     Idempotent per day (re-running the same date overwrites that day's entry)."""
     data_dir = os.path.join(site_dir, "data")
     os.makedirs(data_dir, exist_ok=True)
@@ -704,7 +603,7 @@ def write_site_data(items, scope, synthesis, site_dir="site"):
 
     day_payload = {"date": today, "scope": scope, "synthesis": synthesis,
                    "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
-                   "items": items}
+                   "landmark": landmark, "items": items}
     with open(os.path.join(data_dir, f"{today}.json"), "w") as f:
         json.dump(day_payload, f, indent=1)
 
@@ -720,9 +619,14 @@ def write_site_data(items, scope, synthesis, site_dir="site"):
     manifest.append({
         "date": today, "count": len(items),
         "new_count": sum(1 for i in items if i.get("is_new")),
+        "read_count": sum(1 for i in items if i.get("verdict") == "read"),
+        "skim_count": sum(1 for i in items if i.get("verdict") == "skim"),
         "synthesis": synthesis,
+        "landmark": ({k: landmark.get(k) for k in ("id", "title", "url", "lane", "year", "area")}
+                     if landmark else None),
         "top": [{"title": i.get("title", ""), "relevance": i.get("relevance", 0),
-                 "significance": i.get("significance", 0)} for i in items[:3]],
+                 "significance": i.get("significance", 0), "verdict": i.get("verdict")}
+                for i in items[:3]],
     })
     manifest.sort(key=lambda m: m.get("date", ""), reverse=True)
     with open(manifest_path, "w") as f:
@@ -732,40 +636,60 @@ def write_site_data(items, scope, synthesis, site_dir="site"):
 
 # ------------------------------- render -----------------------------------
 
-def _classic_html(c):
-    """Render the 'classic of the day' banner (empty if none)."""
-    if not c:
+LANE_LABEL = {"ai4sci": "AI for Science", "mcsp": "Molecular CSP"}
+
+
+def _landmark_html(lm):
+    """Render the 'landmark of the day' banner (empty if none): the reader's
+    three questions answered, plus a 30-minute reading guide."""
+    if not lm:
         return ""
-    et = " et al." if len(c.get("authors") or []) >= 3 else ""
-    who = ", ".join(c.get("authors") or []) + et
+    authors = lm.get("authors") or []
+    et = " et al." if lm.get("authors_n", len(authors)) > 3 else ""
+    who = ", ".join(authors) + et
+    kind = "AI for Science landmark" if lm.get("lane") == "ai4sci" else "Molecular-CSP classic"
+    venue = f", {lm['venue']}" if lm.get("venue") else ""
     return (
         '<div class="classic">'
-        '<div class="k">&#128218; Classic of the day &mdash; build your canon</div>'
-        f'<div class="ct"><a href="{html.escape(c.get("url", "#"))}" target="_blank">'
-        f'{html.escape(c.get("title", ""))}</a></div>'
-        f'<div class="cm">{html.escape(who)} &nbsp;({c.get("year", "")}, {c.get("citations", "")} citations)</div>'
-        f'<p><b>Why it\'s foundational:</b> {html.escape(c.get("why_foundational", ""))}</p>'
-        f'<p><b>How it connects:</b> {html.escape(c.get("how_it_connects", ""))}</p>'
-        f'<p><b>Take away:</b> {html.escape(c.get("what_to_take_away", ""))}</p>'
+        f'<div class="k">&#128218; Landmark of the day &mdash; {html.escape(kind)}</div>'
+        f'<div class="ct"><a href="{html.escape(lm.get("url", "#"))}" target="_blank">'
+        f'{html.escape(lm.get("title", ""))}</a></div>'
+        f'<div class="cm">{html.escape(who)} &nbsp;({lm.get("year", "")}, {lm.get("citations", "")} citations'
+        f'{html.escape(venue)})</div>'
+        f'<p><b>Worth 30 minutes?</b> {html.escape(lm.get("worth_30_min", ""))}</p>'
+        f'<p><b>What it could inspire:</b> {html.escape(lm.get("inspiration", ""))}</p>'
+        f'<p><b>Foundations to learn:</b> {html.escape(lm.get("foundations", ""))}</p>'
+        f'<p><b>30-minute reading guide:</b> {html.escape(lm.get("reading_guide", ""))}</p>'
         '</div>'
     )
 
 
-def render_html(items, out_path, scope_label, classic=None):
+def _scores_html(i):
+    """Three-question chips when judged; legacy relevance/significance otherwise."""
+    r = i.get("rubric") or {}
+    if r.get("q1") is not None:
+        lane = LANE_LABEL.get(i.get("lane"), "")
+        return (f'<span class="score sig">worth 30 min {r.get("q1")}/5</span>'
+                f'<span class="score rel">inspiring {r.get("q2")}/5</span>'
+                f'<span class="score fnd">foundational {r.get("q3")}/5</span>'
+                + (f'<span class="lane">{html.escape(lane)}</span>' if lane else ""))
+    return (f'<span class="score rel">relevance {i.get("relevance", 0)}</span>'
+            f'<span class="score sig">significance {i.get("significance", 0)}</span>')
+
+
+def render_html(items, out_path, scope_label, landmark=None):
     today = datetime.date.today()
     sset = watch_surnames()
     EMDASH = "\u2014"
     MIDDOT = "\u00b7"
     STAR = "\u2605"
-    empty_row = '<div class="item">No new CSP papers in this window.</div>'
 
     def link(i):
         if i.get("src") == "arXiv":
             return i.get("url") or f"https://arxiv.org/abs/{i.get('arxiv_id')}"
         return f"https://doi.org/{i.get('doi')}"
 
-    rows = []
-    for i in items:
+    def row(i):
         authors = i.get("authors", []) or []
         who = ", ".join(authors) + (" et al." if len(authors) >= 3 else "") if authors else EMDASH
         wl = tag_watchlist(i.get("authors_all") or authors, sset)
@@ -774,42 +698,44 @@ def render_html(items, out_path, scope_label, classic=None):
         badge = src if src in ("arXiv", "ChemRxiv") else "journal"
         bc = "#C6613F" if src in ("arXiv", "ChemRxiv", "preprint") else "#4a7a6f"
         summ = html.escape(i.get("summary", "")) if i.get("summary") else ""
-        rel = i.get("relevance", 0)
-        sig = i.get("significance", 0)
+        why = html.escape((i.get("rubric") or {}).get("why") or "")
         tags_html = "".join(f'<span class="tag">{html.escape(t)}</span>' for t in i.get("tags", []))
-        scores_html = (
-            f'<span class="score rel">relevance {rel}</span>'
-            f'<span class="score sig">significance {sig}</span>'
-        )
-        rows.append(
+        return (
             f'<div class="item"><div class="meta">'
             f'<span class="badge" style="color:{bc};border-color:{bc}">{badge}</span>'
-            f'<span class="date">{i.get("date","")}</span>'
+            f'<span class="date">{i.get("date", "")}</span>'
             + ('<span class="newtag">NEW</span>' if i.get("is_new") else '')
             + f'<span class="venue">{html.escape(i.get("venue") or "")}</span>{wtag}</div>'
-            f'<a class="title" href="{link(i)}" target="_blank">{html.escape(i.get("title",""))}</a>'
+            f'<a class="title" href="{link(i)}" target="_blank">{html.escape(i.get("title", ""))}</a>'
             f'<div class="authors">{html.escape(who)}</div>'
-            f'<div class="scores">{scores_html}{tags_html}</div>'
+            f'<div class="scores">{_scores_html(i)}{tags_html}</div>'
             + (f'<div class="summary"><b>Contribution:</b> {summ}</div>' if summ else "")
+            + (f'<div class="why">{why}</div>' if why else "")
             + '</div>'
         )
 
-    n_pre = sum(1 for i in items if i.get("src") in ("arXiv", "ChemRxiv", "preprint"))
-    n_oa = len(items) - n_pre
+    groups = [("read", "Worth reading"), ("skim", "Set aside &mdash; skim if curious"),
+              (None, "Unjudged")]
+    sections = []
+    for verdict, label in groups:
+        rows = [row(i) for i in items if i.get("verdict") == verdict]
+        if rows:
+            sections.append(f'<div class="group">{label} ({len(rows)})</div>' + "".join(rows))
+    n_read = sum(1 for i in items if i.get("verdict") == "read")
+    n_skim = sum(1 for i in items if i.get("verdict") == "skim")
+    rows_html = "".join(sections) or (
+        '<div class="item">Nothing worth 30 minutes in this window &mdash; a quiet day is a good day.</div>')
     wl_list = html.escape(", ".join(sorted(WATCHLIST)))
-    rows_html = "".join(rows) if rows else empty_row
-    classic_html = _classic_html(classic)
     sub_line = today.strftime(f'%A {MIDDOT} %B %d, %Y')
-    has_summaries = any(i.get("summary") for i in items)
-    notes_clause = "; one-line notes are AI-generated from abstracts" if has_summaries else ""
     doc = f"""<!doctype html><html><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CSP digest {EMDASH} {today.isoformat()}</title><style>
+<title>Reading digest {EMDASH} {today.isoformat()}</title><style>
 body{{font-family:-apple-system,"Segoe UI",sans-serif;background:#FCFCFB;color:#2E2C27;margin:0;line-height:1.5}}
 .wrap{{max-width:800px;margin:0 auto;padding:40px 28px 60px}}
 h1{{font-size:26px;font-weight:600;margin:0 0 4px}}
 .sub{{color:#6B6A63;font-size:14px;margin-bottom:6px}}
 .count{{color:#B4B3A8;font-size:13px;margin-bottom:26px}}
+.group{{margin:26px 0 4px;font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#6B6A63}}
 .item{{border-top:1px solid #E4E3DC;padding:16px 0}}
 .meta{{display:flex;gap:10px;align-items:center;margin-bottom:5px;font-size:12px;flex-wrap:wrap}}
 .badge{{border:1px solid;border-radius:3px;padding:1px 7px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.3px}}
@@ -822,8 +748,11 @@ h1{{font-size:26px;font-weight:600;margin:0 0 4px}}
 .score{{font-size:11px;font-weight:600;border-radius:3px;padding:2px 8px}}
 .score.rel{{background:#EAF1EF;color:#2f5d52}}
 .score.sig{{background:#F6ECE7;color:#9c4a2c}}
+.score.fnd{{background:#EEF1F3;color:#3f4e5c}}
+.lane{{font-size:10.5px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:#6B6A63;border:1px solid #E4E3DC;border-radius:3px;padding:1px 6px}}
 .tag{{font-size:11px;color:#5b6b78;background:#EEF1F3;border-radius:10px;padding:2px 9px}}
 .summary{{color:#2E2C27;font-size:14px;background:#F4F3EF;border-left:3px solid #C6613F;padding:8px 12px;border-radius:0 4px 4px 0}}
+.why{{color:#6B6A63;font-size:13px;margin-top:6px}}
 .classic{{margin:18px 0 6px;background:#F0F4F8;border:1px solid #D3DEE7;border-left:4px solid #4a7a6f;border-radius:6px;padding:14px 16px}}
 .classic .k{{font-size:11.5px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:#4a7a6f;margin-bottom:6px}}
 .classic .ct{{font-size:16px;font-weight:600;margin-bottom:3px}}.classic .ct a{{color:#2E2C27;text-decoration:none}}
@@ -831,12 +760,12 @@ h1{{font-size:26px;font-weight:600;margin:0 0 4px}}
 .classic p{{margin:5px 0;font-size:13.5px}}.classic b{{color:#3a5c53}}
 .foot{{margin-top:34px;color:#B4B3A8;font-size:12.5px;border-top:1px solid #E4E3DC;padding-top:14px}}
 </style></head><body><div class="wrap">
-<h1>CSP literature digest</h1>
-<div class="sub">{sub_line} {EMDASH} new work in crystal structure prediction ({scope_label})</div>
-<div class="count">{len(items)} papers {MIDDOT} {n_oa} journal {MIDDOT} {n_pre} preprint {MIDDOT} ranked toward GA/evolutionary CSP {MIDDOT} {STAR} = watchlist author</div>
-{classic_html}
+<h1>Reading digest</h1>
+<div class="sub">{sub_line} {EMDASH} molecular CSP ({scope_label}) + AI for Science, gated on three questions</div>
+<div class="count">{n_read} worth reading {MIDDOT} {n_skim} set aside {MIDDOT} {len(items)} kept of all candidates {MIDDOT} {STAR} = watchlist author</div>
+{_landmark_html(landmark)}
 {rows_html}
-<div class="foot">Sources: OpenAlex (published + ChemRxiv) and arXiv (preprints), filtered to CSP{notes_clause}. Watchlist: {wl_list}.</div>
+<div class="foot">Sources: OpenAlex / Crossref (journals + ChemRxiv) and arXiv. Each paper is judged on: worth 30 minutes? inspiring for your work or AI4Sci? foundational theory? Scores, contribution lines and the landmark explanation are model-generated from titles and abstracts. Watchlist: {wl_list}.</div>
 </div></body></html>"""
     with open(out_path, "w") as f:
         f.write(doc)
@@ -876,6 +805,11 @@ def export_obsidian(items, out_dir):
               f"arxiv: {i.get('arxiv_id','') or ''}",
               f"relevance: {i.get('relevance',0)}",
               f"significance: {i.get('significance',0)}",
+              f"verdict: {i.get('verdict','')}",
+              f"worth_30_min: {(i.get('rubric') or {}).get('q1','')}",
+              f"inspiring: {(i.get('rubric') or {}).get('q2','')}",
+              f"foundational: {(i.get('rubric') or {}).get('q3','')}",
+              f"lane: {i.get('lane','')}",
               "tags:",
               "  - CSP"]
         for t in tags:
@@ -889,6 +823,8 @@ def export_obsidian(items, out_dir):
         if tags:
             body.append("**Field:** " + " ".join(f"[[{t}]]" for t in tags))
         body += ["", "## Why it matters", i.get("summary") or "_(no summary)_", ""]
+        if (i.get("rubric") or {}).get("why"):
+            body += ["**Judge:** " + i["rubric"]["why"], ""]
         if i.get("abstract"):
             body += ["## Abstract", "> " + i["abstract"].replace("\n", " "), ""]
         body += ["## My notes", "", "- ", ""]
@@ -999,25 +935,29 @@ def main():
                     print(f"[warn] Crossref {kind} '{q}': {e}", file=sys.stderr)
                 time.sleep(1.0)
 
-    # --- narrow AI4Sci scouting (items flagged; higher screen bar) ---
+    # --- AI-for-science lane (flagged; skips the CSP regex gates, judged strictly) ---
     def _add_ai4sci(fetched):
         for it in fetched:
             it["ai4sci"] = True
             add(it, "doi" if it.get("doi") else "arxiv_id")
 
-    ai_combined = " OR ".join(f'"{q}"' for q in QUERIES_AI4SCI)
     if not _OA_DOWN:
+        time.sleep(4.0)
         try:
-            _add_ai4sci(fetch_openalex(ai_combined, since, "article"))
+            terms = " OR ".join(f'"{t}"' for t in AI4SCI_TERMS)
+            _add_ai4sci(fetch_openalex(terms, since, "article", source_ids=list(AI4SCI_JOURNALS)))
         except Exception as e:  # noqa: BLE001
-            print(f"[warn] OpenAlex ai4sci: {e}", file=sys.stderr)
+            print(f"[warn] OpenAlex ai4sci journals: {e}", file=sys.stderr)
     else:
-        for q in QUERIES_AI4SCI:
-            try:
-                _add_ai4sci(fetch_crossref(q, since, "journal"))
-            except Exception as e:  # noqa: BLE001
-                print(f"[warn] Crossref ai4sci '{q}': {e}", file=sys.stderr)
-            time.sleep(1.0)
+        # Crossref ANDs every query term, so ask one short phrase at a time;
+        # AI-native journals are small enough to fetch whole.
+        for issn, ai_native in AI4SCI_JOURNALS.values():
+            for q in ([""] if ai_native else AI4SCI_TERMS):
+                try:
+                    _add_ai4sci(fetch_crossref(q, since, "journal", issn=issn))
+                except Exception as e:  # noqa: BLE001
+                    print(f"[warn] Crossref ai4sci issn {issn} '{q}': {e}", file=sys.stderr)
+                time.sleep(0.6)
 
     for q in ARXIV_QUERIES:
         try:
@@ -1028,9 +968,9 @@ def main():
 
     for q in ARXIV_QUERIES_AI4SCI:
         try:
-            _add_ai4sci(fetch_arxiv(q, since))
+            _add_ai4sci(fetch_arxiv(q, since, max_results=ARXIV_AI4SCI_MAX))
         except Exception as e:  # noqa: BLE001
-            print(f"[warn] arXiv ai4sci '{q}': {e}", file=sys.stderr)
+            print(f"[warn] arXiv ai4sci '{q[:50]}...': {e}", file=sys.stderr)
 
     # A day where EVERY OpenAlex query failed and nothing came from any source
     # is an outage, not a quiet day - fail loudly instead of publishing an
@@ -1041,33 +981,41 @@ def main():
         sys.exit(3)
 
     items = rank_items(list(merged.values()), scope=scope)
-    items = llm_screen(items)
-    items = summarize(items)
+    n_ai = sum(1 for i in items if i.get("ai4sci"))
+    print(f"{len(items)} candidates after regex gates ({n_ai} AI4Sci, {len(items) - n_ai} MCSP)")
 
-    classic = None
-    if os.environ.get("CLASSIC_OF_DAY") == "1":
+    # The reading gate: three questions per paper, read/skim kept, skip dropped.
+    items, judge_ok = judge.run(items)
+    if not judge_ok and os.environ.get("JUDGE_REQUIRED") == "1":
+        print("[error] the reading judge could not run - refusing to publish unjudged papers "
+              "as 'worth reading' (DIGEST_JUDGE=0 publishes without judging)", file=sys.stderr)
+        sys.exit(3)
+
+    landmark = None
+    if os.environ.get("LANDMARK_OF_DAY") == "1":
         try:
-            from classic import classic_of_the_day
-            classic = classic_of_the_day()
-            if classic:
-                print(f"Classic of the day: {classic['title'][:60]}")
+            from landmarks import landmark_of_the_day
+            landmark = landmark_of_the_day()
+            if landmark:
+                print(f"Landmark of the day ({landmark['lane']}): {landmark['title'][:60]}")
         except Exception as e:  # noqa: BLE001 - never break the digest
-            print(f"[warn] classic of the day skipped: {e}", file=sys.stderr)
-    out = render_html(items, "csp_digest.html", scope_label=scope, classic=classic)
+            print(f"[warn] landmark of the day skipped: {e}", file=sys.stderr)
+    out = render_html(items, "csp_digest.html", scope_label=scope, landmark=landmark)
     print(f"Rendered {len(items)} items -> {out}")
 
-    # website data layer (dated JSON + manifest + "what's new today")
+    # website data layer (dated JSON + manifest + "what's worth reading today")
     if os.environ.get("BUILD_SITE", "1") != "0":
-        synth = daily_synthesis(items)
-        d = write_site_data(items, scope, synth)
+        synth = judge.daily_synthesis(items, landmark)
+        d = write_site_data(items, scope, synth, landmark=landmark)
         print(f"Site data -> {d}/{datetime.date.today().isoformat()}.json (+ index.json)")
 
-    # knowledge-management exports (on by default; disable with EXPORT_*=0)
+    # knowledge-management exports: only what is worth reading (unjudged = all)
+    to_export = [i for i in items if i.get("verdict", "read") == "read"]
     if os.environ.get("EXPORT_OBSIDIAN", "1") != "0":
-        d = export_obsidian(items, "obsidian_notes")
-        print(f"Obsidian notes -> {d}/ ({len(items)} notes + index)")
+        d = export_obsidian(to_export, "obsidian_notes")
+        print(f"Obsidian notes -> {d}/ ({len(to_export)} notes + index)")
     if os.environ.get("EXPORT_ZOTERO", "1") != "0":
-        z = export_zotero_ris(items, "csp_digest.ris")
+        z = export_zotero_ris(to_export, "csp_digest.ris")
         print(f"Zotero RIS -> {z}")
 
     # machine-readable dump for downstream tooling / knowledge base

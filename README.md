@@ -1,114 +1,130 @@
-# CSP literature digest
+# Reading digest: molecular CSP + AI-for-science landmarks
 
-A daily brief of new **molecular crystal structure prediction** papers, pulled
-from OpenAlex (published articles + ChemRxiv preprints) and arXiv. Filters
-off-field noise, deduplicates, scores each paper on two axes, tags it with
-field-locating keywords, tags watchlist authors, and (optionally) adds a
-one-line AI "why it matters".
+A daily brief built on one rule: **reading 100 new but unimportant papers is no
+better than reading one really important one.** Every candidate is judged on
+three questions, most are skipped, an empty day is a valid day, and every day
+also offers one established landmark paper worth 30 minutes.
 
-Each paper carries:
-- **relevance (0–100)** — how central it is to molecular CSP (query breadth,
-  explicit "crystal structure prediction", GA/molecular vocabulary, topical density).
-- **significance (0–100)** — a *prior* on importance from field-normalized
-  citation impact (FWCI), log citations, watchlist authorship, and venue.
-  New preprints legitimately score low here until they accrue signal.
-- **keyword tags** — e.g. `genetic-algorithm`, `generative-model`,
-  `ML-potential`, `free-energy`, `polymorphism`, `cocrystal-salt` — to place
-  the work in the subfield at a glance.
+## What it does
+
+Two lanes feed one strict gate:
+
+- **Molecular CSP (SOTA).** New crystal structure prediction work from OpenAlex
+  (published + ChemRxiv), Crossref (CI fallback) and arXiv, regex-gated to the
+  molecular field as before.
+- **AI for Science (broad).** Machine-learning papers in high-visibility science
+  venues (Nature, Science, Nature Machine Intelligence, Nature Computational
+  Science, Nature Chemistry, Nature Materials, PNAS, Science Advances, JACS) and
+  ML x science arXiv categories. Deliberately broad: the judge, not the query,
+  decides.
+
+**The judge (`judge.py`)** answers, for every candidate, the reader's three
+questions on a 1-5 scale:
+
+1. **Worth 30 minutes?** Is it novel, important, breakthrough-level and high
+   quality enough to spend 30 minutes on?
+2. **Inspiring?** Insightful or inspiring for the reader's own work (molecular
+   CSP with genetic algorithms), or for AI-for-science research in general?
+3. **Foundational?** Does it contain foundational knowledge or theory worth
+   reading and learning?
+
+A cheap triage model (Haiku) first drops obvious noise (experimental-only,
+off-topic, tooling, incremental ML-potential tweaks); a frontier model (Opus)
+then scores the survivors with structured output. The verdict is derived in
+code: **read** needs Q1 >= 4 and (Q2 >= 3 or Q3 >= 4); **skim** is Q1 >= 3 with
+some Q2/Q3 signal; everything else is **skip** and never published. Flags for
+likely low-quality or machine-generated abstracts force a skip. Every decision
+is cached in `site/data/judged.json`, so a paper is judged exactly once.
+
+**Landmark of the day (`landmarks.py`)** ignores dates on purpose. Two pools
+alternate day by day: a curated canon of AI-for-science breakthroughs and the
+theory behind them (AlphaFold, flow matching, diffusion models, Boltzmann
+generators, GNoME/MatterGen, AlphaGo-style search, evolutionary-computation
+theory, ...) and the well-cited molecular-CSP classics mined by `classic.py`.
+Seeds are only identifiers; `landmarks.py refresh` resolves each through
+OpenAlex and keeps it only if the resolved title matches, so every record the
+reader sees is real. The daily pick is explained through the same three
+questions plus a 30-minute reading guide; "none of these is worth it" is an
+allowed answer.
 
 Outputs (one run):
-- **`site/`** — a browsable **website** (see below). Each run appends
-  `site/data/<date>.json` and updates `site/data/index.json`; the history
-  accumulates in the repo over time.
-- `csp_digest.html` — the styled single-day brief (standalone).
-- `obsidian_notes/` — one Markdown note per paper (YAML frontmatter with
-  tags/scores/DOI, `[[wikilinks]]` for authors + field tags, an empty "My notes"
-  section) plus a dated index note. Drop into an Obsidian vault.
-- `csp_digest.ris` — Zotero import file (File → Import).
-- `csp_digest.json` — machine-readable dump for any downstream knowledge base.
 
-## The website (GitHub Pages)
+- **`site/`** - the **Reading Room** website: Today (what's worth reading,
+  landmark of the day, top picks / more worth reading / set aside), This Week,
+  **Landmarks** (your accumulating canon), History, Starred (+ Zotero export).
+- `csp_digest.html` - the styled single-day brief (standalone).
+- `obsidian_notes/`, `csp_digest.ris` - only **read**-verdict papers, with the
+  three scores in the frontmatter.
+- `csp_digest.json` - machine-readable dump of everything kept (read + skim).
 
-`site/index.html` is a self-contained single-page app (no build step, no
-server, no dependencies) that reads the accumulated `site/data/*.json`:
-
-- **Today** — new papers with a one-sentence **Contribution** line, scores,
-  tags, expandable abstract, and a "what's new today" synthesis. An unread
-  badge counts papers you haven't opened.
-- **This Week** — the top papers of any 7-day window by relevance+significance,
-  deduplicated across daily runs. Scroll back week by week.
-- **History** — every archived day, browsable.
-- **★ Starred** — click ☆ on any paper to save it (stored in your browser,
-  private to you). One-click **export starred → Zotero RIS**.
-- A **reading streak** counter and starred count encourage daily visits.
-
-Starring and read-state live in your browser's `localStorage` — no login, no
-backend, per-device. The daily job only ever *adds* data; it never touches
-your stars.
-
-`digest.py` uses only the Python standard library — no `pip install` needed.
+Everything is standard-library Python; no `pip install`.
 
 ## Run locally
 
 ```bash
-export OPENALEX_API_KEY=your_openalex_key      # free from https://openalex.org
-export ANTHROPIC_API_KEY=your_anthropic_key    # optional: enables summaries
-export OPENALEX_MAILTO=you@example.org         # optional: polite-pool contact
-python3 digest.py                              # writes csp_digest.html
+export OPENALEX_API_KEY=...      # free account key: https://openalex.org/settings/api
+export ANTHROPIC_API_KEY=...     # required for judging and the landmark pick
+python3 digest.py                # writes csp_digest.html + site/data/<today>.json
+```
+
+Validate the model calls before enabling anything in CI:
+
+```bash
+python3 judge.py --selftest                                  # one live call per stage
+python3 judge.py --file digests/csp_digest_2026-10-26.json   # re-judge an old day, see the scores
+python3 landmarks.py pick --lane ai4sci                      # preview a landmark (no ledger write)
+python3 test_judge.py && python3 test_landmarks.py           # offline tests
 ```
 
 Tunables (environment variables):
 
-| var             | default                    | meaning                              |
-|-----------------|----------------------------|--------------------------------------|
-| `DIGEST_DAYS`     | `2`                        | look-back window in days                       |
-| `DIGEST_SCOPE`    | `molecular`                | `molecular` (default), `inorganic`, or `both`. In `molecular` mode an inorganic-exclusion gate drops alloy / oxide / high-pressure-phase hits (incl. those arriving via arXiv) unless a molecular-crystal signal is present. |
-| `SUMMARY_MODEL`   | `claude-3-5-haiku-latest`  | Anthropic model for summaries                  |
-| `EXPORT_OBSIDIAN` | `1`                        | set `0` to skip the `obsidian_notes/` folder   |
-| `EXPORT_ZOTERO`   | `1`                        | set `0` to skip the `csp_digest.ris` file      |
+| var | default | meaning |
+|---|---|---|
+| `DIGEST_DAYS` | `2` (CI: `14`) | look-back window in days |
+| `DIGEST_SCOPE` | `molecular` | `molecular`, `inorganic`, or `both` for the CSP lane |
+| `JUDGE_MODEL` | `claude-opus-5-5` | scores the three questions |
+| `JUDGE_EFFORT` | `medium` | `low` .. `max` thinking effort for the judge |
+| `TRIAGE_MODEL` | `claude-haiku-5-5` | cheap pre-filter; set to `""` to skip triage |
+| `JUDGE_READ_Q1/Q2/Q3` | `4` / `3` / `4` | read thresholds (no re-judging needed) |
+| `JUDGE_REQUIRED` | unset (CI: `1`) | refuse to publish when the judge could not run |
+| `DIGEST_JUDGE` | `1` | `0` publishes everything unjudged (local debugging) |
+| `LANDMARK_OF_DAY` | unset (CI: `1`) | pick one canon paper per day |
+| `LANDMARK_LANE` | `alternate` | `ai4sci`, `mcsp`, or alternate by day |
+| `EXPORT_OBSIDIAN` / `EXPORT_ZOTERO` | `1` | set `0` to skip those exports |
+
+Cost: a paper is judged once (cached). After the first run, expect a few dozen
+Haiku triage calls and roughly 10-20 Opus judgments per day, plus one landmark
+pick and one synthesis call.
 
 ## Run daily on GitHub Actions
 
-1. Create a new GitHub repo and push these files.
-2. **Settings -> Secrets and variables -> Actions -> New repository secret**, add:
-   - `OPENALEX_API_KEY` (required)
-   - `ANTHROPIC_API_KEY` (optional — omit to skip AI summaries)
-   - `OPENALEX_MAILTO` (optional)
-3. The workflow in `.github/workflows/daily.yml` runs at **07:00 UTC every
-   weekday** and commits `csp_digest.html` (plus a dated copy under `digests/`)
-   back to the repo. It also uploads the HTML as a downloadable workflow
-   artifact.
-4. Trigger a test run any time from the **Actions** tab -> *CSP daily digest*
-   -> **Run workflow** (you can override the window and scope there).
+1. Repository secrets: `OPENALEX_API_KEY`, `ANTHROPIC_API_KEY` (required).
+2. `.github/workflows/daily.yml` runs daily, commits `csp_digest.*`,
+   `obsidian_notes/`, `digests/` and `site/data/` (including the judge cache
+   and the landmark ledger) back to the repo, and deploys `site/` to GitHub
+   Pages (**Settings -> Pages -> Source: GitHub Actions**).
+3. A run where the judge cannot do its job exits non-zero instead of
+   publishing unjudged papers.
 
-Change the schedule by editing the `cron:` line (times are UTC).
+## Retuning
 
-### Enable the website
-
-1. **Settings -> Pages -> Build and deployment -> Source: GitHub Actions.**
-2. Run the workflow once (Actions tab). The `deploy` job publishes `site/` to
-   `https://<you>.github.io/<repo>/`.
-3. Bookmark that URL. Each weekday run appends a new day and redeploys; your
-   stars and reading streak persist in the browser.
-
-The workflow needs `pages: write` and `id-token: write` permissions (already
-set in `daily.yml`). No extra secret is required for Pages.
-
-## Retuning what it tracks
-
-Edit the lists at the top of `digest.py`:
-
-- `QUERIES_MOLECULAR` / `QUERIES_INORGANIC` — the topic searches.
-- `WATCHLIST` — authors to flag. Tagging is by surname **on papers the topic
-  search already found**, so a common name only tags when its paper is already
-  CSP-relevant.
-- `POS_PAT` / `CSP_PAT` / `NEG_PAT` — the relevance gate. arXiv results are
-  trusted via query targeting and not gated.
+- **What counts as "worth reading"**: the reader profile and the three
+  questions are the `READER` / `RUBRIC_PROMPT` strings at the top of
+  `judge.py`. Bump `PROMPT_VERSION` after editing them so cached verdicts are
+  recomputed. Thresholds are env vars (table above).
+- **Where to look**: `QUERIES_MOLECULAR` / `ARXIV_QUERIES` (CSP lane),
+  `AI4SCI_JOURNALS` / `ARXIV_QUERIES_AI4SCI` (AI4Sci lane) in `digest.py`.
+- **The canon**: add identifiers to `SEEDS` in `landmarks.py` and run
+  `python3 landmarks.py refresh` (needs `OPENALEX_API_KEY`); commit
+  `review/landmarks_pool.json`. Unresolved seeds are listed in that file and
+  never shown. The MCSP classics pool is `review/classics_pool.json`
+  (`python3 classic.py` refreshes it).
 
 ## Notes
 
 - Every link is built from the identifier the API returns; DOIs and arXiv IDs
-  are never hand-typed.
+  are never hand-typed into output.
 - Fetched titles/abstracts are treated as data, not instructions.
-- No API keys are written to disk or committed; they are read from the
-  environment (GitHub Actions injects them from repository secrets).
+- Scores, contribution lines and landmark explanations are model-generated from
+  titles and abstracts; they decide reading order, not facts.
+- No API keys are written to disk or committed.
