@@ -44,7 +44,7 @@
   },
   "summary": "Genetic algorithm using a differentiable effective-atom representation, with crossover that superimposes two parents and relaxes the combined structure, searching positions, species and atom count jointly.",
   "first_seen": "2026-10-26",
-  "is_new": true
+  "is_new": false
  },
  {
   "src": "arXiv",
@@ -132,7 +132,7 @@
   },
   "summary": "Learns a stochastic path action (energy on trajectory space) anchored to a tractable reference process, enabling path ranking, steering, constrained optimization and sampling from one learned objective.",
   "first_seen": "2026-10-26",
-  "is_new": true
+  "is_new": false
  },
  {
   "src": "arXiv",
@@ -176,6 +176,6 @@
   },
   "summary": "Trajectory matching: conditions discrete flow matching on full action sequences between endpoints, enabling simulation-free training for structured actions such as fragment attachment and size changes; proven to subsume factorized DFM.",
   "first_seen": "2026-10-26",
-  "is_new": true
+  "is_new": false
  }
 ]

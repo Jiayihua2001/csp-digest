@@ -1,0 +1,213 @@
+{
+ "date": "2026-10-27",
+ "scope": "molecular",
+ "synthesis": "Nothing reached 'read' today; four skims at most, with Hereditary Effective Atom Theory the closest to structure prediction. Spend the time on the landmark instead: Song et al.'s score-based SDE paper (2020), the unifying theory behind diffusion models and the generative crystal-structure work built on them.",
+ "generated_at": "2026-10-27T13:32:10.197952Z",
+ "landmark": {
+  "id": "arxiv:2011.13456",
+  "doi": "10.48550/arxiv.2011.13456",
+  "arxiv_id": "2011.13456",
+  "url": "https://arxiv.org/abs/2011.13456",
+  "area": "generative-theory",
+  "title": "Score-Based Generative Modeling through Stochastic Differential Equations",
+  "year": 2020,
+  "citations": 1951,
+  "venue": "arXiv (Cornell University)",
+  "authors": [
+   "Yang Sup Song",
+   "Jascha Sohl\u2010Dickstein",
+   "Diederik P. Kingma"
+  ],
+  "authors_n": 6,
+  "abstract": "Creating noise from data is easy; creating data from noise is generative modeling. We present a stochastic differential equation (SDE) that smoothly transforms a complex data distribution to a known prior distribution by slowly injecting noise, and a corresponding reverse-time SDE that transforms the prior distribution back into the data distribution by slowly removing the noise. Crucially, the reverse-time SDE depends only on the time-dependent gradient field (\\aka, score) of the perturbed data distribution. By leveraging advances in score-based generative modeling, we can accurately estimate",
+  "seed_title": "Score-Based Generative Modeling through Stochastic Differential Equations",
+  "match": 1.0,
+  "lane": "ai4sci",
+  "picked_on": "2026-10-27",
+  "worth_30_min": "It unified score matching with Langevin dynamics and DDPMs into one continuous-time framework. Noise is injected by a forward SDE and removed by a learned reverse-time SDE. It also introduced the probability-flow ODE, giving exact likelihoods and deterministic sampling. Most diffusion work that followed, including crystal and molecule generators such as DiffCSP and MatterGen-style models and flow matching, inherits this formulation.",
+  "inspiration": "Diffusion-based generators of molecular packings (lattice plus rigid-body poses) could replace or seed Genarris-style random generation and GA mutation. Predictor-corrector sampling resembles a GA's local relaxation step. Conditional and inverse-problem sampling suggests generating structures constrained by space group, density or PXRD data. Probability-flow likelihoods could act as a learned prior score for ranking candidates before DFT.",
+  "foundations": "Forward and reverse-time SDEs (Anderson's time reversal). Denoising score matching and the score function. VE versus VP SDEs as the continuous limits of SMLD and DDPM. Fokker-Planck equation and the probability-flow ODE with the same marginals. Predictor-corrector samplers that combine reverse SDE steps with Langevin MCMC. Controllable generation via conditional scores and Bayes' rule.",
+  "reading_guide": "First 10 min: Sec 1-2 and Fig 1-2, covering the forward/reverse SDE picture and the background on SMLD and DDPM. Next 12 min: Sec 3 on VE/VP/sub-VP SDEs, then Sec 4.1-4.3 on predictor-corrector sampling and the probability-flow ODE. Last 8 min: Sec 5 on conditional generation and inverse problems. Skip architecture details, the image benchmark tables and most appendices, except the derivation of the probability-flow ODE."
+ },
+ "items": [
+  {
+   "src": "arXiv",
+   "title": "Hereditary Effective Atom Theory for Large-Scale Atomic Structure Prediction",
+   "date": "2026-10-20",
+   "arxiv_id": "2610.28996v1",
+   "url": "https://arxiv.org/abs/2610.28996v1",
+   "authors": [
+    "Justin Tahmassebpur",
+    "Chia-Hao Lee",
+    "Cristob\u00e1l M\u00e9ndez"
+   ],
+   "authors_all": [
+    "Justin Tahmassebpur",
+    "Chia-Hao Lee",
+    "Cristob\u00e1l M\u00e9ndez",
+    "Shake Karapetyan",
+    "Schuyler Z. Shi",
+    "David A. Muller",
+    "Tom\u00e1s Arias"
+   ],
+   "venue": "arXiv",
+   "abstract": "Predicting the atomic structure of large systems requires simultaneous exploration of atomic positions, species, and, generally, the number of atoms. The combinatorial growth of possible arrangements can make this search difficult even for standard genetic algorithms. We introduce Hereditary Effective Atom Theory (HEAT), which integrates Effective Atom Theory into a genetic algorithm to enable efficient global search through a differentiable effective-atom representation. Central to the method is a crossover scheme that directly superimposes two parent structures and relaxes the combined structure. HEAT outperforms conventional genetic-algorithm baselines in recovering a missing 240-atom H sublattice, predicting a 364-atom edge-dislocation core, and reconstructing twisted-bilayer $\\mathrm{WSe_2}$ containing 1150 atoms from ptychographic constraints. These results demonstrate how continuous effective-atom relaxation improves the exploration of large combinatorial structure spaces.",
+   "matched": [
+    "(cat:physics.chem-ph OR cat:cond-mat.mtrl-sci OR cat:physics.comp-ph OR cat:q-bio.BM OR cat:physics.bio-ph) AND (abs:\"deep learning\" OR abs:\"machine learning\" OR abs:\"neural network\" OR abs:generative OR abs:\"language model\" OR abs:\"foundation model\")"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "genetic-algorithm"
+   ],
+   "relevance": 80,
+   "significance": 60,
+   "score": 62,
+   "verdict": "skim",
+   "lane": "ai4sci",
+   "rubric": {
+    "q1": 3,
+    "q2": 4,
+    "q3": 2,
+    "low_quality": false,
+    "why": "Novel GA crossover idea directly relevant to GAtor-style search, with concrete large-system results, but these are inorganic and defect systems rather than MCSP, and the advance is moderate.",
+    "stage": "judge",
+    "verdict": "skim"
+   },
+   "summary": "Genetic algorithm using a differentiable effective-atom representation, with crossover that superimposes two parents and relaxes the combined structure, searching positions, species and atom count jointly.",
+   "first_seen": "2026-10-26",
+   "is_new": false
+  },
+  {
+   "src": "arXiv",
+   "title": "All-electron machine-learned orbital-free density functional for periodic CHNO systems",
+   "date": "2026-10-13",
+   "arxiv_id": "2610.17975v1",
+   "url": "https://arxiv.org/abs/2610.17975v1",
+   "authors": [
+    "Marc K. Ickler",
+    "Andreas Hermann",
+    "Fred A. Hamprecht"
+   ],
+   "authors_all": [
+    "Marc K. Ickler",
+    "Andreas Hermann",
+    "Fred A. Hamprecht"
+   ],
+   "venue": "arXiv",
+   "abstract": "We introduce STRUCTURES-P, a machine-learned all-electron orbital-free density functional for periodic CHNO systems. Electrostatics are evaluated analytically in an atom-centered Gaussian basis, while an equivariant network learns the kinetic and exchange-correlation energy from energies and gradients of non-ground-state densities. Minimizing the functional from a superposition of atomic densities recovers the Kohn-Sham ground state: on held-out crystals, the density error falls from 6.7% to 0.4% of the electron count and the energy error reaches 0.25 mHa per atom, half that of a same-architecture interatomic potential. A single functional can be trained for both isolated molecules and periodic systems, and the model generalizes to larger unit cells. It largely preserves relative-energy rankings and reproduces convex-hull vertices on the tested H-N composition slice. Together, these results demonstrate the viability of machine-learned all-electron orbital-free DFT for variational density optimization and energy evaluation in fixed-geometry solids.",
+   "matched": [
+    "cat:cs.LG AND (abs:molecule OR abs:molecular OR abs:protein OR abs:crystal OR abs:materials OR abs:chemistry OR abs:\"scientific discovery\" OR abs:\"partial differential\")"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "generative-model",
+    "ML-potential",
+    "lattice-energy"
+   ],
+   "relevance": 60,
+   "significance": 60,
+   "score": 60,
+   "verdict": "skim",
+   "lane": "ai4sci",
+   "rubric": {
+    "q1": 3,
+    "q2": 3,
+    "q3": 3,
+    "low_quality": false,
+    "why": "Credible, concrete step toward ML-OFDFT for molecular crystals, relevant to lattice-energy ranking, but fixed-geometry, small-scale validation; incremental extension of prior STRUCTURES25 work.",
+    "stage": "judge",
+    "verdict": "skim"
+   },
+   "summary": "Extends machine-learned all-electron orbital-free DFT to periodic CHNO crystals, with analytic Gaussian-basis electrostatics and a learned kinetic+XC functional; variational density minimization recovers KS densities and energies.",
+   "first_seen": "2026-10-14",
+   "is_new": false
+  },
+  {
+   "src": "arXiv",
+   "title": "Action Learning for Scientific Simulations",
+   "date": "2026-10-22",
+   "arxiv_id": "2610.31585v1",
+   "url": "https://arxiv.org/abs/2610.31585v1",
+   "authors": [
+    "Sarah Liaw",
+    "Yuanqi Du",
+    "Yilun Du"
+   ],
+   "authors_all": [
+    "Sarah Liaw",
+    "Yuanqi Du",
+    "Yilun Du"
+   ],
+   "venue": "arXiv",
+   "abstract": "Understanding and controlling how systems evolve is central to science and engineering, where many problems require reasoning about complete trajectories. Existing approaches typically learn local dynamics or generate trajectories, but objectives constructed from individual transitions can miss dependencies across time, while generative models do not necessarily provide a tractable objective for evaluating and optimizing arbitrary paths. We study $\\textit{action learning}$, the problem of recovering a stochastic action from trajectory observations, yielding a common objective for reasoning about dynamical systems. We introduce $\\textbf{LEAP}$ ($\\textbf{L}$earned $\\textbf{E}$nergy on $\\textbf{A}$ction $\\textbf{P}$aths), which anchors the unknown action to a tractable reference process and learns the remaining correction by comparing observed trajectories with reference trajectories. This construction yields a differentiable objective on path space that can capture both local dynamical structure and nonadditive dependencies across time. Once learned, the same action can be flexibly reused for path ranking and inference, mechanism steering, constrained optimization and sampling. Acros",
+   "matched": [
+    "cat:cs.LG AND (abs:molecule OR abs:molecular OR abs:protein OR abs:crystal OR abs:materials OR abs:chemistry OR abs:\"scientific discovery\" OR abs:\"partial differential\")"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "generative-model"
+   ],
+   "relevance": 60,
+   "significance": 60,
+   "score": 60,
+   "verdict": "skim",
+   "lane": "ai4sci",
+   "rubric": {
+    "q1": 3,
+    "q2": 3,
+    "q3": 3,
+    "low_quality": false,
+    "why": "Interesting path-space energy idea relevant to transition paths, but the abstract is truncated, gives no concrete results, and its MCSP relevance is indirect.",
+    "stage": "judge",
+    "verdict": "skim"
+   },
+   "summary": "Learns a stochastic path action (energy on trajectory space) anchored to a tractable reference process, enabling path ranking, steering, constrained optimization and sampling from one learned objective.",
+   "first_seen": "2026-10-26",
+   "is_new": false
+  },
+  {
+   "src": "arXiv",
+   "title": "Trajectory Matching: Discrete Flow Matching with Structured Actions",
+   "date": "2026-10-23",
+   "arxiv_id": "2610.32602v1",
+   "url": "https://arxiv.org/abs/2610.32602v1",
+   "authors": [
+    "Niklas Kemper",
+    "Marten Lienen",
+    "David L\u00fcdke"
+   ],
+   "authors_all": [
+    "Niklas Kemper",
+    "Marten Lienen",
+    "David L\u00fcdke",
+    "Stephan G\u00fcnnemann"
+   ],
+   "venue": "arXiv",
+   "abstract": "The natural units of structured discrete generation are often not independent single-component edits but richer actions: attaching a fragment to a molecule, inserting a node together with an incident edge, or growing a hierarchy by adding a child. Yet most existing discrete flow matching methods (DFM) are restricted to independent component-wise edits over fixed-size states. This restriction stems from endpoint conditioning: endpoints fix the source and target during training but not the action sequence between them, making tractable conditional rates hard to define for complex actions that cannot be factorized component-wise. We propose trajectory matching, which conditions the flow on a full sequence of actions connecting the endpoints. This yields principled, simulation-free training targets for user-defined action spaces, including actions that change state size, modify multiple components, or depend on earlier actions. We prove that the resulting objective recovers the marginal flow and that trajectory matching strictly subsumes factorized DFM, while additionally capturing actions with prerequisite structure such as hierarchy growth or fragment-based molecule generation. Empir",
+   "matched": [
+    "cat:cs.LG AND (abs:molecule OR abs:molecular OR abs:protein OR abs:crystal OR abs:materials OR abs:chemistry OR abs:\"scientific discovery\" OR abs:\"partial differential\")"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "generative-model"
+   ],
+   "relevance": 60,
+   "significance": 60,
+   "score": 60,
+   "verdict": "skim",
+   "lane": "ai4sci",
+   "rubric": {
+    "q1": 3,
+    "q2": 3,
+    "q3": 3,
+    "low_quality": false,
+    "why": "Principled theoretical generalization of discrete flow matching from a strong group, but an incremental methodological extension with truncated empirical results and only indirect relevance to MCSP.",
+    "stage": "judge",
+    "verdict": "skim"
+   },
+   "summary": "Trajectory matching: conditions discrete flow matching on full action sequences between endpoints, enabling simulation-free training for structured actions such as fragment attachment and size changes; proven to subsume factorized DFM.",
+   "first_seen": "2026-10-26",
+   "is_new": false
+  }
+ ]
+}

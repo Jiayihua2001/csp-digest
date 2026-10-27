@@ -1,5 +1,41 @@
 [
  {
+  "date": "2026-10-27",
+  "count": 4,
+  "new_count": 0,
+  "read_count": 0,
+  "skim_count": 4,
+  "synthesis": "Nothing reached 'read' today; four skims at most, with Hereditary Effective Atom Theory the closest to structure prediction. Spend the time on the landmark instead: Song et al.'s score-based SDE paper (2020), the unifying theory behind diffusion models and the generative crystal-structure work built on them.",
+  "landmark": {
+   "id": "arxiv:2011.13456",
+   "title": "Score-Based Generative Modeling through Stochastic Differential Equations",
+   "url": "https://arxiv.org/abs/2011.13456",
+   "lane": "ai4sci",
+   "year": 2020,
+   "area": "generative-theory"
+  },
+  "top": [
+   {
+    "title": "Hereditary Effective Atom Theory for Large-Scale Atomic Structure Prediction",
+    "relevance": 80,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "All-electron machine-learned orbital-free density functional for periodic CHNO systems",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Action Learning for Scientific Simulations",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   }
+  ]
+ },
+ {
   "date": "2026-10-26",
   "count": 4,
   "new_count": 3,
