@@ -51,6 +51,15 @@ jobs:
         run: |
           mkdir -p digests
           D=$(date +%F)
+          # A same-day rerun must never overwrite the earlier brief: keep the
+          # superseded copies under a timestamped name so history is complete
+          # on disk, not only in git.
+          if [ -f "digests/csp_digest_$D.html" ]; then
+            T=$(date -u +%H%M%S)
+            for ext in html ris json; do
+              [ -f "digests/csp_digest_$D.$ext" ] && mv "digests/csp_digest_$D.$ext" "digests/csp_digest_${D}.superseded-$T.$ext"
+            done
+          fi
           cp csp_digest.html "digests/csp_digest_$D.html"
           cp csp_digest.ris  "digests/csp_digest_$D.ris"  2>/dev/null || true
           cp csp_digest.json "digests/csp_digest_$D.json" 2>/dev/null || true
