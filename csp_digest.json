@@ -48,51 +48,6 @@
  },
  {
   "src": "arXiv",
-  "title": "All-electron machine-learned orbital-free density functional for periodic CHNO systems",
-  "date": "2026-10-13",
-  "arxiv_id": "2610.17975v1",
-  "url": "https://arxiv.org/abs/2610.17975v1",
-  "authors": [
-   "Marc K. Ickler",
-   "Andreas Hermann",
-   "Fred A. Hamprecht"
-  ],
-  "authors_all": [
-   "Marc K. Ickler",
-   "Andreas Hermann",
-   "Fred A. Hamprecht"
-  ],
-  "venue": "arXiv",
-  "abstract": "We introduce STRUCTURES-P, a machine-learned all-electron orbital-free density functional for periodic CHNO systems. Electrostatics are evaluated analytically in an atom-centered Gaussian basis, while an equivariant network learns the kinetic and exchange-correlation energy from energies and gradients of non-ground-state densities. Minimizing the functional from a superposition of atomic densities recovers the Kohn-Sham ground state: on held-out crystals, the density error falls from 6.7% to 0.4% of the electron count and the energy error reaches 0.25 mHa per atom, half that of a same-architecture interatomic potential. A single functional can be trained for both isolated molecules and periodic systems, and the model generalizes to larger unit cells. It largely preserves relative-energy rankings and reproduces convex-hull vertices on the tested H-N composition slice. Together, these results demonstrate the viability of machine-learned all-electron orbital-free DFT for variational density optimization and energy evaluation in fixed-geometry solids.",
-  "matched": [
-   "cat:cs.LG AND (abs:molecule OR abs:molecular OR abs:protein OR abs:crystal OR abs:materials OR abs:chemistry OR abs:\"scientific discovery\" OR abs:\"partial differential\")"
-  ],
-  "ai4sci": true,
-  "tags": [
-   "generative-model",
-   "ML-potential",
-   "lattice-energy"
-  ],
-  "relevance": 60,
-  "significance": 60,
-  "score": 60,
-  "verdict": "skim",
-  "lane": "ai4sci",
-  "rubric": {
-   "q1": 3,
-   "q2": 3,
-   "q3": 3,
-   "low_quality": false,
-   "why": "Credible, concrete step toward ML-OFDFT for molecular crystals, relevant to lattice-energy ranking, but fixed-geometry, small-scale validation; incremental extension of prior STRUCTURES25 work.",
-   "stage": "judge",
-   "verdict": "skim"
-  },
-  "summary": "Extends machine-learned all-electron orbital-free DFT to periodic CHNO crystals, with analytic Gaussian-basis electrostatics and a learned kinetic+XC functional; variational density minimization recovers KS densities and energies.",
-  "first_seen": "2026-10-14",
-  "is_new": false
- },
- {
-  "src": "arXiv",
   "title": "Action Learning for Scientific Simulations",
   "date": "2026-10-22",
   "arxiv_id": "2610.31585v1",
@@ -177,5 +132,53 @@
   "summary": "Trajectory matching: conditions discrete flow matching on full action sequences between endpoints, enabling simulation-free training for structured actions such as fragment attachment and size changes; proven to subsume factorized DFM.",
   "first_seen": "2026-10-26",
   "is_new": false
+ },
+ {
+  "src": "arXiv",
+  "title": "EVA-Flow: Learning Shared Chemistry for Unified Environment-Aware Molecular Conformation Generation",
+  "date": "2026-10-26",
+  "arxiv_id": "2610.36280v1",
+  "url": "https://arxiv.org/abs/2610.36280v1",
+  "authors": [
+   "Bing Yan",
+   "Anuroop Sriram",
+   "Zachary Ward Ulissi"
+  ],
+  "authors_all": [
+   "Bing Yan",
+   "Anuroop Sriram",
+   "Zachary Ward Ulissi",
+   "Kyunghyun Cho",
+   "Ricky T. Q. Chen",
+   "Benjamin Kurt Miller"
+  ],
+  "venue": "arXiv",
+  "abstract": "Molecular 3D structures underpin simulations of thermodynamics, kinetics, crystallization, and nucleation, making their accurate prediction central to drug discovery and materials design. However, molecular geometry can change dramatically across environments. Existing models either ignore environmental effects or train separate models for each environment. We hypothesize that transfer learning across contexts is possible for conformer generation and that a general model will perform better when training data are limited, as in ligand binding and crystallization. We introduce EVA-Flow, a unified framework for environment-aware molecular conformation generation that learns shared chemical structure and adapts it through environment-conditioned generative modeling. Across vacuum, protein-ligand docking, solvation, and crystal packing, pretraining and cross-environment finetuning provide their largest gains in the three data-scarce settings. Evaluation against multiple reference conformations shows that EVA-Flow covers a broad range of solvation conformations. Analyses of molecules shared across environments support its ability to generate different conformations for the same molecule",
+  "matched": [
+   "cat:cs.LG AND (abs:molecule OR abs:molecular OR abs:protein OR abs:crystal OR abs:materials OR abs:chemistry OR abs:\"scientific discovery\" OR abs:\"partial differential\")"
+  ],
+  "ai4sci": true,
+  "tags": [
+   "generative-model",
+   "conformational",
+   "space-group"
+  ],
+  "relevance": 60,
+  "significance": 60,
+  "score": 56,
+  "verdict": "skim",
+  "lane": "ai4sci",
+  "rubric": {
+   "q1": 3,
+   "q2": 3,
+   "q3": 2,
+   "low_quality": false,
+   "why": "Strong group and a relevant crystal-conformer angle, but this applies existing flow matching to conformers with modest transfer claims; it is useful for seeding MCSP, not a landmark.",
+   "stage": "judge",
+   "verdict": "skim"
+  },
+  "summary": "A single flow-matching conformer generator pretrained on vacuum data and conditioned on environment (docking, solvation, crystal packing), showing cross-environment transfer helps most in data-scarce settings.",
+  "first_seen": "2026-10-28",
+  "is_new": true
  }
 ]

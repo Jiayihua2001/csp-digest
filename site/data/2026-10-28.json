@@ -1,0 +1,213 @@
+{
+ "date": "2026-10-28",
+ "scope": "molecular",
+ "synthesis": "Nothing passed as 'read' today. Only skims; if time allows, Hereditary Effective Atom Theory is the most relevant to structure prediction. The landmark pick, Bartok et al.'s 2010 Gaussian Approximation Potentials paper, is worth knowing as the origin of the ML potentials you use as accelerators.",
+ "generated_at": "2026-10-28T14:14:30.701419Z",
+ "landmark": {
+  "id": "doi:10.1103/physrevlett.104.136403",
+  "doi": "10.1103/physrevlett.104.136403",
+  "arxiv_id": "",
+  "area": "mcsp-classic",
+  "url": "https://doi.org/10.1103/physrevlett.104.136403",
+  "title": "Gaussian Approximation Potentials: The Accuracy of Quantum Mechanics, without the Electrons",
+  "year": 2010,
+  "citations": 3133,
+  "venue": "",
+  "authors": [
+   "Albert P. Bart\u00f3k",
+   "Mike C. Payne",
+   "Risi Kondor"
+  ],
+  "abstract": "We introduce a class of interatomic potential models that can be automatically generated from data consisting of the energies and forces experienced by atoms, as derived from quantum mechanical calculations. The models do not have a fixed functional form and hence are capable of modeling complex potential energy landscapes. They are systematically improvable with more data. We apply the method to bulk crystals, and test it by calculating properties at high temperatures. Using the interatomic pot",
+  "lane": "mcsp",
+  "picked_on": "2026-10-28",
+  "worth_30_min": "This is a founding paper of machine-learned interatomic potentials, not a new architecture variant. It showed that potentials with no fixed functional form, learned by Gaussian process regression on QM energies and forces, can approach DFT accuracy at force-field cost. It launched the GAP/SOAP line and the data-driven potential paradigm behind the accelerators you use for lattice-energy ranking.",
+  "inspiration": "For MCSP: kernel models trained on the fly during GA searches could relax and rank candidates near DFT quality, with the GP variance flagging when to call DFT. Learning from forces as well as energies matters for relaxations. More broadly, the core idea - learned surrogates of local energy decompositions - also underlies today's universal potentials and generative-model energy guidance.",
+  "foundations": "Locality: total energy written as a sum of atomic energies over finite neighbourhoods. Rotation-, translation- and permutation-invariant descriptors (the bispectrum of the neighbour density, forerunner of SOAP). Gaussian process regression with sparsification. Fitting to derivative observations such as forces. How kernels relate to the smoothness of the energy surface. All of this is the conceptual base for later equivariant GNN potentials.",
+  "reading_guide": "About 10 min on the introduction and the locality and atomic-energy decomposition argument. About 10 min on the descriptor construction (neighbour density, spherical harmonics, bispectrum invariance) and the sparse GP equations with force data. The last 10 min on the results figures, including errors versus DFT, and the phonon and other property comparisons. Skip the material-specific details; focus on why the invariant descriptor works."
+ },
+ "items": [
+  {
+   "src": "arXiv",
+   "title": "Hereditary Effective Atom Theory for Large-Scale Atomic Structure Prediction",
+   "date": "2026-10-20",
+   "arxiv_id": "2610.28996v1",
+   "url": "https://arxiv.org/abs/2610.28996v1",
+   "authors": [
+    "Justin Tahmassebpur",
+    "Chia-Hao Lee",
+    "Cristob\u00e1l M\u00e9ndez"
+   ],
+   "authors_all": [
+    "Justin Tahmassebpur",
+    "Chia-Hao Lee",
+    "Cristob\u00e1l M\u00e9ndez",
+    "Shake Karapetyan",
+    "Schuyler Z. Shi",
+    "David A. Muller",
+    "Tom\u00e1s Arias"
+   ],
+   "venue": "arXiv",
+   "abstract": "Predicting the atomic structure of large systems requires simultaneous exploration of atomic positions, species, and, generally, the number of atoms. The combinatorial growth of possible arrangements can make this search difficult even for standard genetic algorithms. We introduce Hereditary Effective Atom Theory (HEAT), which integrates Effective Atom Theory into a genetic algorithm to enable efficient global search through a differentiable effective-atom representation. Central to the method is a crossover scheme that directly superimposes two parent structures and relaxes the combined structure. HEAT outperforms conventional genetic-algorithm baselines in recovering a missing 240-atom H sublattice, predicting a 364-atom edge-dislocation core, and reconstructing twisted-bilayer $\\mathrm{WSe_2}$ containing 1150 atoms from ptychographic constraints. These results demonstrate how continuous effective-atom relaxation improves the exploration of large combinatorial structure spaces.",
+   "matched": [
+    "(cat:physics.chem-ph OR cat:cond-mat.mtrl-sci OR cat:physics.comp-ph OR cat:q-bio.BM OR cat:physics.bio-ph) AND (abs:\"deep learning\" OR abs:\"machine learning\" OR abs:\"neural network\" OR abs:generative OR abs:\"language model\" OR abs:\"foundation model\")"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "genetic-algorithm"
+   ],
+   "relevance": 80,
+   "significance": 60,
+   "score": 62,
+   "verdict": "skim",
+   "lane": "ai4sci",
+   "rubric": {
+    "q1": 3,
+    "q2": 4,
+    "q3": 2,
+    "low_quality": false,
+    "why": "Novel GA crossover idea directly relevant to GAtor-style search, with concrete large-system results, but these are inorganic and defect systems rather than MCSP, and the advance is moderate.",
+    "stage": "judge",
+    "verdict": "skim"
+   },
+   "summary": "Genetic algorithm using a differentiable effective-atom representation, with crossover that superimposes two parents and relaxes the combined structure, searching positions, species and atom count jointly.",
+   "first_seen": "2026-10-26",
+   "is_new": false
+  },
+  {
+   "src": "arXiv",
+   "title": "Action Learning for Scientific Simulations",
+   "date": "2026-10-22",
+   "arxiv_id": "2610.31585v1",
+   "url": "https://arxiv.org/abs/2610.31585v1",
+   "authors": [
+    "Sarah Liaw",
+    "Yuanqi Du",
+    "Yilun Du"
+   ],
+   "authors_all": [
+    "Sarah Liaw",
+    "Yuanqi Du",
+    "Yilun Du"
+   ],
+   "venue": "arXiv",
+   "abstract": "Understanding and controlling how systems evolve is central to science and engineering, where many problems require reasoning about complete trajectories. Existing approaches typically learn local dynamics or generate trajectories, but objectives constructed from individual transitions can miss dependencies across time, while generative models do not necessarily provide a tractable objective for evaluating and optimizing arbitrary paths. We study $\\textit{action learning}$, the problem of recovering a stochastic action from trajectory observations, yielding a common objective for reasoning about dynamical systems. We introduce $\\textbf{LEAP}$ ($\\textbf{L}$earned $\\textbf{E}$nergy on $\\textbf{A}$ction $\\textbf{P}$aths), which anchors the unknown action to a tractable reference process and learns the remaining correction by comparing observed trajectories with reference trajectories. This construction yields a differentiable objective on path space that can capture both local dynamical structure and nonadditive dependencies across time. Once learned, the same action can be flexibly reused for path ranking and inference, mechanism steering, constrained optimization and sampling. Acros",
+   "matched": [
+    "cat:cs.LG AND (abs:molecule OR abs:molecular OR abs:protein OR abs:crystal OR abs:materials OR abs:chemistry OR abs:\"scientific discovery\" OR abs:\"partial differential\")"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "generative-model"
+   ],
+   "relevance": 60,
+   "significance": 60,
+   "score": 60,
+   "verdict": "skim",
+   "lane": "ai4sci",
+   "rubric": {
+    "q1": 3,
+    "q2": 3,
+    "q3": 3,
+    "low_quality": false,
+    "why": "Interesting path-space energy idea relevant to transition paths, but the abstract is truncated, gives no concrete results, and its MCSP relevance is indirect.",
+    "stage": "judge",
+    "verdict": "skim"
+   },
+   "summary": "Learns a stochastic path action (energy on trajectory space) anchored to a tractable reference process, enabling path ranking, steering, constrained optimization and sampling from one learned objective.",
+   "first_seen": "2026-10-26",
+   "is_new": false
+  },
+  {
+   "src": "arXiv",
+   "title": "Trajectory Matching: Discrete Flow Matching with Structured Actions",
+   "date": "2026-10-23",
+   "arxiv_id": "2610.32602v1",
+   "url": "https://arxiv.org/abs/2610.32602v1",
+   "authors": [
+    "Niklas Kemper",
+    "Marten Lienen",
+    "David L\u00fcdke"
+   ],
+   "authors_all": [
+    "Niklas Kemper",
+    "Marten Lienen",
+    "David L\u00fcdke",
+    "Stephan G\u00fcnnemann"
+   ],
+   "venue": "arXiv",
+   "abstract": "The natural units of structured discrete generation are often not independent single-component edits but richer actions: attaching a fragment to a molecule, inserting a node together with an incident edge, or growing a hierarchy by adding a child. Yet most existing discrete flow matching methods (DFM) are restricted to independent component-wise edits over fixed-size states. This restriction stems from endpoint conditioning: endpoints fix the source and target during training but not the action sequence between them, making tractable conditional rates hard to define for complex actions that cannot be factorized component-wise. We propose trajectory matching, which conditions the flow on a full sequence of actions connecting the endpoints. This yields principled, simulation-free training targets for user-defined action spaces, including actions that change state size, modify multiple components, or depend on earlier actions. We prove that the resulting objective recovers the marginal flow and that trajectory matching strictly subsumes factorized DFM, while additionally capturing actions with prerequisite structure such as hierarchy growth or fragment-based molecule generation. Empir",
+   "matched": [
+    "cat:cs.LG AND (abs:molecule OR abs:molecular OR abs:protein OR abs:crystal OR abs:materials OR abs:chemistry OR abs:\"scientific discovery\" OR abs:\"partial differential\")"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "generative-model"
+   ],
+   "relevance": 60,
+   "significance": 60,
+   "score": 60,
+   "verdict": "skim",
+   "lane": "ai4sci",
+   "rubric": {
+    "q1": 3,
+    "q2": 3,
+    "q3": 3,
+    "low_quality": false,
+    "why": "Principled theoretical generalization of discrete flow matching from a strong group, but an incremental methodological extension with truncated empirical results and only indirect relevance to MCSP.",
+    "stage": "judge",
+    "verdict": "skim"
+   },
+   "summary": "Trajectory matching: conditions discrete flow matching on full action sequences between endpoints, enabling simulation-free training for structured actions such as fragment attachment and size changes; proven to subsume factorized DFM.",
+   "first_seen": "2026-10-26",
+   "is_new": false
+  },
+  {
+   "src": "arXiv",
+   "title": "EVA-Flow: Learning Shared Chemistry for Unified Environment-Aware Molecular Conformation Generation",
+   "date": "2026-10-26",
+   "arxiv_id": "2610.36280v1",
+   "url": "https://arxiv.org/abs/2610.36280v1",
+   "authors": [
+    "Bing Yan",
+    "Anuroop Sriram",
+    "Zachary Ward Ulissi"
+   ],
+   "authors_all": [
+    "Bing Yan",
+    "Anuroop Sriram",
+    "Zachary Ward Ulissi",
+    "Kyunghyun Cho",
+    "Ricky T. Q. Chen",
+    "Benjamin Kurt Miller"
+   ],
+   "venue": "arXiv",
+   "abstract": "Molecular 3D structures underpin simulations of thermodynamics, kinetics, crystallization, and nucleation, making their accurate prediction central to drug discovery and materials design. However, molecular geometry can change dramatically across environments. Existing models either ignore environmental effects or train separate models for each environment. We hypothesize that transfer learning across contexts is possible for conformer generation and that a general model will perform better when training data are limited, as in ligand binding and crystallization. We introduce EVA-Flow, a unified framework for environment-aware molecular conformation generation that learns shared chemical structure and adapts it through environment-conditioned generative modeling. Across vacuum, protein-ligand docking, solvation, and crystal packing, pretraining and cross-environment finetuning provide their largest gains in the three data-scarce settings. Evaluation against multiple reference conformations shows that EVA-Flow covers a broad range of solvation conformations. Analyses of molecules shared across environments support its ability to generate different conformations for the same molecule",
+   "matched": [
+    "cat:cs.LG AND (abs:molecule OR abs:molecular OR abs:protein OR abs:crystal OR abs:materials OR abs:chemistry OR abs:\"scientific discovery\" OR abs:\"partial differential\")"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "generative-model",
+    "conformational",
+    "space-group"
+   ],
+   "relevance": 60,
+   "significance": 60,
+   "score": 56,
+   "verdict": "skim",
+   "lane": "ai4sci",
+   "rubric": {
+    "q1": 3,
+    "q2": 3,
+    "q3": 2,
+    "low_quality": false,
+    "why": "Strong group and a relevant crystal-conformer angle, but this applies existing flow matching to conformers with modest transfer claims; it is useful for seeding MCSP, not a landmark.",
+    "stage": "judge",
+    "verdict": "skim"
+   },
+   "summary": "A single flow-matching conformer generator pretrained on vacuum data and conditioned on environment (docking, solvation, crystal packing), showing cross-environment transfer helps most in data-scarce settings.",
+   "first_seen": "2026-10-28",
+   "is_new": true
+  }
+ ]
+}

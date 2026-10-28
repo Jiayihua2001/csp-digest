@@ -1,5 +1,41 @@
 [
  {
+  "date": "2026-10-28",
+  "count": 4,
+  "new_count": 1,
+  "read_count": 0,
+  "skim_count": 4,
+  "synthesis": "Nothing passed as 'read' today. Only skims; if time allows, Hereditary Effective Atom Theory is the most relevant to structure prediction. The landmark pick, Bartok et al.'s 2010 Gaussian Approximation Potentials paper, is worth knowing as the origin of the ML potentials you use as accelerators.",
+  "landmark": {
+   "id": "doi:10.1103/physrevlett.104.136403",
+   "title": "Gaussian Approximation Potentials: The Accuracy of Quantum Mechanics, without the Electrons",
+   "url": "https://doi.org/10.1103/physrevlett.104.136403",
+   "lane": "mcsp",
+   "year": 2010,
+   "area": "mcsp-classic"
+  },
+  "top": [
+   {
+    "title": "Hereditary Effective Atom Theory for Large-Scale Atomic Structure Prediction",
+    "relevance": 80,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Action Learning for Scientific Simulations",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Trajectory Matching: Discrete Flow Matching with Structured Actions",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   }
+  ]
+ },
+ {
   "date": "2026-10-27",
   "count": 4,
   "new_count": 0,
