@@ -26,6 +26,15 @@
 "verdict": "skip",
 "why": "Experimental phosphor synthesis and luminescence work on one material; no computational or AI method."
 },
+"10.1016/j.jobe.2026.117684": {
+"date": "2026-10-29",
+"lane": "mcsp",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental mineral carbonation study on CaCO3 polymorph regulation; no computational or AI method, unrelated to MCSP."
+},
 "10.1016/j.jssc.2026.126385": {
 "date": "2026-10-26",
 "lane": "mcsp",
@@ -52,6 +61,15 @@
 "v": "2026-10-26.1",
 "verdict": "skip",
 "why": "Experimental supramolecular gel and crystal growth work; no computational or AI method, unrelated to MCSP."
+},
+"10.1021/acs.jpclett.6c03320": {
+"date": "2026-10-29",
+"lane": "mcsp",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of DFT/QM-MM to one specific phosphorescent material system; not MCSP methodology or landmark AI work"
 },
 "10.1021/acsaem.6c02543": {
 "date": "2026-10-26",
@@ -124,6 +142,15 @@
 "v": "2026-10-26.1",
 "verdict": "skip",
 "why": "Fluid dynamics perspective on physics-informed ML; not MCSP, not a landmark AI-for-science method, likely a review."
+},
+"10.1038/s42256-026-01322-9": {
+"date": "2026-10-29",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Foundation model for particle collider data; unrelated to MCSP and not a landmark AI-for-science result."
 },
 "10.1038/s43588-026-01045-2": {
 "date": "2026-10-26",
@@ -215,6 +242,15 @@
 "verdict": "skip",
 "why": "Application of ML to painting attribution; not MCSP, not a landmark AI-for-science or foundational theory result."
 },
+"10.1073/pnas.2628851123": {
+"date": "2026-10-29",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Archaeology application of existing ML segmentation to one settlement; not MCSP or landmark AI-for-science theory."
+},
 "10.1103/m2js-yzky": {
 "date": "2026-10-26",
 "lane": "mcsp",
@@ -233,6 +269,15 @@
 "verdict": "skip",
 "why": "Robotics locomotion paper, unrelated to molecular crystal structure prediction or AI-for-science landmarks."
 },
+"10.1126/sciadv.aec1912": {
+"date": "2026-10-29",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Narrow review of LLM psychology experiments; not MCSP, landmark AI-for-science, or foundational theory."
+},
 "10.1126/sciadv.aef0605": {
 "date": "2026-10-26",
 "lane": "ai4sci",
@@ -241,6 +286,15 @@
 "v": "2026-10-26.1",
 "verdict": "skip",
 "why": "Application of a deep autoencoder to insect wing morphology; unrelated to MCSP or landmark AI-for-science theory."
+},
+"10.1126/sciadv.aef6378": {
+"date": "2026-10-29",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of ML workflow to biobased packaging formulations; not MCSP or landmark AI-for-science theory; includes plat"
 },
 "10.1126/sciadv.aeg9183": {
 "date": "2026-10-26",
@@ -259,6 +313,24 @@
 "v": "2026-10-26.1",
 "verdict": "skip",
 "why": "Theoretical immunology model of T cell exhaustion; unrelated to MCSP or landmark AI-for-science work."
+},
+"10.1126/sciadv.aei5257": {
+"date": "2026-10-29",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Drug discovery pipeline with generative models; unrelated to MCSP and a pipeline/tooling paper, not a landmark."
+},
+"10.1126/sciadv.aek0501": {
+"date": "2026-10-29",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Wearable triboelectric HCI device; unrelated to MCSP or landmark AI-for-science work."
 },
 "10.1126/science.aeh7930": {
 "date": "2026-10-26",

@@ -179,6 +179,6 @@
   },
   "summary": "A single flow-matching conformer generator pretrained on vacuum data and conditioned on environment (docking, solvation, crystal packing), showing cross-environment transfer helps most in data-scarce settings.",
   "first_seen": "2026-10-28",
-  "is_new": true
+  "is_new": false
  }
 ]

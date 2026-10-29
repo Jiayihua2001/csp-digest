@@ -1,5 +1,41 @@
 [
  {
+  "date": "2026-10-29",
+  "count": 4,
+  "new_count": 0,
+  "read_count": 0,
+  "skim_count": 4,
+  "synthesis": "Nothing passed as 'read' today. The landmark is the 2021 AlphaFold paper, and the Hereditary Effective Atom Theory structure-prediction preprint is worth a skim if you have spare time. The flow-matching and conformation-generation items are skim-tier at best.",
+  "landmark": {
+   "id": "doi:10.1038/s41586-021-03819-2",
+   "title": "Highly accurate protein structure prediction with AlphaFold",
+   "url": "https://doi.org/10.1038/s41586-021-03819-2",
+   "lane": "ai4sci",
+   "year": 2021,
+   "area": "protein"
+  },
+  "top": [
+   {
+    "title": "Hereditary Effective Atom Theory for Large-Scale Atomic Structure Prediction",
+    "relevance": 80,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Action Learning for Scientific Simulations",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Trajectory Matching: Discrete Flow Matching with Structured Actions",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   }
+  ]
+ },
+ {
   "date": "2026-10-28",
   "count": 4,
   "new_count": 1,
