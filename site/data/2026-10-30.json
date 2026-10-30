@@ -1,0 +1,303 @@
+{
+ "date": "2026-10-30",
+ "scope": "molecular",
+ "synthesis": "Nothing reached 'read' today; the strongest skims are the generalized Feynman-Kac correctors for composing and steering diffusion models and trajectory-matching discrete flow matching, both theory-leaning. The landmark, multiple-walkers metadynamics (2005), is worth revisiting for free-energy sampling of polymorph landscapes.",
+ "generated_at": "2026-10-30T14:27:45.411499Z",
+ "landmark": {
+  "id": "doi:10.1021/jp054359r",
+  "doi": "10.1021/jp054359r",
+  "arxiv_id": "",
+  "area": "mcsp-classic",
+  "url": "https://doi.org/10.1021/jp054359r",
+  "title": "Efficient Reconstruction of Complex Free Energy Landscapes by Multiple Walkers Metadynamics",
+  "year": 2005,
+  "citations": 616,
+  "venue": "",
+  "authors": [
+   "Paolo Raiteri",
+   "Alessandro Laio",
+   "Francesco Luigi Gervasio"
+  ],
+  "abstract": "Recently, we have introduced a new method, metadynamics, which is able to sample rarely occurring transitions and to reconstruct the free energy as a function of several variables with a controlled accuracy. This method has been successfully applied in many different fields, ranging from chemistry to biophysics and ligand docking and from material science to crystal structure prediction. We present an important development that speeds up metadynamics calculations by orders of magnitude and rende",
+  "lane": "mcsp",
+  "picked_on": "2026-10-30",
+  "worth_30_min": "Of this list, it is the only paper offering transferable sampling theory rather than reviews or case studies. Multiple-walker metadynamics showed that many replicas can share and build one history-dependent bias potential, so free-energy reconstruction parallelizes almost linearly. It made metadynamics practical on clusters and became standard in PLUMED-style enhanced sampling. That includes polymorph-transition and nucleation studies that go beyond static lattice energies.",
+  "inspiration": "For MCSP: use free-energy rather than 0 K lattice energies for final ranking, and study polymorph interconversion. Shared-bias walkers resemble a GA population sharing a fitness memory, which suggests tabu or bias-sharing niching across GAtor replicas. In AI4Sci it is the classical baseline that Boltzmann generators and learned collective variables aim to beat, so you should know it.",
+  "foundations": "History-dependent biasing: repeatedly deposit Gaussians on collective variables (CVs), and the accumulated bias converges toward the negative free-energy surface. Key ideas are error control via Gaussian height and deposition rate, convergence and the CV-choice problem, and the parallel-sampling argument for sharing a bias. This is background for the later well-tempered metadynamics, OPES, and machine-learned CVs.",
+  "reading_guide": "Spend 10 min on the introduction and the method recap: how the bias is built and why the walkers share it. Spend 10 min on the error and efficiency analysis, especially how the error scales with the number of walkers, plus the main free-energy-convergence figures. Spend 5 min on the test system results. Skim the technical implementation details. Use the last 5 min to sketch how a shared bias could map onto a crystal-polymorph CV such as lattice parameters."
+ },
+ "items": [
+  {
+   "src": "arXiv",
+   "title": "Hereditary Effective Atom Theory for Large-Scale Atomic Structure Prediction",
+   "date": "2026-10-20",
+   "arxiv_id": "2610.28996v1",
+   "url": "https://arxiv.org/abs/2610.28996v1",
+   "authors": [
+    "Justin Tahmassebpur",
+    "Chia-Hao Lee",
+    "Cristob\u00e1l M\u00e9ndez"
+   ],
+   "authors_all": [
+    "Justin Tahmassebpur",
+    "Chia-Hao Lee",
+    "Cristob\u00e1l M\u00e9ndez",
+    "Shake Karapetyan",
+    "Schuyler Z. Shi",
+    "David A. Muller",
+    "Tom\u00e1s Arias"
+   ],
+   "venue": "arXiv",
+   "abstract": "Predicting the atomic structure of large systems requires simultaneous exploration of atomic positions, species, and, generally, the number of atoms. The combinatorial growth of possible arrangements can make this search difficult even for standard genetic algorithms. We introduce Hereditary Effective Atom Theory (HEAT), which integrates Effective Atom Theory into a genetic algorithm to enable efficient global search through a differentiable effective-atom representation. Central to the method is a crossover scheme that directly superimposes two parent structures and relaxes the combined structure. HEAT outperforms conventional genetic-algorithm baselines in recovering a missing 240-atom H sublattice, predicting a 364-atom edge-dislocation core, and reconstructing twisted-bilayer $\\mathrm{WSe_2}$ containing 1150 atoms from ptychographic constraints. These results demonstrate how continuous effective-atom relaxation improves the exploration of large combinatorial structure spaces.",
+   "matched": [
+    "(cat:physics.chem-ph OR cat:cond-mat.mtrl-sci OR cat:physics.comp-ph OR cat:q-bio.BM OR cat:physics.bio-ph) AND (abs:\"deep learning\" OR abs:\"machine learning\" OR abs:\"neural network\" OR abs:generative OR abs:\"language model\" OR abs:\"foundation model\")"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "genetic-algorithm"
+   ],
+   "relevance": 80,
+   "significance": 60,
+   "score": 62,
+   "verdict": "skim",
+   "lane": "ai4sci",
+   "rubric": {
+    "q1": 3,
+    "q2": 4,
+    "q3": 2,
+    "low_quality": false,
+    "why": "Novel GA crossover idea directly relevant to GAtor-style search, with concrete large-system results, but these are inorganic and defect systems rather than MCSP, and the advance is moderate.",
+    "stage": "judge",
+    "verdict": "skim"
+   },
+   "summary": "Genetic algorithm using a differentiable effective-atom representation, with crossover that superimposes two parents and relaxes the combined structure, searching positions, species and atom count jointly.",
+   "first_seen": "2026-10-26",
+   "is_new": false
+  },
+  {
+   "src": "arXiv",
+   "title": "Action Learning for Scientific Simulations",
+   "date": "2026-10-22",
+   "arxiv_id": "2610.31585v1",
+   "url": "https://arxiv.org/abs/2610.31585v1",
+   "authors": [
+    "Sarah Liaw",
+    "Yuanqi Du",
+    "Yilun Du"
+   ],
+   "authors_all": [
+    "Sarah Liaw",
+    "Yuanqi Du",
+    "Yilun Du"
+   ],
+   "venue": "arXiv",
+   "abstract": "Understanding and controlling how systems evolve is central to science and engineering, where many problems require reasoning about complete trajectories. Existing approaches typically learn local dynamics or generate trajectories, but objectives constructed from individual transitions can miss dependencies across time, while generative models do not necessarily provide a tractable objective for evaluating and optimizing arbitrary paths. We study $\\textit{action learning}$, the problem of recovering a stochastic action from trajectory observations, yielding a common objective for reasoning about dynamical systems. We introduce $\\textbf{LEAP}$ ($\\textbf{L}$earned $\\textbf{E}$nergy on $\\textbf{A}$ction $\\textbf{P}$aths), which anchors the unknown action to a tractable reference process and learns the remaining correction by comparing observed trajectories with reference trajectories. This construction yields a differentiable objective on path space that can capture both local dynamical structure and nonadditive dependencies across time. Once learned, the same action can be flexibly reused for path ranking and inference, mechanism steering, constrained optimization and sampling. Acros",
+   "matched": [
+    "cat:cs.LG AND (abs:molecule OR abs:molecular OR abs:protein OR abs:crystal OR abs:materials OR abs:chemistry OR abs:\"scientific discovery\" OR abs:\"partial differential\")"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "generative-model"
+   ],
+   "relevance": 60,
+   "significance": 60,
+   "score": 60,
+   "verdict": "skim",
+   "lane": "ai4sci",
+   "rubric": {
+    "q1": 3,
+    "q2": 3,
+    "q3": 3,
+    "low_quality": false,
+    "why": "Interesting path-space energy idea relevant to transition paths, but the abstract is truncated, gives no concrete results, and its MCSP relevance is indirect.",
+    "stage": "judge",
+    "verdict": "skim"
+   },
+   "summary": "Learns a stochastic path action (energy on trajectory space) anchored to a tractable reference process, enabling path ranking, steering, constrained optimization and sampling from one learned objective.",
+   "first_seen": "2026-10-26",
+   "is_new": false
+  },
+  {
+   "src": "arXiv",
+   "title": "Trajectory Matching: Discrete Flow Matching with Structured Actions",
+   "date": "2026-10-23",
+   "arxiv_id": "2610.32602v1",
+   "url": "https://arxiv.org/abs/2610.32602v1",
+   "authors": [
+    "Niklas Kemper",
+    "Marten Lienen",
+    "David L\u00fcdke"
+   ],
+   "authors_all": [
+    "Niklas Kemper",
+    "Marten Lienen",
+    "David L\u00fcdke",
+    "Stephan G\u00fcnnemann"
+   ],
+   "venue": "arXiv",
+   "abstract": "The natural units of structured discrete generation are often not independent single-component edits but richer actions: attaching a fragment to a molecule, inserting a node together with an incident edge, or growing a hierarchy by adding a child. Yet most existing discrete flow matching methods (DFM) are restricted to independent component-wise edits over fixed-size states. This restriction stems from endpoint conditioning: endpoints fix the source and target during training but not the action sequence between them, making tractable conditional rates hard to define for complex actions that cannot be factorized component-wise. We propose trajectory matching, which conditions the flow on a full sequence of actions connecting the endpoints. This yields principled, simulation-free training targets for user-defined action spaces, including actions that change state size, modify multiple components, or depend on earlier actions. We prove that the resulting objective recovers the marginal flow and that trajectory matching strictly subsumes factorized DFM, while additionally capturing actions with prerequisite structure such as hierarchy growth or fragment-based molecule generation. Empir",
+   "matched": [
+    "cat:cs.LG AND (abs:molecule OR abs:molecular OR abs:protein OR abs:crystal OR abs:materials OR abs:chemistry OR abs:\"scientific discovery\" OR abs:\"partial differential\")"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "generative-model"
+   ],
+   "relevance": 60,
+   "significance": 60,
+   "score": 60,
+   "verdict": "skim",
+   "lane": "ai4sci",
+   "rubric": {
+    "q1": 3,
+    "q2": 3,
+    "q3": 3,
+    "low_quality": false,
+    "why": "Principled theoretical generalization of discrete flow matching from a strong group, but an incremental methodological extension with truncated empirical results and only indirect relevance to MCSP.",
+    "stage": "judge",
+    "verdict": "skim"
+   },
+   "summary": "Trajectory matching: conditions discrete flow matching on full action sequences between endpoints, enabling simulation-free training for structured actions such as fragment attachment and size changes; proven to subsume factorized DFM.",
+   "first_seen": "2026-10-26",
+   "is_new": false
+  },
+  {
+   "src": "arXiv",
+   "title": "Composing and Steering Diffusion Models with Generalized Feynman-Kac Correctors",
+   "date": "2026-10-29",
+   "arxiv_id": "2610.40383v1",
+   "url": "https://arxiv.org/abs/2610.40383v1",
+   "authors": [
+    "Wael Mattar",
+    "Daniel Freedman"
+   ],
+   "authors_all": [
+    "Wael Mattar",
+    "Daniel Freedman"
+   ],
+   "venue": "arXiv",
+   "abstract": "Diffusion models have become the leading paradigm in generative modeling, yet many applications require sampling from distributions that are not those of any single pretrained model, but are instead defined through combinations of several models, possibly tilted toward high values of a downstream reward. Naively combining the scores of the models yields incorrect samples, while existing corrections are restricted to specific families of targets. In this work, we introduce the generalized Feynman-Kac correctors (GFKC), a principled framework for sampling from an arbitrary target function of several pretrained diffusion models. We show that the geometric interpolation between an arbitrary initial function and the target function of the models satisfies a Feynman--Kac partial differential equation, and derive its potential in closed form. To evaluate this potential during generation, we further generalize the log-probability ODE to track the density of each model along trajectories driven by a different velocity field. The resulting algorithm operates entirely in the log domain, incorporates reward-based steering at no additional conceptual cost, and corrects the generation on the fly",
+   "matched": [
+    "cat:cs.LG AND (abs:molecule OR abs:molecular OR abs:protein OR abs:crystal OR abs:materials OR abs:chemistry OR abs:\"scientific discovery\" OR abs:\"partial differential\")"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "generative-model"
+   ],
+   "relevance": 60,
+   "significance": 60,
+   "score": 60,
+   "verdict": "skim",
+   "lane": "ai4sci",
+   "rubric": {
+    "q1": 3,
+    "q2": 3,
+    "q3": 3,
+    "low_quality": false,
+    "why": "Principled, competent extension of existing FKC (Skreta et al.) sampling theory; incremental relative to the original, with no evidence of landmark impact or MCSP relevance.",
+    "stage": "judge",
+    "verdict": "skim"
+   },
+   "summary": "Generalizes Feynman-Kac correctors to arbitrary functions of multiple pretrained diffusion models, deriving the closed-form FK potential and a log-probability ODE tracking each model's density under foreign velocity fields.",
+   "first_seen": "2026-10-30",
+   "is_new": true
+  },
+  {
+   "src": "arXiv",
+   "title": "EVA-Flow: Learning Shared Chemistry for Unified Environment-Aware Molecular Conformation Generation",
+   "date": "2026-10-26",
+   "arxiv_id": "2610.36280v1",
+   "url": "https://arxiv.org/abs/2610.36280v1",
+   "authors": [
+    "Bing Yan",
+    "Anuroop Sriram",
+    "Zachary Ward Ulissi"
+   ],
+   "authors_all": [
+    "Bing Yan",
+    "Anuroop Sriram",
+    "Zachary Ward Ulissi",
+    "Kyunghyun Cho",
+    "Ricky T. Q. Chen",
+    "Benjamin Kurt Miller"
+   ],
+   "venue": "arXiv",
+   "abstract": "Molecular 3D structures underpin simulations of thermodynamics, kinetics, crystallization, and nucleation, making their accurate prediction central to drug discovery and materials design. However, molecular geometry can change dramatically across environments. Existing models either ignore environmental effects or train separate models for each environment. We hypothesize that transfer learning across contexts is possible for conformer generation and that a general model will perform better when training data are limited, as in ligand binding and crystallization. We introduce EVA-Flow, a unified framework for environment-aware molecular conformation generation that learns shared chemical structure and adapts it through environment-conditioned generative modeling. Across vacuum, protein-ligand docking, solvation, and crystal packing, pretraining and cross-environment finetuning provide their largest gains in the three data-scarce settings. Evaluation against multiple reference conformations shows that EVA-Flow covers a broad range of solvation conformations. Analyses of molecules shared across environments support its ability to generate different conformations for the same molecule",
+   "matched": [
+    "cat:cs.LG AND (abs:molecule OR abs:molecular OR abs:protein OR abs:crystal OR abs:materials OR abs:chemistry OR abs:\"scientific discovery\" OR abs:\"partial differential\")"
+   ],
+   "ai4sci": true,
+   "tags": [
+    "generative-model",
+    "conformational",
+    "space-group"
+   ],
+   "relevance": 60,
+   "significance": 60,
+   "score": 56,
+   "verdict": "skim",
+   "lane": "ai4sci",
+   "rubric": {
+    "q1": 3,
+    "q2": 3,
+    "q3": 2,
+    "low_quality": false,
+    "why": "Strong group and a relevant crystal-conformer angle, but this applies existing flow matching to conformers with modest transfer claims; it is useful for seeding MCSP, not a landmark.",
+    "stage": "judge",
+    "verdict": "skim"
+   },
+   "summary": "A single flow-matching conformer generator pretrained on vacuum data and conditioned on environment (docking, solvation, crystal packing), showing cross-environment transfer helps most in data-scarce settings.",
+   "first_seen": "2026-10-28",
+   "is_new": false
+  },
+  {
+   "src": "arXiv",
+   "title": "AtomSteer: Test-Time Constraint Steering for Atomistic Generative Models",
+   "date": "2026-10-28",
+   "arxiv_id": "2610.38517v1",
+   "url": "https://arxiv.org/abs/2610.38517v1",
+   "authors": [
+    "Pengfei Cai",
+    "Katharina S. C. J\u00e4ger",
+    "Utkarsh Utkarsh"
+   ],
+   "authors_all": [
+    "Pengfei Cai",
+    "Katharina S. C. J\u00e4ger",
+    "Utkarsh Utkarsh",
+    "Nofit Segal",
+    "Bowen Deng",
+    "Akshay Subramanian",
+    "Rafael Gomez-Bombarelli"
+   ],
+   "venue": "arXiv",
+   "abstract": "Diffusion and flow matching models offer scalable approaches to generating crystalline materials, molecular conformers, and protein-ligand complexes. However, satisfying crystallographic symmetry, structural geometry, and accurate stereochemistry remains challenging. Satisfying these requirements calls for corrections that preserve the geometry already captured by the pretrained model. In this work, we propose AtomSteer, a test-time inference framework for steering pretrained atomistic generative models with structural constraints. During sampling, AtomSteer corrects intermediate structure predictions with bounded local projections, graph-rigid stereochemical transformations, and projections over periodic symmetries, accepting updates that improve constraint satisfaction while limiting changes to the rest of the structure. We demonstrate AtomSteer across three pretrained backbones, FlowMM, ET-Flow, and Boltz-2, spanning de novo crystal generation and crystal structure prediction, molecular conformer generation, and protein-ligand complex structure prediction. AtomSteer improves space-group distribution coverage in de novo crystal generation and improves target space-group recovery ",
+   "matched": [
+    "abs:\"crystal structure prediction\"",
+    "abs:\"crystal structure prediction\" AND abs:generative",
+    "cat:cs.LG AND (abs:molecule OR abs:molecular OR abs:protein OR abs:crystal OR abs:materials OR abs:chemistry OR abs:\"scientific discovery\" OR abs:\"partial differential\")"
+   ],
+   "tags": [
+    "generative-model",
+    "conformational"
+   ],
+   "relevance": 60,
+   "significance": 60,
+   "score": 56,
+   "verdict": "skim",
+   "lane": "ai4sci",
+   "rubric": {
+    "q1": 3,
+    "q2": 3,
+    "q3": 2,
+    "low_quality": false,
+    "why": "Competent, general inference-time constraint method touching CSP space-group recovery; useful idea, but incremental guidance technique rather than landmark or MCSP SOTA.",
+    "stage": "judge",
+    "verdict": "skim"
+   },
+   "summary": "Training-free test-time steering of pretrained diffusion/flow atomistic models via bounded projections, graph-rigid stereochemical transforms, and periodic symmetry projections, shown on FlowMM, ET-Flow, Boltz-2.",
+   "first_seen": "2026-10-30",
+   "is_new": true
+  }
+ ]
+}

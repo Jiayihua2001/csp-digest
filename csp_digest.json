@@ -135,6 +135,47 @@
  },
  {
   "src": "arXiv",
+  "title": "Composing and Steering Diffusion Models with Generalized Feynman-Kac Correctors",
+  "date": "2026-10-29",
+  "arxiv_id": "2610.40383v1",
+  "url": "https://arxiv.org/abs/2610.40383v1",
+  "authors": [
+   "Wael Mattar",
+   "Daniel Freedman"
+  ],
+  "authors_all": [
+   "Wael Mattar",
+   "Daniel Freedman"
+  ],
+  "venue": "arXiv",
+  "abstract": "Diffusion models have become the leading paradigm in generative modeling, yet many applications require sampling from distributions that are not those of any single pretrained model, but are instead defined through combinations of several models, possibly tilted toward high values of a downstream reward. Naively combining the scores of the models yields incorrect samples, while existing corrections are restricted to specific families of targets. In this work, we introduce the generalized Feynman-Kac correctors (GFKC), a principled framework for sampling from an arbitrary target function of several pretrained diffusion models. We show that the geometric interpolation between an arbitrary initial function and the target function of the models satisfies a Feynman--Kac partial differential equation, and derive its potential in closed form. To evaluate this potential during generation, we further generalize the log-probability ODE to track the density of each model along trajectories driven by a different velocity field. The resulting algorithm operates entirely in the log domain, incorporates reward-based steering at no additional conceptual cost, and corrects the generation on the fly",
+  "matched": [
+   "cat:cs.LG AND (abs:molecule OR abs:molecular OR abs:protein OR abs:crystal OR abs:materials OR abs:chemistry OR abs:\"scientific discovery\" OR abs:\"partial differential\")"
+  ],
+  "ai4sci": true,
+  "tags": [
+   "generative-model"
+  ],
+  "relevance": 60,
+  "significance": 60,
+  "score": 60,
+  "verdict": "skim",
+  "lane": "ai4sci",
+  "rubric": {
+   "q1": 3,
+   "q2": 3,
+   "q3": 3,
+   "low_quality": false,
+   "why": "Principled, competent extension of existing FKC (Skreta et al.) sampling theory; incremental relative to the original, with no evidence of landmark impact or MCSP relevance.",
+   "stage": "judge",
+   "verdict": "skim"
+  },
+  "summary": "Generalizes Feynman-Kac correctors to arbitrary functions of multiple pretrained diffusion models, deriving the closed-form FK potential and a log-probability ODE tracking each model's density under foreign velocity fields.",
+  "first_seen": "2026-10-30",
+  "is_new": true
+ },
+ {
+  "src": "arXiv",
   "title": "EVA-Flow: Learning Shared Chemistry for Unified Environment-Aware Molecular Conformation Generation",
   "date": "2026-10-26",
   "arxiv_id": "2610.36280v1",
@@ -180,5 +221,54 @@
   "summary": "A single flow-matching conformer generator pretrained on vacuum data and conditioned on environment (docking, solvation, crystal packing), showing cross-environment transfer helps most in data-scarce settings.",
   "first_seen": "2026-10-28",
   "is_new": false
+ },
+ {
+  "src": "arXiv",
+  "title": "AtomSteer: Test-Time Constraint Steering for Atomistic Generative Models",
+  "date": "2026-10-28",
+  "arxiv_id": "2610.38517v1",
+  "url": "https://arxiv.org/abs/2610.38517v1",
+  "authors": [
+   "Pengfei Cai",
+   "Katharina S. C. J\u00e4ger",
+   "Utkarsh Utkarsh"
+  ],
+  "authors_all": [
+   "Pengfei Cai",
+   "Katharina S. C. J\u00e4ger",
+   "Utkarsh Utkarsh",
+   "Nofit Segal",
+   "Bowen Deng",
+   "Akshay Subramanian",
+   "Rafael Gomez-Bombarelli"
+  ],
+  "venue": "arXiv",
+  "abstract": "Diffusion and flow matching models offer scalable approaches to generating crystalline materials, molecular conformers, and protein-ligand complexes. However, satisfying crystallographic symmetry, structural geometry, and accurate stereochemistry remains challenging. Satisfying these requirements calls for corrections that preserve the geometry already captured by the pretrained model. In this work, we propose AtomSteer, a test-time inference framework for steering pretrained atomistic generative models with structural constraints. During sampling, AtomSteer corrects intermediate structure predictions with bounded local projections, graph-rigid stereochemical transformations, and projections over periodic symmetries, accepting updates that improve constraint satisfaction while limiting changes to the rest of the structure. We demonstrate AtomSteer across three pretrained backbones, FlowMM, ET-Flow, and Boltz-2, spanning de novo crystal generation and crystal structure prediction, molecular conformer generation, and protein-ligand complex structure prediction. AtomSteer improves space-group distribution coverage in de novo crystal generation and improves target space-group recovery ",
+  "matched": [
+   "abs:\"crystal structure prediction\"",
+   "abs:\"crystal structure prediction\" AND abs:generative",
+   "cat:cs.LG AND (abs:molecule OR abs:molecular OR abs:protein OR abs:crystal OR abs:materials OR abs:chemistry OR abs:\"scientific discovery\" OR abs:\"partial differential\")"
+  ],
+  "tags": [
+   "generative-model",
+   "conformational"
+  ],
+  "relevance": 60,
+  "significance": 60,
+  "score": 56,
+  "verdict": "skim",
+  "lane": "ai4sci",
+  "rubric": {
+   "q1": 3,
+   "q2": 3,
+   "q3": 2,
+   "low_quality": false,
+   "why": "Competent, general inference-time constraint method touching CSP space-group recovery; useful idea, but incremental guidance technique rather than landmark or MCSP SOTA.",
+   "stage": "judge",
+   "verdict": "skim"
+  },
+  "summary": "Training-free test-time steering of pretrained diffusion/flow atomistic models via bounded projections, graph-rigid stereochemical transforms, and periodic symmetry projections, shown on FlowMM, ET-Flow, Boltz-2.",
+  "first_seen": "2026-10-30",
+  "is_new": true
  }
 ]

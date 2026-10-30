@@ -1,5 +1,41 @@
 [
  {
+  "date": "2026-10-30",
+  "count": 6,
+  "new_count": 2,
+  "read_count": 0,
+  "skim_count": 6,
+  "synthesis": "Nothing reached 'read' today; the strongest skims are the generalized Feynman-Kac correctors for composing and steering diffusion models and trajectory-matching discrete flow matching, both theory-leaning. The landmark, multiple-walkers metadynamics (2005), is worth revisiting for free-energy sampling of polymorph landscapes.",
+  "landmark": {
+   "id": "doi:10.1021/jp054359r",
+   "title": "Efficient Reconstruction of Complex Free Energy Landscapes by Multiple Walkers Metadynamics",
+   "url": "https://doi.org/10.1021/jp054359r",
+   "lane": "mcsp",
+   "year": 2005,
+   "area": "mcsp-classic"
+  },
+  "top": [
+   {
+    "title": "Hereditary Effective Atom Theory for Large-Scale Atomic Structure Prediction",
+    "relevance": 80,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Action Learning for Scientific Simulations",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Trajectory Matching: Discrete Flow Matching with Structured Actions",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   }
+  ]
+ },
+ {
   "date": "2026-10-29",
   "count": 4,
   "new_count": 0,
