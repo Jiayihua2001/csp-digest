@@ -1,5 +1,41 @@
 [
  {
+  "date": "2026-10-31",
+  "count": 6,
+  "new_count": 0,
+  "read_count": 0,
+  "skim_count": 6,
+  "synthesis": "Nothing reached 'read' today; all six are skims. If you have spare time, the Feynman-Kac correctors paper on composing and steering diffusion models is the most foundational. The landmark pick, AlphaFold 3, is worth revisiting for its diffusion-based structure module.",
+  "landmark": {
+   "id": "doi:10.1038/s41586-024-07487-w",
+   "title": "Accurate structure prediction of biomolecular interactions with AlphaFold 3",
+   "url": "https://doi.org/10.1038/s41586-024-07487-w",
+   "lane": "ai4sci",
+   "year": 2024,
+   "area": "protein"
+  },
+  "top": [
+   {
+    "title": "Hereditary Effective Atom Theory for Large-Scale Atomic Structure Prediction",
+    "relevance": 80,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Action Learning for Scientific Simulations",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Trajectory Matching: Discrete Flow Matching with Structured Actions",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   }
+  ]
+ },
+ {
   "date": "2026-10-30",
   "count": 6,
   "new_count": 2,

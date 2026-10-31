@@ -53,6 +53,15 @@
 "verdict": "skip",
 "why": "Experimental implantation and characterization of Ga2O3 polymorphs; no computational or AI method evident."
 },
+"10.1021/acs.cgd.6c00659": {
+"date": "2026-10-31",
+"lane": "mcsp",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental high-pressure synthesis and XRD of one specific compound; DFT only confirms, no methodological advance"
+},
 "10.1021/acs.cgd.6c01198": {
 "date": "2026-10-27",
 "lane": "mcsp",
@@ -97,6 +106,33 @@
 "v": "2026-10-26.1",
 "verdict": "skip",
 "why": "Application of deep learning to CaCO3 polymorph sensing in microfluidic biomineralization; not MCSP or landmark AI-for-s"
+},
+"10.1021/jacs.6c12519": {
+"date": "2026-10-31",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of fine-tuned universal ML potential to Li electrode potentials in electrolytes; not MCSP or landmark AI-for"
+},
+"10.1021/jacs.6c12929": {
+"date": "2026-10-31",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of ML approach to one catalytic system (Pt nanoparticles propane dehydrogenation); not MCSP or landmark AI-f"
+},
+"10.1021/jacs.6c16293": {
+"date": "2026-10-31",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of ML screening to battery electrolyte design; not MCSP or landmark AI-for-science theory."
 },
 "10.1021/jacs.6c16379": {
 "date": "2026-10-26",
@@ -223,6 +259,15 @@
 "v": "2026-10-26.1",
 "verdict": "skip",
 "why": "Neuroscience connectome modeling; unrelated to crystal structure prediction or AI-for-science landmarks."
+},
+"10.1073/pnas.2610670123": {
+"date": "2026-10-31",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Legal/philosophical perspective on AI accountability; not MCSP, landmark AI-for-science, or foundational scientific ML t"
 },
 "10.1073/pnas.2616364123": {
 "date": "2026-10-26",

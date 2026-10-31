@@ -172,7 +172,7 @@
   },
   "summary": "Generalizes Feynman-Kac correctors to arbitrary functions of multiple pretrained diffusion models, deriving the closed-form FK potential and a log-probability ODE tracking each model's density under foreign velocity fields.",
   "first_seen": "2026-10-30",
-  "is_new": true
+  "is_new": false
  },
  {
   "src": "arXiv",
@@ -269,6 +269,6 @@
   },
   "summary": "Training-free test-time steering of pretrained diffusion/flow atomistic models via bounded projections, graph-rigid stereochemical transforms, and periodic symmetry projections, shown on FlowMM, ET-Flow, Boltz-2.",
   "first_seen": "2026-10-30",
-  "is_new": true
+  "is_new": false
  }
 ]
