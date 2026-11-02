@@ -1,5 +1,41 @@
 [
  {
+  "date": "2026-11-02",
+  "count": 6,
+  "new_count": 1,
+  "read_count": 0,
+  "skim_count": 6,
+  "synthesis": "Nothing passed as 'read' today. If you have spare time, skim the Feynman-Kac correctors paper (composing and steering diffusion models) and WASABI (bridge-interpolant sampling) as foundational sampling theory. Sohl-Dickstein's 2015 nonequilibrium-thermodynamics paper is the landmark that started diffusion models and is worth revisiting.",
+  "landmark": {
+   "id": "arxiv:1503.03585",
+   "title": "Deep Unsupervised Learning using Nonequilibrium Thermodynamics",
+   "url": "https://arxiv.org/abs/1503.03585",
+   "lane": "ai4sci",
+   "year": 2015,
+   "area": "generative-theory"
+  },
+  "top": [
+   {
+    "title": "Action Learning for Scientific Simulations",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Trajectory Matching: Discrete Flow Matching with Structured Actions",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Composing and Steering Diffusion Models with Generalized Feynman-Kac Correctors",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   }
+  ]
+ },
+ {
   "date": "2026-11-01",
   "count": 6,
   "new_count": 0,
