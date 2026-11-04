@@ -1,5 +1,41 @@
 [
  {
+  "date": "2026-11-04",
+  "count": 6,
+  "new_count": 0,
+  "read_count": 0,
+  "skim_count": 6,
+  "synthesis": "Nothing reached 'read' today; all six are skims. If you open one, make it the Feynman-Kac correctors paper, a principled route to composing and steering diffusion samplers that bears on Boltzmann-style sampling. The landmark pick, AlphaGo's network-guided tree search, is worth revisiting as the template for search-plus-learned-prior in polymorph exploration.",
+  "landmark": {
+   "id": "doi:10.1038/nature16961",
+   "title": "Mastering the game of Go with deep neural networks and tree search",
+   "url": "https://doi.org/10.1038/nature16961",
+   "lane": "ai4sci",
+   "year": 2016,
+   "area": "search-and-evolution"
+  },
+  "top": [
+   {
+    "title": "Action Learning for Scientific Simulations",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Trajectory Matching: Discrete Flow Matching with Structured Actions",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Composing and Steering Diffusion Models with Generalized Feynman-Kac Correctors",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   }
+  ]
+ },
+ {
   "date": "2026-11-03",
   "count": 6,
   "new_count": 0,
