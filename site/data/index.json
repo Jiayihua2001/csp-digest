@@ -1,5 +1,41 @@
 [
  {
+  "date": "2026-11-05",
+  "count": 6,
+  "new_count": 0,
+  "read_count": 0,
+  "skim_count": 6,
+  "synthesis": "Nothing passed as a full read today; six papers rated skim, none essential. If you want one, Generalized Feynman-Kac Correctors (composing and steering diffusion models) or WASABI touch sampling theory relevant to Boltzmann generators. The landmark pick, RFdiffusion (2023), is worth revisiting as the diffusion-design reference point.",
+  "landmark": {
+   "id": "doi:10.1038/s41586-023-06415-8",
+   "title": "De novo design of protein structure and function with RFdiffusion",
+   "url": "https://doi.org/10.1038/s41586-023-06415-8",
+   "lane": "ai4sci",
+   "year": 2023,
+   "area": "protein"
+  },
+  "top": [
+   {
+    "title": "Action Learning for Scientific Simulations",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Trajectory Matching: Discrete Flow Matching with Structured Actions",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Composing and Steering Diffusion Models with Generalized Feynman-Kac Correctors",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   }
+  ]
+ },
+ {
   "date": "2026-11-04",
   "count": 6,
   "new_count": 0,
