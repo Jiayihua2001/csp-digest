@@ -1,5 +1,41 @@
 [
  {
+  "date": "2026-11-06",
+  "count": 7,
+  "new_count": 2,
+  "read_count": 0,
+  "skim_count": 7,
+  "synthesis": "Nothing reached 'read' today; the Feynman-Kac correctors paper (composing/steering diffusion) and WASABI are the most theory-relevant skims. The landmark, Noe et al.'s 2019 Boltzmann generators, is worth revisiting as the foundation for equilibrium sampling with learned flows.",
+  "landmark": {
+   "id": "doi:10.1126/science.aaw1147",
+   "title": "Boltzmann generators: Sampling equilibrium states of many-body systems with deep learning",
+   "url": "https://doi.org/10.1126/science.aaw1147",
+   "lane": "ai4sci",
+   "year": 2019,
+   "area": "simulation-and-sampling"
+  },
+  "top": [
+   {
+    "title": "Trajectory Matching: Discrete Flow Matching with Structured Actions",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Composing and Steering Diffusion Models with Generalized Feynman-Kac Correctors",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "WASABI: Wasserstein Sampling via Bridge Interpolants",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   }
+  ]
+ },
+ {
   "date": "2026-11-05",
   "count": 6,
   "new_count": 0,
