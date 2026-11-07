@@ -1,5 +1,41 @@
 [
  {
+  "date": "2026-11-07",
+  "count": 6,
+  "new_count": 0,
+  "read_count": 0,
+  "skim_count": 6,
+  "synthesis": "Nothing reached 'read' today, so this is a quiet day. If you skim one, make it the generalized Feynman-Kac correctors paper, which offers principled composition and steering of diffusion samplers. The 2010 Nucleation review is the landmark pick and is relevant to polymorph kinetics.",
+  "landmark": {
+   "id": "doi:10.1021/cg1011633",
+   "title": "Nucleation",
+   "url": "https://doi.org/10.1021/cg1011633",
+   "lane": "mcsp",
+   "year": 2010,
+   "area": "mcsp-classic"
+  },
+  "top": [
+   {
+    "title": "Composing and Steering Diffusion Models with Generalized Feynman-Kac Correctors",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "WASABI: Wasserstein Sampling via Bridge Interpolants",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "EVA-Flow: Learning Shared Chemistry for Unified Environment-Aware Molecular Conformation Generation",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   }
+  ]
+ },
+ {
   "date": "2026-11-06",
   "count": 7,
   "new_count": 2,
