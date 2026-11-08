@@ -1,5 +1,41 @@
 [
  {
+  "date": "2026-11-08",
+  "count": 6,
+  "new_count": 0,
+  "read_count": 0,
+  "skim_count": 6,
+  "synthesis": "Nothing passed as 'read' today; a quiet day. If skimming, the generalized Feynman-Kac correctors paper (composing and steering diffusion models) is the most foundational, and the landmark pick, Neural ODEs (2018), underpins the continuous-time flows behind flow matching and Boltzmann generators.",
+  "landmark": {
+   "id": "arxiv:1806.07366",
+   "title": "Neural Ordinary Differential Equations",
+   "url": "https://arxiv.org/abs/1806.07366",
+   "lane": "ai4sci",
+   "year": 2018,
+   "area": "ml-foundations"
+  },
+  "top": [
+   {
+    "title": "Composing and Steering Diffusion Models with Generalized Feynman-Kac Correctors",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "WASABI: Wasserstein Sampling via Bridge Interpolants",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "EVA-Flow: Learning Shared Chemistry for Unified Environment-Aware Molecular Conformation Generation",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   }
+  ]
+ },
+ {
   "date": "2026-11-07",
   "count": 6,
   "new_count": 0,
