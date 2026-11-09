@@ -159,8 +159,8 @@
   "abstract": "Diffusion and flow matching models offer scalable approaches to generating crystalline materials, molecular conformers, and protein-ligand complexes. However, satisfying crystallographic symmetry, structural geometry, and accurate stereochemistry remains challenging. Satisfying these requirements calls for corrections that preserve the geometry already captured by the pretrained model. In this work, we propose AtomSteer, a test-time inference framework for steering pretrained atomistic generative models with structural constraints. During sampling, AtomSteer corrects intermediate structure predictions with bounded local projections, graph-rigid stereochemical transformations, and projections over periodic symmetries, accepting updates that improve constraint satisfaction while limiting changes to the rest of the structure. We demonstrate AtomSteer across three pretrained backbones, FlowMM, ET-Flow, and Boltz-2, spanning de novo crystal generation and crystal structure prediction, molecular conformer generation, and protein-ligand complex structure prediction. AtomSteer improves space-group distribution coverage in de novo crystal generation and improves target space-group recovery ",
   "matched": [
    "abs:\"crystal structure prediction\" AND abs:generative",
-   "cat:cs.LG AND (abs:molecule OR abs:molecular OR abs:protein OR abs:crystal OR abs:materials OR abs:chemistry OR abs:\"scientific discovery\" OR abs:\"partial differential\")",
-   "abs:\"crystal structure prediction\""
+   "abs:\"crystal structure prediction\"",
+   "cat:cs.LG AND (abs:molecule OR abs:molecular OR abs:protein OR abs:crystal OR abs:materials OR abs:chemistry OR abs:\"scientific discovery\" OR abs:\"partial differential\")"
   ],
   "tags": [
    "generative-model",
@@ -183,6 +183,50 @@
   "summary": "Training-free test-time steering of pretrained diffusion/flow atomistic models via bounded projections, graph-rigid stereochemical transforms, and periodic symmetry projections, shown on FlowMM, ET-Flow, Boltz-2.",
   "first_seen": "2026-10-30",
   "is_new": false
+ },
+ {
+  "src": "arXiv",
+  "title": "Inverse design of superconductors and semiconductors with differentiable foundation models",
+  "date": "2026-11-06",
+  "arxiv_id": "2611.09572v1",
+  "url": "https://arxiv.org/abs/2611.09572v1",
+  "authors": [
+   "Crist\u00f3bal M\u00e9ndez",
+   "Justin Tahmassebpur",
+   "Tom\u00e1s A. Arias"
+  ],
+  "authors_all": [
+   "Crist\u00f3bal M\u00e9ndez",
+   "Justin Tahmassebpur",
+   "Tom\u00e1s A. Arias"
+  ],
+  "venue": "arXiv",
+  "abstract": "Designing a crystal for a target property requires choosing its elements, stoichiometry, and atomic structure together, yet gradients exist only for the continuous structural variables. We introduce differentiable Equiformer fast effective-atom theory (DEFEAT), which lets a pretrained EquiformerV3 foundation model accept continuous species weights and site occupancies without retraining on fractional data, thereby enabling gradient-based materials optimization. Gradients from fine-tuned property models and a machine-learned energy penalty then guide updates to composition, atom count, atomic positions, and lattice vectors in a single optimization. In a search for phonon-mediated superconductors, density-functional perturbation theory on 45 structurally novel designs gives isotropic Allen-Dynes critical temperatures above 10 K for 39; the highest is 24.0 K for ZrTiNb2CN3, and H4LiPd3 (23.2 K) lies on the static DFT hull. In searches for photovoltaic absorbers, SCAN calculations confirm ten novel crystal structures with band gaps within 20% of a 1.34 eV target on their respective raw or empirically corrected scales, all within 70 meV/atom of the DFT hull, and show that the systematic",
+  "matched": [
+   "(cat:physics.chem-ph OR cat:cond-mat.mtrl-sci OR cat:physics.comp-ph OR cat:q-bio.BM OR cat:physics.bio-ph) AND (abs:\"deep learning\" OR abs:\"machine learning\" OR abs:\"neural network\" OR abs:generative OR abs:\"language model\" OR abs:\"foundation model\")"
+  ],
+  "ai4sci": true,
+  "tags": [
+   "ML-potential",
+   "free-energy"
+  ],
+  "relevance": 60,
+  "significance": 60,
+  "score": 56,
+  "verdict": "skim",
+  "lane": "ai4sci",
+  "rubric": {
+   "q1": 3,
+   "q2": 3,
+   "q3": 2,
+   "low_quality": false,
+   "why": "Clever differentiable-composition trick with real DFT validation, but inorganic inverse design, modest results, not MCSP or landmark-tier.",
+   "stage": "judge",
+   "verdict": "skim"
+  },
+  "summary": "Effective-atom continuous species weights let pretrained EquiformerV3 take gradients wrt composition, atom count, positions and lattice jointly, enabling gradient-based inverse design validated by DFPT/SCAN.",
+  "first_seen": "2026-11-09",
+  "is_new": true
  },
  {
   "src": "arXiv",
