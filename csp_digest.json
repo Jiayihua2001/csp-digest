@@ -89,51 +89,89 @@
  },
  {
   "src": "arXiv",
-  "title": "EVA-Flow: Learning Shared Chemistry for Unified Environment-Aware Molecular Conformation Generation",
-  "date": "2026-10-26",
-  "arxiv_id": "2610.36280v1",
-  "url": "https://arxiv.org/abs/2610.36280v1",
+  "title": "Finite temperature and pressure structural relaxations including zero-point motion and anharmonicity",
+  "date": "2026-11-09",
+  "arxiv_id": "2611.12736v1",
+  "url": "https://arxiv.org/abs/2611.12736v1",
   "authors": [
-   "Bing Yan",
-   "Anuroop Sriram",
-   "Zachary Ward Ulissi"
+   "Henricus R. A. ten Eikelder",
+   "Florian Knoop",
+   "Florian Trybel"
   ],
   "authors_all": [
-   "Bing Yan",
-   "Anuroop Sriram",
-   "Zachary Ward Ulissi",
-   "Kyunghyun Cho",
-   "Ricky T. Q. Chen",
-   "Benjamin Kurt Miller"
+   "Henricus R. A. ten Eikelder",
+   "Florian Knoop",
+   "Florian Trybel"
   ],
   "venue": "arXiv",
-  "abstract": "Molecular 3D structures underpin simulations of thermodynamics, kinetics, crystallization, and nucleation, making their accurate prediction central to drug discovery and materials design. However, molecular geometry can change dramatically across environments. Existing models either ignore environmental effects or train separate models for each environment. We hypothesize that transfer learning across contexts is possible for conformer generation and that a general model will perform better when training data are limited, as in ligand binding and crystallization. We introduce EVA-Flow, a unified framework for environment-aware molecular conformation generation that learns shared chemical structure and adapts it through environment-conditioned generative modeling. Across vacuum, protein-ligand docking, solvation, and crystal packing, pretraining and cross-environment finetuning provide their largest gains in the three data-scarce settings. Evaluation against multiple reference conformations shows that EVA-Flow covers a broad range of solvation conformations. Analyses of molecules shared across environments support its ability to generate different conformations for the same molecule",
+  "abstract": "At finite temperature and pressure, the equilibrium structure of a crystal minimizes the Gibbs free energy rather than the static Born-Oppenheimer energy. We present WARP (Wyckoff-constrained Anharmonic Relaxations at Pressure and temperature), a symmetry-constrained, variable-cell relaxation based on the stochastic temperature-dependent effective potential method, including anharmonicity and zero-point motion. Every position update is projected onto Wyckoff positions and every strain onto symmetric strains, so a relaxation can raise the symmetry but never lower it. For aluminum, the thermal expansion follows measurements at cryogenic temperatures, including the quantum plateau below 50 K. For lanthanum hydrides at megabar pressures, equations of state agree with phonon-based and path-integral calculations, and LaH$_{10}$ relaxes from its rhombohedral static minimum to the observed cubic phase, also with a machine-learned potential fine-tuned on 150 supercells. For brucite, Mg(OD)$_2$, lattice parameters, bond distances and thermal expansion agree with neutron diffraction, and the O-D isotope effect is captured.",
   "matched": [
-   "cat:cs.LG AND (abs:molecule OR abs:molecular OR abs:protein OR abs:crystal OR abs:materials OR abs:chemistry OR abs:\"scientific discovery\" OR abs:\"partial differential\")"
+   "(cat:physics.chem-ph OR cat:cond-mat.mtrl-sci OR cat:physics.comp-ph OR cat:q-bio.BM OR cat:physics.bio-ph) AND (abs:\"deep learning\" OR abs:\"machine learning\" OR abs:\"neural network\" OR abs:generative OR abs:\"language model\" OR abs:\"foundation model\")"
   ],
   "ai4sci": true,
   "tags": [
-   "generative-model",
-   "conformational",
-   "space-group"
+   "ML-potential",
+   "free-energy"
   ],
   "relevance": 60,
   "significance": 60,
-  "score": 56,
+  "score": 60,
   "verdict": "skim",
   "lane": "ai4sci",
   "rubric": {
    "q1": 3,
    "q2": 3,
-   "q3": 2,
+   "q3": 3,
    "low_quality": false,
-   "why": "Strong group and a relevant crystal-conformer angle, but this applies existing flow matching to conformers with modest transfer claims; it is useful for seeding MCSP, not a landmark.",
+   "why": "Finite-temperature anharmonic free-energy relaxation is relevant to polymorph ranking, but it is tested on inorganic systems and is an incremental, competent method extension rather than a breakthrough.",
    "stage": "judge",
    "verdict": "skim"
   },
-  "summary": "A single flow-matching conformer generator pretrained on vacuum data and conditioned on environment (docking, solvation, crystal packing), showing cross-environment transfer helps most in data-scarce settings.",
-  "first_seen": "2026-10-28",
-  "is_new": false
+  "summary": "Symmetry-constrained variable-cell relaxation minimizing anharmonic free energy via stochastic TDEP, with zero-point motion; validated on Al thermal expansion, LaH10 cubic stabilization, and brucite isotope effects.",
+  "first_seen": "2026-11-10",
+  "is_new": true
+ },
+ {
+  "src": "arXiv",
+  "title": "Kolmogorov-Chapman Maps: Trajectory-Free Learning for Simulating Molecular Dynamics",
+  "date": "2026-11-09",
+  "arxiv_id": "2611.12880v1",
+  "url": "https://arxiv.org/abs/2611.12880v1",
+  "authors": [
+   "Majdi Hassan",
+   "Marta Skreta",
+   "Dominique Beaini"
+  ],
+  "authors_all": [
+   "Majdi Hassan",
+   "Marta Skreta",
+   "Dominique Beaini",
+   "Kirill Neklyudov"
+  ],
+  "venue": "arXiv",
+  "abstract": "Stochastic differential equations (SDEs) describe stochastic processes across a wide range of scientific domains, including physics, biology, and finance. Although individual numerical integration steps are inexpensive, observing meaningful events or transitions can require millions of sequential steps, resulting in substantial wall-clock simulation time and poor hardware utilization. Deep learning offers an alternative by amortizing many integration steps into a single neural network forward pass, potentially enabling much faster simulation. However, existing supervised approaches typically require long simulated trajectory data, which restricts their applicability. In this work, we introduce Kolmogorov-Chapman Maps (KC-Maps), a method for learning the transition kernel of an SDE that relies only on the trajectory-free marginal samples together with the known drift and diffusion coefficients. Given an initial time and state of a process, KC-Maps models its distribution integrated to any given time, corresponding to the weak solution of the SDE. To recover the correct dynamics, KC-Maps satisfies two key properties: (i) it satisfies the boundary conditions, which we incorporate dire",
+  "matched": [
+   "cat:cs.LG AND (abs:molecule OR abs:molecular OR abs:protein OR abs:crystal OR abs:materials OR abs:chemistry OR abs:\"scientific discovery\" OR abs:\"partial differential\")"
+  ],
+  "ai4sci": true,
+  "tags": [],
+  "relevance": 60,
+  "significance": 60,
+  "score": 60,
+  "verdict": "skim",
+  "lane": "ai4sci",
+  "rubric": {
+   "q1": 3,
+   "q2": 3,
+   "q3": 3,
+   "low_quality": false,
+   "why": "Principled, theory-grounded idea from a strong generative-modeling group, but the abstract is truncated, gives no results, and the work is tangential to MCSP.",
+   "stage": "judge",
+   "verdict": "skim"
+  },
+  "summary": "Learns SDE transition kernels for arbitrary time horizons from marginal (equilibrium) samples plus known drift/diffusion, enforcing boundary conditions and Chapman-Kolmogorov consistency, without trajectory data.",
+  "first_seen": "2026-11-10",
+  "is_new": true
  },
  {
   "src": "arXiv",
@@ -158,9 +196,9 @@
   "venue": "arXiv",
   "abstract": "Diffusion and flow matching models offer scalable approaches to generating crystalline materials, molecular conformers, and protein-ligand complexes. However, satisfying crystallographic symmetry, structural geometry, and accurate stereochemistry remains challenging. Satisfying these requirements calls for corrections that preserve the geometry already captured by the pretrained model. In this work, we propose AtomSteer, a test-time inference framework for steering pretrained atomistic generative models with structural constraints. During sampling, AtomSteer corrects intermediate structure predictions with bounded local projections, graph-rigid stereochemical transformations, and projections over periodic symmetries, accepting updates that improve constraint satisfaction while limiting changes to the rest of the structure. We demonstrate AtomSteer across three pretrained backbones, FlowMM, ET-Flow, and Boltz-2, spanning de novo crystal generation and crystal structure prediction, molecular conformer generation, and protein-ligand complex structure prediction. AtomSteer improves space-group distribution coverage in de novo crystal generation and improves target space-group recovery ",
   "matched": [
+   "cat:cs.LG AND (abs:molecule OR abs:molecular OR abs:protein OR abs:crystal OR abs:materials OR abs:chemistry OR abs:\"scientific discovery\" OR abs:\"partial differential\")",
    "abs:\"crystal structure prediction\" AND abs:generative",
-   "abs:\"crystal structure prediction\"",
-   "cat:cs.LG AND (abs:molecule OR abs:molecular OR abs:protein OR abs:crystal OR abs:materials OR abs:chemistry OR abs:\"scientific discovery\" OR abs:\"partial differential\")"
+   "abs:\"crystal structure prediction\""
   ],
   "tags": [
    "generative-model",
@@ -226,7 +264,7 @@
   },
   "summary": "Effective-atom continuous species weights let pretrained EquiformerV3 take gradients wrt composition, atom count, positions and lattice jointly, enabling gradient-based inverse design validated by DFPT/SCAN.",
   "first_seen": "2026-11-09",
-  "is_new": true
+  "is_new": false
  },
  {
   "src": "arXiv",

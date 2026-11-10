@@ -1,5 +1,41 @@
 [
  {
+  "date": "2026-11-10",
+  "count": 8,
+  "new_count": 2,
+  "read_count": 0,
+  "skim_count": 8,
+  "synthesis": "Nothing reached 'read' today. The landmark pick, Karras et al.'s EDM paper on the design space of diffusion models, is the one worth your time. Among the skims, the finite-temperature/pressure relaxation paper with zero-point and anharmonic effects is the closest fit for your polymorph-ranking work.",
+  "landmark": {
+   "id": "arxiv:2206.00364",
+   "title": "Elucidating the Design Space of Diffusion-Based Generative Models",
+   "url": "https://arxiv.org/abs/2206.00364",
+   "lane": "ai4sci",
+   "year": 2022,
+   "area": "generative-theory"
+  },
+  "top": [
+   {
+    "title": "Composing and Steering Diffusion Models with Generalized Feynman-Kac Correctors",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "WASABI: Wasserstein Sampling via Bridge Interpolants",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Finite temperature and pressure structural relaxations including zero-point motion and anharmonicity",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   }
+  ]
+ },
+ {
   "date": "2026-11-09",
   "count": 7,
   "new_count": 1,
