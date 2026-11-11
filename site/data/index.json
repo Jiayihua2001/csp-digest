@@ -1,5 +1,41 @@
 [
  {
+  "date": "2026-11-11",
+  "count": 9,
+  "new_count": 1,
+  "read_count": 0,
+  "skim_count": 9,
+  "synthesis": "Nothing passed as read today; a quiet day. If skimming, the finite-temperature/pressure relaxation paper (zero-point motion, anharmonicity) bears most directly on polymorph ranking, and the Feynman-Kac corrector work on steering diffusion is the strongest theory piece; Rezende and Mohamed's 2015 normalizing-flows paper underpins Boltzmann generators.",
+  "landmark": {
+   "id": "arxiv:1505.05770",
+   "title": "Variational Inference with Normalizing Flows",
+   "url": "https://arxiv.org/abs/1505.05770",
+   "lane": "ai4sci",
+   "year": 2015,
+   "area": "generative-theory"
+  },
+  "top": [
+   {
+    "title": "Composing and Steering Diffusion Models with Generalized Feynman-Kac Correctors",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "WASABI: Wasserstein Sampling via Bridge Interpolants",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Finite temperature and pressure structural relaxations including zero-point motion and anharmonicity",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   }
+  ]
+ },
+ {
   "date": "2026-11-10",
   "count": 8,
   "new_count": 2,
