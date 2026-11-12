@@ -26,6 +26,15 @@
 "verdict": "skip",
 "why": "Experimental phosphor synthesis and luminescence work on one material; no computational or AI method."
 },
+"10.1016/j.jallcom.2026.192356": {
+"date": "2026-11-12",
+"lane": "mcsp",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental solidification and magnetic characterization of a Zr2Co11 alloy; no computational or AI method."
+},
 "10.1016/j.jobe.2026.117684": {
 "date": "2026-10-29",
 "lane": "mcsp",
@@ -323,6 +332,15 @@
 "v": "2026-10-26.1",
 "verdict": "skip",
 "why": "Physical optical deep learning hardware with training tricks; not MCSP, not a landmark AI-for-science method."
+},
+"10.1038/s43588-026-01094-7": {
+"date": "2026-11-12",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Clinical AI foundation models; outside MCSP and not a landmark AI-for-science method."
 },
 "10.1055/a-2977-1370": {
 "date": "2026-10-26",

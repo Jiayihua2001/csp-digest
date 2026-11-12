@@ -1,5 +1,41 @@
 [
  {
+  "date": "2026-11-12",
+  "count": 8,
+  "new_count": 0,
+  "read_count": 0,
+  "skim_count": 8,
+  "synthesis": "Nothing passed as a must-read today; all are skims. The Feynman-Kac corrector paper on steering diffusion models and the finite-temperature relaxation work, which adds zero-point motion and anharmonicity and could bear on polymorph ranking, are the most relevant. The landmark pick, Attention Is All You Need, is worth revisiting.",
+  "landmark": {
+   "id": "arxiv:1706.03762",
+   "title": "Attention Is All You Need",
+   "url": "https://arxiv.org/abs/1706.03762",
+   "lane": "ai4sci",
+   "year": 2025,
+   "area": "ml-foundations"
+  },
+  "top": [
+   {
+    "title": "Composing and Steering Diffusion Models with Generalized Feynman-Kac Correctors",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "WASABI: Wasserstein Sampling via Bridge Interpolants",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Finite temperature and pressure structural relaxations including zero-point motion and anharmonicity",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   }
+  ]
+ },
+ {
   "date": "2026-11-11",
   "count": 9,
   "new_count": 1,
