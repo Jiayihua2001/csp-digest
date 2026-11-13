@@ -1,47 +1,6 @@
 [
  {
   "src": "arXiv",
-  "title": "Composing and Steering Diffusion Models with Generalized Feynman-Kac Correctors",
-  "date": "2026-10-29",
-  "arxiv_id": "2610.40383v1",
-  "url": "https://arxiv.org/abs/2610.40383v1",
-  "authors": [
-   "Wael Mattar",
-   "Daniel Freedman"
-  ],
-  "authors_all": [
-   "Wael Mattar",
-   "Daniel Freedman"
-  ],
-  "venue": "arXiv",
-  "abstract": "Diffusion models have become the leading paradigm in generative modeling, yet many applications require sampling from distributions that are not those of any single pretrained model, but are instead defined through combinations of several models, possibly tilted toward high values of a downstream reward. Naively combining the scores of the models yields incorrect samples, while existing corrections are restricted to specific families of targets. In this work, we introduce the generalized Feynman-Kac correctors (GFKC), a principled framework for sampling from an arbitrary target function of several pretrained diffusion models. We show that the geometric interpolation between an arbitrary initial function and the target function of the models satisfies a Feynman--Kac partial differential equation, and derive its potential in closed form. To evaluate this potential during generation, we further generalize the log-probability ODE to track the density of each model along trajectories driven by a different velocity field. The resulting algorithm operates entirely in the log domain, incorporates reward-based steering at no additional conceptual cost, and corrects the generation on the fly",
-  "matched": [
-   "cat:cs.LG AND (abs:molecule OR abs:molecular OR abs:protein OR abs:crystal OR abs:materials OR abs:chemistry OR abs:\"scientific discovery\" OR abs:\"partial differential\")"
-  ],
-  "ai4sci": true,
-  "tags": [
-   "generative-model"
-  ],
-  "relevance": 60,
-  "significance": 60,
-  "score": 60,
-  "verdict": "skim",
-  "lane": "ai4sci",
-  "rubric": {
-   "q1": 3,
-   "q2": 3,
-   "q3": 3,
-   "low_quality": false,
-   "why": "Principled, competent extension of existing FKC (Skreta et al.) sampling theory; incremental relative to the original, with no evidence of landmark impact or MCSP relevance.",
-   "stage": "judge",
-   "verdict": "skim"
-  },
-  "summary": "Generalizes Feynman-Kac correctors to arbitrary functions of multiple pretrained diffusion models, deriving the closed-form FK potential and a log-probability ODE tracking each model's density under foreign velocity fields.",
-  "first_seen": "2026-10-30",
-  "is_new": false
- },
- {
-  "src": "arXiv",
   "title": "WASABI: Wasserstein Sampling via Bridge Interpolants",
   "date": "2026-10-30",
   "arxiv_id": "2610.41958v1",

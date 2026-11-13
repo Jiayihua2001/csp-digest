@@ -1,5 +1,41 @@
 [
  {
+  "date": "2026-11-13",
+  "count": 7,
+  "new_count": 0,
+  "read_count": 0,
+  "skim_count": 7,
+  "synthesis": "Nothing reached 'read' today; WASABI (bridge-interpolant Wasserstein sampling) and the finite-T/P relaxation with zero-point motion and anharmonicity are the only skims close to Boltzmann sampling and lattice-energy ranking. The landmark pick, FunSearch (LLM-guided program search for mathematical discoveries), is worth the time.",
+  "landmark": {
+   "id": "doi:10.1038/s41586-023-06924-6",
+   "title": "Mathematical discoveries from program search with large language models",
+   "url": "https://doi.org/10.1038/s41586-023-06924-6",
+   "lane": "ai4sci",
+   "year": 2023,
+   "area": "search-and-evolution"
+  },
+  "top": [
+   {
+    "title": "WASABI: Wasserstein Sampling via Bridge Interpolants",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Finite temperature and pressure structural relaxations including zero-point motion and anharmonicity",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Kolmogorov-Chapman Maps: Trajectory-Free Learning for Simulating Molecular Dynamics",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   }
+  ]
+ },
+ {
   "date": "2026-11-12",
   "count": 8,
   "new_count": 0,
