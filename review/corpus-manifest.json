@@ -1,5 +1,5 @@
 {
- "built": "2026-11-13",
+ "built": "2026-11-14",
  "entries": {
   "blind-test-1": {
    "slug": "blind-test-1",
@@ -635,8 +635,8 @@
    "status": "resolved",
    "needs_confirm": true,
    "match_score": 1.0,
-   "fulltext": "abstract-only",
-   "raw_file": null,
+   "fulltext": "pdf",
+   "raw_file": "raw/2026-11-14_predicting-crystal-form-stability-under-real-world-condition.pdf",
    "error": "",
    "title": "Predicting crystal form stability under real-world conditions",
    "doi": "10.1038/s41586-023-06587-3",
