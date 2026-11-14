@@ -1,5 +1,41 @@
 [
  {
+  "date": "2026-11-14",
+  "count": 6,
+  "new_count": 0,
+  "read_count": 0,
+  "skim_count": 6,
+  "synthesis": "Nothing reached 'read' today; the finite-temperature/pressure relaxation paper with zero-point motion and anharmonicity is the closest skim for polymorph ranking beyond static lattice energies. The landmark, DDIM (2020), is worth revisiting as the deterministic-sampling foundation underlying diffusion generators like MatterGen.",
+  "landmark": {
+   "id": "arxiv:2010.02502",
+   "title": "Denoising Diffusion Implicit Models",
+   "url": "https://arxiv.org/abs/2010.02502",
+   "lane": "ai4sci",
+   "year": 2020,
+   "area": "generative-theory"
+  },
+  "top": [
+   {
+    "title": "Finite temperature and pressure structural relaxations including zero-point motion and anharmonicity",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Kolmogorov-Chapman Maps: Trajectory-Free Learning for Simulating Molecular Dynamics",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Inverse design of superconductors and semiconductors with differentiable foundation models",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   }
+  ]
+ },
+ {
   "date": "2026-11-13",
   "count": 7,
   "new_count": 0,

@@ -89,6 +89,15 @@
 "verdict": "skip",
 "why": "Experimental supramolecular gel and crystal growth work; no computational or AI method, unrelated to MCSP."
 },
+"10.1021/acs.inorgchem.6c04371": {
+"date": "2026-11-14",
+"lane": "mcsp",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Experimental synthesis and thermoelectric characterization of In2Se3; no CSP or AI method."
+},
 "10.1021/acs.jpclett.6c03320": {
 "date": "2026-10-29",
 "lane": "mcsp",
@@ -178,6 +187,15 @@
 "v": "2026-10-26.1",
 "verdict": "skip",
 "why": "Experimental nanopore biosensing of peptides in serum; unrelated to MCSP or landmark AI-for-science work."
+},
+"10.1021/jacs.6c18007": {
+"date": "2026-11-14",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Perspective surveying generative AI for inorganic compounds; broad survey rather than a landmark or methodological advan"
 },
 "10.1021/jacs.6c18952": {
 "date": "2026-11-05",
@@ -495,6 +513,15 @@
 "verdict": "skip",
 "why": "Application of ML workflow to biobased packaging formulations; not MCSP or landmark AI-for-science theory; includes plat"
 },
+"10.1126/sciadv.aef7673": {
+"date": "2026-11-14",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of deep learning to STEM imaging of catalysts; not MCSP or landmark AI-for-science theory"
+},
 "10.1126/sciadv.aeg9183": {
 "date": "2026-10-26",
 "lane": "ai4sci",
@@ -503,6 +530,24 @@
 "v": "2026-10-26.1",
 "verdict": "skip",
 "why": "Applies ML to one alloy system (ductile iron) with experiments; not MCSP or landmark AI-for-science theory"
+},
+"10.1126/sciadv.aeh5673": {
+"date": "2026-11-14",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of ML to storm surge forecasting; unrelated to MCSP or landmark AI-for-science theory."
+},
+"10.1126/sciadv.aeh9058": {
+"date": "2026-11-14",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of ML forecasting to ocean systems; outside MCSP and not a landmark AI-for-science method."
 },
 "10.1126/sciadv.aei0840": {
 "date": "2026-10-26",
