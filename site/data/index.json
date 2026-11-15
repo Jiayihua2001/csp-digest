@@ -1,5 +1,41 @@
 [
  {
+  "date": "2026-11-15",
+  "count": 6,
+  "new_count": 0,
+  "read_count": 0,
+  "skim_count": 6,
+  "synthesis": "Nothing passed as 'read' today, so it is a quiet day. If you skim one, take the finite-temperature-and-pressure relaxation paper with zero-point motion and anharmonicity, since it bears on polymorph ranking. The landmark is Desiraju's 1997 supramolecular synthons paper, foundational context for MCSP.",
+  "landmark": {
+   "id": "doi:10.1039/a607149j",
+   "title": "Designer crystals: intermolecular interactions, network structures and supramolecular synthons",
+   "url": "https://doi.org/10.1039/a607149j",
+   "lane": "mcsp",
+   "year": 1997,
+   "area": "mcsp-classic"
+  },
+  "top": [
+   {
+    "title": "Finite temperature and pressure structural relaxations including zero-point motion and anharmonicity",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Kolmogorov-Chapman Maps: Trajectory-Free Learning for Simulating Molecular Dynamics",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Inverse design of superconductors and semiconductors with differentiable foundation models",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   }
+  ]
+ },
+ {
   "date": "2026-11-14",
   "count": 6,
   "new_count": 0,

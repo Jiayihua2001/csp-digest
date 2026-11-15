@@ -98,6 +98,15 @@
 "verdict": "skip",
 "why": "Experimental synthesis and thermoelectric characterization of In2Se3; no CSP or AI method."
 },
+"10.1021/acs.jpclett.6c02885": {
+"date": "2026-11-15",
+"lane": "mcsp",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Application of ML collective variables to colloidal crystals; not MCSP or landmark AI-for-science."
+},
 "10.1021/acs.jpclett.6c03320": {
 "date": "2026-10-29",
 "lane": "mcsp",
