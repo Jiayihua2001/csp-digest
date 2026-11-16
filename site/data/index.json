@@ -1,5 +1,41 @@
 [
  {
+  "date": "2026-11-16",
+  "count": 7,
+  "new_count": 1,
+  "read_count": 0,
+  "skim_count": 7,
+  "synthesis": "Nothing reached 'read' today. Diffusion Tree Sampling, which adapts crystal generative models at inference time with tree search, is the one skim closest to your polymorph-search interests. The finite-temperature relaxation paper with zero-point motion and anharmonicity bears on lattice-energy ranking. The landmark pick, Kingma and Welling's VAE paper, is foundational background.",
+  "landmark": {
+   "id": "arxiv:1312.6114",
+   "title": "Auto-Encoding Variational Bayes",
+   "url": "https://arxiv.org/abs/1312.6114",
+   "lane": "ai4sci",
+   "year": 2013,
+   "area": "generative-theory"
+  },
+  "top": [
+   {
+    "title": "Diffusion Tree Sampling for Inference Time Adaptation of Crystal Generative Models",
+    "relevance": 80,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Finite temperature and pressure structural relaxations including zero-point motion and anharmonicity",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Kolmogorov-Chapman Maps: Trajectory-Free Learning for Simulating Molecular Dynamics",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   }
+  ]
+ },
+ {
   "date": "2026-11-15",
   "count": 6,
   "new_count": 0,
