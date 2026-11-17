@@ -44,6 +44,62 @@
   },
   "summary": "Extends Diffusion Tree Sampling (MCTS over denoising trajectories) with unbiased use of conditional models as guided proposals and multi-objective Pareto-front sampling, applied to inorganic crystal generation.",
   "first_seen": "2026-11-16",
+  "is_new": false
+ },
+ {
+  "src": "arXiv",
+  "title": "Nahual: A Sequence Model for Language and Atoms",
+  "date": "2026-11-14",
+  "arxiv_id": "2611.19072v1",
+  "url": "https://arxiv.org/abs/2611.19072v1",
+  "authors": [
+   "Austin H. Cheng",
+   "Marcel M\u00fcller",
+   "Andreas Burger"
+  ],
+  "authors_all": [
+   "Austin H. Cheng",
+   "Marcel M\u00fcller",
+   "Andreas Burger",
+   "Yeonghun Kang",
+   "Tsz Wai Ko",
+   "Marta Skreta",
+   "Luka Mucko",
+   "Ella Miray Rajaonson",
+   "Cher Tian Ser",
+   "J\u00e9r\u00f4me F. Gonthier",
+   "Alex Zook",
+   "Varinia Bernales",
+   "Al\u00e1n Aspuru-Guzik"
+  ],
+  "venue": "arXiv",
+  "abstract": "Generative models play a rapidly growing role in the design and simulation of molecules. The most widely used applications of generative models are in large language models (LLMs), owing to the natural flexibility of language for specifying and answering queries. However, generalist LLMs do not effectively handle large sets of 3D coordinates, whereas specialist generative models of 3D molecules cannot reach the controllability afforded by language. To bridge these capabilities, we propose Nahual, a decoder-only autoregressive diffusion model for any sequence of text and 3D molecules. To enable expressive autoregression on continuous coordinates, we propose next-token diffusion, whereby a causal transformer denoises each token while attending to the clean tokens before it, without increasing context size. We train Nahual on a curated set of twelve 3D chemistry tasks ranging from microsolvation to molecular conformer search to adsorption on metal surfaces, with associated evaluation metrics and baselines. The result is a single set of end-to-end-trained weights that simultaneously performs all tasks and surpasses state-of-the-art models specialized for crystal structure prediction an",
+  "matched": [
+   "abs:\"crystal structure prediction\" AND abs:generative",
+   "(cat:physics.chem-ph OR cat:cond-mat.mtrl-sci OR cat:physics.comp-ph OR cat:q-bio.BM OR cat:physics.bio-ph) AND (abs:\"deep learning\" OR abs:\"machine learning\" OR abs:\"neural network\" OR abs:generative OR abs:\"language model\" OR abs:\"foundation model\")",
+   "cat:cs.LG AND (abs:molecule OR abs:molecular OR abs:protein OR abs:crystal OR abs:materials OR abs:chemistry OR abs:\"scientific discovery\" OR abs:\"partial differential\")",
+   "abs:\"crystal structure prediction\""
+  ],
+  "tags": [
+   "generative-model",
+   "conformational"
+  ],
+  "relevance": 80,
+  "significance": 60,
+  "score": 66,
+  "verdict": "skim",
+  "lane": "ai4sci",
+  "rubric": {
+   "q1": 3,
+   "q2": 4,
+   "q3": 3,
+   "low_quality": false,
+   "why": "Interesting unified text+3D generative architecture with a CSP claim, but the abstract is truncated, the evidence is unclear, and the crystal tasks are likely inorganic, not molecular.",
+   "stage": "judge",
+   "verdict": "skim"
+  },
+  "summary": "Decoder-only next-token diffusion transformer jointly modeling text and continuous 3D coordinates; one set of weights trained on twelve 3D chemistry tasks, reportedly beating specialist crystal structure prediction models.",
+  "first_seen": "2026-11-17",
   "is_new": true
  },
  {
@@ -214,6 +270,108 @@
   "is_new": false
  },
  {
+  "src": "ChemRxiv",
+  "title": "Solving Molecular Crystal Structures through Experimental PXRD-Guided Sequential Crystal Structure Prediction",
+  "date": "2026-11-17",
+  "doi": "10.26434/chemrxiv.15012291/v1",
+  "authors": [
+   "Qinyu Qiao",
+   "Zikai Xie",
+   "Dingrui Fan"
+  ],
+  "authors_all": [
+   "Qinyu Qiao",
+   "Zikai Xie",
+   "Dingrui Fan",
+   "Wenjing Cun",
+   "Yating Ling",
+   "Ruifeng She",
+   "Xiaojin Fu",
+   "Zhitang Chen",
+   "Mingxuan Yuan",
+   "Jun Jiang",
+   "Chengxi Zhao",
+   "Linjiang Chen"
+  ],
+  "corresponding": [
+   "Linjiang Chen"
+  ],
+  "cited_by": 0,
+  "venue": "ChemRxiv",
+  "abstract": "Structure determination of organic molecular crystals relies heavily on single-crystal X-ray diffraction, yet suitable single crystals are often difficult to obtain. A common alternative uses crystal structure prediction (CSP) to generate candidate structures for subsequent comparison with experimental powder X-ray diffraction (PXRD) patterns. Such trial-and-error searches across multiple space groups incur substantial computational costs. Here, we introduce a structure determination protocol that uses experimental PXRD together with molecular structure as inputs to guide CSP from the outset. A multimodal neural network predicts probabilities for candidate space groups, which are then searched sequentially in descending probability order. Candidate structures are evaluated using PXRD agreement and relative energies, and the search terminates when a candidate satisfies the matching criterion. In a retrospective evaluation of 11 molecular-crystal systems, the protocol returned candidate sets containing structures matching the experimental crystal packing in nine cases. Compared with exhaustive searches across the 22 most common space groups, it reduced the median computational cost o",
+  "matched": [
+   "genetic algorithm crystal structure prediction",
+   "molecular crystal structure prediction",
+   "crystal energy landscape molecular",
+   "organic crystal polymorph prediction"
+  ],
+  "tags": [
+   "space-group"
+  ],
+  "relevance": 60,
+  "significance": 60,
+  "score": 56,
+  "verdict": "skim",
+  "lane": "mcsp",
+  "rubric": {
+   "q1": 3,
+   "q2": 3,
+   "q3": 2,
+   "low_quality": false,
+   "why": "Directly MCSP-relevant and practical PXRD-guided pruning, but modest validation (9/11 systems) and an efficiency gain rather than new search or ranking SOTA.",
+   "stage": "judge",
+   "verdict": "skim"
+  },
+  "summary": "Multimodal network predicts space-group probabilities from experimental PXRD plus molecular graph; CSP then searches space groups sequentially by probability, terminating on PXRD/energy match, cutting cost versus 22-group exhaustive search.",
+  "first_seen": "2026-11-17",
+  "is_new": true
+ },
+ {
+  "src": "journal",
+  "title": "CrystalFormer-CSP: Thinking fast and slow for crystal structure prediction",
+  "date": "2026-11-17",
+  "doi": "10.1103/fnym-1ypn",
+  "authors": [
+   "Zhendong Cao",
+   "Shigang Ou",
+   "Lei Wang"
+  ],
+  "authors_all": [
+   "Zhendong Cao",
+   "Shigang Ou",
+   "Lei Wang"
+  ],
+  "corresponding": [
+   "Lei Wang"
+  ],
+  "cited_by": 0,
+  "venue": "Physical Review B",
+  "abstract": "",
+  "matched": [
+   "genetic algorithm crystal structure prediction",
+   "molecular crystal structure prediction",
+   "organic crystal polymorph prediction"
+  ],
+  "tags": [],
+  "relevance": 60,
+  "significance": 60,
+  "score": 56,
+  "verdict": "skim",
+  "lane": "ai4sci",
+  "rubric": {
+   "q1": 3,
+   "q2": 3,
+   "q3": 2,
+   "low_quality": false,
+   "why": "Strong group (Lei Wang), and the generative-plus-search idea transfers to GA-based MCSP, but it is likely inorganic, incremental, and there is no abstract to judge.",
+   "stage": "judge",
+   "verdict": "skim"
+  },
+  "summary": "Likely couples the CrystalFormer autoregressive space-group-aware generative model (fast sampling) with slower energy-based search or refinement for inorganic crystal structure prediction.",
+  "first_seen": "2026-11-17",
+  "is_new": true
+ },
+ {
   "src": "arXiv",
   "title": "Rigorously Certified Neural-Network Computation of Nonlinear Water Waves at Near-Machine Precision",
   "date": "2026-11-05",
@@ -301,5 +459,50 @@
   "summary": "Transferable neural-network wavefunction (deep QMC) optimization across geometries for excited states, via weight sharing and dynamic state ordering; claims ~100x cost reduction vs single-point runs, including conical intersections.",
   "first_seen": "2026-11-06",
   "is_new": false
+ },
+ {
+  "src": "arXiv",
+  "title": "Variational Monte Carlo for Quantum Excited States via Nested Low-Rank Approximation",
+  "date": "2026-11-16",
+  "arxiv_id": "2611.21434v1",
+  "url": "https://arxiv.org/abs/2611.21434v1",
+  "authors": [
+   "Minchan Jeong",
+   "J. Jon Ryu",
+   "Se-Young Yun"
+  ],
+  "authors_all": [
+   "Minchan Jeong",
+   "J. Jon Ryu",
+   "Se-Young Yun",
+   "Gregory W. Wornell"
+  ],
+  "venue": "arXiv",
+  "abstract": "The electronic Schr\u00f6dinger equation encodes a molecule's electronic structure and quantum properties, but solving it scales exponentially with the number of electrons. Solving this equation with neural-network variational Monte Carlo (VMC) has reached chemical accuracy on the ground state of small molecules; extending this success to excited states is constrained by two existing paradigms. Penalty-based methods need $K$ Laplacians per step but require tuning the overlap-penalty weights against the energy gaps they aim to compute. Natural excited states VMC (NES-VMC) is penalty-free, but it combines the $K$ ansatzes into one determinant, whose local energy requires $K^2$ Laplacians per step. We resolve this trade-off via low-rank approximation (LoRA) reparameterization of the rank-$K$ variational objective. The reparameterized objective admits a VMC-compatible stochastic gradient estimator via MCMC sampling from the per-state Born densities, and a sequential nesting scheme recovers the lowest $K$ eigenstates in eigenvalue order. The resulting algorithm, NestedLoRA-VMC, inherits a global optimality guarantee from the LoRA principle. On the first-row atoms Li through Ne at $K=10$, its",
+  "matched": [
+   "(cat:physics.chem-ph OR cat:cond-mat.mtrl-sci OR cat:physics.comp-ph OR cat:q-bio.BM OR cat:physics.bio-ph) AND (abs:\"deep learning\" OR abs:\"machine learning\" OR abs:\"neural network\" OR abs:generative OR abs:\"language model\" OR abs:\"foundation model\")",
+   "cat:cs.LG AND (abs:molecule OR abs:molecular OR abs:protein OR abs:crystal OR abs:materials OR abs:chemistry OR abs:\"scientific discovery\" OR abs:\"partial differential\")"
+  ],
+  "ai4sci": true,
+  "tags": [
+   "generative-model"
+  ],
+  "relevance": 40,
+  "significance": 60,
+  "score": 54,
+  "verdict": "skim",
+  "lane": "ai4sci",
+  "rubric": {
+   "q1": 3,
+   "q2": 2,
+   "q3": 3,
+   "low_quality": false,
+   "why": "Solid methodological advance in neural VMC excited states, but niche and far from MCSP; incremental relative to FermiNet/NES-VMC landmarks.",
+   "stage": "judge",
+   "verdict": "skim"
+  },
+  "summary": "Penalty-free neural VMC for K excited states using nested low-rank reparameterization; needs K Laplacians per step instead of K^2 (NES-VMC), with eigenvalue-ordered recovery and global optimality guarantee.",
+  "first_seen": "2026-11-17",
+  "is_new": true
  }
 ]

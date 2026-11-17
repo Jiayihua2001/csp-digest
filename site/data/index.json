@@ -1,5 +1,41 @@
 [
  {
+  "date": "2026-11-17",
+  "count": 11,
+  "new_count": 4,
+  "read_count": 0,
+  "skim_count": 11,
+  "synthesis": "Nothing reached 'read' today. Skim Diffusion Tree Sampling, which brings search-style inference-time adaptation to crystal generative models, and the PXRD-guided sequential molecular CSP paper. The landmark pick, MatterGen (A generative model for inorganic materials design), is the one worth a careful read.",
+  "landmark": {
+   "id": "doi:10.1038/s41586-025-08628-x",
+   "title": "A generative model for inorganic materials design",
+   "url": "https://doi.org/10.1038/s41586-025-08628-5",
+   "lane": "ai4sci",
+   "year": 2025,
+   "area": "materials-discovery"
+  },
+  "top": [
+   {
+    "title": "Diffusion Tree Sampling for Inference Time Adaptation of Crystal Generative Models",
+    "relevance": 80,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Nahual: A Sequence Model for Language and Atoms",
+    "relevance": 80,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Finite temperature and pressure structural relaxations including zero-point motion and anharmonicity",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   }
+  ]
+ },
+ {
   "date": "2026-11-16",
   "count": 7,
   "new_count": 1,
