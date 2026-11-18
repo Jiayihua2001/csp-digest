@@ -75,9 +75,9 @@
   "venue": "arXiv",
   "abstract": "Generative models play a rapidly growing role in the design and simulation of molecules. The most widely used applications of generative models are in large language models (LLMs), owing to the natural flexibility of language for specifying and answering queries. However, generalist LLMs do not effectively handle large sets of 3D coordinates, whereas specialist generative models of 3D molecules cannot reach the controllability afforded by language. To bridge these capabilities, we propose Nahual, a decoder-only autoregressive diffusion model for any sequence of text and 3D molecules. To enable expressive autoregression on continuous coordinates, we propose next-token diffusion, whereby a causal transformer denoises each token while attending to the clean tokens before it, without increasing context size. We train Nahual on a curated set of twelve 3D chemistry tasks ranging from microsolvation to molecular conformer search to adsorption on metal surfaces, with associated evaluation metrics and baselines. The result is a single set of end-to-end-trained weights that simultaneously performs all tasks and surpasses state-of-the-art models specialized for crystal structure prediction an",
   "matched": [
-   "abs:\"crystal structure prediction\" AND abs:generative",
    "(cat:physics.chem-ph OR cat:cond-mat.mtrl-sci OR cat:physics.comp-ph OR cat:q-bio.BM OR cat:physics.bio-ph) AND (abs:\"deep learning\" OR abs:\"machine learning\" OR abs:\"neural network\" OR abs:generative OR abs:\"language model\" OR abs:\"foundation model\")",
    "cat:cs.LG AND (abs:molecule OR abs:molecular OR abs:protein OR abs:crystal OR abs:materials OR abs:chemistry OR abs:\"scientific discovery\" OR abs:\"partial differential\")",
+   "abs:\"crystal structure prediction\" AND abs:generative",
    "abs:\"crystal structure prediction\""
   ],
   "tags": [
@@ -100,7 +100,7 @@
   },
   "summary": "Decoder-only next-token diffusion transformer jointly modeling text and continuous 3D coordinates; one set of weights trained on twelve 3D chemistry tasks, reportedly beating specialist crystal structure prediction models.",
   "first_seen": "2026-11-17",
-  "is_new": true
+  "is_new": false
  },
  {
   "src": "arXiv",
@@ -190,50 +190,6 @@
  },
  {
   "src": "arXiv",
-  "title": "Inverse design of superconductors and semiconductors with differentiable foundation models",
-  "date": "2026-11-06",
-  "arxiv_id": "2611.09572v1",
-  "url": "https://arxiv.org/abs/2611.09572v1",
-  "authors": [
-   "Crist\u00f3bal M\u00e9ndez",
-   "Justin Tahmassebpur",
-   "Tom\u00e1s A. Arias"
-  ],
-  "authors_all": [
-   "Crist\u00f3bal M\u00e9ndez",
-   "Justin Tahmassebpur",
-   "Tom\u00e1s A. Arias"
-  ],
-  "venue": "arXiv",
-  "abstract": "Designing a crystal for a target property requires choosing its elements, stoichiometry, and atomic structure together, yet gradients exist only for the continuous structural variables. We introduce differentiable Equiformer fast effective-atom theory (DEFEAT), which lets a pretrained EquiformerV3 foundation model accept continuous species weights and site occupancies without retraining on fractional data, thereby enabling gradient-based materials optimization. Gradients from fine-tuned property models and a machine-learned energy penalty then guide updates to composition, atom count, atomic positions, and lattice vectors in a single optimization. In a search for phonon-mediated superconductors, density-functional perturbation theory on 45 structurally novel designs gives isotropic Allen-Dynes critical temperatures above 10 K for 39; the highest is 24.0 K for ZrTiNb2CN3, and H4LiPd3 (23.2 K) lies on the static DFT hull. In searches for photovoltaic absorbers, SCAN calculations confirm ten novel crystal structures with band gaps within 20% of a 1.34 eV target on their respective raw or empirically corrected scales, all within 70 meV/atom of the DFT hull, and show that the systematic",
-  "matched": [
-   "(cat:physics.chem-ph OR cat:cond-mat.mtrl-sci OR cat:physics.comp-ph OR cat:q-bio.BM OR cat:physics.bio-ph) AND (abs:\"deep learning\" OR abs:\"machine learning\" OR abs:\"neural network\" OR abs:generative OR abs:\"language model\" OR abs:\"foundation model\")"
-  ],
-  "ai4sci": true,
-  "tags": [
-   "ML-potential",
-   "free-energy"
-  ],
-  "relevance": 60,
-  "significance": 60,
-  "score": 56,
-  "verdict": "skim",
-  "lane": "ai4sci",
-  "rubric": {
-   "q1": 3,
-   "q2": 3,
-   "q3": 2,
-   "low_quality": false,
-   "why": "Clever differentiable-composition trick with real DFT validation, but inorganic inverse design, modest results, not MCSP or landmark-tier.",
-   "stage": "judge",
-   "verdict": "skim"
-  },
-  "summary": "Effective-atom continuous species weights let pretrained EquiformerV3 take gradients wrt composition, atom count, positions and lattice jointly, enabling gradient-based inverse design validated by DFPT/SCAN.",
-  "first_seen": "2026-11-09",
-  "is_new": false
- },
- {
-  "src": "arXiv",
   "title": "Autonomous Optimization of Numerical Algorithms by an AI Agent: Application to Atomistic Simulation",
   "date": "2026-11-09",
   "arxiv_id": "2611.13143v1",
@@ -300,10 +256,10 @@
   "venue": "ChemRxiv",
   "abstract": "Structure determination of organic molecular crystals relies heavily on single-crystal X-ray diffraction, yet suitable single crystals are often difficult to obtain. A common alternative uses crystal structure prediction (CSP) to generate candidate structures for subsequent comparison with experimental powder X-ray diffraction (PXRD) patterns. Such trial-and-error searches across multiple space groups incur substantial computational costs. Here, we introduce a structure determination protocol that uses experimental PXRD together with molecular structure as inputs to guide CSP from the outset. A multimodal neural network predicts probabilities for candidate space groups, which are then searched sequentially in descending probability order. Candidate structures are evaluated using PXRD agreement and relative energies, and the search terminates when a candidate satisfies the matching criterion. In a retrospective evaluation of 11 molecular-crystal systems, the protocol returned candidate sets containing structures matching the experimental crystal packing in nine cases. Compared with exhaustive searches across the 22 most common space groups, it reduced the median computational cost o",
   "matched": [
+   "organic crystal polymorph prediction",
    "genetic algorithm crystal structure prediction",
-   "molecular crystal structure prediction",
    "crystal energy landscape molecular",
-   "organic crystal polymorph prediction"
+   "molecular crystal structure prediction"
   ],
   "tags": [
    "space-group"
@@ -324,7 +280,7 @@
   },
   "summary": "Multimodal network predicts space-group probabilities from experimental PXRD plus molecular graph; CSP then searches space groups sequentially by probability, terminating on PXRD/energy match, cutting cost versus 22-group exhaustive search.",
   "first_seen": "2026-11-17",
-  "is_new": true
+  "is_new": false
  },
  {
   "src": "journal",
@@ -348,9 +304,9 @@
   "venue": "Physical Review B",
   "abstract": "",
   "matched": [
+   "organic crystal polymorph prediction",
    "genetic algorithm crystal structure prediction",
-   "molecular crystal structure prediction",
-   "organic crystal polymorph prediction"
+   "molecular crystal structure prediction"
   ],
   "tags": [],
   "relevance": 60,
@@ -369,7 +325,7 @@
   },
   "summary": "Likely couples the CrystalFormer autoregressive space-group-aware generative model (fast sampling) with slower energy-based search or refinement for inorganic crystal structure prediction.",
   "first_seen": "2026-11-17",
-  "is_new": true
+  "is_new": false
  },
  {
   "src": "arXiv",
@@ -503,6 +459,6 @@
   },
   "summary": "Penalty-free neural VMC for K excited states using nested low-rank reparameterization; needs K Laplacians per step instead of K^2 (NES-VMC), with eigenvalue-ordered recovery and global optimality guarantee.",
   "first_seen": "2026-11-17",
-  "is_new": true
+  "is_new": false
  }
 ]

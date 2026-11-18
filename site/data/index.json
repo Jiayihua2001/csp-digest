@@ -1,5 +1,41 @@
 [
  {
+  "date": "2026-11-18",
+  "count": 10,
+  "new_count": 0,
+  "read_count": 0,
+  "skim_count": 10,
+  "synthesis": "Nothing reached 'read' today. Diffusion Tree Sampling, which brings AlphaGo-style tree search to crystal generative models, is the most relevant skim. For MCSP, also skim the PXRD-guided sequential CSP paper. The landmark, Classifier-Free Diffusion Guidance, is the foundation behind conditional generators like MatterGen.",
+  "landmark": {
+   "id": "arxiv:2207.12598",
+   "title": "Classifier-Free Diffusion Guidance",
+   "url": "https://arxiv.org/abs/2207.12598",
+   "lane": "ai4sci",
+   "year": 2022,
+   "area": "generative-theory"
+  },
+  "top": [
+   {
+    "title": "Diffusion Tree Sampling for Inference Time Adaptation of Crystal Generative Models",
+    "relevance": 80,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Nahual: A Sequence Model for Language and Atoms",
+    "relevance": 80,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Finite temperature and pressure structural relaxations including zero-point motion and anharmonicity",
+    "relevance": 60,
+    "significance": 60,
+    "verdict": "skim"
+   }
+  ]
+ },
+ {
   "date": "2026-11-17",
   "count": 11,
   "new_count": 4,
