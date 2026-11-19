@@ -1,5 +1,41 @@
 [
  {
+  "date": "2026-11-19",
+  "count": 10,
+  "new_count": 2,
+  "read_count": 1,
+  "skim_count": 9,
+  "synthesis": "Read the JACS sulfa-drug paper on the CSP overprediction problem: it tackles why ranked landscapes list far more polymorphs than experiment finds, a core issue for your DFT-ranked GA searches. The AlphaTensor landmark (2022) shows RL-guided search discovering new matrix-multiplication algorithms.",
+  "landmark": {
+   "id": "doi:10.1038/s41586-022-05172-4",
+   "title": "Discovering faster matrix multiplication algorithms with reinforcement learning",
+   "url": "https://doi.org/10.1038/s41586-022-05172-4",
+   "lane": "ai4sci",
+   "year": 2022,
+   "area": "search-and-evolution"
+  },
+  "top": [
+   {
+    "title": "The Overprediction Problem: Aligning Computational Crystal Structure Prediction with Experimental Reality for Two Sulfa Drugs",
+    "relevance": 80,
+    "significance": 80,
+    "verdict": "read"
+   },
+   {
+    "title": "Diffusion Tree Sampling for Inference Time Adaptation of Crystal Generative Models",
+    "relevance": 80,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Nahual: A Sequence Model for Language and Atoms",
+    "relevance": 80,
+    "significance": 60,
+    "verdict": "skim"
+   }
+  ]
+ },
+ {
   "date": "2026-11-18",
   "count": 10,
   "new_count": 0,
