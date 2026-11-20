@@ -1,5 +1,41 @@
 [
  {
+  "date": "2026-11-20",
+  "count": 10,
+  "new_count": 1,
+  "read_count": 1,
+  "skim_count": 9,
+  "synthesis": "Read the JACS sulfa-drug paper on CSP overprediction: it tackles why lattice-energy landscapes list far more polymorphs than experiment finds, which bears directly on your ranking work. The landmark is Wales and Doye's 1997 basin-hopping paper, the foundational global-optimization idea behind modern structure search.",
+  "landmark": {
+   "id": "doi:10.1021/jp970984n",
+   "title": "Global Optimization by Basin-Hopping and the Lowest Energy Structures of Lennard-Jones Clusters Containing up to 110 Atoms",
+   "url": "https://doi.org/10.1021/jp970984n",
+   "lane": "ai4sci",
+   "year": 1997,
+   "area": "search-and-evolution"
+  },
+  "top": [
+   {
+    "title": "The Overprediction Problem: Aligning Computational Crystal Structure Prediction with Experimental Reality for Two Sulfa Drugs",
+    "relevance": 80,
+    "significance": 80,
+    "verdict": "read"
+   },
+   {
+    "title": "Diffusion Tree Sampling for Inference Time Adaptation of Crystal Generative Models",
+    "relevance": 80,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Nahual: A Sequence Model for Language and Atoms",
+    "relevance": 80,
+    "significance": 60,
+    "verdict": "skim"
+   }
+  ]
+ },
+ {
   "date": "2026-11-19",
   "count": 10,
   "new_count": 2,

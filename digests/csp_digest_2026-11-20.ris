@@ -1,0 +1,16 @@
+TY  - JOUR
+TI  - The Overprediction Problem: Aligning Computational Crystal Structure Prediction with Experimental Reality for Two Sulfa Drugs
+AU  - William P. Wood
+AU  - Dejan-Krešimir Bučar
+AU  - Rui Guo
+DA  - 2026/11/18
+PY  - 2026
+JO  - Journal of the American Chemical Society
+DO  - 10.1021/jacs.6c14137
+UR  - https://doi.org/10.1021/jacs.6c14137
+AB  - Abstract Computational crystal structure prediction (CSP) methods usually overpredict the number of plausible polymorphs. In this study, we used sulfadiazine (SDZ) and sulfamerazine (SMZ), which are respectively monomorphic and pentamorphic (by the end of this study), to investigate the extent of CSP overprediction and its use in designing experiments that identify additional polymorphs. Lattice energy CSP studies (CSP_0) generate a few hundred plausible crystal structures (low-energy minima) for these molecules; however, if these crystal structures are simulated at ambient conditions using a molecular dynamics workflow, then many of the structures can be clustered as equivalent, reducing the number of distinct structures by about 60%. The relative energies are refined using a variety of periodic DFT+D and phonon calculations on the competitive structures. Comparison of the known and CSP-generated thermodynamically competitive structures suggests that forming solid solutions or subliming onto template crystals could enable the discovery of new forms. Solid solutions with the predicted structure of SMZ-IV were found, with SDZ content ranging from 30% to 70%. The combined computation
+KW  - CSP
+KW  - free-energy
+KW  - lattice-energy
+KW  - polymorphism
+ER  - 
