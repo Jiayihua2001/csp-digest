@@ -1,5 +1,41 @@
 [
  {
+  "date": "2026-11-21",
+  "count": 9,
+  "new_count": 0,
+  "read_count": 1,
+  "skim_count": 8,
+  "synthesis": "Read the JACS overprediction paper on two sulfa drugs: it tackles why CSP landscapes list far more low-energy polymorphs than are ever observed, which directly shapes how you rank and prune GAtor/DFT outputs. The landmark, MAP-Elites (2015), is worth revisiting as quality-diversity search for polymorph exploration.",
+  "landmark": {
+   "id": "arxiv:1504.04909",
+   "title": "Illuminating search spaces by mapping elites",
+   "url": "https://arxiv.org/abs/1504.04909",
+   "lane": "ai4sci",
+   "year": 2015,
+   "area": "search-and-evolution"
+  },
+  "top": [
+   {
+    "title": "The Overprediction Problem: Aligning Computational Crystal Structure Prediction with Experimental Reality for Two Sulfa Drugs",
+    "relevance": 80,
+    "significance": 80,
+    "verdict": "read"
+   },
+   {
+    "title": "Diffusion Tree Sampling for Inference Time Adaptation of Crystal Generative Models",
+    "relevance": 80,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Nahual: A Sequence Model for Language and Atoms",
+    "relevance": 80,
+    "significance": 60,
+    "verdict": "skim"
+   }
+  ]
+ },
+ {
   "date": "2026-11-20",
   "count": 10,
   "new_count": 1,

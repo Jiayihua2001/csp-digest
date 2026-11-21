@@ -674,6 +674,15 @@
 "verdict": "skip",
 "why": "Narrow review of LLM psychology experiments; not MCSP, landmark AI-for-science, or foundational theory."
 },
+"10.1126/sciadv.aed8055": {
+"date": "2026-11-21",
+"lane": "ai4sci",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Drosophila circadian neuroscience with a tooling platform; unrelated to MCSP or AI-for-science landmarks."
+},
 "10.1126/sciadv.aef0605": {
 "date": "2026-10-26",
 "lane": "ai4sci",
@@ -853,6 +862,15 @@
 "v": "2026-10-26.1",
 "verdict": "skip",
 "why": "Experimental crystal structure redetermination of a single compound; application of no computational or AI method, off-t"
+},
+"10.26434/chemrxiv.15009187/v1": {
+"date": "2026-11-21",
+"lane": "mcsp",
+"model": "claude-haiku-5-5",
+"stage": "triage",
+"v": "2026-10-26.1",
+"verdict": "skip",
+"why": "Primarily experimental crystallization study of one system (3-chloromandelic acid); not a computational methodological a"
 },
 "10.26434/chemrxiv.15010487/v1": {
 "date": "2026-10-26",
