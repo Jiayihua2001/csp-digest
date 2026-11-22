@@ -1,5 +1,41 @@
 [
  {
+  "date": "2026-11-22",
+  "count": 9,
+  "new_count": 0,
+  "read_count": 1,
+  "skim_count": 8,
+  "synthesis": "One read: the JACS sulfa-drug paper tackles CSP overprediction, reconciling computed polymorph landscapes with what is actually observed, which bears directly on DFT ranking. The landmark is Rombach et al.'s latent diffusion paper, the basis of modern generative modeling.",
+  "landmark": {
+   "id": "arxiv:2112.10752",
+   "title": "High-Resolution Image Synthesis with Latent Diffusion Models",
+   "url": "https://arxiv.org/abs/2112.10752",
+   "lane": "ai4sci",
+   "year": 2021,
+   "area": "generative-theory"
+  },
+  "top": [
+   {
+    "title": "The Overprediction Problem: Aligning Computational Crystal Structure Prediction with Experimental Reality for Two Sulfa Drugs",
+    "relevance": 80,
+    "significance": 80,
+    "verdict": "read"
+   },
+   {
+    "title": "Diffusion Tree Sampling for Inference Time Adaptation of Crystal Generative Models",
+    "relevance": 80,
+    "significance": 60,
+    "verdict": "skim"
+   },
+   {
+    "title": "Nahual: A Sequence Model for Language and Atoms",
+    "relevance": 80,
+    "significance": 60,
+    "verdict": "skim"
+   }
+  ]
+ },
+ {
   "date": "2026-11-21",
   "count": 9,
   "new_count": 0,

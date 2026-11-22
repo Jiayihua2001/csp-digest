@@ -23,9 +23,9 @@
   "venue": "Journal of the American Chemical Society",
   "abstract": "Abstract Computational crystal structure prediction (CSP) methods usually overpredict the number of plausible polymorphs. In this study, we used sulfadiazine (SDZ) and sulfamerazine (SMZ), which are respectively monomorphic and pentamorphic (by the end of this study), to investigate the extent of CSP overprediction and its use in designing experiments that identify additional polymorphs. Lattice energy CSP studies (CSP_0) generate a few hundred plausible crystal structures (low-energy minima) for these molecules; however, if these crystal structures are simulated at ambient conditions using a molecular dynamics workflow, then many of the structures can be clustered as equivalent, reducing the number of distinct structures by about 60%. The relative energies are refined using a variety of periodic DFT+D and phonon calculations on the competitive structures. Comparison of the known and CSP-generated thermodynamically competitive structures suggests that forming solid solutions or subliming onto template crystals could enable the discovery of new forms. Solid solutions with the predicted structure of SMZ-IV were found, with SDZ content ranging from 30% to 70%. The combined computation",
   "matched": [
-   "molecular crystal structure prediction",
    "genetic algorithm crystal structure prediction",
-   "organic crystal polymorph prediction"
+   "organic crystal polymorph prediction",
+   "molecular crystal structure prediction"
   ],
   "tags": [
    "free-energy",
@@ -126,8 +126,8 @@
   "venue": "arXiv",
   "abstract": "Generative models play a rapidly growing role in the design and simulation of molecules. The most widely used applications of generative models are in large language models (LLMs), owing to the natural flexibility of language for specifying and answering queries. However, generalist LLMs do not effectively handle large sets of 3D coordinates, whereas specialist generative models of 3D molecules cannot reach the controllability afforded by language. To bridge these capabilities, we propose Nahual, a decoder-only autoregressive diffusion model for any sequence of text and 3D molecules. To enable expressive autoregression on continuous coordinates, we propose next-token diffusion, whereby a causal transformer denoises each token while attending to the clean tokens before it, without increasing context size. We train Nahual on a curated set of twelve 3D chemistry tasks ranging from microsolvation to molecular conformer search to adsorption on metal surfaces, with associated evaluation metrics and baselines. The result is a single set of end-to-end-trained weights that simultaneously performs all tasks and surpasses state-of-the-art models specialized for crystal structure prediction an",
   "matched": [
-   "cat:cs.LG AND (abs:molecule OR abs:molecular OR abs:protein OR abs:crystal OR abs:materials OR abs:chemistry OR abs:\"scientific discovery\" OR abs:\"partial differential\")",
    "abs:\"crystal structure prediction\" AND abs:generative",
+   "cat:cs.LG AND (abs:molecule OR abs:molecular OR abs:protein OR abs:crystal OR abs:materials OR abs:chemistry OR abs:\"scientific discovery\" OR abs:\"partial differential\")",
    "abs:\"crystal structure prediction\"",
    "(cat:physics.chem-ph OR cat:cond-mat.mtrl-sci OR cat:physics.comp-ph OR cat:q-bio.BM OR cat:physics.bio-ph) AND (abs:\"deep learning\" OR abs:\"machine learning\" OR abs:\"neural network\" OR abs:generative OR abs:\"language model\" OR abs:\"foundation model\")"
   ],
@@ -228,8 +228,8 @@
   "matched": [
    "molecular crystal structure prediction",
    "genetic algorithm crystal structure prediction",
-   "crystal energy landscape molecular",
-   "organic crystal polymorph prediction"
+   "organic crystal polymorph prediction",
+   "crystal energy landscape molecular"
   ],
   "tags": [
    "space-group"
@@ -274,9 +274,9 @@
   "venue": "Physical Review B",
   "abstract": "",
   "matched": [
-   "molecular crystal structure prediction",
    "genetic algorithm crystal structure prediction",
-   "organic crystal polymorph prediction"
+   "organic crystal polymorph prediction",
+   "molecular crystal structure prediction"
   ],
   "tags": [],
   "relevance": 60,
@@ -319,9 +319,9 @@
   "venue": "Crystal Growth &amp; Design",
   "abstract": "Abstract The aim of first-principles crystal structure prediction (CSP) is computational identification of a compound\u2019s experimentally isolable polymorph(s). The structure generation stage of CSP typically leads to hundreds of thousands of candidate structures across multiple space groups. However, in many use cases, experimental powder X-ray diffraction (PXRD) data is available from high-throughput polymorph screening studies, but the crystal structure is not yet solved. For such cases, we propose using indexed lattice parameters to constrain the CSP search space. Searching only specific unit-cell dimensions allows a large reduction in the number of structures generated, whilst adding confidence that the experimental structure is retained in the search pool when advancing to density-functional reranking of the most likely candidates. Examples are shown for the cases of several small organic molecules, specifically uracil, paracetamol, progesterone, and four forms of the prolific polymorph-former, ROY. The accuracy of the constrained CSP (C-CSP) workflow is found to be highly dependent on the quality of the force field used for initial structure generation. Provided the force field",
   "matched": [
-   "molecular crystal structure prediction",
    "genetic algorithm crystal structure prediction",
-   "organic crystal polymorph prediction"
+   "organic crystal polymorph prediction",
+   "molecular crystal structure prediction"
   ],
   "tags": [
    "lattice-energy",
