@@ -1,5 +1,41 @@
 [
  {
+  "date": "2026-11-23",
+  "count": 11,
+  "new_count": 2,
+  "read_count": 3,
+  "skim_count": 8,
+  "synthesis": "Read the JACS sulfa-drug overprediction paper, directly on MCSP's core problem of too many predicted polymorphs; Pharos (learned rare-event control) and BioEmu2 are the AI-for-science picks. Landmark: NSGA-II, the multiobjective GA behind much evolutionary structure search.",
+  "landmark": {
+   "id": "doi:10.1109/4235.996017",
+   "title": "A fast and elitist multiobjective genetic algorithm: NSGA-II",
+   "url": "https://doi.org/10.1109/4235.996017",
+   "lane": "ai4sci",
+   "year": 2002,
+   "area": "search-and-evolution"
+  },
+  "top": [
+   {
+    "title": "Pharos: Learning to Control Rare Events at Scale",
+    "relevance": 80,
+    "significance": 80,
+    "verdict": "read"
+   },
+   {
+    "title": "The Overprediction Problem: Aligning Computational Crystal Structure Prediction with Experimental Reality for Two Sulfa Drugs",
+    "relevance": 80,
+    "significance": 80,
+    "verdict": "read"
+   },
+   {
+    "title": "BioEmu2: Scalable Emulation of Biomolecular Dynamics",
+    "relevance": 80,
+    "significance": 80,
+    "verdict": "read"
+   }
+  ]
+ },
+ {
   "date": "2026-11-22",
   "count": 9,
   "new_count": 0,

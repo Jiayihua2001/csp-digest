@@ -1,3 +1,18 @@
+TY  - GEN
+TI  - Pharos: Learning to Control Rare Events at Scale
+AU  - Jiajun He
+AU  - Jacky Chen
+AU  - Weiliang Luo
+DA  - 2026/11/19
+PY  - 2026
+JO  - arXiv
+UR  - https://arxiv.org/abs/2611.26765v1
+AB  - Rare events drive transformations across physics, chemistry and biology, yet predicting their mechanisms and rates remains a fundamental challenge. Here we introduce Pharos, a framework that learns to make rare transitions accessible while predicting how frequently they occur under physical dynamics. Through stochastic optimal control, Pharos jointly learns the probability of completing a transition and how to steer simulations toward it, allowing sampling and learning to improve one another. Across biomolecular benchmarks, Pharos learns accurate transition probabilities with order-of-magnitude gains in convergence speed over previous algorithms. It transfers across ion assembly systems in explicit solvent while maintaining accurate reaction rate predictions, scales to host-guest binding systems that span millisecond timescales, and enables chemical reaction studies with a computationally demanding machine learning interatomic potential. By combining efficient sampling, quantitative kinetics, and transferability, Pharos opens a route toward foundation models of rare event mechanisms and rates across molecular systems.
+KW  - CSP
+KW  - ML-potential
+KW  - benchmark
+ER  - 
+
 TY  - JOUR
 TI  - The Overprediction Problem: Aligning Computational Crystal Structure Prediction with Experimental Reality for Two Sulfa Drugs
 AU  - William P. Wood
@@ -13,4 +28,21 @@ KW  - CSP
 KW  - free-energy
 KW  - lattice-energy
 KW  - polymorphism
+ER  - 
+
+TY  - GEN
+TI  - BioEmu2: Scalable Emulation of Biomolecular Dynamics
+AU  - Michael Gastegger
+AU  - Adam E. Foster
+AU  - José Jiménez-Luna
+DA  - 2026/11/20
+PY  - 2026
+JO  - arXiv
+UR  - https://arxiv.org/abs/2611.27924v1
+AB  - Despite major advances in structure prediction, modelling the motions and interactions that drive biomolecular function at scale remains a central challenge. We introduce BioEmu2, a generative model for atomically resolved biomolecular structures combining static structure prediction, equilibrium sampling and time evolution, that samples orders of magnitude faster than molecular dynamics (MD). Trained on experimental and synthetic structures and extensive MD data, it supports multi-component systems containing proteins, nucleic acids, modified residues, ligands and ions. Structure-prediction accuracy is comparable to top open-weight biomolecular folding models, and a context parallel mode enables prediction of megadalton complexes. Equilibrium distributions approximate MD references with free-energy errors near 1 kcal/mol across tested proteins and complexes. Time propagation predicts long-timescale dynamical trajectories and kinetics of binding and conformational changes. Generated structures can be controlled by conditioning on residue contacts or steering with user-defined bias potentials. Enhanced sampling enables free energy calculation involving rare states. BioEmu2 makes the
+KW  - CSP
+KW  - generative-model
+KW  - free-energy
+KW  - cocrystal-salt
+KW  - conformational
 ER  - 
