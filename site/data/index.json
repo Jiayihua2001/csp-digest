@@ -1,5 +1,41 @@
 [
  {
+  "date": "2026-11-24",
+  "count": 13,
+  "new_count": 3,
+  "read_count": 3,
+  "skim_count": 10,
+  "synthesis": "Pharos (learned control of rare events at scale) is the strongest read for its foundational angle. Read the JACS overprediction study for MCSP, which explains why CSP landscapes list far more polymorphs than experiment finds. BioEmu2 is worth reading alongside the landmark BioEmu paper on generative protein equilibrium ensembles.",
+  "landmark": {
+   "id": "doi:10.1126/science.adv9817",
+   "title": "Scalable emulation of protein equilibrium ensembles with generative deep learning",
+   "url": "https://doi.org/10.1126/science.adv9817",
+   "lane": "ai4sci",
+   "year": 2025,
+   "area": "protein"
+  },
+  "top": [
+   {
+    "title": "Pharos: Learning to Control Rare Events at Scale",
+    "relevance": 80,
+    "significance": 80,
+    "verdict": "read"
+   },
+   {
+    "title": "The Overprediction Problem: Aligning Computational Crystal Structure Prediction with Experimental Reality for Two Sulfa Drugs",
+    "relevance": 80,
+    "significance": 80,
+    "verdict": "read"
+   },
+   {
+    "title": "BioEmu2: Scalable Emulation of Biomolecular Dynamics",
+    "relevance": 80,
+    "significance": 80,
+    "verdict": "read"
+   }
+  ]
+ },
+ {
   "date": "2026-11-23",
   "count": 11,
   "new_count": 2,
