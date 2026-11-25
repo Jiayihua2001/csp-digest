@@ -1,5 +1,41 @@
 [
  {
+  "date": "2026-11-25",
+  "count": 13,
+  "new_count": 0,
+  "read_count": 3,
+  "skim_count": 10,
+  "synthesis": "Read the JACS overprediction paper on sulfa drugs, which tackles why CSP landscapes list far more polymorphs than experiment finds. Then Pharos on learning to control rare events at scale, and BioEmu2 for scalable generative emulation of dynamics. The landmark pick is DiffDock.",
+  "landmark": {
+   "id": "arxiv:2210.01776",
+   "title": "DiffDock: Diffusion Steps, Twists, and Turns for Molecular Docking",
+   "url": "https://arxiv.org/abs/2210.01776",
+   "lane": "ai4sci",
+   "year": 2022,
+   "area": "protein"
+  },
+  "top": [
+   {
+    "title": "Pharos: Learning to Control Rare Events at Scale",
+    "relevance": 80,
+    "significance": 80,
+    "verdict": "read"
+   },
+   {
+    "title": "The Overprediction Problem: Aligning Computational Crystal Structure Prediction with Experimental Reality for Two Sulfa Drugs",
+    "relevance": 80,
+    "significance": 80,
+    "verdict": "read"
+   },
+   {
+    "title": "BioEmu2: Scalable Emulation of Biomolecular Dynamics",
+    "relevance": 80,
+    "significance": 80,
+    "verdict": "read"
+   }
+  ]
+ },
+ {
   "date": "2026-11-24",
   "count": 13,
   "new_count": 3,
